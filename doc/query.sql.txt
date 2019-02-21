@@ -1,0 +1,26 @@
+61-12-08
+
+CREATE TABLE `modern_pos`.`vne_close_day` (
+  `close_day_id` INT NOT NULL AUTO_INCREMENT,
+  `close_day_date` VARCHAR(45) NULL,
+  `req_status` VARCHAR(45) NULL,
+  `date1` VARCHAR(45) NULL,
+  `date_start` VARCHAR(45) NULL,
+  `total_in` VARCHAR(45) NULL,
+  `total_out` VARCHAR(45) NULL,
+  `total_payments` VARCHAR(45) NULL,
+  `total_operator_in` VARCHAR(45) NULL,
+  `total_operaor_out` VARCHAR(45) NULL,
+  `total_content` VARCHAR(45) NULL,
+  `active` VARCHAR(45) NULL,
+  `remark` VARCHAR(45) NULL,
+  `date_create` VARCHAR(45) NULL,
+  `date_modi` VARCHAR(45) NULL,
+  `date_cancel` VARCHAR(45) NULL,
+  `user_create` VARCHAR(45) NULL,
+  `user_modi` VARCHAR(45) NULL,
+  `user_cancel` VARCHAR(45) NULL,
+  PRIMARY KEY (`close_day_id`))
+ENGINE = MyISAM
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin;
