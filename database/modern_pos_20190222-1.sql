@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: modern_pos
 -- ------------------------------------------------------
--- Server version	8.0.13
+-- Server version	8.0.12
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,7 +18,7 @@
 --
 -- Table structure for table `b_area`
 --
-use modern_pos;
+
 DROP TABLE IF EXISTS `b_area`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
@@ -34,10 +34,10 @@ CREATE TABLE `b_area` (
   `host_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `branch_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `device_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `date_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`area_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -209,10 +209,10 @@ CREATE TABLE `b_foods` (
   `host_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `branch_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `device_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `date_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `sort1` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`foods_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -246,10 +246,10 @@ CREATE TABLE `b_foods_type` (
   `host_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `branch_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `device_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `date_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`foods_type_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -321,6 +321,7 @@ CREATE TABLE `b_prefix` (
   `user_cancel` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `status_doctor` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `f_sex_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`prefix_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1200000003 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=120';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -350,11 +351,11 @@ CREATE TABLE `b_printername` (
   `date_modi` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `host_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `branch_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `date_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `device_id` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `device_id` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`printer_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -400,11 +401,11 @@ CREATE TABLE `b_restaurant` (
   `sort1` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `host_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `branch_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `date_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `device_id` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `device_id` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`res_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='ชื่อร้านอาหาร';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -500,10 +501,10 @@ CREATE TABLE `b_table` (
   `host_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `branch_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `device_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `date_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`table_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -540,11 +541,11 @@ CREATE TABLE `b_user` (
   `permission_void_bill` varchar(155) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `permission_void_closeday` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `ttttt` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `date_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `device_id` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `device_id` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -582,6 +583,31 @@ CREATE TABLE `f_doc_type` (
 LOCK TABLES `f_doc_type` WRITE;
 /*!40000 ALTER TABLE `f_doc_type` DISABLE KEYS */;
 /*!40000 ALTER TABLE `f_doc_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `f_prefix`
+--
+
+DROP TABLE IF EXISTS `f_prefix`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `f_prefix` (
+  `f_prefix_id` int(11) NOT NULL AUTO_INCREMENT,
+  `prefix_description` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `f_sex_id` int(11) DEFAULT NULL,
+  `active` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`f_prefix_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2090000019 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=209';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `f_prefix`
+--
+
+LOCK TABLES `f_prefix` WRITE;
+/*!40000 ALTER TABLE `f_prefix` DISABLE KEYS */;
+/*!40000 ALTER TABLE `f_prefix` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -644,10 +670,10 @@ CREATE TABLE `t_bill` (
   `closeday_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `host_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `branch_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `date_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`bill_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -686,11 +712,11 @@ CREATE TABLE `t_bill_detail` (
   `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `host_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `branch_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `date_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `device_id` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `device_id` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`bill_detail_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -745,10 +771,10 @@ CREATE TABLE `t_closeday` (
   `cash_draw3_remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `host_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `branch_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `date_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `device_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `weather` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '0=default;1=sun;2=',
   PRIMARY KEY (`closeday_id`)
@@ -807,10 +833,10 @@ CREATE TABLE `t_order` (
   `closeday_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `host_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `branch_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `date_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `cnt_cust` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`order_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -834,24 +860,24 @@ DROP TABLE IF EXISTS `vne_close_day`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `vne_close_day` (
   `close_day_id` int(11) NOT NULL AUTO_INCREMENT,
-  `close_day_date` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `req_status` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `date1` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `date_start` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `total_in` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `total_out` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `total_payments` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `total_operator_in` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `total_operaor_out` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `total_content` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `active` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `remark` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `date_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `date_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `date_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `close_day_date` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `req_status` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date1` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_start` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `total_in` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `total_out` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `total_payments` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `total_operator_in` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `total_operaor_out` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `total_content` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `active` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `remark` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`close_day_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -942,4 +968,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-22  7:15:19
+-- Dump completed on 2019-02-22 16:56:34
