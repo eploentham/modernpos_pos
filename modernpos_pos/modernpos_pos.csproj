@@ -65,6 +65,8 @@
     <Compile Include="gui\FrmPassword.Designer.cs">
       <DependentUpon>FrmPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="objdb\AreaDB.cs" />
+    <Compile Include="objdb\ConnectDB.cs" />
     <Compile Include="object1\AsciiControlChars.cs" />
     <Compile Include="control\VNEControl.cs" />
     <Compile Include="gui\FrmMain.cs">
@@ -79,6 +81,7 @@
     <Compile Include="gui\FrmOrdering.Designer.cs">
       <DependentUpon>FrmOrdering.cs</DependentUpon>
     </Compile>
+    <Compile Include="object1\Area.cs" />
     <Compile Include="object1\ComboBoxItem.cs" />
     <Compile Include="gui\Form1.cs">
       <SubType>Form</SubType>
@@ -104,34 +107,39 @@
     <Compile Include="gui\Form4.Designer.cs">
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
+    <Compile Include="object1\FilterRow.cs" />
+    <Compile Include="object1\IniFile.cs" />
+    <Compile Include="object1\InitConfig.cs" />
     <Compile Include="object1\NativeMethods.cs" />
-    <Compile Include="object1\VNECashClosingRequest.cs" />
-    <Compile Include="object1\VNECashClosingResponse.cs" />
-    <Compile Include="object1\VNEDoorOpenRequest.cs" />
-    <Compile Include="object1\VNEDoorOpenResponse.cs" />
-    <Compile Include="object1\VNELoginRequest.cs" />
-    <Compile Include="object1\VNELoginResponse.cs" />
-    <Compile Include="object1\VNEPaymentListRequest.cs" />
-    <Compile Include="object1\VNEPaymentListResponse.cs" />
-    <Compile Include="object1\VNEPaymentListResponseDetail.cs" />
-    <Compile Include="object1\VNERestartRequest.cs" />
-    <Compile Include="object1\VNERestartResponse.cs" />
-    <Compile Include="object1\VNEStackerCancelRequest.cs" />
-    <Compile Include="object1\VNEStackerCancelResponse.cs" />
-    <Compile Include="object1\VNEVesionRequest.cs" />
-    <Compile Include="object1\VNEVesionResponse.cs" />
+    <Compile Include="object1\Persistent.cs" />
+    <Compile Include="object1\Staff.cs" />
+    <Compile Include="object1\VNE\VNECashClosingRequest.cs" />
+    <Compile Include="object1\VNE\VNECashClosingResponse.cs" />
+    <Compile Include="object1\VNE\VNEDoorOpenRequest.cs" />
+    <Compile Include="object1\VNE\VNEDoorOpenResponse.cs" />
+    <Compile Include="object1\VNE\VNELoginRequest.cs" />
+    <Compile Include="object1\VNE\VNELoginResponse.cs" />
+    <Compile Include="object1\VNE\VNEPaymentListRequest.cs" />
+    <Compile Include="object1\VNE\VNEPaymentListResponse.cs" />
+    <Compile Include="object1\VNE\VNEPaymentListResponseDetail.cs" />
+    <Compile Include="object1\VNE\VNERestartRequest.cs" />
+    <Compile Include="object1\VNE\VNERestartResponse.cs" />
+    <Compile Include="object1\VNE\VNEStackerCancelRequest.cs" />
+    <Compile Include="object1\VNE\VNEStackerCancelResponse.cs" />
+    <Compile Include="object1\VNE\VNEVesionRequest.cs" />
+    <Compile Include="object1\VNE\VNEVesionResponse.cs" />
     <Compile Include="object1\PosExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="object1\VNEPaymentPendingListRequest.cs" />
-    <Compile Include="object1\VNEPaymentPendingListResponse.cs" />
-    <Compile Include="object1\VNEPaymentPendingListResponseDetail.cs" />
-    <Compile Include="object1\VNEPaymentPollingRequest.cs" />
-    <Compile Include="object1\VNEPaymentPollingResponse.cs" />
-    <Compile Include="object1\VNEPaymentPollingResponsePaymentDetail.cs" />
-    <Compile Include="object1\VNErequestPayment.cs" />
-    <Compile Include="object1\VNEresponsePayment.cs" />
-    <Compile Include="object1\VNEPaymentPendingDeleteRequest.cs" />
+    <Compile Include="object1\VNE\VNEPaymentPendingListRequest.cs" />
+    <Compile Include="object1\VNE\VNEPaymentPendingListResponse.cs" />
+    <Compile Include="object1\VNE\VNEPaymentPendingListResponseDetail.cs" />
+    <Compile Include="object1\VNE\VNEPaymentPollingRequest.cs" />
+    <Compile Include="object1\VNE\VNEPaymentPollingResponse.cs" />
+    <Compile Include="object1\VNE\VNEPaymentPollingResponsePaymentDetail.cs" />
+    <Compile Include="object1\VNE\VNErequestPayment.cs" />
+    <Compile Include="object1\VNE\VNEresponsePayment.cs" />
+    <Compile Include="object1\VNE\VNEPaymentPendingDeleteRequest.cs" />
     <EmbeddedResource Include="gui\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +191,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\red_big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
