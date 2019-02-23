@@ -18,7 +18,7 @@
 --
 -- Table structure for table `b_area`
 --
-
+use modern_pos;
 DROP TABLE IF EXISTS `b_area`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
