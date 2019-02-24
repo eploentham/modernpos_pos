@@ -69,6 +69,18 @@
     <Compile Include="gui\FrmPassword.Designer.cs">
       <DependentUpon>FrmPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmSetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmSetPassword.designer.cs">
+      <DependentUpon>FrmSetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmSplash.designer.cs">
+      <DependentUpon>FrmSplash.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmStaff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,10 +94,13 @@
       <DependentUpon>FrmTakeOut.cs</DependentUpon>
     </Compile>
     <Compile Include="objdb\AreaDB.cs" />
+    <Compile Include="objdb\CompanyDB.cs" />
     <Compile Include="objdb\ConnectDB.cs" />
+    <Compile Include="objdb\DepartmentDB.cs" />
     <Compile Include="objdb\FPrefixDB.cs" />
     <Compile Include="objdb\FSexDB.cs" />
     <Compile Include="objdb\mPosDB.cs" />
+    <Compile Include="objdb\PositionDB.cs" />
     <Compile Include="objdb\StaffDB.cs" />
     <Compile Include="object1\AsciiControlChars.cs" />
     <Compile Include="control\VNEControl.cs" />
@@ -127,13 +142,18 @@
     <Compile Include="gui\Form4.Designer.cs">
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
+    <Compile Include="object1\Company.cs" />
+    <Compile Include="object1\Department.cs" />
     <Compile Include="object1\FilterRow.cs" />
     <Compile Include="object1\FPrefix.cs" />
     <Compile Include="object1\FSex.cs" />
+    <Compile Include="object1\FtpClient.cs" />
     <Compile Include="object1\IniFile.cs" />
     <Compile Include="object1\InitConfig.cs" />
+    <Compile Include="object1\LogFile.cs" />
     <Compile Include="object1\NativeMethods.cs" />
     <Compile Include="object1\Persistent.cs" />
+    <Compile Include="object1\Position.cs" />
     <Compile Include="object1\Staff.cs" />
     <Compile Include="object1\VNE\VNECashClosingRequest.cs" />
     <Compile Include="object1\VNE\VNECashClosingResponse.cs" />
@@ -183,6 +203,12 @@
     <EmbeddedResource Include="gui\FrmPassword.resx">
       <DependentUpon>FrmPassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmSetPassword.resx">
+      <DependentUpon>FrmSetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmSplash.resx">
+      <DependentUpon>FrmSplash.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmStaff.resx">
       <DependentUpon>FrmStaff.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +226,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="modernpos_pos.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -220,9 +249,7 @@
   <ItemGroup>
     <None Include="Resources\red_big.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\698929.png" />
   </ItemGroup>

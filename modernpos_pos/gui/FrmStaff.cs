@@ -82,10 +82,10 @@ namespace modernpos_pos.gui
             setGrfStfH();
             setFocusColor();
             setFocus();
-            cboPrefix = ic.ivfDB.fpfDB.setCboPrefix(cboPrefix);
+            cboPrefix = ic.mposDB.fpfDB.setCboPrefix(cboPrefix);
             
-            ic.ivfDB.posiDB.setC1CboPosi(cboPosi);
-            ic.ivfDB.deptDB.setC1CboDept(cboDept);
+            ic.mposDB.posiDB.setC1CboPosi(cboPosi);
+            ic.mposDB.deptDB.setC1CboDept(cboDept);
             setControlEnable(false);
             btnVoid.Hide();
             btnPassword.Hide();
@@ -111,7 +111,7 @@ namespace modernpos_pos.gui
             //String aa = grdView.Sheets[0].Cells[grdView.ActiveSheet.ActiveRow.Index, colCode].Value == null ? "" : grdView.Sheets[0].Cells[grdView.ActiveSheet.ActiveRow.Index, colCode].Value.ToString();
             //if (MessageBox.Show("ต้องการ ยกเลิก \nรายการ" + aa, "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             //{
-            //    String re = xC.ivfDB.banDB.voidBank(grdView.Sheets[0].Cells[grdView.ActiveSheet.ActiveRow.Index, colID].Value == null ? "" : grdView.Sheets[0].Cells[grdView.ActiveSheet.ActiveRow.Index, colID].Value.ToString());
+            //    String re = xC.mposDB.banDB.voidBank(grdView.Sheets[0].Cells[grdView.ActiveSheet.ActiveRow.Index, colID].Value == null ? "" : grdView.Sheets[0].Cells[grdView.ActiveSheet.ActiveRow.Index, colID].Value.ToString());
             //    if (re.Equals("1"))
             //    {
             //        grdView.Sheets[grdView.ActiveSheet.SheetName].Cells[grdView.ActiveSheet.ActiveRow.Index, 0, grdView.ActiveSheet.ActiveRow.Index, colCnt - 1].BackColor = Color.Gray;
@@ -146,7 +146,7 @@ namespace modernpos_pos.gui
         {
             DataTable dt = new DataTable();
 
-            dt = ic.ivfDB.stfDB.selectAll1();
+            dt = ic.mposDB.stfDB.selectAll1();
             //grfCus.Cols.Count = 2;
             //grfCus.Rows.Count = 7;
             grfStf.DataSource = dt;
@@ -256,7 +256,7 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             if (e.KeyCode == Keys.Enter)
             {
-                userIdVoid = ic.ivfDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
+                userIdVoid = ic.mposDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
                 if (userIdVoid.Length>0)
                 {
                     txtPasswordVoid.Hide();
@@ -321,11 +321,11 @@ namespace modernpos_pos.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setStaff();
-                String re = ic.ivfDB.stfDB.insertStaff(stf,ic.user.staff_id);
+                String re = ic.mposDB.stfDB.insertStaff(stf,ic.user.staff_id);
                 long chk = 0;
                 if (long.TryParse(re, out chk))
                 {
-                    ic.ivfDB.stfDB.getlStf();
+                    ic.mposDB.stfDB.getlStf();
                     btnSave.Image = Resources.accept_database24;
                 }
                 else
@@ -342,7 +342,7 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                ic.ivfDB.stfDB.VoidStaff(txtID.Text, userIdVoid);
+                ic.mposDB.stfDB.VoidStaff(txtID.Text, userIdVoid);
                 setGrfStfH();
             }
         }
@@ -409,7 +409,7 @@ namespace modernpos_pos.gui
 
         //private void grdView_CellDoubleClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
         //{
-        //    stf = xC.ivfDB.stfDB.selectByPk1(grdView.Sheets[0].Cells[e.Row, colID].Value == null ? "" : grdView.Sheets[0].Cells[e.Row, colID].Value.ToString());
+        //    stf = xC.mposDB.stfDB.selectByPk1(grdView.Sheets[0].Cells[e.Row, colID].Value == null ? "" : grdView.Sheets[0].Cells[e.Row, colID].Value.ToString());
         //    setControl();
         //    setEnable(false);
         //}
@@ -421,17 +421,17 @@ namespace modernpos_pos.gui
         //    FarPoint.Win.Spread.Column columnobj;
         //    columnobj = grdView.ActiveSheet.Columns[colCode, colRemark];
 
-        //    dt = xC.ivfDB.stfDB.selectAll();
+        //    dt = xC.mposDB.stfDB.selectAll();
         //    grdView.Sheets[0].Rows.Clear();
         //    setGrdViewH();
         //    grdView.Sheets[0].RowCount = dt.Rows.Count + 1;
         //    foreach (DataRow row in dt.Rows)
         //    {
-        //        grdView.Sheets[0].Cells[i, colID].Value = row[xC.ivfDB.stfDB.stf.staff_id] == null ? "" : row[xC.ivfDB.stfDB.stf.staff_id].ToString();
-        //        grdView.Sheets[0].Cells[i, colCode].Value = row[xC.ivfDB.stfDB.stf.staff_code].ToString();
-        //        grdView.Sheets[0].Cells[i, colNameT].Value = row[xC.ivfDB.stfDB.stf.staff_fname_t].ToString()+" "+ row[xC.ivfDB.stfDB.stf.staff_lname_t].ToString();
-        //        grdView.Sheets[0].Cells[i, colNameE].Value = row[xC.ivfDB.stfDB.stf.staff_fname_e].ToString()+" "+ row[xC.ivfDB.stfDB.stf.staff_lname_e].ToString();
-        //        grdView.Sheets[0].Cells[i, colRemark].Value = row[xC.ivfDB.stfDB.stf.remark].ToString();
+        //        grdView.Sheets[0].Cells[i, colID].Value = row[xC.mposDB.stfDB.stf.staff_id] == null ? "" : row[xC.mposDB.stfDB.stf.staff_id].ToString();
+        //        grdView.Sheets[0].Cells[i, colCode].Value = row[xC.mposDB.stfDB.stf.staff_code].ToString();
+        //        grdView.Sheets[0].Cells[i, colNameT].Value = row[xC.mposDB.stfDB.stf.staff_fname_t].ToString()+" "+ row[xC.mposDB.stfDB.stf.staff_lname_t].ToString();
+        //        grdView.Sheets[0].Cells[i, colNameE].Value = row[xC.mposDB.stfDB.stf.staff_fname_e].ToString()+" "+ row[xC.mposDB.stfDB.stf.staff_lname_e].ToString();
+        //        grdView.Sheets[0].Cells[i, colRemark].Value = row[xC.mposDB.stfDB.stf.remark].ToString();
 
         //        grdView.Sheets[0].Cells[i, coledit].Value = "0";
         //        if (i % 2 != 0)
@@ -594,7 +594,7 @@ namespace modernpos_pos.gui
         }
         private void setControl(String stfId)
         {
-            stf = ic.ivfDB.stfDB.selectByPk1(stfId);
+            stf = ic.mposDB.stfDB.selectByPk1(stfId);
             txtID.Value = stf.staff_id;
             txtStfCode.Value = stf.staff_code;
             txtStfFNameT.Value = stf.staff_fname_t;
@@ -656,7 +656,7 @@ namespace modernpos_pos.gui
             stf.status_module_lab = chkLab.Checked ? "1" : "0";
             stf.status_module_cashier = chkCashier.Checked ? "1" : "0";
             stf.status_module_medicalrecord = chkMedicalRecord.Checked ? "1" : "0";
-            //txtCopCode.Value = xC.ivfDB.copDB.cop.comp_id;
+            //txtCopCode.Value = xC.mposDB.copDB.cop.comp_id;
         }
         //private void setEnable(Boolean flag)
         //{

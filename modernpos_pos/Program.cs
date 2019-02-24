@@ -1,4 +1,5 @@
-﻿using modernpos_pos.gui;
+﻿using modernpos_pos.control;
+using modernpos_pos.gui;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,10 @@ namespace modernpos_pos
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form4());
-            Application.Run(new FrmMain());
+            mposControl mposC = new mposControl();
+            FrmSplash spl = new FrmSplash();
+            spl.Show();
+            Application.Run(new FrmMain(mposC, spl));
         }
     }
 }
