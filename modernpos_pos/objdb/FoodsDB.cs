@@ -44,7 +44,10 @@ namespace modernpos_pos.objdb
             foo.host_id = "host_id";
             foo.branch_id = "branch_id";
             foo.device_id = "device_id";
-            //fooC.status_aircondition = "status_aircondition";
+            foo.status_foods = "status_foods";
+            foo.status_dine_in = "status_dine_in";
+            foo.status_to_go = "status_to_go";
+            foo.foods_cat_id = "foods_cat_id";
 
             foo.pkField = "foods_id";
             foo.table = "b_foods";
@@ -79,7 +82,7 @@ namespace modernpos_pos.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where foo." + foo.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setArea(dt);
+            cop1 = setFoods(dt);
             return cop1;
         }
         private Foods setArea1(DataTable dt)
@@ -149,13 +152,15 @@ namespace modernpos_pos.objdb
             p.res_code = p.res_code == null ? "" : p.res_code;
             p.status_foods = p.status_foods == null ? "0" : p.status_foods;
             p.printer_name = p.printer_name == null ? "" : p.printer_name;
-            //p.foods_price = p.foods_price == null ? "" : p.foods_price;
+            p.status_to_go = p.status_to_go == null ? "0" : p.status_to_go;
+            p.status_dine_in = p.status_dine_in == null ? "0" : p.status_dine_in;
 
             p.host_id = long.TryParse(p.host_id, out chk) ? chk.ToString() : "0";
             p.branch_id = long.TryParse(p.branch_id, out chk) ? chk.ToString() : "0";
             p.device_id = long.TryParse(p.device_id, out chk) ? chk.ToString() : "0";
             p.foods_type_id = long.TryParse(p.foods_type_id, out chk) ? chk.ToString() : "0";
             p.res_id = long.TryParse(p.res_id, out chk) ? chk.ToString() : "0";
+            p.foods_cat_id = long.TryParse(p.foods_cat_id, out chk) ? chk.ToString() : "0";
 
             p.foods_price = Decimal.TryParse(p.foods_price, out chk1) ? chk1.ToString() : "0";
         }
@@ -182,7 +187,9 @@ namespace modernpos_pos.objdb
                 "," + foo.status_foods + " = '" + p.status_foods + "' " +
                 "," + foo.printer_name + " = '" + p.printer_name + "' " +
                 "," + foo.foods_price + " = '" + p.foods_price + "' " +
-                //"," + foo.status_aircondition + " = '" + p.status_aircondition + "' " +
+                "," + foo.status_dine_in + " = '" + p.status_dine_in + "' " +
+                "," + foo.status_to_go + " = '" + p.status_to_go + "' " +
+                "," + foo.foods_cat_id + " = '" + p.foods_cat_id + "' " +
                 " ";
             try
             {
@@ -215,7 +222,9 @@ namespace modernpos_pos.objdb
                 "," + foo.status_foods + " = '" + p.status_foods + "' " +
                 "," + foo.printer_name + " = '" + p.printer_name + "' " +
                 "," + foo.foods_price + " = '" + p.foods_price + "' " +
-
+                "," + foo.status_dine_in + " = '" + p.status_dine_in + "' " +
+                "," + foo.status_to_go + " = '" + p.status_to_go + "' " +
+                "," + foo.foods_cat_id + " = '" + p.foods_cat_id + "' " +
                 "Where " + foo.pkField + "='" + p.foods_id + "'"
                 ;
 
@@ -230,7 +239,7 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public String insertFoodsType(Foods p, String userId)
+        public String insertFoods(Foods p, String userId)
         {
             String re = "";
 
@@ -245,7 +254,7 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public C1ComboBox setCboArea(C1ComboBox c)
+        public C1ComboBox setCboFoods(C1ComboBox c)
         {
             ComboBoxItem item = new ComboBoxItem();
             DataTable dt = selectC1();
@@ -266,7 +275,7 @@ namespace modernpos_pos.objdb
             }
             return c;
         }
-        public C1ComboBox setCboArea(C1ComboBox c, String selected)
+        public C1ComboBox setCboFoods(C1ComboBox c, String selected)
         {
             ComboBoxItem item = new ComboBoxItem();
             //DataTable dt = selectC1();
@@ -294,7 +303,7 @@ namespace modernpos_pos.objdb
             }
             return c;
         }
-        private Foods setArea(DataTable dt)
+        private Foods setFoods(DataTable dt)
         {
             Foods dept1 = new Foods();
             if (dt.Rows.Count > 0)
@@ -319,7 +328,9 @@ namespace modernpos_pos.objdb
                 dept1.res_code = dt.Rows[0][foo.res_code] != null ? dt.Rows[0][foo.res_code].ToString() : "";
                 dept1.status_foods = dt.Rows[0][foo.status_foods] != null ? dt.Rows[0][foo.status_foods].ToString() : "";
                 dept1.printer_name = dt.Rows[0][foo.printer_name] != null ? dt.Rows[0][foo.printer_name].ToString() : "";
-                //dept1.status_aircondition = dt.Rows[0][fooC.status_aircondition] != null ? dt.Rows[0][fooC.status_aircondition].ToString() : "";
+                dept1.status_dine_in = dt.Rows[0][foo.status_dine_in] != null ? dt.Rows[0][foo.status_dine_in].ToString() : "";
+                dept1.status_to_go = dt.Rows[0][foo.status_to_go] != null ? dt.Rows[0][foo.status_to_go].ToString() : "";
+                dept1.foods_cat_id = dt.Rows[0][foo.foods_cat_id] != null ? dt.Rows[0][foo.foods_cat_id].ToString() : "";
             }
             else
             {
@@ -342,8 +353,9 @@ namespace modernpos_pos.objdb
                 dept1.res_code = "";
                 dept1.status_foods = "";
                 dept1.printer_name = "";
-
-                //dept1.status_aircondition = "";
+                dept1.status_to_go = "";
+                dept1.status_dine_in = "";
+                dept1.foods_cat_id = "";
                 //dept1.status_embryologist = "";
             }
 

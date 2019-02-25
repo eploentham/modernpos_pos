@@ -61,7 +61,10 @@ namespace modernpos_pos.gui
             fc = txtFooCode.ForeColor;
             ff = txtFooCode.Font;
             txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
-            mposC.mposDB.areaDB.setCboArea(cboFoodsType);
+            mposC.mposDB.resDB.setCboRestaurant(cboRes);
+            mposC.mposDB.footDB.setCboFoodsType(cboFoodsType);
+            mposC.mposDB.foocDB.setCboFoodsCat(cboFoodsCat);
+            mposC.setC1ComboPrinter(cboPrinter,"");
 
             initGrfFoo();
             setGrfFoo();
@@ -168,14 +171,20 @@ namespace modernpos_pos.gui
             txtFooCode.Value = foo.foods_code;
             txtFooNameT.Value = foo.foods_name;
             txtRemark.Value = foo.remark;
-            if (foo.status_foods.Equals("1"))
-            {
-                chkStatusTakeOut.Checked = true;
-            }
-            else
-            {
-                chkStatusTakeOut.Checked = false;
-            }
+            //if (foo.status_foods.Equals("1"))
+            //{
+            //    chkStatusToGo.Checked = true;
+            //}
+            //else
+            //{
+            //    chkStatusToGo.Checked = false;
+            //}
+            chkStatusToGo.Checked = foo.status_to_go.Equals("1") ? true : false;
+            chkDineIn.Checked = foo.status_dine_in.Equals("1") ? true : false;
+            mposC.setC1Combo(cboRes, foo.res_id);
+            mposC.setC1Combo(cboFoodsType, foo.foods_type_id);
+            mposC.setC1Combo(cboFoodsCat, foo.foods_cat_id);
+            mposC.setC1Combo(cboPrinter, foo.printer_name);
             //if (area.status_embryologist.Equals("1"))
             //{
             //    chkEmbryologist.Checked = true;
@@ -196,17 +205,20 @@ namespace modernpos_pos.gui
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
 
-        
-
-        private void setTable()
+        private void setFoods()
         {
             foo.foods_id = txtID.Text;
             foo.foods_code = txtFooCode.Text;
             foo.foods_name = txtFooNameT.Text;
-            //posi.posi_name_e = txtPosiNameE.Text;
+            foo.foods_price = txtPrice.Text;
             foo.remark = txtRemark.Text;
-            foo.status_foods = chkStatusTakeOut.Checked == true ? "1" : "0";
-            //area.status_embryologist = chkEmbryologist.Checked == true ? "1" : "0";
+            foo.status_foods = "1";
+            foo.status_dine_in = chkDineIn.Checked == true ? "1" : "0";
+            foo.status_to_go = chkStatusToGo.Checked == true ? "1" : "0";
+            foo.foods_cat_id = cboFoodsCat.SelectedItem == null ? "" : ((ComboBoxItem)cboFoodsCat.SelectedItem).Value;
+            foo.foods_type_id = cboFoodsType.SelectedItem == null ? "" : ((ComboBoxItem)cboFoodsType.SelectedItem).Value;
+            foo.res_id = cboRes.SelectedItem == null ? "" : ((ComboBoxItem)cboRes.SelectedItem).Value;
+            foo.printer_name = cboPrinter.SelectedItem == null ? "" : ((ComboBoxItem)cboPrinter.SelectedItem).Value;
         }
         private void grfPosi_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {
@@ -264,6 +276,8 @@ namespace modernpos_pos.gui
             chkVoid.Checked = false;
             btnVoid.Hide();
             flagEdit = true;
+            chkDineIn.Checked = true;
+            chkStatusToGo.Checked = true;
             setControlEnable(true);
         }
         private void btnEdit_Click(object sender, EventArgs e)
@@ -283,8 +297,8 @@ namespace modernpos_pos.gui
         {
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                setTable();
-                String re = mposC.mposDB.fooDB.insertFoodsType(foo, mposC.user.staff_id);
+                setFoods();
+                String re = mposC.mposDB.fooDB.insertFoods(foo, mposC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -312,7 +326,7 @@ namespace modernpos_pos.gui
                 //stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> กรุณาป้อนรหัสผ่าน", txtPasswordVoid);
             }
         }
-        private void FrmArea_Load(object sender, EventArgs e)
+        private void FrmCFoods_Load(object sender, EventArgs e)
         {
 
         }

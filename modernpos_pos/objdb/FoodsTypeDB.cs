@@ -73,7 +73,7 @@ namespace modernpos_pos.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where sex." + fooT.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setArea(dt);
+            cop1 = setFoodsType(dt);
             return cop1;
         }
         private FoodsType setArea1(DataTable dt)
@@ -226,7 +226,7 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public C1ComboBox setCboArea(C1ComboBox c)
+        public C1ComboBox setCboFoodsType(C1ComboBox c)
         {
             ComboBoxItem item = new ComboBoxItem();
             DataTable dt = selectC1();
@@ -247,7 +247,7 @@ namespace modernpos_pos.objdb
             }
             return c;
         }
-        public C1ComboBox setCboArea(C1ComboBox c, String selected)
+        public C1ComboBox setCboFoodsType(C1ComboBox c, String selected)
         {
             ComboBoxItem item = new ComboBoxItem();
             //DataTable dt = selectC1();
@@ -275,7 +275,7 @@ namespace modernpos_pos.objdb
             }
             return c;
         }
-        private FoodsType setArea(DataTable dt)
+        private FoodsType setFoodsType(DataTable dt)
         {
             FoodsType dept1 = new FoodsType();
             if (dt.Rows.Count > 0)

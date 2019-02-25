@@ -5,6 +5,7 @@ using MySql.Data.Types;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -378,6 +379,31 @@ namespace modernpos_pos.control
                     c.SelectedText = item.Text;
                     c.SelectedIndex = i + 1;
                 }
+            }
+        }
+        public void setC1ComboPrinter(C1ComboBox c, String data)
+        {
+            String chk = "", printerDefault = "";
+            try
+            {
+                c.Items.Clear();
+                PrinterSettings settings = new PrinterSettings();
+                int i = 0;
+                foreach (string printer in PrinterSettings.InstalledPrinters)
+                {
+                    settings.PrinterName = printer;
+                    c.Items.Insert(i, printer);
+                    if (settings.IsDefaultPrinter)
+                        printerDefault = printer;
+                    i++;
+                }
+                PrinterSettings settings1 = new PrinterSettings();
+                //settings1.PrinterName = ;
+
+            }
+            catch (Exception ex)
+            {
+                chk = ex.Message.ToString();
             }
         }
         public void setC1Combo(C1ComboBox c, String data)

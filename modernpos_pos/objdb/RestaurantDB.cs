@@ -296,7 +296,7 @@ namespace modernpos_pos.objdb
             {
                 item = new ComboBoxItem();
                 item.Text = row[res.res_name].ToString();
-                item.Value = row[res.default_res].ToString();
+                item.Value = row[res.res_id].ToString();
 
                 c.Items.Add(item);
             }

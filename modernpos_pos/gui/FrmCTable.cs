@@ -176,6 +176,7 @@ namespace modernpos_pos.gui
             {
                 chkStatusTakeOut.Checked = false;
             }
+            //mposC.setC1Combo(cboPosi, stf.posi_id);
             //if (area.status_embryologist.Equals("1"))
             //{
             //    chkEmbryologist.Checked = true;

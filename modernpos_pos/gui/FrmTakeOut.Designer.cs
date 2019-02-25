@@ -29,18 +29,23 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.theme1 = new C1.Win.C1Themes.C1ThemeController();
+            this.txtTableCode = new C1.Win.C1Input.C1TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTableCode)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,13 +59,13 @@
             this.panel1.Size = new System.Drawing.Size(424, 727);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // panel4
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(424, 33);
-            this.panel2.TabIndex = 0;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 33);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(424, 594);
+            this.panel4.TabIndex = 2;
             // 
             // panel3
             // 
@@ -72,14 +77,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(424, 100);
             this.panel3.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 33);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(424, 594);
-            this.panel4.TabIndex = 2;
             // 
             // button3
             // 
@@ -123,6 +120,15 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txtTableCode);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(424, 33);
+            this.panel2.TabIndex = 0;
+            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.panel7);
@@ -133,6 +139,14 @@
             this.panel5.Size = new System.Drawing.Size(573, 727);
             this.panel5.TabIndex = 1;
             // 
+            // panel7
+            // 
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(573, 627);
+            this.panel7.TabIndex = 1;
+            // 
             // panel6
             // 
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -141,13 +155,23 @@
             this.panel6.Size = new System.Drawing.Size(573, 100);
             this.panel6.TabIndex = 0;
             // 
-            // panel7
+            // theme1
             // 
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(573, 627);
-            this.panel7.TabIndex = 1;
+            this.theme1.Theme = "Office2013Red";
+            // 
+            // txtTableCode
+            // 
+            this.txtTableCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTableCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtTableCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtTableCode.Location = new System.Drawing.Point(109, 6);
+            this.txtTableCode.Name = "txtTableCode";
+            this.txtTableCode.Size = new System.Drawing.Size(207, 20);
+            this.txtTableCode.TabIndex = 236;
+            this.txtTableCode.Tag = null;
+            this.theme1.SetTheme(this.txtTableCode, "(default)");
+            this.txtTableCode.Visible = false;
+            this.txtTableCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmTakeOut
             // 
@@ -162,7 +186,10 @@
             this.Load += new System.EventHandler(this.FrmTakeOut_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTableCode)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,5 +206,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
+        private C1.Win.C1Themes.C1ThemeController theme1;
+        private C1.Win.C1Input.C1TextBox txtTableCode;
     }
 }

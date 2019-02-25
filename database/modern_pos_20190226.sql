@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
 -- Host: localhost    Database: modern_pos
 -- ------------------------------------------------------
--- Server version	8.0.12
+-- Server version	8.0.13
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -38,7 +38,7 @@ CREATE TABLE `b_area` (
   `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `status_aircondition` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT 'ห้องแอร์',
+  `status_aircondition` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT 'ห้องแอร์',
   PRIMARY KEY (`area_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=100000001 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=100';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -201,7 +201,7 @@ CREATE TABLE `b_foods` (
   `foods_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `foods_price` decimal(17,2) DEFAULT NULL,
   `active` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `foods_type_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `foods_type_id` int(11) DEFAULT NULL,
   `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `res_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `res_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -217,9 +217,11 @@ CREATE TABLE `b_foods` (
   `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `sort1` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `foods_cat_id` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `foods_cat_id` int(11) DEFAULT NULL,
+  `status_to_go` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT '0=default;1=to go',
+  `status_dine_in` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT '0=default; 1= dine in',
   PRIMARY KEY (`foods_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=104000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=104';
+) ENGINE=MyISAM AUTO_INCREMENT=104000001 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=104';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -228,6 +230,7 @@ CREATE TABLE `b_foods` (
 
 LOCK TABLES `b_foods` WRITE;
 /*!40000 ALTER TABLE `b_foods` DISABLE KEYS */;
+INSERT INTO `b_foods` VALUES (104000000,'10100','เส้นเล็กพริกสด',0.00,'1',NULL,'',NULL,'','1','','2019-02-25 22:05:12',NULL,'0','0','0',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `b_foods` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -550,7 +553,7 @@ CREATE TABLE `b_table` (
   `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `status_reser` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT 'status จอง',
+  `status_reser` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT 'status จอง',
   PRIMARY KEY (`table_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1017,4 +1020,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-25 18:03:23
+-- Dump completed on 2019-02-25 22:58:10

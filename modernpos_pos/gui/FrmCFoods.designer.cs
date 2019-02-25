@@ -33,10 +33,18 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cboPrinter = new C1.Win.C1Input.C1ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cboRes = new C1.Win.C1Input.C1ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPrice = new C1.Win.C1Input.C1TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboFoodsCat = new C1.Win.C1Input.C1ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.cboFoodsType = new C1.Win.C1Input.C1ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.chkEmbryologist = new C1.Win.C1Input.C1CheckBox();
-            this.chkStatusTakeOut = new C1.Win.C1Input.C1CheckBox();
+            this.chkDineIn = new C1.Win.C1Input.C1CheckBox();
+            this.chkStatusToGo = new C1.Win.C1Input.C1CheckBox();
             this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             this.btnNew = new C1.Win.C1Input.C1Button();
             this.chkVoid = new C1.Win.C1Input.C1CheckBox();
@@ -52,14 +60,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.cboFoodsCat = new C1.Win.C1Input.C1ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtPrice = new C1.Win.C1Input.C1TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cboRes = new C1.Win.C1Input.C1ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.c1ComboBox1 = new C1.Win.C1Input.C1ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -67,9 +67,13 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboPrinter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboRes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboFoodsCat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboFoodsType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkStatusTakeOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkDineIn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkStatusToGo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
@@ -81,10 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFooCode)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboFoodsCat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboRes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1ComboBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -143,7 +143,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel3.Controls.Add(this.c1ComboBox1);
+            this.panel3.Controls.Add(this.cboPrinter);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.cboRes);
             this.panel3.Controls.Add(this.label6);
@@ -153,8 +153,8 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.cboFoodsType);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.chkEmbryologist);
-            this.panel3.Controls.Add(this.chkStatusTakeOut);
+            this.panel3.Controls.Add(this.chkDineIn);
+            this.panel3.Controls.Add(this.chkStatusToGo);
             this.panel3.Controls.Add(this.txtPasswordVoid);
             this.panel3.Controls.Add(this.btnNew);
             this.panel3.Controls.Add(this.chkVoid);
@@ -175,6 +175,134 @@
             this.panel3.Size = new System.Drawing.Size(564, 510);
             this.panel3.TabIndex = 0;
             this.theme1.SetTheme(this.panel3, "(default)");
+            // 
+            // cboPrinter
+            // 
+            this.cboPrinter.AllowSpinLoop = false;
+            this.cboPrinter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboPrinter.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboPrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboPrinter.GapHeight = 0;
+            this.cboPrinter.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboPrinter.ItemsDisplayMember = "";
+            this.cboPrinter.ItemsValueMember = "";
+            this.cboPrinter.Location = new System.Drawing.Point(136, 176);
+            this.cboPrinter.Name = "cboPrinter";
+            this.cboPrinter.Size = new System.Drawing.Size(207, 20);
+            this.cboPrinter.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboPrinter.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboPrinter.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboPrinter.TabIndex = 271;
+            this.cboPrinter.Tag = null;
+            this.theme1.SetTheme(this.cboPrinter, "(default)");
+            this.cboPrinter.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label8.Location = new System.Drawing.Point(24, 179);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(107, 16);
+            this.label8.TabIndex = 270;
+            this.label8.Text = "ห้องครัว เครื่องพิมพ์ :";
+            this.theme1.SetTheme(this.label8, "(default)");
+            // 
+            // cboRes
+            // 
+            this.cboRes.AllowSpinLoop = false;
+            this.cboRes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboRes.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboRes.GapHeight = 0;
+            this.cboRes.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboRes.ItemsDisplayMember = "";
+            this.cboRes.ItemsValueMember = "";
+            this.cboRes.Location = new System.Drawing.Point(136, 81);
+            this.cboRes.Name = "cboRes";
+            this.cboRes.Size = new System.Drawing.Size(207, 20);
+            this.cboRes.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboRes.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboRes.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboRes.TabIndex = 269;
+            this.cboRes.Tag = null;
+            this.theme1.SetTheme(this.cboRes, "(default)");
+            this.cboRes.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label6.Location = new System.Drawing.Point(24, 84);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 16);
+            this.label6.TabIndex = 268;
+            this.label6.Text = "ร้านอาหาร :";
+            this.theme1.SetTheme(this.label6, "(default)");
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrice.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPrice.Location = new System.Drawing.Point(136, 234);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(207, 20);
+            this.txtPrice.TabIndex = 267;
+            this.txtPrice.Tag = null;
+            this.theme1.SetTheme(this.txtPrice, "(default)");
+            this.txtPrice.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label5.Location = new System.Drawing.Point(27, 236);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 16);
+            this.label5.TabIndex = 266;
+            this.label5.Text = "ราคา:";
+            this.theme1.SetTheme(this.label5, "(default)");
+            // 
+            // cboFoodsCat
+            // 
+            this.cboFoodsCat.AllowSpinLoop = false;
+            this.cboFoodsCat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboFoodsCat.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboFoodsCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboFoodsCat.GapHeight = 0;
+            this.cboFoodsCat.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboFoodsCat.ItemsDisplayMember = "";
+            this.cboFoodsCat.ItemsValueMember = "";
+            this.cboFoodsCat.Location = new System.Drawing.Point(136, 150);
+            this.cboFoodsCat.Name = "cboFoodsCat";
+            this.cboFoodsCat.Size = new System.Drawing.Size(207, 20);
+            this.cboFoodsCat.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboFoodsCat.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboFoodsCat.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboFoodsCat.TabIndex = 265;
+            this.cboFoodsCat.Tag = null;
+            this.theme1.SetTheme(this.cboFoodsCat, "(default)");
+            this.cboFoodsCat.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label4.Location = new System.Drawing.Point(24, 153);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 16);
+            this.label4.TabIndex = 264;
+            this.label4.Text = "ประเภทอาหาร :";
+            this.theme1.SetTheme(this.label4, "(default)");
             // 
             // cboFoodsType
             // 
@@ -210,48 +338,48 @@
             this.label7.Text = "กลุ่มอาหาร :";
             this.theme1.SetTheme(this.label7, "(default)");
             // 
-            // chkEmbryologist
+            // chkDineIn
             // 
-            this.chkEmbryologist.BackColor = System.Drawing.Color.Transparent;
-            this.chkEmbryologist.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkEmbryologist.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.chkEmbryologist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkEmbryologist.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkEmbryologist.Location = new System.Drawing.Point(265, 325);
-            this.chkEmbryologist.Name = "chkEmbryologist";
-            this.chkEmbryologist.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkEmbryologist.Size = new System.Drawing.Size(155, 24);
-            this.chkEmbryologist.TabIndex = 261;
-            this.chkEmbryologist.Text = "...";
-            this.theme1.SetTheme(this.chkEmbryologist, "(default)");
-            this.chkEmbryologist.UseVisualStyleBackColor = true;
-            this.chkEmbryologist.Value = null;
-            this.chkEmbryologist.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.chkDineIn.BackColor = System.Drawing.Color.Transparent;
+            this.chkDineIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkDineIn.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkDineIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkDineIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkDineIn.Location = new System.Drawing.Point(124, 355);
+            this.chkDineIn.Name = "chkDineIn";
+            this.chkDineIn.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkDineIn.Size = new System.Drawing.Size(155, 24);
+            this.chkDineIn.TabIndex = 261;
+            this.chkDineIn.Text = "เป็นอาหารขายในร้าน";
+            this.theme1.SetTheme(this.chkDineIn, "(default)");
+            this.chkDineIn.UseVisualStyleBackColor = true;
+            this.chkDineIn.Value = null;
+            this.chkDineIn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // chkStatusTakeOut
+            // chkStatusToGo
             // 
-            this.chkStatusTakeOut.BackColor = System.Drawing.Color.Transparent;
-            this.chkStatusTakeOut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkStatusTakeOut.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.chkStatusTakeOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkStatusTakeOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkStatusTakeOut.Location = new System.Drawing.Point(124, 325);
-            this.chkStatusTakeOut.Name = "chkStatusTakeOut";
-            this.chkStatusTakeOut.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkStatusTakeOut.Size = new System.Drawing.Size(135, 24);
-            this.chkStatusTakeOut.TabIndex = 260;
-            this.chkStatusTakeOut.Text = "เป้น โต๊ะสั่งกลับบ้าน";
-            this.theme1.SetTheme(this.chkStatusTakeOut, "(default)");
-            this.chkStatusTakeOut.UseVisualStyleBackColor = true;
-            this.chkStatusTakeOut.Value = null;
-            this.chkStatusTakeOut.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.chkStatusToGo.BackColor = System.Drawing.Color.Transparent;
+            this.chkStatusToGo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkStatusToGo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkStatusToGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkStatusToGo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkStatusToGo.Location = new System.Drawing.Point(124, 325);
+            this.chkStatusToGo.Name = "chkStatusToGo";
+            this.chkStatusToGo.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkStatusToGo.Size = new System.Drawing.Size(135, 24);
+            this.chkStatusToGo.TabIndex = 260;
+            this.chkStatusToGo.Text = "เป็นอาหารสั่งกลับบ้าน";
+            this.theme1.SetTheme(this.chkStatusToGo, "(default)");
+            this.chkStatusToGo.UseVisualStyleBackColor = true;
+            this.chkStatusToGo.Value = null;
+            this.chkStatusToGo.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtPasswordVoid
             // 
             this.txtPasswordVoid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPasswordVoid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtPasswordVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtPasswordVoid.Location = new System.Drawing.Point(265, 398);
+            this.txtPasswordVoid.Location = new System.Drawing.Point(280, 449);
             this.txtPasswordVoid.Name = "txtPasswordVoid";
             this.txtPasswordVoid.PasswordChar = '*';
             this.txtPasswordVoid.Size = new System.Drawing.Size(78, 20);
@@ -283,7 +411,7 @@
             this.chkVoid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkVoid.Location = new System.Drawing.Point(265, 369);
+            this.chkVoid.Location = new System.Drawing.Point(280, 420);
             this.chkVoid.Name = "chkVoid";
             this.chkVoid.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkVoid.Size = new System.Drawing.Size(155, 24);
@@ -448,134 +576,6 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // cboFoodsCat
-            // 
-            this.cboFoodsCat.AllowSpinLoop = false;
-            this.cboFoodsCat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboFoodsCat.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboFoodsCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboFoodsCat.GapHeight = 0;
-            this.cboFoodsCat.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboFoodsCat.ItemsDisplayMember = "";
-            this.cboFoodsCat.ItemsValueMember = "";
-            this.cboFoodsCat.Location = new System.Drawing.Point(136, 150);
-            this.cboFoodsCat.Name = "cboFoodsCat";
-            this.cboFoodsCat.Size = new System.Drawing.Size(207, 20);
-            this.cboFoodsCat.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboFoodsCat.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboFoodsCat.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboFoodsCat.TabIndex = 265;
-            this.cboFoodsCat.Tag = null;
-            this.theme1.SetTheme(this.cboFoodsCat, "(default)");
-            this.cboFoodsCat.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label4.Location = new System.Drawing.Point(24, 153);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 16);
-            this.label4.TabIndex = 264;
-            this.label4.Text = "ประเภทอาหาร :";
-            this.theme1.SetTheme(this.label4, "(default)");
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPrice.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtPrice.Location = new System.Drawing.Point(136, 234);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(207, 20);
-            this.txtPrice.TabIndex = 267;
-            this.txtPrice.Tag = null;
-            this.theme1.SetTheme(this.txtPrice, "(default)");
-            this.txtPrice.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label5.Location = new System.Drawing.Point(27, 236);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 16);
-            this.label5.TabIndex = 266;
-            this.label5.Text = "ราคา:";
-            this.theme1.SetTheme(this.label5, "(default)");
-            // 
-            // cboRes
-            // 
-            this.cboRes.AllowSpinLoop = false;
-            this.cboRes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboRes.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboRes.GapHeight = 0;
-            this.cboRes.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboRes.ItemsDisplayMember = "";
-            this.cboRes.ItemsValueMember = "";
-            this.cboRes.Location = new System.Drawing.Point(136, 81);
-            this.cboRes.Name = "cboRes";
-            this.cboRes.Size = new System.Drawing.Size(207, 20);
-            this.cboRes.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboRes.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboRes.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboRes.TabIndex = 269;
-            this.cboRes.Tag = null;
-            this.theme1.SetTheme(this.cboRes, "(default)");
-            this.cboRes.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label6.Location = new System.Drawing.Point(24, 84);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 16);
-            this.label6.TabIndex = 268;
-            this.label6.Text = "ร้านอาหาร :";
-            this.theme1.SetTheme(this.label6, "(default)");
-            // 
-            // c1ComboBox1
-            // 
-            this.c1ComboBox1.AllowSpinLoop = false;
-            this.c1ComboBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1ComboBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1ComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1ComboBox1.GapHeight = 0;
-            this.c1ComboBox1.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1ComboBox1.ItemsDisplayMember = "";
-            this.c1ComboBox1.ItemsValueMember = "";
-            this.c1ComboBox1.Location = new System.Drawing.Point(136, 176);
-            this.c1ComboBox1.Name = "c1ComboBox1";
-            this.c1ComboBox1.Size = new System.Drawing.Size(207, 20);
-            this.c1ComboBox1.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1ComboBox1.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.c1ComboBox1.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1ComboBox1.TabIndex = 271;
-            this.c1ComboBox1.Tag = null;
-            this.theme1.SetTheme(this.c1ComboBox1, "(default)");
-            this.c1ComboBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label8.Location = new System.Drawing.Point(24, 179);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(107, 16);
-            this.label8.TabIndex = 270;
-            this.label8.Text = "ห้องครัว เครื่องพิมพ์ :";
-            this.theme1.SetTheme(this.label8, "(default)");
-            // 
             // FrmCFoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -586,7 +586,7 @@
             this.Name = "FrmCFoods";
             this.Text = "FrmFoods";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmArea_Load);
+            this.Load += new System.EventHandler(this.FrmCFoods_Load);
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -595,9 +595,13 @@
             this.splitContainer1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboPrinter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboRes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboFoodsCat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboFoodsType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkStatusTakeOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkDineIn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkStatusToGo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
@@ -610,10 +614,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtFooCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboFoodsCat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboRes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1ComboBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -641,8 +641,8 @@
         private C1.Win.C1Input.C1TextBox txtFooCode;
         private System.Windows.Forms.Label label1;
         private C1.Win.C1Input.C1TextBox txtPasswordVoid;
-        private C1.Win.C1Input.C1CheckBox chkStatusTakeOut;
-        private C1.Win.C1Input.C1CheckBox chkEmbryologist;
+        private C1.Win.C1Input.C1CheckBox chkStatusToGo;
+        private C1.Win.C1Input.C1CheckBox chkDineIn;
         private C1.Win.C1Input.C1ComboBox cboFoodsType;
         private System.Windows.Forms.Label label7;
         private C1.Win.C1Input.C1ComboBox cboFoodsCat;
@@ -651,7 +651,7 @@
         private System.Windows.Forms.Label label5;
         private C1.Win.C1Input.C1ComboBox cboRes;
         private System.Windows.Forms.Label label6;
-        private C1.Win.C1Input.C1ComboBox c1ComboBox1;
+        private C1.Win.C1Input.C1ComboBox cboPrinter;
         private System.Windows.Forms.Label label8;
     }
 }
