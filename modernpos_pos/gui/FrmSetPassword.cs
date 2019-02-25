@@ -16,14 +16,14 @@ namespace modernpos_pos.gui
     public partial class FrmSetPassword : Form
     {
         Staff stf;
-        mposControl ic;
+        mPOSControl ic;
         Font fEdit, fEditB;
 
         Color bg, fc;
         Font ff, ffB;
         public enum StatusPassword { login, confirm}
         StatusPassword spass;
-        public FrmSetPassword(mposControl ic, StatusPassword statuspassword)
+        public FrmSetPassword(mPOSControl ic, StatusPassword statuspassword)
         {
             InitializeComponent();
             this.ic = ic;

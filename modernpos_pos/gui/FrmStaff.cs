@@ -20,7 +20,7 @@ namespace modernpos_pos.gui
     public partial class FrmStaff : Form
     {
         Staff stf;
-        mposControl ic;
+        mPOSControl mposC;
         Font fEdit, fEditB;
 
         Color bg, fc;
@@ -35,10 +35,10 @@ namespace modernpos_pos.gui
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
         String userIdVoid = "";
-        public FrmStaff(mposControl ic)
+        public FrmStaff(mPOSControl mposC)
         {
             InitializeComponent();
-            this.ic = ic;
+            this.mposC = mposC;
             initConfig();
         }
         private void initConfig()
@@ -82,10 +82,10 @@ namespace modernpos_pos.gui
             setGrfStfH();
             setFocusColor();
             setFocus();
-            cboPrefix = ic.mposDB.fpfDB.setCboPrefix(cboPrefix);
+            cboPrefix = mposC.mposDB.fpfDB.setCboPrefix(cboPrefix);
             
-            ic.mposDB.posiDB.setC1CboPosi(cboPosi);
-            ic.mposDB.deptDB.setC1CboDept(cboDept);
+            mposC.mposDB.posiDB.setC1CboPosi(cboPosi);
+            mposC.mposDB.deptDB.setC1CboDept(cboDept);
             setControlEnable(false);
             btnVoid.Hide();
             btnPassword.Hide();
@@ -98,8 +98,8 @@ namespace modernpos_pos.gui
         private void BtnPasswordCompirm_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            ic.stfID = txtID.Text;
-            FrmSetPassword frm = new FrmSetPassword(ic, FrmSetPassword.StatusPassword.confirm);
+            mposC.stfID = txtID.Text;
+            FrmSetPassword frm = new FrmSetPassword(mposC, FrmSetPassword.StatusPassword.confirm);
             frm.ShowDialog(this);
         }
 
@@ -146,7 +146,7 @@ namespace modernpos_pos.gui
         {
             DataTable dt = new DataTable();
 
-            dt = ic.mposDB.stfDB.selectAll1();
+            dt = mposC.mposDB.stfDB.selectAll1();
             //grfCus.Cols.Count = 2;
             //grfCus.Rows.Count = 7;
             grfStf.DataSource = dt;
@@ -176,7 +176,7 @@ namespace modernpos_pos.gui
             {
                 grfStf[i, 0] = i;
                 if (i % 2 == 0)
-                    grfStf.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(ic.iniC.grfRowColor);
+                    grfStf.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
             //grfCus.Col = colCnt;
         }
@@ -256,7 +256,7 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             if (e.KeyCode == Keys.Enter)
             {
-                userIdVoid = ic.mposDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
+                userIdVoid = mposC.mposDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
                 if (userIdVoid.Length>0)
                 {
                     txtPasswordVoid.Hide();
@@ -311,8 +311,8 @@ namespace modernpos_pos.gui
 
         private void btnPassword_Click(object sender, EventArgs e)
         {
-            ic.stfID = txtID.Text;
-            FrmSetPassword frm = new FrmSetPassword(ic, FrmSetPassword.StatusPassword.login);
+            mposC.stfID = txtID.Text;
+            FrmSetPassword frm = new FrmSetPassword(mposC, FrmSetPassword.StatusPassword.login);
             frm.ShowDialog(this);
         }                
         
@@ -321,11 +321,11 @@ namespace modernpos_pos.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setStaff();
-                String re = ic.mposDB.stfDB.insertStaff(stf,ic.user.staff_id);
+                String re = mposC.mposDB.stfDB.insertStaff(stf,mposC.user.staff_id);
                 long chk = 0;
                 if (long.TryParse(re, out chk))
                 {
-                    ic.mposDB.stfDB.getlStf();
+                    mposC.mposDB.stfDB.getlStf();
                     btnSave.Image = Resources.accept_database24;
                 }
                 else
@@ -342,7 +342,7 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                ic.mposDB.stfDB.VoidStaff(txtID.Text, userIdVoid);
+                mposC.mposDB.stfDB.VoidStaff(txtID.Text, userIdVoid);
                 setGrfStfH();
             }
         }
@@ -563,13 +563,13 @@ namespace modernpos_pos.gui
             if (sender is C1TextBox)
             {
                 C1TextBox a = (C1TextBox)sender;
-                a.BackColor = ic.cTxtFocus;
+                a.BackColor = mposC.cTxtFocus;
                 a.Font = new Font(ff, FontStyle.Bold);
             }
             else if (sender is ComboBox)
             {
                 ComboBox a = (ComboBox)sender;
-                a.BackColor = ic.cTxtFocus;
+                a.BackColor = mposC.cTxtFocus;
                 a.Font = new Font(ff, FontStyle.Bold);
             }
 
@@ -594,7 +594,7 @@ namespace modernpos_pos.gui
         }
         private void setControl(String stfId)
         {
-            stf = ic.mposDB.stfDB.selectByPk1(stfId);
+            stf = mposC.mposDB.stfDB.selectByPk1(stfId);
             txtID.Value = stf.staff_id;
             txtStfCode.Value = stf.staff_code;
             txtStfFNameT.Value = stf.staff_fname_t;
@@ -611,8 +611,8 @@ namespace modernpos_pos.gui
             cboPrefix.Text = stf.prefix_name_t;
             //cboDept.Text = stf.dept_name_t;
             //cboPosi.Text = stf.posi_name_t;
-            ic.setC1Combo(cboPosi, stf.posi_id);
-            ic.setC1Combo(cboDept, stf.dept_id);
+            mposC.setC1Combo(cboPosi, stf.posi_id);
+            mposC.setC1Combo(cboDept, stf.dept_id);
             chkAdmin.Checked = stf.status_admin.Equals("2") ? true : false;
             chkUser.Checked = !stf.status_admin.Equals("2") ? true : false;
             chkReception.Checked = stf.status_module_reception.Equals("1") ? true : false;

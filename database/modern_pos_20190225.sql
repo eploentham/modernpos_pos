@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
 -- Host: localhost    Database: modern_pos
 -- ------------------------------------------------------
--- Server version	8.0.12
+-- Server version	8.0.13
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,7 +18,7 @@
 --
 -- Table structure for table `b_area`
 --
-use modern_pos;
+
 DROP TABLE IF EXISTS `b_area`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
@@ -173,7 +173,7 @@ CREATE TABLE `b_department` (
   `active` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `sort1` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`dept_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1090000006 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=109';
+) ENGINE=MyISAM AUTO_INCREMENT=1090000007 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=109';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,6 +182,7 @@ CREATE TABLE `b_department` (
 
 LOCK TABLES `b_department` WRITE;
 /*!40000 ALTER TABLE `b_department` DISABLE KEYS */;
+INSERT INTO `b_department` VALUES (1090000006,'100','admin',0,0,'','2019-02-25 07:19:37','','','','','','1',NULL);
 /*!40000 ALTER TABLE `b_department` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -598,7 +599,7 @@ CREATE TABLE `f_prefix` (
   `f_sex_id` int(11) DEFAULT NULL,
   `active` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`f_prefix_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2090000019 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=209';
+) ENGINE=MyISAM AUTO_INCREMENT=2090000027 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=209';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -607,6 +608,7 @@ CREATE TABLE `f_prefix` (
 
 LOCK TABLES `f_prefix` WRITE;
 /*!40000 ALTER TABLE `f_prefix` DISABLE KEYS */;
+INSERT INTO `f_prefix` VALUES (2090000019,'นาย',2100000003,'1'),(2090000020,'นางสาว',2100000004,'1'),(2090000021,'นาง',2100000004,'1'),(2090000022,'ด.ช.',2100000003,'1'),(2090000023,'ด.ญ.',2100000004,'1'),(2090000024,'Mr.',2100000003,'1'),(2090000025,'Mrs.',2100000004,'1'),(2090000026,'Miss',2100000004,'1');
 /*!40000 ALTER TABLE `f_prefix` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -622,7 +624,7 @@ CREATE TABLE `f_sex` (
   `sex_description` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `active` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`f_sex_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2100000003 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=210';
+) ENGINE=MyISAM AUTO_INCREMENT=2100000005 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=210';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -631,6 +633,7 @@ CREATE TABLE `f_sex` (
 
 LOCK TABLES `f_sex` WRITE;
 /*!40000 ALTER TABLE `f_sex` DISABLE KEYS */;
+INSERT INTO `f_sex` VALUES (2100000003,'ชาย','1'),(2100000004,'หญิง','1');
 /*!40000 ALTER TABLE `f_sex` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -968,4 +971,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-22 16:56:34
+-- Dump completed on 2019-02-25  7:31:21

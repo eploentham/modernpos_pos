@@ -18,7 +18,7 @@ using System.Windows.Forms;
 
 namespace modernpos_pos.control
 {
-    public class mposControl
+    public class mPOSControl
     {
         public mPosDB mposDB;
         public ConnectDB conn;
@@ -52,7 +52,7 @@ namespace modernpos_pos.control
 
         public String _IPAddress = "";
 
-        public mposControl()
+        public mPOSControl()
         {
             initConfig();
 

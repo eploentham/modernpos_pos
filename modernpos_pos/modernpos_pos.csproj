@@ -62,12 +62,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="control\mposControl.cs" />
+    <Compile Include="control\mPOSControl.cs" />
+    <Compile Include="gui\FrmConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmConfig.Designer.cs">
+      <DependentUpon>FrmConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmDepartment1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmDepartment1.designer.cs">
+      <DependentUpon>FrmDepartment1.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmPassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gui\FrmPassword.Designer.cs">
       <DependentUpon>FrmPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmPosition.designer.cs">
+      <DependentUpon>FrmPosition.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmSetPassword.cs">
       <SubType>Form</SubType>
@@ -194,6 +212,12 @@
     <EmbeddedResource Include="gui\Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmConfig.resx">
+      <DependentUpon>FrmConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmDepartment1.resx">
+      <DependentUpon>FrmDepartment1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmPassword.resx">
       <DependentUpon>FrmPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmPosition.resx">
+      <DependentUpon>FrmPosition.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmSetPassword.resx">
       <DependentUpon>FrmSetPassword.cs</DependentUpon>

@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            C1.Win.C1Tile.PanelElement panelElement1 = new C1.Win.C1Tile.PanelElement();
-            C1.Win.C1Tile.ImageElement imageElement1 = new C1.Win.C1Tile.ImageElement();
-            C1.Win.C1Tile.TextElement textElement1 = new C1.Win.C1Tile.TextElement();
+            this.components = new System.ComponentModel.Container();
+            C1.Win.C1Tile.PanelElement panelElement2 = new C1.Win.C1Tile.PanelElement();
+            C1.Win.C1Tile.ImageElement imageElement2 = new C1.Win.C1Tile.ImageElement();
+            C1.Win.C1Tile.TextElement textElement2 = new C1.Win.C1Tile.TextElement();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.cboPrinter = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -50,6 +52,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.c1SuperTooltip1 = new C1.Win.C1SuperTooltip.C1SuperTooltip(this.components);
+            this.c1SuperLabel1 = new C1.Win.C1SuperTooltip.C1SuperLabel();
+            this.c1SuperErrorProvider1 = new C1.Win.C1SuperTooltip.C1SuperErrorProvider(this.components);
+            this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
+            this.c1DockingTab2 = new C1.Win.C1Command.C1DockingTab();
+            this.c1DockingTabPage4 = new C1.Win.C1Command.C1DockingTabPage();
+            this.c1DockingTabPage5 = new C1.Win.C1Command.C1DockingTabPage();
+            this.c1FlexGrid2 = new C1.Win.C1FlexGrid.C1FlexGrid();
+            this.c1TextBox1 = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
             this.c1DockingTab1.SuspendLayout();
             this.c1DockingTabPage1.SuspendLayout();
@@ -57,6 +68,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).BeginInit();
             this.c1DockingTabPage3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1SuperErrorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab2)).BeginInit();
+            this.c1DockingTab2.SuspendLayout();
+            this.c1DockingTabPage4.SuspendLayout();
+            this.c1DockingTabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // cboPrinter
@@ -143,11 +164,11 @@
             // 
             // 
             // 
-            panelElement1.Alignment = System.Drawing.ContentAlignment.BottomLeft;
-            panelElement1.Children.Add(imageElement1);
-            panelElement1.Children.Add(textElement1);
-            panelElement1.Margin = new System.Windows.Forms.Padding(10, 6, 10, 6);
-            this.c1TileControl1.DefaultTemplate.Elements.Add(panelElement1);
+            panelElement2.Alignment = System.Drawing.ContentAlignment.BottomLeft;
+            panelElement2.Children.Add(imageElement2);
+            panelElement2.Children.Add(textElement2);
+            panelElement2.Margin = new System.Windows.Forms.Padding(10, 6, 10, 6);
+            this.c1TileControl1.DefaultTemplate.Elements.Add(panelElement2);
             this.c1TileControl1.Groups.Add(this.group1);
             this.c1TileControl1.Location = new System.Drawing.Point(11, 3);
             this.c1TileControl1.Name = "c1TileControl1";
@@ -236,6 +257,7 @@
             // 
             // panel11
             // 
+            this.panel11.Controls.Add(this.c1DockingTab2);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 23);
             this.panel11.Name = "panel11";
@@ -244,11 +266,94 @@
             // 
             // panel10
             // 
+            this.panel10.Controls.Add(this.c1SuperLabel1);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(800, 23);
             this.panel10.TabIndex = 5;
+            // 
+            // c1SuperTooltip1
+            // 
+            this.c1SuperTooltip1.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.c1SuperTooltip1.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            // 
+            // c1SuperLabel1
+            // 
+            this.c1SuperLabel1.Location = new System.Drawing.Point(161, 0);
+            this.c1SuperLabel1.Name = "c1SuperLabel1";
+            this.c1SuperLabel1.Size = new System.Drawing.Size(75, 23);
+            this.c1SuperLabel1.TabIndex = 7;
+            this.c1SuperLabel1.Text = "c1SuperLabel1";
+            this.c1SuperLabel1.UseMnemonic = true;
+            // 
+            // c1SuperErrorProvider1
+            // 
+            this.c1SuperErrorProvider1.ContainerControl = this;
+            this.c1SuperErrorProvider1.ToolTip = this.c1SuperTooltip1;
+            // 
+            // c1DockingTab2
+            // 
+            this.c1DockingTab2.BackColor = System.Drawing.Color.White;
+            this.c1DockingTab2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1DockingTab2.Controls.Add(this.c1DockingTabPage4);
+            this.c1DockingTab2.Controls.Add(this.c1DockingTabPage5);
+            this.c1DockingTab2.HotTrack = true;
+            this.c1DockingTab2.Location = new System.Drawing.Point(12, 26);
+            this.c1DockingTab2.Name = "c1DockingTab2";
+            this.c1DockingTab2.SelectedIndex = 1;
+            this.c1DockingTab2.Size = new System.Drawing.Size(300, 200);
+            this.c1DockingTab2.TabIndex = 7;
+            this.c1DockingTab2.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
+            this.c1DockingTab2.TabsShowFocusCues = false;
+            this.c1DockingTab2.TabsSpacing = 2;
+            this.c1DockingTab2.TabStyle = C1.Win.C1Command.TabStyleEnum.Office2007;
+            this.c1ThemeController1.SetTheme(this.c1DockingTab2, "(default)");
+            // 
+            // c1DockingTabPage4
+            // 
+            this.c1DockingTabPage4.Controls.Add(this.c1FlexGrid2);
+            this.c1DockingTabPage4.Location = new System.Drawing.Point(1, 24);
+            this.c1DockingTabPage4.Name = "c1DockingTabPage4";
+            this.c1DockingTabPage4.Size = new System.Drawing.Size(298, 175);
+            this.c1DockingTabPage4.TabIndex = 0;
+            this.c1DockingTabPage4.Text = "Page4";
+            // 
+            // c1DockingTabPage5
+            // 
+            this.c1DockingTabPage5.Controls.Add(this.c1TextBox1);
+            this.c1DockingTabPage5.Location = new System.Drawing.Point(1, 24);
+            this.c1DockingTabPage5.Name = "c1DockingTabPage5";
+            this.c1DockingTabPage5.Size = new System.Drawing.Size(298, 175);
+            this.c1DockingTabPage5.TabIndex = 1;
+            this.c1DockingTabPage5.Text = "Page5";
+            // 
+            // c1FlexGrid2
+            // 
+            this.c1FlexGrid2.BackColor = System.Drawing.Color.White;
+            this.c1FlexGrid2.ColumnInfo = "10,1,0,0,0,95,Columns:";
+            this.c1FlexGrid2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.c1FlexGrid2.Location = new System.Drawing.Point(0, 0);
+            this.c1FlexGrid2.Name = "c1FlexGrid2";
+            this.c1FlexGrid2.Rows.DefaultSize = 19;
+            this.c1FlexGrid2.ShowThemedHeaders = C1.Win.C1FlexGrid.ShowThemedHeadersEnum.None;
+            this.c1FlexGrid2.Size = new System.Drawing.Size(240, 150);
+            this.c1FlexGrid2.StyleInfo = resources.GetString("c1FlexGrid2.StyleInfo");
+            this.c1FlexGrid2.TabIndex = 0;
+            this.c1ThemeController1.SetTheme(this.c1FlexGrid2, "(default)");
+            // 
+            // c1TextBox1
+            // 
+            this.c1TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.c1TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox1.Location = new System.Drawing.Point(0, 0);
+            this.c1TextBox1.Name = "c1TextBox1";
+            this.c1TextBox1.Size = new System.Drawing.Size(100, 18);
+            this.c1TextBox1.TabIndex = 0;
+            this.c1TextBox1.Tag = null;
+            this.c1ThemeController1.SetTheme(this.c1TextBox1, "(default)");
+            this.c1TextBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // Form1
             // 
@@ -271,6 +376,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).EndInit();
             this.c1DockingTabPage3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1SuperErrorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab2)).EndInit();
+            this.c1DockingTab2.ResumeLayout(false);
+            this.c1DockingTabPage4.ResumeLayout(false);
+            this.c1DockingTabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -296,6 +411,15 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel10;
+        private C1.Win.C1Command.C1DockingTab c1DockingTab2;
+        private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage4;
+        private C1.Win.C1Themes.C1ThemeController c1ThemeController1;
+        private C1.Win.C1SuperTooltip.C1SuperLabel c1SuperLabel1;
+        private C1.Win.C1SuperTooltip.C1SuperTooltip c1SuperTooltip1;
+        private C1.Win.C1SuperTooltip.C1SuperErrorProvider c1SuperErrorProvider1;
+        private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGrid2;
+        private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage5;
+        private C1.Win.C1Input.C1TextBox c1TextBox1;
     }
 }
 

@@ -31,6 +31,7 @@ namespace modernpos_pos.objdb
             copDB = new CompanyDB(conn);
             deptDB = new DepartmentDB(conn);
             posiDB = new PositionDB(conn);
+            fpfDB = new FPrefixDB(conn);
 
             Console.WriteLine("mPosDB end");
         }
