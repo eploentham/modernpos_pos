@@ -63,11 +63,47 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="control\mPOSControl.cs" />
+    <Compile Include="gui\FrmCArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmCArea.designer.cs">
+      <DependentUpon>FrmCArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmCFoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmCFoods.designer.cs">
+      <DependentUpon>FrmCFoods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmCFoodsCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmCFoodsCategory.designer.cs">
+      <DependentUpon>FrmCFoodsCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmCFoodsType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmCFoodsType.designer.cs">
+      <DependentUpon>FrmCFoodsType.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmConfig.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gui\FrmConfig.Designer.cs">
       <DependentUpon>FrmConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmCRestaurant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmCRestaurant.designer.cs">
+      <DependentUpon>FrmCRestaurant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmCTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmCTable.designer.cs">
+      <DependentUpon>FrmCTable.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmDepartment1.cs">
       <SubType>Form</SubType>
@@ -115,11 +151,16 @@
     <Compile Include="objdb\CompanyDB.cs" />
     <Compile Include="objdb\ConnectDB.cs" />
     <Compile Include="objdb\DepartmentDB.cs" />
+    <Compile Include="objdb\FoodsCatDB.cs" />
+    <Compile Include="objdb\FoodsDB.cs" />
+    <Compile Include="objdb\FoodsTypeDB.cs" />
     <Compile Include="objdb\FPrefixDB.cs" />
     <Compile Include="objdb\FSexDB.cs" />
     <Compile Include="objdb\mPosDB.cs" />
     <Compile Include="objdb\PositionDB.cs" />
+    <Compile Include="objdb\RestaurantDB.cs" />
     <Compile Include="objdb\StaffDB.cs" />
+    <Compile Include="objdb\TableDB.cs" />
     <Compile Include="object1\AsciiControlChars.cs" />
     <Compile Include="control\VNEControl.cs" />
     <Compile Include="gui\FrmMain.cs">
@@ -163,6 +204,9 @@
     <Compile Include="object1\Company.cs" />
     <Compile Include="object1\Department.cs" />
     <Compile Include="object1\FilterRow.cs" />
+    <Compile Include="object1\Foods.cs" />
+    <Compile Include="object1\FoodsCat.cs" />
+    <Compile Include="object1\FoodsType.cs" />
     <Compile Include="object1\FPrefix.cs" />
     <Compile Include="object1\FSex.cs" />
     <Compile Include="object1\FtpClient.cs" />
@@ -172,7 +216,9 @@
     <Compile Include="object1\NativeMethods.cs" />
     <Compile Include="object1\Persistent.cs" />
     <Compile Include="object1\Position.cs" />
+    <Compile Include="object1\Restaurant.cs" />
     <Compile Include="object1\Staff.cs" />
+    <Compile Include="object1\Table.cs" />
     <Compile Include="object1\VNE\VNECashClosingRequest.cs" />
     <Compile Include="object1\VNE\VNECashClosingResponse.cs" />
     <Compile Include="object1\VNE\VNEDoorOpenRequest.cs" />
@@ -212,8 +258,26 @@
     <EmbeddedResource Include="gui\Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmCArea.resx">
+      <DependentUpon>FrmCArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmCFoods.resx">
+      <DependentUpon>FrmCFoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmCFoodsCategory.resx">
+      <DependentUpon>FrmCFoodsCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmCFoodsType.resx">
+      <DependentUpon>FrmCFoodsType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmConfig.resx">
       <DependentUpon>FrmConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmCRestaurant.resx">
+      <DependentUpon>FrmCRestaurant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmCTable.resx">
+      <DependentUpon>FrmCTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmDepartment1.resx">
       <DependentUpon>FrmDepartment1.cs</DependentUpon>

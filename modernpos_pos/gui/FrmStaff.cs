@@ -624,8 +624,8 @@ namespace modernpos_pos.gui
             chkPharmacy.Checked = stf.status_module_pharmacy.Equals("1") ? true : false;
             chkLab.Checked = stf.status_module_lab.Equals("1") ? true : false;
             btnPassword.Show();
-            chkCashier.Checked = stf.status_module_cashier.Equals("1") ? true : false;
-            chkMedicalRecord.Checked = stf.status_module_medicalrecord.Equals("1") ? true : false;
+            //chkCashier.Checked = stf.status_module_cashier.Equals("1") ? true : false;
+            //chkMedicalRecord.Checked = stf.status_module_medicalrecord.Equals("1") ? true : false;
         }
         private void setStaff()
         {

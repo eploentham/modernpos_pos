@@ -129,15 +129,15 @@ namespace modernpos_pos.objdb
         }
         private void chkNull(Staff p)
         {
-            int chk = 0;
+            long chk = 0;
 
             p.date_modi = p.date_modi == null ? "" : p.date_modi;
             p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
             p.user_create = p.user_create == null ? "" : p.user_create;
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
-            p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
-            p.posi_id = int.TryParse(p.posi_id, out chk) ? chk.ToString() : "0";
+            //p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
+            //p.posi_id = int.TryParse(p.posi_id, out chk) ? chk.ToString() : "0";
             //p.posi_id = int.TryParse(p.posi_id, out chk) ? chk.ToString() : "0";
 
             p.staff_code = p.staff_code == null ? "" : p.staff_code;
@@ -152,7 +152,7 @@ namespace modernpos_pos.objdb
             p.fax = p.fax == null ? "" : p.fax;
             p.email = p.email == null ? "" : p.email;
             p.posi_name = p.posi_name == null ? "" : p.posi_name;
-            p.posi_id = p.posi_id == null ? "" : p.posi_id;
+            //p.posi_id = p.posi_id == null ? "" : p.posi_id;
             p.staff_lname_t = p.staff_lname_t == null ? "" : p.staff_lname_t;
             p.staff_lname_e = p.staff_lname_e == null ? "" : p.staff_lname_e;
             p.pid = p.pid == null ? "" : p.pid;
@@ -173,6 +173,10 @@ namespace modernpos_pos.objdb
             p.status_module_lab = p.status_module_lab == null ? "0" : p.status_module_lab;
             p.status_module_cashier = p.status_module_cashier == null ? "0" : p.status_module_cashier;
             p.status_module_medicalrecord = p.status_module_medicalrecord == null ? "0" : p.status_module_medicalrecord;
+
+            p.posi_id = long.TryParse(p.posi_id, out chk) ? chk.ToString() : "0";
+            p.dept_id = long.TryParse(p.dept_id, out chk) ? chk.ToString() : "0";
+            p.prefix_id = long.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
         }
         public String insert(Staff p, String userId)
         {
@@ -183,36 +187,46 @@ namespace modernpos_pos.objdb
             int chk = 0;
 
             chkNull(p);
-            sql = "Insert Into " + stf.table + "(" + stf.staff_code + "," + stf.username + "," + stf.prefix_id + "," +
-                stf.staff_fname_t + "," + stf.staff_fname_e + "," + stf.password1 + "," +
-                stf.active + "," + stf.remark + "," + stf.priority + "," +
-                stf.tele + "," + stf.mobile + "," + stf.fax + "," +
-                stf.email + "," + stf.posi_id + "," + stf.posi_name + "," +
-                stf.date_create + "," + stf.date_modi + "," + stf.date_cancel + "," +
-                stf.user_create + "," + stf.user_modi + "," + stf.user_cancel + "," +
-                stf.staff_lname_t + "," + stf.staff_lname_e + ", " + stf.pid + "," +
-                stf.logo + ", " + stf.dept_name + "," +
-                stf.status_admin + ", " + stf.status_module_reception + "," + stf.status_module_nurse + "," +
-                stf.status_module_doctor + "," +
-                stf.status_expense_appv + "," + stf.status_expense_draw + "," + stf.status_expense_pay + ", " +
-                stf.status_module_pharmacy + "," + stf.status_module_lab + ","  + stf.dept_id + "," +
-                stf.status_module_cashier + "," + stf.status_module_medicalrecord + " " +
-                ") " +
-                "Values ('" + p.staff_code + "','" + p.username + "','" + p.prefix_id + "'," +
-                "'" + p.staff_fname_t.Replace("'", "''") + "','" + p.staff_fname_e.Replace("'", "''") + "','" + p.password1 + "'," +
-                "'" + p.active + "','" + p.remark + "','" + p.priority + "'," +
-                "'" + p.tele + "','" + p.mobile + "','" + p.fax + "'," +
-                "'" + p.email + "','" + p.posi_id + "','" + p.posi_name + "'," +
-                "now(),'" + p.date_modi + "','" + p.date_cancel + "'," +
-                "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "', " +
-                "'" + p.staff_lname_t.Replace("'", "''") + "','" + p.staff_lname_e.Replace("'", "''") + "','" + p.pid + "'," +
-                "'" + p.logo + "','"  + p.dept_name.Replace("'", "''") + "'," +
-                "'" + p.status_admin + "','" + p.status_module_reception + "','" + p.status_module_nurse.Replace("'", "''") + "'," +
-                "'" + p.status_module_doctor.Replace("'", "''") + "'," +
-                "'" + p.status_expense_appv + "','" + p.status_expense_draw + "','" + p.status_expense_pay.Replace("'", "''") + "'," +
-                "'" + p.status_module_pharmacy + "','" + p.status_module_lab + "','" + p.dept_id + "'," +
-                "'" + p.status_module_cashier + "','" + p.status_module_medicalrecord + "' " +
-                ")";
+            sql = "Insert Into " + stf.table + " set " +
+                " " + stf.staff_code + "='"+p.staff_code + "' " +
+                "," + stf.username + "='" + p.username + "' " +
+                "," + stf.prefix_id + "='" + p.prefix_id + "' " +
+                "," + stf.staff_fname_t + "='" + p.staff_fname_t.Replace("'","''") + "' " +
+                "," + stf.staff_fname_e + "='" + p.staff_fname_e.Replace("'", "''") + "' " +
+                "," + stf.password1 + "='" + p.password1 + "' " +
+                "," + stf.active + "='" + p.active + "' " +
+                "," + stf.remark + "='" + p.remark.Replace("'", "''") + "' " +
+                "," + stf.priority + "='" + p.priority + "' " +
+                "," + stf.tele + "='" + p.tele + "' " +
+                "," + stf.mobile + "='" + p.mobile + "' " +
+                "," + stf.fax + "='" + p.fax + "' " +
+                "," + stf.email + "='" + p.email + "' " +
+                "," + stf.posi_id + "='" + p.posi_id + "' " +
+                "," + stf.posi_name + "='" + p.posi_name.Replace("'", "''") + "' " +
+                "," + stf.date_create + "=now() " +
+                "," + stf.date_modi + "='" + p.date_modi + "' " +
+                "," + stf.date_cancel + "='" + p.date_cancel + "' " +
+                "," + stf.user_create + "='" + userId + "' " +
+                "," + stf.user_modi + "='" + p.user_modi + "' " +
+                "," + stf.user_cancel + "='" + p.user_cancel + "' " +
+                "," + stf.staff_lname_t + "='" + p.staff_lname_t.Replace("'", "''") + "' " +
+                "," + stf.staff_lname_e + "='" + p.staff_lname_e.Replace("'", "''") + "' " +
+                ", " + stf.pid + "='" + p.pid + "' " +
+                "," + stf.logo + "='" + p.logo + "' " +
+                ", " + stf.dept_name + "='" + p.dept_name.Replace("'", "''") + "' " +
+                "," +  stf.status_admin + "='" + p.status_admin + "' " +
+                ", " + stf.status_module_reception + "='" + p.status_module_reception + "' " +
+                "," + stf.status_module_nurse + "='" + p.status_module_nurse + "' " +
+                "," + stf.status_module_doctor + "='" + p.status_module_doctor + "' " +
+                "," + stf.status_expense_appv + "='" + p.status_expense_appv + "' " +
+                "," + stf.status_expense_draw + "='" + p.status_expense_draw + "' " +
+                "," + stf.status_expense_pay + "='" + p.status_expense_pay + "' " +
+                ", " + stf.status_module_pharmacy + "='" + p.status_module_pharmacy + "' " +
+                "," + stf.status_module_lab + "='" + p.status_module_lab + "' " +
+                ","  + stf.dept_id + "='" + p.dept_id + "' " +
+                //"," + stf.status_module_cashier + "='" + p.status_module_cashier + "' " +
+                //"," + stf.status_module_medicalrecord + "='" + p.status_module_medicalrecord + "' " +                
+                " ";
             try
             {
                 re = conn.ExecuteNonQuery(conn.conn, sql);
@@ -239,7 +253,7 @@ namespace modernpos_pos.objdb
                 "," + stf.staff_fname_e + " = '" + p.staff_fname_e.Replace("'", "''") + "'" +
                 "," + stf.staff_lname_t + " = '" + p.staff_lname_t.Replace("'", "''") + "'" +
                 "," + stf.staff_lname_e + " = '" + p.staff_lname_e.Replace("'", "''") + "'" +
-                "," + stf.password1 + " = '" + p.password1.Replace("'", "''") + "'" +
+                //"," + stf.password1 + " = '" + p.password1.Replace("'", "''") + "'" +
                 "," + stf.remark + " = '" + p.remark.Replace("'", "''") + "'" +
                 "," + stf.priority + " = '" + p.priority + "'" +
                 "," + stf.tele + " = '" + p.tele + "'" +
@@ -263,8 +277,8 @@ namespace modernpos_pos.objdb
                 "," + stf.status_expense_pay + " = '" + p.status_expense_pay.Replace("'", "''") + "' " +
                 "," + stf.status_module_pharmacy + " = '" + p.status_module_pharmacy.Replace("'", "''") + "' " +
                 "," + stf.status_module_lab + " = '" + p.status_module_lab.Replace("'", "''") + "' " +
-                "," + stf.status_module_cashier + " = '" + p.status_module_cashier.Replace("'", "''") + "' " +
-                "," + stf.status_module_medicalrecord + " = '" + p.status_module_medicalrecord.Replace("'", "''") + "' " +
+                //"," + stf.status_module_cashier + " = '" + p.status_module_cashier.Replace("'", "''") + "' " +
+                //"," + stf.status_module_medicalrecord + " = '" + p.status_module_medicalrecord.Replace("'", "''") + "' " +
                 "Where " + stf.pkField + "='" + p.staff_id + "'"
                 ;
 
@@ -398,9 +412,9 @@ namespace modernpos_pos.objdb
         {
             Staff stf1 = new Staff();
             DataTable dt = new DataTable();
-            String sql = "select stf.*, pfx.patient_prefix_description, '' as dept_name_t, '' as posi_name_t  " +
+            String sql = "select stf.*, pfx.prefix_description, '' as dept_name_t, '' as posi_name_t  " +
                 "From " + stf.table + " stf " +
-                "Left Join f_patient_prefix pfx On stf.prefix_id = pfx.f_patient_prefix_id " +
+                "Left Join f_prefix pfx On stf.prefix_id = pfx.f_prefix_id " +
                 "Where stf." + stf.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             stf1 = setStaff(dt);
@@ -416,9 +430,9 @@ namespace modernpos_pos.objdb
             //    "Left Join b_position posi On stf.posi_id = posi.posi_id " +
             //    "Left Join b_department dept On stf.dept_id = dept.dept_id " +
             //    "Where LOWER(stf." + stf.staff_code + ") like '" + copId.ToLower() + "%'  ";
-            String sql = "select stf.*, pfx.patient_prefix_description, '' as dept_name_t, '' as posi_name_t " +
+            String sql = "select stf.*, pfx.prefix_description, '' as dept_name_t, '' as posi_name_t " +
                 "From " + stf.table + " stf " +
-                "Left Join f_patient_prefix pfx On stf.prefix_id = pfx.f_patient_prefix_id " +
+                "Left Join f_prefix pfx On stf.prefix_id = pfx.f_prefix_id " +
                 "Where LOWER(stf." + stf.staff_code + ") like '" + copId.ToLower() + "%'  ";
             dt = conn.selectData(conn.conn, sql);
 
@@ -430,9 +444,9 @@ namespace modernpos_pos.objdb
         {
             Staff cop1 = new Staff();
             DataTable dt = new DataTable();
-            String sql = "select stf.*, pfx.patient_prefix_description, '' as dept_name_t, '' as posi_name_t " +
+            String sql = "select stf.*, pfx.prefix_description, '' as dept_name_t, '' as posi_name_t " +
                 "From " + stf.table + " stf " +
-                "Left Join f_patient_prefix pfx On stf.prefix_id = pfx.f_patient_prefix_id " +
+                "Left Join f_prefix pfx On stf.prefix_id = pfx.f_prefix_id " +
                 "Where stf." + stf.username + " ='" + username + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setStaff(dt);
@@ -460,9 +474,9 @@ namespace modernpos_pos.objdb
         {
             Staff cop1 = new Staff();
             DataTable dt = new DataTable();
-            String sql = "select stf.*, pfx.patient_prefix_description, '' as dept_name_t, '' as posi_name_t  " +
+            String sql = "select stf.*, pfx.prefix_description, '' as dept_name_t, '' as posi_name_t  " +
                 "From " + stf.table + " stf " +
-                "Left Join f_patient_prefix pfx On stf.prefix_id = pfx.f_patient_prefix_id " +
+                "Left Join f_prefix pfx On stf.prefix_id = pfx.f_prefix_id " +
                 "Where stf." + stf.password_confirm + " ='" + pass + "' ";
             dt = conn.selectData(conn.conn, sql);
             if (dt.Rows.Count > 0)
@@ -478,9 +492,9 @@ namespace modernpos_pos.objdb
         {
             Staff cop1 = new Staff();
             DataTable dt = new DataTable();
-            String sql = "select stf.*, pfx.patient_prefix_description, '' as dept_name_t, '' as posi_name_t  " +
+            String sql = "select stf.*, pfx._prefix_description, '' as dept_name_t, '' as posi_name_t  " +
                 "From " + stf.table + " stf " +
-                "Left Join f_patient_prefix pfx On stf.prefix_id = pfx.f_patient_prefix_id " +
+                "Left Join f_prefix pfx On stf.prefix_id = pfx.f_prefix_id " +
                 "Where stf." + stf.password_confirm + " ='" + pass + "' ";
             dt = conn.selectData(conn.conn, sql);
             if (dt.Rows.Count > 0)
@@ -516,9 +530,9 @@ namespace modernpos_pos.objdb
                 {
                     return cop1;
                 }
-                String sql = "select stf.*, pfx.patient_prefix_description, '' as dept_name_t, '' as posi_name_t " +
+                String sql = "select stf.*, pfx._prefix_description, '' as dept_name_t, '' as posi_name_t " +
                     "From " + stf.table + " stf " +
-                    "Left Join f_patient_prefix pfx On stf.prefix_id = pfx.f_patient_prefix_id " +
+                    "Left Join f_prefix pfx On stf.prefix_id = pfx.f_prefix_id " +
                     "Where stf." + stf.username + " ='" + username + "' and " + stf.password1 + "='" + password1 + "' ";
                 dt = conn.selectData(conn.conn, sql);
                 cop1 = setStaff(dt);
@@ -564,7 +578,7 @@ namespace modernpos_pos.objdb
                 //stf1.posi_id = dt.Rows[0][stf.posi_id].ToString();
                 stf1.dept_id = dt.Rows[0][stf.dept_id].ToString();
                 stf1.dept_name = dt.Rows[0][stf.dept_name].ToString();
-                stf1.prefix_name_t = dt.Rows[0]["patient_prefix_description"] != null ? dt.Rows[0]["patient_prefix_description"].ToString():"";
+                stf1.prefix_name_t = dt.Rows[0]["prefix_description"] != null ? dt.Rows[0]["prefix_description"].ToString():"";
                 stf1.status_admin = dt.Rows[0][stf.status_admin] != null ? dt.Rows[0][stf.status_admin].ToString():"";
                 stf1.status_module_reception = dt.Rows[0][stf.status_module_reception] != null ? dt.Rows[0][stf.status_module_reception].ToString():"0";
                 stf1.status_module_nurse = dt.Rows[0][stf.status_module_nurse] != null ? dt.Rows[0][stf.status_module_nurse].ToString():"0";
@@ -579,8 +593,8 @@ namespace modernpos_pos.objdb
 
                 stf1.status_module_pharmacy = dt.Rows[0][stf.status_module_pharmacy] != null ? dt.Rows[0][stf.status_module_pharmacy].ToString() : "0";
                 stf1.status_module_lab = dt.Rows[0][stf.status_module_lab] != null ? dt.Rows[0][stf.status_module_lab].ToString() : "0";
-                stf1.status_module_cashier = dt.Rows[0][stf.status_module_cashier] != null ? dt.Rows[0][stf.status_module_cashier].ToString() : "0";
-                stf1.status_module_medicalrecord = dt.Rows[0][stf.status_module_medicalrecord] != null ? dt.Rows[0][stf.status_module_medicalrecord].ToString() : "0";
+                //stf1.status_module_cashier = dt.Rows[0][stf.status_module_cashier] != null ? dt.Rows[0][stf.status_module_cashier].ToString() : "0";
+                //stf1.status_module_medicalrecord = dt.Rows[0][stf.status_module_medicalrecord] != null ? dt.Rows[0][stf.status_module_medicalrecord].ToString() : "0";
             }
             else
             {

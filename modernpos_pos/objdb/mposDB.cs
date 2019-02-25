@@ -16,6 +16,12 @@ namespace modernpos_pos.objdb
         public FPrefixDB fpfDB;
         public DepartmentDB deptDB;
         public PositionDB posiDB;
+        public AreaDB areaDB;
+        public TableDB tblDB;
+        public RestaurantDB resDB;
+        public FoodsCatDB foocDB;
+        public FoodsTypeDB footDB;
+        public FoodsDB fooDB;
 
         public mPosDB(ConnectDB c)
         {
@@ -32,6 +38,12 @@ namespace modernpos_pos.objdb
             deptDB = new DepartmentDB(conn);
             posiDB = new PositionDB(conn);
             fpfDB = new FPrefixDB(conn);
+            areaDB = new AreaDB(conn);
+            tblDB = new TableDB(conn);
+            resDB = new RestaurantDB(conn);
+            foocDB = new FoodsCatDB(conn);
+            footDB = new FoodsTypeDB(conn);
+            fooDB = new FoodsDB(conn);
 
             Console.WriteLine("mPosDB end");
         }

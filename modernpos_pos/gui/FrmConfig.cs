@@ -30,6 +30,53 @@ namespace modernpos_pos.gui
             btmStf.Click += BtmStf_Click;
             btnDept.Click += BtnDept_Click;
             btnPosi.Click += BtnPosi_Click;
+            btnRes.Click += BtnRes_Click;
+            btnTable.Click += BtnTable_Click;
+            btnArea.Click += BtnArea_Click;
+            btnRes.Click += BtnRes_Click1;
+            btnFoodsType.Click += BtnFoodsType_Click;
+            btnFoodsCategory.Click += BtnFoodsCategory_Click;
+        }
+
+        private void BtnFoodsCategory_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmCFoodsCategory frm = new FrmCFoodsCategory(mposC);
+            frm.Show(this);
+        }
+
+        private void BtnFoodsType_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmCFoodsType frm = new FrmCFoodsType(mposC);
+            frm.Show(this);
+        }
+
+        private void BtnRes_Click1(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmCRestaurant frm = new FrmCRestaurant(mposC);
+            frm.Show(this);
+        }
+
+        private void BtnArea_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmCArea frm = new FrmCArea(mposC);
+            frm.Show(this);
+        }
+
+        private void BtnTable_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmCTable frm = new FrmCTable(mposC);
+            frm.Show(this);
+        }
+
+        private void BtnRes_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+
         }
 
         private void BtnPosi_Click(object sender, EventArgs e)

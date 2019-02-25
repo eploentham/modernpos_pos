@@ -12,7 +12,7 @@ namespace modernpos_pos.object1
         public String area_code { get; set; }
         public String area_name { get; set; }
 
-        //public String active { get; set; }
+        public String status_aircondition { get; set; }
         //public String remark { get; set; }
         //public String sort1 { get; set; }
         //public String date_create { get; set; }

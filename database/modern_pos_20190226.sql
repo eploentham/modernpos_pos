@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: modern_pos
 -- ------------------------------------------------------
--- Server version	8.0.13
+-- Server version	8.0.12
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -38,8 +38,9 @@ CREATE TABLE `b_area` (
   `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `status_aircondition` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT 'ห้องแอร์',
   PRIMARY KEY (`area_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=100000001 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=100';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,6 +49,7 @@ CREATE TABLE `b_area` (
 
 LOCK TABLES `b_area` WRITE;
 /*!40000 ALTER TABLE `b_area` DISABLE KEYS */;
+INSERT INTO `b_area` VALUES (1,'100','ในร้าน','1','',NULL,'2019-02-25 09:47:13',NULL,'0','0','0',NULL,'',NULL,NULL,'0'),(100000000,'101','นอกร้าน','1','',NULL,'2019-02-25 09:50:23',NULL,'0','0','0',NULL,'',NULL,NULL,'0');
 /*!40000 ALTER TABLE `b_area` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -215,8 +217,9 @@ CREATE TABLE `b_foods` (
   `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `sort1` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `foods_cat_id` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`foods_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=104000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=104';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,6 +229,43 @@ CREATE TABLE `b_foods` (
 LOCK TABLES `b_foods` WRITE;
 /*!40000 ALTER TABLE `b_foods` DISABLE KEYS */;
 /*!40000 ALTER TABLE `b_foods` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `b_foods_category`
+--
+
+DROP TABLE IF EXISTS `b_foods_category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `b_foods_category` (
+  `foods_cat_id` int(11) NOT NULL AUTO_INCREMENT,
+  `foods_cat_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `foods_cat_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `active` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `sort1` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_create` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_modi` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `host_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `branch_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `device_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`foods_cat_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=103000001 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=103';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `b_foods_category`
+--
+
+LOCK TABLES `b_foods_category` WRITE;
+/*!40000 ALTER TABLE `b_foods_category` DISABLE KEYS */;
+INSERT INTO `b_foods_category` VALUES (103000000,'100','Foods','1','',NULL,'2019-02-25 17:01:37',NULL,'0','0','0',NULL,'',NULL,NULL);
+/*!40000 ALTER TABLE `b_foods_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -252,7 +292,7 @@ CREATE TABLE `b_foods_type` (
   `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`foods_type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=102000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=102';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -261,6 +301,7 @@ CREATE TABLE `b_foods_type` (
 
 LOCK TABLES `b_foods_type` WRITE;
 /*!40000 ALTER TABLE `b_foods_type` DISABLE KEYS */;
+INSERT INTO `b_foods_type` VALUES (1,'100','ก๋วยเตี่ยว','1','',NULL,'2019-02-25 16:05:36',NULL,'0','0','0',NULL,'',NULL,NULL);
 /*!40000 ALTER TABLE `b_foods_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -289,7 +330,7 @@ CREATE TABLE `b_position` (
   `status_doctor` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `status_embryologist` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`posi_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1400000004 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=140';
+) ENGINE=MyISAM AUTO_INCREMENT=1400000005 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=140';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -298,6 +339,7 @@ CREATE TABLE `b_position` (
 
 LOCK TABLES `b_position` WRITE;
 /*!40000 ALTER TABLE `b_position` DISABLE KEYS */;
+INSERT INTO `b_position` VALUES (1400000004,'100','ผู้จัดการร้าน','',NULL,'2019-02-25 09:23:52','','','','','','1','','','0','0');
 /*!40000 ALTER TABLE `b_position` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -408,7 +450,7 @@ CREATE TABLE `b_restaurant` (
   `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `device_id` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`res_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='ชื่อร้านอาหาร';
+) ENGINE=MyISAM AUTO_INCREMENT=101000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=101 ชื่อร้านอาหาร';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -417,6 +459,7 @@ CREATE TABLE `b_restaurant` (
 
 LOCK TABLES `b_restaurant` WRITE;
 /*!40000 ALTER TABLE `b_restaurant` DISABLE KEYS */;
+INSERT INTO `b_restaurant` VALUES (1,'100','aaaaa','1','','2019-02-25 15:33:57',NULL,NULL,'','','','','','','','','','','','','',NULL,'0','0',NULL,'',NULL,NULL,'0');
 /*!40000 ALTER TABLE `b_restaurant` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -467,7 +510,7 @@ CREATE TABLE `b_staff` (
   `status_module_pharmacy` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `status_module_lab` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`staff_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1220000039 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=122';
+) ENGINE=MyISAM AUTO_INCREMENT=1220000040 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=122';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -476,6 +519,7 @@ CREATE TABLE `b_staff` (
 
 LOCK TABLES `b_staff` WRITE;
 /*!40000 ALTER TABLE `b_staff` DISABLE KEYS */;
+INSERT INTO `b_staff` VALUES (1220000039,'100','pop','pop',2090000019,'ภพ','pop','','','1','','','','','','0','','2019-02-25 09:15:51','2019-02-25 09:22:53','','','','','',0,'','','','2','0','0','0','0','0','0','pop','0','0');
 /*!40000 ALTER TABLE `b_staff` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -506,8 +550,9 @@ CREATE TABLE `b_table` (
   `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `status_reser` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT 'status จอง',
   PRIMARY KEY (`table_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -516,6 +561,7 @@ CREATE TABLE `b_table` (
 
 LOCK TABLES `b_table` WRITE;
 /*!40000 ALTER TABLE `b_table` DISABLE KEYS */;
+INSERT INTO `b_table` VALUES (1,NULL,'1','1','1','',NULL,'2019-02-25 14:41:46',NULL,'0','0',NULL,'0','0','0',NULL,'',NULL,NULL,'0'),(2,NULL,'2','2','1','',NULL,'2019-02-25 14:41:55',NULL,'0','0',NULL,'0','0','0',NULL,'',NULL,NULL,'0'),(3,NULL,'3','3','1','',NULL,'2019-02-25 14:42:01',NULL,'0','0',NULL,'0','0','0',NULL,'',NULL,NULL,'0'),(4,NULL,'4','4','1','',NULL,'2019-02-25 14:42:06',NULL,'0','0',NULL,'0','0','0',NULL,'',NULL,NULL,'0'),(5,NULL,'5','5','1','',NULL,'2019-02-25 14:42:11',NULL,'0','0',NULL,'0','0','0',NULL,'',NULL,NULL,'0'),(6,NULL,'100','100','1','',NULL,'2019-02-25 14:42:29',NULL,'0','1',NULL,'0','0','0',NULL,'',NULL,NULL,'0'),(7,NULL,'6','6','1','',NULL,'2019-02-25 14:42:34',NULL,'0','0',NULL,'0','0','0',NULL,'',NULL,NULL,'0');
 /*!40000 ALTER TABLE `b_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -971,4 +1017,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-25  7:31:21
+-- Dump completed on 2019-02-25 18:03:23

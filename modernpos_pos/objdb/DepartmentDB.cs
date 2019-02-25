@@ -53,16 +53,16 @@ namespace modernpos_pos.objdb
             String sql = "";
             p.active = "1";
             //p.ssdata_id = "";
-            int chk = 0;
+            long chk = 0;
 
             p.date_modi = p.date_modi == null ? "" : p.date_modi;
             p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
             p.user_create = p.user_create == null ? "" : p.user_create;
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
-            p.comp_id = int.TryParse(p.comp_id, out chk) ? chk.ToString() : "0";
-            p.dept_id = int.TryParse(p.dept_id, out chk) ? chk.ToString() : "0";
-            p.dept_parent_id = int.TryParse(p.dept_parent_id, out chk) ? chk.ToString() : "0";
+            p.comp_id = long.TryParse(p.comp_id, out chk) ? chk.ToString() : "0";
+            p.dept_id = long.TryParse(p.dept_id, out chk) ? chk.ToString() : "0";
+            p.dept_parent_id = long.TryParse(p.dept_parent_id, out chk) ? chk.ToString() : "0";
 
             sql = "Insert Into " + dept.table + "(" + dept.depart_code + "," + dept.depart_name_t + "," + dept.comp_id + "," +
                 dept.dept_parent_id + "," + dept.remark + "," + dept.date_create + "," +

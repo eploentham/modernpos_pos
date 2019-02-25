@@ -37,6 +37,11 @@
             this.btmStf = new C1.Win.C1Input.C1Button();
             this.btnDept = new C1.Win.C1Input.C1Button();
             this.btnPosi = new C1.Win.C1Input.C1Button();
+            this.btnCop = new C1.Win.C1Input.C1Button();
+            this.btnFoods = new C1.Win.C1Input.C1Button();
+            this.c1Button1 = new C1.Win.C1Input.C1Button();
+            this.btnFoodsType = new C1.Win.C1Input.C1Button();
+            this.btnFoodsCategory = new C1.Win.C1Input.C1Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTable)).BeginInit();
@@ -44,6 +49,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.btmStf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDept)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPosi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoods)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoodsType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoodsCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,7 +91,7 @@
             // 
             // btnArea
             // 
-            this.btnArea.Location = new System.Drawing.Point(471, 257);
+            this.btnArea.Location = new System.Drawing.Point(484, 185);
             this.btnArea.Name = "btnArea";
             this.btnArea.Size = new System.Drawing.Size(116, 77);
             this.btnArea.TabIndex = 7;
@@ -90,7 +100,7 @@
             // 
             // btnTable
             // 
-            this.btnTable.Location = new System.Drawing.Point(349, 257);
+            this.btnTable.Location = new System.Drawing.Point(362, 185);
             this.btnTable.Name = "btnTable";
             this.btnTable.Size = new System.Drawing.Size(116, 77);
             this.btnTable.TabIndex = 6;
@@ -99,7 +109,7 @@
             // 
             // btnRes
             // 
-            this.btnRes.Location = new System.Drawing.Point(227, 257);
+            this.btnRes.Location = new System.Drawing.Point(240, 185);
             this.btnRes.Name = "btnRes";
             this.btnRes.Size = new System.Drawing.Size(116, 77);
             this.btnRes.TabIndex = 5;
@@ -108,7 +118,7 @@
             // 
             // btmStf
             // 
-            this.btmStf.Location = new System.Drawing.Point(227, 340);
+            this.btmStf.Location = new System.Drawing.Point(240, 268);
             this.btmStf.Name = "btmStf";
             this.btmStf.Size = new System.Drawing.Size(116, 77);
             this.btmStf.TabIndex = 8;
@@ -117,7 +127,7 @@
             // 
             // btnDept
             // 
-            this.btnDept.Location = new System.Drawing.Point(349, 340);
+            this.btnDept.Location = new System.Drawing.Point(362, 268);
             this.btnDept.Name = "btnDept";
             this.btnDept.Size = new System.Drawing.Size(116, 77);
             this.btnDept.TabIndex = 9;
@@ -126,18 +136,68 @@
             // 
             // btnPosi
             // 
-            this.btnPosi.Location = new System.Drawing.Point(471, 340);
+            this.btnPosi.Location = new System.Drawing.Point(484, 268);
             this.btnPosi.Name = "btnPosi";
             this.btnPosi.Size = new System.Drawing.Size(116, 77);
             this.btnPosi.TabIndex = 10;
             this.btnPosi.Text = "ตำแหน่ง";
             this.btnPosi.UseVisualStyleBackColor = true;
             // 
+            // btnCop
+            // 
+            this.btnCop.Location = new System.Drawing.Point(240, 351);
+            this.btnCop.Name = "btnCop";
+            this.btnCop.Size = new System.Drawing.Size(116, 77);
+            this.btnCop.TabIndex = 11;
+            this.btnCop.Text = "บริษัท";
+            this.btnCop.UseVisualStyleBackColor = true;
+            // 
+            // btnFoods
+            // 
+            this.btnFoods.Location = new System.Drawing.Point(240, 434);
+            this.btnFoods.Name = "btnFoods";
+            this.btnFoods.Size = new System.Drawing.Size(116, 77);
+            this.btnFoods.TabIndex = 12;
+            this.btnFoods.Text = "Foods";
+            this.btnFoods.UseVisualStyleBackColor = true;
+            // 
+            // c1Button1
+            // 
+            this.c1Button1.Location = new System.Drawing.Point(362, 434);
+            this.c1Button1.Name = "c1Button1";
+            this.c1Button1.Size = new System.Drawing.Size(116, 77);
+            this.c1Button1.TabIndex = 13;
+            this.c1Button1.Text = "เครื่องดื่ม";
+            this.c1Button1.UseVisualStyleBackColor = true;
+            // 
+            // btnFoodsType
+            // 
+            this.btnFoodsType.Location = new System.Drawing.Point(240, 517);
+            this.btnFoodsType.Name = "btnFoodsType";
+            this.btnFoodsType.Size = new System.Drawing.Size(116, 77);
+            this.btnFoodsType.TabIndex = 14;
+            this.btnFoodsType.Text = "Foods Type";
+            this.btnFoodsType.UseVisualStyleBackColor = true;
+            // 
+            // btnFoodsCategory
+            // 
+            this.btnFoodsCategory.Location = new System.Drawing.Point(362, 517);
+            this.btnFoodsCategory.Name = "btnFoodsCategory";
+            this.btnFoodsCategory.Size = new System.Drawing.Size(116, 77);
+            this.btnFoodsCategory.TabIndex = 15;
+            this.btnFoodsCategory.Text = "Foods Category";
+            this.btnFoodsCategory.UseVisualStyleBackColor = true;
+            // 
             // FrmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 591);
+            this.ClientSize = new System.Drawing.Size(815, 629);
+            this.Controls.Add(this.btnFoodsCategory);
+            this.Controls.Add(this.btnFoodsType);
+            this.Controls.Add(this.c1Button1);
+            this.Controls.Add(this.btnFoods);
+            this.Controls.Add(this.btnCop);
             this.Controls.Add(this.btnPosi);
             this.Controls.Add(this.btnDept);
             this.Controls.Add(this.btmStf);
@@ -156,6 +216,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.btmStf)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDept)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPosi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoods)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoodsType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoodsCategory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -171,5 +236,10 @@
         private C1.Win.C1Input.C1Button btmStf;
         private C1.Win.C1Input.C1Button btnDept;
         private C1.Win.C1Input.C1Button btnPosi;
+        private C1.Win.C1Input.C1Button btnCop;
+        private C1.Win.C1Input.C1Button btnFoods;
+        private C1.Win.C1Input.C1Button c1Button1;
+        private C1.Win.C1Input.C1Button btnFoodsType;
+        private C1.Win.C1Input.C1Button btnFoodsCategory;
     }
 }
