@@ -27,13 +27,13 @@ namespace modernpos_pos.objdb
             lFpf = new List<FPrefix>();
             fpf = new FPrefix();
             fpf.active = "active";
-            fpf.f_patient_prefix_id = "f_patient_prefix_id";
+            fpf.f_prefix_id = "f_prefix_id";
             fpf.f_sex_id = "f_sex_id";            
-            fpf.patient_prefix_description = "patient_prefix_description";
+            fpf.prefix_description = "prefix_description";
             fpf.active = "active";
 
-            fpf.pkField = "f_patient_prefix_id";
-            fpf.table = "f_patient_prefix";
+            fpf.pkField = "f_prefix_id";
+            fpf.table = "f_prefix";
         }
         public void getlFPrefix()
         {
@@ -44,8 +44,8 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 FPrefix itm1 = new FPrefix();
-                itm1.f_patient_prefix_id = row[fpf.f_patient_prefix_id].ToString();
-                itm1.patient_prefix_description = row[fpf.patient_prefix_description].ToString();
+                itm1.f_prefix_id = row[fpf.f_prefix_id].ToString();
+                itm1.prefix_description = row[fpf.prefix_description].ToString();
 
                 lFpf.Add(itm1);
             }
@@ -59,9 +59,9 @@ namespace modernpos_pos.objdb
             }
             foreach (FPrefix sex in lFpf)
             {
-                if (sex.f_patient_prefix_id.Equals(id))
+                if (sex.f_prefix_id.Equals(id))
                 {
-                    re = sex.patient_prefix_description;
+                    re = sex.prefix_description;
                     break;
                 }
             }
@@ -105,8 +105,8 @@ namespace modernpos_pos.objdb
             FPrefix dept1 = new FPrefix();
             if (dt.Rows.Count > 0)
             {
-                dept1.f_patient_prefix_id = dt.Rows[0][fpf.f_patient_prefix_id].ToString();
-                dept1.patient_prefix_description = dt.Rows[0][fpf.patient_prefix_description].ToString();                
+                dept1.f_prefix_id = dt.Rows[0][fpf.f_prefix_id].ToString();
+                dept1.prefix_description = dt.Rows[0][fpf.prefix_description].ToString();                
             }
 
             return dept1;
@@ -114,7 +114,7 @@ namespace modernpos_pos.objdb
         public DataTable selectC1()
         {
             DataTable dt = new DataTable();
-            String sql = "select fpf." + fpf.pkField + ",fpf." + fpf.patient_prefix_description + " " +
+            String sql = "select fpf." + fpf.pkField + ",fpf." + fpf.prefix_description + " " +
                 "From " + fpf.table + " fpf " +
                 " " +
                 "Where fpf." + fpf.active + " ='1' ";
@@ -138,8 +138,8 @@ namespace modernpos_pos.objdb
             foreach (FPrefix row in lFpf)
             {
                 item = new ComboBoxItem();
-                item.Value = row.f_patient_prefix_id;
-                item.Text = row.patient_prefix_description;
+                item.Value = row.f_prefix_id;
+                item.Text = row.prefix_description;
                 c.Items.Add(item);
                 if (item.Value.Equals(selected))
                 {
@@ -165,8 +165,8 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 item = new ComboBoxItem();
-                item.Text = row[fpf.patient_prefix_description].ToString();
-                item.Value = row[fpf.f_patient_prefix_id].ToString();
+                item.Text = row[fpf.prefix_description].ToString();
+                item.Value = row[fpf.f_prefix_id].ToString();
 
                 c.Items.Add(item);
             }
