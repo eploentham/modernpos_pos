@@ -13,7 +13,7 @@ namespace modernpos_pos.objdb
     {
         Foods foo;
         ConnectDB conn;
-        public List<Foods> lfooT;
+        public List<Foods> lfoo;
         public FoodsDB(ConnectDB c)
         {
             conn = c;
@@ -21,7 +21,7 @@ namespace modernpos_pos.objdb
         }
         private void initConfig()
         {
-            lfooT = new List<Foods>();
+            lfoo = new List<Foods>();
             foo = new Foods();
             foo.foods_id = "foods_id";
             foo.foods_code = "foods_code";
@@ -107,10 +107,9 @@ namespace modernpos_pos.objdb
 
             return dt;
         }
-        public void getlArea()
+        public List<Foods> getlFoods1()
         {
-            //lDept = new List<Position>();
-            lfooT.Clear();
+            List<Foods> lfoo1 = new List<Foods>();
             DataTable dt = new DataTable();
             dt = selectAll();
             foreach (DataRow row in dt.Rows)
@@ -119,14 +118,30 @@ namespace modernpos_pos.objdb
                 itm1.foods_id = row[foo.foods_id].ToString();
                 itm1.foods_name = row[foo.foods_name].ToString();
 
-                lfooT.Add(itm1);
+                lfoo1.Add(itm1);
+            }
+            return lfoo1;
+        }
+        public void getlFoods()
+        {
+            //lDept = new List<Position>();
+            lfoo.Clear();
+            DataTable dt = new DataTable();
+            dt = selectAll();
+            foreach (DataRow row in dt.Rows)
+            {
+                Foods itm1 = new Foods();
+                itm1.foods_id = row[foo.foods_id].ToString();
+                itm1.foods_name = row[foo.foods_name].ToString();
+
+                lfoo.Add(itm1);
             }
         }
         public String getList(String id)
         {
             String re = "";
-            if (lfooT.Count <= 0) getlArea();
-            foreach (Foods sex in lfooT)
+            if (lfoo.Count <= 0) getlFoods();
+            foreach (Foods sex in lfoo)
             {
                 if (sex.foods_id.Equals(id))
                 {
@@ -279,7 +294,7 @@ namespace modernpos_pos.objdb
         {
             ComboBoxItem item = new ComboBoxItem();
             //DataTable dt = selectC1();
-            if (lfooT.Count <= 0) getlArea();
+            if (lfoo.Count <= 0) getlFoods();
             ComboBoxItem item1 = new ComboBoxItem();
             item1.Text = "";
             item1.Value = "000";
@@ -287,7 +302,7 @@ namespace modernpos_pos.objdb
             c.Items.Add(item1);
             //for (int i = 0; i < dt.Rows.Count; i++)
             int i = 0;
-            foreach (Foods row in lfooT)
+            foreach (Foods row in lfoo)
             {
                 item = new ComboBoxItem();
                 item.Value = row.foods_id;

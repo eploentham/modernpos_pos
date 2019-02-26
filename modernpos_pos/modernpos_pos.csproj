@@ -63,6 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="control\mPOSControl.cs" />
+    <Compile Include="gui\Form5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\Form5.Designer.cs">
+      <DependentUpon>Form5.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmCArea.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\Form5.resx">
+      <DependentUpon>Form5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmCArea.resx">
       <DependentUpon>FrmCArea.cs</DependentUpon>

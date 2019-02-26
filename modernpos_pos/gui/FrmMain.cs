@@ -21,6 +21,7 @@ namespace modernpos_pos.gui
             InitializeComponent();
             this.mposC = mposC;
             this.splash = splash;
+            
             new Thread(() =>
             {
                 Thread.CurrentThread.IsBackground = true;
@@ -28,23 +29,23 @@ namespace modernpos_pos.gui
                 mposC.mposDB = new objdb.mPosDB(mposC.conn);
                 mposC.getInit();
             }).Start();
-            
+
             //if (login.LogonSuccessful.Equals("1"))
             //{
-                initConfig();
-                new Thread(() =>
-                {
-                    Thread.CurrentThread.IsBackground = true;
-                    /* run your code here */
+            initConfig();
+            //new Thread(() =>
+            //{
+            //    Thread.CurrentThread.IsBackground = true;
+            //    /* run your code here */
 
-                }).Start();
+            //}).Start();
             //}
             //else
             //{
             //    Application.Exit();
             //}
 
-            initConfig();
+            //initConfig();
             
         }
         private void initConfig()
@@ -52,6 +53,7 @@ namespace modernpos_pos.gui
             btnDineIn.Click += BtnDineIn_Click;
             btnTakeOut.Click += BtnTakeOut_Click;
             btnConfig.Click += BtnConfig_Click;
+            btnTakeOut.Click += BtnTakeOut_Click;
         }
 
         private void BtnConfig_Click(object sender, EventArgs e)
@@ -64,7 +66,8 @@ namespace modernpos_pos.gui
         private void BtnTakeOut_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-
+            FrmTakeOut frm = new FrmTakeOut(mposC);
+            frm.Show(this);
         }
 
         private void BtnDineIn_Click(object sender, EventArgs e)
