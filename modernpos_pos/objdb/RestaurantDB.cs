@@ -43,7 +43,9 @@ namespace modernpos_pos.objdb
             res.receipt_footer1 = "receipt_footer1";
             res.receipt_header1 = "receipt_header1";
             res.receipt_footer2 = "receipt_footer2";
+            res.receipt_footer3 = "receipt_footer3";
             res.receipt_header2 = "receipt_header2";
+            res.receipt_header3 = "receipt_header3";
 
             res.bill_code = "bill_code";
             res.bill_month = "bill_month";
@@ -54,7 +56,7 @@ namespace modernpos_pos.objdb
             res.printer_waterbar1 = "printer_waterbar1";
             res.printer_waterbar2 = "printer_waterbar2";
             res.printer_waterbar3 = "printer_waterbar3";
-            //res.receipt_header2 = "receipt_header2";
+            res.cop_id = "cop_id";
 
             res.pkField = "res_id";
             res.table = "b_restaurant";
@@ -159,7 +161,9 @@ namespace modernpos_pos.objdb
             p.receipt_footer1 = p.receipt_footer1 == null ? "" : p.receipt_footer1;
             p.receipt_header2 = p.receipt_header2 == null ? "" : p.receipt_header2;
             p.receipt_header1 = p.receipt_header1 == null ? "" : p.receipt_header1;
+            p.receipt_header3 = p.receipt_header3 == null ? "" : p.receipt_header3;
             p.receipt_footer2 = p.receipt_footer2 == null ? "" : p.receipt_footer2;
+            p.receipt_footer3 = p.receipt_footer3 == null ? "" : p.receipt_footer3;
 
             p.bill_code = p.bill_code == null ? "" : p.bill_code;
             p.bill_month = p.bill_month == null ? "" : p.bill_month;
@@ -174,7 +178,7 @@ namespace modernpos_pos.objdb
             p.host_id = long.TryParse(p.host_id, out chk) ? chk.ToString() : "0";
             p.branch_id = long.TryParse(p.branch_id, out chk) ? chk.ToString() : "0";
             p.device_id = long.TryParse(p.device_id, out chk) ? chk.ToString() : "0";
-
+            p.cop_id = long.TryParse(p.cop_id, out chk) ? chk.ToString() : "0";
         }
         public String insert(Restaurant p, String userId)
         {
@@ -195,20 +199,22 @@ namespace modernpos_pos.objdb
                 "," + res.host_id + " = '" + p.host_id + "' " +
                 "," + res.branch_id + " = '" + p.branch_id + "' " +
                 "," + res.device_id + " = '" + p.device_id + "' " +
-                "," + res.receipt_footer1 + " = '" + p.receipt_footer1 + "' " +
-                "," + res.receipt_header2 + " = '" + p.receipt_header2 + "' " +
-                "," + res.receipt_header1 + " = '" + p.receipt_header1 + "' " +
-                "," + res.receipt_footer2 + " = '" + p.receipt_footer2 + "' " +
+                "," + res.receipt_footer1 + " = '" + p.receipt_footer1.Replace("'", "''") + "' " +
+                "," + res.receipt_header2 + " = '" + p.receipt_header2.Replace("'", "''") + "' " +
+                "," + res.receipt_header1 + " = '" + p.receipt_header1.Replace("'", "''") + "' " +
+                "," + res.receipt_footer2 + " = '" + p.receipt_footer2.Replace("'", "''") + "' " +
                 "," + res.bill_code + " = '" + p.bill_code + "' " +
                 "," + res.bill_month + " = '" + p.bill_month + "' " +
                 "," + res.tax_id + " = '" + p.tax_id + "' " +
-                "," + res.printer_foods1 + " = '" + p.printer_foods1 + "' " +
-                "," + res.printer_foods2 + " = '" + p.printer_foods2 + "' " +
-                "," + res.printer_foods3 + " = '" + p.printer_foods3 + "' " +
-                "," + res.printer_waterbar1 + " = '" + p.printer_waterbar1 + "' " +
-                "," + res.printer_waterbar2 + " = '" + p.printer_waterbar2 + "' " +
-                "," + res.printer_waterbar3 + " = '" + p.printer_waterbar3 + "' " +
-                //"," + res.receipt_header21 + " = '" + p.receipt_header21 + "' " +
+                "," + res.printer_foods1 + " = '" + p.printer_foods1.Replace("'", "''") + "' " +
+                "," + res.printer_foods2 + " = '" + p.printer_foods2.Replace("'", "''") + "' " +
+                "," + res.printer_foods3 + " = '" + p.printer_foods3.Replace("'", "''") + "' " +
+                "," + res.printer_waterbar1 + " = '" + p.printer_waterbar1.Replace("'", "''") + "' " +
+                "," + res.printer_waterbar2 + " = '" + p.printer_waterbar2.Replace("'", "''") + "' " +
+                "," + res.printer_waterbar3 + " = '" + p.printer_waterbar3.Replace("'", "''") + "' " +
+                "," + res.receipt_footer3 + " = '" + p.receipt_footer3.Replace("'", "''") + "' " +
+                "," + res.receipt_header3 + " = '" + p.receipt_header3.Replace("'", "''") + "' " +
+                "," + res.cop_id + " = '" + p.cop_id + "' " +
                 " ";
             try
             {
@@ -241,8 +247,8 @@ namespace modernpos_pos.objdb
                 "," + res.receipt_header2 + " = '" + p.receipt_header2 + "' " +
                 "," + res.receipt_header1 + " = '" + p.receipt_header1 + "' " +
                 "," + res.receipt_header2 + " = '" + p.receipt_header2 + "' " +
-                "," + res.bill_code + " = '" + p.bill_code + "' " +
-                "," + res.bill_month + " = '" + p.bill_month + "' " +
+                //"," + res.bill_code + " = '" + p.bill_code + "' " +
+                //"," + res.bill_month + " = '" + p.bill_month + "' " +
                 "," + res.tax_id + " = '" + p.tax_id + "' " +
                 "," + res.printer_foods1 + " = '" + p.printer_foods1 + "' " +
                 "," + res.printer_foods2 + " = '" + p.printer_foods2 + "' " +
@@ -250,7 +256,9 @@ namespace modernpos_pos.objdb
                 "," + res.printer_waterbar1 + " = '" + p.printer_waterbar1 + "' " +
                 "," + res.printer_waterbar2 + " = '" + p.printer_waterbar2 + "' " +
                 "," + res.printer_waterbar3 + " = '" + p.printer_waterbar3 + "' " +
-                //"," + res.receipt_header21 + " = '" + p.receipt_header21 + "' " +
+                "," + res.receipt_footer3 + " = '" + p.receipt_footer3 + "' " +
+                "," + res.receipt_header3 + " = '" + p.receipt_header3 + "' " +
+                "," + res.cop_id + " = '" + p.cop_id + "' " +
 
                 "Where " + res.pkField + "='" + p.default_res + "'"
                 ;
@@ -362,6 +370,9 @@ namespace modernpos_pos.objdb
                 dept1.printer_waterbar1 = dt.Rows[0][res.printer_waterbar1] != null ? dt.Rows[0][res.printer_waterbar1].ToString() : "";
                 dept1.printer_waterbar2 = dt.Rows[0][res.printer_waterbar2] != null ? dt.Rows[0][res.printer_waterbar2].ToString() : "";
                 dept1.printer_waterbar3 = dt.Rows[0][res.printer_waterbar3] != null ? dt.Rows[0][res.printer_waterbar3].ToString() : "";
+                dept1.receipt_header3 = dt.Rows[0][res.receipt_header3] != null ? dt.Rows[0][res.receipt_header3].ToString() : "";
+                dept1.receipt_footer3 = dt.Rows[0][res.receipt_footer3] != null ? dt.Rows[0][res.receipt_footer3].ToString() : "";
+                dept1.cop_id = dt.Rows[0][res.cop_id] != null ? dt.Rows[0][res.cop_id].ToString() : "";
             }
             else
             {
@@ -391,7 +402,9 @@ namespace modernpos_pos.objdb
                 dept1.printer_waterbar1 = "";
                 dept1.printer_waterbar2 = "";
                 dept1.printer_waterbar3 = "";
-                //dept1.status_embryologist = "";
+                dept1.receipt_header3 = "";
+                dept1.receipt_footer3 = "";
+                dept1.cop_id = "";
             }
 
             return dept1;

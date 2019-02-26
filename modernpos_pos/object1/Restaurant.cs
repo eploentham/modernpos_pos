@@ -37,5 +37,8 @@ namespace modernpos_pos.object1
         public String user_modi { get; set; }
         public String user_cancel { get; set; }
         public String device_id { get; set; }
+        public String receipt_header3 { get; set; }
+        public String receipt_footer3 { get; set; }
+        public String cop_id { get; set; }
     }
 }

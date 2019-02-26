@@ -37,6 +37,14 @@ namespace modernpos_pos.gui
             btnFoodsType.Click += BtnFoodsType_Click;
             btnFoodsCategory.Click += BtnFoodsCategory_Click;
             btnFoods.Click += BtnFoods_Click;
+            btnFoodsCatSub.Click += BtnFoodsCatSub_Click;
+        }
+
+        private void BtnFoodsCatSub_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmCFoodsCatSub frm = new FrmCFoodsCatSub(mposC);
+            frm.Show(this);
         }
 
         private void BtnFoods_Click(object sender, EventArgs e)
@@ -49,7 +57,7 @@ namespace modernpos_pos.gui
         private void BtnFoodsCategory_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmCFoodsCategory frm = new FrmCFoodsCategory(mposC);
+            FrmCFoodsCat frm = new FrmCFoodsCat(mposC);
             frm.Show(this);
         }
 
@@ -77,7 +85,7 @@ namespace modernpos_pos.gui
         private void BtnTable_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmCTable frm = new FrmCTable(mposC);
+            FrmCFoodsCatSub frm = new FrmCFoodsCatSub(mposC);
             frm.Show(this);
         }
 

@@ -85,7 +85,7 @@ namespace modernpos_pos.objdb
             Table dept1 = new Table();
             if (dt.Rows.Count > 0)
             {
-                dept1.area_id = dt.Rows[0][tbl.area_id].ToString();
+                dept1.table_id = dt.Rows[0][tbl.table_id].ToString();
                 dept1.table_name = dt.Rows[0][tbl.table_name].ToString();
             }
 
@@ -111,7 +111,7 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 Table itm1 = new Table();
-                itm1.area_id = row[tbl.area_id].ToString();
+                itm1.table_id = row[tbl.table_id].ToString();
                 itm1.table_name = row[tbl.table_name].ToString();
 
                 lArea.Add(itm1);
@@ -123,7 +123,7 @@ namespace modernpos_pos.objdb
             if (lArea.Count <= 0) getlArea();
             foreach (Table sex in lArea)
             {
-                if (sex.area_id.Equals(id))
+                if (sex.table_id.Equals(id))
                 {
                     re = sex.table_name;
                     break;
@@ -151,6 +151,7 @@ namespace modernpos_pos.objdb
             p.host_id = long.TryParse(p.host_id, out chk) ? chk.ToString() : "0";
             p.branch_id = long.TryParse(p.branch_id, out chk) ? chk.ToString() : "0";
             p.device_id = long.TryParse(p.device_id, out chk) ? chk.ToString() : "0";
+            p.area_id = long.TryParse(p.area_id, out chk) ? chk.ToString() : "0";
 
         }
         public String insert(Table p, String userId)
@@ -175,6 +176,7 @@ namespace modernpos_pos.objdb
                 "," + tbl.status_togo + " = '" + p.status_togo + "' " +
                 "," + tbl.status_reser + " = '" + p.status_reser + "' " +
                 "," + tbl.status_use + " = '" + p.status_use + "' " +
+                "," + tbl.area_id + " = '" + p.area_id + "' " +
                 " ";
             try
             {
@@ -204,8 +206,8 @@ namespace modernpos_pos.objdb
                 "," + tbl.branch_id + " = '" + p.branch_id + "' " +
                 "," + tbl.device_id + " = '" + p.device_id + "' " +
                 "," + tbl.status_togo + " = '" + p.status_togo + "' " +
-
-                "Where " + tbl.pkField + "='" + p.area_id + "'"
+                "," + tbl.area_id + " = '" + p.area_id + "' " +
+                "Where " + tbl.pkField + "='" + p.table_id + "'"
                 ;
 
             try
@@ -249,7 +251,7 @@ namespace modernpos_pos.objdb
             {
                 item = new ComboBoxItem();
                 item.Text = row[tbl.table_name].ToString();
-                item.Value = row[tbl.area_id].ToString();
+                item.Value = row[tbl.table_id].ToString();
 
                 c.Items.Add(item);
             }
@@ -270,7 +272,7 @@ namespace modernpos_pos.objdb
             foreach (Table row in lArea)
             {
                 item = new ComboBoxItem();
-                item.Value = row.area_id;
+                item.Value = row.table_id;
                 item.Text = row.table_name;
                 c.Items.Add(item);
                 if (item.Value.Equals(selected))
@@ -288,10 +290,10 @@ namespace modernpos_pos.objdb
             Table dept1 = new Table();
             if (dt.Rows.Count > 0)
             {
-                dept1.area_id = dt.Rows[0][tbl.area_id].ToString();
+                dept1.table_id = dt.Rows[0][tbl.table_id].ToString();
                 dept1.table_code = dt.Rows[0][tbl.table_code].ToString();
                 dept1.table_name = dt.Rows[0][tbl.table_name].ToString();
-                //dept1.posi_name_e = dt.Rows[0][area.posi_name_e] != null ? dt.Rows[0][area.posi_name_e].ToString() : "";
+                dept1.area_id = dt.Rows[0][tbl.area_id] != null ? dt.Rows[0][tbl.area_id].ToString() : "";
                 //dept1.status_doctor = dt.Rows[0][area.status_doctor] != null ? dt.Rows[0][area.status_doctor].ToString() : "";
                 dept1.remark = dt.Rows[0][tbl.remark] != null ? dt.Rows[0][tbl.remark].ToString() : "";
                 dept1.date_create = dt.Rows[0][tbl.date_create] != null ? dt.Rows[0][tbl.date_create].ToString() : "";

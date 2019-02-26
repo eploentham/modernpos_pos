@@ -168,6 +168,13 @@ namespace modernpos_pos.gui
             txtResCode.Value = res.res_code;
             txtResNameT.Value = res.res_name;
             txtRemark.Value = res.remark;
+            txtBillHeader1.Value = res.receipt_header1;
+            txtBillHeader2.Value = res.receipt_header2;
+            txtBillHeader3.Value = res.receipt_header3;
+            txtBillFooter1.Value = res.receipt_footer1;
+            txtBillFooter2.Value = res.receipt_footer2;
+            txtBillFooter3.Value = res.receipt_footer2;
+            txtTaxId.Value = res.tax_id;
             //if (res.status_togo.Equals("1"))
             //{
             //    chkStatusTakeOut.Checked = true;
@@ -188,7 +195,7 @@ namespace modernpos_pos.gui
         private void setControlEnable(Boolean flag)
         {
             //txtID.Enabled = flag;
-            cboArea.Enabled = flag;
+            cboCop.Enabled = flag;
             txtResCode.Enabled = flag;
             txtResNameT.Enabled = flag;
             txtRemark.Enabled = flag;
@@ -203,6 +210,14 @@ namespace modernpos_pos.gui
             res.res_name = txtResNameT.Text;
             //posi.posi_name_e = txtPosiNameE.Text;
             res.remark = txtRemark.Text;
+            res.receipt_header1 = txtBillHeader1.Text;
+            res.receipt_header2 = txtBillHeader2.Text;
+            res.receipt_header3 = txtBillHeader3.Text;
+            res.receipt_footer1 = txtBillFooter1.Text;
+            res.receipt_footer2 = txtBillFooter2.Text;
+            res.receipt_footer3 = txtBillFooter3.Text;
+            res.cop_id = cboCop.SelectedItem == null ? "" : ((ComboBoxItem)cboCop.SelectedItem).Value;
+            res.tax_id = txtTaxId.Text;
             //res.status_togo = chkStatusTakeOut.Checked == true ? "1" : "0";
             //area.status_embryologist = chkEmbryologist.Checked == true ? "1" : "0";
         }

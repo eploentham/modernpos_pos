@@ -1,6 +1,6 @@
 ﻿namespace modernpos_pos.gui
 {
-    partial class FrmCFoodsCategory
+    partial class FrmCFoodsCat
     {
         /// <summary>
         /// Required designer variable.

@@ -22,6 +22,7 @@ namespace modernpos_pos.objdb
         public FoodsCatDB foocDB;
         public FoodsTypeDB footDB;
         public FoodsDB fooDB;
+        public FoodsCatSubDB fcbDB;
 
         public mPosDB(ConnectDB c)
         {
@@ -44,6 +45,7 @@ namespace modernpos_pos.objdb
             foocDB = new FoodsCatDB(conn);
             footDB = new FoodsTypeDB(conn);
             fooDB = new FoodsDB(conn);
+            fcbDB = new FoodsCatSubDB(conn);
 
             Console.WriteLine("mPosDB end");
         }

@@ -33,7 +33,24 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.cboArea = new C1.Win.C1Input.C1ComboBox();
+            this.txtTaxId = new C1.Win.C1Input.C1TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtBillFooter3 = new C1.Win.C1Input.C1TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBillFooter2 = new C1.Win.C1Input.C1TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtBillFooter1 = new C1.Win.C1Input.C1TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtBillHeader3 = new C1.Win.C1Input.C1TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtBillHeader2 = new C1.Win.C1Input.C1TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtBillHeader1 = new C1.Win.C1Input.C1TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cboCop = new C1.Win.C1Input.C1ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.chkEmbryologist = new C1.Win.C1Input.C1CheckBox();
             this.chkStatusTakeOut = new C1.Win.C1Input.C1CheckBox();
@@ -52,23 +69,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtBillHeader1 = new C1.Win.C1Input.C1TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtBillHeader2 = new C1.Win.C1Input.C1TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtBillHeader3 = new C1.Win.C1Input.C1TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtBillFooter3 = new C1.Win.C1Input.C1TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtBillFooter2 = new C1.Win.C1Input.C1TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtBillFooter1 = new C1.Win.C1Input.C1TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.c1TextBox1 = new C1.Win.C1Input.C1TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -76,7 +76,17 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboArea)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTaxId)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter1)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillHeader3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillHeader2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillHeader1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboCop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatusTakeOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
@@ -90,16 +100,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtResCode)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBillHeader1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBillHeader2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBillHeader3)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -158,10 +158,10 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel3.Controls.Add(this.c1TextBox1);
+            this.panel3.Controls.Add(this.txtTaxId);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.groupBox1);
-            this.panel3.Controls.Add(this.cboArea);
+            this.panel3.Controls.Add(this.cboCop);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.chkEmbryologist);
             this.panel3.Controls.Add(this.chkStatusTakeOut);
@@ -186,26 +186,258 @@
             this.panel3.TabIndex = 0;
             this.theme1.SetTheme(this.panel3, "(default)");
             // 
-            // cboArea
+            // txtTaxId
             // 
-            this.cboArea.AllowSpinLoop = false;
-            this.cboArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboArea.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboArea.GapHeight = 0;
-            this.cboArea.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboArea.ItemsDisplayMember = "";
-            this.cboArea.ItemsValueMember = "";
-            this.cboArea.Location = new System.Drawing.Point(124, 55);
-            this.cboArea.Name = "cboArea";
-            this.cboArea.Size = new System.Drawing.Size(207, 20);
-            this.cboArea.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboArea.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboArea.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboArea.TabIndex = 263;
-            this.cboArea.Tag = null;
-            this.theme1.SetTheme(this.cboArea, "(default)");
-            this.cboArea.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtTaxId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTaxId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtTaxId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtTaxId.Location = new System.Drawing.Point(124, 155);
+            this.txtTaxId.Name = "txtTaxId";
+            this.txtTaxId.Size = new System.Drawing.Size(207, 20);
+            this.txtTaxId.TabIndex = 268;
+            this.txtTaxId.Tag = null;
+            this.theme1.SetTheme(this.txtTaxId, "(default)");
+            this.txtTaxId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label11.Location = new System.Drawing.Point(27, 157);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 16);
+            this.label11.TabIndex = 267;
+            this.label11.Text = "Tax ID :";
+            this.theme1.SetTheme(this.label11, "(default)");
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.groupBox1.Location = new System.Drawing.Point(3, 193);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(417, 332);
+            this.groupBox1.TabIndex = 266;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Bill";
+            this.theme1.SetTheme(this.groupBox1, "(default)");
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.groupBox3.Controls.Add(this.txtBillFooter3);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.txtBillFooter2);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.txtBillFooter1);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.groupBox3.Location = new System.Drawing.Point(27, 125);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(374, 100);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Footer";
+            this.theme1.SetTheme(this.groupBox3, "(default)");
+            // 
+            // txtBillFooter3
+            // 
+            this.txtBillFooter3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBillFooter3.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBillFooter3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBillFooter3.Location = new System.Drawing.Point(115, 71);
+            this.txtBillFooter3.Name = "txtBillFooter3";
+            this.txtBillFooter3.Size = new System.Drawing.Size(253, 20);
+            this.txtBillFooter3.TabIndex = 269;
+            this.txtBillFooter3.Tag = null;
+            this.theme1.SetTheme(this.txtBillFooter3, "(default)");
+            this.txtBillFooter3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label8.Location = new System.Drawing.Point(18, 73);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 16);
+            this.label8.TabIndex = 268;
+            this.label8.Text = "บันทัดที่ 1 :";
+            this.theme1.SetTheme(this.label8, "(default)");
+            // 
+            // txtBillFooter2
+            // 
+            this.txtBillFooter2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBillFooter2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBillFooter2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBillFooter2.Location = new System.Drawing.Point(115, 45);
+            this.txtBillFooter2.Name = "txtBillFooter2";
+            this.txtBillFooter2.Size = new System.Drawing.Size(253, 20);
+            this.txtBillFooter2.TabIndex = 267;
+            this.txtBillFooter2.Tag = null;
+            this.theme1.SetTheme(this.txtBillFooter2, "(default)");
+            this.txtBillFooter2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label9.Location = new System.Drawing.Point(18, 47);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 16);
+            this.label9.TabIndex = 266;
+            this.label9.Text = "บันทัดที่ 1 :";
+            this.theme1.SetTheme(this.label9, "(default)");
+            // 
+            // txtBillFooter1
+            // 
+            this.txtBillFooter1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBillFooter1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBillFooter1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBillFooter1.Location = new System.Drawing.Point(115, 19);
+            this.txtBillFooter1.Name = "txtBillFooter1";
+            this.txtBillFooter1.Size = new System.Drawing.Size(253, 20);
+            this.txtBillFooter1.TabIndex = 265;
+            this.txtBillFooter1.Tag = null;
+            this.theme1.SetTheme(this.txtBillFooter1, "(default)");
+            this.txtBillFooter1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label10.Location = new System.Drawing.Point(18, 21);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 16);
+            this.label10.TabIndex = 264;
+            this.label10.Text = "บันทัดที่ 1 :";
+            this.theme1.SetTheme(this.label10, "(default)");
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.groupBox2.Controls.Add(this.txtBillHeader3);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.txtBillHeader2);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.txtBillHeader1);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.groupBox2.Location = new System.Drawing.Point(27, 19);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(374, 100);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Header";
+            this.theme1.SetTheme(this.groupBox2, "(default)");
+            // 
+            // txtBillHeader3
+            // 
+            this.txtBillHeader3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBillHeader3.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBillHeader3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBillHeader3.Location = new System.Drawing.Point(115, 71);
+            this.txtBillHeader3.Name = "txtBillHeader3";
+            this.txtBillHeader3.Size = new System.Drawing.Size(253, 20);
+            this.txtBillHeader3.TabIndex = 269;
+            this.txtBillHeader3.Tag = null;
+            this.theme1.SetTheme(this.txtBillHeader3, "(default)");
+            this.txtBillHeader3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label6.Location = new System.Drawing.Point(18, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 16);
+            this.label6.TabIndex = 268;
+            this.label6.Text = "บันทัดที่ 1 :";
+            this.theme1.SetTheme(this.label6, "(default)");
+            // 
+            // txtBillHeader2
+            // 
+            this.txtBillHeader2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBillHeader2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBillHeader2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBillHeader2.Location = new System.Drawing.Point(115, 45);
+            this.txtBillHeader2.Name = "txtBillHeader2";
+            this.txtBillHeader2.Size = new System.Drawing.Size(253, 20);
+            this.txtBillHeader2.TabIndex = 267;
+            this.txtBillHeader2.Tag = null;
+            this.theme1.SetTheme(this.txtBillHeader2, "(default)");
+            this.txtBillHeader2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label5.Location = new System.Drawing.Point(18, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 16);
+            this.label5.TabIndex = 266;
+            this.label5.Text = "บันทัดที่ 1 :";
+            this.theme1.SetTheme(this.label5, "(default)");
+            // 
+            // txtBillHeader1
+            // 
+            this.txtBillHeader1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBillHeader1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBillHeader1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBillHeader1.Location = new System.Drawing.Point(115, 19);
+            this.txtBillHeader1.Name = "txtBillHeader1";
+            this.txtBillHeader1.Size = new System.Drawing.Size(253, 20);
+            this.txtBillHeader1.TabIndex = 265;
+            this.txtBillHeader1.Tag = null;
+            this.theme1.SetTheme(this.txtBillHeader1, "(default)");
+            this.txtBillHeader1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label4.Location = new System.Drawing.Point(18, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 16);
+            this.label4.TabIndex = 264;
+            this.label4.Text = "บันทัดที่ 1 :";
+            this.theme1.SetTheme(this.label4, "(default)");
+            // 
+            // cboCop
+            // 
+            this.cboCop.AllowSpinLoop = false;
+            this.cboCop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboCop.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboCop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboCop.GapHeight = 0;
+            this.cboCop.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboCop.ItemsDisplayMember = "";
+            this.cboCop.ItemsValueMember = "";
+            this.cboCop.Location = new System.Drawing.Point(124, 55);
+            this.cboCop.Name = "cboCop";
+            this.cboCop.Size = new System.Drawing.Size(207, 20);
+            this.cboCop.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboCop.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboCop.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboCop.TabIndex = 263;
+            this.cboCop.Tag = null;
+            this.theme1.SetTheme(this.cboCop, "(default)");
+            this.cboCop.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label7
             // 
@@ -215,9 +447,9 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.label7.Location = new System.Drawing.Point(24, 58);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 16);
+            this.label7.Size = new System.Drawing.Size(42, 16);
             this.label7.TabIndex = 262;
-            this.label7.Text = "ตำแหน่ง :";
+            this.label7.Text = "บริษัท :";
             this.theme1.SetTheme(this.label7, "(default)");
             // 
             // chkEmbryologist
@@ -458,238 +690,6 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // txtBillHeader1
-            // 
-            this.txtBillHeader1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBillHeader1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtBillHeader1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBillHeader1.Location = new System.Drawing.Point(115, 19);
-            this.txtBillHeader1.Name = "txtBillHeader1";
-            this.txtBillHeader1.Size = new System.Drawing.Size(253, 20);
-            this.txtBillHeader1.TabIndex = 265;
-            this.txtBillHeader1.Tag = null;
-            this.theme1.SetTheme(this.txtBillHeader1, "(default)");
-            this.txtBillHeader1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label4.Location = new System.Drawing.Point(18, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 16);
-            this.label4.TabIndex = 264;
-            this.label4.Text = "บันทัดที่ 1 :";
-            this.theme1.SetTheme(this.label4, "(default)");
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.groupBox1.Location = new System.Drawing.Point(3, 193);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(417, 332);
-            this.groupBox1.TabIndex = 266;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Bill";
-            this.theme1.SetTheme(this.groupBox1, "(default)");
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.groupBox2.Controls.Add(this.txtBillHeader3);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.txtBillHeader2);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.txtBillHeader1);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.groupBox2.Location = new System.Drawing.Point(27, 19);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(374, 100);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Header";
-            this.theme1.SetTheme(this.groupBox2, "(default)");
-            // 
-            // txtBillHeader2
-            // 
-            this.txtBillHeader2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBillHeader2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtBillHeader2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBillHeader2.Location = new System.Drawing.Point(115, 45);
-            this.txtBillHeader2.Name = "txtBillHeader2";
-            this.txtBillHeader2.Size = new System.Drawing.Size(253, 20);
-            this.txtBillHeader2.TabIndex = 267;
-            this.txtBillHeader2.Tag = null;
-            this.theme1.SetTheme(this.txtBillHeader2, "(default)");
-            this.txtBillHeader2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label5.Location = new System.Drawing.Point(18, 47);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 16);
-            this.label5.TabIndex = 266;
-            this.label5.Text = "บันทัดที่ 1 :";
-            this.theme1.SetTheme(this.label5, "(default)");
-            // 
-            // txtBillHeader3
-            // 
-            this.txtBillHeader3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBillHeader3.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtBillHeader3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBillHeader3.Location = new System.Drawing.Point(115, 71);
-            this.txtBillHeader3.Name = "txtBillHeader3";
-            this.txtBillHeader3.Size = new System.Drawing.Size(253, 20);
-            this.txtBillHeader3.TabIndex = 269;
-            this.txtBillHeader3.Tag = null;
-            this.theme1.SetTheme(this.txtBillHeader3, "(default)");
-            this.txtBillHeader3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label6.Location = new System.Drawing.Point(18, 73);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 16);
-            this.label6.TabIndex = 268;
-            this.label6.Text = "บันทัดที่ 1 :";
-            this.theme1.SetTheme(this.label6, "(default)");
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.groupBox3.Controls.Add(this.txtBillFooter3);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.txtBillFooter2);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.txtBillFooter1);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.groupBox3.Location = new System.Drawing.Point(27, 125);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(374, 100);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Footer";
-            this.theme1.SetTheme(this.groupBox3, "(default)");
-            // 
-            // txtBillFooter3
-            // 
-            this.txtBillFooter3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBillFooter3.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtBillFooter3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBillFooter3.Location = new System.Drawing.Point(115, 71);
-            this.txtBillFooter3.Name = "txtBillFooter3";
-            this.txtBillFooter3.Size = new System.Drawing.Size(253, 20);
-            this.txtBillFooter3.TabIndex = 269;
-            this.txtBillFooter3.Tag = null;
-            this.theme1.SetTheme(this.txtBillFooter3, "(default)");
-            this.txtBillFooter3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label8.Location = new System.Drawing.Point(18, 73);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 16);
-            this.label8.TabIndex = 268;
-            this.label8.Text = "บันทัดที่ 1 :";
-            this.theme1.SetTheme(this.label8, "(default)");
-            // 
-            // txtBillFooter2
-            // 
-            this.txtBillFooter2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBillFooter2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtBillFooter2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBillFooter2.Location = new System.Drawing.Point(115, 45);
-            this.txtBillFooter2.Name = "txtBillFooter2";
-            this.txtBillFooter2.Size = new System.Drawing.Size(253, 20);
-            this.txtBillFooter2.TabIndex = 267;
-            this.txtBillFooter2.Tag = null;
-            this.theme1.SetTheme(this.txtBillFooter2, "(default)");
-            this.txtBillFooter2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label9.Location = new System.Drawing.Point(18, 47);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 16);
-            this.label9.TabIndex = 266;
-            this.label9.Text = "บันทัดที่ 1 :";
-            this.theme1.SetTheme(this.label9, "(default)");
-            // 
-            // txtBillFooter1
-            // 
-            this.txtBillFooter1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBillFooter1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtBillFooter1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBillFooter1.Location = new System.Drawing.Point(115, 19);
-            this.txtBillFooter1.Name = "txtBillFooter1";
-            this.txtBillFooter1.Size = new System.Drawing.Size(253, 20);
-            this.txtBillFooter1.TabIndex = 265;
-            this.txtBillFooter1.Tag = null;
-            this.theme1.SetTheme(this.txtBillFooter1, "(default)");
-            this.txtBillFooter1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label10.Location = new System.Drawing.Point(18, 21);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 16);
-            this.label10.TabIndex = 264;
-            this.label10.Text = "บันทัดที่ 1 :";
-            this.theme1.SetTheme(this.label10, "(default)");
-            // 
-            // c1TextBox1
-            // 
-            this.c1TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox1.Location = new System.Drawing.Point(124, 155);
-            this.c1TextBox1.Name = "c1TextBox1";
-            this.c1TextBox1.Size = new System.Drawing.Size(207, 20);
-            this.c1TextBox1.TabIndex = 268;
-            this.c1TextBox1.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox1, "(default)");
-            this.c1TextBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label11.Location = new System.Drawing.Point(27, 157);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 16);
-            this.label11.TabIndex = 267;
-            this.label11.Text = "Tax ID :";
-            this.theme1.SetTheme(this.label11, "(default)");
-            // 
             // FrmCRestaurant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -709,7 +709,19 @@
             this.splitContainer1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboArea)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTaxId)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillHeader3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillHeader2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillHeader1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboCop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatusTakeOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
@@ -724,18 +736,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtResCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBillHeader1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBillHeader2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBillHeader3)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -765,7 +765,7 @@
         private C1.Win.C1Input.C1TextBox txtPasswordVoid;
         private C1.Win.C1Input.C1CheckBox chkStatusTakeOut;
         private C1.Win.C1Input.C1CheckBox chkEmbryologist;
-        private C1.Win.C1Input.C1ComboBox cboArea;
+        private C1.Win.C1Input.C1ComboBox cboCop;
         private System.Windows.Forms.Label label7;
         private C1.Win.C1Input.C1TextBox txtBillHeader1;
         private System.Windows.Forms.Label label4;
@@ -782,7 +782,7 @@
         private System.Windows.Forms.Label label6;
         private C1.Win.C1Input.C1TextBox txtBillHeader2;
         private System.Windows.Forms.Label label5;
-        private C1.Win.C1Input.C1TextBox c1TextBox1;
+        private C1.Win.C1Input.C1TextBox txtTaxId;
         private System.Windows.Forms.Label label11;
     }
 }

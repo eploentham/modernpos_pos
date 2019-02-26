@@ -392,7 +392,10 @@ namespace modernpos_pos.control
                 foreach (string printer in PrinterSettings.InstalledPrinters)
                 {
                     settings.PrinterName = printer;
-                    c.Items.Insert(i, printer);
+                    ComboBoxItem item = new ComboBoxItem();
+                    item.Text = printer;
+                    item.Value = printer;
+                    c.Items.Add(item);
                     if (settings.IsDefaultPrinter)
                         printerDefault = printer;
                     i++;

@@ -17,7 +17,7 @@ using modernpos_pos.Properties;
 
 namespace modernpos_pos.gui
 {
-    public partial class FrmCFoodsCategory : Form
+    public partial class FrmCFoodsCat : Form
     {
         mPOSControl ic;
         FoodsCat fooC;
@@ -36,7 +36,7 @@ namespace modernpos_pos.gui
         C1SuperErrorProvider sep;
 
         String userIdVoid = "";
-        public FrmCFoodsCategory(mPOSControl x)
+        public FrmCFoodsCat(mPOSControl x)
         {
             InitializeComponent();
             ic = x;

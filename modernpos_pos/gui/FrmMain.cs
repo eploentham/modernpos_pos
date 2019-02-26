@@ -53,7 +53,7 @@ namespace modernpos_pos.gui
             btnDineIn.Click += BtnDineIn_Click;
             btnTakeOut.Click += BtnTakeOut_Click;
             btnConfig.Click += BtnConfig_Click;
-            btnTakeOut.Click += BtnTakeOut_Click;
+            //btnTakeOut.Click += BtnTakeOut_Click;
         }
 
         private void BtnConfig_Click(object sender, EventArgs e)

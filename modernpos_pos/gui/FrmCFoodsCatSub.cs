@@ -17,10 +17,10 @@ using modernpos_pos.Properties;
 
 namespace modernpos_pos.gui
 {
-    public partial class FrmCTable : Form
+    public partial class FrmCFoodsCatSub : Form
     {
         mPOSControl mposC;
-        Table tbl;
+        FoodsCatSub fcb;
 
         Font fEdit, fEditB;
 
@@ -28,7 +28,7 @@ namespace modernpos_pos.gui
         Font ff, ffB;
         int colID = 1, colCode = 2, colName = 3, colRemark = 4, colE = 5, colS = 6, coledit = 7, colCnt = 7;
 
-        C1FlexGrid grfTable;
+        C1FlexGrid grfFcb;
 
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
@@ -36,7 +36,7 @@ namespace modernpos_pos.gui
         C1SuperErrorProvider sep;
 
         String userIdVoid = "";
-        public FrmCTable(mPOSControl x)
+        public FrmCFoodsCatSub(mPOSControl x)
         {
             InitializeComponent();
             mposC = x;
@@ -45,7 +45,7 @@ namespace modernpos_pos.gui
 
         private void initConfig()
         {
-            tbl = new Table();
+            fcb = new FoodsCatSub();
             fEdit = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Regular);
             fEditB = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Bold);
 
@@ -57,14 +57,14 @@ namespace modernpos_pos.gui
                 theme1.SetTheme(c, "Office2013Red");
             }
 
-            bg = txtTableCode.BackColor;
-            fc = txtTableCode.ForeColor;
-            ff = txtTableCode.Font;
+            bg = txtFcbCode.BackColor;
+            fc = txtFcbCode.ForeColor;
+            ff = txtFcbCode.Font;
             txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
-            mposC.mposDB.areaDB.setCboArea(cboArea);
+            mposC.mposDB.foocDB.setCboFoodsCat(cboFoodsCat);
 
-            initGrfTable();
-            setGrfTable();
+            initGrfFoodsCatSub();
+            setGrfFoodsCatSub();
             setControlEnable(false);
             setFocusColor();
             sB1.Text = "";
@@ -75,67 +75,67 @@ namespace modernpos_pos.gui
             //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
         
-        private void initGrfTable()
+        private void initGrfFoodsCatSub()
         {
-            grfTable = new C1FlexGrid();
-            grfTable.Font = fEdit;
-            grfTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            grfTable.Location = new System.Drawing.Point(0, 0);
+            grfFcb = new C1FlexGrid();
+            grfFcb.Font = fEdit;
+            grfFcb.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfFcb.Location = new System.Drawing.Point(0, 0);
 
             //FilterRow fr = new FilterRow(grfPosi);
 
-            grfTable.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfPosi_AfterRowColChange);
-            grfTable.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
-            grfTable.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellChanged);
+            grfFcb.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfPosi_AfterRowColChange);
+            grfFcb.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
+            grfFcb.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellChanged);
 
-            panel2.Controls.Add(this.grfTable);
+            panel2.Controls.Add(this.grfFcb);
 
             C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
-            C1ThemeController.ApplyThemeToObject(grfTable, theme);
+            C1ThemeController.ApplyThemeToObject(grfFcb, theme);
         }
-        private void setGrfTable()
+        private void setGrfFoodsCatSub()
         {
             //grfDept.Rows.Count = 7;
 
-            grfTable.DataSource = mposC.mposDB.tblDB.selectAll();
-            grfTable.Cols.Count = colCnt;
-            CellStyle cs = grfTable.Styles.Add("btn");
+            grfFcb.DataSource = mposC.mposDB.fcbDB.selectAll();
+            grfFcb.Cols.Count = colCnt;
+            CellStyle cs = grfFcb.Styles.Add("btn");
             cs.DataType = typeof(Button);
             //cs.ComboList = "|Tom|Dick|Harry";
             cs.ForeColor = Color.Navy;
             cs.Font = new Font(Font, FontStyle.Bold);
-            cs = grfTable.Styles.Add("date");
+            cs = grfFcb.Styles.Add("date");
             cs.DataType = typeof(DateTime);
             cs.Format = "dd-MMM-yy";
             cs.ForeColor = Color.DarkGoldenrod;
 
-            grfTable.Cols[colE].Style = grfTable.Styles["btn"];
-            grfTable.Cols[colS].Style = grfTable.Styles["date"];
+            grfFcb.Cols[colE].Style = grfFcb.Styles["btn"];
+            grfFcb.Cols[colS].Style = grfFcb.Styles["date"];
 
-            grfTable.Cols[colID].Width = 60;
+            grfFcb.Cols[colID].Width = 60;
 
-            grfTable.Cols[colCode].Width = 80;
-            grfTable.Cols[colName].Width = 300;
+            grfFcb.Cols[colCode].Width = 80;
+            grfFcb.Cols[colName].Width = 300;
 
-            grfTable.ShowCursor = true;
+            grfFcb.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
             //grfDept.Cols[colCode].Caption = "รหัส";
 
-            grfTable.Cols[colCode].Caption = "รหัส";
-            grfTable.Cols[colName].Caption = "ชื่อโต๊ะ";
-            grfTable.Cols[colRemark].Caption = "หมายเหตุ";
+            grfFcb.Cols[colCode].Caption = "รหัส";
+            grfFcb.Cols[colName].Caption = "ชื่อกลุ่มย่อย";
+            grfFcb.Cols[colRemark].Caption = "หมายเหตุ";
 
             //grfDept.Cols[coledit].Visible = false;
-            CellRange rg = grfTable.GetCellRange(2, colE);
-            for (int i = 1; i < grfTable.Rows.Count; i++)
+            CellRange rg = grfFcb.GetCellRange(2, colE);
+            for (int i = 1; i < grfFcb.Rows.Count; i++)
             {
-                grfTable[i, 0] = i;
+                grfFcb[i, 0] = i;
                 if (i % 2 == 0)
-                    grfTable.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+                    grfFcb.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
-            grfTable.Cols[colID].Visible = false;
-            grfTable.Cols[colE].Visible = false;
-            grfTable.Cols[colS].Visible = false;
+            grfFcb.Cols[colID].Visible = false;
+            grfFcb.Cols[colE].Visible = false;
+            grfFcb.Cols[colS].Visible = false;
         }
         private void textBox_Enter(object sender, EventArgs e)
         {
@@ -145,11 +145,11 @@ namespace modernpos_pos.gui
         }
         private void setFocusColor()
         {
-            this.txtTableCode.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtTableCode.Enter += new System.EventHandler(this.textBox_Enter);
+            this.txtFcbCode.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtFcbCode.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtTableNameT.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtTableNameT.Enter += new System.EventHandler(this.textBox_Enter);
+            this.txtFcbNameT.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtFcbNameT.Enter += new System.EventHandler(this.textBox_Enter);
 
             this.txtRemark.Leave += new System.EventHandler(this.textBox_Leave);
             this.txtRemark.Enter += new System.EventHandler(this.textBox_Enter);
@@ -163,20 +163,20 @@ namespace modernpos_pos.gui
         }
         private void setControl(String posiId)
         {
-            tbl = mposC.mposDB.tblDB.selectByPk1(posiId);
-            txtID.Value = tbl.table_id;
-            txtTableCode.Value = tbl.table_code;
-            txtTableNameT.Value = tbl.table_name;
-            txtRemark.Value = tbl.remark;
-            if (tbl.status_togo.Equals("1"))
-            {
-                chkStatusTakeOut.Checked = true;
-            }
-            else
-            {
-                chkStatusTakeOut.Checked = false;
-            }
-            mposC.setC1Combo(cboArea, tbl.area_id);
+            fcb = mposC.mposDB.fcbDB.selectByPk1(posiId);
+            txtID.Value = fcb.foods_cat_sub_id;
+            txtFcbCode.Value = fcb.foods_cat_sub_code;
+            txtFcbNameT.Value = fcb.foods_cat_sub_name;
+            txtRemark.Value = fcb.remark;
+            mposC.setC1Combo(cboFoodsCat, fcb.foods_cat_id);
+            //if (fcb.status_togo.Equals("1"))
+            //{
+            //    chkStatusTakeOut.Checked = true;
+            //}
+            //else
+            //{
+            //    chkStatusTakeOut.Checked = false;
+            //}
             //mposC.setC1Combo(cboPosi, stf.posi_id);
             //if (area.status_embryologist.Equals("1"))
             //{
@@ -190,9 +190,9 @@ namespace modernpos_pos.gui
         private void setControlEnable(Boolean flag)
         {
             //txtID.Enabled = flag;
-            cboArea.Enabled = flag;
-            txtTableCode.Enabled = flag;
-            txtTableNameT.Enabled = flag;
+            cboFoodsCat.Enabled = flag;
+            txtFcbCode.Enabled = flag;
+            txtFcbNameT.Enabled = flag;
             txtRemark.Enabled = flag;
             chkVoid.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
@@ -200,14 +200,14 @@ namespace modernpos_pos.gui
 
         
 
-        private void setTable()
+        private void setFoodsCatSub()
         {
-            tbl.table_id = txtID.Text;
-            tbl.table_code = txtTableCode.Text;
-            tbl.table_name = txtTableNameT.Text;
-            tbl.area_id = cboArea.SelectedItem == null ? "" : ((ComboBoxItem)cboArea.SelectedItem).Value;
-            tbl.remark = txtRemark.Text;
-            tbl.status_togo = chkStatusTakeOut.Checked == true ? "1" : "0";
+            fcb.foods_cat_sub_id = txtID.Text;
+            fcb.foods_cat_sub_code = txtFcbCode.Text;
+            fcb.foods_cat_sub_name = txtFcbNameT.Text;
+            fcb.foods_cat_id = cboFoodsCat.SelectedItem == null ? "" : ((ComboBoxItem)cboFoodsCat.SelectedItem).Value;
+            fcb.remark = txtRemark.Text;
+            //fcb.status_togo = chkStatusTakeOut.Checked == true ? "1" : "0";
             //area.status_embryologist = chkEmbryologist.Checked == true ? "1" : "0";
         }
         private void grfPosi_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
@@ -216,7 +216,7 @@ namespace modernpos_pos.gui
             if (e.NewRange.Data == null) return;
 
             String deptId = "";
-            deptId = grfTable[e.NewRange.r1, colID] != null ? grfTable[e.NewRange.r1, colID].ToString() : "";
+            deptId = grfFcb[e.NewRange.r1, colID] != null ? grfFcb[e.NewRange.r1, colID].ToString() : "";
             setControl(deptId);
             setControlEnable(false);
             //setControlAddr(addrId);
@@ -260,8 +260,8 @@ namespace modernpos_pos.gui
         private void btnNew_Click(object sender, EventArgs e)
         {
             txtID.Value = "";
-            txtTableCode.Value = "";
-            txtTableNameT.Value = "";
+            txtFcbCode.Value = "";
+            txtFcbNameT.Value = "";
             txtRemark.Value = "";
             chkVoid.Checked = false;
             btnVoid.Hide();
@@ -278,15 +278,15 @@ namespace modernpos_pos.gui
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 mposC.mposDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
-                setGrfTable();
+                setGrfFoodsCatSub();
             }
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                setTable();
-                String re = mposC.mposDB.tblDB.insertTable(tbl, mposC.user.staff_id);
+                setFoodsCatSub();
+                String re = mposC.mposDB.fcbDB.insertFoodsCatSub(fcb, mposC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -296,7 +296,7 @@ namespace modernpos_pos.gui
                 {
                     btnSave.Image = Resources.accept_database24;
                 }
-                setGrfTable();
+                setGrfFoodsCatSub();
                 //setGrdView();
                 //this.Dispose();
             }

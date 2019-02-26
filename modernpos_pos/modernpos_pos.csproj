@@ -38,6 +38,7 @@
     <Reference Include="C1.Win.C1Command.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1FlexGrid.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Input.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1InputPanel.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1SuperTooltip.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Themes.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1TileControl.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
@@ -81,11 +82,17 @@
     <Compile Include="gui\FrmCFoods.designer.cs">
       <DependentUpon>FrmCFoods.cs</DependentUpon>
     </Compile>
-    <Compile Include="gui\FrmCFoodsCategory.cs">
+    <Compile Include="gui\FrmCFoodsCat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gui\FrmCFoodsCategory.designer.cs">
-      <DependentUpon>FrmCFoodsCategory.cs</DependentUpon>
+    <Compile Include="gui\FrmCFoodsCat.designer.cs">
+      <DependentUpon>FrmCFoodsCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmCFoodsCatSub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmCFoodsCatSub.designer.cs">
+      <DependentUpon>FrmCFoodsCatSub.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmCFoodsType.cs">
       <SubType>Form</SubType>
@@ -158,6 +165,7 @@
     <Compile Include="objdb\ConnectDB.cs" />
     <Compile Include="objdb\DepartmentDB.cs" />
     <Compile Include="objdb\FoodsCatDB.cs" />
+    <Compile Include="objdb\FoodsCatSubDB.cs" />
     <Compile Include="objdb\FoodsDB.cs" />
     <Compile Include="objdb\FoodsTypeDB.cs" />
     <Compile Include="objdb\FPrefixDB.cs" />
@@ -212,6 +220,7 @@
     <Compile Include="object1\FilterRow.cs" />
     <Compile Include="object1\Foods.cs" />
     <Compile Include="object1\FoodsCat.cs" />
+    <Compile Include="object1\FoodsCatSub.cs" />
     <Compile Include="object1\FoodsType.cs" />
     <Compile Include="object1\FPrefix.cs" />
     <Compile Include="object1\FSex.cs" />
@@ -273,8 +282,11 @@
     <EmbeddedResource Include="gui\FrmCFoods.resx">
       <DependentUpon>FrmCFoods.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gui\FrmCFoodsCategory.resx">
-      <DependentUpon>FrmCFoodsCategory.cs</DependentUpon>
+    <EmbeddedResource Include="gui\FrmCFoodsCat.resx">
+      <DependentUpon>FrmCFoodsCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmCFoodsCatSub.resx">
+      <DependentUpon>FrmCFoodsCatSub.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmCFoodsType.resx">
       <DependentUpon>FrmCFoodsType.cs</DependentUpon>

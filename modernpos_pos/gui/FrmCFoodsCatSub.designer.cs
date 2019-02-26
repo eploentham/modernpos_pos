@@ -1,6 +1,6 @@
 ﻿namespace modernpos_pos.gui
 {
-    partial class FrmCTable
+    partial class FrmCFoodsCatSub
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.cboArea = new C1.Win.C1Input.C1ComboBox();
+            this.cboFoodsCat = new C1.Win.C1Input.C1ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.chkEmbryologist = new C1.Win.C1Input.C1CheckBox();
             this.chkStatusTakeOut = new C1.Win.C1Input.C1CheckBox();
@@ -45,10 +45,10 @@
             this.btnSave = new C1.Win.C1Input.C1Button();
             this.txtRemark = new C1.Win.C1Input.C1TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtTableNameT = new C1.Win.C1Input.C1TextBox();
+            this.txtFcbNameT = new C1.Win.C1Input.C1TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtID = new C1.Win.C1Input.C1TextBox();
-            this.txtTableCode = new C1.Win.C1Input.C1TextBox();
+            this.txtFcbCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -59,7 +59,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboArea)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboFoodsCat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatusTakeOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
@@ -69,9 +69,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTableNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFcbNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTableCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFcbCode)).BeginInit();
             this.sB.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,7 +131,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel3.Controls.Add(this.cboArea);
+            this.panel3.Controls.Add(this.cboFoodsCat);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.chkEmbryologist);
             this.panel3.Controls.Add(this.chkStatusTakeOut);
@@ -143,10 +143,10 @@
             this.panel3.Controls.Add(this.btnSave);
             this.panel3.Controls.Add(this.txtRemark);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.txtTableNameT);
+            this.panel3.Controls.Add(this.txtFcbNameT);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.txtID);
-            this.panel3.Controls.Add(this.txtTableCode);
+            this.panel3.Controls.Add(this.txtFcbCode);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -156,26 +156,26 @@
             this.panel3.TabIndex = 0;
             this.theme1.SetTheme(this.panel3, "(default)");
             // 
-            // cboArea
+            // cboFoodsCat
             // 
-            this.cboArea.AllowSpinLoop = false;
-            this.cboArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboArea.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboArea.GapHeight = 0;
-            this.cboArea.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboArea.ItemsDisplayMember = "";
-            this.cboArea.ItemsValueMember = "";
-            this.cboArea.Location = new System.Drawing.Point(124, 55);
-            this.cboArea.Name = "cboArea";
-            this.cboArea.Size = new System.Drawing.Size(207, 20);
-            this.cboArea.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboArea.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboArea.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboArea.TabIndex = 263;
-            this.cboArea.Tag = null;
-            this.theme1.SetTheme(this.cboArea, "(default)");
-            this.cboArea.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.cboFoodsCat.AllowSpinLoop = false;
+            this.cboFoodsCat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboFoodsCat.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboFoodsCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboFoodsCat.GapHeight = 0;
+            this.cboFoodsCat.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboFoodsCat.ItemsDisplayMember = "";
+            this.cboFoodsCat.ItemsValueMember = "";
+            this.cboFoodsCat.Location = new System.Drawing.Point(124, 55);
+            this.cboFoodsCat.Name = "cboFoodsCat";
+            this.cboFoodsCat.Size = new System.Drawing.Size(207, 20);
+            this.cboFoodsCat.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboFoodsCat.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboFoodsCat.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboFoodsCat.TabIndex = 263;
+            this.cboFoodsCat.Tag = null;
+            this.theme1.SetTheme(this.cboFoodsCat, "(default)");
+            this.cboFoodsCat.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label7
             // 
@@ -185,9 +185,9 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.label7.Location = new System.Drawing.Point(24, 58);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 16);
+            this.label7.Size = new System.Drawing.Size(63, 16);
             this.label7.TabIndex = 262;
-            this.label7.Text = "พื้นที่ :";
+            this.label7.Text = "กลุ่มอาหาร :";
             this.theme1.SetTheme(this.label7, "(default)");
             // 
             // chkEmbryologist
@@ -346,18 +346,18 @@
             this.label3.Text = "หมายเหตุ :";
             this.theme1.SetTheme(this.label3, "(default)");
             // 
-            // txtTableNameT
+            // txtFcbNameT
             // 
-            this.txtTableNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTableNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtTableNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtTableNameT.Location = new System.Drawing.Point(124, 129);
-            this.txtTableNameT.Name = "txtTableNameT";
-            this.txtTableNameT.Size = new System.Drawing.Size(207, 20);
-            this.txtTableNameT.TabIndex = 238;
-            this.txtTableNameT.Tag = null;
-            this.theme1.SetTheme(this.txtTableNameT, "(default)");
-            this.txtTableNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtFcbNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFcbNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtFcbNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtFcbNameT.Location = new System.Drawing.Point(124, 129);
+            this.txtFcbNameT.Name = "txtFcbNameT";
+            this.txtFcbNameT.Size = new System.Drawing.Size(207, 20);
+            this.txtFcbNameT.TabIndex = 238;
+            this.txtFcbNameT.Tag = null;
+            this.theme1.SetTheme(this.txtFcbNameT, "(default)");
+            this.txtFcbNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label2
             // 
@@ -386,18 +386,18 @@
             this.txtID.Visible = false;
             this.txtID.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // txtTableCode
+            // txtFcbCode
             // 
-            this.txtTableCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTableCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtTableCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtTableCode.Location = new System.Drawing.Point(124, 29);
-            this.txtTableCode.Name = "txtTableCode";
-            this.txtTableCode.Size = new System.Drawing.Size(207, 20);
-            this.txtTableCode.TabIndex = 235;
-            this.txtTableCode.Tag = null;
-            this.theme1.SetTheme(this.txtTableCode, "(default)");
-            this.txtTableCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtFcbCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFcbCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtFcbCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtFcbCode.Location = new System.Drawing.Point(124, 29);
+            this.txtFcbCode.Name = "txtFcbCode";
+            this.txtFcbCode.Size = new System.Drawing.Size(207, 20);
+            this.txtFcbCode.TabIndex = 235;
+            this.txtFcbCode.Tag = null;
+            this.theme1.SetTheme(this.txtFcbCode, "(default)");
+            this.txtFcbCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label1
             // 
@@ -428,14 +428,14 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // FrmCTable
+            // FrmCFoodsCatSub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 532);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sB);
-            this.Name = "FrmCTable";
+            this.Name = "FrmCFoodsCatSub";
             this.Text = "FrmTable";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmArea_Load);
@@ -447,7 +447,7 @@
             this.splitContainer1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboArea)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboFoodsCat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatusTakeOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
@@ -457,9 +457,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTableNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFcbNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTableCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFcbCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
             this.ResumeLayout(false);
@@ -483,15 +483,15 @@
         private C1.Win.C1Input.C1Button btnSave;
         private C1.Win.C1Input.C1TextBox txtRemark;
         private System.Windows.Forms.Label label3;
-        private C1.Win.C1Input.C1TextBox txtTableNameT;
+        private C1.Win.C1Input.C1TextBox txtFcbNameT;
         private System.Windows.Forms.Label label2;
         private C1.Win.C1Input.C1TextBox txtID;
-        private C1.Win.C1Input.C1TextBox txtTableCode;
+        private C1.Win.C1Input.C1TextBox txtFcbCode;
         private System.Windows.Forms.Label label1;
         private C1.Win.C1Input.C1TextBox txtPasswordVoid;
         private C1.Win.C1Input.C1CheckBox chkStatusTakeOut;
         private C1.Win.C1Input.C1CheckBox chkEmbryologist;
-        private C1.Win.C1Input.C1ComboBox cboArea;
+        private C1.Win.C1Input.C1ComboBox cboFoodsCat;
         private System.Windows.Forms.Label label7;
     }
 }

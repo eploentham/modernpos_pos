@@ -42,6 +42,7 @@
             this.c1Button1 = new C1.Win.C1Input.C1Button();
             this.btnFoodsType = new C1.Win.C1Input.C1Button();
             this.btnFoodsCategory = new C1.Win.C1Input.C1Button();
+            this.btnFoodsCatSub = new C1.Win.C1Input.C1Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTable)).BeginInit();
@@ -54,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFoodsType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFoodsCategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoodsCatSub)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -188,11 +190,21 @@
             this.btnFoodsCategory.Text = "Foods Category";
             this.btnFoodsCategory.UseVisualStyleBackColor = true;
             // 
+            // btnFoodsCatSub
+            // 
+            this.btnFoodsCatSub.Location = new System.Drawing.Point(484, 517);
+            this.btnFoodsCatSub.Name = "btnFoodsCatSub";
+            this.btnFoodsCatSub.Size = new System.Drawing.Size(116, 77);
+            this.btnFoodsCatSub.TabIndex = 16;
+            this.btnFoodsCatSub.Text = "Foods Category Sub";
+            this.btnFoodsCatSub.UseVisualStyleBackColor = true;
+            // 
             // FrmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 629);
+            this.Controls.Add(this.btnFoodsCatSub);
             this.Controls.Add(this.btnFoodsCategory);
             this.Controls.Add(this.btnFoodsType);
             this.Controls.Add(this.c1Button1);
@@ -221,6 +233,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFoodsType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFoodsCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoodsCatSub)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -241,5 +254,6 @@
         private C1.Win.C1Input.C1Button c1Button1;
         private C1.Win.C1Input.C1Button btnFoodsType;
         private C1.Win.C1Input.C1Button btnFoodsCategory;
+        private C1.Win.C1Input.C1Button btnFoodsCatSub;
     }
 }
