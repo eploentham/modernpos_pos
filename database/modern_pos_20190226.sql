@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: modern_pos
 -- ------------------------------------------------------
--- Server version	8.0.13
+-- Server version	8.0.12
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -220,7 +220,7 @@ CREATE TABLE `b_foods` (
   `foods_cat_id` int(11) DEFAULT NULL,
   `status_to_go` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '0=default;1=to go',
   `status_dine_in` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '0=default; 1= dine in',
-  `filename` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `filename` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`foods_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=104000002 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=104';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -804,7 +804,7 @@ CREATE TABLE `t_bill` (
   `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`bill_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=1070000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=107';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -847,7 +847,7 @@ CREATE TABLE `t_bill_detail` (
   `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `device_id` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`bill_detail_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=1080000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=108';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -907,7 +907,7 @@ CREATE TABLE `t_closeday` (
   `device_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `weather` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '0=default;1=sun;2=',
   PRIMARY KEY (`closeday_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=1090000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=109';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -930,17 +930,16 @@ CREATE TABLE `t_order` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `lot_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `row1` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `foods_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `foods_id` int(11) DEFAULT NULL,
   `foods_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `foods_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `order_date` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `price` decimal(10,0) DEFAULT NULL,
   `qty` decimal(10,0) DEFAULT NULL,
   `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `table_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `device_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `res_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `area_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `table_id` int(11) DEFAULT NULL,
+  `res_id` int(11) DEFAULT NULL,
+  `area_int` int(11) DEFAULT NULL,
   `status_foods_1` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `status_foods_2` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `status_foods_3` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -953,8 +952,6 @@ CREATE TABLE `t_order` (
   `void_date` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `status_void` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `printer_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `date_create` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `date_modi` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `status_to_go` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '0=default,1=in restaurant,2=to go',
   `bill_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `order_user` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -962,13 +959,16 @@ CREATE TABLE `t_order` (
   `closeday_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `host_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `branch_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `device_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_create` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_modi` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `cnt_cust` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`order_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=1060000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=106';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1097,4 +1097,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-27  7:40:15
+-- Dump completed on 2019-02-27 18:47:08

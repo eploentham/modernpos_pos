@@ -112,7 +112,7 @@ namespace modernpos_pos.gui
             splash.Dispose();
             String date = "";
             date = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM-dd");
-            this.Text = " Update 2019-02-25 format date " + date;
+            this.Text = " Update 2019-02-27 format date " + date;
         }
     }
 }

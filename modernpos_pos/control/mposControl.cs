@@ -27,13 +27,13 @@ namespace modernpos_pos.control
         public InitConfig iniC;
         private IniFile iniF;
         
-        public int grdViewFontSize = 0;
+        public int grdViewFontSize = 0, panel1Width=0;
         public List<Department> lDept;
         public Company cop;
 
         public String userId = "";
         public String copID = "", jobID = "", cusID = "", addrID = "", contID = "", cusrID = "", custID = "", stfID = "", deptID = "", posiID = "", drawID = "";
-        public String rContactName = "", rContacTel = "", rContID = "", userIderc = "";
+        public String rContactName = "", rContacTel = "", rContID = "", userIderc = "", statusVNEPaysuccess="";
 
         public Staff sStf, cStf;
 
@@ -136,7 +136,7 @@ namespace modernpos_pos.control
             iniC.themeApplication = iniF.getIni("app", "themeApplication");
             iniC.themeDonor = iniF.getIni("app", "themeDonor");
             iniC.themeDonor1 = iniF.getIni("app", "themeDonor1");
-            iniC.printerSticker = iniF.getIni("app", "printerSticker");
+            iniC.printerBill = iniF.getIni("app", "printerBill");
             iniC.timerlabreqaccept = iniF.getIni("app", "timerlabreqaccept");
 
             iniC.sticker_donor_takeout_panel1 = iniF.getIni("sticker_donor", "takeout_panel1");
@@ -156,6 +156,8 @@ namespace modernpos_pos.control
             iniC.pathImageScan = iniF.getIni("app", "pathImageScan");
             iniC.patientaddpanel1weight = iniF.getIni("app", "patientaddpanel1weight");
 
+            iniC.VNEip = iniF.getIni("VNE", "VNEip");
+            iniC.VNEwebapi = iniF.getIni("VNE", "VNEwebapi");
 
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
 
@@ -167,8 +169,8 @@ namespace modernpos_pos.control
             iniC.sticker_donor_barcode_gap_y = iniC.sticker_donor_barcode_gap_y.Equals("") ? "30" : iniC.sticker_donor_barcode_gap_y;
             iniC.sticker_donor_gap = iniC.sticker_donor_gap.Equals("") ? "20" : iniC.sticker_donor_gap;
             iniC.sticker_donor_start_x = iniC.sticker_donor_start_x.Equals("") ? "52" : iniC.sticker_donor_start_x;
-            iniC.patientaddpanel1weight = iniC.patientaddpanel1weight == null ? "320" : iniC.patientaddpanel1weight.Equals("") ? "300" : iniC.patientaddpanel1weight;
-            iniC.printerSticker = iniC.printerSticker.Equals("") ? "default" : iniC.printerSticker;
+            iniC.patientaddpanel1weight = iniC.patientaddpanel1weight == null ? "320" : iniC.patientaddpanel1weight.Equals("") ? "320" : iniC.patientaddpanel1weight;
+            iniC.printerBill = iniC.printerBill.Equals("") ? "default" : iniC.printerBill;
             iniC.status_show_border = iniC.status_show_border.Equals("") ? "0" : iniC.status_show_border;
             iniC.barcode_width_minus = iniC.barcode_width_minus.Equals("") ? "0" : iniC.barcode_width_minus;
             iniC.timerlabreqaccept = iniC.timerlabreqaccept.Equals("") ? "120" : iniC.timerlabreqaccept;
@@ -190,6 +192,7 @@ namespace modernpos_pos.control
             iniC.pathImageScan = iniC.pathImageScan == null ? "d:\\images" : iniC.pathImageScan.Equals("") ? "d:\\images" : iniC.pathImageScan;
             iniC.folderFTP = iniC.folderFTP == null ? "images_medical_record" : iniC.folderFTP.Equals("") ? "images_medical_record" : iniC.folderFTP;
             int.TryParse(iniC.grdViewFontSize, out grdViewFontSize);
+            int.TryParse(iniC.patientaddpanel1weight, out panel1Width);
         }
         public String datetoDB(String dt)
         {

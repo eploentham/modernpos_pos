@@ -33,7 +33,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnCal = new System.Windows.Forms.Button();
+            this.btnPay = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtTableCode = new C1.Win.C1Input.C1TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -71,7 +71,7 @@
             // 
             this.panel3.Controls.Add(this.btnConfirm);
             this.panel3.Controls.Add(this.btnCancel);
-            this.panel3.Controls.Add(this.btnCal);
+            this.panel3.Controls.Add(this.btnPay);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 627);
             this.panel3.Name = "panel3";
@@ -106,19 +106,19 @@
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // btnCal
+            // btnPay
             // 
-            this.btnCal.BackColor = System.Drawing.Color.Transparent;
-            this.btnCal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(171)))));
-            this.btnCal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
-            this.btnCal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCal.Location = new System.Drawing.Point(47, 18);
-            this.btnCal.Name = "btnCal";
-            this.btnCal.Size = new System.Drawing.Size(106, 64);
-            this.btnCal.TabIndex = 13;
-            this.btnCal.Text = "bill";
-            this.btnCal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCal.UseVisualStyleBackColor = true;
+            this.btnPay.BackColor = System.Drawing.Color.Transparent;
+            this.btnPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(171)))));
+            this.btnPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
+            this.btnPay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPay.Location = new System.Drawing.Point(47, 18);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(106, 64);
+            this.btnPay.TabIndex = 13;
+            this.btnPay.Text = "bill";
+            this.btnPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPay.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -202,7 +202,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnCal;
+        private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel pnOrder;
         private System.Windows.Forms.Panel pnDrink;

@@ -44,7 +44,10 @@ namespace modernpos_pos.gui
         C1FlexGrid grf;
 
         VNEControl vneC;
-        int colNo = 1, colName = 2, colPrice = 3, colStatus = 4;
+        int colNo = 1, colName = 2, colPrice = 3, colQty=4, colRemark=5, colStatus = 6, colId=7;
+
+        List<Order1> lOrd;
+        Order1 ord;
         public FrmTakeOut(mPOSControl x)
         {
             InitializeComponent();
@@ -69,7 +72,9 @@ namespace modernpos_pos.gui
             ff = txtTableCode.Font;
 
             lfooT = new List<Foods>();
+            lOrd = new List<Order1>();
             foo = new Foods();
+            ord = new Order1();
             lfooT = mposC.mposDB.fooDB.getlFoods1();
 
             TileFoods = new C1.Win.C1Tile.C1TileControl();
@@ -122,50 +127,25 @@ namespace modernpos_pos.gui
             this.tempFlickr.Elements.Add(pnFoodsPrice);
             this.tempFlickr.Name = "tempFlickr";
 
+            btnPay.Click += BtnPay_Click;
+
             initGrf();
-            //gr1.Name = "gr1";
-            //gr1.Text = "Group 1";
-
-
-            //Tile til1;
-            //til1 = new C1.Win.C1Tile.Tile();
-            //til1.Name = "til1";
-            //til1.Text = "aaaaa";
-            //til1.VerticalSize = 2;
-            //til1.HorizontalSize = 2;
-            //til1.BackColor = Color.LightCoral;
-            ////til1.Group = gr1;
-
-            //gr1.Tiles.Add(til1);
-            //this.SuspendLayout();
-            //til1 = new Tile();
-            //til1.Name = "til2";
-            //til1.Text = "bbbbb";
-            //til1.VerticalSize = 2;
-            //til1.HorizontalSize = 2;
-            //gr1.Tiles.Add(til1);
-
-            //til1 = new Tile();
-            //til1.Name = "til3";
-            //til1.Text = "cccccc";
-            //til1.VerticalSize = 2;
-            //til1.HorizontalSize = 2;
-            //gr1.Tiles.Add(til1);
-
-            //til1 = new Tile();
-            //til1.Name = "til31";
-            //til1.Text = "cccccc";
-            //til1.VerticalSize = 2;
-            //til1.HorizontalSize = 2;
-            //gr1.Tiles.Add(til1);
-
-            //til1 = new Tile();
-            //til1.Name = "til32";
-            //til1.Text = "cccccc";
-            //til1.VerticalSize = 2;
-            //til1.HorizontalSize = 2;
-            //gr1.Tiles.Add(til1);
+            
         }
+
+        private void BtnPay_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            mposC.statusVNEPaysuccess = "";
+            FrmTakeOutCheck frm = new FrmTakeOutCheck(mposC, lOrd);
+            frm.ShowDialog(this);
+
+            if (mposC.statusVNEPaysuccess.Equals("1"))
+            {
+                lOrd.Clear();
+            }
+        }
+
         private void initGrf()
         {
             grf = new C1FlexGrid();
@@ -174,9 +154,9 @@ namespace modernpos_pos.gui
             grf.Location = new System.Drawing.Point(0, 0);
             grf.Rows[0].Visible = false;
             grf.Cols[0].Visible = false;
-            grf.Cols[colStatus].Visible = false;
+            //grf.Cols[colStatus].Visible = false;
             grf.Rows.Count = 1;
-            grf.Cols.Count = 5;
+            grf.Cols.Count = 8;
             grf.Cols[colNo].Width = 40;
             grf.Cols[colName].Width = 300;
             grf.Cols[colPrice].Width = 80;
@@ -203,9 +183,11 @@ namespace modernpos_pos.gui
             grf.ContextMenu = menuGw;
             //grf.EndUpdate();
             pnBill.Controls.Add(grf);
-
+            grf.Cols[colId].Visible = false;
+            grf.Cols[colStatus].Visible = false;
+            grf.Cols[colQty].Visible = false;
+            pnBill.Width =  mposC.panel1Width;
             //theme.SetTheme(grf, "Office2010Blue");
-
         }
 
         private void Grf_AfterRowColChange(object sender, RangeEventArgs e)
@@ -226,16 +208,27 @@ namespace modernpos_pos.gui
             grf.Subtotal(AggregateEnum.Sum, 0, -1, colPrice, "Grand Total");
             
         }
-        private void setGrf(String name)
+        private void setGrf(String id, String name, String price, String qty, String remark)
         {
             String re = "";
             if (!name.Equals(""))
             {
-                String[] ext = name.Split('#');
+                //String[] ext = name.Split('#');
+                Order1 ord1 = new Order1();
                 Row row = grf.Rows.Add();
-                row[colName] = ext[0];
-                row[colPrice] = ext[1];
+                row[colName] = name;
+                row[colPrice] = price;
+                row[colId] = id;
+                row[colRemark] = remark;
                 row[colNo] = grf.Rows.Count - 2;
+                ord1.order_id = "";
+                ord1.price = price;
+                ord1.qty = "1";
+                ord1.status_bill = "0";
+                ord1.foods_id = id;
+                ord1.foods_name = name;
+                ord1.remark = remark;
+                lOrd.Add(ord1);
                 UpdateTotals();
             }
         }
@@ -252,7 +245,7 @@ namespace modernpos_pos.gui
                 tile.Text = foo1.foods_name;
                 tile.Text1 = "ราคา "+foo1.foods_price;
                 tile.Tag = foo1;
-                tile.Name = foo1.foods_code;
+                tile.Name = foo1.foods_id;
                 tile.Click += Tile_Click;
 
                 //if (!string.IsNullOrEmpty(photo.ThumbnailUri))
@@ -271,7 +264,7 @@ namespace modernpos_pos.gui
             Tile tile = sender as Tile;
             if (tile != null)
             {
-                setGrf(tile.Text + "#" + tile.Text1.Replace("ราคา", "").Trim());
+                setGrf(tile.Name, tile.Text, tile.Text1.Replace("ราคา", "").Trim(),"1","");
                 //FlickrPhoto photo = (FlickrPhoto)tile.Tag;
                 //string uri = photo.ContentUri;
                 //if (!string.IsNullOrEmpty(uri))
