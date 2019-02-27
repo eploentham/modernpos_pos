@@ -38,6 +38,13 @@ namespace modernpos_pos.gui
             btnFoodsCategory.Click += BtnFoodsCategory_Click;
             btnFoods.Click += BtnFoods_Click;
             btnFoodsCatSub.Click += BtnFoodsCatSub_Click;
+            btnReCom.Click += BtnReCom_Click;
+        }
+
+        private void BtnReCom_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+
         }
 
         private void BtnFoodsCatSub_Click(object sender, EventArgs e)

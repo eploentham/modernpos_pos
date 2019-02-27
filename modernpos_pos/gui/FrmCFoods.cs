@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using modernpos_pos.control;
 using modernpos_pos.object1;
 using modernpos_pos.Properties;
+using System.IO;
 
 namespace modernpos_pos.gui
 {
@@ -31,7 +32,7 @@ namespace modernpos_pos.gui
         C1FlexGrid grfFoo;
 
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
-        Boolean flagEdit = false;
+        Boolean flagEdit = false, pageLoad=false;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
 
@@ -54,6 +55,7 @@ namespace modernpos_pos.gui
             theme1.SetTheme(sB, "BeigeOne");
             foreach (Control c in panel3.Controls)
             {
+                if (c is C1PictureBox) continue;
                 theme1.SetTheme(c, "Office2013Red");
             }
 
@@ -61,6 +63,8 @@ namespace modernpos_pos.gui
             fc = txtFooCode.ForeColor;
             ff = txtFooCode.Font;
             txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
+            btnImg.Click += BtnImg_Click;
+
             mposC.mposDB.resDB.setCboRestaurant(cboRes);
             mposC.mposDB.footDB.setCboFoodsType(cboFoodsType);
             mposC.mposDB.foocDB.setCboFoodsCat(cboFoodsCat);
@@ -75,9 +79,50 @@ namespace modernpos_pos.gui
             txtPasswordVoid.Hide();
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
+            picFoo.SizeMode = PictureBoxSizeMode.StretchImage;
             //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
-        
+
+        private void BtnImg_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (txtID.Text.Length <= 0) return;
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Images (*.BMP;*.JPG;*.Jepg;*.Png;*.GIF)|*.BMP;*.JPG;*.Jepg;*.Png;*.GIF|Pdf Files|*.pdf|All files (*.*)|*.*";
+            ofd.Multiselect = false;
+            ofd.Title = "My Image Browser";
+            DialogResult dr = ofd.ShowDialog();
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+                if (File.Exists(ofd.FileName))
+                {
+                    mposC.savePicFoodstoServer(txtID.Text, ofd.FileName);
+                    showImg();
+                }
+            }
+        }
+        private void showImg()
+        {
+            if (pageLoad) return;
+            try
+            {
+                MemoryStream stream = new MemoryStream();
+                Image loadedImage = null, resizedImage;
+                stream = mposC.ftpC.download(foo.filename);
+                loadedImage = new Bitmap(stream);
+                if (loadedImage != null)
+                {
+                    int originalWidth = loadedImage.Width;
+                    int newWidth = 180;
+                    resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
+                    picFoo.Image = resizedImage;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(""+ex.Message, "showImg");
+            }
+        }
         private void initGrfFoo()
         {
             grfFoo = new C1FlexGrid();
@@ -99,7 +144,7 @@ namespace modernpos_pos.gui
         private void setGrfFoo()
         {
             //grfDept.Rows.Count = 7;
-
+            pageLoad = true;
             grfFoo.DataSource = mposC.mposDB.fooDB.selectAll();
             grfFoo.Cols.Count = colCnt;
             CellStyle cs = grfFoo.Styles.Add("btn");
@@ -139,6 +184,7 @@ namespace modernpos_pos.gui
             grfFoo.Cols[colID].Visible = false;
             grfFoo.Cols[colE].Visible = false;
             grfFoo.Cols[colS].Visible = false;
+            pageLoad = false;
         }
         private void textBox_Enter(object sender, EventArgs e)
         {
@@ -185,6 +231,8 @@ namespace modernpos_pos.gui
             mposC.setC1Combo(cboFoodsType, foo.foods_type_id);
             mposC.setC1Combo(cboFoodsCat, foo.foods_cat_id);
             mposC.setC1Combo(cboPrinter, foo.printer_name);
+
+            showImg();
             //if (area.status_embryologist.Equals("1"))
             //{
             //    chkEmbryologist.Checked = true;

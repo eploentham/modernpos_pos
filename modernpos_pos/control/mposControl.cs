@@ -139,7 +139,7 @@ namespace modernpos_pos.control
             iniC.printerSticker = iniF.getIni("app", "printerSticker");
             iniC.timerlabreqaccept = iniF.getIni("app", "timerlabreqaccept");
 
-            iniC.sticker_donor_width = iniF.getIni("sticker_donor", "width");
+            iniC.sticker_donor_takeout_panel1 = iniF.getIni("sticker_donor", "takeout_panel1");
             iniC.sticker_donor_height = iniF.getIni("sticker_donor", "height");
             iniC.sticker_donor_start_y = iniF.getIni("sticker_donor", "start_y");
             iniC.sticker_donor_barcode_height = iniF.getIni("sticker_donor", "barcode_height");
@@ -159,7 +159,7 @@ namespace modernpos_pos.control
 
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
 
-            iniC.sticker_donor_width = iniC.sticker_donor_width.Equals("") ? "120" : iniC.sticker_donor_width;
+            iniC.sticker_donor_takeout_panel1 = iniC.sticker_donor_takeout_panel1.Equals("") ? "120" : iniC.sticker_donor_takeout_panel1;
             iniC.sticker_donor_height = iniC.sticker_donor_height.Equals("") ? "90" : iniC.sticker_donor_height;
             iniC.sticker_donor_start_y = iniC.sticker_donor_start_y.Equals("") ? "60" : iniC.sticker_donor_start_y;
             iniC.sticker_donor_barcode_height = iniC.sticker_donor_barcode_height.Equals("") ? "40" : iniC.sticker_donor_barcode_height;
@@ -509,6 +509,21 @@ namespace modernpos_pos.control
                 equals = false;
             }
             return equals;
+        }
+        public void savePicFoodstoServer(String fooId, String pathLocalFile)
+        {
+            //if (File.Exists(@"temppic" + System.Drawing.Imaging.ImageFormat.Jpeg))
+            //{
+            //    File.Delete(@"temppic" + System.Drawing.Imaging.ImageFormat.Jpeg);
+            //}
+            //pathFile.Save(@"temppic." + System.Drawing.Imaging.ImageFormat.Jpeg, System.Drawing.Imaging.ImageFormat.Jpeg);
+            string ext = Path.GetExtension(pathLocalFile);
+            ftpC.createDirectory("images/foods");
+            //ftpC.createDirectory("images/" + fooId);
+            ftpC.delete("images/foods/" + fooId + ext);
+            //ftpC.upload( filename, pathFile);
+            ftpC.upload("images/foods/" + fooId + ext, pathLocalFile);
+            mposDB.fooDB.updateFileName(fooId, fooId + ext);
         }
     }
 }

@@ -54,9 +54,9 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(573, 0);
+            this.panel1.Location = new System.Drawing.Point(550, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(424, 727);
+            this.panel1.Size = new System.Drawing.Size(447, 727);
             this.panel1.TabIndex = 0;
             // 
             // pnBill
@@ -64,7 +64,7 @@
             this.pnBill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnBill.Location = new System.Drawing.Point(0, 33);
             this.pnBill.Name = "pnBill";
-            this.pnBill.Size = new System.Drawing.Size(424, 594);
+            this.pnBill.Size = new System.Drawing.Size(447, 594);
             this.pnBill.TabIndex = 2;
             // 
             // panel3
@@ -75,7 +75,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 627);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(424, 100);
+            this.panel3.Size = new System.Drawing.Size(447, 100);
             this.panel3.TabIndex = 1;
             // 
             // btnConfirm
@@ -126,7 +126,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(424, 33);
+            this.panel2.Size = new System.Drawing.Size(447, 33);
             this.panel2.TabIndex = 0;
             // 
             // txtTableCode
@@ -150,7 +150,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(573, 727);
+            this.panel5.Size = new System.Drawing.Size(550, 727);
             this.panel5.TabIndex = 1;
             // 
             // pnOrder
@@ -158,7 +158,7 @@
             this.pnOrder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnOrder.Location = new System.Drawing.Point(0, 0);
             this.pnOrder.Name = "pnOrder";
-            this.pnOrder.Size = new System.Drawing.Size(573, 574);
+            this.pnOrder.Size = new System.Drawing.Size(550, 574);
             this.pnOrder.TabIndex = 1;
             // 
             // pnDrink
@@ -166,7 +166,7 @@
             this.pnDrink.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnDrink.Location = new System.Drawing.Point(0, 574);
             this.pnDrink.Name = "pnDrink";
-            this.pnDrink.Size = new System.Drawing.Size(573, 153);
+            this.pnDrink.Size = new System.Drawing.Size(550, 153);
             this.pnDrink.TabIndex = 0;
             // 
             // theme1

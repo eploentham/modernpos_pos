@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
 -- Host: localhost    Database: modern_pos
 -- ------------------------------------------------------
--- Server version	8.0.12
+-- Server version	8.0.13
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -220,6 +220,7 @@ CREATE TABLE `b_foods` (
   `foods_cat_id` int(11) DEFAULT NULL,
   `status_to_go` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '0=default;1=to go',
   `status_dine_in` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '0=default; 1= dine in',
+  `filename` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`foods_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=104000002 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=104';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -230,7 +231,7 @@ CREATE TABLE `b_foods` (
 
 LOCK TABLES `b_foods` WRITE;
 /*!40000 ALTER TABLE `b_foods` DISABLE KEYS */;
-INSERT INTO `b_foods` VALUES (104000000,'10100','เส้นเล็กพริกสด',0.00,'1',NULL,'',NULL,'','1','','2019-02-25 22:05:12',NULL,'0','0','0',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL),(104000001,'10101','เส้นเล็กต้มยำ',55.00,'1',NULL,'',NULL,'','1','POS80 PRO','2019-02-26 09:23:09',NULL,'0','0','0',NULL,'',NULL,NULL,NULL,103000000,'1','1');
+INSERT INTO `b_foods` VALUES (104000000,'10100','เส้นเล็กพริกสด',55.00,'1',NULL,'',NULL,'','1','OneNote','2019-02-25 22:05:12','2019-02-27 07:20:41','0','0','0',NULL,'','',NULL,NULL,103000001,'0','0',NULL),(104000001,'10101','เส้นเล็กต้มยำ',60.00,'1',NULL,'',NULL,'','1','OneNote','2019-02-26 09:23:09','2019-02-27 07:21:08','0','0','0',NULL,'','',NULL,NULL,103000000,'1','1',NULL);
 /*!40000 ALTER TABLE `b_foods` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,7 +258,7 @@ CREATE TABLE `b_foods_category` (
   `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `status_foods` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT '0=default,1=Foods,2=Beverages',
+  `status_foods` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '0=default,1=Foods,2=Beverages',
   PRIMARY KEY (`foods_cat_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=103000008 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=103';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -308,6 +309,42 @@ LOCK TABLES `b_foods_category_sub` WRITE;
 /*!40000 ALTER TABLE `b_foods_category_sub` DISABLE KEYS */;
 INSERT INTO `b_foods_category_sub` VALUES (105000000,'CS100','ข้าวราด ข้าวหน้า',103000000,'1','',NULL,'2019-02-26 18:05:11',NULL,'0','0','0',NULL,'',NULL,NULL);
 /*!40000 ALTER TABLE `b_foods_category_sub` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `b_foods_recommend`
+--
+
+DROP TABLE IF EXISTS `b_foods_recommend`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `b_foods_recommend` (
+  `recom_id` int(11) NOT NULL AUTO_INCREMENT,
+  `foods_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `foods_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `active` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `sort1` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_create` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_modi` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `host_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `branch_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `device_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`recom_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=106000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=106';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `b_foods_recommend`
+--
+
+LOCK TABLES `b_foods_recommend` WRITE;
+/*!40000 ALTER TABLE `b_foods_recommend` DISABLE KEYS */;
+/*!40000 ALTER TABLE `b_foods_recommend` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1060,4 +1097,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-26 18:13:31
+-- Dump completed on 2019-02-27  7:40:15

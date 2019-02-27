@@ -1,4 +1,5 @@
 ﻿using C1.Framework;
+using C1.Win.C1FlexGrid;
 using C1.Win.C1SuperTooltip;
 using C1.Win.C1Themes;
 using C1.Win.C1Tile;
@@ -40,7 +41,10 @@ namespace modernpos_pos.gui
         Template tempFlickr;
         C1.Win.C1Tile.ImageElement imageElement8;
         PanelElement pnFoodsName, pnFoodsPrice;
+        C1FlexGrid grf;
 
+        VNEControl vneC;
+        int colNo = 1, colName = 2, colPrice = 3, colStatus = 4;
         public FrmTakeOut(mPOSControl x)
         {
             InitializeComponent();
@@ -118,6 +122,7 @@ namespace modernpos_pos.gui
             this.tempFlickr.Elements.Add(pnFoodsPrice);
             this.tempFlickr.Name = "tempFlickr";
 
+            initGrf();
             //gr1.Name = "gr1";
             //gr1.Text = "Group 1";
 
@@ -161,19 +166,93 @@ namespace modernpos_pos.gui
             //til1.HorizontalSize = 2;
             //gr1.Tiles.Add(til1);
         }
+        private void initGrf()
+        {
+            grf = new C1FlexGrid();
+            grf.Font = fEdit;
+            grf.Dock = System.Windows.Forms.DockStyle.Fill;
+            grf.Location = new System.Drawing.Point(0, 0);
+            grf.Rows[0].Visible = false;
+            grf.Cols[0].Visible = false;
+            grf.Cols[colStatus].Visible = false;
+            grf.Rows.Count = 1;
+            grf.Cols.Count = 5;
+            grf.Cols[colNo].Width = 40;
+            grf.Cols[colName].Width = 300;
+            grf.Cols[colPrice].Width = 80;
+            //FilterRow fr = new FilterRow(grfExpn);
+            grf.TabStop = false;
+            grf.EditOptions = EditFlags.None;
+            grf.Cols[colNo].AllowEditing = false;
+            grf.Cols[colName].AllowEditing = false;
+            grf.Cols[colPrice].AllowEditing = false;
+            //grf.ExtendLastCol = true;
+            grf.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
+            grf.AfterDataRefresh += Grf_AfterDataRefresh;
+            //grf.SubtotalPosition = SubtotalPositionEnum.BelowData;
+            grf.SubtotalPosition = SubtotalPositionEnum.BelowData;
+
+            grf.AfterRowColChange += Grf_AfterRowColChange;
+            //grf.DoubleClick += GrfPtt_DoubleClick;
+            //grfExpnC.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellButtonClick);
+            //grfExpnC.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellChanged);
+            ContextMenu menuGw = new ContextMenu();
+            //menuGw.MenuItems.Add("&แก้ไข รายการเบิก", new EventHandler(ContextMenu_edit));
+            //menuGw.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Gw_Edit));
+            //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
+            grf.ContextMenu = menuGw;
+            //grf.EndUpdate();
+            pnBill.Controls.Add(grf);
+
+            //theme.SetTheme(grf, "Office2010Blue");
+
+        }
+
+        private void Grf_AfterRowColChange(object sender, RangeEventArgs e)
+        {
+            //throw new NotImplementedException();
+            UpdateTotals();
+        }
+
+        private void Grf_AfterDataRefresh(object sender, ListChangedEventArgs e)
+        {
+            //throw new NotImplementedException();
+            UpdateTotals();
+        }
+        private void UpdateTotals()
+        {
+            // clear existing totals
+            grf.Subtotal(AggregateEnum.Clear);
+            grf.Subtotal(AggregateEnum.Sum, 0, -1, colPrice, "Grand Total");
+            
+        }
+        private void setGrf(String name)
+        {
+            String re = "";
+            if (!name.Equals(""))
+            {
+                String[] ext = name.Split('#');
+                Row row = grf.Rows.Add();
+                row[colName] = ext[0];
+                row[colPrice] = ext[1];
+                row[colNo] = grf.Rows.Count - 2;
+                UpdateTotals();
+            }
+        }
         private void LoadFoods(bool keepExistent)
         {
             TileCollection tiles = TileFoods.Groups[0].Tiles;
             tiles.Clear(true);
-            foreach (Foods photo in lfooT)
+            foreach (Foods foo1 in lfooT)
             {
                 var tile = new Tile();
-                tile.HorizontalSize = 4;
-                tile.VerticalSize = 3;
+                tile.HorizontalSize = 2;
+                tile.VerticalSize = 2;
                 tile.Template = tempFlickr;
-                tile.Text = photo.foods_name;
-                tile.Text1 = "ราคา "+photo.foods_price;
-                tile.Tag = photo;
+                tile.Text = foo1.foods_name;
+                tile.Text1 = "ราคา "+foo1.foods_price;
+                tile.Tag = foo1;
+                tile.Name = foo1.foods_code;
                 tile.Click += Tile_Click;
 
                 //if (!string.IsNullOrEmpty(photo.ThumbnailUri))
@@ -192,6 +271,7 @@ namespace modernpos_pos.gui
             Tile tile = sender as Tile;
             if (tile != null)
             {
+                setGrf(tile.Text + "#" + tile.Text1.Replace("ราคา", "").Trim());
                 //FlickrPhoto photo = (FlickrPhoto)tile.Tag;
                 //string uri = photo.ContentUri;
                 //if (!string.IsNullOrEmpty(uri))

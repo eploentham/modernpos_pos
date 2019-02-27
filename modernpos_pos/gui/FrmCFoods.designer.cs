@@ -60,6 +60,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.picFoo = new C1.Win.C1Input.C1PictureBox();
+            this.btnImg = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -85,6 +87,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFooCode)).BeginInit();
             this.sB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImg)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -143,6 +147,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel3.Controls.Add(this.btnImg);
+            this.panel3.Controls.Add(this.picFoo);
             this.panel3.Controls.Add(this.cboPrinter);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.cboRes);
@@ -576,6 +582,28 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
+            // picFoo
+            // 
+            this.picFoo.Location = new System.Drawing.Point(124, 382);
+            this.picFoo.Name = "picFoo";
+            this.picFoo.Size = new System.Drawing.Size(125, 125);
+            this.picFoo.TabIndex = 5;
+            this.picFoo.TabStop = false;
+            // 
+            // btnImg
+            // 
+            this.btnImg.Image = global::modernpos_pos.Properties.Resources.refresh24;
+            this.btnImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImg.Location = new System.Drawing.Point(426, 382);
+            this.btnImg.Name = "btnImg";
+            this.btnImg.Size = new System.Drawing.Size(83, 39);
+            this.btnImg.TabIndex = 272;
+            this.btnImg.Text = "upload รูป";
+            this.btnImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnImg, "(default)");
+            this.btnImg.UseVisualStyleBackColor = true;
+            this.btnImg.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // FrmCFoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -614,6 +642,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtFooCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -653,5 +683,7 @@
         private System.Windows.Forms.Label label6;
         private C1.Win.C1Input.C1ComboBox cboPrinter;
         private System.Windows.Forms.Label label8;
+        private C1.Win.C1Input.C1PictureBox picFoo;
+        private C1.Win.C1Input.C1Button btnImg;
     }
 }

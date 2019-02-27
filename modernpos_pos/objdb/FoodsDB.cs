@@ -48,6 +48,7 @@ namespace modernpos_pos.objdb
             foo.status_dine_in = "status_dine_in";
             foo.status_to_go = "status_to_go";
             foo.foods_cat_id = "foods_cat_id";
+            foo.filename = "filename";
 
             foo.pkField = "foods_id";
             foo.table = "b_foods";
@@ -117,7 +118,11 @@ namespace modernpos_pos.objdb
                 Foods itm1 = new Foods();
                 itm1.foods_id = row[foo.foods_id].ToString();
                 itm1.foods_name = row[foo.foods_name].ToString();
-
+                itm1.foods_price = row[foo.foods_price].ToString();
+                itm1.printer_name = row[foo.printer_name].ToString();
+                itm1.foods_code = row[foo.foods_code].ToString();
+                itm1.foods_type_id = row[foo.foods_type_id].ToString();
+                itm1.foods_cat_id = row[foo.foods_cat_id].ToString();
                 lfoo1.Add(itm1);
             }
             return lfoo1;
@@ -169,6 +174,7 @@ namespace modernpos_pos.objdb
             p.printer_name = p.printer_name == null ? "" : p.printer_name;
             p.status_to_go = p.status_to_go == null ? "0" : p.status_to_go;
             p.status_dine_in = p.status_dine_in == null ? "0" : p.status_dine_in;
+            p.filename = p.filename == null ? "" : p.filename;
 
             p.host_id = long.TryParse(p.host_id, out chk) ? chk.ToString() : "0";
             p.branch_id = long.TryParse(p.branch_id, out chk) ? chk.ToString() : "0";
@@ -205,6 +211,7 @@ namespace modernpos_pos.objdb
                 "," + foo.status_dine_in + " = '" + p.status_dine_in + "' " +
                 "," + foo.status_to_go + " = '" + p.status_to_go + "' " +
                 "," + foo.foods_cat_id + " = '" + p.foods_cat_id + "' " +
+                "," + foo.filename + " = '" + p.filename + "' " +
                 " ";
             try
             {
@@ -240,6 +247,7 @@ namespace modernpos_pos.objdb
                 "," + foo.status_dine_in + " = '" + p.status_dine_in + "' " +
                 "," + foo.status_to_go + " = '" + p.status_to_go + "' " +
                 "," + foo.foods_cat_id + " = '" + p.foods_cat_id + "' " +
+                //"," + foo.filename + " = '" + p.filename + "' " +
                 "Where " + foo.pkField + "='" + p.foods_id + "'"
                 ;
 
@@ -265,6 +273,28 @@ namespace modernpos_pos.objdb
             else
             {
                 re = update(p, "");
+            }
+
+            return re;
+        }
+        public String updateFileName(String fooid, String filename)
+        {
+            String re = "";
+            String sql = "";
+            int chk = 0;
+
+            //chkNull(p);
+            sql = "Update " + foo.table + " Set " +
+                " " + foo.filename + " = '" + filename + "'" +                
+                "Where " + foo.pkField + "='" + fooid + "'"
+                ;
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
             }
 
             return re;
@@ -346,6 +376,7 @@ namespace modernpos_pos.objdb
                 dept1.status_dine_in = dt.Rows[0][foo.status_dine_in] != null ? dt.Rows[0][foo.status_dine_in].ToString() : "";
                 dept1.status_to_go = dt.Rows[0][foo.status_to_go] != null ? dt.Rows[0][foo.status_to_go].ToString() : "";
                 dept1.foods_cat_id = dt.Rows[0][foo.foods_cat_id] != null ? dt.Rows[0][foo.foods_cat_id].ToString() : "";
+                dept1.filename = dt.Rows[0][foo.filename] != null ? dt.Rows[0][foo.filename].ToString() : "";
             }
             else
             {
@@ -371,7 +402,7 @@ namespace modernpos_pos.objdb
                 dept1.status_to_go = "";
                 dept1.status_dine_in = "";
                 dept1.foods_cat_id = "";
-                //dept1.status_embryologist = "";
+                dept1.filename = "";
             }
 
             return dept1;

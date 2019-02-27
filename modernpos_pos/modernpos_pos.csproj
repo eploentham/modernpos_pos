@@ -160,6 +160,12 @@
     <Compile Include="gui\FrmTakeOut.Designer.cs">
       <DependentUpon>FrmTakeOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmTakeOutCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmTakeOutCheck.Designer.cs">
+      <DependentUpon>FrmTakeOutCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="objdb\AreaDB.cs" />
     <Compile Include="objdb\CompanyDB.cs" />
     <Compile Include="objdb\ConnectDB.cs" />
@@ -167,6 +173,7 @@
     <Compile Include="objdb\FoodsCatDB.cs" />
     <Compile Include="objdb\FoodsCatSubDB.cs" />
     <Compile Include="objdb\FoodsDB.cs" />
+    <Compile Include="objdb\FoodsRecommendDB.cs" />
     <Compile Include="objdb\FoodsTypeDB.cs" />
     <Compile Include="objdb\FPrefixDB.cs" />
     <Compile Include="objdb\FSexDB.cs" />
@@ -221,6 +228,7 @@
     <Compile Include="object1\Foods.cs" />
     <Compile Include="object1\FoodsCat.cs" />
     <Compile Include="object1\FoodsCatSub.cs" />
+    <Compile Include="object1\FoodsRecommend.cs" />
     <Compile Include="object1\FoodsType.cs" />
     <Compile Include="object1\FPrefix.cs" />
     <Compile Include="object1\FSex.cs" />
@@ -326,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmTakeOut.resx">
       <DependentUpon>FrmTakeOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmTakeOutCheck.resx">
+      <DependentUpon>FrmTakeOutCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
