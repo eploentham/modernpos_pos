@@ -19,7 +19,7 @@ namespace modernpos_pos.gui
 {
     public partial class FrmDepartment1 : Form
     {
-        mPOSControl ic;
+        mPOSControl mposC;
         Department dept;
 
         Font fEdit, fEditB;
@@ -37,22 +37,22 @@ namespace modernpos_pos.gui
         public FrmDepartment1(mPOSControl ic)
         {
             InitializeComponent();
-            this.ic = ic;
+            this.mposC = ic;
             initConfig();
         }
 
         private void initConfig()
         {
             dept = new Department();
-            fEdit = new Font(ic.iniC.grdViewFontName, ic.grdViewFontSize, FontStyle.Regular);
-            fEditB = new Font(ic.iniC.grdViewFontName, ic.grdViewFontSize, FontStyle.Bold);
+            fEdit = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Regular);
+            fEditB = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Bold);
 
-            C1ThemeController.ApplicationTheme = ic.iniC.themeApplication;
-            theme1.Theme = C1ThemeController.ApplicationTheme;
+            C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
+            theme1.Theme = mposC.iniC.themeApplication;
             theme1.SetTheme(sB, "BeigeOne");
             foreach(Control c in panel3.Controls)
             {
-                theme1.SetTheme(c, "Office2013Red");
+                theme1.SetTheme(c, mposC.iniC.themeApplication);
             }
 
             bg = txtDeptCode.BackColor;
@@ -96,7 +96,7 @@ namespace modernpos_pos.gui
 
             //grfDept.Rows.Count = 7;
 
-            grfDept.DataSource = ic.mposDB.deptDB.selectAll1();
+            grfDept.DataSource = mposC.mposDB.deptDB.selectAll1();
             grfDept.Cols.Count = colCnt;
             CellStyle cs = grfDept.Styles.Add("btn");
             cs.DataType = typeof(Button);
@@ -132,7 +132,7 @@ namespace modernpos_pos.gui
                 {
                     grfDept[i, 0] = i;
                     if (i % 2 == 0)
-                        grfDept.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(ic.iniC.grfRowColor);
+                        grfDept.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
                 }
             }
 
@@ -145,7 +145,7 @@ namespace modernpos_pos.gui
         private void textBox_Enter(object sender, EventArgs e)
         {
             C1TextBox a = (C1TextBox)sender;
-            a.BackColor = ic.cTxtFocus;
+            a.BackColor = mposC.cTxtFocus;
             a.Font = new Font(ff, FontStyle.Bold);
         }
         private void textBox_Leave(object sender, EventArgs e)
@@ -186,14 +186,14 @@ namespace modernpos_pos.gui
         {
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                ic.mposDB.deptDB.VoidDepartment(txtID.Text, userIdVoid);
+                mposC.mposDB.deptDB.VoidDepartment(txtID.Text, userIdVoid);
                 setGrfDeptH();
             }
         }
 
         private void setControl(String deptId)
         {
-            dept = ic.mposDB.deptDB.selectByPk1(deptId);
+            dept = mposC.mposDB.deptDB.selectByPk1(deptId);
             txtID.Value = dept.dept_id;
             txtDeptCode.Value = dept.depart_code;
             txtDeptNameT.Value = dept.depart_name_t;
@@ -250,7 +250,7 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             if (e.KeyCode == Keys.Enter)
             {
-                userIdVoid = ic.mposDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
+                userIdVoid = mposC.mposDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
                 if (userIdVoid.Length>0)
                 {
                     txtPasswordVoid.Hide();
@@ -284,7 +284,7 @@ namespace modernpos_pos.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setDeptment();
-                String re = ic.mposDB.deptDB.insertDepartment(dept, ic.user.staff_id);
+                String re = mposC.mposDB.deptDB.insertDepartment(dept, mposC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

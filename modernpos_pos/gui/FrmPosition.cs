@@ -19,7 +19,7 @@ namespace modernpos_pos.gui
 {
     public partial class FrmPosition : Form
     {
-        mPOSControl ic;
+        mPOSControl mposC;
         Position posi;
 
         Font fEdit, fEditB;
@@ -39,22 +39,22 @@ namespace modernpos_pos.gui
         public FrmPosition(mPOSControl x)
         {
             InitializeComponent();
-            ic = x;
+            mposC = x;
             initConfig();
         }
 
         private void initConfig()
         {
             posi = new Position();
-            fEdit = new Font(ic.iniC.grdViewFontName, ic.grdViewFontSize, FontStyle.Regular);
-            fEditB = new Font(ic.iniC.grdViewFontName, ic.grdViewFontSize, FontStyle.Bold);
+            fEdit = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Regular);
+            fEditB = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Bold);
 
-            C1ThemeController.ApplicationTheme = ic.iniC.themeApplication;
-            theme1.Theme = C1ThemeController.ApplicationTheme;
+            //C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
+            theme1.Theme = mposC.iniC.themeApplication;
             theme1.SetTheme(sB, "BeigeOne");
             foreach (Control c in panel3.Controls)
             {
-                theme1.SetTheme(c, "Office2013Red");
+                theme1.SetTheme(c, mposC.iniC.themeApplication);
             }
 
             bg = txtPosiCode.BackColor;
@@ -96,7 +96,7 @@ namespace modernpos_pos.gui
         {
             //grfDept.Rows.Count = 7;
 
-            grfPosi.DataSource = ic.mposDB.posiDB.selectAll1();
+            grfPosi.DataSource = mposC.mposDB.posiDB.selectAll1();
             grfPosi.Cols.Count = colCnt;
             CellStyle cs = grfPosi.Styles.Add("btn");
             cs.DataType = typeof(Button);
@@ -130,7 +130,7 @@ namespace modernpos_pos.gui
             {
                 grfPosi[i, 0] = i;
                 if (i % 2 == 0)
-                    grfPosi.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(ic.iniC.grfRowColor);
+                    grfPosi.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
             grfPosi.Cols[colID].Visible = false;
             grfPosi.Cols[colE].Visible = false;
@@ -139,7 +139,7 @@ namespace modernpos_pos.gui
         private void textBox_Enter(object sender, EventArgs e)
         {
             C1TextBox a = (C1TextBox)sender;
-            a.BackColor = ic.cTxtFocus;
+            a.BackColor = mposC.cTxtFocus;
             a.Font = new Font(ff, FontStyle.Bold);
         }
         private void setFocusColor()
@@ -162,7 +162,7 @@ namespace modernpos_pos.gui
         }
         private void setControl(String posiId)
         {
-            posi = ic.mposDB.posiDB.selectByPk1(posiId);
+            posi = mposC.mposDB.posiDB.selectByPk1(posiId);
             txtID.Value = posi.posi_id;
             txtPosiCode.Value = posi.posi_code;
             txtPosiNameT.Value = posi.posi_name_t;
@@ -237,7 +237,7 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             if (e.KeyCode == Keys.Enter)
             {
-                userIdVoid = ic.mposDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
+                userIdVoid = mposC.mposDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
                 if (userIdVoid.Length>0)
                 {
                     txtPasswordVoid.Hide();
@@ -270,7 +270,7 @@ namespace modernpos_pos.gui
         {
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                ic.mposDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
+                mposC.mposDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
                 setGrfPosi();
             }
         }
@@ -279,7 +279,7 @@ namespace modernpos_pos.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setPosition();
-                String re = ic.mposDB.posiDB.insertPosition(posi, ic.user.staff_id);
+                String re = mposC.mposDB.posiDB.insertPosition(posi, mposC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

@@ -1032,5 +1032,10 @@
   <ItemGroup>
     <None Include="Resources\Zoom-out48.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="header.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -49,12 +49,12 @@ namespace modernpos_pos.gui
             fEdit = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Regular);
             fEditB = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Bold);
 
-            C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
-            theme1.Theme = C1ThemeController.ApplicationTheme;
+            //C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
+            theme1.Theme = mposC.iniC.themeApplication;
             theme1.SetTheme(sB, "BeigeOne");
             foreach (Control c in panel3.Controls)
             {
-                theme1.SetTheme(c, "Office2013Red");
+                theme1.SetTheme(c, mposC.iniC.themeApplication);
             }
 
             bg = txtResCode.BackColor;
@@ -90,8 +90,8 @@ namespace modernpos_pos.gui
 
             panel2.Controls.Add(this.grfRes);
 
-            C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
-            C1ThemeController.ApplyThemeToObject(grfRes, theme);
+            //C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
+            //C1ThemeController.ApplyThemeToObject(grfRes, theme);
         }
         private void setGrfRestaurant()
         {
@@ -201,6 +201,9 @@ namespace modernpos_pos.gui
             txtRemark.Enabled = flag;
             chkVoid.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
+            txtResNameT.Enabled = flag;
+            txtTaxId.Enabled = flag;
+            groupBox1.Enabled = flag;
         }
 
         private void setRestaurant()

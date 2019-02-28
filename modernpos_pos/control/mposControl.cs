@@ -35,6 +35,8 @@ namespace modernpos_pos.control
         public String copID = "", jobID = "", cusID = "", addrID = "", contID = "", cusrID = "", custID = "", stfID = "", deptID = "", posiID = "", drawID = "";
         public String rContactName = "", rContacTel = "", rContID = "", userIderc = "", statusVNEPaysuccess="";
 
+        public String txtHeader = "";
+
         public Staff sStf, cStf;
 
         public LogFile lf;
@@ -94,7 +96,11 @@ namespace modernpos_pos.control
             {
                 theme = iniC.themeApplication;
             }
-        }
+            using (StreamReader s = new StreamReader("header.html"))
+            {
+                txtHeader = s.ReadToEnd();
+            }
+    }
         public static string GetCurrentExecutingDirectory(System.Reflection.Assembly assembly)
         {
             string filePath = new Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath;

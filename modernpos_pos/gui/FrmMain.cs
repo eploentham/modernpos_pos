@@ -33,20 +33,7 @@ namespace modernpos_pos.gui
             //if (login.LogonSuccessful.Equals("1"))
             //{
             initConfig();
-            //new Thread(() =>
-            //{
-            //    Thread.CurrentThread.IsBackground = true;
-            //    /* run your code here */
 
-            //}).Start();
-            //}
-            //else
-            //{
-            //    Application.Exit();
-            //}
-
-            //initConfig();
-            
         }
         private void initConfig()
         {
@@ -73,7 +60,6 @@ namespace modernpos_pos.gui
         private void BtnDineIn_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-
             FrmPassword frm = new FrmPassword();
             frm.ShowDialog(this);
         }
@@ -113,6 +99,7 @@ namespace modernpos_pos.gui
             String date = "";
             date = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM-dd");
             this.Text = " Update 2019-02-27 format date " + date;
+            txtHeader.Text = mposC.txtHeader;
         }
     }
 }

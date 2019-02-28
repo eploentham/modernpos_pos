@@ -58,6 +58,7 @@ namespace modernpos_pos.gui
             //grdView.ContextMenu = custommenu;
             //bg = txtStfCode.BackColor;
             //fc = txtStfCode.ForeColor;
+            theme1.Theme = mposC.iniC.themeApplication;
             theme1.SetTheme(sB, "BeigeOne");
             theme1.SetTheme(groupBox1, "Office2013Red");
             theme1.SetTheme(label1, "Office2013Red");

@@ -92,7 +92,7 @@ namespace modernpos_pos.gui
         private void BtnTable_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmCFoodsCatSub frm = new FrmCFoodsCatSub(mposC);
+            FrmCTable frm = new FrmCTable(mposC);
             frm.Show(this);
         }
 

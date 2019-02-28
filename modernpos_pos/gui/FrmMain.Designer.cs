@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.c1SuperLabel1 = new C1.Win.C1SuperTooltip.C1SuperLabel();
+            this.txtHeader = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.c1SuperLabel2 = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClose = new C1.Win.C1Input.C1Button();
             this.btnConfig = new C1.Win.C1Input.C1Button();
@@ -41,7 +42,6 @@
             this.btnRetail = new C1.Win.C1Input.C1Button();
             this.btnTakeOut = new C1.Win.C1Input.C1Button();
             this.btnDineIn = new C1.Win.C1Input.C1Button();
-            this.c1SuperLabel2 = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -56,26 +56,38 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnDineIn)).BeginInit();
             this.SuspendLayout();
             // 
-            // c1SuperLabel1
+            // txtHeader
             // 
-            this.c1SuperLabel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.c1SuperLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1SuperLabel1.Location = new System.Drawing.Point(3, 8);
-            this.c1SuperLabel1.Name = "c1SuperLabel1";
-            this.c1SuperLabel1.Size = new System.Drawing.Size(475, 59);
-            this.c1SuperLabel1.TabIndex = 0;
-            this.c1SuperLabel1.Text = "modernpos POS Restaurant";
-            this.c1SuperLabel1.UseMnemonic = true;
+            this.txtHeader.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtHeader.Location = new System.Drawing.Point(3, 8);
+            this.txtHeader.Name = "txtHeader";
+            this.txtHeader.Size = new System.Drawing.Size(475, 86);
+            this.txtHeader.TabIndex = 0;
+            this.txtHeader.Text = "modernpos POS Restaurant";
+            this.txtHeader.UseMnemonic = true;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.c1SuperLabel2);
-            this.panel1.Controls.Add(this.c1SuperLabel1);
+            this.panel1.Controls.Add(this.txtHeader);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(945, 100);
             this.panel1.TabIndex = 1;
+            // 
+            // c1SuperLabel2
+            // 
+            this.c1SuperLabel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.c1SuperLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1SuperLabel2.Location = new System.Drawing.Point(493, 8);
+            this.c1SuperLabel2.Name = "c1SuperLabel2";
+            this.c1SuperLabel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.c1SuperLabel2.Size = new System.Drawing.Size(452, 59);
+            this.c1SuperLabel2.TabIndex = 1;
+            this.c1SuperLabel2.Text = "message";
+            this.c1SuperLabel2.UseMnemonic = true;
             // 
             // panel2
             // 
@@ -185,18 +197,6 @@
             this.btnDineIn.Text = "ในร้าน dine in";
             this.btnDineIn.UseVisualStyleBackColor = true;
             // 
-            // c1SuperLabel2
-            // 
-            this.c1SuperLabel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.c1SuperLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1SuperLabel2.Location = new System.Drawing.Point(493, 8);
-            this.c1SuperLabel2.Name = "c1SuperLabel2";
-            this.c1SuperLabel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.c1SuperLabel2.Size = new System.Drawing.Size(452, 59);
-            this.c1SuperLabel2.TabIndex = 1;
-            this.c1SuperLabel2.Text = "message";
-            this.c1SuperLabel2.UseMnemonic = true;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,7 +226,7 @@
 
         #endregion
 
-        private C1.Win.C1SuperTooltip.C1SuperLabel c1SuperLabel1;
+        private C1.Win.C1SuperTooltip.C1SuperLabel txtHeader;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private C1.Win.C1Input.C1Button btnClose;

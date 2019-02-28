@@ -49,12 +49,12 @@ namespace modernpos_pos.gui
             fEdit = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Regular);
             fEditB = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Bold);
 
-            C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
-            theme1.Theme = C1ThemeController.ApplicationTheme;
+            //C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
+            theme1.Theme = mposC.iniC.themeApplication;
             theme1.SetTheme(sB, "BeigeOne");
             foreach (Control c in panel3.Controls)
             {
-                theme1.SetTheme(c, "Office2013Red");
+                theme1.SetTheme(c, mposC.iniC.themeApplication);
             }
 
             bg = txtFcbCode.BackColor;

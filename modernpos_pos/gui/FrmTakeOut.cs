@@ -93,6 +93,7 @@ namespace modernpos_pos.gui
             txtFoodsName.ForeColor = System.Drawing.Color.Black;
             txtFoodsName.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
             txtFoodsName.SingleLine = true;
+            btnCancel.Enabled = false;
 
             pnFoodsName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             pnFoodsName.Children.Add(txtFoodsName);
@@ -173,7 +174,7 @@ namespace modernpos_pos.gui
             grf.SubtotalPosition = SubtotalPositionEnum.BelowData;
 
             grf.AfterRowColChange += Grf_AfterRowColChange;
-            //grf.DoubleClick += GrfPtt_DoubleClick;
+            
             //grfExpnC.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellButtonClick);
             //grfExpnC.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellChanged);
             ContextMenu menuGw = new ContextMenu();
