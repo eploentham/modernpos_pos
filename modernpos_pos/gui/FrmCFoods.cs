@@ -108,7 +108,7 @@ namespace modernpos_pos.gui
             {
                 MemoryStream stream = new MemoryStream();
                 Image loadedImage = null, resizedImage;
-                stream = mposC.ftpC.download(foo.filename);
+                //stream = mposC.ftpC.download(foo.filename);
                 loadedImage = new Bitmap(stream);
                 if (loadedImage != null)
                 {

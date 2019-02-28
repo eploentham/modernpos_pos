@@ -44,7 +44,7 @@ namespace modernpos_pos.control
 
         public Color cTxtFocus;
 
-        public FtpClient ftpC;
+        //public FtpClient ftpC;
         Regex regEmail;
         String soapTaxId = "";
         public String theme = "", StartupPath = "", passOK="";
@@ -83,7 +83,7 @@ namespace modernpos_pos.control
 
             GetConfig();
             conn = new ConnectDB(iniC);
-            ftpC = new FtpClient(iniC.hostFTP, iniC.userFTP, iniC.passFTP);
+            //ftpC = new FtpClient(iniC.hostFTP, iniC.userFTP, iniC.passFTP);
 
             //ivfDB = new IvfDB(conn);
             
@@ -527,11 +527,11 @@ namespace modernpos_pos.control
             //}
             //pathFile.Save(@"temppic." + System.Drawing.Imaging.ImageFormat.Jpeg, System.Drawing.Imaging.ImageFormat.Jpeg);
             string ext = Path.GetExtension(pathLocalFile);
-            ftpC.createDirectory("images/foods");
-            //ftpC.createDirectory("images/" + fooId);
-            ftpC.delete("images/foods/" + fooId + ext);
-            //ftpC.upload( filename, pathFile);
-            ftpC.upload("images/foods/" + fooId + ext, pathLocalFile);
+            //ftpC.createDirectory("images/foods");
+            
+            //ftpC.delete("images/foods/" + fooId + ext);
+            
+            //ftpC.upload("images/foods/" + fooId + ext, pathLocalFile);
             mposDB.fooDB.updateFileName(fooId, fooId + ext);
         }
     }

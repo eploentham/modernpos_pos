@@ -30,15 +30,16 @@
         {
             this.pnBill = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtTableCode = new C1.Win.C1Input.C1TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lbStatus = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.lbAmt = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.btnPay = new System.Windows.Forms.Button();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
-            this.txtTableCode = new C1.Win.C1Input.C1TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTableCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnBill
@@ -51,6 +52,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.listBox1);
             this.panel2.Controls.Add(this.txtTableCode);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.lbStatus);
@@ -61,6 +63,20 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(602, 570);
             this.panel2.TabIndex = 1;
+            // 
+            // txtTableCode
+            // 
+            this.txtTableCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTableCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtTableCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtTableCode.Location = new System.Drawing.Point(12, 12);
+            this.txtTableCode.Name = "txtTableCode";
+            this.txtTableCode.Size = new System.Drawing.Size(22, 20);
+            this.txtTableCode.TabIndex = 237;
+            this.txtTableCode.Tag = null;
+            this.theme1.SetTheme(this.txtTableCode, "(default)");
+            this.txtTableCode.Visible = false;
+            this.txtTableCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // button1
             // 
@@ -79,7 +95,7 @@
             // lbStatus
             // 
             this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbStatus.Location = new System.Drawing.Point(12, 196);
+            this.lbStatus.Location = new System.Drawing.Point(12, 158);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(464, 81);
             this.lbStatus.TabIndex = 18;
@@ -89,7 +105,7 @@
             // lbAmt
             // 
             this.lbAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbAmt.Location = new System.Drawing.Point(12, 71);
+            this.lbAmt.Location = new System.Drawing.Point(12, 38);
             this.lbAmt.Name = "lbAmt";
             this.lbAmt.Size = new System.Drawing.Size(464, 81);
             this.lbAmt.TabIndex = 17;
@@ -114,19 +130,14 @@
             // 
             this.theme1.Theme = "Office2013Red";
             // 
-            // txtTableCode
+            // listBox1
             // 
-            this.txtTableCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTableCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtTableCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtTableCode.Location = new System.Drawing.Point(12, 12);
-            this.txtTableCode.Name = "txtTableCode";
-            this.txtTableCode.Size = new System.Drawing.Size(22, 20);
-            this.txtTableCode.TabIndex = 237;
-            this.txtTableCode.Tag = null;
-            this.theme1.SetTheme(this.txtTableCode, "(default)");
-            this.txtTableCode.Visible = false;
-            this.txtTableCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(12, 252);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(587, 173);
+            this.listBox1.TabIndex = 238;
+            this.theme1.SetTheme(this.listBox1, "(default)");
             // 
             // FrmTakeOutCheck
             // 
@@ -140,8 +151,8 @@
             this.Text = "FrmTakeOutCheck";
             this.Load += new System.EventHandler(this.FrmTakeOutCheck_Load);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTableCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -156,5 +167,6 @@
         private C1.Win.C1SuperTooltip.C1SuperLabel lbAmt;
         private C1.Win.C1Themes.C1ThemeController theme1;
         private C1.Win.C1Input.C1TextBox txtTableCode;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
