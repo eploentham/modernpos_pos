@@ -19,7 +19,9 @@ namespace modernpos_pos
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form4());
+            //MessageBox.Show("Program ", "");
             mPOSControl mposC = new mPOSControl();
+            //MessageBox.Show("Program mPOSControl after", "");
             FrmSplash spl = new FrmSplash();
             spl.Show();
             Application.Run(new FrmMain(mposC, spl));

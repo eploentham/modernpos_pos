@@ -44,7 +44,7 @@ namespace modernpos_pos.control
 
         public Color cTxtFocus;
 
-        //public FtpClient ftpC;
+        public FtpClient ftpC;
         Regex regEmail;
         String soapTaxId = "";
         public String theme = "", StartupPath = "", passOK="";
@@ -58,7 +58,6 @@ namespace modernpos_pos.control
         public mPOSControl()
         {
             initConfig();
-
         }
         private void initConfig()
         {
@@ -83,10 +82,11 @@ namespace modernpos_pos.control
 
             GetConfig();
             conn = new ConnectDB(iniC);
-            //ftpC = new FtpClient(iniC.hostFTP, iniC.userFTP, iniC.passFTP);
+            //MessageBox.Show("mPOSControl before ftpC", "");
+            ftpC = new FtpClient(iniC.hostFTP, iniC.userFTP, iniC.passFTP);
 
             //ivfDB = new IvfDB(conn);
-            
+
             cTxtFocus = ColorTranslator.FromHtml(iniC.txtFocus);
             if (iniC.statusAppDonor.Equals("1"))
             {
@@ -161,6 +161,9 @@ namespace modernpos_pos.control
             iniC.timerImgScanNew = iniF.getIni("app", "timerImgScanNew");
             iniC.pathImageScan = iniF.getIni("app", "pathImageScan");
             iniC.patientaddpanel1weight = iniF.getIni("app", "patientaddpanel1weight");
+            iniC.ShareFile = iniF.getIni("app", "ShareFile");
+            iniC.ShareFileSMBFolder = iniF.getIni("app", "ShareFileSMBFolder");
+            //iniC.ShareFile = iniF.getIni("app", "ShareFile");
 
             iniC.VNEip = iniF.getIni("VNE", "VNEip");
             iniC.VNEwebapi = iniF.getIni("VNE", "VNEwebapi");
@@ -197,6 +200,8 @@ namespace modernpos_pos.control
             iniC.timerImgScanNew = iniC.timerImgScanNew == null ? "2" : iniC.timerImgScanNew.Equals("") ? "0" : iniC.timerImgScanNew;
             iniC.pathImageScan = iniC.pathImageScan == null ? "d:\\images" : iniC.pathImageScan.Equals("") ? "d:\\images" : iniC.pathImageScan;
             iniC.folderFTP = iniC.folderFTP == null ? "images_medical_record" : iniC.folderFTP.Equals("") ? "images_medical_record" : iniC.folderFTP;
+            iniC.ShareFile = iniC.folderFTP == null ? "FTP" : iniC.folderFTP.Equals("") ? "FTP" : iniC.folderFTP;
+            iniC.ShareFileSMBFolder = iniC.ShareFileSMBFolder == null ? "d:\\images" : iniC.ShareFileSMBFolder.Equals("") ? "d:\\images" : iniC.folderFTP;
             int.TryParse(iniC.grdViewFontSize, out grdViewFontSize);
             int.TryParse(iniC.patientaddpanel1weight, out panel1Width);
         }
@@ -398,6 +403,10 @@ namespace modernpos_pos.control
                 c.Items.Clear();
                 PrinterSettings settings = new PrinterSettings();
                 int i = 0;
+                ComboBoxItem item1 = new ComboBoxItem();
+                item1.Text = "";
+                item1.Value = "";
+                c.Items.Add(item1);
                 foreach (string printer in PrinterSettings.InstalledPrinters)
                 {
                     settings.PrinterName = printer;
@@ -521,12 +530,23 @@ namespace modernpos_pos.control
         }
         public void savePicFoodstoServer(String fooId, String pathLocalFile)
         {
+            string ext = Path.GetExtension(pathLocalFile);
+            if (iniC.ShareFile.Equals("FTP"))
+            {
+                ftpC.createDirectory("images/foods");
+                ftpC.delete("images/foods/" + fooId + ext);
+                ftpC.upload("images/foods/" + fooId + ext, pathLocalFile);
+            }
+            else
+            {
+
+            }
             //if (File.Exists(@"temppic" + System.Drawing.Imaging.ImageFormat.Jpeg))
             //{
             //    File.Delete(@"temppic" + System.Drawing.Imaging.ImageFormat.Jpeg);
             //}
             //pathFile.Save(@"temppic." + System.Drawing.Imaging.ImageFormat.Jpeg, System.Drawing.Imaging.ImageFormat.Jpeg);
-            string ext = Path.GetExtension(pathLocalFile);
+            
             //ftpC.createDirectory("images/foods");
             
             //ftpC.delete("images/foods/" + fooId + ext);

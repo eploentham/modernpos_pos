@@ -18,7 +18,7 @@
 --
 -- Table structure for table `b_area`
 --
-use modern_pos;
+
 DROP TABLE IF EXISTS `b_area`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
@@ -1097,4 +1097,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-27 18:47:08
+-- Dump completed on 2019-03-01  9:32:08

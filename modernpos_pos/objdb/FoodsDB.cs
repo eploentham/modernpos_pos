@@ -240,14 +240,14 @@ namespace modernpos_pos.objdb
                 "," + foo.host_id + " = '" + p.host_id + "' " +
                 "," + foo.branch_id + " = '" + p.branch_id + "' " +
                 "," + foo.device_id + " = '" + p.device_id + "' " +
-                "," + foo.res_code + " = '" + p.res_code + "' " +
+                "," + foo.res_id + " = '" + p.res_id + "' " +
                 "," + foo.status_foods + " = '" + p.status_foods + "' " +
                 "," + foo.printer_name + " = '" + p.printer_name + "' " +
                 "," + foo.foods_price + " = '" + p.foods_price + "' " +
                 "," + foo.status_dine_in + " = '" + p.status_dine_in + "' " +
                 "," + foo.status_to_go + " = '" + p.status_to_go + "' " +
                 "," + foo.foods_cat_id + " = '" + p.foods_cat_id + "' " +
-                //"," + foo.filename + " = '" + p.filename + "' " +
+                "," + foo.foods_type_id + " = '" + p.foods_type_id + "' " +
                 "Where " + foo.pkField + "='" + p.foods_id + "'"
                 ;
 

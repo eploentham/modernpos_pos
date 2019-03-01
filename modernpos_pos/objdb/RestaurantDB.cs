@@ -258,9 +258,10 @@ namespace modernpos_pos.objdb
                 "," + res.printer_waterbar3 + " = '" + p.printer_waterbar3 + "' " +
                 "," + res.receipt_footer3 + " = '" + p.receipt_footer3 + "' " +
                 "," + res.receipt_header3 + " = '" + p.receipt_header3 + "' " +
+                "," + res.receipt_footer2 + " = '" + p.receipt_footer2 + "' " +
                 "," + res.cop_id + " = '" + p.cop_id + "' " +
 
-                "Where " + res.pkField + "='" + p.default_res + "'"
+                "Where " + res.pkField + "='" + p.res_id + "'"
                 ;
 
             try

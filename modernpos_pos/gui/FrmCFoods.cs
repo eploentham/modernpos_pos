@@ -50,13 +50,13 @@ namespace modernpos_pos.gui
             fEdit = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Regular);
             fEditB = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Bold);
 
-            C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
-            theme1.Theme = C1ThemeController.ApplicationTheme;
+            //C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
+            theme1.Theme = mposC.iniC.themeApplication;
             theme1.SetTheme(sB, "BeigeOne");
             foreach (Control c in panel3.Controls)
             {
                 if (c is C1PictureBox) continue;
-                theme1.SetTheme(c, "Office2013Red");
+                theme1.SetTheme(c, mposC.iniC.themeApplication);
             }
 
             bg = txtFooCode.BackColor;
@@ -217,6 +217,7 @@ namespace modernpos_pos.gui
             txtFooCode.Value = foo.foods_code;
             txtFooNameT.Value = foo.foods_name;
             txtRemark.Value = foo.remark;
+            txtPrice.Value = foo.foods_price;
             //if (foo.status_foods.Equals("1"))
             //{
             //    chkStatusToGo.Checked = true;
@@ -250,6 +251,11 @@ namespace modernpos_pos.gui
             txtFooNameT.Enabled = flag;
             txtRemark.Enabled = flag;
             chkVoid.Enabled = flag;
+            cboRes.Enabled = flag;
+            cboFoodsType.Enabled = flag;
+            cboFoodsCat.Enabled = flag;
+            cboPrinter.Enabled = flag;
+            txtPrice.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
 

@@ -173,8 +173,9 @@ namespace modernpos_pos.gui
             txtBillHeader3.Value = res.receipt_header3;
             txtBillFooter1.Value = res.receipt_footer1;
             txtBillFooter2.Value = res.receipt_footer2;
-            txtBillFooter3.Value = res.receipt_footer2;
+            txtBillFooter3.Value = res.receipt_footer3;
             txtTaxId.Value = res.tax_id;
+            chkDefaultRes.Checked = res.default_res.Equals("1") ? true : false;
             //if (res.status_togo.Equals("1"))
             //{
             //    chkStatusTakeOut.Checked = true;
@@ -221,7 +222,7 @@ namespace modernpos_pos.gui
             res.receipt_footer3 = txtBillFooter3.Text;
             res.cop_id = cboCop.SelectedItem == null ? "" : ((ComboBoxItem)cboCop.SelectedItem).Value;
             res.tax_id = txtTaxId.Text;
-            //res.status_togo = chkStatusTakeOut.Checked == true ? "1" : "0";
+            res.default_res = chkDefaultRes.Checked == true ? "1" : "0";
             //area.status_embryologist = chkEmbryologist.Checked == true ? "1" : "0";
         }
         private void grfPosi_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)

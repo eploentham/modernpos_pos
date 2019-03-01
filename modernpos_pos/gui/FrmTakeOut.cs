@@ -44,7 +44,7 @@ namespace modernpos_pos.gui
         C1FlexGrid grf;
 
         VNEControl vneC;
-        int colNo = 1, colFooName = 2, colPrice = 3, colQty=4, colRemark=5, colStatus = 6, colFooId=7;
+        int colNo = 1, colFooName = 2, colPrice = 3, colQty=4, colRemark=5, colStatus = 6, colFooId=7, colPrinterName=8;
 
         List<Order1> lOrd;
         Order1 ord;
@@ -157,7 +157,7 @@ namespace modernpos_pos.gui
             grf.Cols[0].Visible = false;
             //grf.Cols[colStatus].Visible = false;
             grf.Rows.Count = 1;
-            grf.Cols.Count = 8;
+            grf.Cols.Count = 9;
             grf.Cols[colNo].Width = 40;
             grf.Cols[colFooName].Width = 300;
             grf.Cols[colPrice].Width = 80;
@@ -186,6 +186,7 @@ namespace modernpos_pos.gui
             pnBill.Controls.Add(grf);
             grf.Cols[colFooId].Visible = false;
             grf.Cols[colStatus].Visible = false;
+            grf.Cols[colPrinterName].Visible = false;
             grf.Cols[colQty].Visible = false;
             pnBill.Width =  mposC.panel1Width;
             //theme.SetTheme(grf, "Office2010Blue");
@@ -209,7 +210,7 @@ namespace modernpos_pos.gui
             grf.Subtotal(AggregateEnum.Sum, 0, -1, colPrice, "Grand Total");
             
         }
-        private void setGrf(String id, String name, String price, String qty, String remark)
+        private void setGrf(String id, String name, String price, String qty, String remark, String printer)
         {
             String re = "";
             if (!name.Equals(""))
@@ -222,6 +223,7 @@ namespace modernpos_pos.gui
                 row[colFooId] = id;
                 row[colRemark] = remark;
                 row[colNo] = grf.Rows.Count - 2;
+                row[colPrinterName] = printer;
                 ord1.order_id = "";
                 ord1.price = price;
                 ord1.qty = "1";
@@ -265,7 +267,9 @@ namespace modernpos_pos.gui
             Tile tile = sender as Tile;
             if (tile != null)
             {
-                setGrf(tile.Name, tile.Text, tile.Text1.Replace("ราคา", "").Trim(),"1","");
+                Foods foo = new Foods();
+                foo = (Foods)tile.Tag;
+                setGrf(tile.Name, tile.Text, tile.Text1.Replace("ราคา", "").Trim(),"1","", foo.printer_name);
                 //FlickrPhoto photo = (FlickrPhoto)tile.Tag;
                 //string uri = photo.ContentUri;
                 //if (!string.IsNullOrEmpty(uri))

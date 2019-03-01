@@ -41,7 +41,7 @@ namespace modernpos_pos.gui
 
         List<Order1> lOrd;
 
-        int colNo = 1, colFooName = 2, colPrice = 3, colQty = 4, colRemark = 5, colStatus = 6, colFooId = 7;
+        int colNo = 1, colFooName = 2, colPrice = 3, colQty = 4, colRemark = 5, colStatus = 6, colFooId = 7, colPrinterName = 8;
         Timer timer, timerOnLine;
         public enum VNECommand { Payment = 1, PollingStatusPayment = 2, DeletePendingPayment = 3, ListPendingPayment = 5 };
         String webapi = "/selfcashapi/", txtAmt= "จำนวนเงินต้องชำระ";
@@ -154,7 +154,6 @@ namespace modernpos_pos.gui
             {
                 listBox1.Items.Add(err + " " + ex.Message);
             }
-            
         }
 
         private void BtnPay_Click(object sender, EventArgs e)
@@ -241,11 +240,13 @@ namespace modernpos_pos.gui
                 if(int.TryParse(chk,out dd))
                 {
                     listBox1.Items.Add("insert payment OK");
-                    foreach(Row row in grf.Rows)
+                    Order1 ord = new Order1();
+                    String lot = ord.getGenID();
+                    foreach (Row row in grf.Rows)
                     {
-                        Order1 ord = new Order1();
+                        ord = new Order1();
                         ord.order_id = "";
-                        ord.lot_id = "";
+                        ord.lot_id = lot;
                         ord.res_id = "";
                         ord.host_id = "";
                         ord.device_id = "";
@@ -255,6 +256,7 @@ namespace modernpos_pos.gui
                         ord.price = row[colPrice] != null ? row[colPrice].ToString() : "";
                         ord.remark = row[colRemark] != null ? row[colRemark].ToString() : "";
                         ord.row1 = row[colNo] != null ? row[colNo].ToString() : "";
+                        ord.printer_name = row[colPrinterName] != null ? row[colPrinterName].ToString() : "";
                         mposC.mposDB.ordDB.insertOrder(ord, "");
                     }
                 }

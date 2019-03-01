@@ -53,7 +53,7 @@
             this.cboCop = new C1.Win.C1Input.C1ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.chkEmbryologist = new C1.Win.C1Input.C1CheckBox();
-            this.chkStatusTakeOut = new C1.Win.C1Input.C1CheckBox();
+            this.chkDefaultRes = new C1.Win.C1Input.C1CheckBox();
             this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             this.btnNew = new C1.Win.C1Input.C1Button();
             this.chkVoid = new C1.Win.C1Input.C1CheckBox();
@@ -88,7 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBillHeader1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboCop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkStatusTakeOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkDefaultRes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
@@ -164,7 +164,7 @@
             this.panel3.Controls.Add(this.cboCop);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.chkEmbryologist);
-            this.panel3.Controls.Add(this.chkStatusTakeOut);
+            this.panel3.Controls.Add(this.chkDefaultRes);
             this.panel3.Controls.Add(this.txtPasswordVoid);
             this.panel3.Controls.Add(this.btnNew);
             this.panel3.Controls.Add(this.chkVoid);
@@ -470,23 +470,23 @@
             this.chkEmbryologist.Value = null;
             this.chkEmbryologist.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // chkStatusTakeOut
+            // chkDefaultRes
             // 
-            this.chkStatusTakeOut.BackColor = System.Drawing.Color.Transparent;
-            this.chkStatusTakeOut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkStatusTakeOut.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.chkStatusTakeOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkStatusTakeOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkStatusTakeOut.Location = new System.Drawing.Point(124, 558);
-            this.chkStatusTakeOut.Name = "chkStatusTakeOut";
-            this.chkStatusTakeOut.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkStatusTakeOut.Size = new System.Drawing.Size(135, 24);
-            this.chkStatusTakeOut.TabIndex = 260;
-            this.chkStatusTakeOut.Text = "เป้น โต๊ะสั่งกลับบ้าน";
-            this.theme1.SetTheme(this.chkStatusTakeOut, "(default)");
-            this.chkStatusTakeOut.UseVisualStyleBackColor = true;
-            this.chkStatusTakeOut.Value = null;
-            this.chkStatusTakeOut.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.chkDefaultRes.BackColor = System.Drawing.Color.Transparent;
+            this.chkDefaultRes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkDefaultRes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkDefaultRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkDefaultRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkDefaultRes.Location = new System.Drawing.Point(124, 558);
+            this.chkDefaultRes.Name = "chkDefaultRes";
+            this.chkDefaultRes.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkDefaultRes.Size = new System.Drawing.Size(135, 24);
+            this.chkDefaultRes.TabIndex = 260;
+            this.chkDefaultRes.Text = "เป้น เป็นร้านนี้";
+            this.theme1.SetTheme(this.chkDefaultRes, "(default)");
+            this.chkDefaultRes.UseVisualStyleBackColor = true;
+            this.chkDefaultRes.Value = null;
+            this.chkDefaultRes.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtPasswordVoid
             // 
@@ -723,7 +723,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBillHeader1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboCop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkStatusTakeOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkDefaultRes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
@@ -763,7 +763,7 @@
         private C1.Win.C1Input.C1TextBox txtResCode;
         private System.Windows.Forms.Label label1;
         private C1.Win.C1Input.C1TextBox txtPasswordVoid;
-        private C1.Win.C1Input.C1CheckBox chkStatusTakeOut;
+        private C1.Win.C1Input.C1CheckBox chkDefaultRes;
         private C1.Win.C1Input.C1CheckBox chkEmbryologist;
         private C1.Win.C1Input.C1ComboBox cboCop;
         private System.Windows.Forms.Label label7;

@@ -184,6 +184,7 @@
     </Compile>
     <Compile Include="objdb\AreaDB.cs" />
     <Compile Include="objdb\BillDB.cs" />
+    <Compile Include="objdb\BillDetailDB.cs" />
     <Compile Include="objdb\CompanyDB.cs" />
     <Compile Include="objdb\ConnectDB.cs" />
     <Compile Include="objdb\DepartmentDB.cs" />
@@ -216,6 +217,7 @@
     </Compile>
     <Compile Include="object1\Area.cs" />
     <Compile Include="object1\Bill.cs" />
+    <Compile Include="object1\BillDetail.cs" />
     <Compile Include="object1\ComboBoxItem.cs" />
     <Compile Include="gui\Form1.cs">
       <SubType>Form</SubType>
