@@ -44,7 +44,7 @@ namespace modernpos_pos.gui
         C1FlexGrid grf;
 
         VNEControl vneC;
-        int colNo = 1, colName = 2, colPrice = 3, colQty=4, colRemark=5, colStatus = 6, colId=7;
+        int colNo = 1, colFooName = 2, colPrice = 3, colQty=4, colRemark=5, colStatus = 6, colFooId=7;
 
         List<Order1> lOrd;
         Order1 ord;
@@ -159,13 +159,13 @@ namespace modernpos_pos.gui
             grf.Rows.Count = 1;
             grf.Cols.Count = 8;
             grf.Cols[colNo].Width = 40;
-            grf.Cols[colName].Width = 300;
+            grf.Cols[colFooName].Width = 300;
             grf.Cols[colPrice].Width = 80;
             //FilterRow fr = new FilterRow(grfExpn);
             grf.TabStop = false;
             grf.EditOptions = EditFlags.None;
             grf.Cols[colNo].AllowEditing = false;
-            grf.Cols[colName].AllowEditing = false;
+            grf.Cols[colFooName].AllowEditing = false;
             grf.Cols[colPrice].AllowEditing = false;
             //grf.ExtendLastCol = true;
             grf.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
@@ -184,7 +184,7 @@ namespace modernpos_pos.gui
             grf.ContextMenu = menuGw;
             //grf.EndUpdate();
             pnBill.Controls.Add(grf);
-            grf.Cols[colId].Visible = false;
+            grf.Cols[colFooId].Visible = false;
             grf.Cols[colStatus].Visible = false;
             grf.Cols[colQty].Visible = false;
             pnBill.Width =  mposC.panel1Width;
@@ -217,9 +217,9 @@ namespace modernpos_pos.gui
                 //String[] ext = name.Split('#');
                 Order1 ord1 = new Order1();
                 Row row = grf.Rows.Add();
-                row[colName] = name;
+                row[colFooName] = name;
                 row[colPrice] = price;
-                row[colId] = id;
+                row[colFooId] = id;
                 row[colRemark] = remark;
                 row[colNo] = grf.Rows.Count - 2;
                 ord1.order_id = "";

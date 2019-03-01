@@ -183,6 +183,7 @@
       <DependentUpon>FrmTakeOutCheck.cs</DependentUpon>
     </Compile>
     <Compile Include="objdb\AreaDB.cs" />
+    <Compile Include="objdb\BillDB.cs" />
     <Compile Include="objdb\CompanyDB.cs" />
     <Compile Include="objdb\ConnectDB.cs" />
     <Compile Include="objdb\DepartmentDB.cs" />
@@ -214,6 +215,7 @@
       <DependentUpon>FrmOrdering.cs</DependentUpon>
     </Compile>
     <Compile Include="object1\Area.cs" />
+    <Compile Include="object1\Bill.cs" />
     <Compile Include="object1\ComboBoxItem.cs" />
     <Compile Include="gui\Form1.cs">
       <SubType>Form</SubType>

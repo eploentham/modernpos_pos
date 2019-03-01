@@ -41,7 +41,7 @@ namespace modernpos_pos.gui
 
         List<Order1> lOrd;
 
-        int colNo = 1, colName = 2, colPrice = 3, colQty = 4, colRemark = 5, colStatus = 6, colId = 7;
+        int colNo = 1, colFooName = 2, colPrice = 3, colQty = 4, colRemark = 5, colStatus = 6, colFooId = 7;
         Timer timer, timerOnLine;
         public enum VNECommand { Payment = 1, PollingStatusPayment = 2, DeletePendingPayment = 3, ListPendingPayment = 5 };
         String webapi = "/selfcashapi/", txtAmt= "จำนวนเงินต้องชำระ";
@@ -239,7 +239,25 @@ namespace modernpos_pos.gui
                 //label9.Text = "Start waiting payment";
                 int dd = 0;
                 if(int.TryParse(chk,out dd))
+                {
                     listBox1.Items.Add("insert payment OK");
+                    foreach(Row row in grf.Rows)
+                    {
+                        Order1 ord = new Order1();
+                        ord.order_id = "";
+                        ord.lot_id = "";
+                        ord.res_id = "";
+                        ord.host_id = "";
+                        ord.device_id = "";
+                        ord.branch_id = "";
+                        ord.foods_id = row[colFooId] != null ? row[colFooId].ToString() : "";
+                        ord.foods_name = row[colFooName] != null ? row[colFooName].ToString() : "";
+                        ord.price = row[colPrice] != null ? row[colPrice].ToString() : "";
+                        ord.remark = row[colRemark] != null ? row[colRemark].ToString() : "";
+                        ord.row1 = row[colNo] != null ? row[colNo].ToString() : "";
+                        mposC.mposDB.ordDB.insertOrder(ord, "");
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -259,13 +277,13 @@ namespace modernpos_pos.gui
             grf.Rows.Count = 1;
             grf.Cols.Count = 8;
             grf.Cols[colNo].Width = 40;
-            grf.Cols[colName].Width = 300;
+            grf.Cols[colFooName].Width = 300;
             grf.Cols[colPrice].Width = 80;
             //FilterRow fr = new FilterRow(grfExpn);
             grf.TabStop = false;
             grf.EditOptions = EditFlags.None;
             grf.Cols[colNo].AllowEditing = false;
-            grf.Cols[colName].AllowEditing = false;
+            grf.Cols[colFooName].AllowEditing = false;
             grf.Cols[colPrice].AllowEditing = false;
             //grf.ExtendLastCol = true;
             grf.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
@@ -273,7 +291,7 @@ namespace modernpos_pos.gui
             grf.SubtotalPosition = SubtotalPositionEnum.BelowData;            
             
             pnBill.Controls.Add(grf);
-            grf.Cols[colId].Visible = false;
+            grf.Cols[colFooId].Visible = false;
             grf.Cols[colStatus].Visible = false;
             grf.Cols[colQty].Visible = false;
             
@@ -289,9 +307,9 @@ namespace modernpos_pos.gui
                 foreach(Order1 ord in lOrd)
                 {
                     Row row = grf.Rows.Add();
-                    row[colName] = ord.foods_name;
+                    row[colFooName] = ord.foods_name;
                     row[colPrice] = ord.price;
-                    row[colId] = ord.foods_id;
+                    row[colFooId] = ord.foods_id;
                     row[colRemark] = ord.remark;
                     row[colNo] = grf.Rows.Count - 2;
                     
