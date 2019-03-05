@@ -531,16 +531,16 @@ namespace modernpos_pos.control
         public void savePicFoodstoServer(String fooId, String pathLocalFile)
         {
             string ext = Path.GetExtension(pathLocalFile);
-            if (iniC.ShareFile.Equals("FTP"))
-            {
-                ftpC.createDirectory("images/foods");
-                ftpC.delete("images/foods/" + fooId + ext);
-                ftpC.upload("images/foods/" + fooId + ext, pathLocalFile);
-            }
-            else
-            {
+            //if (iniC.ShareFile.Equals("FTP"))
+            //{
+                ftpC.createDirectory(iniC.ShareFile+"/foods");
+                ftpC.delete(iniC.ShareFile + "/foods/" + fooId + ext);
+                ftpC.upload(iniC.ShareFile + "/foods/" + fooId + ext, pathLocalFile);
+            //}
+            //else
+            //{
 
-            }
+            //}
             //if (File.Exists(@"temppic" + System.Drawing.Imaging.ImageFormat.Jpeg))
             //{
             //    File.Delete(@"temppic" + System.Drawing.Imaging.ImageFormat.Jpeg);

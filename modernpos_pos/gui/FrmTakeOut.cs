@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -250,7 +251,29 @@ namespace modernpos_pos.gui
                 tile.Tag = foo1;
                 tile.Name = foo1.foods_id;
                 tile.Click += Tile_Click;
-
+                tile.Image = null;
+                try
+                {
+                    tile.Image = null;
+                    MemoryStream stream = new MemoryStream();
+                    Image loadedImage = null, resizedImage;
+                    if (foo1.filename.Equals("")) return;
+                    stream = mposC.ftpC.download(mposC.iniC.ShareFile + "/foods/" + foo1.filename);
+                    loadedImage = new Bitmap(stream);
+                    if (loadedImage != null)
+                    {
+                        //SizeF size = tile.Width;
+                        int originalWidth = loadedImage.Width;
+                        int newWidth = 180;
+                        resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
+                        tile.Image = resizedImage;
+                        
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("" + ex.Message, "showImg");
+                }
                 //if (!string.IsNullOrEmpty(photo.ThumbnailUri))
                 //    _downloadQueue.Enqueue(new DownloadItem(photo.ThumbnailUri, tile, false));
                 //if (!string.IsNullOrEmpty(photo.AuthorBuddyIconUri))

@@ -123,6 +123,7 @@ namespace modernpos_pos.objdb
                 itm1.foods_code = row[foo.foods_code].ToString();
                 itm1.foods_type_id = row[foo.foods_type_id].ToString();
                 itm1.foods_cat_id = row[foo.foods_cat_id].ToString();
+                itm1.filename = row[foo.filename].ToString();
                 lfoo1.Add(itm1);
             }
             return lfoo1;

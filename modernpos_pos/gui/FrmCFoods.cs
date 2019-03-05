@@ -106,9 +106,11 @@ namespace modernpos_pos.gui
             if (pageLoad) return;
             try
             {
+                picFoo.Image = null;
                 MemoryStream stream = new MemoryStream();
                 Image loadedImage = null, resizedImage;
-                //stream = mposC.ftpC.download(foo.filename);
+                if (foo.filename.Equals("")) return;
+                stream = mposC.ftpC.download(mposC.iniC.ShareFile + "/foods/"+foo.filename);
                 loadedImage = new Bitmap(stream);
                 if (loadedImage != null)
                 {
