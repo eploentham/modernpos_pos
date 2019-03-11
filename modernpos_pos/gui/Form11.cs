@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace modernpos_pos
 {
-    public partial class Form1 : Form
+    public partial class Form11 : Form
     {
         private PrintDocument printDocument = new PrintDocument();
         private static String RECEIPT = Environment.CurrentDirectory + @"comprovante.txt";
         private String stringToPrint = "";
-        public Form1()
+        public Form11()
         {
             InitializeComponent();
             generateReceipt();

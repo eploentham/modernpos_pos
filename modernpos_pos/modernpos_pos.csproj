@@ -80,6 +80,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="control\mPOSControl.cs" />
+    <Compile Include="gui\FrmDemoSiPH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmDemoSiPH.designer.cs">
+      <DependentUpon>FrmDemoSiPH.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\Form5.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,17 +225,17 @@
     <Compile Include="object1\Bill.cs" />
     <Compile Include="object1\BillDetail.cs" />
     <Compile Include="object1\ComboBoxItem.cs" />
-    <Compile Include="gui\Form1.cs">
+    <Compile Include="gui\Form11.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gui\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="gui\Form11.Designer.cs">
+      <DependentUpon>Form11.cs</DependentUpon>
     </Compile>
-    <Compile Include="gui\Form2.cs">
+    <Compile Include="gui\Form22.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gui\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="gui\Form22.Designer.cs">
+      <DependentUpon>Form22.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\Form3.cs">
       <SubType>Form</SubType>
@@ -291,11 +297,14 @@
     <Compile Include="object1\VNE\VNErequestPayment.cs" />
     <Compile Include="object1\VNE\VNEresponsePayment.cs" />
     <Compile Include="object1\VNE\VNEPaymentPendingDeleteRequest.cs" />
-    <EmbeddedResource Include="gui\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="gui\FrmDemoSiPH.resx">
+      <DependentUpon>FrmDemoSiPH.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gui\Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="gui\Form11.resx">
+      <DependentUpon>Form11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\Form22.resx">
+      <DependentUpon>Form22.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
@@ -1040,6 +1049,12 @@
     <Content Include="header.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\corporate-blue-background-4.jpg" />
+    <None Include="Resources\images %281%29.jpg" />
+    <None Include="Resources\blue-triangle-abstract-background-vector-1581976.jpg" />
+    <None Include="Resources\Dtac-bg.jpg" />
+    <None Include="Resources\red_big1.png" />
+    <None Include="Resources\green1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

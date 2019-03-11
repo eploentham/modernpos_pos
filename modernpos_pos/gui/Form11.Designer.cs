@@ -1,6 +1,6 @@
 ﻿namespace modernpos_pos
 {
-    partial class Form1
+    partial class Form11
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             C1.Win.C1Tile.PanelElement panelElement2 = new C1.Win.C1Tile.PanelElement();
             C1.Win.C1Tile.ImageElement imageElement2 = new C1.Win.C1Tile.ImageElement();
             C1.Win.C1Tile.TextElement textElement2 = new C1.Win.C1Tile.TextElement();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form11));
             this.cboPrinter = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPrint = new System.Windows.Forms.Button();

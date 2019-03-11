@@ -1,9 +1,12 @@
 ﻿using C1.Win.C1Input;
 using modernpos_pos.objdb;
 using modernpos_pos.object1;
+using MySql.Data.MySqlClient;
 using MySql.Data.Types;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Globalization;
@@ -167,6 +170,7 @@ namespace modernpos_pos.control
 
             iniC.VNEip = iniF.getIni("VNE", "VNEip");
             iniC.VNEwebapi = iniF.getIni("VNE", "VNEwebapi");
+            iniC.statusShowListBox1 = iniF.getIni("app", "statusShowListBox1");
 
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
 
@@ -204,6 +208,7 @@ namespace modernpos_pos.control
             iniC.ShareFileSMBFolder = iniC.ShareFileSMBFolder == null ? "d:\\images" : iniC.ShareFileSMBFolder.Equals("") ? "d:\\images" : iniC.folderFTP;
             int.TryParse(iniC.grdViewFontSize, out grdViewFontSize);
             int.TryParse(iniC.patientaddpanel1weight, out panel1Width);
+            iniC.statusShowListBox1 = iniC.statusShowListBox1 != null ? iniC.statusShowListBox1 : "1";
         }
         public String datetoDB(String dt)
         {
@@ -553,6 +558,83 @@ namespace modernpos_pos.control
             
             //ftpC.upload("images/foods/" + fooId + ext, pathLocalFile);
             mposDB.fooDB.updateFileName(fooId, fooId + ext);
+        }
+        public String paymentVNE(String amt, ListBox listBox1)
+        {
+            String err = "", sql = "";
+            VNEresponsePayment vneRspPay = new VNEresponsePayment();
+            MySqlConnection conn;
+            conn = new MySqlConnection();
+            conn.ConnectionString = "Server=" + iniC.hostDB + ";Database=" + iniC.nameDB + ";Uid=" + iniC.userDB + ";Pwd=" + iniC.passDB +
+                ";port = " + iniC.portDB + "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;SslMode=none;";
+            try
+            {
+                err = "00";
+                var baseAddress = "http://" + iniC.VNEip +iniC.VNEwebapi;
+                VNErequestPayment vne = new VNErequestPayment();
+                vne.tipo = "1";
+                vne.importo = amt;
+                vne.opname = "admin";
+                vne.operatore = "";
+                String txtjson = JsonConvert.SerializeObject(vne, Formatting.Indented);
+                //listBox1.Items.Add(txtjson);
+                err = "01";
+                WebClient webClient = new WebClient();
+                var http = (HttpWebRequest)WebRequest.Create(new Uri(baseAddress));
+                http.Accept = "application/json";
+                http.ContentType = "application/json";
+                http.Method = "POST";
+                ASCIIEncoding encoding = new ASCIIEncoding();
+                Byte[] bytes = encoding.GetBytes(txtjson);
+                Stream newStream = http.GetRequestStream();
+                newStream.Write(bytes, 0, bytes.Length);
+                newStream.Close();
+                err = "02";
+                var response = http.GetResponse();
+                err = "03";
+                var stream = response.GetResponseStream();
+                err = "04";
+                var sr = new StreamReader(stream);
+                var content = sr.ReadToEnd();
+                err = "05";
+                listBox1.Items.Add(content);
+                vneRspPay = new VNEresponsePayment();
+                dynamic obj = JsonConvert.DeserializeObject(content);
+                vneRspPay.id = obj.id;
+                vneRspPay.importo = obj.importo;
+                vneRspPay.tipo = obj.tipo;
+                vneRspPay.req_status = obj.req_status;
+                //vneRspPay = (VNEresponsePayment)JsonConvert.DeserializeObject(content);
+                err = "06";
+                sql = "Insert Into vne_response_payment Set " +
+                    "id='" + vneRspPay.id + "'" +
+                    ",importo='" + vneRspPay.importo + "'" +
+                    ",tipo='" + vneRspPay.tipo + "'" +
+                    ",req_status='" + vneRspPay.importo + "'" +
+                    ",active='1'" +
+                    ",date_create=now()" +
+                    ",user_create='" + vne.opname + "'"
+                    ;
+                MySqlCommand com = new MySqlCommand();
+                com.CommandText = sql;
+                com.CommandType = CommandType.Text;
+                com.Connection = conn;
+                conn.Open();
+                int chk = com.ExecuteNonQuery();
+                conn.Close();
+                com.Dispose();
+                err = vneRspPay.id;
+                //timer.Enabled = true;
+                //timer.Start();
+                //label9.Text = "Start waiting payment";
+                listBox1.Items.Add("insert payment OK");
+            }
+            catch (Exception ex)
+            {
+                err = ex.Message;
+            }
+            conn.Dispose();
+            return err;
         }
     }
 }

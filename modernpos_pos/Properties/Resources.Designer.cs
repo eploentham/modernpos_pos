@@ -523,6 +523,16 @@ namespace modernpos_pos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dtac_bg {
+            get {
+                object obj = ResourceManager.GetObject("Dtac_bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Edit_Male_User24 {
             get {
                 object obj = ResourceManager.GetObject("Edit_Male_User24", resourceCulture);
@@ -766,6 +776,16 @@ namespace modernpos_pos.Properties {
         internal static System.Drawing.Bitmap green {
             get {
                 object obj = ResourceManager.GetObject("green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap green1 {
+            get {
+                object obj = ResourceManager.GetObject("green1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1523,6 +1543,16 @@ namespace modernpos_pos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap red_big1 {
+            get {
+                object obj = ResourceManager.GetObject("red_big1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap red_checkmark_png_16 {
             get {
                 object obj = ResourceManager.GetObject("red_checkmark_png_16", resourceCulture);
@@ -1766,6 +1796,16 @@ namespace modernpos_pos.Properties {
         internal static System.Drawing.Bitmap ShrinkFont_small {
             get {
                 object obj = ResourceManager.GetObject("ShrinkFont_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap siph {
+            get {
+                object obj = ResourceManager.GetObject("siph", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

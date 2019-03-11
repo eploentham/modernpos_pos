@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace modernpos_pos
 {
-    public partial class Form2 : Form
+    public partial class Form22 : Form
     {
-        public Form2()
+        public Form22()
         {
             InitializeComponent();
         }
