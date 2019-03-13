@@ -14,6 +14,7 @@ namespace modernpos_pos.objdb
         Foods foo;
         ConnectDB conn;
         public List<Foods> lfoo;
+        public List<Foods> lfooC;
         public FoodsDB(ConnectDB c)
         {
             conn = c;
@@ -52,6 +53,17 @@ namespace modernpos_pos.objdb
 
             foo.pkField = "foods_id";
             foo.table = "b_foods";
+        }
+        public DataTable selectByCategory(String catid)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select foo.*  " +
+                "From " + foo.table + " foo " +
+                " " +
+                "Where foo." + foo.active + " ='1' and foo."+foo.foods_cat_id+"='"+catid+"'";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
         }
         public DataTable selectAll()
         {
@@ -113,6 +125,26 @@ namespace modernpos_pos.objdb
             List<Foods> lfoo1 = new List<Foods>();
             DataTable dt = new DataTable();
             dt = selectAll();
+            foreach (DataRow row in dt.Rows)
+            {
+                Foods itm1 = new Foods();
+                itm1.foods_id = row[foo.foods_id].ToString();
+                itm1.foods_name = row[foo.foods_name].ToString();
+                itm1.foods_price = row[foo.foods_price].ToString();
+                itm1.printer_name = row[foo.printer_name].ToString();
+                itm1.foods_code = row[foo.foods_code].ToString();
+                itm1.foods_type_id = row[foo.foods_type_id].ToString();
+                itm1.foods_cat_id = row[foo.foods_cat_id].ToString();
+                itm1.filename = row[foo.filename].ToString();
+                lfoo1.Add(itm1);
+            }
+            return lfoo1;
+        }
+        public List<Foods> getlFoodsByCat(String catid)
+        {
+            List<Foods> lfoo1 = new List<Foods>();
+            DataTable dt = new DataTable();
+            dt = selectByCategory(catid);
             foreach (DataRow row in dt.Rows)
             {
                 Foods itm1 = new Foods();

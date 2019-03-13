@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.Globalization;
 using System.IO;
@@ -30,13 +31,13 @@ namespace modernpos_pos.control
         public InitConfig iniC;
         private IniFile iniF;
         
-        public int grdViewFontSize = 0, panel1Width=0;
+        public int grdViewFontSize = 0, panel1Width=0, takeouttilhorizontalsize=0, takeouttilverticalsize=0;
         public List<Department> lDept;
         public Company cop;
 
         public String userId = "";
         public String copID = "", jobID = "", cusID = "", addrID = "", contID = "", cusrID = "", custID = "", stfID = "", deptID = "", posiID = "", drawID = "";
-        public String rContactName = "", rContacTel = "", rContID = "", userIderc = "", statusVNEPaysuccess="";
+        public String rContactName = "", rContacTel = "", rContID = "", userIderc = "", statusVNEPaysuccess="", pnOrderborderstyle="";
 
         public String txtHeader = "";
 
@@ -57,7 +58,7 @@ namespace modernpos_pos.control
         //public VideoCaptureDevice video;
 
         public String _IPAddress = "";
-
+        public Boolean ftpUsePassive = false;
         public mPOSControl()
         {
             initConfig();
@@ -86,7 +87,7 @@ namespace modernpos_pos.control
             GetConfig();
             conn = new ConnectDB(iniC);
             //MessageBox.Show("mPOSControl before ftpC", "");
-            ftpC = new FtpClient(iniC.hostFTP, iniC.userFTP, iniC.passFTP);
+            ftpC = new FtpClient(iniC.hostFTP, iniC.userFTP, iniC.passFTP, ftpUsePassive);
 
             //ivfDB = new IvfDB(conn);
 
@@ -135,6 +136,7 @@ namespace modernpos_pos.control
             iniC.passFTP = iniF.getIni("ftp", "passFTP");
             iniC.portFTP = iniF.getIni("ftp", "portFTP");
             iniC.folderFTP = iniF.getIni("ftp", "folderFTP");
+            iniC.usePassiveFTP = iniF.getIni("ftp", "usePassiveFTP");
 
             iniC.grdViewFontSize = iniF.getIni("app", "grdViewFontSize");
             iniC.grdViewFontName = iniF.getIni("app", "grdViewFontName");
@@ -147,6 +149,9 @@ namespace modernpos_pos.control
             iniC.themeDonor1 = iniF.getIni("app", "themeDonor1");
             iniC.printerBill = iniF.getIni("app", "printerBill");
             iniC.timerlabreqaccept = iniF.getIni("app", "timerlabreqaccept");
+            iniC.takeouttilhorizontalsize = iniF.getIni("app", "takeouttilhorizontalsize");
+            iniC.takeouttilverticalsize = iniF.getIni("app", "takeouttilverticalsize");
+            iniC.pnOrderborderstyle = iniF.getIni("app", "pnOrderborderstyle");
 
             iniC.sticker_donor_takeout_panel1 = iniF.getIni("sticker_donor", "takeout_panel1");
             iniC.sticker_donor_height = iniF.getIni("sticker_donor", "height");
@@ -166,7 +171,7 @@ namespace modernpos_pos.control
             iniC.patientaddpanel1weight = iniF.getIni("app", "patientaddpanel1weight");
             iniC.ShareFile = iniF.getIni("app", "ShareFile");
             iniC.ShareFileSMBFolder = iniF.getIni("app", "ShareFileSMBFolder");
-            //iniC.ShareFile = iniF.getIni("app", "ShareFile");
+            iniC.TileFoodsOrientation = iniF.getIni("app", "TileFoodsOrientation");
 
             iniC.VNEip = iniF.getIni("VNE", "VNEip");
             iniC.VNEwebapi = iniF.getIni("VNE", "VNEwebapi");
@@ -187,6 +192,10 @@ namespace modernpos_pos.control
             iniC.status_show_border = iniC.status_show_border.Equals("") ? "0" : iniC.status_show_border;
             iniC.barcode_width_minus = iniC.barcode_width_minus.Equals("") ? "0" : iniC.barcode_width_minus;
             iniC.timerlabreqaccept = iniC.timerlabreqaccept.Equals("") ? "120" : iniC.timerlabreqaccept;
+            iniC.takeouttilhorizontalsize = iniC.takeouttilhorizontalsize.Equals("") ? "0" : iniC.takeouttilhorizontalsize;
+            iniC.takeouttilverticalsize = iniC.takeouttilverticalsize.Equals("") ? "0" : iniC.takeouttilverticalsize;
+            iniC.pnOrderborderstyle = iniC.pnOrderborderstyle.Equals("") ? "0" : iniC.pnOrderborderstyle;
+            iniC.TileFoodsOrientation = iniC.TileFoodsOrientation.Equals("") ? "0" : iniC.TileFoodsOrientation;
 
             iniC.hostFTP = iniC.hostFTP == null ? "" : iniC.hostFTP;
             iniC.userFTP = iniC.userFTP == null ? "" : iniC.userFTP;
@@ -209,6 +218,11 @@ namespace modernpos_pos.control
             int.TryParse(iniC.grdViewFontSize, out grdViewFontSize);
             int.TryParse(iniC.patientaddpanel1weight, out panel1Width);
             iniC.statusShowListBox1 = iniC.statusShowListBox1 != null ? iniC.statusShowListBox1 : "1";
+
+            iniC.usePassiveFTP = iniC.usePassiveFTP == null ? "false" : iniC.usePassiveFTP.Equals("") ? "false" : iniC.usePassiveFTP;
+            Boolean.TryParse(iniC.usePassiveFTP, out ftpUsePassive);
+            int.TryParse(iniC.takeouttilhorizontalsize, out takeouttilhorizontalsize);
+            int.TryParse(iniC.takeouttilverticalsize, out takeouttilverticalsize);
         }
         public String datetoDB(String dt)
         {
@@ -538,26 +552,63 @@ namespace modernpos_pos.control
             string ext = Path.GetExtension(pathLocalFile);
             //if (iniC.ShareFile.Equals("FTP"))
             //{
-                ftpC.createDirectory(iniC.ShareFile+"/foods");
+            
+            FileInfo fi1 = new FileInfo(pathLocalFile);
+            if (fi1.Exists)
+            {
+                ftpC.createDirectory(iniC.ShareFile + "/foods");
                 ftpC.delete(iniC.ShareFile + "/foods/" + fooId + ext);
                 ftpC.upload(iniC.ShareFile + "/foods/" + fooId + ext, pathLocalFile);
-            //}
-            //else
-            //{
 
-            //}
-            //if (File.Exists(@"temppic" + System.Drawing.Imaging.ImageFormat.Jpeg))
-            //{
-            //    File.Delete(@"temppic" + System.Drawing.Imaging.ImageFormat.Jpeg);
-            //}
-            //pathFile.Save(@"temppic." + System.Drawing.Imaging.ImageFormat.Jpeg, System.Drawing.Imaging.ImageFormat.Jpeg);
-            
-            //ftpC.createDirectory("images/foods");
-            
-            //ftpC.delete("images/foods/" + fooId + ext);
-            
-            //ftpC.upload("images/foods/" + fooId + ext, pathLocalFile);
-            mposDB.fooDB.updateFileName(fooId, fooId + ext);
+                Image loadedImage, resizedImage;
+                loadedImage = Image.FromFile(pathLocalFile);
+                int originalWidth = 0;
+                originalWidth = loadedImage.Width;
+                int newWidth = 210;
+                resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
+                //byte[] buf = imgToByteArray(resizedImage);
+                var data = new MemoryStream();
+                resizedImage.Save(data, ImageFormat.Jpeg);
+
+                //ImageConverter imgCon = new ImageConverter();
+                //imgCon.ConvertTo(resizedImage, buf);
+
+
+                //data.Read(buf, 0, buf.Length);
+
+                ftpC.delete(iniC.ShareFile + "/foods/" + fooId+"_210" + ext);
+                ftpC.upload(iniC.ShareFile + "/foods/" + fooId + "_210" + ext, data);
+            }
+            else
+            {
+                MessageBox.Show("ไม่พบ File", "");
+            }
+                //}
+                //else
+                //{
+
+                //}
+                //if (File.Exists(@"temppic" + System.Drawing.Imaging.ImageFormat.Jpeg))
+                //{
+                //    File.Delete(@"temppic" + System.Drawing.Imaging.ImageFormat.Jpeg);
+                //}
+                //pathFile.Save(@"temppic." + System.Drawing.Imaging.ImageFormat.Jpeg, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                //ftpC.createDirectory("images/foods");
+
+                //ftpC.delete("images/foods/" + fooId + ext);
+
+                //ftpC.upload("images/foods/" + fooId + ext, pathLocalFile);
+                mposDB.fooDB.updateFileName(fooId, fooId + ext);
+        }
+        //convert image to bytearray
+        public byte[] imgToByteArray(Image img)
+        {
+            using (MemoryStream mStream = new MemoryStream())
+            {
+                img.Save(mStream, img.RawFormat); 
+                return mStream.ToArray();
+            }
         }
         public String paymentVNE(String amt, ListBox listBox1)
         {

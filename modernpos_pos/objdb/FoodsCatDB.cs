@@ -46,10 +46,11 @@ namespace modernpos_pos.objdb
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
-            String sql = "select sex.*  " +
-                "From " + fooC.table + " sex " +
+            String sql = "select fooC.*  " +
+                "From " + fooC.table + " fooC " +
                 " " +
-                "Where sex." + fooC.active + " ='1' ";
+                "Where fooC." + fooC.active + " ='1' " +
+                "Order By fooC." + fooC.foods_cat_id;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -57,10 +58,10 @@ namespace modernpos_pos.objdb
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select sex.* " +
-                "From " + fooC.table + " sex " +
+            String sql = "select fooC.* " +
+                "From " + fooC.table + " fooC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where sex." + fooC.pkField + " ='" + copId + "' ";
+                "Where fooC." + fooC.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }

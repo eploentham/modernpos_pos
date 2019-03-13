@@ -11,7 +11,7 @@ namespace modernpos_pos.object1
         public String hostDB = "", userDB = "", passDB = "", nameDB = "", portDB = "";
         public String hostDBEx = "", userDBEx = "", passDBEx = "", nameDBEx = "", portDBEx = "";
         public String hostDBIm = "", userDBIm = "", passDBIm = "", nameDBIm = "", portDBIm = "";
-        public String hostFTP = "", userFTP = "", passFTP = "", portFTP = "", pathImageScan = "", folderFTP="";
+        public String hostFTP = "", userFTP = "", passFTP = "", portFTP = "", pathImageScan = "", folderFTP="", usePassiveFTP = "";
 
         public String grdViewFontSize = "", grdViewFontName = "", themeApplication = "", txtFocus = "", grfRowColor = "", grfRowGreen = "", grfRowRed = "", grfRowYellow = "";
 
@@ -20,6 +20,6 @@ namespace modernpos_pos.object1
         public String themeDonor = "",themeDonor1 = "", printerBill="";
         public String timerlabreqaccept = "", timerImgScanNew="", ShareFile="", ShareFileSMBFolder="";
 
-        public String VNEip = "", VNEwebapi = "", statusShowListBox1="";
+        public String VNEip = "", VNEwebapi = "", statusShowListBox1="", takeouttilhorizontalsize="", takeouttilverticalsize="", pnOrderborderstyle="", TileFoodsOrientation="";
     }
 }

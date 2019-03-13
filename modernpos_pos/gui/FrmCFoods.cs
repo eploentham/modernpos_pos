@@ -110,12 +110,14 @@ namespace modernpos_pos.gui
                 MemoryStream stream = new MemoryStream();
                 Image loadedImage = null, resizedImage;
                 if (foo.filename.Equals("")) return;
-                stream = mposC.ftpC.download(mposC.iniC.ShareFile + "/foods/"+foo.filename);
+                string ext = Path.GetExtension(foo.filename);
+                String filename = "/foods/" + foo.filename.Replace(ext,"")+"_210" +ext;
+                stream = mposC.ftpC.download(mposC.iniC.ShareFile + filename);
                 loadedImage = new Bitmap(stream);
                 if (loadedImage != null)
                 {
                     int originalWidth = loadedImage.Width;
-                    int newWidth = 180;
+                    int newWidth = 210;
                     resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
                     picFoo.Image = resizedImage;
                 }
