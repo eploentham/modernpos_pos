@@ -54,6 +54,7 @@
     <Reference Include="C1.Win.C1FlexGrid.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Input.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1InputPanel.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1SplitContainer.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1SuperTooltip.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Themes.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1TileControl.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
@@ -188,6 +189,12 @@
     <Compile Include="gui\FrmTakeOutCheck.Designer.cs">
       <DependentUpon>FrmTakeOutCheck.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmTakeOutSpecial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmTakeOutSpecial.Designer.cs">
+      <DependentUpon>FrmTakeOutSpecial.cs</DependentUpon>
+    </Compile>
     <Compile Include="objdb\AreaDB.cs" />
     <Compile Include="objdb\BillDB.cs" />
     <Compile Include="objdb\BillDetailDB.cs" />
@@ -198,6 +205,8 @@
     <Compile Include="objdb\FoodsCatSubDB.cs" />
     <Compile Include="objdb\FoodsDB.cs" />
     <Compile Include="objdb\FoodsRecommendDB.cs" />
+    <Compile Include="objdb\FoodsSpecialDB.cs" />
+    <Compile Include="objdb\FoodsToppingDB.cs" />
     <Compile Include="objdb\FoodsTypeDB.cs" />
     <Compile Include="objdb\FPrefixDB.cs" />
     <Compile Include="objdb\FSexDB.cs" />
@@ -205,6 +214,7 @@
     <Compile Include="objdb\OrderDB.cs" />
     <Compile Include="objdb\PositionDB.cs" />
     <Compile Include="objdb\RestaurantDB.cs" />
+    <Compile Include="objdb\sequenceDB.cs" />
     <Compile Include="objdb\StaffDB.cs" />
     <Compile Include="objdb\TableDB.cs" />
     <Compile Include="object1\AsciiControlChars.cs" />
@@ -256,6 +266,8 @@
     <Compile Include="object1\FoodsCat.cs" />
     <Compile Include="object1\FoodsCatSub.cs" />
     <Compile Include="object1\FoodsRecommend.cs" />
+    <Compile Include="object1\FoodsSpecial.cs" />
+    <Compile Include="object1\FoodsTopping.cs" />
     <Compile Include="object1\FoodsType.cs" />
     <Compile Include="object1\FPrefix.cs" />
     <Compile Include="object1\FSex.cs" />
@@ -268,6 +280,7 @@
     <Compile Include="object1\Persistent.cs" />
     <Compile Include="object1\Position.cs" />
     <Compile Include="object1\Restaurant.cs" />
+    <Compile Include="object1\sequence1.cs" />
     <Compile Include="object1\Staff.cs" />
     <Compile Include="object1\Table.cs" />
     <Compile Include="object1\VNE\VNECashClosingRequest.cs" />
@@ -368,6 +381,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmTakeOutCheck.resx">
       <DependentUpon>FrmTakeOutCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmTakeOutSpecial.resx">
+      <DependentUpon>FrmTakeOutSpecial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

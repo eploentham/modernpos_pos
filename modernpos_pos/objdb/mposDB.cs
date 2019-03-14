@@ -27,6 +27,9 @@ namespace modernpos_pos.objdb
         public OrderDB ordDB;
         public BillDB bilDB;
         public BillDetailDB bildDB;
+        public sequenceDB seqDB;
+        public FoodsSpecialDB foosDB;
+        public FoodsToppingDB footpDB;
 
         public mPosDB(ConnectDB c)
         {
@@ -54,6 +57,9 @@ namespace modernpos_pos.objdb
             ordDB = new OrderDB(conn);
             bilDB = new BillDB(conn);
             bildDB = new BillDetailDB(conn);
+            seqDB = new sequenceDB(conn);
+            foosDB = new FoodsSpecialDB(conn);
+            footpDB = new FoodsToppingDB(conn);
 
             Console.WriteLine("mPosDB end");
         }

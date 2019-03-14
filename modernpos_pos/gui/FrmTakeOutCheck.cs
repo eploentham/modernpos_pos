@@ -242,21 +242,24 @@ namespace modernpos_pos.gui
                     listBox1.Items.Add("insert payment OK");
                     Order1 ord = new Order1();
                     String lot = ord.getGenID();
-                    foreach (Row row in grf.Rows)
+                    foreach (Order1 row in lOrd)
                     {
                         ord = new Order1();
-                        ord.order_id = "";
-                        ord.lot_id = lot;
+                        ord.order_id = row.order_id;
+                        ord.lot_id = row.lot_id;
                         ord.res_id = "";
                         ord.host_id = "";
-                        ord.device_id = "";
+                        ord.device_id = mposC.MACAddress;
                         ord.branch_id = "";
-                        ord.foods_id = row[colFooId] != null ? row[colFooId].ToString() : "";
-                        ord.foods_name = row[colFooName] != null ? row[colFooName].ToString() : "";
-                        ord.price = row[colPrice] != null ? row[colPrice].ToString() : "";
-                        ord.remark = row[colRemark] != null ? row[colRemark].ToString() : "";
-                        ord.row1 = row[colNo] != null ? row[colNo].ToString() : "";
-                        ord.printer_name = row[colPrinterName] != null ? row[colPrinterName].ToString() : "";
+                        ord.foods_id = row.foods_id;
+                        ord.foods_name = row.foods_name;
+                        ord.price = row.price;
+                        ord.qty = row.qty;
+                        ord.remark = row.remark;
+                        ord.row1 = row.row1;
+                        ord.printer_name = row.printer_name;
+                        ord.status_bill = row.status_bill;
+                        ord.table_id = mposC.tableidToGo;
                         mposC.mposDB.ordDB.insertOrder(ord, "");
                     }
                 }

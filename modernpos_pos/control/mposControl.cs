@@ -14,6 +14,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -51,13 +52,13 @@ namespace modernpos_pos.control
         public FtpClient ftpC;
         Regex regEmail;
         String soapTaxId = "";
-        public String theme = "", StartupPath = "", passOK="";
-        public String FixJobCode = "IMP", FixEccCode = "CC";
+        public String theme = "", StartupPath = "", passOK="", tableidToGo="";
+        public String FixJobCode = "IMP", FixEccCode = "CC", fooName="", fooSpec="";
         
 
         //public VideoCaptureDevice video;
 
-        public String _IPAddress = "";
+        public String _IPAddress = "",MACAddress="";
         public Boolean ftpUsePassive = false;
         public mPOSControl()
         {
@@ -114,7 +115,9 @@ namespace modernpos_pos.control
         {
             mposDB.sexDB.getlSex();
             cop = mposDB.copDB.selectByCode1("001");
+            tableidToGo = mposDB.tblDB.selectIdByToGo();
             _IPAddress = GetLocalIPAddress();
+            MACAddress = GetMACAddress();
             conn._IPAddress = _IPAddress;
         }
         public void GetConfig()
@@ -195,7 +198,7 @@ namespace modernpos_pos.control
             iniC.takeouttilhorizontalsize = iniC.takeouttilhorizontalsize.Equals("") ? "0" : iniC.takeouttilhorizontalsize;
             iniC.takeouttilverticalsize = iniC.takeouttilverticalsize.Equals("") ? "0" : iniC.takeouttilverticalsize;
             iniC.pnOrderborderstyle = iniC.pnOrderborderstyle.Equals("") ? "0" : iniC.pnOrderborderstyle;
-            iniC.TileFoodsOrientation = iniC.TileFoodsOrientation.Equals("") ? "0" : iniC.TileFoodsOrientation;
+            iniC.TileFoodsOrientation = iniC.TileFoodsOrientation==null  ? "0" : iniC.TileFoodsOrientation;
 
             iniC.hostFTP = iniC.hostFTP == null ? "" : iniC.hostFTP;
             iniC.userFTP = iniC.userFTP == null ? "" : iniC.userFTP;
@@ -686,6 +689,20 @@ namespace modernpos_pos.control
             }
             conn.Dispose();
             return err;
+        }
+        public string GetMACAddress()
+        {
+            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+            String sMacAddress = string.Empty;
+            foreach (NetworkInterface adapter in nics)
+            {
+                if (sMacAddress == String.Empty)// only return MAC Address from first card
+                {
+                    IPInterfaceProperties properties = adapter.GetIPProperties();
+                    sMacAddress = adapter.GetPhysicalAddress().ToString();
+                }
+            }
+            return sMacAddress;
         }
     }
 }

@@ -80,6 +80,21 @@ namespace modernpos_pos.objdb
             cop1 = setTable(dt);
             return cop1;
         }
+        public String selectIdByToGo()
+        {
+            String re = "";
+            DataTable dt = new DataTable();
+            String sql = "select sex."+tbl.table_id +
+                " From " + tbl.table + " sex " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where sex." + tbl.status_togo + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            if (dt.Rows.Count > 0)
+            {
+                re = dt.Rows[0][tbl.table_id].ToString();
+            }
+            return re;
+        }
         private Table setArea1(DataTable dt)
         {
             Table dept1 = new Table();

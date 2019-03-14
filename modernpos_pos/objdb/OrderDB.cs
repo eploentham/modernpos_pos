@@ -31,6 +31,7 @@ namespace modernpos_pos.objdb
             ord.foods_name = "foods_name";
             ord.order_date = "order_date";
             ord.price = "price";
+            ord.qty = "qty";
 
             ord.active = "active";
             ord.remark = "remark";
@@ -70,17 +71,17 @@ namespace modernpos_pos.objdb
             ord.pkField = "order_id";
             ord.table = "t_order";
         }
-        public DataTable selectAll()
-        {
-            DataTable dt = new DataTable();
-            String sql = "select foo.*  " +
-                "From " + ord.table + " foo " +
-                " " +
-                "Where foo." + ord.active + " ='1' ";
-            dt = conn.selectData(conn.conn, sql);
+        //public DataTable selectAll()
+        //{
+        //    DataTable dt = new DataTable();
+        //    String sql = "select foo.*  " +
+        //        "From " + ord.table + " foo " +
+        //        " " +
+        //        "Where foo." + ord.active + " ='1' ";
+        //    dt = conn.selectData(conn.conn, sql);
 
-            return dt;
-        }
+        //    return dt;
+        //}
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
@@ -125,54 +126,54 @@ namespace modernpos_pos.objdb
 
             return dt;
         }
-        public List<Order1> getlFoods1()
-        {
-            List<Order1> lfoo1 = new List<Order1>();
-            DataTable dt = new DataTable();
-            dt = selectAll();
-            foreach (DataRow row in dt.Rows)
-            {
-                Order1 itm1 = new Order1();
-                itm1.order_id = row[ord.order_id].ToString();
-                itm1.row1 = row[ord.row1].ToString();
-                itm1.foods_code = row[ord.foods_code].ToString();
-                itm1.price = row[ord.price].ToString();
-                itm1.lot_id = row[ord.lot_id].ToString();
-                itm1.foods_id = row[ord.foods_id].ToString();
-                itm1.status_foods_1 = row[ord.status_foods_1].ToString();
-                lfoo1.Add(itm1);
-            }
-            return lfoo1;
-        }
-        public void getlFoods()
-        {
-            //lDept = new List<Position>();
-            lOrd.Clear();
-            DataTable dt = new DataTable();
-            dt = selectAll();
-            foreach (DataRow row in dt.Rows)
-            {
-                Order1 itm1 = new Order1();
-                itm1.order_id = row[ord.order_id].ToString();
-                itm1.row1 = row[ord.row1].ToString();
+        //public List<Order1> getlFoods1()
+        //{
+        //    List<Order1> lfoo1 = new List<Order1>();
+        //    DataTable dt = new DataTable();
+        //    dt = selectAll();
+        //    foreach (DataRow row in dt.Rows)
+        //    {
+        //        Order1 itm1 = new Order1();
+        //        itm1.order_id = row[ord.order_id].ToString();
+        //        itm1.row1 = row[ord.row1].ToString();
+        //        itm1.foods_code = row[ord.foods_code].ToString();
+        //        itm1.price = row[ord.price].ToString();
+        //        itm1.lot_id = row[ord.lot_id].ToString();
+        //        itm1.foods_id = row[ord.foods_id].ToString();
+        //        itm1.status_foods_1 = row[ord.status_foods_1].ToString();
+        //        lfoo1.Add(itm1);
+        //    }
+        //    return lfoo1;
+        //}
+        //public void getlFoods()
+        //{
+        //    //lDept = new List<Position>();
+        //    lOrd.Clear();
+        //    DataTable dt = new DataTable();
+        //    dt = selectAll();
+        //    foreach (DataRow row in dt.Rows)
+        //    {
+        //        Order1 itm1 = new Order1();
+        //        itm1.order_id = row[ord.order_id].ToString();
+        //        itm1.row1 = row[ord.row1].ToString();
 
-                lOrd.Add(itm1);
-            }
-        }
-        public String getList(String id)
-        {
-            String re = "";
-            if (lOrd.Count <= 0) getlFoods();
-            foreach (Order1 sex in lOrd)
-            {
-                if (sex.order_id.Equals(id))
-                {
-                    re = sex.row1;
-                    break;
-                }
-            }
-            return re;
-        }
+        //        lOrd.Add(itm1);
+        //    }
+        //}
+        //public String getList(String id)
+        //{
+        //    String re = "";
+        //    if (lOrd.Count <= 0) getlFoods();
+        //    foreach (Order1 sex in lOrd)
+        //    {
+        //        if (sex.order_id.Equals(id))
+        //        {
+        //            re = sex.row1;
+        //            break;
+        //        }
+        //    }
+        //    return re;
+        //}
         private void chkNull(Order1 p)
         {
             long chk = 0;
@@ -185,10 +186,10 @@ namespace modernpos_pos.objdb
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
 
             p.row1 = p.row1 == null ? "" : p.row1;
-            //p.lot_id = p.lot_id == null ? "" : p.lot_id;
+            p.foods_code = p.foods_code == null ? "" : p.foods_code;
             p.order_date = p.order_date == null ? "" : p.order_date;
             //p.table_id = p.table_id == null ? "0" : p.table_id;
-            p.price = p.price == null ? "" : p.price;
+            //p.price = p.price == null ? "" : p.price;
             //p.area_id = p.area_id == null ? "0" : p.area_id;
             //p.res_id = p.res_id == null ? "0" : p.res_id;
             p.status_foods_2 = p.status_foods_2 == null ? "" : p.status_foods_2;
@@ -221,7 +222,8 @@ namespace modernpos_pos.objdb
             p.res_id = long.TryParse(p.res_id, out chk) ? chk.ToString() : "0";
             p.table_id = long.TryParse(p.table_id, out chk) ? chk.ToString() : "0";
 
-            p.foods_code = Decimal.TryParse(p.foods_code, out chk1) ? chk1.ToString() : "0";
+            p.price = Decimal.TryParse(p.price, out chk1) ? chk1.ToString() : "0";
+            p.qty = Decimal.TryParse(p.qty, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(Order1 p, String userId)
         {
@@ -246,7 +248,6 @@ namespace modernpos_pos.objdb
                 "," + ord.date_modi + " = '" + p.date_modi + "' " +
                 "," + ord.user_cancel + " = '" + p.user_cancel + "' " +
                 "," + ord.user_modi + " = '" + p.user_modi + "' " +
-                "," + ord.status_foods_3 + " = '" + p.status_foods_3 + "' " +
                 "," + ord.status_bill + " = '" + p.status_bill + "' " +
                 "," + ord.bill_check_date + " = '" + p.bill_check_date + "' " +
                 "," + ord.status_cook + " = '" + p.status_cook + "' " +
@@ -261,8 +262,7 @@ namespace modernpos_pos.objdb
                 "," + ord.status_closeday + " = '" + p.status_closeday + "' " +
                 "," + ord.closeday_id + " = '" + p.closeday_id + "' " +
                 "," + ord.cnt_cust + " = '" + p.cnt_cust + "' " +
-
-                "," + ord.order_date + " = '" + p.order_date + "' " +
+                "," + ord.order_date + " = now() " +
                 "," + ord.table_id + " = '" + p.table_id + "' " +
                 "," + ord.price + " = '" + p.price + "' " +
                 "," + ord.foods_code + " = '" + p.foods_code + "' " +
@@ -270,6 +270,8 @@ namespace modernpos_pos.objdb
                 "," + ord.area_id + " = '" + p.area_id + "' " +
                 "," + ord.status_foods_1 + " = '" + p.status_foods_1 + "' " +
                 "," + ord.status_foods_2 + " = '" + p.status_foods_2 + "' " +
+                "," + ord.status_foods_3 + " = '" + p.status_foods_3 + "' " +
+                
                 " ";
             try
             {
@@ -297,7 +299,7 @@ namespace modernpos_pos.objdb
                 "," + ord.user_modi + " = '" + userId + "' " +
                 "," + ord.host_id + " = '" + p.host_id + "' " +
                 "," + ord.branch_id + " = '" + p.branch_id + "' " +
-                "," + ord.device_id + " = '" + p.device_id + "' " +
+                //"," + ord.device_id + " = '" + p.device_id + "' " +
                 "," + ord.order_date + " = '" + p.order_date + "' " +
                 "," + ord.table_id + " = '" + p.table_id + "' " +
                 "," + ord.price + " = '" + p.price + "' " +
@@ -357,55 +359,55 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public C1ComboBox setCboFoods(C1ComboBox c)
-        {
-            ComboBoxItem item = new ComboBoxItem();
-            DataTable dt = selectC1();
-            //String aaa = "";
-            ComboBoxItem item1 = new ComboBoxItem();
-            item1.Text = "";
-            item1.Value = "000";
-            c.Items.Clear();
-            c.Items.Add(item1);
-            //for (int i = 0; i < dt.Rows.Count; i++)
-            foreach (DataRow row in dt.Rows)
-            {
-                item = new ComboBoxItem();
-                item.Text = row[ord.row1].ToString();
-                item.Value = row[ord.order_id].ToString();
+        //public C1ComboBox setCboFoods(C1ComboBox c)
+        //{
+        //    ComboBoxItem item = new ComboBoxItem();
+        //    DataTable dt = selectC1();
+        //    //String aaa = "";
+        //    ComboBoxItem item1 = new ComboBoxItem();
+        //    item1.Text = "";
+        //    item1.Value = "000";
+        //    c.Items.Clear();
+        //    c.Items.Add(item1);
+        //    //for (int i = 0; i < dt.Rows.Count; i++)
+        //    foreach (DataRow row in dt.Rows)
+        //    {
+        //        item = new ComboBoxItem();
+        //        item.Text = row[ord.row1].ToString();
+        //        item.Value = row[ord.order_id].ToString();
 
-                c.Items.Add(item);
-            }
-            return c;
-        }
-        public C1ComboBox setCboFoods(C1ComboBox c, String selected)
-        {
-            ComboBoxItem item = new ComboBoxItem();
-            //DataTable dt = selectC1();
-            if (lOrd.Count <= 0) getlFoods();
-            ComboBoxItem item1 = new ComboBoxItem();
-            item1.Text = "";
-            item1.Value = "000";
-            c.Items.Clear();
-            c.Items.Add(item1);
-            //for (int i = 0; i < dt.Rows.Count; i++)
-            int i = 0;
-            foreach (Order1 row in lOrd)
-            {
-                item = new ComboBoxItem();
-                item.Value = row.order_id;
-                item.Text = row.row1;
-                c.Items.Add(item);
-                if (item.Value.Equals(selected))
-                {
-                    //c.SelectedItem = item.Value;
-                    c.SelectedText = item.Text;
-                    c.SelectedIndex = i + 1;
-                }
-                i++;
-            }
-            return c;
-        }
+        //        c.Items.Add(item);
+        //    }
+        //    return c;
+        //}
+        //public C1ComboBox setCboFoods(C1ComboBox c, String selected)
+        //{
+        //    ComboBoxItem item = new ComboBoxItem();
+        //    //DataTable dt = selectC1();
+        //    if (lOrd.Count <= 0) getlFoods();
+        //    ComboBoxItem item1 = new ComboBoxItem();
+        //    item1.Text = "";
+        //    item1.Value = "000";
+        //    c.Items.Clear();
+        //    c.Items.Add(item1);
+        //    //for (int i = 0; i < dt.Rows.Count; i++)
+        //    int i = 0;
+        //    foreach (Order1 row in lOrd)
+        //    {
+        //        item = new ComboBoxItem();
+        //        item.Value = row.order_id;
+        //        item.Text = row.row1;
+        //        c.Items.Add(item);
+        //        if (item.Value.Equals(selected))
+        //        {
+        //            //c.SelectedItem = item.Value;
+        //            c.SelectedText = item.Text;
+        //            c.SelectedIndex = i + 1;
+        //        }
+        //        i++;
+        //    }
+        //    return c;
+        //}
         private Order1 setFoods(DataTable dt)
         {
             Order1 dept1 = new Order1();
@@ -414,7 +416,7 @@ namespace modernpos_pos.objdb
                 dept1.order_id = dt.Rows[0][ord.order_id].ToString();
                 dept1.lot_id = dt.Rows[0][ord.lot_id].ToString();
                 dept1.row1 = dt.Rows[0][ord.row1].ToString();
-                //dept1.posi_name_e = dt.Rows[0][area.posi_name_e] != null ? dt.Rows[0][area.posi_name_e].ToString() : "";
+                dept1.qty = dt.Rows[0][ord.qty] != null ? dt.Rows[0][ord.qty].ToString() : "";
                 //dept1.status_doctor = dt.Rows[0][area.status_doctor] != null ? dt.Rows[0][area.status_doctor].ToString() : "";
                 dept1.remark = dt.Rows[0][ord.remark] != null ? dt.Rows[0][ord.remark].ToString() : "";
                 dept1.date_create = dt.Rows[0][ord.date_create] != null ? dt.Rows[0][ord.date_create].ToString() : "";
@@ -435,13 +437,43 @@ namespace modernpos_pos.objdb
                 dept1.area_id = dt.Rows[0][ord.area_id] != null ? dt.Rows[0][ord.area_id].ToString() : "";
                 dept1.status_foods_1 = dt.Rows[0][ord.status_foods_1] != null ? dt.Rows[0][ord.status_foods_1].ToString() : "";
                 dept1.status_foods_2 = dt.Rows[0][ord.status_foods_2] != null ? dt.Rows[0][ord.status_foods_2].ToString() : "";
+                dept1.status_foods_3 = dt.Rows[0][ord.status_foods_3] != null ? dt.Rows[0][ord.status_foods_3].ToString() : "";
+                dept1.status_bill = dt.Rows[0][ord.status_bill] != null ? dt.Rows[0][ord.status_bill].ToString() : "";
+                dept1.bill_check_date = dt.Rows[0][ord.bill_check_date] != null ? dt.Rows[0][ord.bill_check_date].ToString() : "";
+                dept1.status_cook = dt.Rows[0][ord.status_cook] != null ? dt.Rows[0][ord.status_cook].ToString() : "";
+                dept1.cook_receive_date = dt.Rows[0][ord.cook_receive_date] != null ? dt.Rows[0][ord.cook_receive_date].ToString() : "";
+                dept1.cook_finish_date = dt.Rows[0][ord.cook_finish_date] != null ? dt.Rows[0][ord.cook_finish_date].ToString() : "";
+                dept1.void_date = dt.Rows[0][ord.void_date] != null ? dt.Rows[0][ord.void_date].ToString() : "";
+                dept1.status_void = dt.Rows[0][ord.status_void] != null ? dt.Rows[0][ord.status_void].ToString() : "";
+                dept1.printer_name = dt.Rows[0][ord.printer_name] != null ? dt.Rows[0][ord.printer_name].ToString() : "";
+                dept1.status_to_go = dt.Rows[0][ord.status_to_go] != null ? dt.Rows[0][ord.status_to_go].ToString() : "";
+                dept1.bill_id = dt.Rows[0][ord.bill_id] != null ? dt.Rows[0][ord.bill_id].ToString() : "";
+                dept1.order_user = dt.Rows[0][ord.order_user] != null ? dt.Rows[0][ord.order_user].ToString() : "";
+                dept1.status_closeday = dt.Rows[0][ord.status_closeday] != null ? dt.Rows[0][ord.status_closeday].ToString() : "";
+                dept1.closeday_id = dt.Rows[0][ord.closeday_id] != null ? dt.Rows[0][ord.closeday_id].ToString() : "";
+                dept1.cnt_cust = dt.Rows[0][ord.cnt_cust] != null ? dt.Rows[0][ord.cnt_cust].ToString() : "";
             }
             else
             {
+                dept1.cnt_cust = "";
+                dept1.closeday_id = "";
+                dept1.status_closeday = "";
+                dept1.order_user = "";
+                dept1.bill_id = "";
+                dept1.status_to_go = "";
+                dept1.printer_name = "";
+                dept1.void_date = "";
+                dept1.status_void = "";
+                dept1.cook_finish_date = "";
+                dept1.cook_receive_date = "";
+                dept1.status_cook = "";
+                dept1.bill_check_date = "";
+                dept1.status_bill = "";
+                dept1.status_foods_3 = "";
                 dept1.order_id = "";
                 dept1.lot_id = "";
                 dept1.row1 = "";
-                //posi.dept_parent_id = "dept_parent_id";
+                dept1.qty = "";
                 dept1.remark = "";
                 dept1.date_create = "";
                 dept1.date_modi = "";

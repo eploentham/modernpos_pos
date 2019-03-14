@@ -50,6 +50,7 @@ namespace modernpos_pos.objdb
             foo.status_to_go = "status_to_go";
             foo.foods_cat_id = "foods_cat_id";
             foo.filename = "filename";
+            foo.status_recommend = "status_recommend";
 
             foo.pkField = "foods_id";
             foo.table = "b_foods";
@@ -61,6 +62,17 @@ namespace modernpos_pos.objdb
                 "From " + foo.table + " foo " +
                 " " +
                 "Where foo." + foo.active + " ='1' and foo."+foo.foods_cat_id+"='"+catid+"'";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectByRecommend()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select foo.*  " +
+                "From " + foo.table + " foo " +
+                " " +
+                "Where foo." + foo.active + " ='1' and foo."+foo.status_recommend+"='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -120,6 +132,27 @@ namespace modernpos_pos.objdb
 
             return dt;
         }
+        public List<Foods> getlFoodsRecommend()
+        {
+            List<Foods> lfoo1 = new List<Foods>();
+            DataTable dt = new DataTable();
+            dt = selectByRecommend();
+            foreach (DataRow row in dt.Rows)
+            {
+                Foods itm1 = new Foods();
+                itm1.foods_id = row[foo.foods_id].ToString();
+                itm1.foods_name = row[foo.foods_name].ToString();
+                itm1.foods_price = row[foo.foods_price].ToString();
+                itm1.printer_name = row[foo.printer_name].ToString();
+                itm1.foods_code = row[foo.foods_code].ToString();
+                itm1.foods_type_id = row[foo.foods_type_id].ToString();
+                itm1.foods_cat_id = row[foo.foods_cat_id].ToString();
+                itm1.filename = row[foo.filename].ToString();
+                itm1.status_recommend = row[foo.status_recommend].ToString();
+                lfoo1.Add(itm1);
+            }
+            return lfoo1;
+        }
         public List<Foods> getlFoods1()
         {
             List<Foods> lfoo1 = new List<Foods>();
@@ -136,6 +169,7 @@ namespace modernpos_pos.objdb
                 itm1.foods_type_id = row[foo.foods_type_id].ToString();
                 itm1.foods_cat_id = row[foo.foods_cat_id].ToString();
                 itm1.filename = row[foo.filename].ToString();
+                itm1.status_recommend = row[foo.status_recommend].ToString();
                 lfoo1.Add(itm1);
             }
             return lfoo1;
@@ -156,6 +190,7 @@ namespace modernpos_pos.objdb
                 itm1.foods_type_id = row[foo.foods_type_id].ToString();
                 itm1.foods_cat_id = row[foo.foods_cat_id].ToString();
                 itm1.filename = row[foo.filename].ToString();
+                itm1.status_recommend = row[foo.status_recommend].ToString();
                 lfoo1.Add(itm1);
             }
             return lfoo1;
@@ -208,6 +243,7 @@ namespace modernpos_pos.objdb
             p.status_to_go = p.status_to_go == null ? "0" : p.status_to_go;
             p.status_dine_in = p.status_dine_in == null ? "0" : p.status_dine_in;
             p.filename = p.filename == null ? "" : p.filename;
+            p.status_recommend = p.status_recommend == null ? "0" : p.status_recommend;
 
             p.host_id = long.TryParse(p.host_id, out chk) ? chk.ToString() : "0";
             p.branch_id = long.TryParse(p.branch_id, out chk) ? chk.ToString() : "0";
@@ -245,6 +281,7 @@ namespace modernpos_pos.objdb
                 "," + foo.status_to_go + " = '" + p.status_to_go + "' " +
                 "," + foo.foods_cat_id + " = '" + p.foods_cat_id + "' " +
                 "," + foo.filename + " = '" + p.filename + "' " +
+                "," + foo.status_recommend + " = '" + p.status_recommend + "' " +
                 " ";
             try
             {
@@ -281,6 +318,7 @@ namespace modernpos_pos.objdb
                 "," + foo.status_to_go + " = '" + p.status_to_go + "' " +
                 "," + foo.foods_cat_id + " = '" + p.foods_cat_id + "' " +
                 "," + foo.foods_type_id + " = '" + p.foods_type_id + "' " +
+                "," + foo.status_recommend + " = '" + p.status_recommend + "' " +
                 "Where " + foo.pkField + "='" + p.foods_id + "'"
                 ;
 
@@ -410,6 +448,7 @@ namespace modernpos_pos.objdb
                 dept1.status_to_go = dt.Rows[0][foo.status_to_go] != null ? dt.Rows[0][foo.status_to_go].ToString() : "";
                 dept1.foods_cat_id = dt.Rows[0][foo.foods_cat_id] != null ? dt.Rows[0][foo.foods_cat_id].ToString() : "";
                 dept1.filename = dt.Rows[0][foo.filename] != null ? dt.Rows[0][foo.filename].ToString() : "";
+                dept1.status_recommend = dt.Rows[0][foo.status_recommend] != null ? dt.Rows[0][foo.status_recommend].ToString() : "";
             }
             else
             {
@@ -436,6 +475,7 @@ namespace modernpos_pos.objdb
                 dept1.status_dine_in = "";
                 dept1.foods_cat_id = "";
                 dept1.filename = "";
+                dept1.status_recommend = "";
             }
 
             return dept1;

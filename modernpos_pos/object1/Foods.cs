@@ -21,5 +21,6 @@ namespace modernpos_pos.object1
         public String status_dine_in { get; set; }
         public String foods_cat_id { get; set; }
         public String filename { get; set; }
+        public String status_recommend { get; set; }
     }
 }
