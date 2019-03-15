@@ -48,7 +48,7 @@ namespace modernpos_pos.gui
         C1DockingTab tC;
 
         VNEControl vneC;
-        int colNo = 1, colFooName = 2, colPrice = 3, colQty=4, colRemark=5, colStatus = 6, colFooId=7, colPrinterName=8;
+        int colNo = 1, colFooName = 2, colPrice = 3, colQty=4, colRemark=5, colTopping=6, colStatus = 7, colFooId=8, colPrinterName=9, colFooName1=10;
 
         List<Order1> lOrd;
         Order1 ord;
@@ -111,13 +111,48 @@ namespace modernpos_pos.gui
             btnPay.Click += BtnPay_Click;
             btnVoid.Click += BtnVoid_Click;
             btnSpec.Click += BtnSpec_Click;
-
+            btnTopping.Click += BtnTopping_Click;
 
             initGrf();
             initTC();
             flagModi = false;
             setBtnEnable(flagModi);
             this.FormBorderStyle = FormBorderStyle.None;
+        }
+
+        private void BtnTopping_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            mposC.fooName = "";
+            mposC.fooTopping = "";
+            mposC.toppingPrice = "";
+            mposC.foosumprice = "";
+            FrmTakeOutTopping frm = new FrmTakeOutTopping(mposC, txtFooId.Text);
+            frm.ShowDialog(this);
+            int row = 0;
+            String spec = "", name="";
+            if (int.TryParse(txtRow.Text, out row))
+            {
+                spec = grf[row, colRemark] == null ? "" : grf[row, colRemark].ToString();
+                name = grf[row, colFooName1] == null ? "" : grf[row, colFooName1].ToString();
+                if (!mposC.fooName.Equals(""))
+                {
+                    if (spec.Equals(""))
+                    {
+                        grf[row, colFooName] = mposC.fooName + " + " + mposC.fooTopping;
+                    }
+                    else
+                    {
+                        grf[row, colFooName] = mposC.fooName + " + " + spec + " + " + mposC.fooTopping;
+                    }
+                }
+                    
+                if (!mposC.fooTopping.Equals(""))
+                    grf[row, colTopping] = mposC.fooTopping;
+                if (!mposC.toppingPrice.Equals(""))
+                    grf[row, colPrice] = mposC.foosumprice;
+            }
+            UpdateTotals();
         }
 
         private void BtnSpec_Click(object sender, EventArgs e)
@@ -128,11 +163,26 @@ namespace modernpos_pos.gui
             FrmTakeOutSpecial frm = new FrmTakeOutSpecial(mposC, txtFooId.Text);
             frm.ShowDialog(this);
             int row = 0;
-            if(int.TryParse(txtRow.Text, out row))
+            String topping = "", name = "";
+            if (int.TryParse(txtRow.Text, out row))
             {
-                grf[row, colFooName] = mposC.fooName;
-                grf[row, colRemark] = mposC.fooSpec;
+                topping = grf[row, colTopping] == null ? "" : grf[row, colTopping].ToString();
+                name = grf[row, colFooName1] == null ? "" : grf[row, colFooName1].ToString();
+                if (!mposC.fooName.Equals(""))
+                {
+                    if (topping.Equals(""))
+                    {
+                        grf[row, colFooName] = mposC.fooName + " + " + mposC.fooSpec;
+                    }
+                    else
+                    {
+                        grf[row, colFooName] = mposC.fooName + " + " + mposC.fooSpec + " + " + topping;
+                    }
+                }                
+                if (!mposC.fooSpec.Equals(""))
+                    grf[row, colRemark] = mposC.fooSpec;
             }
+            UpdateTotals();
         }
 
         private void BtnVoid_Click(object sender, EventArgs e)
@@ -386,7 +436,7 @@ namespace modernpos_pos.gui
             grf.Cols[0].Visible = false;
             //grf.Cols[colStatus].Visible = false;
             grf.Rows.Count = 1;
-            grf.Cols.Count = 9;
+            grf.Cols.Count = 11;
             grf.Cols[colNo].Width = 40;
             grf.Cols[colFooName].Width = 300;
             grf.Cols[colPrice].Width = 80;
@@ -418,6 +468,8 @@ namespace modernpos_pos.gui
             grf.Cols[colPrinterName].Visible = false;
             grf.Cols[colQty].Visible = false;
             grf.Cols[colRemark].Visible = false;
+            grf.Cols[colTopping].Visible = false;
+            grf.Cols[colFooName1].Visible = false;
             pnBill.Width =  mposC.panel1Width;
             //theme.SetTheme(grf, "Office2010Blue");
         }
@@ -475,6 +527,7 @@ namespace modernpos_pos.gui
                 row[colRemark] = remark;
                 row[colNo] = grf.Rows.Count - 2;
                 row[colPrinterName] = printer;
+                row[colFooName1] = name;
                 ord1.order_id = "";
                 ord1.price = price;
                 ord1.qty = "1";
@@ -507,9 +560,10 @@ namespace modernpos_pos.gui
                 try
                 {
                     tile.Image = null;
+                    tiles1.Add(tile);
                     MemoryStream stream = new MemoryStream();
                     Image loadedImage = null, resizedImage;
-                    if (foo1.filename.Equals("")) return;
+                    if (foo1.filename.Equals("")) continue;
                     stream = mposC.ftpC.download(mposC.iniC.ShareFile + "/foods/" + foo1.filename);
                     loadedImage = new Bitmap(stream);
                     if (loadedImage != null)
@@ -531,7 +585,7 @@ namespace modernpos_pos.gui
                 //    _downloadQueue.Enqueue(new DownloadItem(photo.AuthorBuddyIconUri, tile, true));
 
 
-                tiles1.Add(tile);
+                
             }
 
             for (int i = 0; i < dtCat.Rows.Count; i++)
@@ -564,9 +618,10 @@ namespace modernpos_pos.gui
                 try
                 {
                     tile.Image = null;
+                    tiles.Add(tile);
                     MemoryStream stream = new MemoryStream();
                     Image loadedImage = null, resizedImage;
-                    if (foo1.filename.Equals("")) return;
+                    if (foo1.filename.Equals("")) continue;
                     stream = mposC.ftpC.download(mposC.iniC.ShareFile + "/foods/" + foo1.filename);
                     loadedImage = new Bitmap(stream);
                     if (loadedImage != null)
@@ -588,7 +643,7 @@ namespace modernpos_pos.gui
                 //    _downloadQueue.Enqueue(new DownloadItem(photo.AuthorBuddyIconUri, tile, true));
 
 
-                tiles.Add(tile);
+                
             }
         }
 

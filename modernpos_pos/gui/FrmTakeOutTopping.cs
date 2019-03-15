@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace modernpos_pos.gui
 {
-    public partial class FrmTakeOutSpecial : Form
+    public partial class FrmTakeOutTopping : Form
     {
         mPOSControl mposC;
         Font fEdit, fEditB, fEdit1;
@@ -25,11 +25,11 @@ namespace modernpos_pos.gui
 
         C1FlexGrid grf;
         Foods foo;
-        String fooid = "", fooSpec="";
-        int colNo = 1, colImg=2, colFoosName = 3, colStatus=4;
+        String fooid = "", fooTopping = "", toppingprice="";
+        int colNo = 1, colImg = 2, colFoosName = 3, colPrice=4, colStatus = 5;
         Image imgR, imgC;
 
-        public FrmTakeOutSpecial(mPOSControl x, String fooid)
+        public FrmTakeOutTopping(mPOSControl x, String fooid)
         {
             InitializeComponent();
             mposC = x;
@@ -48,24 +48,29 @@ namespace modernpos_pos.gui
             foo = mposC.mposDB.fooDB.selectByPk1(fooid);
             lbFooName.Text = "";
             lbFooName.Text = foo.foods_name;
+            lbPrice.Text = "";
 
             imgR = Resources.red_checkmark_png_16;
             btnReturn.Click += BtnReturn_Click;
             //picFoo.Image = imgR;
 
             initGrf();
-            setGrfSpec(foo.foods_id);
+            setGrfTopping(foo.foods_id);
         }
-
         private void BtnReturn_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            Decimal price = 0, sum = 0;
+            Decimal.TryParse(lbPrice.Text, out sum);
+            Decimal.TryParse(foo.foods_price, out price);
+            sum = sum - price;
             mposC.fooName = lbFooName.Text.Trim();
-            mposC.fooSpec = fooSpec.Trim();
-            mposC.fooName = mposC.fooName.Replace(fooSpec.Trim(), "").Replace("+", "").Trim();
+            mposC.fooTopping = fooTopping.Trim();
+            mposC.toppingPrice = sum.ToString("0.00");
+            mposC.foosumprice = lbPrice.Text;
+            mposC.fooName = fooTopping.Equals("") ? mposC.fooName.Replace("+", "").Trim() :  mposC.fooName.Replace(fooTopping.Trim(), "").Replace("+", "").Trim();
             Close();
         }
-
         private void initGrf()
         {
             grf = new C1FlexGrid();
@@ -76,7 +81,7 @@ namespace modernpos_pos.gui
             grf.Cols[0].Visible = false;
             //grf.Cols[colStatus].Visible = false;
             grf.Rows.Count = 1;
-            grf.Cols.Count = 5;
+            grf.Cols.Count = 6;
             grf.Cols[colImg].Width = 50;
             grf.Cols[colFoosName].Width = 200;
 
@@ -90,19 +95,19 @@ namespace modernpos_pos.gui
 
             panel3.Controls.Add(grf);
             grf.Cols[colNo].Visible = false;
-            //grf.Cols[colStatus].Visible = false;
-            //grf.Cols[colPrinterName].Visible = false;
+            grf.Cols[colStatus].Visible = false;
+            grf.Cols[colPrice].AllowEditing = false;
             //grf.Cols[colQty].Visible = false;
             //pnBill.Width = mposC.panel1Width;
             //theme.SetTheme(grf, "Office2010Blue");
         }
-        private void setGrfSpec(String fooId)
+        private void setGrfTopping(String fooId)
         {
             //grfDept.Rows.Count = 7;
             //pageLoad = true;
             DataTable dt = new DataTable();
-            dt = mposC.mposDB.foosDB.selectByFoodsId1(fooId);
-            grf.Cols.Count = 5;
+            dt = mposC.mposDB.footpDB.selectByFoodsId1(fooId);
+            grf.Cols.Count = 6;
             grf.Rows.Count = dt.Rows.Count + 1;
             //CellStyle cs = grf.Styles.Add("btn");
             //cs.DataType = typeof(Button);
@@ -130,8 +135,9 @@ namespace modernpos_pos.gui
             //CellRange rg = grf.GetCellRange(2, colE);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                grf[i+1, 0] = (i+1);
-                grf[i+1, colFoosName] = dt.Rows[i]["foods_spec_name"].ToString();
+                grf[i + 1, 0] = (i + 1);
+                grf[i + 1, colFoosName] = dt.Rows[i]["foods_topping_name"].ToString();
+                grf[i + 1, colPrice] = dt.Rows[i]["price"].ToString();
                 grf[i + 1, colStatus] = "";
                 if (i % 2 == 0)
                     grf.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
@@ -142,7 +148,6 @@ namespace modernpos_pos.gui
             grf.Cols[colImg].AllowEditing = false;
             //pageLoad = false;
         }
-
         private void Grf_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -153,49 +158,55 @@ namespace modernpos_pos.gui
             name = grf[grf.Row, colFoosName].ToString();
             if (!name.Equals(""))
             {
-                if(grf[grf.Row, colStatus].Equals(""))
+                if (grf[grf.Row, colStatus].Equals(""))
                 {
                     grf[grf.Row, colStatus] = "1";
                     grf.SetCellImage(grf.Row, colImg, imgR);
                     //lbFooName.Text = lbFooName.Text + " + " + name;
-                    setSpecName();
+                    setToppingName();
                 }
                 else
                 {
                     grf[grf.Row, colStatus] = "";
                     grf.SetCellImage(grf.Row, colImg, null);
-                    setSpecName();
+                    setToppingName();
                 }
             }
             //grf.AutoSizeRows();
         }
-        private void setSpecName()
+        private void setToppingName()
         {
-            String spec = "";
+            String topping = "";
+            Decimal price = 0, sum=0;
             lbFooName.Text = foo.foods_name;
+            Decimal.TryParse(foo.foods_price, out sum);
             foreach (Row row in grf.Rows)
             {
                 if (row[colStatus] == null) continue;
+                
                 if (row[colStatus].Equals("1"))
                 {
-                    spec += row[colFoosName].ToString()+" + ";
+                    topping += row[colFoosName].ToString() +"[" +row[colPrice].ToString()+"]" + " + ";
+                    Decimal.TryParse(row[colPrice].ToString(), out price);
+                    sum += price;
                 }
             }
-            spec = spec.Trim();
+            topping = topping.Trim();
             try
             {
-                if (spec.Substring(spec.Length-1).Equals("+"))
+                if (topping.Substring(topping.Length - 1).Equals("+"))
                 {
-                    spec = spec.Substring(0,spec.Length-1);
+                    topping = topping.Substring(0, topping.Length - 1);
                 }
             }
             catch (Exception ex)
             {
 
             }
-            lbFooName.Text = foo.foods_name + " + "+ spec;
+            lbFooName.Text = foo.foods_name + " + " + topping;
             lbFooName.Text = lbFooName.Text.Trim();
-            fooSpec = spec;
+            lbPrice.Text = sum.ToString("0.00");
+            fooTopping = topping;
             try
             {
                 if (lbFooName.Text.Substring(lbFooName.Text.Length - 1).Equals("+"))
@@ -210,7 +221,7 @@ namespace modernpos_pos.gui
 
             }
         }
-        private void FrmTakeOutSpecial_Load(object sender, EventArgs e)
+        private void FrmTaleOutTopping_Load(object sender, EventArgs e)
         {
 
         }

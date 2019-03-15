@@ -53,7 +53,7 @@ namespace modernpos_pos.control
         Regex regEmail;
         String soapTaxId = "";
         public String theme = "", StartupPath = "", passOK="", tableidToGo="";
-        public String FixJobCode = "IMP", FixEccCode = "CC", fooName="", fooSpec="";
+        public String FixJobCode = "IMP", FixEccCode = "CC", fooName="", fooSpec="", toppingPrice="", fooTopping="", foosumprice="";
         
 
         //public VideoCaptureDevice video;

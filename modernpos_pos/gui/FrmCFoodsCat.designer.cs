@@ -50,12 +50,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tC = new C1.Win.C1Command.C1DockingTab();
+            this.tabAdd = new C1.Win.C1Command.C1DockingTabPage();
+            this.tabView = new C1.Win.C1Command.C1DockingTabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatusAirCondition)).BeginInit();
@@ -70,6 +76,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaCode)).BeginInit();
             this.sB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tC)).BeginInit();
+            this.tC.SuspendLayout();
+            this.tabAdd.SuspendLayout();
+            this.tabView.SuspendLayout();
             this.SuspendLayout();
             // 
             // theme1
@@ -117,6 +127,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Controls.Add(this.tC);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -389,15 +400,74 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // FrmCFoodsCategory
+            // tC
+            // 
+            this.tC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.tC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tC.Controls.Add(this.tabAdd);
+            this.tC.Controls.Add(this.tabView);
+            this.tC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tC.HotTrack = true;
+            this.tC.Location = new System.Drawing.Point(0, 0);
+            this.tC.Name = "tC";
+            this.tC.SelectedIndex = 1;
+            this.tC.Size = new System.Drawing.Size(354, 510);
+            this.tC.TabIndex = 5;
+            this.tC.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
+            this.tC.TabsShowFocusCues = false;
+            this.tC.TabsSpacing = 2;
+            this.tC.TabStyle = C1.Win.C1Command.TabStyleEnum.Office2007;
+            this.theme1.SetTheme(this.tC, "(default)");
+            // 
+            // tabAdd
+            // 
+            this.tabAdd.Controls.Add(this.panel4);
+            this.tabAdd.Location = new System.Drawing.Point(1, 24);
+            this.tabAdd.Name = "tabAdd";
+            this.tabAdd.Size = new System.Drawing.Size(352, 485);
+            this.tabAdd.TabIndex = 0;
+            this.tabAdd.Text = "กลุ่มอาหาร";
+            // 
+            // tabView
+            // 
+            this.tabView.Controls.Add(this.panel5);
+            this.tabView.Location = new System.Drawing.Point(1, 24);
+            this.tabView.Name = "tabView";
+            this.tabView.Size = new System.Drawing.Size(352, 485);
+            this.tabView.TabIndex = 1;
+            this.tabView.Text = "อาหารตามกลุ่ม";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(352, 485);
+            this.panel4.TabIndex = 0;
+            this.theme1.SetTheme(this.panel4, "(default)");
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(352, 485);
+            this.panel5.TabIndex = 5;
+            this.theme1.SetTheme(this.panel5, "(default)");
+            // 
+            // FrmCFoodsCat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 532);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sB);
-            this.Name = "FrmCFoodsCategory";
-            this.Text = "FrmFoodsType";
+            this.Name = "FrmCFoodsCat";
+            this.Text = "FrmFoodsCat";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmArea_Load);
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
@@ -406,6 +476,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).EndInit();
@@ -422,6 +493,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tC)).EndInit();
+            this.tC.ResumeLayout(false);
+            this.tabAdd.ResumeLayout(false);
+            this.tabView.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -451,5 +526,10 @@
         private C1.Win.C1Input.C1TextBox txtPasswordVoid;
         private C1.Win.C1Input.C1CheckBox chkStatusAirCondition;
         private C1.Win.C1Input.C1CheckBox chkEmbryologist;
+        private C1.Win.C1Command.C1DockingTab tC;
+        private C1.Win.C1Command.C1DockingTabPage tabAdd;
+        private C1.Win.C1Command.C1DockingTabPage tabView;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
     }
 }

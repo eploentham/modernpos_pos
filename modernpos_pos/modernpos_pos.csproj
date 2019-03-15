@@ -183,6 +183,12 @@
     <Compile Include="gui\FrmTakeOut.Designer.cs">
       <DependentUpon>FrmTakeOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmTakeOut1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmTakeOut1.Designer.cs">
+      <DependentUpon>FrmTakeOut1.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmTakeOutCheck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,12 @@
     </Compile>
     <Compile Include="gui\FrmTakeOutSpecial.Designer.cs">
       <DependentUpon>FrmTakeOutSpecial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmTakeOutTopping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmTakeOutTopping.Designer.cs">
+      <DependentUpon>FrmTakeOutTopping.cs</DependentUpon>
     </Compile>
     <Compile Include="objdb\AreaDB.cs" />
     <Compile Include="objdb\BillDB.cs" />
@@ -379,11 +391,17 @@
     <EmbeddedResource Include="gui\FrmTakeOut.resx">
       <DependentUpon>FrmTakeOut.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmTakeOut1.resx">
+      <DependentUpon>FrmTakeOut1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmTakeOutCheck.resx">
       <DependentUpon>FrmTakeOutCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmTakeOutSpecial.resx">
       <DependentUpon>FrmTakeOutSpecial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmTakeOutTopping.resx">
+      <DependentUpon>FrmTakeOutTopping.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -87,7 +87,7 @@ namespace modernpos_pos.gui
             grfFooC.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
             grfFooC.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellChanged);
 
-            panel2.Controls.Add(this.grfFooC);
+            panel4.Controls.Add(this.grfFooC);
 
             C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
             C1ThemeController.ApplyThemeToObject(grfFooC, theme);
@@ -312,7 +312,7 @@ namespace modernpos_pos.gui
         }
         private void FrmArea_Load(object sender, EventArgs e)
         {
-
+            tC.SelectedTab = tabAdd;
         }
     }
 }

@@ -76,6 +76,16 @@ namespace modernpos_pos.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
+        public DataTable selectByFoodsId1(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select foos." + footp.foods_id + ",'' as img,foos." + footp.foods_topping_name + ",foos." + footp.price +
+                " From " + footp.table + " foos " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where foos." + footp.foods_id + " ='" + copId + "' and foos." + footp.active + "='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
         public FoodsTopping selectByPk1(String copId)
         {
             FoodsTopping cop1 = new FoodsTopping();
