@@ -68,6 +68,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -291,6 +292,7 @@
     <Compile Include="object1\Order1.cs" />
     <Compile Include="object1\Persistent.cs" />
     <Compile Include="object1\Position.cs" />
+    <Compile Include="object1\RDNIDWRAPPER.cs" />
     <Compile Include="object1\Restaurant.cs" />
     <Compile Include="object1\sequence1.cs" />
     <Compile Include="object1\Staff.cs" />
@@ -1083,6 +1085,8 @@
     <Content Include="header.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\ศิริราชมูลนิธิ.png" />
+    <None Include="Resources\images.jfif" />
     <None Include="Resources\corporate-blue-background-4.jpg" />
     <None Include="Resources\images %281%29.jpg" />
     <None Include="Resources\blue-triangle-abstract-background-vector-1581976.jpg" />

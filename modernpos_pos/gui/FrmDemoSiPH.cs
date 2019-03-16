@@ -33,6 +33,41 @@ namespace modernpos_pos
 
         String webapi = "/selfcashapi/", paymentId="";
         Boolean MobileFocus = false, AmountFocus = false;
+        RDNID mRDNIDWRAPPER = new RDNID();
+        enum NID_FIELD
+        {
+            NID_Number,   //1234567890123#
+
+            TITLE_T,    //Thai title#
+            NAME_T,     //Thai name#
+            MIDNAME_T,  //Thai mid name#
+            SURNAME_T,  //Thai surname#
+
+            TITLE_E,    //Eng title#
+            NAME_E,     //Eng name#
+            MIDNAME_E,  //Eng mid name#
+            SURNAME_E,  //Eng surname#
+
+            HOME_NO,    //12/34#
+            MOO,        //10#
+            TROK,       //ตรอกxxx#
+            SOI,        //ซอยxxx#
+            ROAD,       //ถนนxxx#
+            TUMBON,     //ตำบลxxx#
+            AMPHOE,     //อำเภอxxx#
+            PROVINCE,   //จังหวัดxxx#
+
+            GENDER,     //1#			//1=male,2=female
+
+            BIRTH_DATE, //25200131#	    //YYYYMMDD 
+            ISSUE_PLACE,//xxxxxxx#      //
+            ISSUE_DATE, //25580131#     //YYYYMMDD 
+            EXPIRY_DATE,//25680130      //YYYYMMDD 
+            ISSUE_NUM,  //12345678901234 //14-Char
+            END
+        };
+        String _CardReaderTFK2700 = "";
+
         [STAThread]
         private void txtStatus(String msg)
         {
@@ -80,6 +115,14 @@ namespace modernpos_pos
             txtAmount.Enter += TxtAmount_Enter;
             txtAmount.Leave += TxtAmount_Leave;
             txtAmount.KeyPress += TxtAmount_KeyPress;
+            
+            btnDonate1.Click += BtnDonate1_Click;
+            btnDonate2.Click += BtnDonate2_Click;
+            pic2Back.Click += Pic2Back_Click;
+            pic2Next.Click += Pic2Next_Click;
+            pic1Back.Click += Pic1Back_Click;
+            pic1Next.Click += Pic1Next_Click;
+
             lbVersion.Text = mposC.iniC.statusShowListBox1;
             if (mposC.iniC.statusShowListBox1.Equals("1"))
             {
@@ -102,7 +145,43 @@ namespace modernpos_pos
 
             timerOnLine.Start();
         }
+        
+        private void Pic2Next_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            tC.SelectedTab = tab3;
+        }
 
+        private void Pic1Back_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+
+        }
+        private void Pic1Next_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            tC.SelectedTab = tab2;
+        }
+        private void Pic2Back_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            tC.SelectedTab = tab1;
+        }
+
+        private void BtnDonate2_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            tC.SelectedTab = tab2;
+            lbDonate2.Text = "บริจากเงินให้กับ 111111";
+        }
+
+        private void BtnDonate1_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            tC.SelectedTab = tab2;
+            lbDonate2.Text = "บริจากเงินให้กับ 2222222";
+        }
+        
         private void TxtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
             //throw new NotImplementedException();
@@ -414,6 +493,91 @@ namespace modernpos_pos
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+        static string aByteToString(byte[] b)
+        {
+            Encoding ut = Encoding.GetEncoding(874); // 874 for Thai langauge
+            int i;
+            for (i = 0; b[i] != 0; i++) ;
+
+            string s = ut.GetString(b);
+            s = s.Substring(0, i);
+            return s;
+        }
+        protected int ReadCard()
+        {
+            try
+            {
+                byte[] Licinfo = new byte[1024];
+                RDNID.getLicenseInfoRD(Licinfo);
+                m_lblDLXInfo.Text = aByteToString(Licinfo);
+                //String strTerminal = m_ListReaderCard.GetItemText(m_ListReaderCard.SelectedItem);
+                _CardReaderTFK2700 = mposC.ListCardReader();
+                String strTerminal = _CardReaderTFK2700;
+                IntPtr obj = mposC.selectReader(strTerminal);
+
+                Int32 nInsertCard = 0;
+                nInsertCard = RDNID.connectCardRD(obj);
+                if (nInsertCard != 0)
+                {
+                    String m;
+                    m = String.Format(" error no {0} ", nInsertCard);
+                    MessageBox.Show(m);
+
+                    RDNID.disconnectCardRD(obj);
+                    RDNID.deselectReaderRD(obj);
+                    return nInsertCard;
+                }
+
+                byte[] id = new byte[30];
+                int res = RDNID.getNIDNumberRD(obj, id);
+                if (res != DefineConstants.NID_SUCCESS)
+                    return res;
+                String NIDNum = aByteToString(id);
+
+                byte[] data = new byte[1024];
+                res = RDNID.getNIDTextRD(obj, data, data.Length);
+                if (res != DefineConstants.NID_SUCCESS)
+                    return res;
+
+                String NIDData = aByteToString(data);
+                if (NIDData == "")
+                {
+                    MessageBox.Show("Read Text error");
+                }
+                else
+                {
+                    string[] fields = NIDData.Split('#');
+                    String fullname = fields[(int)NID_FIELD.TITLE_T] + " " + fields[(int)NID_FIELD.NAME_T] + " " + fields[(int)NID_FIELD.MIDNAME_T] + " " + fields[(int)NID_FIELD.SURNAME_T];
+                    String dob = fields[(int)NID_FIELD.BIRTH_DATE];
+
+                    txtPid.Value = NIDNum;
+                    txtPttName.Value = fields[(int)NID_FIELD.NAME_T] + " " + fields[(int)NID_FIELD.MIDNAME_T] + " ";
+                    txtPttLName.Value = fields[(int)NID_FIELD.SURNAME_T];
+                    txtPttNameE.Value = fields[(int)NID_FIELD.NAME_E] + " " + fields[(int)NID_FIELD.MIDNAME_E] + " ";
+                    txtPttLNameE.Value = fields[(int)NID_FIELD.SURNAME_E];
+                    txtAddrNo.Value = fields[(int)NID_FIELD.HOME_NO];
+                    txtMoo.Value = fields[(int)NID_FIELD.MOO];
+                    txtRoad.Value = fields[(int)NID_FIELD.TROK] + " " + fields[(int)NID_FIELD.SOI] + " " + fields[(int)NID_FIELD.ROAD] + " " + fields[(int)NID_FIELD.TUMBON] + " " + fields[(int)NID_FIELD.AMPHOE] + " " + fields[(int)NID_FIELD.PROVINCE];
+                    if (dob.Length >= 8)
+                    {
+                        dob = dob.Substring(0, 4) + "-" + dob.Substring(4, 2) + "-" + dob.Substring(dob.Length - 2);
+                        //txtDob.Value = dob;
+                    }
+                    //cboSex.SelectedIndex = 1;
+                    //cboPrefix.Text = "Mr.";
+
+                }
+
+                RDNID.disconnectCardRD(obj);
+                RDNID.deselectReaderRD(obj);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ReadCard " + ex.Message, "");
+            }
+
+            return 0;
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             txtMobile.Focus();
@@ -439,6 +603,8 @@ namespace modernpos_pos
             {
                 chk = ex.Message.ToString();
             }
+            tC.SelectedTab = tab1;
+            tC.ShowTabs = false;
         }
     }
 }
