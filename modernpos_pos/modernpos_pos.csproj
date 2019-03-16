@@ -434,6 +434,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="RDNIDLib.DLX">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\green.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1085,6 +1088,10 @@
     <Content Include="header.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="RDNIDlib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\siph2.png" />
     <None Include="Resources\ศิริราชมูลนิธิ.png" />
     <None Include="Resources\images.jfif" />
     <None Include="Resources\corporate-blue-background-4.jpg" />

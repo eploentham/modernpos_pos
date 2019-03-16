@@ -34,6 +34,9 @@ namespace modernpos_pos
         String webapi = "/selfcashapi/", paymentId="";
         Boolean MobileFocus = false, AmountFocus = false;
         RDNID mRDNIDWRAPPER = new RDNID();
+        Font ff, ffB;
+        Font fEdit, fEditB, fEdit1;
+
         enum NID_FIELD
         {
             NID_Number,   //1234567890123#
@@ -95,6 +98,7 @@ namespace modernpos_pos
         {
             int timerOnline = 5;
             int.TryParse(txtTimerOnLine.Text, out timerOnline);
+            fEdit = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 5, FontStyle.Regular);
             vneC = new VNEControl();
             txtTimerOnLine.KeyPress += TxtTimerOnLine_KeyPress;
             txtTimerOnLine.TextChanged += TxtTimerOnLine_TextChanged;
@@ -122,6 +126,8 @@ namespace modernpos_pos
             pic2Next.Click += Pic2Next_Click;
             pic1Back.Click += Pic1Back_Click;
             pic1Next.Click += Pic1Next_Click;
+            btnReadCard.Click += BtnReadCard_Click;
+            btnPrint.Click += BtnPrint_Click;
 
             lbVersion.Text = mposC.iniC.statusShowListBox1;
             if (mposC.iniC.statusShowListBox1.Equals("1"))
@@ -142,10 +148,37 @@ namespace modernpos_pos
             timerOnLine.Interval = timerOnline * 1000;
             timerOnLine.Tick += TimerOnLine_Tick;
             timerOnLine.Enabled = false;
+            lbMessage.Hide();
+            pnPID.Hide();
 
             timerOnLine.Start();
         }
-        
+
+        private void BtnPrint_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            PrintDocument document = new PrintDocument();
+            document.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+
+            //This is where you set the printer in your case you could use "EPSON USB"
+
+            //or whatever it is called on your machine, by Default it will choose the default printer
+
+            document.PrinterSettings.PrinterName = cboPrinter.Text;
+
+            document.Print();
+        }
+
+        private void BtnReadCard_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            lbMessage.Show();
+            pnPID.Show();
+            ReadCard();
+
+            lbMessage.Hide();
+        }
+
         private void Pic2Next_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -434,31 +467,152 @@ namespace modernpos_pos
         {
             //This part sets up the data to be printed
             Graphics g = e.Graphics;
-            SolidBrush Brush = new SolidBrush(Color.Black);
-            //gets the text from the textbox
-            String stringToPrint = "";
-            string printText = "";
-            //String RECEIPT = Environment.CurrentDirectory + "\\comprovante.txt";
-            //if (File.Exists(RECEIPT))
+            //SolidBrush Brush = new SolidBrush(Color.Black);
+            ////gets the text from the textbox
+            //String stringToPrint = "";
+            //string printText = "";
+            ////String RECEIPT = Environment.CurrentDirectory + "\\comprovante.txt";
+            ////if (File.Exists(RECEIPT))
+            ////{
+            ////    FileStream fs = new FileStream(RECEIPT, FileMode.Open);
+            ////    StreamReader sr = new StreamReader(fs);
+            ////    stringToPrint = sr.ReadToEnd();
+
+            ////    sr.Close();
+            ////    fs.Close();
+            ////}
+            //String date = "";
+            //date = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
+            //stringToPrint = "เวลา " + date + Environment.NewLine;
+            //stringToPrint += "รับเงิน จำนวน "+txtAmount.Text + Environment.NewLine;
+            //stringToPrint += "ขอบคุณที่ใช้บริการ " + Environment.NewLine;
+            ////stringToPrint += "" + txtTopUp2.Text + Environment.NewLine;
+            ////stringToPrint += "" + txtTopUp3.Text + Environment.NewLine;
+            ////stringToPrint += "โต๊ะ   " + txtDesk.Text + Environment.NewLine;
+            ////Makes the file to print and sets the look of it
+
+            //g.DrawString(stringToPrint, new Font("arial", 16), Brush, 10, 10);
+
+            float linesPerPage = 0;
+            float yPos = 0;
+            int count = 0;
+            float leftMargin = e.MarginBounds.Left;
+            float topMargin = e.MarginBounds.Top;
+            float marginR = e.MarginBounds.Right;
+            float avg = marginR / 2;
+            string line = null;
+            // Calculate the number of lines per page.
+            linesPerPage = e.MarginBounds.Height / fEdit.GetHeight(e.Graphics);
+
+            //// Print each line of the file.
+            //while (count < linesPerPage &&
+            //   ((line = streamToPrint.ReadLine()) != null))
             //{
-            //    FileStream fs = new FileStream(RECEIPT, FileMode.Open);
-            //    StreamReader sr = new StreamReader(fs);
-            //    stringToPrint = sr.ReadToEnd();
-
-            //    sr.Close();
-            //    fs.Close();
+            //    yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            //    e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, new StringFormat());
+            //    count++;
             //}
-            String date = "";
-            date = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
-            stringToPrint = "เวลา " + date + Environment.NewLine;
-            stringToPrint += "รับเงิน จำนวน "+txtAmount.Text + Environment.NewLine;
-            stringToPrint += "ขอบคุณที่ใช้บริการ " + Environment.NewLine;
-            //stringToPrint += "" + txtTopUp2.Text + Environment.NewLine;
-            //stringToPrint += "" + txtTopUp3.Text + Environment.NewLine;
-            //stringToPrint += "โต๊ะ   " + txtDesk.Text + Environment.NewLine;
-            //Makes the file to print and sets the look of it
+            line = "ศิริราชมูลนิธิ";
+            Size proposedSize = new Size(100, 100);  //maximum size you would ever want to allow
+            StringFormat flags = new StringFormat(StringFormatFlags.LineLimit);  //wraps
+            Size textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            Int32 xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            Int32 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
 
-            g.DrawString(stringToPrint, new Font("arial", 16), Brush, 10, 10);
+            //Image resizedImage;
+            //int originalWidth = Resources.siph2.Width;
+            //int newWidth = 210;
+            //resizedImage = Resources.siph2.GetThumbnailImage(newWidth, (newWidth * Resources.siph2.Height) / originalWidth, null, IntPtr.Zero);
+
+            e.Graphics.DrawImage(Resources.siph2, avg - (Resources.siph2.Width / 2), topMargin);
+            
+            count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            line = "เลขที่  ....................";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, flags);
+
+            count++;            count++;            count++;            count++;            count++;            count++; count++; count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            line = "ศิริราชมูลนิธิ";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width/2), yPos, flags);
+
+            count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            line = "คณะแพทย์ศาสตร์ศิริราชพยาบาล  มาหวิทยาลัยมหิดล";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
+
+            count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            line = "ตึกมหิดลบำเพ็ญ ชั้น1 โรงพยาบาลศิริราข ถนนวังหลัง แขวงศิริราช เขตบางกอกน้อย กรุงเทพฯ  10700";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
+
+            count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            line = "โทร. 0-2419-7658-60 โทรสาร. 0-2419-7687, 0-2419-7658 กด 9";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
+
+            count++; count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            line = "ใบเสร็จรับเงิน";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+
+            count++;
+            String date = "";
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            date = System.DateTime.Now.Year + 543 + DateTime.Now.ToString("-MM-dd");
+            line = "วันที่ "+ date;
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, flags);
+
+            count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            line = "นามผู้บริจาก " + txtPttName.Text +" "+ txtPttLName.Text;
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+
+            count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            line = "ที่อยู่ " + txtRoad.Text ;
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+
+
+            count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, flags);
+            count++;
+            // If more lines exist, print another page.
+            line = null;
+            if (line != null)
+                    e.HasMorePages = true;
+                else
+                    e.HasMorePages = false;
 
         }
         private Boolean appExit()
@@ -551,13 +705,13 @@ namespace modernpos_pos
                     String dob = fields[(int)NID_FIELD.BIRTH_DATE];
 
                     txtPid.Value = NIDNum;
-                    txtPttName.Value = fields[(int)NID_FIELD.NAME_T] + " " + fields[(int)NID_FIELD.MIDNAME_T] + " ";
+                    txtPttName.Value = fields[(int)NID_FIELD.TITLE_T] +" " + fields[(int)NID_FIELD.NAME_T] + " " + fields[(int)NID_FIELD.MIDNAME_T] + " ";
                     txtPttLName.Value = fields[(int)NID_FIELD.SURNAME_T];
-                    txtPttNameE.Value = fields[(int)NID_FIELD.NAME_E] + " " + fields[(int)NID_FIELD.MIDNAME_E] + " ";
+                    txtPttNameE.Value = fields[(int)NID_FIELD.TITLE_E] + " " + fields[(int)NID_FIELD.NAME_E] + " " + fields[(int)NID_FIELD.MIDNAME_E] + " ";
                     txtPttLNameE.Value = fields[(int)NID_FIELD.SURNAME_E];
-                    txtAddrNo.Value = fields[(int)NID_FIELD.HOME_NO];
-                    txtMoo.Value = fields[(int)NID_FIELD.MOO];
-                    txtRoad.Value = fields[(int)NID_FIELD.TROK] + " " + fields[(int)NID_FIELD.SOI] + " " + fields[(int)NID_FIELD.ROAD] + " " + fields[(int)NID_FIELD.TUMBON] + " " + fields[(int)NID_FIELD.AMPHOE] + " " + fields[(int)NID_FIELD.PROVINCE];
+                    //txtAddrNo.Value = fields[(int)NID_FIELD.HOME_NO];
+                    //txtMoo.Value = fields[(int)NID_FIELD.MOO];
+                    txtRoad.Value = fields[(int)NID_FIELD.HOME_NO]+" "+ fields[(int)NID_FIELD.MOO] + " "+fields[(int)NID_FIELD.TROK] + " " + fields[(int)NID_FIELD.SOI] + " " + fields[(int)NID_FIELD.ROAD] + " " + fields[(int)NID_FIELD.TUMBON] + " " + fields[(int)NID_FIELD.AMPHOE] + " " + fields[(int)NID_FIELD.PROVINCE];
                     if (dob.Length >= 8)
                     {
                         dob = dob.Substring(0, 4) + "-" + dob.Substring(4, 2) + "-" + dob.Substring(dob.Length - 2);
@@ -565,7 +719,32 @@ namespace modernpos_pos
                     }
                     //cboSex.SelectedIndex = 1;
                     //cboPrefix.Text = "Mr.";
+                    byte[] NIDPicture = new byte[1024 * 5];
+                    int imgsize = NIDPicture.Length;
+                    res = RDNID.getNIDPhotoRD(obj, NIDPicture, out imgsize);
+                    if (res != DefineConstants.NID_SUCCESS)
+                        return res;
 
+                    byte[] byteImage = NIDPicture;
+                    if (byteImage == null)
+                    {
+                        MessageBox.Show("Read Photo error");
+                    }
+                    else
+                    {
+                        //m_picPhoto
+                        Image img = Image.FromStream(new MemoryStream(byteImage));
+                        //Bitmap MyImage = new Bitmap(img, m_picPhoto.Width - 2, m_picPhoto.Height - 2);
+                        Bitmap MyImage = new Bitmap(img, picPID.Width - 2, picPID.Height - 2);
+                        //m_picPhoto.Image = (Image)MyImage;
+                        picPID.Image = (Image)MyImage;
+                        //setControlDonor("", txtPid.Text);
+                        //if (txtID.Text.Equals(""))
+                        //{
+                        //img.Save(picIDCard, ImageFormat.Jpeg);
+                        //flagReadCard = true;
+                        //}
+                    }
                 }
 
                 RDNID.disconnectCardRD(obj);

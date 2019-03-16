@@ -30,10 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDemoSiPH));
             this.tC = new C1.Win.C1Command.C1DockingTab();
+            this.tab1 = new C1.Win.C1Command.C1DockingTabPage();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.pic1Next = new C1.Win.C1Input.C1PictureBox();
+            this.pic1Back = new C1.Win.C1Input.C1PictureBox();
+            this.c1PictureBox1 = new C1.Win.C1Input.C1PictureBox();
+            this.btnDonate2 = new C1.Win.C1Input.C1Button();
+            this.btnDonate1 = new C1.Win.C1Input.C1Button();
             this.tab2 = new C1.Win.C1Command.C1DockingTabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pic2Next = new C1.Win.C1Input.C1PictureBox();
+            this.pic2Back = new C1.Win.C1Input.C1PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbDonate2 = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.txtMobile = new C1.Win.C1Input.C1TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,17 +53,11 @@
             this.label22 = new System.Windows.Forms.Label();
             this.txtTimerOnLine = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.pic1 = new System.Windows.Forms.PictureBox();
             this.lbVersion = new System.Windows.Forms.Label();
             this.btnPayment = new C1.Win.C1Input.C1Button();
             this.txtAmount = new C1.Win.C1Input.C1TextBox();
             this.c1Label2 = new C1.Win.C1Input.C1Label();
-            this.c1Label1 = new C1.Win.C1Input.C1Label();
-            this.tab3 = new C1.Win.C1Command.C1DockingTabPage();
-            this.tab4 = new C1.Win.C1Command.C1DockingTabPage();
-            this.tab1 = new C1.Win.C1Command.C1DockingTabPage();
-            this.btnDonate1 = new C1.Win.C1Input.C1Button();
-            this.btnDonate2 = new C1.Win.C1Input.C1Button();
-            this.pic1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnMinus = new C1.Win.C1Input.C1Button();
             this.btn0 = new C1.Win.C1Input.C1Button();
@@ -66,56 +70,57 @@
             this.btn9 = new C1.Win.C1Input.C1Button();
             this.btn8 = new C1.Win.C1Input.C1Button();
             this.btn7 = new C1.Win.C1Input.C1Button();
-            this.c1PictureBox1 = new C1.Win.C1Input.C1PictureBox();
-            this.pic1Back = new C1.Win.C1Input.C1PictureBox();
-            this.pic1Next = new C1.Win.C1Input.C1PictureBox();
-            this.pic2Next = new C1.Win.C1Input.C1PictureBox();
-            this.pic2Back = new C1.Win.C1Input.C1PictureBox();
-            this.lbDonate2 = new C1.Win.C1SuperTooltip.C1SuperLabel();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.c1Label1 = new C1.Win.C1Input.C1Label();
+            this.tab3 = new C1.Win.C1Command.C1DockingTabPage();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.btnPrint = new C1.Win.C1Input.C1Button();
+            this.lbMessage = new C1.Win.C1SuperTooltip.C1SuperLabel();
+            this.pnPID = new System.Windows.Forms.Panel();
+            this.picPID = new C1.Win.C1Input.C1PictureBox();
+            this.txtRoad = new C1.Win.C1Input.C1TextBox();
+            this.txtMoo = new C1.Win.C1Input.C1TextBox();
+            this.txtPttLNameE = new C1.Win.C1Input.C1TextBox();
+            this.txtPttLName = new C1.Win.C1Input.C1TextBox();
+            this.txtAddrNo = new C1.Win.C1Input.C1TextBox();
+            this.txtPttNameE = new C1.Win.C1Input.C1TextBox();
+            this.txtPttName = new C1.Win.C1Input.C1TextBox();
+            this.txtPid = new C1.Win.C1Input.C1TextBox();
+            this.m_lblDLXInfo = new System.Windows.Forms.Label();
+            this.btnReadCard = new C1.Win.C1Input.C1Button();
+            this.c1SuperLabel2 = new C1.Win.C1SuperTooltip.C1SuperLabel();
+            this.c1SuperLabel1 = new C1.Win.C1SuperTooltip.C1SuperLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cboPrinter = new System.Windows.Forms.ComboBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.pic3Next = new C1.Win.C1Input.C1PictureBox();
+            this.pic3Back = new C1.Win.C1Input.C1PictureBox();
+            this.tab4 = new C1.Win.C1Command.C1DockingTabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.c1PictureBox2 = new C1.Win.C1Input.C1PictureBox();
             this.c1PictureBox3 = new C1.Win.C1Input.C1PictureBox();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.pic3Next = new C1.Win.C1Input.C1PictureBox();
-            this.pic3Back = new C1.Win.C1Input.C1PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cboPrinter = new System.Windows.Forms.ComboBox();
-            this.c1SuperLabel1 = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
-            this.c1SuperLabel2 = new C1.Win.C1SuperTooltip.C1SuperLabel();
-            this.c1Button1 = new C1.Win.C1Input.C1Button();
-            this.m_lblDLXInfo = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.lbMessage = new C1.Win.C1SuperTooltip.C1SuperLabel();
-            this.txtPid = new C1.Win.C1Input.C1TextBox();
-            this.txtPttName = new C1.Win.C1Input.C1TextBox();
-            this.txtPttNameE = new C1.Win.C1Input.C1TextBox();
-            this.txtAddrNo = new C1.Win.C1Input.C1TextBox();
-            this.txtPttLName = new C1.Win.C1Input.C1TextBox();
-            this.txtPttLNameE = new C1.Win.C1Input.C1TextBox();
-            this.txtMoo = new C1.Win.C1Input.C1TextBox();
-            this.txtRoad = new C1.Win.C1Input.C1TextBox();
-            this.c1Button2 = new C1.Win.C1Input.C1Button();
+            this.picLogo = new C1.Win.C1Input.C1PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.tC)).BeginInit();
             this.tC.SuspendLayout();
+            this.tab1.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic1Next)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic1Back)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDonate2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDonate1)).BeginInit();
             this.tab2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic2Next)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic2Back)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMobile)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPayment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Label1)).BeginInit();
-            this.tab3.SuspendLayout();
-            this.tab4.SuspendLayout();
-            this.tab1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDonate1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDonate2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn0)).BeginInit();
@@ -128,32 +133,31 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic1Back)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic1Next)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic2Next)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic2Back)).BeginInit();
-            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Label1)).BeginInit();
+            this.tab3.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).BeginInit();
+            this.pnPID.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRoad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPttLNameE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPttLName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddrNo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPttNameE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPttName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReadCard)).BeginInit();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic3Next)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic3Back)).BeginInit();
+            this.tab4.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox3)).BeginInit();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic3Next)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic3Back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
-            this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPttName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPttNameE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddrNo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPttLName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPttLNameE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMoo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRoad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // tC
@@ -169,6 +173,78 @@
             this.tC.Size = new System.Drawing.Size(1035, 686);
             this.tC.TabIndex = 4;
             this.tC.TabsSpacing = 5;
+            // 
+            // tab1
+            // 
+            this.tab1.Controls.Add(this.panel6);
+            this.tab1.Controls.Add(this.c1PictureBox1);
+            this.tab1.Controls.Add(this.btnDonate2);
+            this.tab1.Controls.Add(this.btnDonate1);
+            this.tab1.Location = new System.Drawing.Point(1, 24);
+            this.tab1.Name = "tab1";
+            this.tab1.Size = new System.Drawing.Size(1033, 661);
+            this.tab1.TabIndex = 3;
+            this.tab1.Text = "Page4";
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.pic1Next);
+            this.panel6.Controls.Add(this.pic1Back);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel6.Location = new System.Drawing.Point(805, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(228, 661);
+            this.panel6.TabIndex = 13;
+            // 
+            // pic1Next
+            // 
+            this.pic1Next.Image = global::modernpos_pos.Properties.Resources.Navigate_right;
+            this.pic1Next.Location = new System.Drawing.Point(140, 3);
+            this.pic1Next.Name = "pic1Next";
+            this.pic1Next.Size = new System.Drawing.Size(77, 74);
+            this.pic1Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic1Next.TabIndex = 12;
+            this.pic1Next.TabStop = false;
+            // 
+            // pic1Back
+            // 
+            this.pic1Back.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
+            this.pic1Back.Location = new System.Drawing.Point(57, 3);
+            this.pic1Back.Name = "pic1Back";
+            this.pic1Back.Size = new System.Drawing.Size(77, 74);
+            this.pic1Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic1Back.TabIndex = 11;
+            this.pic1Back.TabStop = false;
+            // 
+            // c1PictureBox1
+            // 
+            this.c1PictureBox1.Image = global::modernpos_pos.Properties.Resources.siph1;
+            this.c1PictureBox1.Location = new System.Drawing.Point(348, 15);
+            this.c1PictureBox1.Name = "c1PictureBox1";
+            this.c1PictureBox1.Size = new System.Drawing.Size(239, 247);
+            this.c1PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.c1PictureBox1.TabIndex = 10;
+            this.c1PictureBox1.TabStop = false;
+            // 
+            // btnDonate2
+            // 
+            this.btnDonate2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDonate2.Location = new System.Drawing.Point(554, 284);
+            this.btnDonate2.Name = "btnDonate2";
+            this.btnDonate2.Size = new System.Drawing.Size(225, 267);
+            this.btnDonate2.TabIndex = 9;
+            this.btnDonate2.Text = "บริจาก";
+            this.btnDonate2.UseVisualStyleBackColor = true;
+            // 
+            // btnDonate1
+            // 
+            this.btnDonate1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDonate1.Location = new System.Drawing.Point(151, 284);
+            this.btnDonate1.Name = "btnDonate1";
+            this.btnDonate1.Size = new System.Drawing.Size(225, 267);
+            this.btnDonate1.TabIndex = 8;
+            this.btnDonate1.Text = "บริจาก";
+            this.btnDonate1.UseVisualStyleBackColor = true;
             // 
             // tab2
             // 
@@ -190,6 +266,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(228, 661);
             this.panel1.TabIndex = 4;
+            // 
+            // pic2Next
+            // 
+            this.pic2Next.Image = global::modernpos_pos.Properties.Resources.Navigate_right;
+            this.pic2Next.Location = new System.Drawing.Point(140, 3);
+            this.pic2Next.Name = "pic2Next";
+            this.pic2Next.Size = new System.Drawing.Size(77, 74);
+            this.pic2Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic2Next.TabIndex = 42;
+            this.pic2Next.TabStop = false;
+            // 
+            // pic2Back
+            // 
+            this.pic2Back.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
+            this.pic2Back.Location = new System.Drawing.Point(57, 3);
+            this.pic2Back.Name = "pic2Back";
+            this.pic2Back.Size = new System.Drawing.Size(77, 74);
+            this.pic2Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic2Back.TabIndex = 41;
+            this.pic2Back.TabStop = false;
             // 
             // panel3
             // 
@@ -218,6 +314,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1033, 661);
             this.panel2.TabIndex = 5;
+            // 
+            // lbDonate2
+            // 
+            this.lbDonate2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbDonate2.Location = new System.Drawing.Point(12, 16);
+            this.lbDonate2.Name = "lbDonate2";
+            this.lbDonate2.Size = new System.Drawing.Size(464, 78);
+            this.lbDonate2.TabIndex = 41;
+            this.lbDonate2.Text = "modernpos POS Restaurant";
+            this.lbDonate2.UseMnemonic = true;
             // 
             // txtMobile
             // 
@@ -306,6 +412,14 @@
             this.label12.TabIndex = 28;
             this.label12.Text = "Status :";
             // 
+            // pic1
+            // 
+            this.pic1.Location = new System.Drawing.Point(199, 7);
+            this.pic1.Name = "pic1";
+            this.pic1.Size = new System.Drawing.Size(29, 25);
+            this.pic1.TabIndex = 29;
+            this.pic1.TabStop = false;
+            // 
             // lbVersion
             // 
             this.lbVersion.AutoSize = true;
@@ -347,80 +461,6 @@
             this.c1Label2.TabIndex = 5;
             this.c1Label2.Tag = null;
             this.c1Label2.Value = "จำนวนเงิน";
-            // 
-            // c1Label1
-            // 
-            this.c1Label1.AutoSize = true;
-            this.c1Label1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.c1Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1Label1.ForeColor = System.Drawing.Color.White;
-            this.c1Label1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.c1Label1.Location = new System.Drawing.Point(67, 111);
-            this.c1Label1.Name = "c1Label1";
-            this.c1Label1.Size = new System.Drawing.Size(86, 24);
-            this.c1Label1.TabIndex = 1;
-            this.c1Label1.Tag = null;
-            this.c1Label1.TrimStart = true;
-            this.c1Label1.Value = "เบอร์โทรศัพท์";
-            this.c1Label1.Visible = false;
-            // 
-            // tab3
-            // 
-            this.tab3.Controls.Add(this.panel9);
-            this.tab3.Location = new System.Drawing.Point(1, 24);
-            this.tab3.Name = "tab3";
-            this.tab3.Size = new System.Drawing.Size(1033, 661);
-            this.tab3.TabIndex = 1;
-            this.tab3.Text = "Page2";
-            // 
-            // tab4
-            // 
-            this.tab4.Controls.Add(this.panel7);
-            this.tab4.Location = new System.Drawing.Point(1, 24);
-            this.tab4.Name = "tab4";
-            this.tab4.Size = new System.Drawing.Size(1033, 661);
-            this.tab4.TabIndex = 2;
-            this.tab4.Text = "Page3";
-            // 
-            // tab1
-            // 
-            this.tab1.Controls.Add(this.panel6);
-            this.tab1.Controls.Add(this.c1PictureBox1);
-            this.tab1.Controls.Add(this.btnDonate2);
-            this.tab1.Controls.Add(this.btnDonate1);
-            this.tab1.Location = new System.Drawing.Point(1, 24);
-            this.tab1.Name = "tab1";
-            this.tab1.Size = new System.Drawing.Size(1033, 661);
-            this.tab1.TabIndex = 3;
-            this.tab1.Text = "Page4";
-            // 
-            // btnDonate1
-            // 
-            this.btnDonate1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonate1.Location = new System.Drawing.Point(151, 284);
-            this.btnDonate1.Name = "btnDonate1";
-            this.btnDonate1.Size = new System.Drawing.Size(225, 267);
-            this.btnDonate1.TabIndex = 8;
-            this.btnDonate1.Text = "บริจาก";
-            this.btnDonate1.UseVisualStyleBackColor = true;
-            // 
-            // btnDonate2
-            // 
-            this.btnDonate2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonate2.Location = new System.Drawing.Point(554, 284);
-            this.btnDonate2.Name = "btnDonate2";
-            this.btnDonate2.Size = new System.Drawing.Size(225, 267);
-            this.btnDonate2.TabIndex = 9;
-            this.btnDonate2.Text = "บริจาก";
-            this.btnDonate2.UseVisualStyleBackColor = true;
-            // 
-            // pic1
-            // 
-            this.pic1.Location = new System.Drawing.Point(199, 7);
-            this.pic1.Name = "pic1";
-            this.pic1.Size = new System.Drawing.Size(29, 25);
-            this.pic1.TabIndex = 29;
-            this.pic1.TabStop = false;
             // 
             // panel4
             // 
@@ -551,75 +591,308 @@
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = true;
             // 
-            // c1PictureBox1
+            // c1Label1
             // 
-            this.c1PictureBox1.Image = global::modernpos_pos.Properties.Resources.siph1;
-            this.c1PictureBox1.Location = new System.Drawing.Point(348, 15);
-            this.c1PictureBox1.Name = "c1PictureBox1";
-            this.c1PictureBox1.Size = new System.Drawing.Size(239, 247);
-            this.c1PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.c1PictureBox1.TabIndex = 10;
-            this.c1PictureBox1.TabStop = false;
+            this.c1Label1.AutoSize = true;
+            this.c1Label1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.c1Label1.ForeColor = System.Drawing.Color.White;
+            this.c1Label1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.c1Label1.Location = new System.Drawing.Point(67, 111);
+            this.c1Label1.Name = "c1Label1";
+            this.c1Label1.Size = new System.Drawing.Size(86, 24);
+            this.c1Label1.TabIndex = 1;
+            this.c1Label1.Tag = null;
+            this.c1Label1.TrimStart = true;
+            this.c1Label1.Value = "เบอร์โทรศัพท์";
+            this.c1Label1.Visible = false;
             // 
-            // pic1Back
+            // tab3
             // 
-            this.pic1Back.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
-            this.pic1Back.Location = new System.Drawing.Point(57, 3);
-            this.pic1Back.Name = "pic1Back";
-            this.pic1Back.Size = new System.Drawing.Size(77, 74);
-            this.pic1Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic1Back.TabIndex = 11;
-            this.pic1Back.TabStop = false;
+            this.tab3.Controls.Add(this.panel9);
+            this.tab3.Location = new System.Drawing.Point(1, 24);
+            this.tab3.Name = "tab3";
+            this.tab3.Size = new System.Drawing.Size(1033, 661);
+            this.tab3.TabIndex = 1;
+            this.tab3.Text = "Page2";
             // 
-            // pic1Next
+            // panel9
             // 
-            this.pic1Next.Image = global::modernpos_pos.Properties.Resources.Navigate_right;
-            this.pic1Next.Location = new System.Drawing.Point(140, 3);
-            this.pic1Next.Name = "pic1Next";
-            this.pic1Next.Size = new System.Drawing.Size(77, 74);
-            this.pic1Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic1Next.TabIndex = 12;
-            this.pic1Next.TabStop = false;
+            this.panel9.Controls.Add(this.picLogo);
+            this.panel9.Controls.Add(this.btnPrint);
+            this.panel9.Controls.Add(this.lbMessage);
+            this.panel9.Controls.Add(this.pnPID);
+            this.panel9.Controls.Add(this.btnReadCard);
+            this.panel9.Controls.Add(this.c1SuperLabel2);
+            this.panel9.Controls.Add(this.c1SuperLabel1);
+            this.panel9.Controls.Add(this.label2);
+            this.panel9.Controls.Add(this.cboPrinter);
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1033, 661);
+            this.panel9.TabIndex = 0;
             // 
-            // pic2Next
+            // btnPrint
             // 
-            this.pic2Next.Image = global::modernpos_pos.Properties.Resources.Navigate_right;
-            this.pic2Next.Location = new System.Drawing.Point(140, 3);
-            this.pic2Next.Name = "pic2Next";
-            this.pic2Next.Size = new System.Drawing.Size(77, 74);
-            this.pic2Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic2Next.TabIndex = 42;
-            this.pic2Next.TabStop = false;
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Location = new System.Drawing.Point(75, 538);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(244, 60);
+            this.btnPrint.TabIndex = 48;
+            this.btnPrint.Text = "พิมพ์ใบบริจาก";
+            this.theme1.SetTheme(this.btnPrint, "(default)");
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // pic2Back
+            // lbMessage
             // 
-            this.pic2Back.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
-            this.pic2Back.Location = new System.Drawing.Point(57, 3);
-            this.pic2Back.Name = "pic2Back";
-            this.pic2Back.Size = new System.Drawing.Size(77, 74);
-            this.pic2Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic2Back.TabIndex = 41;
-            this.pic2Back.TabStop = false;
+            this.lbMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbMessage.Location = new System.Drawing.Point(325, 291);
+            this.lbMessage.Name = "lbMessage";
+            this.lbMessage.Size = new System.Drawing.Size(464, 56);
+            this.lbMessage.TabIndex = 47;
+            this.lbMessage.Text = "กรุณารูดบัตรประชาชน";
+            this.theme1.SetTheme(this.lbMessage, "(default)");
+            this.lbMessage.UseMnemonic = true;
             // 
-            // lbDonate2
+            // pnPID
             // 
-            this.lbDonate2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbDonate2.Location = new System.Drawing.Point(12, 16);
-            this.lbDonate2.Name = "lbDonate2";
-            this.lbDonate2.Size = new System.Drawing.Size(464, 78);
-            this.lbDonate2.TabIndex = 41;
-            this.lbDonate2.Text = "modernpos POS Restaurant";
-            this.lbDonate2.UseMnemonic = true;
+            this.pnPID.BackColor = System.Drawing.Color.White;
+            this.pnPID.Controls.Add(this.picPID);
+            this.pnPID.Controls.Add(this.txtRoad);
+            this.pnPID.Controls.Add(this.txtMoo);
+            this.pnPID.Controls.Add(this.txtPttLNameE);
+            this.pnPID.Controls.Add(this.txtPttLName);
+            this.pnPID.Controls.Add(this.txtAddrNo);
+            this.pnPID.Controls.Add(this.txtPttNameE);
+            this.pnPID.Controls.Add(this.txtPttName);
+            this.pnPID.Controls.Add(this.txtPid);
+            this.pnPID.Controls.Add(this.m_lblDLXInfo);
+            this.pnPID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.pnPID.Location = new System.Drawing.Point(12, 366);
+            this.pnPID.Name = "pnPID";
+            this.pnPID.Size = new System.Drawing.Size(777, 166);
+            this.pnPID.TabIndex = 46;
+            this.theme1.SetTheme(this.pnPID, "(default)");
             // 
-            // panel6
+            // picPID
             // 
-            this.panel6.Controls.Add(this.pic1Next);
-            this.panel6.Controls.Add(this.pic1Back);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(805, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(228, 661);
-            this.panel6.TabIndex = 13;
+            this.picPID.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
+            this.picPID.Location = new System.Drawing.Point(659, 3);
+            this.picPID.Name = "picPID";
+            this.picPID.Size = new System.Drawing.Size(115, 117);
+            this.picPID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPID.TabIndex = 56;
+            this.picPID.TabStop = false;
+            // 
+            // txtRoad
+            // 
+            this.txtRoad.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.txtRoad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRoad.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtRoad.Location = new System.Drawing.Point(15, 102);
+            this.txtRoad.Name = "txtRoad";
+            this.txtRoad.Size = new System.Drawing.Size(546, 18);
+            this.txtRoad.TabIndex = 55;
+            this.txtRoad.Tag = null;
+            this.theme1.SetTheme(this.txtRoad, "(default)");
+            this.txtRoad.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtMoo
+            // 
+            this.txtMoo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.txtMoo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMoo.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtMoo.Location = new System.Drawing.Point(491, 30);
+            this.txtMoo.Name = "txtMoo";
+            this.txtMoo.Size = new System.Drawing.Size(22, 18);
+            this.txtMoo.TabIndex = 54;
+            this.txtMoo.Tag = null;
+            this.theme1.SetTheme(this.txtMoo, "(default)");
+            this.txtMoo.Visible = false;
+            this.txtMoo.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtPttLNameE
+            // 
+            this.txtPttLNameE.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.txtPttLNameE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPttLNameE.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPttLNameE.Location = new System.Drawing.Point(291, 78);
+            this.txtPttLNameE.Name = "txtPttLNameE";
+            this.txtPttLNameE.Size = new System.Drawing.Size(270, 18);
+            this.txtPttLNameE.TabIndex = 53;
+            this.txtPttLNameE.Tag = null;
+            this.theme1.SetTheme(this.txtPttLNameE, "(default)");
+            this.txtPttLNameE.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtPttLName
+            // 
+            this.txtPttLName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.txtPttLName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPttLName.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPttLName.Location = new System.Drawing.Point(291, 54);
+            this.txtPttLName.Name = "txtPttLName";
+            this.txtPttLName.Size = new System.Drawing.Size(270, 18);
+            this.txtPttLName.TabIndex = 52;
+            this.txtPttLName.Tag = null;
+            this.theme1.SetTheme(this.txtPttLName, "(default)");
+            this.txtPttLName.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtAddrNo
+            // 
+            this.txtAddrNo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.txtAddrNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAddrNo.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtAddrNo.Location = new System.Drawing.Point(515, 30);
+            this.txtAddrNo.Name = "txtAddrNo";
+            this.txtAddrNo.Size = new System.Drawing.Size(34, 18);
+            this.txtAddrNo.TabIndex = 51;
+            this.txtAddrNo.Tag = null;
+            this.theme1.SetTheme(this.txtAddrNo, "(default)");
+            this.txtAddrNo.Visible = false;
+            this.txtAddrNo.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtPttNameE
+            // 
+            this.txtPttNameE.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.txtPttNameE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPttNameE.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPttNameE.Location = new System.Drawing.Point(15, 78);
+            this.txtPttNameE.Name = "txtPttNameE";
+            this.txtPttNameE.Size = new System.Drawing.Size(270, 18);
+            this.txtPttNameE.TabIndex = 50;
+            this.txtPttNameE.Tag = null;
+            this.theme1.SetTheme(this.txtPttNameE, "(default)");
+            this.txtPttNameE.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtPttName
+            // 
+            this.txtPttName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.txtPttName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPttName.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPttName.Location = new System.Drawing.Point(15, 54);
+            this.txtPttName.Name = "txtPttName";
+            this.txtPttName.Size = new System.Drawing.Size(270, 18);
+            this.txtPttName.TabIndex = 49;
+            this.txtPttName.Tag = null;
+            this.theme1.SetTheme(this.txtPttName, "(default)");
+            this.txtPttName.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtPid
+            // 
+            this.txtPid.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.txtPid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPid.Location = new System.Drawing.Point(15, 30);
+            this.txtPid.Name = "txtPid";
+            this.txtPid.Size = new System.Drawing.Size(440, 18);
+            this.txtPid.TabIndex = 48;
+            this.txtPid.Tag = null;
+            this.theme1.SetTheme(this.txtPid, "(default)");
+            this.txtPid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // m_lblDLXInfo
+            // 
+            this.m_lblDLXInfo.AutoSize = true;
+            this.m_lblDLXInfo.BackColor = System.Drawing.Color.White;
+            this.m_lblDLXInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.m_lblDLXInfo.Location = new System.Drawing.Point(12, 14);
+            this.m_lblDLXInfo.Name = "m_lblDLXInfo";
+            this.m_lblDLXInfo.Size = new System.Drawing.Size(35, 13);
+            this.m_lblDLXInfo.TabIndex = 45;
+            this.m_lblDLXInfo.Text = "label3";
+            this.theme1.SetTheme(this.m_lblDLXInfo, "(default)");
+            // 
+            // btnReadCard
+            // 
+            this.btnReadCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReadCard.Location = new System.Drawing.Point(75, 287);
+            this.btnReadCard.Name = "btnReadCard";
+            this.btnReadCard.Size = new System.Drawing.Size(244, 60);
+            this.btnReadCard.TabIndex = 44;
+            this.btnReadCard.Text = "ต้องการพิมพ์ใบบริจาก";
+            this.theme1.SetTheme(this.btnReadCard, "(default)");
+            this.btnReadCard.UseVisualStyleBackColor = true;
+            this.btnReadCard.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1SuperLabel2
+            // 
+            this.c1SuperLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1SuperLabel2.Location = new System.Drawing.Point(12, 149);
+            this.c1SuperLabel2.Name = "c1SuperLabel2";
+            this.c1SuperLabel2.Size = new System.Drawing.Size(464, 78);
+            this.c1SuperLabel2.TabIndex = 43;
+            this.c1SuperLabel2.Text = "modernpos POS Restaurant";
+            this.theme1.SetTheme(this.c1SuperLabel2, "(default)");
+            this.c1SuperLabel2.UseMnemonic = true;
+            // 
+            // c1SuperLabel1
+            // 
+            this.c1SuperLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1SuperLabel1.Location = new System.Drawing.Point(12, 16);
+            this.c1SuperLabel1.Name = "c1SuperLabel1";
+            this.c1SuperLabel1.Size = new System.Drawing.Size(464, 78);
+            this.c1SuperLabel1.TabIndex = 42;
+            this.c1SuperLabel1.Text = "modernpos POS Restaurant";
+            this.c1SuperLabel1.UseMnemonic = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(460, 601);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "Printer :";
+            // 
+            // cboPrinter
+            // 
+            this.cboPrinter.FormattingEnabled = true;
+            this.cboPrinter.Location = new System.Drawing.Point(527, 598);
+            this.cboPrinter.Name = "cboPrinter";
+            this.cboPrinter.Size = new System.Drawing.Size(272, 21);
+            this.cboPrinter.TabIndex = 40;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.pic3Next);
+            this.panel10.Controls.Add(this.pic3Back);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel10.Location = new System.Drawing.Point(805, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(228, 661);
+            this.panel10.TabIndex = 14;
+            // 
+            // pic3Next
+            // 
+            this.pic3Next.Image = global::modernpos_pos.Properties.Resources.Navigate_right;
+            this.pic3Next.Location = new System.Drawing.Point(140, 3);
+            this.pic3Next.Name = "pic3Next";
+            this.pic3Next.Size = new System.Drawing.Size(77, 74);
+            this.pic3Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic3Next.TabIndex = 12;
+            this.pic3Next.TabStop = false;
+            // 
+            // pic3Back
+            // 
+            this.pic3Back.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
+            this.pic3Back.Location = new System.Drawing.Point(57, 3);
+            this.pic3Back.Name = "pic3Back";
+            this.pic3Back.Size = new System.Drawing.Size(77, 74);
+            this.pic3Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic3Back.TabIndex = 11;
+            this.pic3Back.TabStop = false;
+            // 
+            // tab4
+            // 
+            this.tab4.Controls.Add(this.panel7);
+            this.tab4.Location = new System.Drawing.Point(1, 24);
+            this.tab4.Name = "tab4";
+            this.tab4.Size = new System.Drawing.Size(1033, 661);
+            this.tab4.TabIndex = 2;
+            this.tab4.Text = "Page3";
             // 
             // panel7
             // 
@@ -660,258 +933,15 @@
             this.c1PictureBox3.TabIndex = 11;
             this.c1PictureBox3.TabStop = false;
             // 
-            // panel9
+            // picLogo
             // 
-            this.panel9.Controls.Add(this.c1Button2);
-            this.panel9.Controls.Add(this.lbMessage);
-            this.panel9.Controls.Add(this.panel11);
-            this.panel9.Controls.Add(this.c1Button1);
-            this.panel9.Controls.Add(this.c1SuperLabel2);
-            this.panel9.Controls.Add(this.c1SuperLabel1);
-            this.panel9.Controls.Add(this.label2);
-            this.panel9.Controls.Add(this.cboPrinter);
-            this.panel9.Controls.Add(this.panel10);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1033, 661);
-            this.panel9.TabIndex = 0;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.pic3Next);
-            this.panel10.Controls.Add(this.pic3Back);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(805, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(228, 661);
-            this.panel10.TabIndex = 14;
-            // 
-            // pic3Next
-            // 
-            this.pic3Next.Image = global::modernpos_pos.Properties.Resources.Navigate_right;
-            this.pic3Next.Location = new System.Drawing.Point(140, 3);
-            this.pic3Next.Name = "pic3Next";
-            this.pic3Next.Size = new System.Drawing.Size(77, 74);
-            this.pic3Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic3Next.TabIndex = 12;
-            this.pic3Next.TabStop = false;
-            // 
-            // pic3Back
-            // 
-            this.pic3Back.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
-            this.pic3Back.Location = new System.Drawing.Point(57, 3);
-            this.pic3Back.Name = "pic3Back";
-            this.pic3Back.Size = new System.Drawing.Size(77, 74);
-            this.pic3Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic3Back.TabIndex = 11;
-            this.pic3Back.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(460, 601);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "Printer :";
-            // 
-            // cboPrinter
-            // 
-            this.cboPrinter.FormattingEnabled = true;
-            this.cboPrinter.Location = new System.Drawing.Point(527, 598);
-            this.cboPrinter.Name = "cboPrinter";
-            this.cboPrinter.Size = new System.Drawing.Size(272, 21);
-            this.cboPrinter.TabIndex = 40;
-            // 
-            // c1SuperLabel1
-            // 
-            this.c1SuperLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1SuperLabel1.Location = new System.Drawing.Point(12, 16);
-            this.c1SuperLabel1.Name = "c1SuperLabel1";
-            this.c1SuperLabel1.Size = new System.Drawing.Size(464, 78);
-            this.c1SuperLabel1.TabIndex = 42;
-            this.c1SuperLabel1.Text = "modernpos POS Restaurant";
-            this.c1SuperLabel1.UseMnemonic = true;
-            // 
-            // c1SuperLabel2
-            // 
-            this.c1SuperLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1SuperLabel2.Location = new System.Drawing.Point(12, 149);
-            this.c1SuperLabel2.Name = "c1SuperLabel2";
-            this.c1SuperLabel2.Size = new System.Drawing.Size(464, 78);
-            this.c1SuperLabel2.TabIndex = 43;
-            this.c1SuperLabel2.Text = "modernpos POS Restaurant";
-            this.theme1.SetTheme(this.c1SuperLabel2, "(default)");
-            this.c1SuperLabel2.UseMnemonic = true;
-            // 
-            // c1Button1
-            // 
-            this.c1Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1Button1.Location = new System.Drawing.Point(75, 287);
-            this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(244, 60);
-            this.c1Button1.TabIndex = 44;
-            this.c1Button1.Text = "ต้องการพิมพ์ใบบริจาก";
-            this.theme1.SetTheme(this.c1Button1, "(default)");
-            this.c1Button1.UseVisualStyleBackColor = true;
-            // 
-            // m_lblDLXInfo
-            // 
-            this.m_lblDLXInfo.AutoSize = true;
-            this.m_lblDLXInfo.BackColor = System.Drawing.Color.White;
-            this.m_lblDLXInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.m_lblDLXInfo.Location = new System.Drawing.Point(12, 14);
-            this.m_lblDLXInfo.Name = "m_lblDLXInfo";
-            this.m_lblDLXInfo.Size = new System.Drawing.Size(35, 13);
-            this.m_lblDLXInfo.TabIndex = 45;
-            this.m_lblDLXInfo.Text = "label3";
-            this.theme1.SetTheme(this.m_lblDLXInfo, "(default)");
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.White;
-            this.panel11.Controls.Add(this.txtRoad);
-            this.panel11.Controls.Add(this.txtMoo);
-            this.panel11.Controls.Add(this.txtPttLNameE);
-            this.panel11.Controls.Add(this.txtPttLName);
-            this.panel11.Controls.Add(this.txtAddrNo);
-            this.panel11.Controls.Add(this.txtPttNameE);
-            this.panel11.Controls.Add(this.txtPttName);
-            this.panel11.Controls.Add(this.txtPid);
-            this.panel11.Controls.Add(this.m_lblDLXInfo);
-            this.panel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.panel11.Location = new System.Drawing.Point(75, 366);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(714, 166);
-            this.panel11.TabIndex = 46;
-            this.theme1.SetTheme(this.panel11, "(default)");
-            // 
-            // lbMessage
-            // 
-            this.lbMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbMessage.Location = new System.Drawing.Point(325, 291);
-            this.lbMessage.Name = "lbMessage";
-            this.lbMessage.Size = new System.Drawing.Size(464, 56);
-            this.lbMessage.TabIndex = 47;
-            this.lbMessage.Text = "กรุณารูดบัตรประชาชน";
-            this.theme1.SetTheme(this.lbMessage, "(default)");
-            this.lbMessage.UseMnemonic = true;
-            // 
-            // txtPid
-            // 
-            this.txtPid.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.txtPid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtPid.Location = new System.Drawing.Point(15, 30);
-            this.txtPid.Name = "txtPid";
-            this.txtPid.Size = new System.Drawing.Size(440, 18);
-            this.txtPid.TabIndex = 48;
-            this.txtPid.Tag = null;
-            this.theme1.SetTheme(this.txtPid, "(default)");
-            this.txtPid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtPttName
-            // 
-            this.txtPttName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.txtPttName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPttName.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtPttName.Location = new System.Drawing.Point(15, 54);
-            this.txtPttName.Name = "txtPttName";
-            this.txtPttName.Size = new System.Drawing.Size(270, 18);
-            this.txtPttName.TabIndex = 49;
-            this.txtPttName.Tag = null;
-            this.theme1.SetTheme(this.txtPttName, "(default)");
-            this.txtPttName.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtPttNameE
-            // 
-            this.txtPttNameE.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.txtPttNameE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPttNameE.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtPttNameE.Location = new System.Drawing.Point(15, 78);
-            this.txtPttNameE.Name = "txtPttNameE";
-            this.txtPttNameE.Size = new System.Drawing.Size(270, 18);
-            this.txtPttNameE.TabIndex = 50;
-            this.txtPttNameE.Tag = null;
-            this.theme1.SetTheme(this.txtPttNameE, "(default)");
-            this.txtPttNameE.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtAddrNo
-            // 
-            this.txtAddrNo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.txtAddrNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddrNo.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtAddrNo.Location = new System.Drawing.Point(15, 102);
-            this.txtAddrNo.Name = "txtAddrNo";
-            this.txtAddrNo.Size = new System.Drawing.Size(115, 18);
-            this.txtAddrNo.TabIndex = 51;
-            this.txtAddrNo.Tag = null;
-            this.theme1.SetTheme(this.txtAddrNo, "(default)");
-            this.txtAddrNo.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtPttLName
-            // 
-            this.txtPttLName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.txtPttLName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPttLName.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtPttLName.Location = new System.Drawing.Point(291, 54);
-            this.txtPttLName.Name = "txtPttLName";
-            this.txtPttLName.Size = new System.Drawing.Size(270, 18);
-            this.txtPttLName.TabIndex = 52;
-            this.txtPttLName.Tag = null;
-            this.theme1.SetTheme(this.txtPttLName, "(default)");
-            this.txtPttLName.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtPttLNameE
-            // 
-            this.txtPttLNameE.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.txtPttLNameE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPttLNameE.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtPttLNameE.Location = new System.Drawing.Point(291, 78);
-            this.txtPttLNameE.Name = "txtPttLNameE";
-            this.txtPttLNameE.Size = new System.Drawing.Size(270, 18);
-            this.txtPttLNameE.TabIndex = 53;
-            this.txtPttLNameE.Tag = null;
-            this.theme1.SetTheme(this.txtPttLNameE, "(default)");
-            this.txtPttLNameE.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtMoo
-            // 
-            this.txtMoo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.txtMoo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMoo.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtMoo.Location = new System.Drawing.Point(136, 102);
-            this.txtMoo.Name = "txtMoo";
-            this.txtMoo.Size = new System.Drawing.Size(115, 18);
-            this.txtMoo.TabIndex = 54;
-            this.txtMoo.Tag = null;
-            this.theme1.SetTheme(this.txtMoo, "(default)");
-            this.txtMoo.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtRoad
-            // 
-            this.txtRoad.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.txtRoad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRoad.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtRoad.Location = new System.Drawing.Point(257, 102);
-            this.txtRoad.Name = "txtRoad";
-            this.txtRoad.Size = new System.Drawing.Size(444, 18);
-            this.txtRoad.TabIndex = 55;
-            this.txtRoad.Tag = null;
-            this.theme1.SetTheme(this.txtRoad, "(default)");
-            this.txtRoad.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button2
-            // 
-            this.c1Button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1Button2.Location = new System.Drawing.Point(75, 538);
-            this.c1Button2.Name = "c1Button2";
-            this.c1Button2.Size = new System.Drawing.Size(244, 60);
-            this.c1Button2.TabIndex = 48;
-            this.c1Button2.Text = "พิมพ์ใบบริจาก";
-            this.theme1.SetTheme(this.c1Button2, "(default)");
-            this.c1Button2.UseVisualStyleBackColor = true;
+            this.picLogo.Image = global::modernpos_pos.Properties.Resources.siph1;
+            this.picLogo.Location = new System.Drawing.Point(579, 7);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(220, 220);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogo.TabIndex = 49;
+            this.picLogo.TabStop = false;
             // 
             // FrmDemoSiPH
             // 
@@ -927,23 +957,26 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tC)).EndInit();
             this.tC.ResumeLayout(false);
+            this.tab1.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pic1Next)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic1Back)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDonate2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDonate1)).EndInit();
             this.tab2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pic2Next)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic2Back)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMobile)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPayment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Label1)).EndInit();
-            this.tab3.ResumeLayout(false);
-            this.tab4.ResumeLayout(false);
-            this.tab1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnDonate1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDonate2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMinus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn0)).EndInit();
@@ -956,34 +989,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic1Back)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic1Next)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic2Next)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic2Back)).EndInit();
-            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1Label1)).EndInit();
+            this.tab3.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).EndInit();
+            this.pnPID.ResumeLayout(false);
+            this.pnPID.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRoad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPttLNameE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPttLName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddrNo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPttNameE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPttName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReadCard)).EndInit();
+            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pic3Next)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic3Back)).EndInit();
+            this.tab4.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox3)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pic3Next)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic3Back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPttName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPttNameE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddrNo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPttLName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPttLNameE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMoo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRoad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1047,9 +1079,9 @@
         private C1.Win.C1SuperTooltip.C1SuperLabel c1SuperLabel1;
         private C1.Win.C1Themes.C1ThemeController theme1;
         private C1.Win.C1SuperTooltip.C1SuperLabel c1SuperLabel2;
-        private C1.Win.C1Input.C1Button c1Button1;
+        private C1.Win.C1Input.C1Button btnReadCard;
         private C1.Win.C1SuperTooltip.C1SuperLabel lbMessage;
-        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel pnPID;
         private System.Windows.Forms.Label m_lblDLXInfo;
         private C1.Win.C1Input.C1TextBox txtAddrNo;
         private C1.Win.C1Input.C1TextBox txtPttNameE;
@@ -1059,7 +1091,9 @@
         private C1.Win.C1Input.C1TextBox txtPttLName;
         private C1.Win.C1Input.C1TextBox txtMoo;
         private C1.Win.C1Input.C1TextBox txtRoad;
-        private C1.Win.C1Input.C1Button c1Button2;
+        private C1.Win.C1Input.C1Button btnPrint;
+        private C1.Win.C1Input.C1PictureBox picPID;
+        private C1.Win.C1Input.C1PictureBox picLogo;
     }
 }
 
