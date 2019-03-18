@@ -73,6 +73,7 @@
             this.c1Label1 = new C1.Win.C1Input.C1Label();
             this.tab3 = new C1.Win.C1Command.C1DockingTabPage();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.picLogo = new C1.Win.C1Input.C1PictureBox();
             this.btnPrint = new C1.Win.C1Input.C1Button();
             this.lbMessage = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.pnPID = new System.Windows.Forms.Panel();
@@ -100,7 +101,6 @@
             this.c1PictureBox2 = new C1.Win.C1Input.C1PictureBox();
             this.c1PictureBox3 = new C1.Win.C1Input.C1PictureBox();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
-            this.picLogo = new C1.Win.C1Input.C1PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.tC)).BeginInit();
             this.tC.SuspendLayout();
             this.tab1.SuspendLayout();
@@ -136,6 +136,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1Label1)).BeginInit();
             this.tab3.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).BeginInit();
             this.pnPID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPID)).BeginInit();
@@ -157,7 +158,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // tC
@@ -634,6 +634,16 @@
             this.panel9.Size = new System.Drawing.Size(1033, 661);
             this.panel9.TabIndex = 0;
             // 
+            // picLogo
+            // 
+            this.picLogo.Image = global::modernpos_pos.Properties.Resources.siph1;
+            this.picLogo.Location = new System.Drawing.Point(579, 7);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(220, 220);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogo.TabIndex = 49;
+            this.picLogo.TabStop = false;
+            // 
             // btnPrint
             // 
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -933,16 +943,6 @@
             this.c1PictureBox3.TabIndex = 11;
             this.c1PictureBox3.TabStop = false;
             // 
-            // picLogo
-            // 
-            this.picLogo.Image = global::modernpos_pos.Properties.Resources.siph1;
-            this.picLogo.Location = new System.Drawing.Point(579, 7);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(220, 220);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLogo.TabIndex = 49;
-            this.picLogo.TabStop = false;
-            // 
             // FrmDemoSiPH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -993,6 +993,7 @@
             this.tab3.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).EndInit();
             this.pnPID.ResumeLayout(false);
             this.pnPID.PerformLayout();
@@ -1015,7 +1016,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
 
         }

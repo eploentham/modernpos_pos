@@ -98,7 +98,7 @@ namespace modernpos_pos
         {
             int timerOnline = 5;
             int.TryParse(txtTimerOnLine.Text, out timerOnline);
-            fEdit = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 5, FontStyle.Regular);
+            fEdit = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 2, FontStyle.Regular);
             vneC = new VNEControl();
             txtTimerOnLine.KeyPress += TxtTimerOnLine_KeyPress;
             txtTimerOnLine.TextChanged += TxtTimerOnLine_TextChanged;
@@ -494,8 +494,8 @@ namespace modernpos_pos
             //g.DrawString(stringToPrint, new Font("arial", 16), Brush, 10, 10);
 
             float linesPerPage = 0;
-            float yPos = 0;
-            int count = 0;
+            float yPos = 0, gap=6, amt=0;
+            int count = 0, rect=17;
             float leftMargin = e.MarginBounds.Left;
             float topMargin = e.MarginBounds.Top;
             float marginR = e.MarginBounds.Right;
@@ -526,8 +526,8 @@ namespace modernpos_pos
 
             e.Graphics.DrawImage(Resources.siph2, avg - (Resources.siph2.Width / 2), topMargin);
             
-            count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            count++; count++; count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics)+gap);
             line = "เลขที่  ....................";
             textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
@@ -536,7 +536,7 @@ namespace modernpos_pos
             e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, flags);
 
             count++;            count++;            count++;            count++;            count++;            count++; count++; count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             line = "ศิริราชมูลนิธิ";
             textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
@@ -544,7 +544,7 @@ namespace modernpos_pos
             e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width/2), yPos, flags);
 
             count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             line = "คณะแพทย์ศาสตร์ศิริราชพยาบาล  มาหวิทยาลัยมหิดล";
             textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
@@ -552,7 +552,7 @@ namespace modernpos_pos
             e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
 
             count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             line = "ตึกมหิดลบำเพ็ญ ชั้น1 โรงพยาบาลศิริราข ถนนวังหลัง แขวงศิริราช เขตบางกอกน้อย กรุงเทพฯ  10700";
             textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
@@ -560,7 +560,7 @@ namespace modernpos_pos
             e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
 
             count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             line = "โทร. 0-2419-7658-60 โทรสาร. 0-2419-7687, 0-2419-7658 กด 9";
             textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
@@ -568,7 +568,7 @@ namespace modernpos_pos
             e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
 
             count++; count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             line = "ใบเสร็จรับเงิน";
             textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
@@ -578,8 +578,8 @@ namespace modernpos_pos
 
             count++;
             String date = "";
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
-            date = System.DateTime.Now.Year + 543 + DateTime.Now.ToString("-MM-dd");
+            //yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) );
+            date = mposC._yyyymmdd_(System.DateTime.Now.Year + 543 + DateTime.Now.ToString("MMdd"));
             line = "วันที่ "+ date;
             textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
@@ -587,7 +587,7 @@ namespace modernpos_pos
             e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, flags);
 
             count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             line = "นามผู้บริจาก " + txtPttName.Text +" "+ txtPttLName.Text;
             textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
@@ -595,18 +595,146 @@ namespace modernpos_pos
             e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
 
             count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             line = "ที่อยู่ " + txtRoad.Text ;
             textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
             e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
 
+            float.TryParse(txtAmount.Text, out amt);
+            count++; count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            line = "ได้รับเงินบริจากจำนวน   " + amt.ToString("0.00") + "     บาท";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+            line = mposC.ThaiBaht(txtAmount.Text);
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, yOffset, yPos, flags);
 
             count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
-            e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, flags);
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            line = "     เงินสด             เช็คเลขที่                           ธนาคาร                             สาขา                            วันที่             " ;
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+            Pen blackPen = new Pen(Color.Black, 1);
+            e.Graphics.DrawRectangle(blackPen, leftMargin, yPos, rect, rect);
+
             count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            line = "     โอนผ่านธนาคาร                 สาขา                 เลขที่บัญชี่                  วันที่             ";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+            //Pen blackPen = new Pen(Color.Black, 1);
+            e.Graphics.DrawRectangle(blackPen, leftMargin, yPos, rect, rect);
+
+            count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            line = "     ธนาณัติ      เลขที่                          ";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+            //Pen blackPen = new Pen(Color.Black, 1);
+            e.Graphics.DrawRectangle(blackPen, leftMargin, yPos, rect, rect);
+
+            count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            line = "     บัตรเครดิต      เลขที่                  ธนาคาร        ";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+            //Pen blackPen = new Pen(Color.Black, 1);
+            e.Graphics.DrawRectangle(blackPen, leftMargin, yPos, rect, rect);
+
+            count++; count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            line = "เพื่อ        ตั้งทุน           สมทบทุน                ";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+            //Pen blackPen = new Pen(Color.Black, 1);
+            e.Graphics.DrawRectangle(blackPen, leftMargin + 35, yPos, rect, rect);
+            e.Graphics.DrawRectangle(blackPen, leftMargin + 125, yPos, rect, rect);
+
+
+            count++; count++; count++; count++; count++; count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            e.Graphics.DrawLine(blackPen, leftMargin, yPos, leftMargin + 150, yPos);
+            e.Graphics.DrawLine(blackPen, leftMargin+250, yPos, leftMargin + 250 + 150, yPos);
+            e.Graphics.DrawLine(blackPen, leftMargin + 500, yPos, leftMargin + 500 + 150, yPos);
+            count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            line = "ผู้ช่วยศาสตราจารย์นายแพทย์ชัยวัฒน์  โมกขะเวศ";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+            line = "นางสาวณตวัน  วิรกานต์กุล";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin + 250, yPos, flags);
+            line = "ศาสตราจารย์นายแพทย์อรุณ  เผ่าสวัสดิ์";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin + 500, yPos, flags);
+            count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            line = "กรรมการเหรัญญิก";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+            line = "ผู้รับเงิน";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin+250, yPos, flags);
+            line = "รองประธานลงนามแทนองค์ประธาน";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin+500, yPos, flags);
+
+            count++; count++; count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            line = "ใบเสร็จรับเงินบริจากนี้  นำไปลดหย่อนภาษีเงินได้ ลำดับที่ 85";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+
+            count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            line = "ใบเสร็จรับเงินบริจากนี้  ไม่สามารถนำไปเบิกเงินเพิ่อการรักษาพยาบาลได้";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+
+            count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            line = "ใบเสร็จรับเงินบริจากนี้  จะสมบรูณ์เมื่อเช็คได้ผ่านธนาคารแล้ว";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+            //count++;
+            //yPos = topMargin + (count * fEdit.GetHeight(e.Graphics));
+            //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, flags);
+            //count++;
             // If more lines exist, print another page.
             line = null;
             if (line != null)
