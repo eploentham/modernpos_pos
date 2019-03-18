@@ -61,7 +61,7 @@ namespace modernpos_pos.objdb
             String sql = "select foo.*  " +
                 "From " + foo.table + " foo " +
                 " " +
-                "Where foo." + foo.active + " ='1' and foo."+foo.foods_cat_id+"='"+catid+"'";
+                "Where foo." + foo.active + " ='1' and foo."+foo.foods_cat_id+"='"+catid+"' and foo."+foo.status_to_go+"='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;

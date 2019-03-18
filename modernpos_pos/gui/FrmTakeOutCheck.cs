@@ -72,6 +72,7 @@ namespace modernpos_pos.gui
             //    theme1.SetTheme(c, "Office2013Red");
             //}
             btnPay.Click += BtnPay_Click;
+            btnVoidPay.Click += BtnVoidPay_Click;
 
             bg = txtTableCode.BackColor;
             fc = txtTableCode.ForeColor;
@@ -81,9 +82,60 @@ namespace modernpos_pos.gui
             timer.Interval = 5000;
             timer.Tick += Timer_Tick;
             timer.Enabled = false;
+            btnVoidPay.Enabled = false;
+            pnVoidPay.Hide();
+            btnVoidPay.Hide();
 
             initGrf();
             setGrf();
+        }
+
+        private void BtnVoidPay_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            String err = "";
+            if (MessageBox.Show("ต้องการ ลบ Payment ID " + vneRspPay.id, "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                try
+                {
+                    String statuspay = "";
+                    statuspay = chkPayBefore.Checked ? "1" : "2";
+                    statuspay = chkPaypaying.Checked ? "1" : "2";
+                    VNEPaymentPendingDeleteRequest vnepdreq = new VNEPaymentPendingDeleteRequest();
+                    vnepdreq.id = vneRspPay.id;
+                    vnepdreq.opName = "admin";
+                    vnepdreq.tipo = "3";
+                    //vnepdreq.tipo_annullamento = statuspay+"/2";
+                    vnepdreq.tipo_annullamento = statuspay;
+                    var baseAddress = "http://" + mposC.iniC.VNEip + mposC.iniC.VNEwebapi;
+                    String txtjson = JsonConvert.SerializeObject(vnepdreq, Formatting.Indented);
+                    WebClient webClient = new WebClient();
+                    var http = (HttpWebRequest)WebRequest.Create(new Uri(baseAddress));
+                    http.Accept = "application/json";
+                    http.ContentType = "application/json";
+                    http.Method = "POST";
+                    ASCIIEncoding encoding = new ASCIIEncoding();
+                    Byte[] bytes = encoding.GetBytes(txtjson);
+                    Stream newStream = http.GetRequestStream();
+                    newStream.Write(bytes, 0, bytes.Length);
+                    newStream.Close();
+                    listBox1.Items.Add(txtjson);
+                    var response = http.GetResponse();
+
+                    var stream = response.GetResponseStream();
+                    var sr = new StreamReader(stream);
+                    var content = sr.ReadToEnd();
+
+                    listBox1.Items.Add(content);
+                    dynamic obj = JsonConvert.DeserializeObject(content);
+                    //cboPpl.Text = "";
+                    //BtnListPayment_Click(null, null);
+                }
+                catch (Exception ex)
+                {
+                    listBox1.Items.Add(err + " " + ex.Message);
+                }
+            }
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -92,6 +144,9 @@ namespace modernpos_pos.gui
             
             String err = "00";
             //throw new NotImplementedException();
+            btnVoidPay.Enabled = true;
+            pnVoidPay.Show();
+            btnVoidPay.Show();
             listBox1.Items.Add("vneRspPay.id " + vneRspPay.id);
             VNEPaymentPollingRequest vnePpReq = new VNEPaymentPollingRequest();
             vnePRepd = new VNEPaymentPollingResponsePaymentDetail();
@@ -148,6 +203,7 @@ namespace modernpos_pos.gui
                     timer.Stop();
                     printBill();
                     lbStatus.Text = "รับชำระเรียบร้อย ";
+                    Close();
                 }
             }
             catch (Exception ex)

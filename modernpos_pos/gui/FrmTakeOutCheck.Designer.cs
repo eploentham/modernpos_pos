@@ -30,16 +30,27 @@
         {
             this.pnBill = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.txtTableCode = new C1.Win.C1Input.C1TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lbStatus = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.lbAmt = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.btnPay = new System.Windows.Forms.Button();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.c1DockingTab1 = new C1.Win.C1Command.C1DockingTab();
+            this.c1DockingTabPage1 = new C1.Win.C1Command.C1DockingTabPage();
+            this.c1DockingTabPage2 = new C1.Win.C1Command.C1DockingTabPage();
+            this.btnVoidPay = new System.Windows.Forms.Button();
+            this.pnVoidPay = new System.Windows.Forms.Panel();
+            this.chkPaypaying = new System.Windows.Forms.RadioButton();
+            this.chkPayBefore = new System.Windows.Forms.RadioButton();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTableCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
+            this.c1DockingTab1.SuspendLayout();
+            this.c1DockingTabPage1.SuspendLayout();
+            this.pnVoidPay.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnBill
@@ -52,6 +63,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pnVoidPay);
+            this.panel2.Controls.Add(this.btnVoidPay);
             this.panel2.Controls.Add(this.listBox1);
             this.panel2.Controls.Add(this.txtTableCode);
             this.panel2.Controls.Add(this.button1);
@@ -61,8 +74,19 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(602, 570);
+            this.panel2.Size = new System.Drawing.Size(600, 545);
             this.panel2.TabIndex = 1;
+            // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.Color.White;
+            this.listBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(12, 252);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(587, 173);
+            this.listBox1.TabIndex = 238;
+            this.theme1.SetTheme(this.listBox1, "(default)");
             // 
             // txtTableCode
             // 
@@ -130,21 +154,97 @@
             // 
             this.theme1.Theme = "Office2013Red";
             // 
-            // listBox1
+            // c1DockingTab1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 252);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(587, 173);
-            this.listBox1.TabIndex = 238;
-            this.theme1.SetTheme(this.listBox1, "(default)");
+            this.c1DockingTab1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.c1DockingTab1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1DockingTab1.Controls.Add(this.c1DockingTabPage1);
+            this.c1DockingTab1.Controls.Add(this.c1DockingTabPage2);
+            this.c1DockingTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c1DockingTab1.HotTrack = true;
+            this.c1DockingTab1.Location = new System.Drawing.Point(0, 0);
+            this.c1DockingTab1.Name = "c1DockingTab1";
+            this.c1DockingTab1.SelectedIndex = 1;
+            this.c1DockingTab1.Size = new System.Drawing.Size(602, 570);
+            this.c1DockingTab1.TabIndex = 239;
+            this.c1DockingTab1.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
+            this.c1DockingTab1.TabsShowFocusCues = false;
+            this.c1DockingTab1.TabsSpacing = 2;
+            this.c1DockingTab1.TabStyle = C1.Win.C1Command.TabStyleEnum.Office2007;
+            this.theme1.SetTheme(this.c1DockingTab1, "(default)");
+            // 
+            // c1DockingTabPage1
+            // 
+            this.c1DockingTabPage1.Controls.Add(this.panel2);
+            this.c1DockingTabPage1.Location = new System.Drawing.Point(1, 24);
+            this.c1DockingTabPage1.Name = "c1DockingTabPage1";
+            this.c1DockingTabPage1.Size = new System.Drawing.Size(600, 545);
+            this.c1DockingTabPage1.TabIndex = 0;
+            this.c1DockingTabPage1.Text = "Page1";
+            // 
+            // c1DockingTabPage2
+            // 
+            this.c1DockingTabPage2.Location = new System.Drawing.Point(1, 24);
+            this.c1DockingTabPage2.Name = "c1DockingTabPage2";
+            this.c1DockingTabPage2.Size = new System.Drawing.Size(600, 545);
+            this.c1DockingTabPage2.TabIndex = 1;
+            this.c1DockingTabPage2.Text = "Page2";
+            // 
+            // btnVoidPay
+            // 
+            this.btnVoidPay.BackColor = System.Drawing.Color.Transparent;
+            this.btnVoidPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(171)))));
+            this.btnVoidPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
+            this.btnVoidPay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoidPay.Location = new System.Drawing.Point(429, 469);
+            this.btnVoidPay.Name = "btnVoidPay";
+            this.btnVoidPay.Size = new System.Drawing.Size(106, 45);
+            this.btnVoidPay.TabIndex = 239;
+            this.btnVoidPay.Text = "ยกเลิก รับชำระเงิน";
+            this.btnVoidPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnVoidPay, "(default)");
+            this.btnVoidPay.UseVisualStyleBackColor = true;
+            // 
+            // pnVoidPay
+            // 
+            this.pnVoidPay.Controls.Add(this.chkPaypaying);
+            this.pnVoidPay.Controls.Add(this.chkPayBefore);
+            this.pnVoidPay.Location = new System.Drawing.Point(359, 431);
+            this.pnVoidPay.Name = "pnVoidPay";
+            this.pnVoidPay.Size = new System.Drawing.Size(236, 32);
+            this.pnVoidPay.TabIndex = 240;
+            this.theme1.SetTheme(this.pnVoidPay, "(default)");
+            // 
+            // chkPaypaying
+            // 
+            this.chkPaypaying.AutoSize = true;
+            this.chkPaypaying.Location = new System.Drawing.Point(149, 9);
+            this.chkPaypaying.Name = "chkPaypaying";
+            this.chkPaypaying.Size = new System.Drawing.Size(84, 17);
+            this.chkPaypaying.TabIndex = 28;
+            this.chkPaypaying.Text = "กำลังรับชำระ";
+            this.theme1.SetTheme(this.chkPaypaying, "(default)");
+            this.chkPaypaying.UseVisualStyleBackColor = true;
+            // 
+            // chkPayBefore
+            // 
+            this.chkPayBefore.AutoSize = true;
+            this.chkPayBefore.Checked = true;
+            this.chkPayBefore.Location = new System.Drawing.Point(6, 9);
+            this.chkPayBefore.Name = "chkPayBefore";
+            this.chkPayBefore.Size = new System.Drawing.Size(94, 17);
+            this.chkPayBefore.TabIndex = 26;
+            this.chkPayBefore.TabStop = true;
+            this.chkPayBefore.Text = "ยังไม่ได้รับเงิน";
+            this.theme1.SetTheme(this.chkPayBefore, "(default)");
+            this.chkPayBefore.UseVisualStyleBackColor = true;
             // 
             // FrmTakeOutCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(895, 570);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.c1DockingTab1);
             this.Controls.Add(this.pnBill);
             this.Name = "FrmTakeOutCheck";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -153,6 +253,11 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtTableCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).EndInit();
+            this.c1DockingTab1.ResumeLayout(false);
+            this.c1DockingTabPage1.ResumeLayout(false);
+            this.pnVoidPay.ResumeLayout(false);
+            this.pnVoidPay.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -168,5 +273,12 @@
         private C1.Win.C1Themes.C1ThemeController theme1;
         private C1.Win.C1Input.C1TextBox txtTableCode;
         private System.Windows.Forms.ListBox listBox1;
+        private C1.Win.C1Command.C1DockingTab c1DockingTab1;
+        private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage1;
+        private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage2;
+        private System.Windows.Forms.Button btnVoidPay;
+        private System.Windows.Forms.Panel pnVoidPay;
+        private System.Windows.Forms.RadioButton chkPaypaying;
+        private System.Windows.Forms.RadioButton chkPayBefore;
     }
 }

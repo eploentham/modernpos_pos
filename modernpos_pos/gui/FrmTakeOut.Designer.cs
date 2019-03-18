@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnBill = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtFooId = new C1.Win.C1Input.C1TextBox();
             this.btnTopping = new System.Windows.Forms.Button();
             this.txtRow = new C1.Win.C1Input.C1TextBox();
             this.lbFooName = new C1.Win.C1SuperTooltip.C1SuperLabel();
@@ -43,15 +44,15 @@
             this.pnOrder = new System.Windows.Forms.Panel();
             this.pnDrink = new System.Windows.Forms.Panel();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
-            this.txtFooId = new C1.Win.C1Input.C1TextBox();
+            this.btnVoidAll = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFooId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRow)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTableCode)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFooId)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -75,6 +76,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnVoidAll);
             this.panel3.Controls.Add(this.txtFooId);
             this.panel3.Controls.Add(this.btnTopping);
             this.panel3.Controls.Add(this.txtRow);
@@ -87,6 +89,20 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(447, 153);
             this.panel3.TabIndex = 1;
+            // 
+            // txtFooId
+            // 
+            this.txtFooId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFooId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtFooId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtFooId.Location = new System.Drawing.Point(41, 51);
+            this.txtFooId.Name = "txtFooId";
+            this.txtFooId.Size = new System.Drawing.Size(22, 20);
+            this.txtFooId.TabIndex = 240;
+            this.txtFooId.Tag = null;
+            this.theme1.SetTheme(this.txtFooId, "(default)");
+            this.txtFooId.Visible = false;
+            this.txtFooId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // btnTopping
             // 
@@ -226,19 +242,20 @@
             // 
             this.theme1.Theme = "Office2013Red";
             // 
-            // txtFooId
+            // btnVoidAll
             // 
-            this.txtFooId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFooId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtFooId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtFooId.Location = new System.Drawing.Point(41, 51);
-            this.txtFooId.Name = "txtFooId";
-            this.txtFooId.Size = new System.Drawing.Size(22, 20);
-            this.txtFooId.TabIndex = 240;
-            this.txtFooId.Tag = null;
-            this.theme1.SetTheme(this.txtFooId, "(default)");
-            this.txtFooId.Visible = false;
-            this.txtFooId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnVoidAll.BackColor = System.Drawing.Color.Transparent;
+            this.btnVoidAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(171)))));
+            this.btnVoidAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
+            this.btnVoidAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoidAll.Location = new System.Drawing.Point(377, 30);
+            this.btnVoidAll.Name = "btnVoidAll";
+            this.btnVoidAll.Size = new System.Drawing.Size(65, 41);
+            this.btnVoidAll.TabIndex = 241;
+            this.btnVoidAll.Text = "cancel all";
+            this.btnVoidAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnVoidAll, "(default)");
+            this.btnVoidAll.UseVisualStyleBackColor = true;
             // 
             // FrmTakeOut
             // 
@@ -253,12 +270,12 @@
             this.Load += new System.EventHandler(this.FrmTakeOut_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtFooId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRow)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtTableCode)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFooId)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -281,5 +298,6 @@
         private C1.Win.C1Input.C1TextBox txtRow;
         private System.Windows.Forms.Button btnTopping;
         private C1.Win.C1Input.C1TextBox txtFooId;
+        private System.Windows.Forms.Button btnVoidAll;
     }
 }

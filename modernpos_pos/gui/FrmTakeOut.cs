@@ -112,12 +112,20 @@ namespace modernpos_pos.gui
             btnVoid.Click += BtnVoid_Click;
             btnSpec.Click += BtnSpec_Click;
             btnTopping.Click += BtnTopping_Click;
+            btnVoidAll.Click += BtnVoidAll_Click;
 
             initGrf();
             initTC();
             flagModi = false;
             setBtnEnable(flagModi);
             this.FormBorderStyle = FormBorderStyle.None;
+        }
+
+        private void BtnVoidAll_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();   
+            grf.Dispose();
+            initGrf();
         }
 
         private void BtnTopping_Click(object sender, EventArgs e)
@@ -423,6 +431,7 @@ namespace modernpos_pos.gui
             if (mposC.statusVNEPaysuccess.Equals("1"))
             {
                 lOrd.Clear();
+                grf.Dispose();
             }
         }
 
@@ -564,16 +573,22 @@ namespace modernpos_pos.gui
                     MemoryStream stream = new MemoryStream();
                     Image loadedImage = null, resizedImage;
                     if (foo1.filename.Equals("")) continue;
-                    stream = mposC.ftpC.download(mposC.iniC.ShareFile + "/foods/" + foo1.filename);
-                    loadedImage = new Bitmap(stream);
-                    if (loadedImage != null)
-                    {
-                        //SizeF size = tile.Width;
-                        int originalWidth = loadedImage.Width;
-                        int newWidth = 180;
-                        resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
-                        tile.Image = resizedImage;
-                    }
+                    //stream = mposC.ftpC.download(mposC.iniC.ShareFile + "/foods/" + foo1.filename);
+                    string ext = Path.GetExtension(foo1.filename);
+                    String file = "";
+                    file = foo1.filename.Replace(ext, "");
+                    file = file + "_210" + ext;
+                    stream = mposC.ftpC.download(mposC.iniC.ShareFile + "/foods/" + file);
+                    //loadedImage = new Bitmap(stream);
+                    //if (loadedImage != null)
+                    //{
+                    //    //SizeF size = tile.Width;
+                    //    int originalWidth = loadedImage.Width;
+                    //    int newWidth = 180;
+                    //    resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
+                    //    tile.Image = resizedImage;
+                    //}
+                    tile.Image = new Bitmap(stream);
                 }
                 catch (Exception ex)
                 {
