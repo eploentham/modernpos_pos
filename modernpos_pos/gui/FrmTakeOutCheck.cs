@@ -46,6 +46,8 @@ namespace modernpos_pos.gui
         public enum VNECommand { Payment = 1, PollingStatusPayment = 2, DeletePendingPayment = 3, ListPendingPayment = 5 };
         String webapi = "/selfcashapi/", txtAmt= "จำนวนเงินต้องชำระ";
 
+        int cntClick = 0;
+
         public FrmTakeOutCheck(mPOSControl x, List<Order1> lOrd)
         {
             InitializeComponent();
@@ -73,6 +75,7 @@ namespace modernpos_pos.gui
             //}
             btnPay.Click += BtnPay_Click;
             btnVoidPay.Click += BtnVoidPay_Click;
+            lbAmt.Click += LbAmt_Click;
 
             bg = txtTableCode.BackColor;
             fc = txtTableCode.ForeColor;
@@ -88,6 +91,17 @@ namespace modernpos_pos.gui
 
             initGrf();
             setGrf();
+        }
+
+        private void LbAmt_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            cntClick++;
+            if (cntClick == 5)
+            {
+                cntClick = 0;
+                tC.ShowTabs = true;
+            }
         }
 
         private void BtnVoidPay_Click(object sender, EventArgs e)
@@ -128,6 +142,15 @@ namespace modernpos_pos.gui
 
                     listBox1.Items.Add(content);
                     dynamic obj = JsonConvert.DeserializeObject(content);
+                    String status = obj.payment_status;
+                    if (status.Equals("1"))
+                    {
+                        //MessageBox.Show("ทำการยกเลิก รับชำระเงิน เรียบร้อย", "");
+                        lbStatus.Text = "ยกเลิก รับชำระเงิน เรียบร้อย";
+                        timer.Stop();
+                        pnVoidPay.Hide();
+                    }
+                    
                     //cboPpl.Text = "";
                     //BtnListPayment_Click(null, null);
                 }
@@ -259,6 +282,7 @@ namespace modernpos_pos.gui
                 vneRspPay.tipo = obj.tipo;
                 vneRspPay.req_status = obj.req_status;
                 listBox1.Items.Add("VNE response " + vneRspPay.id);
+                cboRsp.Text = vneRspPay.id;
                 //vneRspPay = (VNEresponsePayment)JsonConvert.DeserializeObject(content);
                 err = "06";
                 sql = "Insert Into vne_response_payment Set " +
@@ -468,7 +492,8 @@ namespace modernpos_pos.gui
         }
         private void FrmTakeOutCheck_Load(object sender, EventArgs e)
         {
-
+            tC.SelectedTab = tab1;
+            tC.ShowTabs = false;
         }
     }
 }
