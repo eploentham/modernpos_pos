@@ -69,6 +69,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.picBill = new C1.Win.C1Input.C1PictureBox();
+            this.btnImg = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -100,6 +102,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtResCode)).BeginInit();
             this.sB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBill)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImg)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -158,6 +162,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel3.Controls.Add(this.btnImg);
             this.panel3.Controls.Add(this.txtTaxId);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.groupBox1);
@@ -191,7 +196,7 @@
             this.txtTaxId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTaxId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtTaxId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtTaxId.Location = new System.Drawing.Point(124, 155);
+            this.txtTaxId.Location = new System.Drawing.Point(124, 115);
             this.txtTaxId.Name = "txtTaxId";
             this.txtTaxId.Size = new System.Drawing.Size(207, 20);
             this.txtTaxId.TabIndex = 268;
@@ -205,7 +210,7 @@
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label11.Location = new System.Drawing.Point(27, 157);
+            this.label11.Location = new System.Drawing.Point(27, 117);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 16);
             this.label11.TabIndex = 267;
@@ -215,12 +220,13 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.groupBox1.Controls.Add(this.picBill);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.groupBox1.Location = new System.Drawing.Point(3, 193);
+            this.groupBox1.Location = new System.Drawing.Point(12, 141);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(417, 332);
+            this.groupBox1.Size = new System.Drawing.Size(408, 384);
             this.groupBox1.TabIndex = 266;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bill";
@@ -541,7 +547,7 @@
             // 
             this.btnVoid.Image = global::modernpos_pos.Properties.Resources.trash24;
             this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoid.Location = new System.Drawing.Point(426, 268);
+            this.btnVoid.Location = new System.Drawing.Point(426, 388);
             this.btnVoid.Name = "btnVoid";
             this.btnVoid.Size = new System.Drawing.Size(83, 39);
             this.btnVoid.TabIndex = 243;
@@ -613,7 +619,7 @@
             this.txtResNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtResNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtResNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtResNameT.Location = new System.Drawing.Point(124, 129);
+            this.txtResNameT.Location = new System.Drawing.Point(124, 89);
             this.txtResNameT.Name = "txtResNameT";
             this.txtResNameT.Size = new System.Drawing.Size(207, 20);
             this.txtResNameT.TabIndex = 238;
@@ -627,7 +633,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label2.Location = new System.Drawing.Point(27, 131);
+            this.label2.Location = new System.Drawing.Point(27, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 16);
             this.label2.TabIndex = 237;
@@ -690,6 +696,28 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
+            // picBill
+            // 
+            this.picBill.Location = new System.Drawing.Point(24, 231);
+            this.picBill.Name = "picBill";
+            this.picBill.Size = new System.Drawing.Size(148, 147);
+            this.picBill.TabIndex = 6;
+            this.picBill.TabStop = false;
+            // 
+            // btnImg
+            // 
+            this.btnImg.Image = global::modernpos_pos.Properties.Resources.refresh24;
+            this.btnImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImg.Location = new System.Drawing.Point(426, 267);
+            this.btnImg.Name = "btnImg";
+            this.btnImg.Size = new System.Drawing.Size(83, 39);
+            this.btnImg.TabIndex = 273;
+            this.btnImg.Text = "upload รูป";
+            this.btnImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnImg, "(default)");
+            this.btnImg.UseVisualStyleBackColor = true;
+            this.btnImg.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // FrmCRestaurant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -736,6 +764,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtResCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBill)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -784,5 +814,7 @@
         private System.Windows.Forms.Label label5;
         private C1.Win.C1Input.C1TextBox txtTaxId;
         private System.Windows.Forms.Label label11;
+        private C1.Win.C1Input.C1PictureBox picBill;
+        private C1.Win.C1Input.C1Button btnImg;
     }
 }

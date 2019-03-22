@@ -201,6 +201,7 @@ namespace modernpos_pos.gui
                 if (vnePRepd.status.Equals("completed"))
                 {
                     timer.Stop();
+                    mposC.statusVNEPaysuccess.Equals("1");
                     printBill();
                     lbStatus.Text = "รับชำระเรียบร้อย ";
                     Close();
