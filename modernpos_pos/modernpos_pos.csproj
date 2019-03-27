@@ -1093,6 +1093,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\img134.jpg" />
+    <None Include="Resources\join_bg.jpg" />
+    <None Include="Resources\donation-thailand-siriraj-ads01.png" />
+    <None Include="Resources\3.jpg" />
+    <None Include="Resources\2.jpg" />
+    <None Include="Resources\1.jpg" />
+    <None Include="Resources\img6.jpg" />
+    <None Include="Resources\img7.jpg" />
     <None Include="Resources\img175.jpg" />
     <None Include="Resources\siph2.png" />
     <None Include="Resources\ศิริราชมูลนิธิ.png" />

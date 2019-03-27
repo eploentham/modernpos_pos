@@ -128,6 +128,8 @@ namespace modernpos_pos
             pic1Next.Click += Pic1Next_Click;
             btnReadCard.Click += BtnReadCard_Click;
             btnPrint.Click += BtnPrint_Click;
+            btnDonate11.Click += BtnDonate11_Click;
+            btnDonate12.Click += BtnDonate12_Click;
 
             lbVersion.Text = mposC.iniC.statusShowListBox1;
             if (mposC.iniC.statusShowListBox1.Equals("1"))
@@ -152,6 +154,24 @@ namespace modernpos_pos
             pnPID.Hide();
 
             timerOnLine.Start();
+        }
+
+        private void BtnDonate12_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            tC.SelectedTab = tab3;
+            //lbDonate2.Text = "บริจากเงินให้กับ 2222222";
+            pic32.Size = new Size(100, 100);
+            pic3Donate.Image = Resources.siph_11;
+        }
+
+        private void BtnDonate11_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            tC.SelectedTab = tab3;
+            //lbDonate2.Text = "บริจากเงินให้กับ 2222222";
+            pic32.Size = new Size(100, 100);
+            pic3Donate.Image = Resources.siph_10;
         }
 
         private void BtnPrint_Click(object sender, EventArgs e)
@@ -184,7 +204,8 @@ namespace modernpos_pos
         private void Pic2Next_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            tC.SelectedTab = tab3;
+            tC.SelectedTab = tab4;
+            pic43.Size = new Size(100, 100);
         }
 
         private void Pic1Back_Click(object sender, EventArgs e)
@@ -195,26 +216,29 @@ namespace modernpos_pos
         private void Pic1Next_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            tC.SelectedTab = tab2;
+            tC.SelectedTab = tab3;
         }
         private void Pic2Back_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            tC.SelectedTab = tab1;
+            tC.SelectedTab = tab3;
+            pic32.Size = new Size(100, 100);
         }
 
         private void BtnDonate2_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             tC.SelectedTab = tab2;
-            lbDonate2.Text = "บริจากเงินให้กับ 111111";
+            //lbDonate2.Text = "บริจากเงินให้กับ 111111";
+            pic21.Size = new Size(100, 100);
         }
 
         private void BtnDonate1_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             tC.SelectedTab = tab2;
-            lbDonate2.Text = "บริจากเงินให้กับ 2222222";
+            //lbDonate2.Text = "บริจากเงินให้กับ 2222222";
+            pic21.Size = new Size(100, 100);
         }
         
         private void TxtAmount_KeyPress(object sender, KeyPressEventArgs e)

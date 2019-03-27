@@ -1813,6 +1813,26 @@ namespace modernpos_pos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap siph_10 {
+            get {
+                object obj = ResourceManager.GetObject("siph_10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap siph_11 {
+            get {
+                object obj = ResourceManager.GetObject("siph_11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap siph_3 {
             get {
                 object obj = ResourceManager.GetObject("siph_3", resourceCulture);
@@ -1826,6 +1846,56 @@ namespace modernpos_pos.Properties {
         internal static System.Drawing.Bitmap siph_4 {
             get {
                 object obj = ResourceManager.GetObject("siph_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap siph_5 {
+            get {
+                object obj = ResourceManager.GetObject("siph_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap siph_6 {
+            get {
+                object obj = ResourceManager.GetObject("siph_6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap siph_7 {
+            get {
+                object obj = ResourceManager.GetObject("siph_7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap siph_8 {
+            get {
+                object obj = ResourceManager.GetObject("siph_8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap siph_9 {
+            get {
+                object obj = ResourceManager.GetObject("siph_9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

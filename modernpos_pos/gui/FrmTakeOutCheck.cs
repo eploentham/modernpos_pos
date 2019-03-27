@@ -435,7 +435,7 @@ namespace modernpos_pos.gui
             //gets the text from the textbox
             String stringToPrint = "";
             string printText = "";
-            String RECEIPT = Environment.CurrentDirectory + "\\comprovante.txt";
+            //String RECEIPT = Environment.CurrentDirectory + "\\comprovante.txt";
             //if (File.Exists(RECEIPT))
             //{
             //    FileStream fs = new FileStream(RECEIPT, FileMode.Open);
