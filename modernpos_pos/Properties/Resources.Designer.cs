@@ -1813,6 +1813,26 @@ namespace modernpos_pos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap siph_3 {
+            get {
+                object obj = ResourceManager.GetObject("siph_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap siph_4 {
+            get {
+                object obj = ResourceManager.GetObject("siph_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap siph1 {
             get {
                 object obj = ResourceManager.GetObject("siph1", resourceCulture);

@@ -224,7 +224,7 @@ namespace modernpos_pos.gui
                 if (vnePRepd.status.Equals("completed"))
                 {
                     timer.Stop();
-                    mposC.statusVNEPaysuccess.Equals("1");
+                    mposC.statusVNEPaysuccess = "1";
                     printBill();
                     lbStatus.Text = "รับชำระเรียบร้อย ";
                     Close();
@@ -461,7 +461,8 @@ namespace modernpos_pos.gui
             {
 
             }
-            stringToPrint = "เวลา " + date + Environment.NewLine;
+            stringToPrint = mposC.mposDB.copDB.genQueue1Doc() + Environment.NewLine;
+            stringToPrint += "เวลา " + date + Environment.NewLine;
             //stringToPrint += "" + textBox1.Text + Environment.NewLine;
             //stringToPrint += "" + txtTopUp1.Text + Environment.NewLine;
             //stringToPrint += "" + txtTopUp2.Text + Environment.NewLine;
@@ -479,7 +480,6 @@ namespace modernpos_pos.gui
             stringToPrint += Environment.NewLine;
             stringToPrint += "         จำนวนเงิน "+ amt1.ToString("0.00") +  Environment.NewLine;
             g.DrawString(stringToPrint, new Font("arial", 16), Brush, 10, 10);
-
 
         }
         private void printBill()

@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDemoSiPH));
             this.tC = new C1.Win.C1Command.C1DockingTab();
             this.tab1 = new C1.Win.C1Command.C1DockingTabPage();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.pic1Next = new C1.Win.C1Input.C1PictureBox();
             this.pic1Back = new C1.Win.C1Input.C1PictureBox();
             this.c1PictureBox1 = new C1.Win.C1Input.C1PictureBox();
@@ -104,7 +103,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tC)).BeginInit();
             this.tC.SuspendLayout();
             this.tab1.SuspendLayout();
-            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1Next)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic1Back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox1)).BeginInit();
@@ -170,36 +168,27 @@
             this.tC.Location = new System.Drawing.Point(0, 0);
             this.tC.Name = "tC";
             this.tC.SelectedIndex = 3;
-            this.tC.Size = new System.Drawing.Size(1035, 686);
+            this.tC.Size = new System.Drawing.Size(1207, 847);
             this.tC.TabIndex = 4;
             this.tC.TabsSpacing = 5;
             // 
             // tab1
             // 
-            this.tab1.Controls.Add(this.panel6);
+            this.tab1.Controls.Add(this.pic1Next);
+            this.tab1.Controls.Add(this.pic1Back);
             this.tab1.Controls.Add(this.c1PictureBox1);
             this.tab1.Controls.Add(this.btnDonate2);
             this.tab1.Controls.Add(this.btnDonate1);
             this.tab1.Location = new System.Drawing.Point(1, 24);
             this.tab1.Name = "tab1";
-            this.tab1.Size = new System.Drawing.Size(1033, 661);
+            this.tab1.Size = new System.Drawing.Size(1205, 822);
             this.tab1.TabIndex = 3;
             this.tab1.Text = "Page4";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.pic1Next);
-            this.panel6.Controls.Add(this.pic1Back);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(805, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(228, 661);
-            this.panel6.TabIndex = 13;
             // 
             // pic1Next
             // 
             this.pic1Next.Image = global::modernpos_pos.Properties.Resources.Navigate_right;
-            this.pic1Next.Location = new System.Drawing.Point(140, 3);
+            this.pic1Next.Location = new System.Drawing.Point(1125, 3);
             this.pic1Next.Name = "pic1Next";
             this.pic1Next.Size = new System.Drawing.Size(77, 74);
             this.pic1Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -209,7 +198,7 @@
             // pic1Back
             // 
             this.pic1Back.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
-            this.pic1Back.Location = new System.Drawing.Point(57, 3);
+            this.pic1Back.Location = new System.Drawing.Point(1042, 3);
             this.pic1Back.Name = "pic1Back";
             this.pic1Back.Size = new System.Drawing.Size(77, 74);
             this.pic1Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -219,7 +208,7 @@
             // c1PictureBox1
             // 
             this.c1PictureBox1.Image = global::modernpos_pos.Properties.Resources.siph1;
-            this.c1PictureBox1.Location = new System.Drawing.Point(348, 15);
+            this.c1PictureBox1.Location = new System.Drawing.Point(447, 15);
             this.c1PictureBox1.Name = "c1PictureBox1";
             this.c1PictureBox1.Size = new System.Drawing.Size(239, 247);
             this.c1PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -229,21 +218,21 @@
             // btnDonate2
             // 
             this.btnDonate2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonate2.Location = new System.Drawing.Point(554, 284);
+            this.btnDonate2.Image = global::modernpos_pos.Properties.Resources.siph_4;
+            this.btnDonate2.Location = new System.Drawing.Point(33, 541);
             this.btnDonate2.Name = "btnDonate2";
-            this.btnDonate2.Size = new System.Drawing.Size(225, 267);
+            this.btnDonate2.Size = new System.Drawing.Size(1076, 267);
             this.btnDonate2.TabIndex = 9;
-            this.btnDonate2.Text = "บริจาก";
             this.btnDonate2.UseVisualStyleBackColor = true;
             // 
             // btnDonate1
             // 
             this.btnDonate1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonate1.Location = new System.Drawing.Point(151, 284);
+            this.btnDonate1.Image = global::modernpos_pos.Properties.Resources.siph_3;
+            this.btnDonate1.Location = new System.Drawing.Point(239, 268);
             this.btnDonate1.Name = "btnDonate1";
-            this.btnDonate1.Size = new System.Drawing.Size(225, 267);
+            this.btnDonate1.Size = new System.Drawing.Size(618, 267);
             this.btnDonate1.TabIndex = 8;
-            this.btnDonate1.Text = "บริจาก";
             this.btnDonate1.UseVisualStyleBackColor = true;
             // 
             // tab2
@@ -252,7 +241,7 @@
             this.tab2.Controls.Add(this.panel2);
             this.tab2.Location = new System.Drawing.Point(1, 24);
             this.tab2.Name = "tab2";
-            this.tab2.Size = new System.Drawing.Size(1033, 661);
+            this.tab2.Size = new System.Drawing.Size(1205, 822);
             this.tab2.TabIndex = 0;
             this.tab2.Text = "Page1";
             // 
@@ -262,9 +251,9 @@
             this.panel1.Controls.Add(this.pic2Back);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(805, 0);
+            this.panel1.Location = new System.Drawing.Point(977, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(228, 661);
+            this.panel1.Size = new System.Drawing.Size(228, 822);
             this.panel1.TabIndex = 4;
             // 
             // pic2Next
@@ -290,7 +279,7 @@
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 561);
+            this.panel3.Location = new System.Drawing.Point(0, 722);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(228, 100);
             this.panel3.TabIndex = 0;
@@ -312,7 +301,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1033, 661);
+            this.panel2.Size = new System.Drawing.Size(1205, 822);
             this.panel2.TabIndex = 5;
             // 
             // lbDonate2
@@ -612,7 +601,7 @@
             this.tab3.Controls.Add(this.panel9);
             this.tab3.Location = new System.Drawing.Point(1, 24);
             this.tab3.Name = "tab3";
-            this.tab3.Size = new System.Drawing.Size(1033, 661);
+            this.tab3.Size = new System.Drawing.Size(1205, 822);
             this.tab3.TabIndex = 1;
             this.tab3.Text = "Page2";
             // 
@@ -631,7 +620,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1033, 661);
+            this.panel9.Size = new System.Drawing.Size(1205, 822);
             this.panel9.TabIndex = 0;
             // 
             // picLogo
@@ -870,9 +859,9 @@
             this.panel10.Controls.Add(this.pic3Next);
             this.panel10.Controls.Add(this.pic3Back);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(805, 0);
+            this.panel10.Location = new System.Drawing.Point(977, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(228, 661);
+            this.panel10.Size = new System.Drawing.Size(228, 822);
             this.panel10.TabIndex = 14;
             // 
             // pic3Next
@@ -900,7 +889,7 @@
             this.tab4.Controls.Add(this.panel7);
             this.tab4.Location = new System.Drawing.Point(1, 24);
             this.tab4.Name = "tab4";
-            this.tab4.Size = new System.Drawing.Size(1033, 661);
+            this.tab4.Size = new System.Drawing.Size(1205, 822);
             this.tab4.TabIndex = 2;
             this.tab4.Text = "Page3";
             // 
@@ -910,7 +899,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1033, 661);
+            this.panel7.Size = new System.Drawing.Size(1205, 822);
             this.panel7.TabIndex = 0;
             // 
             // panel8
@@ -918,9 +907,9 @@
             this.panel8.Controls.Add(this.c1PictureBox2);
             this.panel8.Controls.Add(this.c1PictureBox3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(805, 0);
+            this.panel8.Location = new System.Drawing.Point(977, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(228, 661);
+            this.panel8.Size = new System.Drawing.Size(228, 822);
             this.panel8.TabIndex = 14;
             // 
             // c1PictureBox2
@@ -947,7 +936,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1035, 686);
+            this.ClientSize = new System.Drawing.Size(1207, 847);
             this.ControlBox = false;
             this.Controls.Add(this.tC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -958,7 +947,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tC)).EndInit();
             this.tC.ResumeLayout(false);
             this.tab1.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic1Next)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic1Back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox1)).EndInit();
@@ -1065,7 +1053,6 @@
         private C1.Win.C1Input.C1PictureBox pic2Next;
         private C1.Win.C1Input.C1PictureBox pic2Back;
         private C1.Win.C1SuperTooltip.C1SuperLabel lbDonate2;
-        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private C1.Win.C1Input.C1PictureBox c1PictureBox2;

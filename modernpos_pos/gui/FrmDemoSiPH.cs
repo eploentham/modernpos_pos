@@ -158,8 +158,10 @@ namespace modernpos_pos
         {
             //throw new NotImplementedException();
             PrintDocument document = new PrintDocument();
+            //document.PrinterSettings.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("A5", 148, 210);
+            //document.DefaultPageSettings.Landscape = true;
             document.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
-
+            
             //This is where you set the printer in your case you could use "EPSON USB"
 
             //or whatever it is called on your machine, by Default it will choose the default printer
@@ -503,7 +505,7 @@ namespace modernpos_pos
             string line = null;
             // Calculate the number of lines per page.
             linesPerPage = e.MarginBounds.Height / fEdit.GetHeight(e.Graphics);
-
+            topMargin = topMargin / 2;
             //// Print each line of the file.
             //while (count < linesPerPage &&
             //   ((line = streamToPrint.ReadLine()) != null))
@@ -519,13 +521,14 @@ namespace modernpos_pos
             Int32 xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             Int32 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
 
-            //Image resizedImage;
-            //int originalWidth = Resources.siph2.Width;
-            //int newWidth = 210;
-            //resizedImage = Resources.siph2.GetThumbnailImage(newWidth, (newWidth * Resources.siph2.Height) / originalWidth, null, IntPtr.Zero);
+            Image resizedImage;
+            int originalWidth = Resources.siph2.Width;
+            int newWidth = 100;
+            resizedImage = Resources.siph2.GetThumbnailImage(newWidth, (newWidth * Resources.siph2.Height) / originalWidth, null, IntPtr.Zero);
 
-            e.Graphics.DrawImage(Resources.siph2, avg - (Resources.siph2.Width / 2), topMargin);
-            
+            //e.Graphics.DrawImage(Resources.siph2, avg - (Resources.siph2.Width / 2), topMargin);
+            e.Graphics.DrawImage(resizedImage, avg - (resizedImage.Width / 2), topMargin);
+
             count++; count++; count++;
             yPos = topMargin + (count * fEdit.GetHeight(e.Graphics)+gap);
             line = "เลขที่  ....................";
@@ -535,13 +538,21 @@ namespace modernpos_pos
             //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());
             e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, flags);
 
-            count++;            count++;            count++;            count++;            count++;            count++; count++; count++;
+            count++;            count++;
             yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             line = "ศิริราชมูลนิธิ";
-            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.VerticalCenter);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
-            e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width/2), yPos, flags);
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, flags);
+
+            //count++;
+            //yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            //line = "ศิริราชมูลนิธิ";
+            //textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.Left);
+            //xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            //yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            //e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
 
             count++;
             yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);

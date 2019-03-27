@@ -78,12 +78,12 @@ namespace modernpos_pos.objdb
             cop.billing_cover_doc = "billing_cover_doc";
             cop.req_doc = "req_doc";
             cop.month_curr = "month_curr";
-            cop.prefix_opu_doc = "prefix_opu_doc";
+            cop.prefix_queue_1_doc = "prefix_queue_1_doc";
             cop.prefix_billing_doc = "prefix_billing_doc";
             cop.prefix_receipt_doc = "prefix_receipt_doc";
             cop.prefix_billing_cover_doc = "prefix_billing_cover_doc";
             cop.prefix_req_doc = "prefix_req_doc";
-            cop.opu_doc = "opu_doc";
+            cop.queue_1_doc = "queue_1_doc";
             cop.hn_doc = "hn_doc";
             cop.prefix_hn_doc = "prefix_hn_doc";
             cop.vn_doc = "vn_doc";
@@ -94,6 +94,10 @@ namespace modernpos_pos.objdb
             cop.prefix_form_a_doc = "prefix_form_a";
             cop.fet_doc = "fet_doc";
             cop.prefix_fet_doc = "prefix_fet_doc";
+            cop.year = "";
+            cop.month = "";
+            cop.day = "";
+            cop.day_curr = "day_curr";
 
             cop.table = "b_company";
             cop.pkField = "comp_id";
@@ -127,12 +131,12 @@ namespace modernpos_pos.objdb
             p.amphur_id = p.amphur_id == null ? "" : p.amphur_id;
             p.district_id = p.district_id == null ? "" : p.district_id;
             p.month_curr = p.month_curr == null ? "" : p.month_curr;
-            p.prefix_opu_doc = p.prefix_opu_doc == null ? "" : p.prefix_opu_doc;
+            p.prefix_queue_1_doc = p.prefix_queue_1_doc == null ? "" : p.prefix_queue_1_doc;
             p.prefix_billing_doc = p.prefix_billing_doc == null ? "" : p.prefix_billing_doc;
             p.prefix_receipt_doc = p.prefix_receipt_doc == null ? "" : p.prefix_receipt_doc;
             p.prefix_billing_cover_doc = p.prefix_billing_cover_doc == null ? "" : p.prefix_billing_cover_doc;
             p.prefix_req_doc = p.prefix_req_doc == null ? "" : p.prefix_req_doc;
-            p.opu_doc = p.opu_doc == null ? "0" : p.opu_doc;
+            p.queue_1_doc = p.queue_1_doc == null ? "0" : p.queue_1_doc;
             p.hn_doc = p.hn_doc == null ? "0" : p.hn_doc;
             p.prefix_hn_doc = p.prefix_hn_doc == null ? "" : p.prefix_hn_doc;
             p.vn_doc = p.vn_doc == null ? "0" : p.vn_doc;
@@ -313,7 +317,7 @@ namespace modernpos_pos.objdb
         {
             Company cop1 = new Company();
             DataTable dt = new DataTable();
-            String sql = "select cop.* " +
+            String sql = "select cop.*, month(now()) as month, day(now()) as day, year(now()) as year " +
                 "From " + cop.table + " cop " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where cop." + cop.comp_id + " ='" + copId + "' ";
@@ -325,7 +329,7 @@ namespace modernpos_pos.objdb
         {
             Company cop1 = new Company();
             DataTable dt = new DataTable();
-            String sql = "select cop.* " +
+            String sql = "select cop.*, date_format(now(),'%m') as month, date_format(now(),'%d') as day, year(now()) as year " +
                 "From " + cop.table + " cop " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where cop." + cop.comp_code + " ='" + copId + "' and cop." + cop.active + " ='1' ";
@@ -513,7 +517,7 @@ namespace modernpos_pos.objdb
             {
                 sql = "Update " + cop.table + " Set " +
                     " " + cop.year_curr + "='" + year + "' " +
-                    "," + cop.opu_doc + "=1 " +
+                    "," + cop.queue_1_doc + "=1 " +
                     "Where " + cop.pkField + "='" + cop1.comp_id + "'";
                 conn.ExecuteNonQuery(conn.conn, sql);
                 doc = "00001";
@@ -521,7 +525,7 @@ namespace modernpos_pos.objdb
             else
             {
                 int chk = 0;
-                if (int.TryParse(cop1.opu_doc, out chk))
+                if (int.TryParse(cop1.queue_1_doc, out chk))
                 {
                     chk++;
                     doc = "00000" + chk;
@@ -529,7 +533,7 @@ namespace modernpos_pos.objdb
                     year = cop1.year_curr;
 
                     sql = "Update " + cop.table + " Set " +
-                    "" + cop.opu_doc + "=" + chk +
+                    "" + cop.queue_1_doc + "=" + chk +
                     " Where " + cop.pkField + "='" + cop1.comp_id + "'";
                     conn.ExecuteNonQuery(conn.conn, sql);
                 }
@@ -603,24 +607,25 @@ namespace modernpos_pos.objdb
             doc = cop1.prefix_vn_doc + doc;
             return doc;
         }
-        public String genQueueDoc()
+        public String genQueue1Doc()
         {
             String doc = "", currDate = "", sql = "";
             Company cop1 = new Company();
             cop1 = selectByCode1("001");
-            currDate = DateTime.Now.Year+"-"+ DateTime.Now.ToString("MM-dd");
-            if (!currDate.Equals(cop1.current_date))
+            if (!cop1.day.Equals(cop1.day_curr))
             {
+                cop1.day = "00" + cop1.day;
+                cop1.day = cop1.day.Substring(cop1.day.Length - 2, 2);
                 sql = "Update " + cop.table + " Set " +
-                    " " + cop.current_date + "='" + currDate + "' " +
-                    "," + cop.vn_doc + "=1 " +
+                    " " + cop.day_curr + "='" + cop1.day + "' " +
+
                     "Where " + cop.pkField + "='" + cop1.comp_id + "'";
                 conn.ExecuteNonQuery(conn.conn, sql);
-                //doc = "00001";
+                cop1.queue_1_doc = "000";
             }
 
             int chk = 0;
-            if (int.TryParse(cop1.queue_doc, out chk))
+            if (int.TryParse(cop1.queue_1_doc, out chk))
             {
                 chk++;
                 doc = "000" + chk;
@@ -628,13 +633,12 @@ namespace modernpos_pos.objdb
                 currDate = cop1.year_curr;
 
                 sql = "Update " + cop.table + " Set " +
-                "" + cop.queue_doc + "=" + chk +
+                "" + cop.queue_1_doc + "=" + chk +
                 " Where " + cop.pkField + "='" + cop1.comp_id + "'";
                 conn.ExecuteNonQuery(conn.conn, sql);
             }
-            currDate = String.Concat(DateTime.Now.Year + 543);
-            //doc = doc;
-            return doc;
+
+            return cop1.prefix_queue_1_doc + doc;
         }
         public String genFormADoc()
         {
@@ -777,12 +781,12 @@ namespace modernpos_pos.objdb
                 cop1.billing_cover_doc = dt.Rows[0][cop.billing_cover_doc].ToString();
                 cop1.req_doc = dt.Rows[0][cop.req_doc].ToString();
                 cop1.month_curr = dt.Rows[0][cop.month_curr].ToString();
-                cop1.prefix_opu_doc = dt.Rows[0][cop.prefix_opu_doc].ToString();
+                cop1.prefix_queue_1_doc = dt.Rows[0][cop.prefix_queue_1_doc].ToString();
                 cop1.prefix_billing_doc = dt.Rows[0][cop.prefix_billing_doc].ToString();
                 cop1.prefix_receipt_doc = dt.Rows[0][cop.prefix_receipt_doc].ToString();
                 cop1.prefix_billing_cover_doc = dt.Rows[0][cop.prefix_billing_cover_doc].ToString();
                 cop1.prefix_req_doc = dt.Rows[0][cop.prefix_req_doc].ToString();
-                cop1.opu_doc = dt.Rows[0][cop.opu_doc].ToString();
+                cop1.queue_1_doc = dt.Rows[0][cop.queue_1_doc].ToString();
                 cop1.hn_doc = dt.Rows[0][cop.hn_doc].ToString();
                 cop1.prefix_hn_doc = dt.Rows[0][cop.prefix_hn_doc].ToString();
                 cop1.vn_doc = dt.Rows[0][cop.vn_doc].ToString();
@@ -793,6 +797,10 @@ namespace modernpos_pos.objdb
                 cop1.prefix_form_a_doc = dt.Rows[0][cop.prefix_form_a_doc].ToString();
                 cop1.fet_doc = dt.Rows[0][cop.fet_doc].ToString();
                 cop1.prefix_fet_doc = dt.Rows[0][cop.prefix_fet_doc].ToString();
+                cop1.year = dt.Rows[0]["year"].ToString();
+                cop1.month = dt.Rows[0]["month"].ToString();
+                cop1.day = dt.Rows[0]["day"].ToString();
+                cop1.day_curr = dt.Rows[0][cop.day_curr].ToString();
             }
             else
             {
@@ -854,12 +862,12 @@ namespace modernpos_pos.objdb
                 cop1.billing_cover_doc = "";
                 cop1.req_doc = "";
                 cop1.month_curr = "";
-                cop1.prefix_opu_doc = "";
+                cop1.prefix_queue_1_doc = "";
                 cop1.prefix_billing_doc = "";
                 cop1.prefix_receipt_doc = "";
                 cop1.prefix_billing_cover_doc = "";
                 cop1.prefix_req_doc = "";
-                cop1.opu_doc = "";
+                cop1.queue_1_doc = "";
                 cop1.hn_doc = "";
                 cop1.prefix_hn_doc = "";
                 cop1.vn_doc = "";
@@ -870,6 +878,10 @@ namespace modernpos_pos.objdb
                 cop1.prefix_form_a_doc = "";
                 cop1.fet_doc = "";
                 cop1.prefix_fet_doc = "";
+                cop1.year = "";
+                cop1.month = "";
+                cop1.day = "";
+                cop1.day_curr = "";
             }
 
             return cop1;

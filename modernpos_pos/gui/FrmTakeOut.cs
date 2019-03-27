@@ -427,11 +427,12 @@ namespace modernpos_pos.gui
             setFooNameRemark();
             FrmTakeOutCheck frm = new FrmTakeOutCheck(mposC, lOrd);
             frm.ShowDialog(this);
-
+            MessageBox.Show("mposC.statusVNEPaysuccess "+ mposC.statusVNEPaysuccess, "");
             if (mposC.statusVNEPaysuccess.Equals("1"))
             {
                 lOrd.Clear();
                 grf.Dispose();
+                initGrf();
             }
         }
 

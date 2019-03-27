@@ -98,7 +98,7 @@ namespace modernpos_pos.gui
             splash.Dispose();
             String date = "";
             date = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM-dd");
-            this.Text = " Update 2019-03-22 format date " + date;
+            this.Text = " Update 2019-03-27 format date " + date;
             txtHeader.Text = mposC.txtHeader;
         }
     }

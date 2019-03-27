@@ -1092,6 +1092,8 @@
     <Content Include="RDNIDlib.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\img134.jpg" />
+    <None Include="Resources\img175.jpg" />
     <None Include="Resources\siph2.png" />
     <None Include="Resources\ศิริราชมูลนิธิ.png" />
     <None Include="Resources\images.jfif" />
