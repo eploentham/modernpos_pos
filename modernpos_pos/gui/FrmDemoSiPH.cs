@@ -180,6 +180,7 @@ namespace modernpos_pos
             PrintDocument document = new PrintDocument();
             //document.PrinterSettings.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("A5", 148, 210);
             //document.DefaultPageSettings.Landscape = true;
+
             document.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
             
             //This is where you set the printer in your case you could use "EPSON USB"

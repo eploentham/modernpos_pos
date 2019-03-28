@@ -47,7 +47,8 @@ namespace modernpos_pos.gui
         String webapi = "/selfcashapi/", txtAmt= "จำนวนเงินต้องชำระ";
 
         int cntClick = 0;
-
+        Order1 ord1;
+        int iprn = 1;
         public FrmTakeOutCheck(mPOSControl x, List<Order1> lOrd)
         {
             InitializeComponent();
@@ -451,8 +452,8 @@ namespace modernpos_pos.gui
             Decimal amt1 = 0;
             try
             {
-                amt = grf[grf.Rows.Count - 1, colPrice].ToString();
-                
+                //amt = grf[grf.Rows.Count - 1, colPrice].ToString();
+                amt = ord1.price;
                 Decimal.TryParse(amt, out amt1);
 
                 //lbAmt.Text = "จำนวนเงินต้องชำระ " + amt1.ToString("0.00");
@@ -469,13 +470,16 @@ namespace modernpos_pos.gui
             //stringToPrint += "" + txtTopUp3.Text + Environment.NewLine;
             //stringToPrint += "โต๊ะ   " + txtDesk.Text + Environment.NewLine;
             //Makes the file to print and sets the look of it
-            int i = 1;
-            foreach (Order1 ord in lOrd)
-            {
-                printText += i.ToString() + "  " + ord.foods_name + "  " + ord.qty + "  " + ord.price + Environment.NewLine;
-                printText += "          " + ord.remark + Environment.NewLine;
-                i++;
-            }
+            //int i = 1;
+            //foreach (Order1 ord in lOrd)
+            //{
+            //    printText += i.ToString() + "  " + ord.foods_name + "  " + ord.qty + "  " + ord.price + Environment.NewLine;
+            //    printText += "          " + ord.remark + Environment.NewLine;
+            //    i++;
+            //}
+            printText += iprn.ToString() + "  " + ord1.foods_name + "  " + ord1.qty + "  " + ord1.price + Environment.NewLine;
+            printText += "          " + ord1.remark + Environment.NewLine;
+
             stringToPrint += printText;
             stringToPrint += Environment.NewLine;
             stringToPrint += "         จำนวนเงิน "+ amt1.ToString("0.00") +  Environment.NewLine;
@@ -484,12 +488,21 @@ namespace modernpos_pos.gui
         }
         private void printBill()
         {
-            PrintDocument document = new PrintDocument();
-            document.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
-            //This is where you set the printer in your case you could use "EPSON USB"
-            //or whatever it is called on your machine, by Default it will choose the default printer
-            document.PrinterSettings.PrinterName = mposC.iniC.printerBill;
-            document.Print();
+            List<String> lprn = new List<String>();
+            iprn = 1;
+            foreach (Order1 ord in lOrd)
+            {
+                //String printername = "";
+                //printername = ord.printer_name;
+                ord1 = ord;
+                PrintDocument document = new PrintDocument();
+                document.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+                //This is where you set the printer in your case you could use "EPSON USB"
+                //or whatever it is called on your machine, by Default it will choose the default printer
+                document.PrinterSettings.PrinterName = mposC.iniC.printerBill;
+                document.Print();
+                iprn++;
+            }
         }
         private void FrmTakeOutCheck_Load(object sender, EventArgs e)
         {
