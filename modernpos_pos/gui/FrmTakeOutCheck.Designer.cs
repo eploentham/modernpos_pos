@@ -32,6 +32,7 @@
             this.pnBill = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnVoidPay = new System.Windows.Forms.Panel();
+            this.cboRsp = new C1.Win.C1List.C1Combo();
             this.chkPaypaying = new System.Windows.Forms.RadioButton();
             this.chkPayBefore = new System.Windows.Forms.RadioButton();
             this.btnVoidPay = new System.Windows.Forms.Button();
@@ -45,15 +46,16 @@
             this.tC = new C1.Win.C1Command.C1DockingTab();
             this.tab1 = new C1.Win.C1Command.C1DockingTabPage();
             this.tab2 = new C1.Win.C1Command.C1DockingTabPage();
-            this.cboRsp = new C1.Win.C1List.C1Combo();
+            this.c1Button1 = new C1.Win.C1Input.C1Button();
             this.panel2.SuspendLayout();
             this.pnVoidPay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTableCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tC)).BeginInit();
             this.tC.SuspendLayout();
             this.tab1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnBill
@@ -66,6 +68,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.c1Button1);
             this.panel2.Controls.Add(this.pnVoidPay);
             this.panel2.Controls.Add(this.btnVoidPay);
             this.panel2.Controls.Add(this.listBox1);
@@ -92,6 +95,33 @@
             this.pnVoidPay.Size = new System.Drawing.Size(236, 57);
             this.pnVoidPay.TabIndex = 240;
             this.theme1.SetTheme(this.pnVoidPay, "(default)");
+            // 
+            // cboRsp
+            // 
+            this.cboRsp.AddItemSeparator = ';';
+            this.cboRsp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboRsp.Caption = "";
+            this.cboRsp.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.cboRsp.DeadAreaBackColor = System.Drawing.Color.White;
+            this.cboRsp.EditorBackColor = System.Drawing.Color.White;
+            this.cboRsp.EditorFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboRsp.EditorForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.cboRsp.FlatStyle = C1.Win.C1List.FlatModeEnum.Flat;
+            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboRsp.Images.Add(((System.Drawing.Image)(resources.GetObject("cboRsp.Images"))));
+            this.cboRsp.Location = new System.Drawing.Point(6, 32);
+            this.cboRsp.MatchEntryTimeout = ((long)(2000));
+            this.cboRsp.MaxDropDownItems = ((short)(5));
+            this.cboRsp.MaxLength = 32767;
+            this.cboRsp.MouseCursor = System.Windows.Forms.Cursors.Default;
+            this.cboRsp.Name = "cboRsp";
+            this.cboRsp.RowDivider.Style = C1.Win.C1List.LineStyleEnum.None;
+            this.cboRsp.RowSubDividerColor = System.Drawing.Color.DarkGray;
+            this.cboRsp.Size = new System.Drawing.Size(221, 19);
+            this.cboRsp.TabIndex = 240;
+            this.cboRsp.Text = "c1Combo1";
+            this.theme1.SetTheme(this.cboRsp, "(default)");
+            this.cboRsp.PropBag = resources.GetString("cboRsp.PropBag");
             // 
             // chkPaypaying
             // 
@@ -258,31 +288,16 @@
             this.tab2.TabIndex = 1;
             this.tab2.Text = "Page2";
             // 
-            // cboRsp
+            // c1Button1
             // 
-            this.cboRsp.AddItemSeparator = ';';
-            this.cboRsp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboRsp.Caption = "";
-            this.cboRsp.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.cboRsp.DeadAreaBackColor = System.Drawing.Color.White;
-            this.cboRsp.EditorBackColor = System.Drawing.Color.White;
-            this.cboRsp.EditorFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboRsp.EditorForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.cboRsp.FlatStyle = C1.Win.C1List.FlatModeEnum.Flat;
-            this.cboRsp.Images.Add(((System.Drawing.Image)(resources.GetObject("cboRsp.Images"))));
-            this.cboRsp.Location = new System.Drawing.Point(6, 32);
-            this.cboRsp.MatchEntryTimeout = ((long)(2000));
-            this.cboRsp.MaxDropDownItems = ((short)(5));
-            this.cboRsp.MaxLength = 32767;
-            this.cboRsp.MouseCursor = System.Windows.Forms.Cursors.Default;
-            this.cboRsp.Name = "cboRsp";
-            this.cboRsp.RowDivider.Style = C1.Win.C1List.LineStyleEnum.None;
-            this.cboRsp.RowSubDividerColor = System.Drawing.Color.DarkGray;
-            this.cboRsp.Size = new System.Drawing.Size(221, 19);
-            this.cboRsp.TabIndex = 240;
-            this.cboRsp.Text = "c1Combo1";
-            this.theme1.SetTheme(this.cboRsp, "(default)");
-            this.cboRsp.PropBag = resources.GetString("cboRsp.PropBag");
+            this.c1Button1.Location = new System.Drawing.Point(26, 459);
+            this.c1Button1.Name = "c1Button1";
+            this.c1Button1.Size = new System.Drawing.Size(43, 23);
+            this.c1Button1.TabIndex = 241;
+            this.c1Button1.Text = "c1Button1";
+            this.theme1.SetTheme(this.c1Button1, "(default)");
+            this.c1Button1.UseVisualStyleBackColor = true;
+            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmTakeOutCheck
             // 
@@ -298,12 +313,13 @@
             this.panel2.ResumeLayout(false);
             this.pnVoidPay.ResumeLayout(false);
             this.pnVoidPay.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTableCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tC)).EndInit();
             this.tC.ResumeLayout(false);
             this.tab1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,5 +343,6 @@
         private System.Windows.Forms.RadioButton chkPaypaying;
         private System.Windows.Forms.RadioButton chkPayBefore;
         private C1.Win.C1List.C1Combo cboRsp;
+        private C1.Win.C1Input.C1Button c1Button1;
     }
 }

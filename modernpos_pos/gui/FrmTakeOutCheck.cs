@@ -78,6 +78,7 @@ namespace modernpos_pos.gui
             btnPay.Click += BtnPay_Click;
             btnVoidPay.Click += BtnVoidPay_Click;
             lbAmt.Click += LbAmt_Click;
+            c1Button1.Click += C1Button1_Click;
 
             bg = txtTableCode.BackColor;
             fc = txtTableCode.ForeColor;
@@ -93,6 +94,13 @@ namespace modernpos_pos.gui
 
             initGrf();
             setGrf();
+        }
+
+        private void C1Button1_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            printOrder();
+            printBill();
         }
 
         private void LbAmt_Click(object sender, EventArgs e)
@@ -521,16 +529,18 @@ namespace modernpos_pos.gui
             count++;
             yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, leftMargin - 5 , marginR - 20);
+            int i = 1;
             foreach (Order1 ord in lOrd)
             {
                 count++;
                 yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
-                line = "GOTO";
+                line = i+" "+ord.foods_name;
                 textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
                 xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
                 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
                                                                     //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());
                 e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, flags);
+                i++;
             }
             count++;
             yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
