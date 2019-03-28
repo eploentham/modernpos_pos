@@ -96,6 +96,13 @@ ADD COLUMN `host_id` VARCHAR(45) NULL AFTER `user_cancel`,
 ADD COLUMN `branch_id` VARCHAR(45) NULL AFTER `host_id`,
 ADD COLUMN `device_id` VARCHAR(45) NULL AFTER `branch_id`;
 
+ALTER TABLE `modern_pos`.`b_restaurant` 
+ADD COLUMN `receipt_header4` VARCHAR(255) NULL AFTER `receipt_footer3`,
+ADD COLUMN `receipt_header5` VARCHAR(255) NULL AFTER `receipt_header4`,
+ADD COLUMN `receipt_footer4` VARCHAR(255) NULL AFTER `receipt_header5`,
+ADD COLUMN `receipt_footer5` VARCHAR(255) NULL AFTER `receipt_footer4`;
+
+
 
 
 

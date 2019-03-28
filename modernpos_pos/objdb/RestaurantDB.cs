@@ -11,7 +11,7 @@ namespace modernpos_pos.objdb
 {
     public class RestaurantDB
     {
-        Restaurant res;
+        public Restaurant res;
         ConnectDB conn;
         public List<Restaurant> lArea;
         public RestaurantDB(ConnectDB c)
@@ -90,6 +90,18 @@ namespace modernpos_pos.objdb
                 "From " + res.table + " sex " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where sex." + res.pkField + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setTable(dt);
+            return cop1;
+        }
+        public Restaurant selectByDefault()
+        {
+            Restaurant cop1 = new Restaurant();
+            DataTable dt = new DataTable();
+            String sql = "select sex.* " +
+                "From " + res.table + " sex " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where sex." + res.default_res + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setTable(dt);
             return cop1;

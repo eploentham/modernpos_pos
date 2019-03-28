@@ -36,10 +36,25 @@
             this.c1PictureBox1 = new C1.Win.C1Input.C1PictureBox();
             this.btnDonate2 = new C1.Win.C1Input.C1Button();
             this.btnDonate1 = new C1.Win.C1Input.C1Button();
-            this.tab3 = new C1.Win.C1Command.C1DockingTabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.tab2 = new C1.Win.C1Command.C1DockingTabPage();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btnDonate12 = new C1.Win.C1Input.C1Button();
+            this.btnDonate11 = new C1.Win.C1Input.C1Button();
+            this.c1SuperLabel3 = new C1.Win.C1SuperTooltip.C1SuperLabel();
+            this.pic23 = new C1.Win.C1Input.C1PictureBox();
+            this.pic22 = new C1.Win.C1Input.C1PictureBox();
+            this.pic21 = new C1.Win.C1Input.C1PictureBox();
             this.pic2Next = new C1.Win.C1Input.C1PictureBox();
             this.pic2Back = new C1.Win.C1Input.C1PictureBox();
+            this.c1PictureBox5 = new C1.Win.C1Input.C1PictureBox();
+            this.tab3 = new C1.Win.C1Command.C1DockingTabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pic3Donate = new C1.Win.C1Input.C1PictureBox();
+            this.pic33 = new C1.Win.C1Input.C1PictureBox();
+            this.pic32 = new C1.Win.C1Input.C1PictureBox();
+            this.pic31 = new C1.Win.C1Input.C1PictureBox();
+            this.pic3Next = new C1.Win.C1Input.C1PictureBox();
+            this.pic3Back = new C1.Win.C1Input.C1PictureBox();
             this.c1PictureBox4 = new C1.Win.C1Input.C1PictureBox();
             this.lbDonate2 = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.txtMobile = new C1.Win.C1Input.C1TextBox();
@@ -71,6 +86,12 @@
             this.c1Label1 = new C1.Win.C1Input.C1Label();
             this.tab4 = new C1.Win.C1Command.C1DockingTabPage();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.pic43 = new C1.Win.C1Input.C1PictureBox();
+            this.pic42 = new C1.Win.C1Input.C1PictureBox();
+            this.pic41 = new C1.Win.C1Input.C1PictureBox();
+            this.pic4Next = new C1.Win.C1Input.C1PictureBox();
+            this.pic4Back = new C1.Win.C1Input.C1PictureBox();
+            this.c1PictureBox6 = new C1.Win.C1Input.C1PictureBox();
             this.btnPrint = new C1.Win.C1Input.C1Button();
             this.lbMessage = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.pnPID = new System.Windows.Forms.Panel();
@@ -87,28 +108,7 @@
             this.btnReadCard = new C1.Win.C1Input.C1Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cboPrinter = new System.Windows.Forms.ComboBox();
-            this.pic3Next = new C1.Win.C1Input.C1PictureBox();
-            this.pic3Back = new C1.Win.C1Input.C1PictureBox();
-            this.tab2 = new C1.Win.C1Command.C1DockingTabPage();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnDonate12 = new C1.Win.C1Input.C1Button();
-            this.btnDonate11 = new C1.Win.C1Input.C1Button();
-            this.c1SuperLabel3 = new C1.Win.C1SuperTooltip.C1SuperLabel();
-            this.pic23 = new C1.Win.C1Input.C1PictureBox();
-            this.pic22 = new C1.Win.C1Input.C1PictureBox();
-            this.pic21 = new C1.Win.C1Input.C1PictureBox();
-            this.c1PictureBox2 = new C1.Win.C1Input.C1PictureBox();
-            this.c1PictureBox3 = new C1.Win.C1Input.C1PictureBox();
-            this.c1PictureBox5 = new C1.Win.C1Input.C1PictureBox();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
-            this.pic33 = new C1.Win.C1Input.C1PictureBox();
-            this.pic32 = new C1.Win.C1Input.C1PictureBox();
-            this.pic31 = new C1.Win.C1Input.C1PictureBox();
-            this.pic3Donate = new C1.Win.C1Input.C1PictureBox();
-            this.c1PictureBox6 = new C1.Win.C1Input.C1PictureBox();
-            this.pic43 = new C1.Win.C1Input.C1PictureBox();
-            this.pic42 = new C1.Win.C1Input.C1PictureBox();
-            this.pic41 = new C1.Win.C1Input.C1PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.tC)).BeginInit();
             this.tC.SuspendLayout();
             this.tab1.SuspendLayout();
@@ -117,10 +117,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDonate2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDonate1)).BeginInit();
-            this.tab3.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.tab2.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDonate12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDonate11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic2Next)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic2Back)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox5)).BeginInit();
+            this.tab3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic3Donate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic3Next)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic3Back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMobile)).BeginInit();
             this.panel5.SuspendLayout();
@@ -143,6 +157,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1Label1)).BeginInit();
             this.tab4.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic43)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic42)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic41)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic4Next)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic4Back)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).BeginInit();
             this.pnPID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPID)).BeginInit();
@@ -155,27 +175,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPttName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReadCard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic3Next)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic3Back)).BeginInit();
-            this.tab2.SuspendLayout();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDonate12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDonate11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic23)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic33)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic32)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic31)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic3Donate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic43)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic42)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic41)).BeginInit();
             this.SuspendLayout();
             // 
             // tC
@@ -221,6 +221,7 @@
             this.pic1Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic1Next.TabIndex = 12;
             this.pic1Next.TabStop = false;
+            this.pic1Next.Visible = false;
             // 
             // pic1Back
             // 
@@ -231,6 +232,7 @@
             this.pic1Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic1Back.TabIndex = 11;
             this.pic1Back.TabStop = false;
+            this.pic1Back.Visible = false;
             // 
             // c1PictureBox1
             // 
@@ -266,6 +268,131 @@
             this.btnDonate1.UseVisualStyleBackColor = true;
             this.btnDonate1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
+            // tab2
+            // 
+            this.tab2.Controls.Add(this.panel7);
+            this.tab2.Location = new System.Drawing.Point(1, 24);
+            this.tab2.Name = "tab2";
+            this.tab2.Size = new System.Drawing.Size(1598, 875);
+            this.tab2.TabIndex = 2;
+            this.tab2.Text = "Page2";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Controls.Add(this.btnDonate12);
+            this.panel7.Controls.Add(this.btnDonate11);
+            this.panel7.Controls.Add(this.c1SuperLabel3);
+            this.panel7.Controls.Add(this.pic23);
+            this.panel7.Controls.Add(this.pic22);
+            this.panel7.Controls.Add(this.pic21);
+            this.panel7.Controls.Add(this.pic2Next);
+            this.panel7.Controls.Add(this.pic2Back);
+            this.panel7.Controls.Add(this.c1PictureBox5);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1598, 875);
+            this.panel7.TabIndex = 0;
+            this.theme1.SetTheme(this.panel7, "(default)");
+            // 
+            // btnDonate12
+            // 
+            this.btnDonate12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDonate12.Image = global::modernpos_pos.Properties.Resources.siph_3;
+            this.btnDonate12.Location = new System.Drawing.Point(713, 384);
+            this.btnDonate12.Name = "btnDonate12";
+            this.btnDonate12.Size = new System.Drawing.Size(626, 381);
+            this.btnDonate12.TabIndex = 49;
+            this.theme1.SetTheme(this.btnDonate12, "(default)");
+            this.btnDonate12.UseVisualStyleBackColor = true;
+            this.btnDonate12.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnDonate11
+            // 
+            this.btnDonate11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDonate11.Image = global::modernpos_pos.Properties.Resources.siph_10;
+            this.btnDonate11.Location = new System.Drawing.Point(6, 384);
+            this.btnDonate11.Name = "btnDonate11";
+            this.btnDonate11.Size = new System.Drawing.Size(626, 381);
+            this.btnDonate11.TabIndex = 48;
+            this.theme1.SetTheme(this.btnDonate11, "(default)");
+            this.btnDonate11.UseVisualStyleBackColor = true;
+            this.btnDonate11.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1SuperLabel3
+            // 
+            this.c1SuperLabel3.AutoSize = true;
+            this.c1SuperLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1SuperLabel3.Location = new System.Drawing.Point(488, 279);
+            this.c1SuperLabel3.Name = "c1SuperLabel3";
+            this.c1SuperLabel3.Size = new System.Drawing.Size(114, 17);
+            this.c1SuperLabel3.TabIndex = 47;
+            this.c1SuperLabel3.Text = "เลือกรายการที่จะบริจาก";
+            this.theme1.SetTheme(this.c1SuperLabel3, "(default)");
+            this.c1SuperLabel3.UseMnemonic = true;
+            // 
+            // pic23
+            // 
+            this.pic23.Image = global::modernpos_pos.Properties.Resources.siph_9;
+            this.pic23.Location = new System.Drawing.Point(826, 159);
+            this.pic23.Name = "pic23";
+            this.pic23.Size = new System.Drawing.Size(77, 77);
+            this.pic23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic23.TabIndex = 46;
+            this.pic23.TabStop = false;
+            // 
+            // pic22
+            // 
+            this.pic22.Image = global::modernpos_pos.Properties.Resources.siph_8;
+            this.pic22.Location = new System.Drawing.Point(713, 159);
+            this.pic22.Name = "pic22";
+            this.pic22.Size = new System.Drawing.Size(77, 77);
+            this.pic22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic22.TabIndex = 45;
+            this.pic22.TabStop = false;
+            // 
+            // pic21
+            // 
+            this.pic21.Image = global::modernpos_pos.Properties.Resources.siph_7;
+            this.pic21.Location = new System.Drawing.Point(577, 159);
+            this.pic21.Name = "pic21";
+            this.pic21.Size = new System.Drawing.Size(100, 100);
+            this.pic21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic21.TabIndex = 44;
+            this.pic21.TabStop = false;
+            // 
+            // pic2Next
+            // 
+            this.pic2Next.Image = global::modernpos_pos.Properties.Resources.Navigate_right;
+            this.pic2Next.Location = new System.Drawing.Point(1287, 159);
+            this.pic2Next.Name = "pic2Next";
+            this.pic2Next.Size = new System.Drawing.Size(77, 74);
+            this.pic2Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic2Next.TabIndex = 12;
+            this.pic2Next.TabStop = false;
+            // 
+            // pic2Back
+            // 
+            this.pic2Back.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
+            this.pic2Back.Location = new System.Drawing.Point(1204, 159);
+            this.pic2Back.Name = "pic2Back";
+            this.pic2Back.Size = new System.Drawing.Size(77, 74);
+            this.pic2Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic2Back.TabIndex = 11;
+            this.pic2Back.TabStop = false;
+            // 
+            // c1PictureBox5
+            // 
+            this.c1PictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("c1PictureBox5.Image")));
+            this.c1PictureBox5.Location = new System.Drawing.Point(3, 3);
+            this.c1PictureBox5.Name = "c1PictureBox5";
+            this.c1PictureBox5.Size = new System.Drawing.Size(1367, 141);
+            this.c1PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.c1PictureBox5.TabIndex = 43;
+            this.c1PictureBox5.TabStop = false;
+            // 
             // tab3
             // 
             this.tab3.Controls.Add(this.panel2);
@@ -282,8 +409,8 @@
             this.panel2.Controls.Add(this.pic33);
             this.panel2.Controls.Add(this.pic32);
             this.panel2.Controls.Add(this.pic31);
-            this.panel2.Controls.Add(this.pic2Next);
-            this.panel2.Controls.Add(this.pic2Back);
+            this.panel2.Controls.Add(this.pic3Next);
+            this.panel2.Controls.Add(this.pic3Back);
             this.panel2.Controls.Add(this.c1PictureBox4);
             this.panel2.Controls.Add(this.lbDonate2);
             this.panel2.Controls.Add(this.txtMobile);
@@ -305,25 +432,65 @@
             this.panel2.TabIndex = 5;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
-            // pic2Next
+            // pic3Donate
             // 
-            this.pic2Next.Image = global::modernpos_pos.Properties.Resources.Navigate_right;
-            this.pic2Next.Location = new System.Drawing.Point(1290, 161);
-            this.pic2Next.Name = "pic2Next";
-            this.pic2Next.Size = new System.Drawing.Size(77, 74);
-            this.pic2Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic2Next.TabIndex = 42;
-            this.pic2Next.TabStop = false;
+            this.pic3Donate.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
+            this.pic3Donate.Location = new System.Drawing.Point(8, 365);
+            this.pic3Donate.Name = "pic3Donate";
+            this.pic3Donate.Size = new System.Drawing.Size(451, 235);
+            this.pic3Donate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic3Donate.TabIndex = 50;
+            this.pic3Donate.TabStop = false;
             // 
-            // pic2Back
+            // pic33
             // 
-            this.pic2Back.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
-            this.pic2Back.Location = new System.Drawing.Point(1207, 161);
-            this.pic2Back.Name = "pic2Back";
-            this.pic2Back.Size = new System.Drawing.Size(77, 74);
-            this.pic2Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic2Back.TabIndex = 41;
-            this.pic2Back.TabStop = false;
+            this.pic33.Image = global::modernpos_pos.Properties.Resources.siph_9;
+            this.pic33.Location = new System.Drawing.Point(826, 159);
+            this.pic33.Name = "pic33";
+            this.pic33.Size = new System.Drawing.Size(77, 77);
+            this.pic33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic33.TabIndex = 49;
+            this.pic33.TabStop = false;
+            // 
+            // pic32
+            // 
+            this.pic32.Image = global::modernpos_pos.Properties.Resources.siph_8;
+            this.pic32.Location = new System.Drawing.Point(713, 159);
+            this.pic32.Name = "pic32";
+            this.pic32.Size = new System.Drawing.Size(100, 100);
+            this.pic32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic32.TabIndex = 48;
+            this.pic32.TabStop = false;
+            // 
+            // pic31
+            // 
+            this.pic31.Image = global::modernpos_pos.Properties.Resources.siph_7;
+            this.pic31.Location = new System.Drawing.Point(600, 159);
+            this.pic31.Name = "pic31";
+            this.pic31.Size = new System.Drawing.Size(77, 77);
+            this.pic31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic31.TabIndex = 47;
+            this.pic31.TabStop = false;
+            // 
+            // pic3Next
+            // 
+            this.pic3Next.Image = global::modernpos_pos.Properties.Resources.Navigate_right;
+            this.pic3Next.Location = new System.Drawing.Point(1287, 159);
+            this.pic3Next.Name = "pic3Next";
+            this.pic3Next.Size = new System.Drawing.Size(77, 74);
+            this.pic3Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic3Next.TabIndex = 42;
+            this.pic3Next.TabStop = false;
+            // 
+            // pic3Back
+            // 
+            this.pic3Back.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
+            this.pic3Back.Location = new System.Drawing.Point(1204, 159);
+            this.pic3Back.Name = "pic3Back";
+            this.pic3Back.Size = new System.Drawing.Size(77, 74);
+            this.pic3Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic3Back.TabIndex = 41;
+            this.pic3Back.TabStop = false;
             // 
             // c1PictureBox4
             // 
@@ -707,8 +874,8 @@
             this.panel9.Controls.Add(this.pic43);
             this.panel9.Controls.Add(this.pic42);
             this.panel9.Controls.Add(this.pic41);
-            this.panel9.Controls.Add(this.pic3Next);
-            this.panel9.Controls.Add(this.pic3Back);
+            this.panel9.Controls.Add(this.pic4Next);
+            this.panel9.Controls.Add(this.pic4Back);
             this.panel9.Controls.Add(this.c1PictureBox6);
             this.panel9.Controls.Add(this.btnPrint);
             this.panel9.Controls.Add(this.lbMessage);
@@ -723,6 +890,67 @@
             this.panel9.Size = new System.Drawing.Size(1598, 875);
             this.panel9.TabIndex = 0;
             this.theme1.SetTheme(this.panel9, "(default)");
+            // 
+            // pic43
+            // 
+            this.pic43.Image = global::modernpos_pos.Properties.Resources.siph_9;
+            this.pic43.Location = new System.Drawing.Point(826, 159);
+            this.pic43.Name = "pic43";
+            this.pic43.Size = new System.Drawing.Size(100, 100);
+            this.pic43.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic43.TabIndex = 52;
+            this.pic43.TabStop = false;
+            // 
+            // pic42
+            // 
+            this.pic42.Image = global::modernpos_pos.Properties.Resources.siph_8;
+            this.pic42.Location = new System.Drawing.Point(713, 159);
+            this.pic42.Name = "pic42";
+            this.pic42.Size = new System.Drawing.Size(77, 77);
+            this.pic42.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic42.TabIndex = 51;
+            this.pic42.TabStop = false;
+            // 
+            // pic41
+            // 
+            this.pic41.Image = global::modernpos_pos.Properties.Resources.siph_7;
+            this.pic41.Location = new System.Drawing.Point(600, 159);
+            this.pic41.Name = "pic41";
+            this.pic41.Size = new System.Drawing.Size(77, 77);
+            this.pic41.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic41.TabIndex = 50;
+            this.pic41.TabStop = false;
+            // 
+            // pic4Next
+            // 
+            this.pic4Next.Image = global::modernpos_pos.Properties.Resources.Navigate_right;
+            this.pic4Next.Location = new System.Drawing.Point(1287, 159);
+            this.pic4Next.Name = "pic4Next";
+            this.pic4Next.Size = new System.Drawing.Size(77, 74);
+            this.pic4Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic4Next.TabIndex = 12;
+            this.pic4Next.TabStop = false;
+            this.pic4Next.Visible = false;
+            // 
+            // pic4Back
+            // 
+            this.pic4Back.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
+            this.pic4Back.Location = new System.Drawing.Point(1204, 159);
+            this.pic4Back.Name = "pic4Back";
+            this.pic4Back.Size = new System.Drawing.Size(77, 74);
+            this.pic4Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic4Back.TabIndex = 11;
+            this.pic4Back.TabStop = false;
+            // 
+            // c1PictureBox6
+            // 
+            this.c1PictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("c1PictureBox6.Image")));
+            this.c1PictureBox6.Location = new System.Drawing.Point(3, 3);
+            this.c1PictureBox6.Name = "c1PictureBox6";
+            this.c1PictureBox6.Size = new System.Drawing.Size(1367, 141);
+            this.c1PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.c1PictureBox6.TabIndex = 49;
+            this.c1PictureBox6.TabStop = false;
             // 
             // btnPrint
             // 
@@ -930,231 +1158,6 @@
             this.cboPrinter.TabIndex = 40;
             this.theme1.SetTheme(this.cboPrinter, "(default)");
             // 
-            // pic3Next
-            // 
-            this.pic3Next.Image = global::modernpos_pos.Properties.Resources.Navigate_right;
-            this.pic3Next.Location = new System.Drawing.Point(1287, 159);
-            this.pic3Next.Name = "pic3Next";
-            this.pic3Next.Size = new System.Drawing.Size(77, 74);
-            this.pic3Next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic3Next.TabIndex = 12;
-            this.pic3Next.TabStop = false;
-            // 
-            // pic3Back
-            // 
-            this.pic3Back.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
-            this.pic3Back.Location = new System.Drawing.Point(1204, 159);
-            this.pic3Back.Name = "pic3Back";
-            this.pic3Back.Size = new System.Drawing.Size(77, 74);
-            this.pic3Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic3Back.TabIndex = 11;
-            this.pic3Back.TabStop = false;
-            // 
-            // tab2
-            // 
-            this.tab2.Controls.Add(this.panel7);
-            this.tab2.Location = new System.Drawing.Point(1, 24);
-            this.tab2.Name = "tab2";
-            this.tab2.Size = new System.Drawing.Size(1598, 875);
-            this.tab2.TabIndex = 2;
-            this.tab2.Text = "Page2";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Controls.Add(this.btnDonate12);
-            this.panel7.Controls.Add(this.btnDonate11);
-            this.panel7.Controls.Add(this.c1SuperLabel3);
-            this.panel7.Controls.Add(this.pic23);
-            this.panel7.Controls.Add(this.pic22);
-            this.panel7.Controls.Add(this.pic21);
-            this.panel7.Controls.Add(this.c1PictureBox2);
-            this.panel7.Controls.Add(this.c1PictureBox3);
-            this.panel7.Controls.Add(this.c1PictureBox5);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1598, 875);
-            this.panel7.TabIndex = 0;
-            this.theme1.SetTheme(this.panel7, "(default)");
-            // 
-            // btnDonate12
-            // 
-            this.btnDonate12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonate12.Image = global::modernpos_pos.Properties.Resources.siph_3;
-            this.btnDonate12.Location = new System.Drawing.Point(713, 384);
-            this.btnDonate12.Name = "btnDonate12";
-            this.btnDonate12.Size = new System.Drawing.Size(626, 381);
-            this.btnDonate12.TabIndex = 49;
-            this.theme1.SetTheme(this.btnDonate12, "(default)");
-            this.btnDonate12.UseVisualStyleBackColor = true;
-            this.btnDonate12.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnDonate11
-            // 
-            this.btnDonate11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonate11.Image = global::modernpos_pos.Properties.Resources.siph_10;
-            this.btnDonate11.Location = new System.Drawing.Point(6, 384);
-            this.btnDonate11.Name = "btnDonate11";
-            this.btnDonate11.Size = new System.Drawing.Size(626, 381);
-            this.btnDonate11.TabIndex = 48;
-            this.theme1.SetTheme(this.btnDonate11, "(default)");
-            this.btnDonate11.UseVisualStyleBackColor = true;
-            this.btnDonate11.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1SuperLabel3
-            // 
-            this.c1SuperLabel3.AutoSize = true;
-            this.c1SuperLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1SuperLabel3.Location = new System.Drawing.Point(488, 279);
-            this.c1SuperLabel3.Name = "c1SuperLabel3";
-            this.c1SuperLabel3.Size = new System.Drawing.Size(114, 17);
-            this.c1SuperLabel3.TabIndex = 47;
-            this.c1SuperLabel3.Text = "เลือกรายการที่จะบริจาก";
-            this.theme1.SetTheme(this.c1SuperLabel3, "(default)");
-            this.c1SuperLabel3.UseMnemonic = true;
-            // 
-            // pic23
-            // 
-            this.pic23.Image = global::modernpos_pos.Properties.Resources.siph_9;
-            this.pic23.Location = new System.Drawing.Point(826, 159);
-            this.pic23.Name = "pic23";
-            this.pic23.Size = new System.Drawing.Size(77, 77);
-            this.pic23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic23.TabIndex = 46;
-            this.pic23.TabStop = false;
-            // 
-            // pic22
-            // 
-            this.pic22.Image = global::modernpos_pos.Properties.Resources.siph_8;
-            this.pic22.Location = new System.Drawing.Point(713, 159);
-            this.pic22.Name = "pic22";
-            this.pic22.Size = new System.Drawing.Size(77, 77);
-            this.pic22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic22.TabIndex = 45;
-            this.pic22.TabStop = false;
-            // 
-            // pic21
-            // 
-            this.pic21.Image = global::modernpos_pos.Properties.Resources.siph_7;
-            this.pic21.Location = new System.Drawing.Point(600, 159);
-            this.pic21.Name = "pic21";
-            this.pic21.Size = new System.Drawing.Size(77, 77);
-            this.pic21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic21.TabIndex = 44;
-            this.pic21.TabStop = false;
-            // 
-            // c1PictureBox2
-            // 
-            this.c1PictureBox2.Image = global::modernpos_pos.Properties.Resources.Navigate_right;
-            this.c1PictureBox2.Location = new System.Drawing.Point(1293, 150);
-            this.c1PictureBox2.Name = "c1PictureBox2";
-            this.c1PictureBox2.Size = new System.Drawing.Size(77, 74);
-            this.c1PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.c1PictureBox2.TabIndex = 12;
-            this.c1PictureBox2.TabStop = false;
-            // 
-            // c1PictureBox3
-            // 
-            this.c1PictureBox3.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
-            this.c1PictureBox3.Location = new System.Drawing.Point(1210, 150);
-            this.c1PictureBox3.Name = "c1PictureBox3";
-            this.c1PictureBox3.Size = new System.Drawing.Size(77, 74);
-            this.c1PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.c1PictureBox3.TabIndex = 11;
-            this.c1PictureBox3.TabStop = false;
-            // 
-            // c1PictureBox5
-            // 
-            this.c1PictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("c1PictureBox5.Image")));
-            this.c1PictureBox5.Location = new System.Drawing.Point(3, 3);
-            this.c1PictureBox5.Name = "c1PictureBox5";
-            this.c1PictureBox5.Size = new System.Drawing.Size(1367, 141);
-            this.c1PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.c1PictureBox5.TabIndex = 43;
-            this.c1PictureBox5.TabStop = false;
-            // 
-            // pic33
-            // 
-            this.pic33.Image = global::modernpos_pos.Properties.Resources.siph_9;
-            this.pic33.Location = new System.Drawing.Point(826, 159);
-            this.pic33.Name = "pic33";
-            this.pic33.Size = new System.Drawing.Size(77, 77);
-            this.pic33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic33.TabIndex = 49;
-            this.pic33.TabStop = false;
-            // 
-            // pic32
-            // 
-            this.pic32.Image = global::modernpos_pos.Properties.Resources.siph_8;
-            this.pic32.Location = new System.Drawing.Point(713, 159);
-            this.pic32.Name = "pic32";
-            this.pic32.Size = new System.Drawing.Size(77, 77);
-            this.pic32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic32.TabIndex = 48;
-            this.pic32.TabStop = false;
-            // 
-            // pic31
-            // 
-            this.pic31.Image = global::modernpos_pos.Properties.Resources.siph_7;
-            this.pic31.Location = new System.Drawing.Point(600, 159);
-            this.pic31.Name = "pic31";
-            this.pic31.Size = new System.Drawing.Size(77, 77);
-            this.pic31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic31.TabIndex = 47;
-            this.pic31.TabStop = false;
-            // 
-            // pic3Donate
-            // 
-            this.pic3Donate.Image = global::modernpos_pos.Properties.Resources.Navigate_left;
-            this.pic3Donate.Location = new System.Drawing.Point(8, 365);
-            this.pic3Donate.Name = "pic3Donate";
-            this.pic3Donate.Size = new System.Drawing.Size(451, 235);
-            this.pic3Donate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic3Donate.TabIndex = 50;
-            this.pic3Donate.TabStop = false;
-            // 
-            // c1PictureBox6
-            // 
-            this.c1PictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("c1PictureBox6.Image")));
-            this.c1PictureBox6.Location = new System.Drawing.Point(3, 3);
-            this.c1PictureBox6.Name = "c1PictureBox6";
-            this.c1PictureBox6.Size = new System.Drawing.Size(1367, 141);
-            this.c1PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.c1PictureBox6.TabIndex = 49;
-            this.c1PictureBox6.TabStop = false;
-            // 
-            // pic43
-            // 
-            this.pic43.Image = global::modernpos_pos.Properties.Resources.siph_9;
-            this.pic43.Location = new System.Drawing.Point(826, 159);
-            this.pic43.Name = "pic43";
-            this.pic43.Size = new System.Drawing.Size(77, 77);
-            this.pic43.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic43.TabIndex = 52;
-            this.pic43.TabStop = false;
-            // 
-            // pic42
-            // 
-            this.pic42.Image = global::modernpos_pos.Properties.Resources.siph_8;
-            this.pic42.Location = new System.Drawing.Point(713, 159);
-            this.pic42.Name = "pic42";
-            this.pic42.Size = new System.Drawing.Size(77, 77);
-            this.pic42.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic42.TabIndex = 51;
-            this.pic42.TabStop = false;
-            // 
-            // pic41
-            // 
-            this.pic41.Image = global::modernpos_pos.Properties.Resources.siph_7;
-            this.pic41.Location = new System.Drawing.Point(600, 159);
-            this.pic41.Name = "pic41";
-            this.pic41.Size = new System.Drawing.Size(77, 77);
-            this.pic41.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic41.TabIndex = 50;
-            this.pic41.TabStop = false;
-            // 
             // FrmDemoSiPH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1177,11 +1180,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDonate2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDonate1)).EndInit();
+            this.tab2.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDonate12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDonate11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic2Next)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic2Back)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox5)).EndInit();
             this.tab3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic2Next)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic2Back)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic3Donate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic3Next)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic3Back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMobile)).EndInit();
             this.panel5.ResumeLayout(false);
@@ -1206,6 +1224,12 @@
             this.tab4.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic43)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic42)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic41)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic4Next)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic4Back)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).EndInit();
             this.pnPID.ResumeLayout(false);
             this.pnPID.PerformLayout();
@@ -1219,28 +1243,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPttName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReadCard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic3Next)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic3Back)).EndInit();
-            this.tab2.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDonate12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDonate11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic23)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic33)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic32)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic3Donate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic43)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic42)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic41)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1285,15 +1288,15 @@
         private C1.Win.C1Input.C1PictureBox c1PictureBox1;
         private C1.Win.C1Input.C1PictureBox pic1Next;
         private C1.Win.C1Input.C1PictureBox pic1Back;
-        private C1.Win.C1Input.C1PictureBox pic2Next;
-        private C1.Win.C1Input.C1PictureBox pic2Back;
-        private C1.Win.C1SuperTooltip.C1SuperLabel lbDonate2;
-        private System.Windows.Forms.Panel panel7;
-        private C1.Win.C1Input.C1PictureBox c1PictureBox2;
-        private C1.Win.C1Input.C1PictureBox c1PictureBox3;
-        private System.Windows.Forms.Panel panel9;
         private C1.Win.C1Input.C1PictureBox pic3Next;
         private C1.Win.C1Input.C1PictureBox pic3Back;
+        private C1.Win.C1SuperTooltip.C1SuperLabel lbDonate2;
+        private System.Windows.Forms.Panel panel7;
+        private C1.Win.C1Input.C1PictureBox pic2Next;
+        private C1.Win.C1Input.C1PictureBox pic2Back;
+        private System.Windows.Forms.Panel panel9;
+        private C1.Win.C1Input.C1PictureBox pic4Next;
+        private C1.Win.C1Input.C1PictureBox pic4Back;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboPrinter;
         private C1.Win.C1Themes.C1ThemeController theme1;

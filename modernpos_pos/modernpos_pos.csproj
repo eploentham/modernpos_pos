@@ -1092,6 +1092,7 @@
     <Content Include="RDNIDlib.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\13626506_1225103370856389_7707136110852848894_n.jpg" />
     <None Include="Resources\img134.jpg" />
     <None Include="Resources\join_bg.jpg" />
     <None Include="Resources\donation-thailand-siriraj-ads01.png" />

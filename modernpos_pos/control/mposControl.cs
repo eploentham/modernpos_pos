@@ -60,6 +60,8 @@ namespace modernpos_pos.control
 
         public String _IPAddress = "",MACAddress="";
         public Boolean ftpUsePassive = false;
+
+        public Restaurant res;
         public mPOSControl()
         {
             initConfig();
@@ -84,6 +86,7 @@ namespace modernpos_pos.control
             cStf = new Staff();
             sStf = new Staff();
             cop = new Company();
+            res = new Restaurant();
 
             GetConfig();
             conn = new ConnectDB(iniC);
@@ -115,6 +118,7 @@ namespace modernpos_pos.control
         {
             mposDB.sexDB.getlSex();
             cop = mposDB.copDB.selectByCode1("001");
+            res = mposDB.resDB.selectByDefault();
             tableidToGo = mposDB.tblDB.selectIdByToGo();
             _IPAddress = GetLocalIPAddress();
             MACAddress = GetMACAddress();

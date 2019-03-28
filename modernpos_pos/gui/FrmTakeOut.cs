@@ -113,7 +113,7 @@ namespace modernpos_pos.gui
             btnSpec.Click += BtnSpec_Click;
             btnTopping.Click += BtnTopping_Click;
             btnVoidAll.Click += BtnVoidAll_Click;
-
+            MessageBox.Show("FrmTakeOut initConfig", "");
             initGrf();
             initTC();
             flagModi = false;
