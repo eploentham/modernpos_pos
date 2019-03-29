@@ -85,6 +85,25 @@ DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin
 COMMENT = 'id=111';
 
+CREATE TABLE `ivf_101`.`b_item_drug_frequency` (
+  `frequency_id` INT NOT NULL AUTO_INCREMENT,
+  `frequency_code` VARCHAR(45) NULL,
+  `frequency_description_e` VARCHAR(255) NULL,
+  `frequency_description_t` VARCHAR(255) NULL,
+  `actice` VARCHAR(45) NULL,
+  `remark` VARCHAR(45) NULL,
+  `date_create` VARCHAR(45) NULL,
+  `date_modi` VARCHAR(45) NULL,
+  `date_cancel` VARCHAR(45) NULL,
+  `user_create` VARCHAR(45) NULL,
+  `user_modi` VARCHAR(45) NULL,
+  `user_cancel` VARCHAR(45) NULL,
+  PRIMARY KEY (`frequency_id`))
+ENGINE = MyISAM
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin
+COMMENT = 'id=225';
+
 
 ALTER TABLE `modern_pos`.`b_foods_special` 
 ADD COLUMN `host_id` VARCHAR(45) NULL AFTER `user_cancel`,

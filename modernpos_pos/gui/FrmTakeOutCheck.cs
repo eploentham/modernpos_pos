@@ -653,6 +653,7 @@ namespace modernpos_pos.gui
                 //printername = ord.printer_name;
                 ord1 = ord;
                 PrintDocument document = new PrintDocument();
+                MessageBox.Show("ord1.printer_name "+ ord1.printer_name, "");
                 document.PrinterSettings.PrinterName = ord1.printer_name;
                 document.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
                 //This is where you set the printer in your case you could use "EPSON USB"

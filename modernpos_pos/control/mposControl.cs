@@ -92,7 +92,7 @@ namespace modernpos_pos.control
             conn = new ConnectDB(iniC);
             //MessageBox.Show("mPOSControl before ftpC", "");
             ftpC = new FtpClient(iniC.hostFTP, iniC.userFTP, iniC.passFTP, ftpUsePassive);
-
+            //MessageBox.Show("mPOSControl after ftpC", "");
             //ivfDB = new IvfDB(conn);
 
             cTxtFocus = ColorTranslator.FromHtml(iniC.txtFocus);
@@ -116,13 +116,19 @@ namespace modernpos_pos.control
         }
         public void getInit()
         {
+            //MessageBox.Show("mPOSControl getInit", "");
             mposDB.sexDB.getlSex();
+            //MessageBox.Show("mPOSControl getInit 1", "");
             cop = mposDB.copDB.selectByCode1("001");
+            //MessageBox.Show("mPOSControl getInit 2", "");
             res = mposDB.resDB.selectByDefault();
+            //MessageBox.Show("mPOSControl getInit 3", "");
             tableidToGo = mposDB.tblDB.selectIdByToGo();
+            //MessageBox.Show("mPOSControl getInit middle", "");
             _IPAddress = GetLocalIPAddress();
             MACAddress = GetMACAddress();
             conn._IPAddress = _IPAddress;
+            //MessageBox.Show("mPOSControl getInit end", "");
         }
         public void GetConfig()
         {

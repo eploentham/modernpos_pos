@@ -63,12 +63,15 @@ namespace modernpos_pos.gui
         Boolean flagModi = false;
         public FrmTakeOut(mPOSControl x)
         {
+            //MessageBox.Show("FrmTakeOut FrmTakeOut 0", "");
             InitializeComponent();
+            //MessageBox.Show("FrmTakeOut FrmTakeOut", "");
             mposC = x;
             initConfig();
         }
         private void initConfig()
         {
+            //MessageBox.Show("FrmTakeOut initConfig 1", "");
             fEdit = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize+5, FontStyle.Regular);
             fEditB = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Bold);
             fEdit1 = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 5, FontStyle.Regular+2);
@@ -84,7 +87,7 @@ namespace modernpos_pos.gui
             bg = txtTableCode.BackColor;
             fc = txtTableCode.ForeColor;
             ff = txtTableCode.Font;
-
+            //MessageBox.Show("FrmTakeOut initConfig 2", "");
             lfooT = new List<Foods>();
             lfooR = new List<Foods>();
             lOrd = new List<Order1>();
@@ -94,7 +97,7 @@ namespace modernpos_pos.gui
             lfooR = mposC.mposDB.fooDB.getlFoodsRecommend();
 
             btnVoid.Enabled = false;
-
+            //MessageBox.Show("FrmTakeOut initConfig 3", "");
             if (mposC.iniC.pnOrderborderstyle.Equals("0"))
             {
                 pnOrder.BorderStyle = BorderStyle.None;
@@ -113,7 +116,7 @@ namespace modernpos_pos.gui
             btnSpec.Click += BtnSpec_Click;
             btnTopping.Click += BtnTopping_Click;
             btnVoidAll.Click += BtnVoidAll_Click;
-            MessageBox.Show("FrmTakeOut initConfig", "");
+            //MessageBox.Show("FrmTakeOut initConfig", "");
             initGrf();
             initTC();
             flagModi = false;
@@ -546,6 +549,7 @@ namespace modernpos_pos.gui
                 ord1.foods_name = name;
                 ord1.remark = remark;
                 ord1.row1 = grf.Rows.Count.ToString();
+                ord1.printer_name = printer;
                 lOrd.Add(ord1);
                 UpdateTotals();
             }

@@ -21,13 +21,16 @@ namespace modernpos_pos.gui
             InitializeComponent();
             this.mposC = mposC;
             this.splash = splash;
-            
+            //MessageBox.Show("FrmMain before Thread", "");
             new Thread(() =>
             {
+                //MessageBox.Show("Thread start ", "");
                 Thread.CurrentThread.IsBackground = true;
                 /* run your code here */
                 mposC.mposDB = new objdb.mPosDB(mposC.conn);
+                //MessageBox.Show("Thread after mposC.mposDB ", "");
                 mposC.getInit();
+                //MessageBox.Show("Thread end", "");
             }).Start();
 
             //if (login.LogonSuccessful.Equals("1"))
@@ -98,7 +101,7 @@ namespace modernpos_pos.gui
             splash.Dispose();
             String date = "";
             date = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM-dd");
-            this.Text = " Update 2019-03-28 format date " + date;
+            this.Text = " Update 2019-03-29 format date " + date;
             txtHeader.Text = mposC.txtHeader;
         }
     }

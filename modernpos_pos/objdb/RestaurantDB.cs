@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace modernpos_pos.objdb
 {
@@ -91,7 +92,7 @@ namespace modernpos_pos.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where sex." + res.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setTable(dt);
+            cop1 = setRestaurant(dt);
             return cop1;
         }
         public Restaurant selectByDefault()
@@ -103,7 +104,8 @@ namespace modernpos_pos.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where sex." + res.default_res + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setTable(dt);
+            //MessageBox.Show("selectByDefault ", "");
+            cop1 = setRestaurant(dt);
             return cop1;
         }
         private Restaurant setArea1(DataTable dt)
@@ -351,11 +353,12 @@ namespace modernpos_pos.objdb
             }
             return c;
         }
-        private Restaurant setTable(DataTable dt)
+        private Restaurant setRestaurant(DataTable dt)
         {
             Restaurant dept1 = new Restaurant();
             if (dt.Rows.Count > 0)
             {
+                //MessageBox.Show("setRestaurant ", "");
                 dept1.default_res = dt.Rows[0][res.default_res].ToString();
                 dept1.res_code = dt.Rows[0][res.res_code].ToString();
                 dept1.res_name = dt.Rows[0][res.res_name].ToString();
@@ -373,6 +376,7 @@ namespace modernpos_pos.objdb
                 dept1.receipt_footer1 = dt.Rows[0][res.receipt_footer1] != null ? dt.Rows[0][res.receipt_footer1].ToString() : "";
                 dept1.receipt_header2 = dt.Rows[0][res.receipt_header2] != null ? dt.Rows[0][res.receipt_header2].ToString() : "";
                 dept1.receipt_header1 = dt.Rows[0][res.receipt_header1] != null ? dt.Rows[0][res.receipt_header1].ToString() : "";
+                //MessageBox.Show("setRestaurant 22", "");
                 dept1.receipt_header2 = dt.Rows[0][res.receipt_header2] != null ? dt.Rows[0][res.receipt_header2].ToString() : "";
                 dept1.bill_code = dt.Rows[0][res.bill_code] != null ? dt.Rows[0][res.bill_code].ToString() : "";
                 dept1.bill_month = dt.Rows[0][res.bill_month] != null ? dt.Rows[0][res.bill_month].ToString() : "";
@@ -383,9 +387,11 @@ namespace modernpos_pos.objdb
                 dept1.printer_waterbar1 = dt.Rows[0][res.printer_waterbar1] != null ? dt.Rows[0][res.printer_waterbar1].ToString() : "";
                 dept1.printer_waterbar2 = dt.Rows[0][res.printer_waterbar2] != null ? dt.Rows[0][res.printer_waterbar2].ToString() : "";
                 dept1.printer_waterbar3 = dt.Rows[0][res.printer_waterbar3] != null ? dt.Rows[0][res.printer_waterbar3].ToString() : "";
+                //MessageBox.Show("setRestaurant 4444", "");
                 dept1.receipt_header3 = dt.Rows[0][res.receipt_header3] != null ? dt.Rows[0][res.receipt_header3].ToString() : "";
                 dept1.receipt_footer3 = dt.Rows[0][res.receipt_footer3] != null ? dt.Rows[0][res.receipt_footer3].ToString() : "";
                 dept1.cop_id = dt.Rows[0][res.cop_id] != null ? dt.Rows[0][res.cop_id].ToString() : "";
+                //MessageBox.Show("setRestaurant 33", "");
             }
             else
             {
@@ -419,7 +425,7 @@ namespace modernpos_pos.objdb
                 dept1.receipt_footer3 = "";
                 dept1.cop_id = "";
             }
-
+            //MessageBox.Show("setRestaurant End", "");
             return dept1;
         }
     }

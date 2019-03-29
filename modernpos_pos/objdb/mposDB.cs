@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace modernpos_pos.objdb
 {
@@ -51,6 +52,7 @@ namespace modernpos_pos.objdb
             resDB = new RestaurantDB(conn);
             foocDB = new FoodsCatDB(conn);
             footDB = new FoodsTypeDB(conn);
+            //MessageBox.Show("mPosDB middle ", "");
             fooDB = new FoodsDB(conn);
             fcbDB = new FoodsCatSubDB(conn);
             foorDB = new FoodsRecommendDB(conn);
@@ -60,7 +62,7 @@ namespace modernpos_pos.objdb
             seqDB = new sequenceDB(conn);
             foosDB = new FoodsSpecialDB(conn);
             footpDB = new FoodsToppingDB(conn);
-
+            //MessageBox.Show("mPosDB end ", "");
             Console.WriteLine("mPosDB end");
         }
     }
