@@ -40,5 +40,11 @@ namespace modernpos_pos.object1
         public String receipt_header3 { get; set; }
         public String receipt_footer3 { get; set; }
         public String cop_id { get; set; }
+        public String printer_bill_margin_top { get; set; }
+        public String printer_bill_margin_left { get; set; }
+        public String printer_bill_margin_right { get; set; }
+        public String printer_bill_print_top { get; set; }
+        public String printer_bill_print_left { get; set; }
+        public String printer_bill_print_right { get; set; }
     }
 }

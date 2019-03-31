@@ -37,5 +37,7 @@ namespace modernpos_pos.object1
         public String status_closeday { get; set; }
         public String closeday_id { get; set; }
         public String cnt_cust { get; set; }
+        public String special { get; set; }
+        public String topping { get; set; }
     }
 }

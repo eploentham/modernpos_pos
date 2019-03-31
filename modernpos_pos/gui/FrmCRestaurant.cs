@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using modernpos_pos.control;
 using modernpos_pos.object1;
 using modernpos_pos.Properties;
+using System.Drawing.Printing;
 
 namespace modernpos_pos.gui
 {
@@ -61,6 +62,8 @@ namespace modernpos_pos.gui
             fc = txtResCode.ForeColor;
             ff = txtResCode.Font;
             txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
+            btnPrnTest.Click += BtnPrnTest_Click;
+            btnSavePrn.Click += BtnSavePrn_Click;
             //mposC.mposDB.areaDB.setCboArea(cboArea);
 
             initGrfRestaurant();
@@ -74,7 +77,85 @@ namespace modernpos_pos.gui
             sep = new C1SuperErrorProvider();
             //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
-        
+
+        private void BtnSavePrn_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            long chk = 0;
+            String re = mposC.mposDB.resDB.updatePrinterBill(txtTopPrn.Text, txtLeftPrn.Text, txtRightPrn.Text, txtPrnTop.Text, txtPrnLeft.Text, txtPrnRight.Text);
+            if(long.TryParse(re, out chk))
+            {
+                if (chk == 1)
+                {
+                    MessageBox.Show("บันทึกข้อมุลเรียบร้อย ", "");
+                    mposC.res = mposC.mposDB.resDB.selectByDefault();
+                }
+            }
+        }
+
+        private void BtnPrnTest_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            printTest();
+        }
+        private void printTest()
+        {
+            PrintDocument document = new PrintDocument();
+            document.PrinterSettings.PrinterName = mposC.iniC.printerBill;
+            document.PrintPage += new PrintPageEventHandler(printBill_PrintPage);
+            //This is where you set the printer in your case you could use "EPSON USB"
+            //or whatever it is called on your machine, by Default it will choose the default printer
+
+            //document.PrinterSettings.PrinterName = ord1.printer_name;
+            document.Print();
+        }
+        private void printBill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            float leftMargin = e.MarginBounds.Left;
+            float topMargin = e.MarginBounds.Top;
+            float marginR = e.MarginBounds.Right;
+
+            //topMargin = 5;
+            float.TryParse(txtLeftPrn.Text, out leftMargin);
+            float.TryParse(txtTopPrn.Text, out topMargin);
+            float.TryParse(txtRightPrn.Text, out marginR);
+            //marginR = 80;
+            float avg = marginR / 2;
+
+            Graphics g = e.Graphics;
+            SolidBrush Brush = new SolidBrush(Color.Black);
+            String date = "";
+            date = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
+            String amt = "";
+            Decimal amt1 = 0;
+            float yPos = topMargin, gap = 6;
+            int count = 0;
+            string line = null;
+            
+            Pen blackPen = new Pen(Color.Black, 1);
+
+            int newWidth = 100;
+            Size proposedSize = new Size(100, 100);
+            StringFormat flags = new StringFormat(StringFormatFlags.LineLimit);  //wraps
+            Size textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            Int32 xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            Int32 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+
+            if (chkPrnText.Checked)
+            {
+                yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+                line = mposC.res.res_name;
+                textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+                xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+                yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+                                                                    //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());
+                e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+            }
+            else
+            {
+                e.Graphics.DrawLine(blackPen, leftMargin, yPos, marginR, yPos);
+            }
+        }
         private void initGrfRestaurant()
         {
             grfRes = new C1FlexGrid();

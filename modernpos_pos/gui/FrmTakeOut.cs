@@ -183,10 +183,15 @@ namespace modernpos_pos.gui
                 {
                     if (topping.Equals(""))
                     {
+                        Order1 ord = lOrd[row - 1];
+                        ord.special = mposC.fooSpec;
                         grf[row, colFooName] = mposC.fooName + " + " + mposC.fooSpec;
                     }
                     else
                     {
+                        Order1 ord = lOrd[row - 1];
+                        ord.special = mposC.fooSpec;
+                        ord.topping = mposC.fooTopping;
                         grf[row, colFooName] = mposC.fooName + " + " + mposC.fooSpec + " + " + topping;
                     }
                 }                

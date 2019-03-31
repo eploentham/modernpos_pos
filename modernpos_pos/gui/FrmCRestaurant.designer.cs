@@ -33,9 +33,11 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnImg = new C1.Win.C1Input.C1Button();
             this.txtTaxId = new C1.Win.C1Input.C1TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.picBill = new C1.Win.C1Input.C1PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtBillFooter3 = new C1.Win.C1Input.C1TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -69,8 +71,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.picBill = new C1.Win.C1Input.C1PictureBox();
-            this.btnImg = new C1.Win.C1Input.C1Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtLeftPrn = new C1.Win.C1Input.C1TextBox();
+            this.txtRightPrn = new C1.Win.C1Input.C1TextBox();
+            this.btnPrnTest = new C1.Win.C1Input.C1Button();
+            this.btnPrnLogoTest = new C1.Win.C1Input.C1Button();
+            this.txtPrnText = new C1.Win.C1Input.C1TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.chkPrnText = new C1.Win.C1Input.C1CheckBox();
+            this.txtTopPrn = new C1.Win.C1Input.C1TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnSavePrn = new C1.Win.C1Input.C1Button();
+            this.txtPrnTop = new C1.Win.C1Input.C1TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtPrnRight = new C1.Win.C1Input.C1TextBox();
+            this.txtPrnLeft = new C1.Win.C1Input.C1TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -78,8 +96,10 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaxId)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBill)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter2)).BeginInit();
@@ -102,8 +122,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtResCode)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBill)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLeftPrn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRightPrn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrnTest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrnLogoTest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrnText)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPrnText)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTopPrn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSavePrn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrnTop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrnRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrnLeft)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -162,6 +191,24 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel3.Controls.Add(this.txtPrnTop);
+            this.panel3.Controls.Add(this.label16);
+            this.panel3.Controls.Add(this.txtPrnRight);
+            this.panel3.Controls.Add(this.txtPrnLeft);
+            this.panel3.Controls.Add(this.label17);
+            this.panel3.Controls.Add(this.label18);
+            this.panel3.Controls.Add(this.btnSavePrn);
+            this.panel3.Controls.Add(this.txtTopPrn);
+            this.panel3.Controls.Add(this.label15);
+            this.panel3.Controls.Add(this.chkPrnText);
+            this.panel3.Controls.Add(this.txtPrnText);
+            this.panel3.Controls.Add(this.label14);
+            this.panel3.Controls.Add(this.btnPrnLogoTest);
+            this.panel3.Controls.Add(this.btnPrnTest);
+            this.panel3.Controls.Add(this.txtRightPrn);
+            this.panel3.Controls.Add(this.txtLeftPrn);
+            this.panel3.Controls.Add(this.label13);
+            this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.btnImg);
             this.panel3.Controls.Add(this.txtTaxId);
             this.panel3.Controls.Add(this.label11);
@@ -190,6 +237,20 @@
             this.panel3.Size = new System.Drawing.Size(564, 643);
             this.panel3.TabIndex = 0;
             this.theme1.SetTheme(this.panel3, "(default)");
+            // 
+            // btnImg
+            // 
+            this.btnImg.Image = global::modernpos_pos.Properties.Resources.refresh24;
+            this.btnImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImg.Location = new System.Drawing.Point(426, 160);
+            this.btnImg.Name = "btnImg";
+            this.btnImg.Size = new System.Drawing.Size(83, 39);
+            this.btnImg.TabIndex = 273;
+            this.btnImg.Text = "upload รูป";
+            this.btnImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnImg, "(default)");
+            this.btnImg.UseVisualStyleBackColor = true;
+            this.btnImg.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtTaxId
             // 
@@ -231,6 +292,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bill";
             this.theme1.SetTheme(this.groupBox1, "(default)");
+            // 
+            // picBill
+            // 
+            this.picBill.Location = new System.Drawing.Point(24, 231);
+            this.picBill.Name = "picBill";
+            this.picBill.Size = new System.Drawing.Size(148, 147);
+            this.picBill.TabIndex = 6;
+            this.picBill.TabStop = false;
             // 
             // groupBox3
             // 
@@ -547,7 +616,7 @@
             // 
             this.btnVoid.Image = global::modernpos_pos.Properties.Resources.trash24;
             this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoid.Location = new System.Drawing.Point(426, 388);
+            this.btnVoid.Location = new System.Drawing.Point(426, 281);
             this.btnVoid.Name = "btnVoid";
             this.btnVoid.Size = new System.Drawing.Size(83, 39);
             this.btnVoid.TabIndex = 243;
@@ -577,7 +646,7 @@
             // 
             this.btnSave.Image = global::modernpos_pos.Properties.Resources.accept_database24;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(426, 312);
+            this.btnSave.Location = new System.Drawing.Point(426, 205);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(83, 39);
             this.btnSave.TabIndex = 241;
@@ -696,27 +765,247 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // picBill
+            // label12
             // 
-            this.picBill.Location = new System.Drawing.Point(24, 231);
-            this.picBill.Name = "picBill";
-            this.picBill.Size = new System.Drawing.Size(148, 147);
-            this.picBill.TabIndex = 6;
-            this.picBill.TabStop = false;
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label12.Location = new System.Drawing.Point(423, 394);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(35, 16);
+            this.label12.TabIndex = 274;
+            this.label12.Text = "Left :";
+            this.theme1.SetTheme(this.label12, "(default)");
             // 
-            // btnImg
+            // label13
             // 
-            this.btnImg.Image = global::modernpos_pos.Properties.Resources.refresh24;
-            this.btnImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImg.Location = new System.Drawing.Point(426, 267);
-            this.btnImg.Name = "btnImg";
-            this.btnImg.Size = new System.Drawing.Size(83, 39);
-            this.btnImg.TabIndex = 273;
-            this.btnImg.Text = "upload รูป";
-            this.btnImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnImg, "(default)");
-            this.btnImg.UseVisualStyleBackColor = true;
-            this.btnImg.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label13.Location = new System.Drawing.Point(423, 422);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(45, 16);
+            this.label13.TabIndex = 275;
+            this.label13.Text = "Right :";
+            this.theme1.SetTheme(this.label13, "(default)");
+            // 
+            // txtLeftPrn
+            // 
+            this.txtLeftPrn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLeftPrn.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtLeftPrn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtLeftPrn.Location = new System.Drawing.Point(478, 392);
+            this.txtLeftPrn.Name = "txtLeftPrn";
+            this.txtLeftPrn.Size = new System.Drawing.Size(47, 20);
+            this.txtLeftPrn.TabIndex = 276;
+            this.txtLeftPrn.Tag = null;
+            this.theme1.SetTheme(this.txtLeftPrn, "(default)");
+            this.txtLeftPrn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtRightPrn
+            // 
+            this.txtRightPrn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRightPrn.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtRightPrn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtRightPrn.Location = new System.Drawing.Point(478, 418);
+            this.txtRightPrn.Name = "txtRightPrn";
+            this.txtRightPrn.Size = new System.Drawing.Size(47, 20);
+            this.txtRightPrn.TabIndex = 277;
+            this.txtRightPrn.Tag = null;
+            this.theme1.SetTheme(this.txtRightPrn, "(default)");
+            this.txtRightPrn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnPrnTest
+            // 
+            this.btnPrnTest.Image = global::modernpos_pos.Properties.Resources.printer_orange16;
+            this.btnPrnTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrnTest.Location = new System.Drawing.Point(426, 548);
+            this.btnPrnTest.Name = "btnPrnTest";
+            this.btnPrnTest.Size = new System.Drawing.Size(59, 39);
+            this.btnPrnTest.TabIndex = 278;
+            this.btnPrnTest.Text = "Print";
+            this.btnPrnTest.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnPrnTest, "(default)");
+            this.btnPrnTest.UseVisualStyleBackColor = true;
+            this.btnPrnTest.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnPrnLogoTest
+            // 
+            this.btnPrnLogoTest.Image = global::modernpos_pos.Properties.Resources.printer_orange16;
+            this.btnPrnLogoTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrnLogoTest.Location = new System.Drawing.Point(426, 591);
+            this.btnPrnLogoTest.Name = "btnPrnLogoTest";
+            this.btnPrnLogoTest.Size = new System.Drawing.Size(59, 39);
+            this.btnPrnLogoTest.TabIndex = 279;
+            this.btnPrnLogoTest.Text = "Print Logo";
+            this.btnPrnLogoTest.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnPrnLogoTest, "(default)");
+            this.btnPrnLogoTest.UseVisualStyleBackColor = true;
+            this.btnPrnLogoTest.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtPrnText
+            // 
+            this.txtPrnText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrnText.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPrnText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPrnText.Location = new System.Drawing.Point(478, 444);
+            this.txtPrnText.Name = "txtPrnText";
+            this.txtPrnText.Size = new System.Drawing.Size(47, 20);
+            this.txtPrnText.TabIndex = 281;
+            this.txtPrnText.Tag = null;
+            this.theme1.SetTheme(this.txtPrnText, "(default)");
+            this.txtPrnText.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label14.Location = new System.Drawing.Point(423, 446);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 16);
+            this.label14.TabIndex = 280;
+            this.label14.Text = "Text :";
+            this.theme1.SetTheme(this.label14, "(default)");
+            // 
+            // chkPrnText
+            // 
+            this.chkPrnText.BackColor = System.Drawing.Color.Transparent;
+            this.chkPrnText.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkPrnText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkPrnText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkPrnText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkPrnText.Location = new System.Drawing.Point(426, 337);
+            this.chkPrnText.Name = "chkPrnText";
+            this.chkPrnText.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkPrnText.Size = new System.Drawing.Size(83, 24);
+            this.chkPrnText.TabIndex = 282;
+            this.chkPrnText.Text = "Print Text";
+            this.theme1.SetTheme(this.chkPrnText, "(default)");
+            this.chkPrnText.UseVisualStyleBackColor = true;
+            this.chkPrnText.Value = null;
+            this.chkPrnText.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtTopPrn
+            // 
+            this.txtTopPrn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTopPrn.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtTopPrn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtTopPrn.Location = new System.Drawing.Point(478, 367);
+            this.txtTopPrn.Name = "txtTopPrn";
+            this.txtTopPrn.Size = new System.Drawing.Size(47, 20);
+            this.txtTopPrn.TabIndex = 284;
+            this.txtTopPrn.Tag = null;
+            this.theme1.SetTheme(this.txtTopPrn, "(default)");
+            this.txtTopPrn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label15.Location = new System.Drawing.Point(423, 369);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(39, 16);
+            this.label15.TabIndex = 283;
+            this.label15.Text = "Top :";
+            this.theme1.SetTheme(this.label15, "(default)");
+            // 
+            // btnSavePrn
+            // 
+            this.btnSavePrn.Image = global::modernpos_pos.Properties.Resources.accept_database16;
+            this.btnSavePrn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSavePrn.Location = new System.Drawing.Point(491, 591);
+            this.btnSavePrn.Name = "btnSavePrn";
+            this.btnSavePrn.Size = new System.Drawing.Size(59, 39);
+            this.btnSavePrn.TabIndex = 285;
+            this.btnSavePrn.Text = "Save Print";
+            this.btnSavePrn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnSavePrn, "(default)");
+            this.btnSavePrn.UseVisualStyleBackColor = true;
+            this.btnSavePrn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtPrnTop
+            // 
+            this.txtPrnTop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrnTop.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPrnTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPrnTop.Location = new System.Drawing.Point(507, 470);
+            this.txtPrnTop.Name = "txtPrnTop";
+            this.txtPrnTop.Size = new System.Drawing.Size(47, 20);
+            this.txtPrnTop.TabIndex = 291;
+            this.txtPrnTop.Tag = null;
+            this.theme1.SetTheme(this.txtPrnTop, "(default)");
+            this.txtPrnTop.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label16.Location = new System.Drawing.Point(423, 472);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(68, 16);
+            this.label16.TabIndex = 290;
+            this.label16.Text = "Print Top :";
+            this.theme1.SetTheme(this.label16, "(default)");
+            // 
+            // txtPrnRight
+            // 
+            this.txtPrnRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrnRight.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPrnRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPrnRight.Location = new System.Drawing.Point(507, 521);
+            this.txtPrnRight.Name = "txtPrnRight";
+            this.txtPrnRight.Size = new System.Drawing.Size(47, 20);
+            this.txtPrnRight.TabIndex = 289;
+            this.txtPrnRight.Tag = null;
+            this.theme1.SetTheme(this.txtPrnRight, "(default)");
+            this.txtPrnRight.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtPrnLeft
+            // 
+            this.txtPrnLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrnLeft.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPrnLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPrnLeft.Location = new System.Drawing.Point(507, 495);
+            this.txtPrnLeft.Name = "txtPrnLeft";
+            this.txtPrnLeft.Size = new System.Drawing.Size(47, 20);
+            this.txtPrnLeft.TabIndex = 288;
+            this.txtPrnLeft.Tag = null;
+            this.theme1.SetTheme(this.txtPrnLeft, "(default)");
+            this.txtPrnLeft.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label17.Location = new System.Drawing.Point(423, 525);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(74, 16);
+            this.label17.TabIndex = 287;
+            this.label17.Text = "Print Right :";
+            this.theme1.SetTheme(this.label17, "(default)");
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label18.Location = new System.Drawing.Point(423, 497);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(64, 16);
+            this.label18.TabIndex = 286;
+            this.label18.Text = "Print Left :";
+            this.theme1.SetTheme(this.label18, "(default)");
             // 
             // FrmCRestaurant
             // 
@@ -737,8 +1026,10 @@
             this.splitContainer1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaxId)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBill)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBillFooter3)).EndInit();
@@ -764,8 +1055,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtResCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBill)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLeftPrn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRightPrn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrnTest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrnLogoTest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrnText)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPrnText)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTopPrn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSavePrn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrnTop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrnRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrnLeft)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -816,5 +1116,23 @@
         private System.Windows.Forms.Label label11;
         private C1.Win.C1Input.C1PictureBox picBill;
         private C1.Win.C1Input.C1Button btnImg;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private C1.Win.C1Input.C1TextBox txtRightPrn;
+        private C1.Win.C1Input.C1TextBox txtLeftPrn;
+        private C1.Win.C1Input.C1Button btnPrnTest;
+        private C1.Win.C1Input.C1Button btnPrnLogoTest;
+        private C1.Win.C1Input.C1TextBox txtPrnText;
+        private System.Windows.Forms.Label label14;
+        private C1.Win.C1Input.C1CheckBox chkPrnText;
+        private C1.Win.C1Input.C1TextBox txtTopPrn;
+        private System.Windows.Forms.Label label15;
+        private C1.Win.C1Input.C1Button btnSavePrn;
+        private C1.Win.C1Input.C1TextBox txtPrnTop;
+        private System.Windows.Forms.Label label16;
+        private C1.Win.C1Input.C1TextBox txtPrnRight;
+        private C1.Win.C1Input.C1TextBox txtPrnLeft;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
     }
 }

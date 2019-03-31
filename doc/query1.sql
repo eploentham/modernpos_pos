@@ -121,6 +121,16 @@ ADD COLUMN `receipt_header5` VARCHAR(255) NULL AFTER `receipt_header4`,
 ADD COLUMN `receipt_footer4` VARCHAR(255) NULL AFTER `receipt_header5`,
 ADD COLUMN `receipt_footer5` VARCHAR(255) NULL AFTER `receipt_footer4`;
 
+ALTER TABLE `modern_pos`.`b_restaurant` 
+ADD COLUMN `printer_bill_margin_top` INT NULL AFTER `receipt_footer3`,
+ADD COLUMN `printer_bill_margin_left` INT NULL AFTER `printer_bill_margin_top`,
+ADD COLUMN `printer_bill_margin_right` INT NULL AFTER `printer_bill_margin_left`,
+ADD COLUMN `printer_bill_print_top` INT NULL AFTER `printer_bill_margin_right`,
+ADD COLUMN `printer_bill_print_left` INT NULL AFTER `printer_bill_print_top`,
+ADD COLUMN `printer_bill_print_right` INT NULL AFTER `printer_bill_print_left`;
+
+
+
 
 
 

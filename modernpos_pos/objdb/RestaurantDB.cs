@@ -58,7 +58,12 @@ namespace modernpos_pos.objdb
             res.printer_waterbar2 = "printer_waterbar2";
             res.printer_waterbar3 = "printer_waterbar3";
             res.cop_id = "cop_id";
-
+            res.printer_bill_margin_top = "printer_bill_margin_top";
+            res.printer_bill_margin_left = "printer_bill_margin_left";
+            res.printer_bill_margin_right = "printer_bill_margin_right";
+            res.printer_bill_print_top = "printer_bill_print_top";
+            res.printer_bill_print_left = "printer_bill_print_left";
+            res.printer_bill_print_right = "printer_bill_print_right";
             res.pkField = "res_id";
             res.table = "b_restaurant";
         }
@@ -163,6 +168,7 @@ namespace modernpos_pos.objdb
         {
             long chk = 0;
 
+
             p.date_modi = p.date_modi == null ? "" : p.date_modi;
             p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
             p.user_create = p.user_create == null ? "" : p.user_create;
@@ -193,6 +199,13 @@ namespace modernpos_pos.objdb
             p.branch_id = long.TryParse(p.branch_id, out chk) ? chk.ToString() : "0";
             p.device_id = long.TryParse(p.device_id, out chk) ? chk.ToString() : "0";
             p.cop_id = long.TryParse(p.cop_id, out chk) ? chk.ToString() : "0";
+
+            p.printer_bill_margin_top = long.TryParse(p.printer_bill_margin_top, out chk) ? chk.ToString() : "0";
+            p.printer_bill_margin_left = long.TryParse(p.printer_bill_margin_left, out chk) ? chk.ToString() : "0";
+            p.printer_bill_margin_right = long.TryParse(p.printer_bill_margin_right, out chk) ? chk.ToString() : "0";
+            p.printer_bill_print_top = long.TryParse(p.printer_bill_print_top, out chk) ? chk.ToString() : "0";
+            p.printer_bill_print_left = long.TryParse(p.printer_bill_print_left, out chk) ? chk.ToString() : "0";
+            p.printer_bill_print_right = long.TryParse(p.printer_bill_print_right, out chk) ? chk.ToString() : "0";
         }
         public String insert(Restaurant p, String userId)
         {
@@ -304,6 +317,38 @@ namespace modernpos_pos.objdb
 
             return re;
         }
+        public String updatePrinterBill(String mtop, String mleft, String mright, String top, String left, String right)
+        {
+            String re = "";
+            String sql = "";
+            long chk = 0, mtop1=0, mleft1=0,mright1=0, top1 = 0, left1 = 0, right1 = 0;
+
+            long.TryParse(mtop, out mtop1);
+            long.TryParse(mleft, out chk);
+            long.TryParse(mright, out mright1);
+            long.TryParse(top, out top1);
+            long.TryParse(left, out left1);
+            long.TryParse(right, out right1);
+            //chkNull(p);
+
+            sql = "Update " + res.table + " Set " +
+                " " + res.printer_bill_margin_top + " = '" + mtop1 + "'" +
+                "," + res.printer_bill_margin_left + " = '" + mleft1 + "'" +
+                "," + res.printer_bill_margin_right + " = '" + mright1 + "'" +               
+                "," + res.printer_bill_print_top + " = '" + top1 + "' " +
+                "," + res.printer_bill_print_left + " = '" + left1 + "' " +
+                "," + res.printer_bill_print_right + " = '" + right1 + "' " +
+                "Where " + res.res_code + "='001'";
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+            return re;
+        }
         public C1ComboBox setCboRestaurant(C1ComboBox c)
         {
             ComboBoxItem item = new ComboBoxItem();
@@ -390,7 +435,14 @@ namespace modernpos_pos.objdb
                 //MessageBox.Show("setRestaurant 4444", "");
                 dept1.receipt_header3 = dt.Rows[0][res.receipt_header3] != null ? dt.Rows[0][res.receipt_header3].ToString() : "";
                 dept1.receipt_footer3 = dt.Rows[0][res.receipt_footer3] != null ? dt.Rows[0][res.receipt_footer3].ToString() : "";
+                dept1.receipt_footer2 = dt.Rows[0][res.receipt_footer2] != null ? dt.Rows[0][res.receipt_footer2].ToString() : "";
                 dept1.cop_id = dt.Rows[0][res.cop_id] != null ? dt.Rows[0][res.cop_id].ToString() : "";
+                dept1.printer_bill_margin_top = dt.Rows[0][res.printer_bill_margin_top] != null ? dt.Rows[0][res.printer_bill_margin_top].ToString() : "";
+                dept1.printer_bill_margin_left = dt.Rows[0][res.printer_bill_margin_left] != null ? dt.Rows[0][res.printer_bill_margin_left].ToString() : "";
+                dept1.printer_bill_margin_right = dt.Rows[0][res.printer_bill_margin_right] != null ? dt.Rows[0][res.printer_bill_margin_right].ToString() : "";
+                dept1.printer_bill_print_top = dt.Rows[0][res.printer_bill_print_top] != null ? dt.Rows[0][res.printer_bill_print_top].ToString() : "";
+                dept1.printer_bill_print_left = dt.Rows[0][res.printer_bill_print_left] != null ? dt.Rows[0][res.printer_bill_print_left].ToString() : "";
+                dept1.printer_bill_print_right = dt.Rows[0][res.printer_bill_print_right] != null ? dt.Rows[0][res.printer_bill_print_right].ToString() : "";
                 //MessageBox.Show("setRestaurant 33", "");
             }
             else
@@ -424,6 +476,13 @@ namespace modernpos_pos.objdb
                 dept1.receipt_header3 = "";
                 dept1.receipt_footer3 = "";
                 dept1.cop_id = "";
+                dept1.printer_bill_margin_top = "";
+                dept1.printer_bill_margin_left = "";                
+                dept1.printer_bill_margin_right = "";
+                dept1.printer_bill_print_top = "";
+                dept1.printer_bill_print_left = "";
+                dept1.printer_bill_print_right = "";
+                dept1.receipt_footer2 = "";
             }
             //MessageBox.Show("setRestaurant End", "");
             return dept1;
