@@ -474,7 +474,7 @@ namespace modernpos_pos.gui
             }
             Pen blackPen = new Pen(Color.Black, 1);
             Image resizedImage;
-            int originalWidth = Resources.logo1.Width;
+            int originalWidth = Resources.logo2.Width;
             int newWidth = 100;
             Size proposedSize = new Size(100, 100);
             StringFormat flags = new StringFormat(StringFormatFlags.LineLimit);  //wraps
@@ -482,7 +482,7 @@ namespace modernpos_pos.gui
             Int32 xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             Int32 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
 
-            resizedImage = Resources.logo1.GetThumbnailImage(newWidth, (newWidth * Resources.logo1.Height) / originalWidth, null, IntPtr.Zero);
+            resizedImage = Resources.logo2.GetThumbnailImage(newWidth, (newWidth * Resources.logo2.Height) / originalWidth, null, IntPtr.Zero);
 
             //e.Graphics.DrawImage(Resources.siph2, avg - (Resources.siph2.Width / 2), topMargin);
             e.Graphics.DrawImage(resizedImage, avg - (resizedImage.Width / 2), topMargin);

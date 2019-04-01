@@ -608,8 +608,6 @@ namespace modernpos_pos.gui
                 //    _downloadQueue.Enqueue(new DownloadItem(photo.ThumbnailUri, tile, false));
                 //if (!string.IsNullOrEmpty(photo.AuthorBuddyIconUri))
                 //    _downloadQueue.Enqueue(new DownloadItem(photo.AuthorBuddyIconUri, tile, true));
-
-
                 
             }
 
