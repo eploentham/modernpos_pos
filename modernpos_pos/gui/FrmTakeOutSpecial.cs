@@ -62,7 +62,11 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             mposC.fooName = lbFooName.Text.Trim();
             mposC.fooSpec = fooSpec.Trim();
-            mposC.fooName = mposC.fooName.Replace(fooSpec.Trim(), "").Replace("+", "").Trim();
+            if (!fooSpec.Equals(""))
+            {
+                mposC.fooName = mposC.fooName.Replace(fooSpec.Trim(), "").Replace("+", "").Trim();
+            }
+            
             Close();
         }
 

@@ -185,7 +185,10 @@ namespace modernpos_pos.gui
                     {
                         Order1 ord = lOrd[row - 1];
                         ord.special = mposC.fooSpec;
-                        grf[row, colFooName] = mposC.fooName + " + " + mposC.fooSpec;
+                        if (!mposC.fooSpec.Equals(""))
+                        {
+                            grf[row, colFooName] = mposC.fooName + " + " + mposC.fooSpec;
+                        }
                     }
                     else
                     {
