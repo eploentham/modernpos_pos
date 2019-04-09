@@ -411,14 +411,14 @@ namespace modernpos_pos.objdb
             Company cop1 = new Company();
             cop1 = selectByCode1("001");
             year = DateTime.Now.ToString("yyyy");
-            if (!year.Equals(cop1.year_curr))
+            if (!cop1.year.Equals(cop1.year_curr))
             {
                 sql = "Update " + cop.table + " Set " +
                     " " + cop.year_curr + "='" + year + "' " +
                     "," + cop.receipt_doc + "=1 " +
                     "Where " + cop.pkField + "='" + cop1.comp_id + "'";
                 conn.ExecuteNonQuery(conn.conn, sql);
-                doc = "00001";
+                doc = "000001";
             }
             else
             {
@@ -426,8 +426,8 @@ namespace modernpos_pos.objdb
                 if (int.TryParse(cop1.receipt_doc, out chk))
                 {
                     chk++;
-                    doc = "00000" + chk;
-                    doc = doc.Substring(doc.Length - 5, 5);
+                    doc = "000000" + chk;
+                    doc = doc.Substring(doc.Length - 6, 6);
                     year = cop1.year_curr;
 
                     sql = "Update " + cop.table + " Set " +
