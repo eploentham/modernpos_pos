@@ -404,8 +404,29 @@ namespace modernpos_pos.gui
                 foreach(Order1 ord in lOrd)
                 {
                     Row row = grf.Rows.Add();
-                    row[colFooName] = ord.foods_name;
-                    row[colPrice] = ord.price;
+                    if (ord.topping.Equals(""))
+                    {
+                        if (!ord.special.Equals(""))
+                        {
+                            row[colFooName] = ord.foods_name + " + " + ord.special;
+                        }
+                        else
+                        {
+                            row[colFooName] = ord.foods_name;
+                        }
+                    }
+                    else
+                    {
+                        if (!ord.special.Equals(""))
+                        {
+                            row[colFooName] = ord.foods_name + " + " + ord.topping + " + " + ord.special;
+                        }
+                        else
+                        {
+                            row[colFooName] = ord.foods_name + " + " + ord.topping;
+                        }
+                    }
+                    row[colPrice] = ord.sumPrice;
                     row[colFooId] = ord.foods_id;
                     row[colRemark] = ord.remark;
                     row[colNo] = grf.Rows.Count - 1;

@@ -39,5 +39,7 @@ namespace modernpos_pos.object1
         public String cnt_cust { get; set; }
         public String special { get; set; }
         public String topping { get; set; }
+        public String toppingPrice { get; set; }
+        public String sumPrice { get; set; }
     }
 }

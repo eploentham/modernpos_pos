@@ -48,7 +48,7 @@ namespace modernpos_pos.gui
             foo = mposC.mposDB.fooDB.selectByPk1(fooid);
             lbFooName.Text = "";
             lbFooName.Text = foo.foods_name;
-            lbPrice.Text = "";
+            lbPrice.Text = foo.foods_price;
 
             imgR = Resources.red_checkmark_png_16;
             btnReturn.Click += BtnReturn_Click;
@@ -60,14 +60,16 @@ namespace modernpos_pos.gui
         private void BtnReturn_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            Decimal price = 0, sum = 0;
+            Decimal price = 0, sum = 0, topping=0;
             Decimal.TryParse(lbPrice.Text, out sum);
             Decimal.TryParse(foo.foods_price, out price);
-            sum = sum - price;
+            if(sum > 0)
+                topping = sum - price;
             mposC.fooName = lbFooName.Text.Trim();
             mposC.fooTopping = fooTopping.Trim();
-            mposC.toppingPrice = sum.ToString("0.00");
+            mposC.toppingPrice = topping.ToString("0.00");
             mposC.foosumprice = lbPrice.Text;
+            //mposC.fooToppingPrice = 
             mposC.fooName = fooTopping.Equals("") ? mposC.fooName.Replace("+", "").Trim() :  mposC.fooName.Replace(fooTopping.Trim(), "").Replace("+", "").Trim();
             Close();
         }

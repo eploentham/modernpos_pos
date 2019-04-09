@@ -134,74 +134,116 @@ namespace modernpos_pos.gui
         private void BtnTopping_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            mposC.fooName = "";
-            mposC.fooTopping = "";
-            mposC.toppingPrice = "";
-            mposC.foosumprice = "";
+            clearMPOSC();
             FrmTakeOutTopping frm = new FrmTakeOutTopping(mposC, txtFooId.Text);
             frm.ShowDialog(this);
-            int row = 0;
-            String spec = "", name="";
-            if (int.TryParse(txtRow.Text, out row))
-            {
-                spec = grf[row, colRemark] == null ? "" : grf[row, colRemark].ToString();
-                name = grf[row, colFooName1] == null ? "" : grf[row, colFooName1].ToString();
-                if (!mposC.fooName.Equals(""))
-                {
-                    if (spec.Equals(""))
-                    {
-                        grf[row, colFooName] = mposC.fooName + " + " + mposC.fooTopping;
-                    }
-                    else
-                    {
-                        grf[row, colFooName] = mposC.fooName + " + " + spec + " + " + mposC.fooTopping;
-                    }
-                }
-                    
-                if (!mposC.fooTopping.Equals(""))
-                    grf[row, colTopping] = mposC.fooTopping;
-                if (!mposC.toppingPrice.Equals(""))
-                    grf[row, colPrice] = mposC.foosumprice;
-            }
-            UpdateTotals();
+            setGrfSpecialTopping();
+            //int row = 0;
+            //String spec = "", name="";
+            //if (int.TryParse(txtRow.Text, out row))
+            //{
+            //    spec = grf[row, colRemark] == null ? "" : grf[row, colRemark].ToString();
+            //    name = grf[row, colFooName1] == null ? "" : grf[row, colFooName1].ToString();
+            //    if (!mposC.fooName.Equals(""))
+            //    {
+            //        //if (spec.Equals(""))
+            //        //{
+            //        //    grf[row, colFooName] = mposC.fooName + " + " + mposC.fooTopping;
+            //        //}
+            //        //else
+            //        //{
+            //        //    grf[row, colFooName] = mposC.fooName + " + " + spec + " + " + mposC.fooTopping;
+            //        //}
+            //        if (spec.Equals(""))
+            //        {
+            //            Order1 ord = lOrd[row - 1];
+            //            ord.topping = mposC.fooTopping;
+            //            if (!mposC.fooTopping.Equals(""))
+            //            {
+            //                grf[row, colFooName] = mposC.fooName + " + " + mposC.fooTopping;
+            //            }
+            //        }
+            //        else
+            //        {
+            //            Order1 ord = lOrd[row - 1];
+            //            ord.special = mposC.fooSpec;
+            //            ord.topping = mposC.fooTopping;
+            //            grf[row, colFooName] = mposC.fooName + " + " + mposC.fooSpec + " + " + spec;
+            //        }
+            //    }
+            //    Decimal price = 0, sum = 0;
+            //    Decimal.TryParse(mposC.toppingPrice, out price);
+            //    if (!mposC.fooTopping.Equals(""))
+            //        grf[row, colTopping] = mposC.fooTopping;
+            //    if (price>0)
+            //        grf[row, colPrice] = mposC.foosumprice;
+            //}
+            //UpdateTotals();
         }
-
-        private void BtnSpec_Click(object sender, EventArgs e)
+        private void setGrfSpecialTopping()
         {
-            //throw new NotImplementedException();
-            mposC.fooName = "";
-            mposC.fooSpec = "";
-            FrmTakeOutSpecial frm = new FrmTakeOutSpecial(mposC, txtFooId.Text);
-            frm.ShowDialog(this);
             int row = 0;
             String topping = "", name = "";
             if (int.TryParse(txtRow.Text, out row))
             {
-                topping = grf[row, colTopping] == null ? "" : grf[row, colTopping].ToString();
-                name = grf[row, colFooName1] == null ? "" : grf[row, colFooName1].ToString();
+                //topping = grf[row, colTopping] == null ? "" : grf[row, colTopping].ToString();
+                //name = grf[row, colFooName1] == null ? "" : grf[row, colFooName1].ToString();
                 if (!mposC.fooName.Equals(""))
                 {
-                    if (topping.Equals(""))
+                    Order1 ord = lOrd[row - 1];
+                    //ord.special = mposC.fooSpec;
+                    //ord.topping = mposC.fooTopping;
+                    ord.sumPrice = mposC.foosumprice;
+                    ord.toppingPrice = mposC.toppingPrice;
+                    if (mposC.fooTopping.Equals(""))
                     {
-                        Order1 ord = lOrd[row - 1];
-                        ord.special = mposC.fooSpec;
+                        //Order1 ord = lOrd[row - 1];
+                        //ord.special = mposC.fooSpec;
                         if (!mposC.fooSpec.Equals(""))
                         {
                             grf[row, colFooName] = mposC.fooName + " + " + mposC.fooSpec;
                         }
+                        else
+                        {
+                            grf[row, colFooName] = mposC.fooName ;
+                        }
+                        grf[row, colPrice] = ord.sumPrice;
                     }
                     else
                     {
-                        Order1 ord = lOrd[row - 1];
-                        ord.special = mposC.fooSpec;
                         ord.topping = mposC.fooTopping;
-                        grf[row, colFooName] = mposC.fooName + " + " + mposC.fooSpec + " + " + topping;
+                        if (mposC.fooSpec.Equals(""))
+                        {
+                            grf[row, colFooName] = mposC.fooName + " + " + mposC.fooTopping;
+                        }
+                        else
+                        {
+                            grf[row, colFooName] = mposC.fooName + " + " + mposC.fooTopping + " + " + mposC.fooSpec;
+                        }
+                        grf[row, colPrice] = ord.sumPrice;
                     }
-                }                
+                }
                 if (!mposC.fooSpec.Equals(""))
                     grf[row, colRemark] = mposC.fooSpec;
             }
             UpdateTotals();
+        }
+        private void clearMPOSC()
+        {
+            mposC.fooName = "";
+            mposC.fooSpec = "";
+            mposC.fooTopping = "";
+            mposC.toppingPrice = "";
+            mposC.fooSpec = "";
+            mposC.foosumprice = "";
+        }
+        private void BtnSpec_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            clearMPOSC();
+            FrmTakeOutSpecial frm = new FrmTakeOutSpecial(mposC, txtFooId.Text);
+            frm.ShowDialog(this);
+            setGrfSpecialTopping();
         }
 
         private void BtnVoid_Click(object sender, EventArgs e)
@@ -210,7 +252,8 @@ namespace modernpos_pos.gui
             int row = 0;
             if(int.TryParse(txtRow.Text, out row))
             {
-                grf.Rows.Remove(row);
+                if(grf.Rows.Count>row)
+                    grf.Rows.Remove(row);
             }
         }
 
@@ -558,6 +601,10 @@ namespace modernpos_pos.gui
                 ord1.remark = remark;
                 ord1.row1 = grf.Rows.Count.ToString();
                 ord1.printer_name = printer;
+                ord1.sumPrice = price;
+                ord1.toppingPrice = "";
+                ord1.topping = "";
+                ord1.special = "";
                 lOrd.Add(ord1);
                 UpdateTotals();
             }
@@ -605,7 +652,7 @@ namespace modernpos_pos.gui
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("" + ex.Message, "showImg");
+                    //MessageBox.Show("" + ex.Message, "showImg");
                 }
                 //if (!string.IsNullOrEmpty(photo.ThumbnailUri))
                 //    _downloadQueue.Enqueue(new DownloadItem(photo.ThumbnailUri, tile, false));
@@ -661,7 +708,7 @@ namespace modernpos_pos.gui
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("" + ex.Message, "showImg");
+                    //MessageBox.Show("" + ex.Message, "showImg");
                 }
                 //if (!string.IsNullOrEmpty(photo.ThumbnailUri))
                 //    _downloadQueue.Enqueue(new DownloadItem(photo.ThumbnailUri, tile, false));

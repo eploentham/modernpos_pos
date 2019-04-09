@@ -66,7 +66,7 @@ namespace modernpos_pos.gui
             {
                 mposC.fooName = mposC.fooName.Replace(fooSpec.Trim(), "").Replace("+", "").Trim();
             }
-            
+            mposC.foosumprice = foo.foods_price;
             Close();
         }
 
