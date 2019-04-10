@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTakeOutCheck));
             this.pnBill = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.c1Button1 = new C1.Win.C1Input.C1Button();
             this.pnVoidPay = new System.Windows.Forms.Panel();
             this.cboRsp = new C1.Win.C1List.C1Combo();
             this.chkPaypaying = new System.Windows.Forms.RadioButton();
@@ -46,8 +47,8 @@
             this.tC = new C1.Win.C1Command.C1DockingTab();
             this.tab1 = new C1.Win.C1Command.C1DockingTabPage();
             this.tab2 = new C1.Win.C1Command.C1DockingTabPage();
-            this.c1Button1 = new C1.Win.C1Input.C1Button();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
             this.pnVoidPay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTableCode)).BeginInit();
@@ -55,7 +56,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tC)).BeginInit();
             this.tC.SuspendLayout();
             this.tab1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnBill
@@ -82,6 +82,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(600, 545);
             this.panel2.TabIndex = 1;
+            // 
+            // c1Button1
+            // 
+            this.c1Button1.Location = new System.Drawing.Point(26, 459);
+            this.c1Button1.Name = "c1Button1";
+            this.c1Button1.Size = new System.Drawing.Size(43, 23);
+            this.c1Button1.TabIndex = 241;
+            this.c1Button1.Text = "c1Button1";
+            this.theme1.SetTheme(this.c1Button1, "(default)");
+            this.c1Button1.UseVisualStyleBackColor = true;
+            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // pnVoidPay
             // 
@@ -288,17 +299,6 @@
             this.tab2.TabIndex = 1;
             this.tab2.Text = "Page2";
             // 
-            // c1Button1
-            // 
-            this.c1Button1.Location = new System.Drawing.Point(26, 459);
-            this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(43, 23);
-            this.c1Button1.TabIndex = 241;
-            this.c1Button1.Text = "c1Button1";
-            this.theme1.SetTheme(this.c1Button1, "(default)");
-            this.c1Button1.UseVisualStyleBackColor = true;
-            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmTakeOutCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,6 +311,7 @@
             this.Text = "FrmTakeOutCheck";
             this.Load += new System.EventHandler(this.FrmTakeOutCheck_Load);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
             this.pnVoidPay.ResumeLayout(false);
             this.pnVoidPay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).EndInit();
@@ -319,7 +320,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tC)).EndInit();
             this.tC.ResumeLayout(false);
             this.tab1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
             this.ResumeLayout(false);
 
         }

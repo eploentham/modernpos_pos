@@ -56,7 +56,7 @@ namespace modernpos_pos.gui
         private void BtnTakeOut_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmTakeOut frm = new FrmTakeOut(mposC);
+            FrmTakeOut1 frm = new FrmTakeOut1(mposC);
             frm.Show(this);
         }
 
