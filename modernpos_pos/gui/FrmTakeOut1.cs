@@ -5,6 +5,7 @@ using C1.Win.C1Themes;
 using C1.Win.C1Tile;
 using modernpos_pos.control;
 using modernpos_pos.object1;
+using modernpos_pos.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,18 +34,20 @@ namespace modernpos_pos.gui
         Foods foo;
         //Theme theme1;
 
-        C1.Win.C1Tile.PanelElement panelElement1;
-        C1.Win.C1Tile.ImageElement imageElement1;
-        C1.Win.C1Tile.TextElement textElement1, txtFoodsName, txtFoodsPrice;
+        C1.Win.C1Tile.PanelElement peOrd, peSpec, peSpecName;
+        C1.Win.C1Tile.ImageElement ieOrd, ieSpec, ieSpec8;
+        C1.Win.C1Tile.TextElement teOrd, teOrdFoodsName, teOrdFoodsPrice, teSpec, teSpecName;
 
-        Template tempFlickr;
+        Template tempFlickr, tempSpec;
         C1.Win.C1Tile.ImageElement imageElement8;
         PanelElement pnFoodsName, pnFoodsPrice;
-        C1FlexGrid grf;
+        C1FlexGrid grfOrder, grfSpec, grfTopping, grf;
         C1DockingTab tC;
 
         VNEControl vneC;
         int colNo = 1, colFooName = 2, colPrice = 3, colQty = 4, colRemark = 5, colTopping = 6, colStatus = 7, colFooId = 8, colPrinterName = 9, colFooName1 = 10;
+        int colSNo = 1, colSImg = 2, colSFoosName = 3, colSStatus = 4;
+        int colTNo = 1, colTImg = 2, colTFoosName = 3, colTPrice = 4, colTStatus = 5;
 
         List<Order1> lOrd;
         Order1 ord;
@@ -53,10 +56,12 @@ namespace modernpos_pos.gui
         IntPtr intptr = new IntPtr();
         C1DockingTabPage[] tabPage;
         C1TileControl[] TileFoods;
-        C1TileControl TileRec;
+        C1TileControl TileRec, TileSpec;
         Group[] gr1;
-        Group grRec;
+        Group grRec, grSpec;
         Boolean flagModi = false, flagShowTitle=false;
+        Image imgR, imgC;
+        String fooid = "", fooSpec = "", fooTopping = "";
 
         public FrmTakeOut1(mPOSControl x)
         {
@@ -95,86 +100,142 @@ namespace modernpos_pos.gui
             //MessageBox.Show("FrmTakeOut initConfig 3", "");
             if (mposC.iniC.pnOrderborderstyle.Equals("0"))
             {
-                pnOrder.BorderStyle = BorderStyle.None;
+                pnOrder1.BorderStyle = BorderStyle.None;
             }
             else if (mposC.iniC.pnOrderborderstyle.Equals("1"))
             {
-                pnOrder.BorderStyle = BorderStyle.Fixed3D;
+                pnOrder1.BorderStyle = BorderStyle.Fixed3D;
             }
             else if (mposC.iniC.pnOrderborderstyle.Equals("2"))
             {
-                pnOrder.BorderStyle = BorderStyle.FixedSingle;
+                pnOrder1.BorderStyle = BorderStyle.FixedSingle;
             }
 
             btnPay.Click += BtnPay_Click;
             btnVoid.Click += BtnVoid_Click;
             btnSpec.Click += BtnSpec_Click;
-            btnTopping.Click += BtnTopping_Click;
+            btnReturn.Click += BtnReturn_Click;
+            //btnTopping.Click += BtnTopping_Click;
             btnVoidAll.Click += BtnVoidAll_Click;
+            //spMain.SplitterMoved += SpMain_SplitterMoved;
+            pnOrder.Resize += PnOrder_Resize;
+
+            imgR = Resources.red_checkmark_png_16;
             //MessageBox.Show("FrmTakeOut initConfig", "");
-            initGrf();
+            initGrfOrder();
+            //initGrfSpec();
             initTC();
+            initSpec();
+            initGrfTopping();
+            
             flagModi = false;
             setBtnEnable(flagModi);
             this.FormBorderStyle = FormBorderStyle.None;
+        }
+        private void initSpec()
+        {
+            ieSpec8 = new C1.Win.C1Tile.ImageElement();
+            ieSpec8.ImageLayout = C1.Win.C1Tile.ForeImageLayout.ScaleOuter;
+            tempSpec = new C1.Win.C1Tile.Template();
+            TileSpec = new C1TileControl();
+            TileSpec.Dock = DockStyle.Fill;
+            //teOrd.Font = fEdit;
+            TileSpec.Font = fEdit;
+            //tempSpec.Elements.Add(pnFoodsPrice);
+            tempSpec.Name = "tempSpec";
+
+            if (mposC.iniC.TileFoodsOrientation.Equals("0"))
+            {
+                TileSpec.Orientation = LayoutOrientation.Horizontal;
+            }
+            else
+            {
+                TileSpec.Orientation = LayoutOrientation.Vertical;
+            }
+            grSpec = new Group();
+            TileSpec.Groups.Add(this.grSpec);
+            peSpec = new C1.Win.C1Tile.PanelElement();
+            ieSpec = new C1.Win.C1Tile.ImageElement();
+            teSpec = new C1.Win.C1Tile.TextElement();
+            teSpec.Font = fEdit;
+            peSpec.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            peSpec.Children.Add(ieSpec);
+            peSpec.Children.Add(teSpec);
+            peSpec.Margin = new System.Windows.Forms.Padding(10, 6, 10, 6);
+            TileSpec.DefaultTemplate.Elements.Add(peSpec);
+            TileSpec.Font = fEdit;
+            //TileSpec.Templates.Add(this.tempFlickr);
+            TileSpec.Name = "tilespec";
+            TileSpec.Dock = DockStyle.Fill;
+            TileSpec.ScrollOffset = 0;
+            TileSpec.SurfaceContentAlignment = System.Drawing.ContentAlignment.TopLeft;
+            TileSpec.Padding = new System.Windows.Forms.Padding(0);
+            TileSpec.GroupPadding = new System.Windows.Forms.Padding(20);
+            TileSpec.Templates.Add(this.tempSpec);
+            TileSpec.Groups.Add(grSpec);
+
+            peSpecName = new C1.Win.C1Tile.PanelElement();
+            peSpecName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            peSpecName.Children.Add(teOrdFoodsName);
+            peSpecName.Dock = System.Windows.Forms.DockStyle.Top;
+            peSpecName.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            teSpecName = new C1.Win.C1Tile.TextElement();
+            teSpecName.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
+            teSpecName.ForeColor = System.Drawing.Color.Black;
+            teSpecName.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
+            teSpecName.SingleLine = true;
+            tempSpec.Elements.Add(ieSpec8);
+            tempSpec.Elements.Add(peSpecName);
+            tempSpec.Name = "tempSpec";
+            
+            peSpecName.Children.Add(teSpecName);
+            pnSpecial.Controls.Add(TileSpec);
+        }
+        private void PnOrder_Resize(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            label2.Text = pnOrder.Width.ToString();
+            if(pnOrder.Width>500)
+                grfOrder.Cols[colFooName].Width = pnOrder.Width - 300;
+            else
+                grfOrder.Cols[colFooName].Width = 300;
+        }
+
+        private void SpMain_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+            //throw new NotImplementedException();
+            //String aa = "";
+            //aa = pnItem.Width.ToString();
+            //label1.Text = pnOrder.Width.ToString();
+        }
+
+        private void BtnReturn_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            Decimal price = 0, sum = 0, topping = 0;
+            Decimal.TryParse(lbPrice.Text, out sum);
+            Decimal.TryParse(foo.foods_price, out price);
+            if (sum > 0)
+                topping = sum - price;
+            mposC.fooName = lbFooName.Text.Trim();
+            mposC.fooSpec = fooSpec.Trim();
+            mposC.fooTopping = fooTopping.Trim();
+            mposC.toppingPrice = topping.ToString("0.00");
+            mposC.foosumprice = lbPrice.Text;
+            //mposC.fooToppingPrice = 
+            mposC.fooName = fooTopping.Equals("") ? mposC.fooName.Replace("+", "").Trim() : mposC.fooName.Replace(fooTopping.Trim(), "").Replace("+", "").Trim();
+
+            setGrfSpecialTopping();
+            tabMain.SelectedTab = tabOrer;
         }
 
         private void BtnVoidAll_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();   
-            grf.Dispose();
-            initGrf();
+            grfOrder.Dispose();
+            initGrfOrder();
         }
-
-        private void BtnTopping_Click(object sender, EventArgs e)
-        {
-            //throw new NotImplementedException();
-            clearMPOSC();
-            FrmTakeOutTopping frm = new FrmTakeOutTopping(mposC, txtFooId.Text);
-            frm.ShowDialog(this);
-            setGrfSpecialTopping();
-            //int row = 0;
-            //String spec = "", name="";
-            //if (int.TryParse(txtRow.Text, out row))
-            //{
-            //    spec = grf[row, colRemark] == null ? "" : grf[row, colRemark].ToString();
-            //    name = grf[row, colFooName1] == null ? "" : grf[row, colFooName1].ToString();
-            //    if (!mposC.fooName.Equals(""))
-            //    {
-            //        //if (spec.Equals(""))
-            //        //{
-            //        //    grf[row, colFooName] = mposC.fooName + " + " + mposC.fooTopping;
-            //        //}
-            //        //else
-            //        //{
-            //        //    grf[row, colFooName] = mposC.fooName + " + " + spec + " + " + mposC.fooTopping;
-            //        //}
-            //        if (spec.Equals(""))
-            //        {
-            //            Order1 ord = lOrd[row - 1];
-            //            ord.topping = mposC.fooTopping;
-            //            if (!mposC.fooTopping.Equals(""))
-            //            {
-            //                grf[row, colFooName] = mposC.fooName + " + " + mposC.fooTopping;
-            //            }
-            //        }
-            //        else
-            //        {
-            //            Order1 ord = lOrd[row - 1];
-            //            ord.special = mposC.fooSpec;
-            //            ord.topping = mposC.fooTopping;
-            //            grf[row, colFooName] = mposC.fooName + " + " + mposC.fooSpec + " + " + spec;
-            //        }
-            //    }
-            //    Decimal price = 0, sum = 0;
-            //    Decimal.TryParse(mposC.toppingPrice, out price);
-            //    if (!mposC.fooTopping.Equals(""))
-            //        grf[row, colTopping] = mposC.fooTopping;
-            //    if (price>0)
-            //        grf[row, colPrice] = mposC.foosumprice;
-            //}
-            //UpdateTotals();
-        }
+                
         private void setGrfSpecialTopping()
         {
             int row = 0;
@@ -196,30 +257,30 @@ namespace modernpos_pos.gui
                         //ord.special = mposC.fooSpec;
                         if (!mposC.fooSpec.Equals(""))
                         {
-                            grf[row, colFooName] = mposC.fooName + " + " + mposC.fooSpec;
+                            grfOrder[row, colFooName] = lbFooName.Text;
                         }
                         else
                         {
-                            grf[row, colFooName] = mposC.fooName;
+                            grfOrder[row, colFooName] = lbFooName.Text;
                         }
-                        grf[row, colPrice] = ord.sumPrice;
+                        grfOrder[row, colPrice] = ord.sumPrice;
                     }
                     else
                     {
-                        ord.topping = mposC.fooTopping;
+                        ord.topping = fooTopping;
                         if (mposC.fooSpec.Equals(""))
                         {
-                            grf[row, colFooName] = mposC.fooName + " + " + mposC.fooTopping;
+                            grfOrder[row, colFooName] = lbFooName.Text;
                         }
                         else
                         {
-                            grf[row, colFooName] = mposC.fooName + " + " + mposC.fooTopping + " + " + mposC.fooSpec;
+                            grfOrder[row, colFooName] = lbFooName.Text;
                         }
-                        grf[row, colPrice] = ord.sumPrice;
+                        grfOrder[row, colPrice] = ord.sumPrice;
                     }
                 }
                 if (!mposC.fooSpec.Equals(""))
-                    grf[row, colRemark] = mposC.fooSpec;
+                    grfOrder[row, colRemark] = mposC.fooSpec;
             }
             UpdateTotals();
         }
@@ -236,9 +297,19 @@ namespace modernpos_pos.gui
         {
             //throw new NotImplementedException();
             clearMPOSC();
-            FrmTakeOutSpecial frm = new FrmTakeOutSpecial(mposC, txtFooId.Text);
-            frm.ShowDialog(this);
-            setGrfSpecialTopping();
+            //FrmTakeOutSpecial frm = new FrmTakeOutSpecial(mposC, txtFooId.Text);
+            //frm.ShowDialog(this);
+            foo = mposC.mposDB.fooDB.selectByPk1(txtFooId.Text);
+            //setGrfSpec(foo.foods_id);
+            setTiltSpec(foo.foods_id);
+            setGrfTopping(foo.foods_id);
+            tabMain.SelectedTab = tabSpecTopping;
+            lbPrice.Text = foo.foods_price;
+            fooTopping = "";
+            fooSpec = "";
+            setLbFooName();
+            //setGrfSpecialTopping();
+
         }
 
         private void BtnVoid_Click(object sender, EventArgs e)
@@ -247,8 +318,8 @@ namespace modernpos_pos.gui
             int row = 0;
             if (int.TryParse(txtRow.Text, out row))
             {
-                if (grf.Rows.Count > row)
-                    grf.Rows.Remove(row);
+                if (grfOrder.Rows.Count > row)
+                    grfOrder.Rows.Remove(row);
             }
         }
 
@@ -289,42 +360,42 @@ namespace modernpos_pos.gui
             }
             grRec = new Group();
             TileRec.Groups.Add(this.grRec);
-            grRec = new Group();
-            panelElement1 = new C1.Win.C1Tile.PanelElement();
-            imageElement1 = new C1.Win.C1Tile.ImageElement();
+            //grRec = new Group();
+            peOrd = new C1.Win.C1Tile.PanelElement();
+            ieOrd = new C1.Win.C1Tile.ImageElement();
             tempFlickr = new C1.Win.C1Tile.Template();
             imageElement8 = new C1.Win.C1Tile.ImageElement();
-            textElement1 = new C1.Win.C1Tile.TextElement();
+            teOrd = new C1.Win.C1Tile.TextElement();
             pnFoodsName = new C1.Win.C1Tile.PanelElement();
             pnFoodsPrice = new C1.Win.C1Tile.PanelElement();
-            txtFoodsName = new C1.Win.C1Tile.TextElement();
-            txtFoodsPrice = new C1.Win.C1Tile.TextElement();
+            teOrdFoodsName = new C1.Win.C1Tile.TextElement();
+            teOrdFoodsPrice = new C1.Win.C1Tile.TextElement();
             imageElement8.ImageLayout = C1.Win.C1Tile.ForeImageLayout.ScaleOuter;
-            txtFoodsName.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
-            txtFoodsName.ForeColor = System.Drawing.Color.Black;
-            txtFoodsName.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
-            txtFoodsName.SingleLine = true;
+            teOrdFoodsName.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
+            teOrdFoodsName.ForeColor = System.Drawing.Color.Black;
+            teOrdFoodsName.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
+            teOrdFoodsName.SingleLine = true;
             pnFoodsName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            pnFoodsName.Children.Add(txtFoodsName);
+            pnFoodsName.Children.Add(teOrdFoodsName);
             pnFoodsName.Dock = System.Windows.Forms.DockStyle.Top;
             pnFoodsName.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
             pnFoodsPrice.AlignmentOfContents = System.Drawing.ContentAlignment.MiddleRight;
             pnFoodsPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             //panelElement11.Children.Add(panelElement12);
-            pnFoodsPrice.Children.Add(txtFoodsPrice);
+            pnFoodsPrice.Children.Add(teOrdFoodsPrice);
             pnFoodsPrice.Dock = System.Windows.Forms.DockStyle.Bottom;
             pnFoodsPrice.FixedHeight = 32;
-            txtFoodsPrice.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
-            txtFoodsPrice.Margin = new System.Windows.Forms.Padding(0, 0, 37, 0);
-            txtFoodsPrice.TextSelector = C1.Win.C1Tile.TextSelector.Text1;
-            textElement1.Font = fEdit;
+            teOrdFoodsPrice.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
+            teOrdFoodsPrice.Margin = new System.Windows.Forms.Padding(0, 0, 37, 0);
+            teOrdFoodsPrice.TextSelector = C1.Win.C1Tile.TextSelector.Text1;
+            teOrd.Font = fEdit;
             TileRec.Font = fEdit;
 
-            panelElement1.Alignment = System.Drawing.ContentAlignment.BottomLeft;
-            panelElement1.Children.Add(imageElement1);
-            panelElement1.Children.Add(textElement1);
-            panelElement1.Margin = new System.Windows.Forms.Padding(10, 6, 10, 6);
-            TileRec.DefaultTemplate.Elements.Add(panelElement1);
+            peOrd.Alignment = System.Drawing.ContentAlignment.BottomLeft;
+            peOrd.Children.Add(ieOrd);
+            peOrd.Children.Add(teOrd);
+            peOrd.Margin = new System.Windows.Forms.Padding(10, 6, 10, 6);
+            TileRec.DefaultTemplate.Elements.Add(peOrd);
             TileRec.Templates.Add(this.tempFlickr);
             //TileFoods = new C1TileControl();
             TileRec.Name = "tilerec";
@@ -375,41 +446,41 @@ namespace modernpos_pos.gui
                     TileFoods[i].Orientation = LayoutOrientation.Vertical;
                 }
                 TileFoods[i].Groups.Add(this.gr1[i]);
-                panelElement1 = new C1.Win.C1Tile.PanelElement();
-                imageElement1 = new C1.Win.C1Tile.ImageElement();
+                peOrd = new C1.Win.C1Tile.PanelElement();
+                ieOrd = new C1.Win.C1Tile.ImageElement();
                 tempFlickr = new C1.Win.C1Tile.Template();
                 imageElement8 = new C1.Win.C1Tile.ImageElement();
-                textElement1 = new C1.Win.C1Tile.TextElement();
+                teOrd = new C1.Win.C1Tile.TextElement();
                 pnFoodsName = new C1.Win.C1Tile.PanelElement();
                 pnFoodsPrice = new C1.Win.C1Tile.PanelElement();
-                txtFoodsName = new C1.Win.C1Tile.TextElement();
-                txtFoodsPrice = new C1.Win.C1Tile.TextElement();
+                teOrdFoodsName = new C1.Win.C1Tile.TextElement();
+                teOrdFoodsPrice = new C1.Win.C1Tile.TextElement();
                 imageElement8.ImageLayout = C1.Win.C1Tile.ForeImageLayout.ScaleOuter;
-                txtFoodsName.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
-                txtFoodsName.ForeColor = System.Drawing.Color.Black;
-                txtFoodsName.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
-                txtFoodsName.SingleLine = true;
+                teOrdFoodsName.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
+                teOrdFoodsName.ForeColor = System.Drawing.Color.Black;
+                teOrdFoodsName.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
+                teOrdFoodsName.SingleLine = true;
                 pnFoodsName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-                pnFoodsName.Children.Add(txtFoodsName);
+                pnFoodsName.Children.Add(teOrdFoodsName);
                 pnFoodsName.Dock = System.Windows.Forms.DockStyle.Top;
                 pnFoodsName.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
                 pnFoodsPrice.AlignmentOfContents = System.Drawing.ContentAlignment.MiddleRight;
                 pnFoodsPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
                 //panelElement11.Children.Add(panelElement12);
-                pnFoodsPrice.Children.Add(txtFoodsPrice);
+                pnFoodsPrice.Children.Add(teOrdFoodsPrice);
                 pnFoodsPrice.Dock = System.Windows.Forms.DockStyle.Bottom;
                 pnFoodsPrice.FixedHeight = 32;
-                txtFoodsPrice.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
-                txtFoodsPrice.Margin = new System.Windows.Forms.Padding(0, 0, 37, 0);
-                txtFoodsPrice.TextSelector = C1.Win.C1Tile.TextSelector.Text1;
-                textElement1.Font = fEdit;
+                teOrdFoodsPrice.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
+                teOrdFoodsPrice.Margin = new System.Windows.Forms.Padding(0, 0, 37, 0);
+                teOrdFoodsPrice.TextSelector = C1.Win.C1Tile.TextSelector.Text1;
+                teOrd.Font = fEdit;
                 TileFoods[i].Font = fEdit;
 
-                panelElement1.Alignment = System.Drawing.ContentAlignment.BottomLeft;
-                panelElement1.Children.Add(imageElement1);
-                panelElement1.Children.Add(textElement1);
-                panelElement1.Margin = new System.Windows.Forms.Padding(10, 6, 10, 6);
-                TileFoods[i].DefaultTemplate.Elements.Add(panelElement1);
+                peOrd.Alignment = System.Drawing.ContentAlignment.BottomLeft;
+                peOrd.Children.Add(ieOrd);
+                peOrd.Children.Add(teOrd);
+                peOrd.Margin = new System.Windows.Forms.Padding(10, 6, 10, 6);
+                TileFoods[i].DefaultTemplate.Elements.Add(peOrd);
                 TileFoods[i].Templates.Add(this.tempFlickr);
                 //TileFoods = new C1TileControl();
                 TileFoods[i].Name = "tile" + i;
@@ -441,7 +512,7 @@ namespace modernpos_pos.gui
         }
         private void setFooNameRemark()
         {
-            foreach (Row row in grf.Rows)
+            foreach (Row row in grfOrder.Rows)
             {
                 try
                 {
@@ -474,45 +545,45 @@ namespace modernpos_pos.gui
             mposC.statusVNEPaysuccess = "";
             genLotId();
             setFooNameRemark();
-            FrmTakeOutCheck frm = new FrmTakeOutCheck(mposC, lOrd);
-            frm.ShowDialog(this);
+            //FrmTakeOutCheck frm = new FrmTakeOutCheck(mposC, lOrd);
+            //frm.ShowDialog(this);
             MessageBox.Show("mposC.statusVNEPaysuccess " + mposC.statusVNEPaysuccess, "");
             if (mposC.statusVNEPaysuccess.Equals("1"))
             {
                 lOrd.Clear();
-                grf.Dispose();
-                initGrf();
+                grfOrder.Dispose();
+                initGrfOrder();
             }
         }
 
-        private void initGrf()
+        private void initGrfOrder()
         {
-            grf = new C1FlexGrid();
-            grf.Font = fEdit;
-            grf.Dock = System.Windows.Forms.DockStyle.Fill;
-            grf.Location = new System.Drawing.Point(0, 0);
-            grf.Rows[0].Visible = false;
-            grf.Cols[0].Visible = false;
+            grfOrder = new C1FlexGrid();
+            grfOrder.Font = fEdit;
+            grfOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfOrder.Location = new System.Drawing.Point(0, 0);
+            grfOrder.Rows[0].Visible = false;
+            grfOrder.Cols[0].Visible = false;
             //grf.Cols[colStatus].Visible = false;
-            grf.Rows.Count = 1;
-            grf.Cols.Count = 11;
-            grf.Cols[colNo].Width = 40;
-            grf.Cols[colFooName].Width = 300;
-            grf.Cols[colPrice].Width = 80;
+            grfOrder.Rows.Count = 1;
+            grfOrder.Cols.Count = 11;
+            grfOrder.Cols[colNo].Width = 40;
+            grfOrder.Cols[colFooName].Width = 300;
+            grfOrder.Cols[colPrice].Width = 80;
             //FilterRow fr = new FilterRow(grfExpn);
-            grf.TabStop = false;
-            grf.EditOptions = EditFlags.None;
-            grf.Cols[colNo].AllowEditing = false;
-            grf.Cols[colFooName].AllowEditing = false;
-            grf.Cols[colPrice].AllowEditing = false;
+            grfOrder.TabStop = false;
+            grfOrder.EditOptions = EditFlags.None;
+            grfOrder.Cols[colNo].AllowEditing = false;
+            grfOrder.Cols[colFooName].AllowEditing = false;
+            grfOrder.Cols[colPrice].AllowEditing = false;
             //grf.ExtendLastCol = true;
-            grf.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
-            grf.AfterDataRefresh += Grf_AfterDataRefresh;
+            grfOrder.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
+            grfOrder.AfterDataRefresh += Grf_AfterDataRefresh;
             //grf.SubtotalPosition = SubtotalPositionEnum.BelowData;
-            grf.SubtotalPosition = SubtotalPositionEnum.BelowData;
+            grfOrder.SubtotalPosition = SubtotalPositionEnum.BelowData;
 
-            grf.AfterRowColChange += Grf_AfterRowColChange;
-            grf.Click += Grf_Click;
+            grfOrder.AfterRowColChange += GrfOrder_AfterRowColChange;
+            grfOrder.Click += GrfOrder_Click;
             //grfExpnC.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellButtonClick);
             //grfExpnC.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellChanged);
             //ContextMenu menuGw = new ContextMenu();
@@ -521,40 +592,40 @@ namespace modernpos_pos.gui
             //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
             //grf.ContextMenu = menuGw;
             //grf.EndUpdate();
-            pnBill.Controls.Add(grf);
-            grf.Cols[colFooId].Visible = false;
-            grf.Cols[colStatus].Visible = false;
-            grf.Cols[colPrinterName].Visible = false;
-            grf.Cols[colQty].Visible = false;
-            grf.Cols[colRemark].Visible = false;
-            grf.Cols[colTopping].Visible = false;
-            grf.Cols[colFooName1].Visible = false;
-            pnBill.Width = mposC.panel1Width;
+            pnOrder.Controls.Add(grfOrder);
+            grfOrder.Cols[colFooId].Visible = false;
+            grfOrder.Cols[colStatus].Visible = false;
+            grfOrder.Cols[colPrinterName].Visible = false;
+            grfOrder.Cols[colQty].Visible = false;
+            grfOrder.Cols[colRemark].Visible = false;
+            grfOrder.Cols[colTopping].Visible = false;
+            grfOrder.Cols[colFooName1].Visible = false;
+            pnOrder.Width = mposC.panel1Width;
             //theme.SetTheme(grf, "Office2010Blue");
         }
         private void setBtnEnable(Boolean flag)
         {
             btnVoid.Enabled = flag;
             btnSpec.Enabled = flag;
-            btnTopping.Enabled = flag;
+            //btnTopping.Enabled = flag;
         }
-        private void Grf_Click(object sender, EventArgs e)
+        private void GrfOrder_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            if (grf.Row < 0) return;
-            if (grf.Col < 0) return;
-            if (grf[grf.Row, colFooName] == null) return;
+            if (grfOrder.Row < 0) return;
+            if (grfOrder.Col < 0) return;
+            if (grfOrder[grfOrder.Row, colFooName] == null) return;
             flagModi = true;
             String name = "", id = "";
-            name = grf[grf.Row, colFooName].ToString();
-            id = grf[grf.Row, colFooId].ToString();
+            name = grfOrder[grfOrder.Row, colFooName].ToString();
+            id = grfOrder[grfOrder.Row, colFooId].ToString();
             lbFooName.Text = name;
             txtFooId.Value = id;
-            txtRow.Value = grf.Row;
+            txtRow.Value = grfOrder.Row;
             setBtnEnable(flagModi);
         }
 
-        private void Grf_AfterRowColChange(object sender, RangeEventArgs e)
+        private void GrfOrder_AfterRowColChange(object sender, RangeEventArgs e)
         {
             //throw new NotImplementedException();
             UpdateTotals();
@@ -568,23 +639,23 @@ namespace modernpos_pos.gui
         private void UpdateTotals()
         {
             // clear existing totals
-            grf.Subtotal(AggregateEnum.Clear);
-            grf.Subtotal(AggregateEnum.Sum, 0, -1, colPrice, "Grand Total");
+            grfOrder.Subtotal(AggregateEnum.Clear);
+            grfOrder.Subtotal(AggregateEnum.Sum, 0, -1, colPrice, "Grand Total");
 
         }
-        private void setGrf(String id, String name, String price, String qty, String remark, String printer)
+        private void setGrfOrder(String id, String name, String price, String qty, String remark, String printer)
         {
             String re = "";
             if (!name.Equals(""))
             {
                 //String[] ext = name.Split('#');
                 Order1 ord1 = new Order1();
-                Row row = grf.Rows.Add();
+                Row row = grfOrder.Rows.Add();
                 row[colFooName] = name;
                 row[colPrice] = price;
                 row[colFooId] = id;
                 row[colRemark] = remark;
-                row[colNo] = grf.Rows.Count - 2;
+                row[colNo] = grfOrder.Rows.Count - 2;
                 row[colPrinterName] = printer;
                 row[colFooName1] = name;
                 ord1.order_id = "";
@@ -594,7 +665,7 @@ namespace modernpos_pos.gui
                 ord1.foods_id = id;
                 ord1.foods_name = name;
                 ord1.remark = remark;
-                ord1.row1 = grf.Rows.Count.ToString();
+                ord1.row1 = grfOrder.Rows.Count.ToString();
                 ord1.printer_name = printer;
                 ord1.sumPrice = price;
                 ord1.toppingPrice = "";
@@ -603,6 +674,378 @@ namespace modernpos_pos.gui
                 lOrd.Add(ord1);
                 UpdateTotals();
             }
+        }
+        private void initGrfSpec()
+        {
+            grfSpec = new C1FlexGrid();
+            grfSpec.Font = fEdit;
+            grfSpec.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfSpec.Location = new System.Drawing.Point(0, 0);
+            grfSpec.Rows[0].Visible = false;
+            grfSpec.Cols[0].Visible = false;
+            //grf.Cols[colStatus].Visible = false;
+            grfSpec.Rows.Count = 1;
+            grfSpec.Cols.Count = 5;
+            grfSpec.Cols[colSImg].Width = 50;
+            grfSpec.Cols[colSFoosName].Width = 200;
+
+            grfSpec.TabStop = false;
+            grfSpec.EditOptions = EditFlags.None;
+            grfSpec.Cols[colSImg].AllowEditing = false;
+            grfSpec.Cols[colSFoosName].AllowEditing = false;
+
+            //grf.ExtendLastCol = true;
+            grfSpec.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
+            grfSpec.Click += GrfSpec_Click;
+            pnSpecial.Controls.Add(grfSpec);
+            grfSpec.Cols[colSNo].Visible = false;
+            //grf.Cols[colStatus].Visible = false;
+            //grf.Cols[colPrinterName].Visible = false;
+            //grf.Cols[colQty].Visible = false;
+            //pnBill.Width = mposC.panel1Width;
+            //theme.SetTheme(grf, "Office2010Blue");
+        }
+        private void setTiltSpec(String fooId)
+        {
+            DataTable dt = new DataTable();
+            dt = mposC.mposDB.foosDB.selectByFoodsId1(fooId);
+            TileCollection tiles = TileSpec.Groups[0].Tiles;
+            tiles.Clear(true);
+            
+            foreach (DataRow drow in dt.Rows)
+            {
+                var tile = new Tile();
+                tile.HorizontalSize = mposC.takeouttilhorizontalsize;
+                tile.VerticalSize = mposC.takeouttilverticalsize;
+                tile.Template = tempSpec;
+                tile.Text = drow["foods_spec_name"].ToString();
+                //tile.Text1 = "ราคา " + foo1.foods_price;
+                //tile.Tag = foo1;
+                tile.Name = drow["foods_id"].ToString();
+                tile.Click += TileSpec_Click;
+                tile.Image = null;
+                try
+                {
+                    //tile.Image = null;
+                    tiles.Add(tile);
+                    //MemoryStream stream = new MemoryStream();
+                    //Image loadedImage = null, resizedImage;
+                    //if (foo1.filename.Equals("")) continue;
+                    //stream = mposC.ftpC.download(mposC.iniC.ShareFile + "/foods/" + foo1.filename);
+                    //loadedImage = new Bitmap(stream);
+                    //if (loadedImage != null)
+                    //{
+                    //    //SizeF size = tile.Width;
+                    //    int originalWidth = loadedImage.Width;
+                    //    int newWidth = 180;
+                    //    resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
+                    //    tile.Image = resizedImage;
+                    //}
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show("" + ex.Message, "showImg");
+                }
+            }
+        }
+        private void setGrfSpec(String fooId)
+        {
+            //grfDept.Rows.Count = 7;
+            //pageLoad = true;
+            grfSpec.Clear();
+            DataTable dt = new DataTable();
+            dt = mposC.mposDB.foosDB.selectByFoodsId1(fooId);
+            grfSpec.Cols.Count = 5;
+            grfSpec.Rows.Count = dt.Rows.Count + 1;
+            //if (dt.Rows.Count > 0)
+                grfSpec.Rows[0].Visible = false;
+            //CellStyle cs = grf.Styles.Add("btn");
+            //cs.DataType = typeof(Button);
+            ////cs.ComboList = "|Tom|Dick|Harry";
+            //cs.ForeColor = Color.Navy;
+            //cs.Font = new Font(Font, FontStyle.Bold);
+            //cs = grf.Styles.Add("date");
+            //cs.DataType = typeof(DateTime);
+            //cs.Format = "dd-MMM-yy";
+            //cs.ForeColor = Color.DarkGoldenrod;
+
+            grfSpec.Cols[1].Width = 60;
+
+            grfSpec.Cols[colSImg].Width = 50;
+            grfSpec.Cols[colSFoosName].Width = 200;
+
+            grfSpec.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grfSpec.Cols[colSImg].Caption = "รายการสั่งพิเศษ";
+            
+            //grfFooS.AfterRowColChange += GrfFooS_AfterRowColChange;
+            //grfDept.Cols[coledit].Visible = false;
+            //CellRange rg = grf.GetCellRange(2, colE);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                grfSpec[i + 1, 0] = (i + 1);
+                grfSpec[i + 1, colSFoosName] = dt.Rows[i]["foods_spec_name"].ToString();
+                grfSpec[i + 1, colSStatus] = "";
+                if (i % 2 == 0)
+                    grfSpec.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+            }
+            grfSpec.Cols[colSStatus].Visible = false;
+            grfSpec.Cols[colSNo].Visible = false;
+            grfSpec.Cols[colSFoosName].AllowEditing = false;
+            grfSpec.Cols[colSImg].AllowEditing = false;
+            //pageLoad = false;
+        }
+
+        private void GrfSpec_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (grfSpec.Row < 0) return;
+            if (grfSpec.Col < 0) return;
+            if (grfSpec[grfSpec.Row, colSFoosName] == null) return;
+            String name = "", id = "";
+            name = grfSpec[grfSpec.Row, colSFoosName].ToString();
+            if (!name.Equals(""))
+            {
+                if (grfSpec[grfSpec.Row, colSStatus].Equals(""))
+                {
+                    grfSpec[grfSpec.Row, colSStatus] = "1";
+                    grfSpec.SetCellImage(grfSpec.Row, colSImg, imgR);
+                    //lbFooName.Text = lbFooName.Text + " + " + name;
+                    setSpecName();
+                }
+                else
+                {
+                    grfSpec[grfSpec.Row, colSStatus] = "";
+                    grfSpec.SetCellImage(grfSpec.Row, colSImg, null);
+                    setSpecName();
+                }
+            }
+            //grf.AutoSizeRows();
+        }
+        private void setSpecName()
+        {
+            String spec = "";
+            lbFooName.Text = foo.foods_name;
+            foreach (Row row in grfSpec.Rows)
+            {
+                if (row[colSStatus] == null) continue;
+                if (row[colSStatus].Equals("1"))
+                {
+                    spec += row[colSFoosName].ToString() + " + ";
+                }
+            }
+            spec = spec.Trim();
+            try
+            {
+                if (spec.Substring(spec.Length - 1).Equals("+"))
+                {
+                    spec = spec.Substring(0, spec.Length - 1);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
+            fooSpec = spec;
+            setLbFooName();
+            try
+            {
+                if (lbFooName.Text.Substring(lbFooName.Text.Length - 1).Equals("+"))
+                {
+                    lbFooName.Text = lbFooName.Text.Substring(0, lbFooName.Text.Length - 1);
+                    lbFooName.Text = lbFooName.Text.Trim();
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        private void initGrfTopping()
+        {
+            grfTopping = new C1FlexGrid();
+            grfTopping.Font = fEdit;
+            grfTopping.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfTopping.Location = new System.Drawing.Point(0, 0);
+            grfTopping.Rows[0].Visible = false;
+            grfTopping.Cols[0].Visible = false;
+            //grf.Cols[colStatus].Visible = false;
+            grfTopping.Rows.Count = 1;
+            grfTopping.Cols.Count = 6;
+            grfTopping.Cols[colTImg].Width = 50;
+            grfTopping.Cols[colTFoosName].Width = 200;
+
+            grfTopping.TabStop = false;
+            grfTopping.EditOptions = EditFlags.None;
+            grfTopping.Cols[colTImg].AllowEditing = false;
+            grfTopping.Cols[colTFoosName].AllowEditing = false;
+            grfTopping.Click += GrfTopping_Click;
+            //grf.ExtendLastCol = true;
+            grfTopping.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
+
+            pnToping.Controls.Add(grfTopping);
+            grfTopping.Cols[colTNo].Visible = false;
+            grfTopping.Cols[colTStatus].Visible = false;
+            grfTopping.Cols[colTPrice].AllowEditing = false;
+            //grf.Cols[colQty].Visible = false;
+            //pnBill.Width = mposC.panel1Width;
+            //theme.SetTheme(grf, "Office2010Blue");
+        }
+        private void setGrfTopping(String fooId)
+        {
+            grfTopping.Clear();
+            DataTable dt = new DataTable();
+            dt = mposC.mposDB.footpDB.selectByFoodsId1(fooId);
+            grfTopping.Cols.Count = 6;
+            grfTopping.Rows.Count = dt.Rows.Count + 1;
+            //if(dt.Rows.Count>0)
+                grfTopping.Rows[0].Visible = false;
+            //CellStyle cs = grf.Styles.Add("btn");
+            //cs.DataType = typeof(Button);
+            ////cs.ComboList = "|Tom|Dick|Harry";
+            //cs.ForeColor = Color.Navy;
+            //cs.Font = new Font(Font, FontStyle.Bold);
+            //cs = grf.Styles.Add("date");
+            //cs.DataType = typeof(DateTime);
+            //cs.Format = "dd-MMM-yy";
+            //cs.ForeColor = Color.DarkGoldenrod;
+
+            grfTopping.Cols[1].Width = 60;
+
+            grfTopping.Cols[colTImg].Width = 50;
+            grfTopping.Cols[colTFoosName].Width = 200;
+
+            grfTopping.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grfTopping.Cols[2].Caption = "รายการสั่งพิเศษ";
+            
+            //grfFooS.AfterRowColChange += GrfFooS_AfterRowColChange;
+            //grfDept.Cols[coledit].Visible = false;
+            //CellRange rg = grf.GetCellRange(2, colE);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                grfTopping[i + 1, 0] = (i + 1);
+                grfTopping[i + 1, colTFoosName] = dt.Rows[i]["foods_topping_name"].ToString();
+                grfTopping[i + 1, colTPrice] = dt.Rows[i]["price"].ToString();
+                grfTopping[i + 1, colTStatus] = "";
+                if (i % 2 == 0)
+                    grfTopping.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+            }
+            grfTopping.Cols[colTStatus].Visible = false;
+            grfTopping.Cols[colTNo].Visible = false;
+            grfTopping.Cols[colTFoosName].AllowEditing = false;
+            grfTopping.Cols[colTImg].AllowEditing = false;
+            //pageLoad = false;
+        }
+        private void GrfTopping_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (grfTopping.Row < 0) return;
+            if (grfTopping.Col < 0) return;
+            if (grfTopping[grfTopping.Row, colTFoosName] == null) return;
+            String name = "", id = "";
+            name = grfTopping[grfTopping.Row, colTFoosName].ToString();
+            if (!name.Equals(""))
+            {
+                if (grfTopping[grfTopping.Row, colTStatus].Equals(""))
+                {
+                    grfTopping[grfTopping.Row, colTStatus] = "1";
+                    grfTopping.SetCellImage(grfTopping.Row, colTImg, imgR);
+                    //lbFooName.Text = lbFooName.Text + " + " + name;
+                    setToppingName();
+                }
+                else
+                {
+                    grfTopping[grfTopping.Row, colTStatus] = "";
+                    grfTopping.SetCellImage(grfTopping.Row, colSImg, null);
+                    setToppingName();
+                }
+            }
+            //grf.AutoSizeRows();
+        }
+        private void setToppingName()
+        {
+            String topping = "";
+            Decimal price = 0, sum = 0;
+            lbFooName.Text = foo.foods_name;
+            Decimal.TryParse(foo.foods_price, out sum);
+            foreach (Row row in grfTopping.Rows)
+            {
+                if (row[colTStatus] == null) continue;
+
+                if (row[colTStatus].Equals("1"))
+                {
+                    topping += row[colTFoosName].ToString() + "[" + row[colTPrice].ToString() + "]" + " + ";
+                    Decimal.TryParse(row[colTPrice].ToString(), out price);
+                    sum += price;
+                }
+            }
+            topping = topping.Trim();
+            try
+            {
+                if (topping.Substring(topping.Length - 1).Equals("+"))
+                {
+                    topping = topping.Substring(0, topping.Length - 1);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            //lbFooName.Text = foo.foods_name + " + " + topping;
+            //lbFooName.Text = lbFooName.Text.Trim();
+            fooTopping = topping;
+            setLbFooName();
+            lbPrice.Text = sum.ToString("0.00");
+            fooTopping = topping;
+            try
+            {
+                if (lbFooName.Text.Substring(lbFooName.Text.Length - 1).Equals("+"))
+                {
+                    lbFooName.Text = lbFooName.Text.Substring(0, lbFooName.Text.Length - 1);
+                    lbFooName.Text = lbFooName.Text.Trim();
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        private void setLbFooName()
+        {
+            if (fooSpec.Length == 0)
+            {
+                if (fooTopping.Length == 0)
+                {
+                    lbFooName.Text = foo.foods_name;
+                }
+                else
+                {
+                    lbFooName.Text = foo.foods_name + " + " + fooTopping;
+                }
+            }
+            else
+            {
+                if (fooTopping.Length == 0)
+                {
+                    lbFooName.Text = foo.foods_name + "+" + fooSpec;
+                }
+                else
+                {
+                    lbFooName.Text = foo.foods_name + "+" + fooSpec + " + " + fooTopping;
+                }
+            }
+            lbFooName.Text = lbFooName.Text.Trim();
+            lbSpecFooName.Text = lbFooName.Text;
+            
+            //return 
         }
         private void LoadFoods(bool keepExistent)
         {
@@ -685,12 +1128,15 @@ namespace modernpos_pos.gui
                 tile.Image = null;
                 try
                 {
+                    String filename = "";
                     tile.Image = null;
                     tiles.Add(tile);
                     MemoryStream stream = new MemoryStream();
                     Image loadedImage = null, resizedImage;
                     if (foo1.filename.Equals("")) continue;
-                    stream = mposC.ftpC.download(mposC.iniC.ShareFile + "/foods/" + foo1.filename);
+                    String ext = Path.GetExtension(foo1.filename);
+                    filename = foo1.filename.Replace(ext, "");
+                    stream = mposC.ftpC.download(mposC.iniC.ShareFile + "/foods/" + filename+"_210"+ext);
                     loadedImage = new Bitmap(stream);
                     if (loadedImage != null)
                     {
@@ -714,7 +1160,10 @@ namespace modernpos_pos.gui
 
             }
         }
+        private void TileSpec_Click(object sender, EventArgs e)
+        {
 
+        }
         private void Tile_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -723,7 +1172,7 @@ namespace modernpos_pos.gui
             {
                 Foods foo = new Foods();
                 foo = (Foods)tile.Tag;
-                setGrf(tile.Name, tile.Text, tile.Text1.Replace("ราคา", "").Trim(), "1", "", foo.printer_name);
+                setGrfOrder(tile.Name, tile.Text, tile.Text1.Replace("ราคา", "").Trim(), "1", "", foo.printer_name);
                 //FlickrPhoto photo = (FlickrPhoto)tile.Tag;
                 //string uri = photo.ContentUri;
                 //if (!string.IsNullOrEmpty(uri))
