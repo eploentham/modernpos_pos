@@ -153,16 +153,18 @@ namespace modernpos_pos.gui
                 TileSpec.Orientation = LayoutOrientation.Vertical;
             }
             grSpec = new Group();
-            TileSpec.Groups.Add(this.grSpec);
+            TileSpec.Groups.Add(grSpec);
             peSpec = new C1.Win.C1Tile.PanelElement();
             ieSpec = new C1.Win.C1Tile.ImageElement();
             teSpec = new C1.Win.C1Tile.TextElement();
             teSpec.Font = fEdit;
+            teSpec.Alignment = ContentAlignment.TopRight;
+            ieSpec.Alignment = ContentAlignment.TopLeft;
             peSpec.Alignment = System.Drawing.ContentAlignment.TopLeft;
             peSpec.Children.Add(ieSpec);
             peSpec.Children.Add(teSpec);
             peSpec.Margin = new System.Windows.Forms.Padding(10, 6, 10, 6);
-            TileSpec.DefaultTemplate.Elements.Add(peSpec);
+            //TileSpec.DefaultTemplate.Elements.Add(peSpec);
             TileSpec.Font = fEdit;
             //TileSpec.Templates.Add(this.tempFlickr);
             TileSpec.Name = "tilespec";
@@ -172,7 +174,7 @@ namespace modernpos_pos.gui
             TileSpec.Padding = new System.Windows.Forms.Padding(0);
             TileSpec.GroupPadding = new System.Windows.Forms.Padding(20);
             TileSpec.Templates.Add(this.tempSpec);
-            TileSpec.Groups.Add(grSpec);
+            //TileSpec.Groups.Add(grSpec);
 
             peSpecName = new C1.Win.C1Tile.PanelElement();
             peSpecName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -708,39 +710,30 @@ namespace modernpos_pos.gui
         private void setTiltSpec(String fooId)
         {
             DataTable dt = new DataTable();
-            dt = mposC.mposDB.foosDB.selectByFoodsId1(fooId);
+            List<FoodsSpecial> lfooC1 = new List<FoodsSpecial>();
+            //dt = mposC.mposDB.foosDB.selectByFoodsId1(fooId);
+            lfooC1 = mposC.mposDB.foosDB.getlFooSpecByFooId(fooId);
             TileCollection tiles = TileSpec.Groups[0].Tiles;
             tiles.Clear(true);
             
-            foreach (DataRow drow in dt.Rows)
+            //foreach (DataRow drow in dt.Rows)
+            foreach (FoodsSpecial foos in lfooC1)
             {
                 var tile = new Tile();
                 tile.HorizontalSize = mposC.takeouttilhorizontalsize;
                 tile.VerticalSize = mposC.takeouttilverticalsize;
                 tile.Template = tempSpec;
-                tile.Text = drow["foods_spec_name"].ToString();
+                tile.Text = foos.foods_spec_name;
                 //tile.Text1 = "ราคา " + foo1.foods_price;
-                //tile.Tag = foo1;
-                tile.Name = drow["foods_id"].ToString();
+                tile.Tag = foos;
+                tile.Name = foos.foods_spec_id;
                 tile.Click += TileSpec_Click;
                 tile.Image = null;
                 try
                 {
                     //tile.Image = null;
                     tiles.Add(tile);
-                    //MemoryStream stream = new MemoryStream();
-                    //Image loadedImage = null, resizedImage;
-                    //if (foo1.filename.Equals("")) continue;
-                    //stream = mposC.ftpC.download(mposC.iniC.ShareFile + "/foods/" + foo1.filename);
-                    //loadedImage = new Bitmap(stream);
-                    //if (loadedImage != null)
-                    //{
-                    //    //SizeF size = tile.Width;
-                    //    int originalWidth = loadedImage.Width;
-                    //    int newWidth = 180;
-                    //    resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
-                    //    tile.Image = resizedImage;
-                    //}
+                    
                 }
                 catch (Exception ex)
                 {
@@ -1113,6 +1106,7 @@ namespace modernpos_pos.gui
             if (TileFoods[index + 1] == null) return;
             TileCollection tiles = TileFoods[index + 1].Groups[0].Tiles;
             tiles.Clear(true);
+            TileFoods[index + 1].BeginUpdate();
             lfooT = mposC.mposDB.fooDB.getlFoodsByCat(catid);
             foreach (Foods foo1 in lfooT)
             {
@@ -1143,8 +1137,9 @@ namespace modernpos_pos.gui
                         //SizeF size = tile.Width;
                         int originalWidth = loadedImage.Width;
                         int newWidth = 180;
-                        resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
-                        tile.Image = resizedImage;
+                        //resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
+                        //tile.Image = resizedImage;
+                        tile.Image = loadedImage;
                     }
                 }
                 catch (Exception ex)
@@ -1159,10 +1154,26 @@ namespace modernpos_pos.gui
 
 
             }
+            TileFoods[index + 1].EndUpdate();
         }
         private void TileSpec_Click(object sender, EventArgs e)
         {
-
+            Tile tile = sender as Tile;
+            if (tile != null)
+            {
+                FoodsSpecial foos = new FoodsSpecial();
+                foos = (FoodsSpecial)tile.Tag;
+                if (tile.Image == null)
+                {
+                    tile.Image = imgR;
+                    tile.Text1 = "เลือก";
+                }
+                else
+                {
+                    tile.Image = null;
+                }
+                //setSpecName();
+            }
         }
         private void Tile_Click(object sender, EventArgs e)
         {

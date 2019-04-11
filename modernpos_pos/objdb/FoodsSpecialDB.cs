@@ -86,6 +86,16 @@ namespace modernpos_pos.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
+        public DataTable selectByFoodsId2(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select foos." + foos.foods_spec_id + ",'' as img,foos." + foos.foods_spec_name +
+                " From " + foos.table + " foos " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where foos." + foos.foods_id + " ='" + copId + "' and foos." + foos.active + "='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
         public FoodsSpecial selectByPk1(String copId)
         {
             FoodsSpecial cop1 = new FoodsSpecial();
@@ -119,6 +129,22 @@ namespace modernpos_pos.objdb
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
+        }
+        public List<FoodsSpecial> getlFooSpecByFooId(String fooid)
+        {
+            //lDept = new List<Position>();
+            List<FoodsSpecial> lfooC1 = new List<FoodsSpecial>();
+            DataTable dt = new DataTable();
+            dt = selectByFoodsId2(fooid);
+            foreach (DataRow row in dt.Rows)
+            {
+                FoodsSpecial itm1 = new FoodsSpecial();
+                itm1.foods_spec_id = row[foos.foods_spec_id].ToString();
+                itm1.foods_spec_name = row[foos.foods_spec_name].ToString();
+
+                lfooC1.Add(itm1);
+            }
+            return lfooC1;
         }
         public void getlArea()
         {
