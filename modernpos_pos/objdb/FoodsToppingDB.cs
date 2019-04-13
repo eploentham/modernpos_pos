@@ -120,6 +120,32 @@ namespace modernpos_pos.objdb
 
             return dt;
         }
+        public DataTable selectByFoodsId2(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select footp." + footp.foods_topping_id + ",'' as img,footp." + footp.foods_topping_name + ",footp." + footp.price +
+                " From " + footp.table + " footp " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where footp." + footp.foods_id + " ='" + copId + "' and footp." + footp.active + "='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public List<FoodsTopping> getlFooSpecByFooId(String fooid)
+        {
+            //lDept = new List<Position>();
+            List<FoodsTopping> lfooC1 = new List<FoodsTopping>();
+            DataTable dt = new DataTable();
+            dt = selectByFoodsId2(fooid);
+            foreach (DataRow row in dt.Rows)
+            {
+                FoodsTopping itm1 = new FoodsTopping();
+                itm1.foods_topping_id = row[footp.foods_topping_id].ToString();
+                itm1.foods_topping_name = row[footp.foods_topping_name].ToString();
+                itm1.price = row[footp.price].ToString();
+                lfooC1.Add(itm1);
+            }
+            return lfooC1;
+        }
         public void getlArea()
         {
             //lDept = new List<Position>();

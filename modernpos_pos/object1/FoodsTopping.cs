@@ -23,5 +23,6 @@ namespace modernpos_pos.object1
         public String host_id { get; set; }
         public String branch_id { get; set; }
         public String device_id { get; set; }
+        public String statusUs { get; set; }
     }
 }

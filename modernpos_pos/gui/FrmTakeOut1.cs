@@ -34,12 +34,12 @@ namespace modernpos_pos.gui
         Foods foo;
         //Theme theme1;
 
-        C1.Win.C1Tile.PanelElement peOrd, peSpec, peSpecName;
-        C1.Win.C1Tile.ImageElement ieOrd, ieSpec, ieSpec8;
-        C1.Win.C1Tile.TextElement teOrd, teOrdFoodsName, teOrdFoodsPrice, teSpec, teSpecName;
+        PanelElement peOrd, peSpec, peSpecName, peTopping;
+        ImageElement ieOrd, ieSpec, ieSpec8, ieTopping, ieTopping8;
+        TextElement teOrd, teOrdFoodsName, teOrdFoodsPrice, teSpec, teSpecName, teTopping;
 
-        Template tempFlickr, tempSpec;
-        C1.Win.C1Tile.ImageElement imageElement8;
+        Template tempFlickr, tempSpec, tempTopping;
+        ImageElement imageElement8;
         PanelElement pnFoodsName, pnFoodsPrice;
         C1FlexGrid grfOrder, grfSpec, grfTopping, grf;
         C1DockingTab tC;
@@ -51,13 +51,14 @@ namespace modernpos_pos.gui
 
         List<Order1> lOrd;
         List<FoodsSpecial> lFoos;
+        List<FoodsTopping> lFoot;
         Order1 ord;
         DataTable dtCat = new DataTable();
         DataTable dtRec = new DataTable();
         IntPtr intptr = new IntPtr();
         C1DockingTabPage[] tabPage;
         C1TileControl[] TileFoods;
-        C1TileControl TileRec, TileSpec;
+        C1TileControl TileRec, TileSpec, TileTopping;
         Group[] gr1;
         Group grRec, grSpec;
         Boolean flagModi = false, flagShowTitle=false;
@@ -93,6 +94,7 @@ namespace modernpos_pos.gui
             lfooR = new List<Foods>();
             lOrd = new List<Order1>();
             lFoos = new List<FoodsSpecial>();
+            lFoot = new List<FoodsTopping>();
             foo = new Foods();
             ord = new Order1();
             lfooT = mposC.mposDB.fooDB.getlFoods1();
@@ -128,11 +130,67 @@ namespace modernpos_pos.gui
             //initGrfSpec();
             initTC();
             initSpec();
-            initGrfTopping();
+            initTopping();
+            //initGrfTopping();
             
             flagModi = false;
             setBtnEnable(flagModi);
             this.FormBorderStyle = FormBorderStyle.None;
+        }
+        private void initTopping()
+        {
+            ieTopping8 = new C1.Win.C1Tile.ImageElement();
+            ieTopping8.ImageLayout = C1.Win.C1Tile.ForeImageLayout.ScaleOuter;
+            tempTopping = new C1.Win.C1Tile.Template();
+            TileTopping = new C1TileControl();
+            TileTopping.Dock = DockStyle.Fill;
+            //teOrd.Font = fEdit;
+            TileTopping.Font = fEdit;
+            //tempSpec.Elements.Add(pnFoodsPrice);
+            tempTopping.Name = "tempSpec";
+
+            if (mposC.iniC.TileFoodsOrientation.Equals("0"))
+            {
+                TileTopping.Orientation = LayoutOrientation.Horizontal;
+            }
+            else
+            {
+                TileTopping.Orientation = LayoutOrientation.Vertical;
+            }
+            grSpec = new Group();
+            TileTopping.Groups.Add(grSpec);
+            //peSpec = new C1.Win.C1Tile.PanelElement();
+            ieTopping = new C1.Win.C1Tile.ImageElement();
+            ieTopping.Alignment = ContentAlignment.TopLeft;
+
+            TileTopping.Font = fEdit;
+            //TileSpec.Templates.Add(this.tempFlickr);
+            TileTopping.Name = "tilespec";
+            TileTopping.Dock = DockStyle.Fill;
+            TileTopping.ScrollOffset = 0;
+            TileTopping.SurfaceContentAlignment = System.Drawing.ContentAlignment.TopLeft;
+            TileTopping.Padding = new System.Windows.Forms.Padding(0);
+            TileTopping.GroupPadding = new System.Windows.Forms.Padding(20);
+            TileTopping.Templates.Add(this.tempTopping);
+            //TileSpec.Groups.Add(grSpec);
+
+            peTopping = new C1.Win.C1Tile.PanelElement();
+            peTopping.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            //peSpecName.Children.Add(teOrdFoodsName);
+            peTopping.Dock = System.Windows.Forms.DockStyle.Top;
+            peTopping.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            teSpecName = new C1.Win.C1Tile.TextElement();
+            teSpecName.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
+            teSpecName.ForeColor = System.Drawing.Color.Black;
+            teSpecName.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
+            teSpecName.SingleLine = true;
+            tempTopping.Elements.Add(ieTopping8);
+            tempTopping.Elements.Add(peTopping);
+            tempTopping.Name = "tempSpec";
+
+            peTopping.Children.Add(ieTopping);
+            peTopping.Children.Add(teSpecName);
+            pnToping.Controls.Add(TileTopping);
         }
         private void initSpec()
         {
@@ -292,6 +350,7 @@ namespace modernpos_pos.gui
             mposC.fooSpec = "";
             mposC.foosumprice = "";
             lFoos.Clear();
+            lFoot.Clear();
 
         }
         private void BtnSpec_Click(object sender, EventArgs e)
@@ -302,8 +361,9 @@ namespace modernpos_pos.gui
             //frm.ShowDialog(this);
             foo = mposC.mposDB.fooDB.selectByPk1(txtFooId.Text);
             //setGrfSpec(foo.foods_id);
-            setTiltSpec(foo.foods_id);
-            setGrfTopping(foo.foods_id);
+            setTileSpec(foo.foods_id);
+            //setGrfTopping(foo.foods_id);
+            setTiltTopping(foo.foods_id);
             tabMain.SelectedTab = tabSpecTopping;
             lbPrice.Text = foo.foods_price;
             fooTopping = "";
@@ -706,7 +766,7 @@ namespace modernpos_pos.gui
             //pnBill.Width = mposC.panel1Width;
             //theme.SetTheme(grf, "Office2010Blue");
         }
-        private void setTiltSpec(String fooId)
+        private void setTileSpec(String fooId)
         {
             DataTable dt = new DataTable();
             lFoos = new List<FoodsSpecial>();
@@ -728,6 +788,41 @@ namespace modernpos_pos.gui
                 tile.Tag = foos;
                 tile.Name = foos.foods_spec_id;
                 tile.Click += TileSpec_Click;
+                tile.Image = null;
+                try
+                {
+                    //tile.Image = null;
+                    tiles.Add(tile);
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show("" + ex.Message, "showImg");
+                }
+                foos.statusUs = "";
+            }
+        }
+        private void setTiltTopping(String fooId)
+        {
+            DataTable dt = new DataTable();
+            lFoot = new List<FoodsTopping>();
+            //dt = mposC.mposDB.foosDB.selectByFoodsId1(fooId);
+            lFoot = mposC.mposDB.footpDB.getlFooSpecByFooId(fooId);
+            //lFoos = lfooC1;
+            TileCollection tiles = TileTopping.Groups[0].Tiles;
+            tiles.Clear(true);
+
+            //foreach (DataRow drow in dt.Rows)
+            foreach (FoodsTopping foos in lFoot)
+            {
+                var tile = new Tile();
+                tile.HorizontalSize = mposC.takeouttilhorizontalsize;
+                tile.VerticalSize = mposC.takeouttilverticalsize;
+                tile.Template = tempSpec;
+                tile.Text = foos.foods_topping_name;
+                //tile.Text1 = "ราคา " + foo1.foods_price;
+                tile.Tag = foos;
+                tile.Name = foos.foods_topping_id;
+                tile.Click += TileTopping_Click;
                 tile.Image = null;
                 try
                 {
@@ -819,15 +914,18 @@ namespace modernpos_pos.gui
         }
         private void setTileSpecName()
         {
-            String spec = "";
+            String spec = "", topping="";
+            Decimal price = 0, sum = 0;
             lbFooName.Text = foo.foods_name;
-            //lFoos.Add(foos);
+            Decimal.TryParse(foo.foods_price, out sum);
             foreach (FoodsSpecial row in lFoos)
             {
                 if (row.foods_spec_name == null) continue;
                 if (row.statusUs.Equals("1"))
+                {
                     spec += row.foods_spec_name.ToString() + " + ";
-                
+                    
+                }
             }
             spec = spec.Trim();
             try
@@ -841,9 +939,34 @@ namespace modernpos_pos.gui
             {
 
             }
-
             fooSpec = spec;
+
+            foreach (FoodsTopping row in lFoot)
+            {
+                if (row.foods_topping_name == null) continue;
+                if (row.statusUs.Equals("1"))
+                {
+                    topping += row.foods_topping_name.ToString() + " + ";
+                    Decimal.TryParse(row.price.ToString(), out price);
+                    sum += price;
+                }
+            }
+            topping = topping.Trim();
+            try
+            {
+                if (topping.Substring(topping.Length - 1).Equals("+"))
+                {
+                    topping = topping.Substring(0, topping.Length - 1);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            fooTopping = topping;
+
             setLbFooName();
+            lbPrice.Text = sum.ToString("0.00");
             try
             {
                 if (lbFooName.Text.Substring(lbFooName.Text.Length - 1).Equals("+"))
@@ -1196,6 +1319,40 @@ namespace modernpos_pos.gui
 
             }
             TileFoods[index + 1].EndUpdate();
+        }
+        private void TileTopping_Click(object sender, EventArgs e)
+        {
+            Tile tile = sender as Tile;
+            if (tile != null)
+            {
+                FoodsTopping foos = new FoodsTopping();
+                foos = (FoodsTopping)tile.Tag;
+                if (tile.Image == null)
+                {
+                    tile.Image = imgR;
+                    tile.Text1 = "เลือก";
+                }
+                else
+                {
+                    tile.Image = null;
+                }
+                foreach (FoodsTopping foos1 in lFoot)
+                {
+                    if (foos1.foods_topping_id.Equals(foos.foods_topping_id))
+                    {
+                        if (foos1.statusUs.Equals(""))
+                        {
+                            foos1.statusUs = "1";
+                        }
+                        else
+                        {
+                            foos1.statusUs = "";
+                        }
+                    }
+                }
+                //if (grfSpec[grfSpec.Row, colSStatus].Equals(""))
+                setTileSpecName();
+            }
         }
         private void TileSpec_Click(object sender, EventArgs e)
         {
