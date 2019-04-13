@@ -50,6 +50,7 @@ namespace modernpos_pos.gui
         int colTNo = 1, colTImg = 2, colTFoosName = 3, colTPrice = 4, colTStatus = 5;
 
         List<Order1> lOrd;
+        List<FoodsSpecial> lFoos;
         Order1 ord;
         DataTable dtCat = new DataTable();
         DataTable dtRec = new DataTable();
@@ -91,6 +92,7 @@ namespace modernpos_pos.gui
             lfooT = new List<Foods>();
             lfooR = new List<Foods>();
             lOrd = new List<Order1>();
+            lFoos = new List<FoodsSpecial>();
             foo = new Foods();
             ord = new Order1();
             lfooT = mposC.mposDB.fooDB.getlFoods1();
@@ -154,17 +156,11 @@ namespace modernpos_pos.gui
             }
             grSpec = new Group();
             TileSpec.Groups.Add(grSpec);
-            peSpec = new C1.Win.C1Tile.PanelElement();
+            //peSpec = new C1.Win.C1Tile.PanelElement();
             ieSpec = new C1.Win.C1Tile.ImageElement();
-            teSpec = new C1.Win.C1Tile.TextElement();
-            teSpec.Font = fEdit;
-            teSpec.Alignment = ContentAlignment.TopRight;
+            
             ieSpec.Alignment = ContentAlignment.TopLeft;
-            peSpec.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            peSpec.Children.Add(ieSpec);
-            peSpec.Children.Add(teSpec);
-            peSpec.Margin = new System.Windows.Forms.Padding(10, 6, 10, 6);
-            //TileSpec.DefaultTemplate.Elements.Add(peSpec);
+            
             TileSpec.Font = fEdit;
             //TileSpec.Templates.Add(this.tempFlickr);
             TileSpec.Name = "tilespec";
@@ -178,7 +174,7 @@ namespace modernpos_pos.gui
 
             peSpecName = new C1.Win.C1Tile.PanelElement();
             peSpecName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            peSpecName.Children.Add(teOrdFoodsName);
+            //peSpecName.Children.Add(teOrdFoodsName);
             peSpecName.Dock = System.Windows.Forms.DockStyle.Top;
             peSpecName.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
             teSpecName = new C1.Win.C1Tile.TextElement();
@@ -189,7 +185,8 @@ namespace modernpos_pos.gui
             tempSpec.Elements.Add(ieSpec8);
             tempSpec.Elements.Add(peSpecName);
             tempSpec.Name = "tempSpec";
-            
+
+            peSpecName.Children.Add(ieSpec);
             peSpecName.Children.Add(teSpecName);
             pnSpecial.Controls.Add(TileSpec);
         }
@@ -294,6 +291,8 @@ namespace modernpos_pos.gui
             mposC.toppingPrice = "";
             mposC.fooSpec = "";
             mposC.foosumprice = "";
+            lFoos.Clear();
+
         }
         private void BtnSpec_Click(object sender, EventArgs e)
         {
@@ -710,14 +709,15 @@ namespace modernpos_pos.gui
         private void setTiltSpec(String fooId)
         {
             DataTable dt = new DataTable();
-            List<FoodsSpecial> lfooC1 = new List<FoodsSpecial>();
+            lFoos = new List<FoodsSpecial>();
             //dt = mposC.mposDB.foosDB.selectByFoodsId1(fooId);
-            lfooC1 = mposC.mposDB.foosDB.getlFooSpecByFooId(fooId);
+            lFoos = mposC.mposDB.foosDB.getlFooSpecByFooId(fooId);
+            //lFoos = lfooC1;
             TileCollection tiles = TileSpec.Groups[0].Tiles;
             tiles.Clear(true);
             
             //foreach (DataRow drow in dt.Rows)
-            foreach (FoodsSpecial foos in lfooC1)
+            foreach (FoodsSpecial foos in lFoos)
             {
                 var tile = new Tile();
                 tile.HorizontalSize = mposC.takeouttilhorizontalsize;
@@ -733,12 +733,12 @@ namespace modernpos_pos.gui
                 {
                     //tile.Image = null;
                     tiles.Add(tile);
-                    
                 }
                 catch (Exception ex)
                 {
                     //MessageBox.Show("" + ex.Message, "showImg");
                 }
+                foos.statusUs = "";
             }
         }
         private void setGrfSpec(String fooId)
@@ -816,6 +816,47 @@ namespace modernpos_pos.gui
                 }
             }
             //grf.AutoSizeRows();
+        }
+        private void setTileSpecName()
+        {
+            String spec = "";
+            lbFooName.Text = foo.foods_name;
+            //lFoos.Add(foos);
+            foreach (FoodsSpecial row in lFoos)
+            {
+                if (row.foods_spec_name == null) continue;
+                if (row.statusUs.Equals("1"))
+                    spec += row.foods_spec_name.ToString() + " + ";
+                
+            }
+            spec = spec.Trim();
+            try
+            {
+                if (spec.Substring(spec.Length - 1).Equals("+"))
+                {
+                    spec = spec.Substring(0, spec.Length - 1);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            fooSpec = spec;
+            setLbFooName();
+            try
+            {
+                if (lbFooName.Text.Substring(lbFooName.Text.Length - 1).Equals("+"))
+                {
+                    lbFooName.Text = lbFooName.Text.Substring(0, lbFooName.Text.Length - 1);
+                    lbFooName.Text = lbFooName.Text.Trim();
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
         private void setSpecName()
         {
@@ -1172,7 +1213,22 @@ namespace modernpos_pos.gui
                 {
                     tile.Image = null;
                 }
-                //setSpecName();
+                foreach(FoodsSpecial foos1 in lFoos)
+                {
+                    if (foos1.foods_spec_id.Equals(foos.foods_spec_id))
+                    {
+                        if (foos1.statusUs.Equals(""))
+                        {
+                            foos1.statusUs = "1";
+                        }
+                        else
+                        {
+                            foos1.statusUs = "";
+                        }
+                    }
+                }
+                //if (grfSpec[grfSpec.Row, colSStatus].Equals(""))
+                setTileSpecName();
             }
         }
         private void Tile_Click(object sender, EventArgs e)
