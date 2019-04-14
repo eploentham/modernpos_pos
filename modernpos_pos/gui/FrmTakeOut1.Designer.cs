@@ -158,7 +158,7 @@
             this.pnItem.Size = new System.Drawing.Size(484, 675);
             this.pnItem.TabIndex = 0;
             this.pnItem.Text = "Item";
-            this.pnItem.Width = 484;
+            this.pnItem.Width = 491;
             // 
             // spItem
             // 
@@ -185,7 +185,7 @@
             // pnFoods
             // 
             this.pnFoods.Collapsible = true;
-            this.pnFoods.Height = 329;
+            this.pnFoods.Height = 336;
             this.pnFoods.Location = new System.Drawing.Point(0, 21);
             this.pnFoods.Name = "pnFoods";
             this.pnFoods.Size = new System.Drawing.Size(484, 308);
