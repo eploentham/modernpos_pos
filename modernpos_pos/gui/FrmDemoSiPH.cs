@@ -1,6 +1,7 @@
 ﻿using C1.Win.C1Input;
 
 using modernpos_pos.control;
+using modernpos_pos.gui;
 using modernpos_pos.object1;
 using modernpos_pos.Properties;
 using Newtonsoft.Json;
@@ -140,6 +141,7 @@ namespace modernpos_pos
             btnPrint.Click += BtnPrint_Click;
             btnDonate11.Click += BtnDonate11_Click;
             btnDonate12.Click += BtnDonate12_Click;
+            txtPttName.Enter += TxtPttName_Enter;
 
             lbVersion.Text = mposC.iniC.statusShowListBox1;
             if (mposC.iniC.statusShowListBox1.Equals("1"))
@@ -164,6 +166,17 @@ namespace modernpos_pos
             pnPID.Hide();
 
             timerOnLine.Start();
+        }
+
+        private void TxtPttName_Enter(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            Point pp = txtPttName.Location;
+            //pp.Y = pp.Y + 120 + 20;
+            //pp.X = pp.X - 20 + panel4.Left;
+
+            FrmKeyBoard frm = new FrmKeyBoard(pp);
+            frm.ShowDialog(this);
         }
 
         private void Pic2Next_Click1(object sender, EventArgs e)

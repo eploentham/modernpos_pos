@@ -45,17 +45,23 @@
             this.inputButton1 = new C1.Win.C1InputPanel.InputButton();
             this.inputButton2 = new C1.Win.C1InputPanel.InputButton();
             this.inputGroupHeader2 = new C1.Win.C1InputPanel.InputGroupHeader();
+            this.c1DockingTabPage3 = new C1.Win.C1Command.C1DockingTabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
             this.c1DockingTab1.SuspendLayout();
             this.c1DockingTabPage1.SuspendLayout();
             this.c1DockingTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1InputPanel1)).BeginInit();
+            this.c1DockingTabPage3.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // c1DockingTab1
             // 
             this.c1DockingTab1.Controls.Add(this.c1DockingTabPage1);
             this.c1DockingTab1.Controls.Add(this.c1DockingTabPage2);
+            this.c1DockingTab1.Controls.Add(this.c1DockingTabPage3);
             this.c1DockingTab1.Location = new System.Drawing.Point(0, 0);
             this.c1DockingTab1.Name = "c1DockingTab1";
             this.c1DockingTab1.SelectedIndex = 1;
@@ -165,6 +171,39 @@
             this.inputGroupHeader2.Name = "inputGroupHeader2";
             this.inputGroupHeader2.Text = "Group";
             // 
+            // c1DockingTabPage3
+            // 
+            this.c1DockingTabPage3.Controls.Add(this.tableLayoutPanel1);
+            this.c1DockingTabPage3.Location = new System.Drawing.Point(1, 24);
+            this.c1DockingTabPage3.Name = "c1DockingTabPage3";
+            this.c1DockingTabPage3.Size = new System.Drawing.Size(968, 655);
+            this.c1DockingTabPage3.TabIndex = 2;
+            this.c1DockingTabPage3.Text = "Page3";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(319, 210);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 50);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,6 +219,9 @@
             this.c1DockingTabPage1.ResumeLayout(false);
             this.c1DockingTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1InputPanel1)).EndInit();
+            this.c1DockingTabPage3.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -199,5 +241,8 @@
         private C1.Win.C1InputPanel.InputButton inputButton1;
         private C1.Win.C1InputPanel.InputButton inputButton2;
         private C1.Win.C1InputPanel.InputGroupHeader inputGroupHeader2;
+        private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -21,12 +21,12 @@ namespace modernpos_pos
             //Application.Run(new Form4());
             //MessageBox.Show("Program ", "");
             mPOSControl mposC = new mPOSControl();
-            //MessageBox.Show("Program mPOSControl after", "");
-            FrmSplash spl = new FrmSplash();
-            spl.Show();
-            Application.Run(new FrmMain(mposC, spl));
+            ////MessageBox.Show("Program mPOSControl after", "");
+            //FrmSplash spl = new FrmSplash();
+            //spl.Show();
+            //Application.Run(new FrmMain(mposC, spl));
 
-            //Application.Run(new FrmDemoSiPH(mposC));
+            Application.Run(new FrmDemoSiPH(mposC));
         }
     }
 }
