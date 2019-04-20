@@ -256,6 +256,9 @@ namespace modernpos_pos.gui
                 grfOrder.Cols[colFooName].Width = pnOrder.Width - 300;
             else
                 grfOrder.Cols[colFooName].Width = 300;
+
+
+
         }
 
         private void SpMain_SplitterMoved(object sender, SplitterEventArgs e)
