@@ -103,6 +103,12 @@ namespace modernpos_pos.gui
             date = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM-dd");
             this.Text = " Update 2019-04-17 format date " + date;
             txtHeader.Text = mposC.txtHeader;
+            if (mposC.iniC.statusAppToGo.Equals("1"))
+            {
+                FrmToGo frm = new FrmToGo(mposC);
+                frm.WindowState = FormWindowState.Maximized;
+                frm.Show(this);
+            }
         }
     }
 }

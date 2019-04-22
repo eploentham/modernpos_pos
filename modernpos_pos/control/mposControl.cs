@@ -96,7 +96,7 @@ namespace modernpos_pos.control
             //ivfDB = new IvfDB(conn);
 
             cTxtFocus = ColorTranslator.FromHtml(iniC.txtFocus);
-            if (iniC.statusAppDonor.Equals("1"))
+            if (iniC.statusAppToGo.Equals("1"))
             {
                 theme = iniC.themeDonor;
             }
@@ -156,7 +156,7 @@ namespace modernpos_pos.control
 
             iniC.txtFocus = iniF.getIni("app", "txtFocus");
             iniC.grfRowColor = iniF.getIni("app", "grfRowColor");
-            iniC.statusAppDonor = iniF.getIni("app", "statusAppDonor");
+            iniC.statusAppToGo = iniF.getIni("app", "statusAppToGo");
             iniC.themeApplication = iniF.getIni("app", "themeApplication");
             iniC.themeDonor = iniF.getIni("app", "themeDonor");
             iniC.themeDonor1 = iniF.getIni("app", "themeDonor1");
@@ -185,6 +185,7 @@ namespace modernpos_pos.control
             iniC.ShareFile = iniF.getIni("app", "ShareFile");
             iniC.ShareFileSMBFolder = iniF.getIni("app", "ShareFileSMBFolder");
             iniC.TileFoodsOrientation = iniF.getIni("app", "TileFoodsOrientation");
+            iniC.TileFoodsBackColor = iniF.getIni("app", "TileFoodsBackColor");
 
             iniC.VNEip = iniF.getIni("VNE", "VNEip");
             iniC.VNEwebapi = iniF.getIni("VNE", "VNEwebapi");
@@ -222,7 +223,7 @@ namespace modernpos_pos.control
             iniC.grfRowGreen = iniC.grfRowGreen == null ? "#7CB342" : iniC.grfRowGreen.Equals("") ? "#7CB342" : iniC.grfRowGreen;
             iniC.grfRowYellow = iniC.grfRowYellow == null ? "#FFDE03" : iniC.grfRowYellow.Equals("") ? "#FFDE03" : iniC.grfRowYellow;
 
-            iniC.statusAppDonor = iniC.statusAppDonor == null ? "1" : iniC.statusAppDonor.Equals("") ? "1" : iniC.statusAppDonor;
+            iniC.statusAppToGo = iniC.statusAppToGo == null ? "1" : iniC.statusAppToGo.Equals("") ? "1" : iniC.statusAppToGo;
             iniC.timerImgScanNew = iniC.timerImgScanNew == null ? "2" : iniC.timerImgScanNew.Equals("") ? "0" : iniC.timerImgScanNew;
             iniC.pathImageScan = iniC.pathImageScan == null ? "d:\\images" : iniC.pathImageScan.Equals("") ? "d:\\images" : iniC.pathImageScan;
             iniC.folderFTP = iniC.folderFTP == null ? "images_medical_record" : iniC.folderFTP.Equals("") ? "images_medical_record" : iniC.folderFTP;

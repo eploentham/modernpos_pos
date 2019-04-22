@@ -23,7 +23,7 @@ namespace modernpos_pos.gui
         mPOSControl mposC;
         Font fEdit, fEditB, fEdit1;
 
-        Color bg, fc;
+        Color bg, fc, tilecolor;
         Font ff, ffB;
 
         Boolean flagEdit = false;
@@ -64,7 +64,7 @@ namespace modernpos_pos.gui
         Boolean flagModi = false, flagShowTitle=false;
         Image imgR, imgC;
         String fooid = "", fooSpec = "", fooTopping = "";
-
+        
         public FrmTakeOut1(mPOSControl x)
         {
             InitializeComponent();
@@ -85,7 +85,15 @@ namespace modernpos_pos.gui
             {
                 theme1.SetTheme(c, "Office2013Red");
             }
+            try
+            {
+                tilecolor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsBackColor);
+            }
+            catch (Exception ex)
+            {
 
+            }
+            
             bg = txtTableCode.BackColor;
             fc = txtTableCode.ForeColor;
             ff = txtTableCode.Font;
@@ -399,6 +407,8 @@ namespace modernpos_pos.gui
             tC.TabIndex = 0;
             tC.TabsSpacing = 5;
             tC.Font = fEdit1;
+            
+
             pnFoods.Controls.Add(tC);
             tabPage = new C1DockingTabPage[dtCat.Rows.Count + 1];
             TileFoods = new C1TileControl[dtCat.Rows.Count + 1];
@@ -492,8 +502,8 @@ namespace modernpos_pos.gui
                 tabPage[i].TabIndex = 0;
                 tabPage[i].Text = dtCat.Rows[i - 1]["foods_cat_name"].ToString();
                 tabPage[i].Name = "Page" + i;
-
-                //tabPage[i].Font = fEditB;
+                tabPage[i].TabBackColor = tilecolor;
+                //tabPage[i].st
                 tC.Controls.Add(tabPage[i]);
 
                 TileFoods[i] = new C1TileControl();
@@ -549,6 +559,7 @@ namespace modernpos_pos.gui
                 //TileFoods = new C1TileControl();
                 TileFoods[i].Name = "tile" + i;
                 TileFoods[i].Dock = DockStyle.Fill;
+                TileFoods[i].BackColor = tilecolor;
                 //pnOrder.Controls.Add(TileFoods);                    
 
                 this.tempFlickr.Elements.Add(imageElement8);

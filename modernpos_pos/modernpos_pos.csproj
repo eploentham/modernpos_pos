@@ -214,6 +214,12 @@
     <Compile Include="gui\FrmTakeOutTopping.Designer.cs">
       <DependentUpon>FrmTakeOutTopping.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmToGo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmToGo.Designer.cs">
+      <DependentUpon>FrmToGo.cs</DependentUpon>
+    </Compile>
     <Compile Include="objdb\AreaDB.cs" />
     <Compile Include="objdb\BillDB.cs" />
     <Compile Include="objdb\BillDetailDB.cs" />
@@ -410,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmTakeOutTopping.resx">
       <DependentUpon>FrmTakeOutTopping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmToGo.resx">
+      <DependentUpon>FrmToGo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -1095,6 +1104,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="RDNIDlib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\the-button-859346_960_720.png" />
+    <None Include="Resources\4981e6d5c6e9446ebfe3755b86a658f8-tile.jpg" />
+    <Content Include="togo_banner.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\155408691844082538.jpg" />
