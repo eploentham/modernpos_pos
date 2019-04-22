@@ -38,9 +38,9 @@ namespace modernpos_pos.gui
         ImageElement ieOrd, ieSpec, ieSpec8, ieTopping, ieTopping8;
         TextElement teOrd, teOrdFoodsName, teOrdFoodsPrice, teSpec, teSpecName, teTopping;
 
-        Template tempFlickr, tempSpec, tempTopping;
-        ImageElement imageElement8;
-        PanelElement pnFoodsName, pnFoodsPrice;
+        Template tempFlickr, tempSpec, tempTopping, tempDrink;
+        ImageElement imageElement8, imageElementDrink;
+        PanelElement pnFoodsName, pnFoodsPrice, pnElementDrink, pnElementPrice;
         C1FlexGrid grfOrder, grfSpec, grfTopping, grf;
         C1DockingTab tC;
 
@@ -58,17 +58,19 @@ namespace modernpos_pos.gui
         IntPtr intptr = new IntPtr();
         C1DockingTabPage[] tabPage;
         C1TileControl[] TileFoods;
-        C1TileControl TileRec, TileSpec, TileTopping;
+        C1TileControl TileRec, TileSpec, TileTopping, TileDrink;
         Group[] gr1;
-        Group grRec, grSpec;
+        Group grRec, grSpec, grDring;
         Boolean flagModi = false, flagShowTitle=false;
         Image imgR, imgC;
         String fooid = "", fooSpec = "", fooTopping = "";
-        
-        public FrmTakeOut1(mPOSControl x)
+        Form frmmain;
+
+        public FrmTakeOut1(mPOSControl x, Form frmmain)
         {
             InitializeComponent();
             mposC = x;
+            this.frmmain = frmmain;
             initConfig();
         }
         private void initConfig()
@@ -420,6 +422,7 @@ namespace modernpos_pos.gui
             tabPage[0].TabIndex = 0;
             tabPage[0].Text = "Recommend";
             tabPage[0].Name = "Page0";
+            tabPage[0].TabBackColor = tilecolor;
             tC.Controls.Add(tabPage[0]);
 
             TileRec = new C1TileControl();
@@ -484,6 +487,7 @@ namespace modernpos_pos.gui
             TileRec.SurfaceContentAlignment = System.Drawing.ContentAlignment.TopLeft;
             TileRec.Padding = new System.Windows.Forms.Padding(0);
             TileRec.GroupPadding = new System.Windows.Forms.Padding(20);
+            TileRec.BackColor = tilecolor;
             tabPage[0].Controls.Add(TileRec);
             for (int i = 1; i < dtCat.Rows.Count + 1; i++)
             {
@@ -575,6 +579,62 @@ namespace modernpos_pos.gui
                 //}
 
             }
+            initTileDrink();
+        }
+        private void initTileDrink()
+        {
+            TileDrink = new C1TileControl();
+            TileDrink.Dock = DockStyle.Fill;
+            if (mposC.iniC.TileFoodsOrientation.Equals("0"))
+            {
+                TileDrink.Orientation = LayoutOrientation.Horizontal;
+            }
+            else
+            {
+                TileDrink.Orientation = LayoutOrientation.Vertical;
+            }
+            grDring = new Group();
+            TileDrink.Groups.Add(this.grDring);
+            TileDrink.Font = fEdit;
+            TileDrink.DefaultTemplate.Elements.Add(peOrd);
+            
+            TileDrink.Name = "tiledrink";
+            TileDrink.Dock = DockStyle.Fill;
+            TileDrink.ScrollOffset = 0;
+            TileDrink.SurfaceContentAlignment = System.Drawing.ContentAlignment.TopLeft;
+            TileDrink.Padding = new System.Windows.Forms.Padding(0);
+            TileDrink.GroupPadding = new System.Windows.Forms.Padding(20);
+            TileDrink.BackColor = tilecolor;
+
+            tempDrink = new C1.Win.C1Tile.Template();
+            
+            this.tempDrink.Name = "tempDrink";
+            imageElementDrink = new C1.Win.C1Tile.ImageElement();
+            imageElementDrink.ImageLayout = C1.Win.C1Tile.ForeImageLayout.ScaleOuter;
+            pnElementDrink = new C1.Win.C1Tile.PanelElement();
+            pnElementDrink.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            pnElementDrink.Children.Add(teOrdFoodsName);
+            pnElementDrink.Dock = System.Windows.Forms.DockStyle.Top;
+            pnElementDrink.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            pnElementPrice = new C1.Win.C1Tile.PanelElement();
+            pnElementPrice.AlignmentOfContents = System.Drawing.ContentAlignment.MiddleRight;
+            pnElementPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            pnElementPrice.Children.Add(teOrdFoodsPrice);
+            pnElementPrice.Dock = System.Windows.Forms.DockStyle.Bottom;
+            pnElementPrice.FixedHeight = 32;
+            teOrdFoodsPrice = new C1.Win.C1Tile.TextElement();
+            teOrdFoodsPrice.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
+            teOrdFoodsPrice.Margin = new System.Windows.Forms.Padding(0, 0, 37, 0);
+            teOrdFoodsPrice.TextSelector = C1.Win.C1Tile.TextSelector.Text1;
+
+            this.tempDrink.Elements.Add(imageElementDrink);
+            this.tempDrink.Elements.Add(pnElementDrink);
+            this.tempDrink.Elements.Add(pnElementPrice);
+            //TileDrink.Templates.Add(this.tempDrink);
+            TileDrink.Templates.Add(this.tempDrink);
+
+            panel3.BackColor = tilecolor;
+            pnDrink.Controls.Add(TileDrink);
         }
         private void genLotId()
         {
@@ -628,6 +688,10 @@ namespace modernpos_pos.gui
                 lOrd.Clear();
                 grfOrder.Dispose();
                 initGrfOrder();
+                if (mposC.iniC.statuspaytoclose.Equals("1"))
+                {
+                    Close();
+                }
             }
         }
 
@@ -1441,6 +1505,7 @@ namespace modernpos_pos.gui
                 //appExit();
                 if (MessageBox.Show("ต้องการออกจากโปรแกรม1", "ออกจากโปรแกรม", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
                 {
+                    frmmain.Show();
                     Close();
                     return true;
                 }
@@ -1455,6 +1520,10 @@ namespace modernpos_pos.gui
                         else
                             flagShowTitle = true;
                         setTitle(flagShowTitle);
+                        return true;
+                    case Keys.X | Keys.Control:
+                        frmmain.Show();
+                        Close();
                         return true;
                 }
             }
@@ -1489,6 +1558,7 @@ namespace modernpos_pos.gui
             pnFoods.Height = this.Height - 250;
             lbFooName.Text = "";
             LoadFoods(false);
+            this.Activate();
         }
     }
 }

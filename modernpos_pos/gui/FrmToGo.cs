@@ -28,11 +28,13 @@ namespace modernpos_pos.gui
         C1SuperErrorProvider sep;
 
         Image imgLogo, imgOK;
+        Form frmmain;
 
-        public FrmToGo(mPOSControl x)
+        public FrmToGo(mPOSControl x, Form frmmain)
         {
             InitializeComponent();
             mposC = x;
+            this.frmmain = frmmain;
             initConfig();
         }
         private void initConfig()
@@ -43,7 +45,7 @@ namespace modernpos_pos.gui
         private void PicOK_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmTakeOut1 frm = new FrmTakeOut1(mposC);
+            FrmTakeOut1 frm = new FrmTakeOut1(mposC, this);
             frm.Show(this);
         }
 
@@ -55,13 +57,21 @@ namespace modernpos_pos.gui
                 //appExit();
                 //if (MessageBox.Show("ต้องการออกจากโปรแกรม1", "ออกจากโปรแกรม", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
                 //{
-                    Close();
+                frmmain.Show();
+                Close();
                     return true;
                 //}
             }
             else
             {
                 //keyData
+                switch (keyData)
+                {
+                    case Keys.X | Keys.Control:
+                        frmmain.Show();
+                        Close();
+                        return true;
+                }
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -75,15 +85,18 @@ namespace modernpos_pos.gui
             imgLogo = resizedImage;
 
             picLogo.Image = imgLogo;
-
-            string res = string.Format("SuperLabels.Resources.{0}.html","togo_banner");
-            Assembly a = Assembly.GetExecutingAssembly();
-            using (StreamReader s = new StreamReader("togo_banner.html"))
+            if (File.Exists("togo_banner.html"))
             {
-                //this.richTextBox1.Text = s.ReadToEnd();
-                lbBanner.Text = s.ReadToEnd();
+                string res = string.Format("SuperLabels.Resources.{0}.html", "togo_banner");
+                Assembly a = Assembly.GetExecutingAssembly();
+                using (StreamReader s = new StreamReader("togo_banner.html"))
+                {
+                    //this.richTextBox1.Text = s.ReadToEnd();
+                    lbBanner.Text = s.ReadToEnd();
+                }
             }
             this.FormBorderStyle = FormBorderStyle.None;
+            //this.Activate();
         }
     }
 }

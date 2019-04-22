@@ -56,8 +56,9 @@ namespace modernpos_pos.gui
         private void BtnTakeOut_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmTakeOut1 frm = new FrmTakeOut1(mposC);
+            FrmTakeOut1 frm = new FrmTakeOut1(mposC,this);
             frm.Show(this);
+            this.Hide();
         }
 
         private void BtnDineIn_Click(object sender, EventArgs e)
@@ -93,6 +94,12 @@ namespace modernpos_pos.gui
             else
             {
                 //keyData
+                switch (keyData)
+                {
+                    case Keys.X | Keys.Control:
+                        Close();
+                        return true;
+                }
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -105,9 +112,10 @@ namespace modernpos_pos.gui
             txtHeader.Text = mposC.txtHeader;
             if (mposC.iniC.statusAppToGo.Equals("1"))
             {
-                FrmToGo frm = new FrmToGo(mposC);
+                FrmToGo frm = new FrmToGo(mposC, this);
                 frm.WindowState = FormWindowState.Maximized;
                 frm.Show(this);
+                this.Hide();
             }
         }
     }

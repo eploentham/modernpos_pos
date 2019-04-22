@@ -190,6 +190,7 @@ namespace modernpos_pos.control
             iniC.VNEip = iniF.getIni("VNE", "VNEip");
             iniC.VNEwebapi = iniF.getIni("VNE", "VNEwebapi");
             iniC.statusShowListBox1 = iniF.getIni("app", "statusShowListBox1");
+            iniC.statuspaytoclose = iniF.getIni("app", "statuspaytoclose");
 
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
 
@@ -210,6 +211,7 @@ namespace modernpos_pos.control
             iniC.takeouttilverticalsize = iniC.takeouttilverticalsize.Equals("") ? "0" : iniC.takeouttilverticalsize;
             iniC.pnOrderborderstyle = iniC.pnOrderborderstyle.Equals("") ? "0" : iniC.pnOrderborderstyle;
             iniC.TileFoodsOrientation = iniC.TileFoodsOrientation==null  ? "0" : iniC.TileFoodsOrientation;
+            iniC.statuspaytoclose = iniC.statuspaytoclose == null ? "0" : iniC.statuspaytoclose;
 
             iniC.hostFTP = iniC.hostFTP == null ? "" : iniC.hostFTP;
             iniC.userFTP = iniC.userFTP == null ? "" : iniC.userFTP;

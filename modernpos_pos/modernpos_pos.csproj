@@ -154,6 +154,12 @@
     <Compile Include="gui\FrmKeyBoard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="gui\FrmKeyBoard2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmKeyBoard2.Designer.cs">
+      <DependentUpon>FrmKeyBoard2.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,6 +386,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmDepartment1.resx">
       <DependentUpon>FrmDepartment1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmKeyBoard.resx">
+      <DependentUpon>FrmKeyBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmKeyBoard2.resx">
+      <DependentUpon>FrmKeyBoard2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

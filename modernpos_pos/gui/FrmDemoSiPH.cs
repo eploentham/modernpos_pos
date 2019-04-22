@@ -174,9 +174,21 @@ namespace modernpos_pos
             Point pp = txtPttName.Location;
             //pp.Y = pp.Y + 120 + 20;
             //pp.X = pp.X - 20 + panel4.Left;
-
-            FrmKeyBoard frm = new FrmKeyBoard(pp);
-            frm.ShowDialog(this);
+            Boolean chk = false;
+            FormCollection fc = Application.OpenForms;
+            foreach (Form frm1 in fc)
+            {
+                if (frm1.Name.Equals("FrmKeyBoard2"))
+                {
+                    frm1.Focus();
+                    chk = true;
+                }
+            }
+            if (!chk)
+            {
+                FrmKeyBoard2 frm = new FrmKeyBoard2(pp, txtPttName);
+                frm.Show(this);
+            }
         }
 
         private void Pic2Next_Click1(object sender, EventArgs e)
