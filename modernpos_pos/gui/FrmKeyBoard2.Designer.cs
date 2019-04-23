@@ -177,7 +177,7 @@
             this.lb512.Name = "lb512";
             this.lb512.Size = new System.Drawing.Size(72, 59);
             this.lb512.TabIndex = 60;
-            this.lb512.Text = "label56";
+            this.lb512.Text = "lb512";
             this.lb512.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb412
@@ -197,7 +197,7 @@
             this.lb312.Name = "lb312";
             this.lb312.Size = new System.Drawing.Size(72, 59);
             this.lb312.TabIndex = 58;
-            this.lb312.Text = "label58";
+            this.lb312.Text = "lb312";
             this.lb312.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb212
@@ -227,7 +227,7 @@
             this.lb511.Name = "lb511";
             this.lb511.Size = new System.Drawing.Size(72, 59);
             this.lb511.TabIndex = 55;
-            this.lb511.Text = "label51";
+            this.lb511.Text = "lb511";
             this.lb511.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb411
@@ -237,7 +237,7 @@
             this.lb411.Name = "lb411";
             this.lb411.Size = new System.Drawing.Size(72, 59);
             this.lb411.TabIndex = 54;
-            this.lb411.Text = "label52";
+            this.lb411.Text = "lb411";
             this.lb411.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb311
@@ -267,7 +267,7 @@
             this.lb111.Name = "lb111";
             this.lb111.Size = new System.Drawing.Size(72, 59);
             this.lb111.TabIndex = 51;
-            this.lb111.Text = "label55";
+            this.lb111.Text = "lb111";
             this.lb111.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb510
@@ -277,7 +277,7 @@
             this.lb510.Name = "lb510";
             this.lb510.Size = new System.Drawing.Size(72, 59);
             this.lb510.TabIndex = 50;
-            this.lb510.Text = "label46";
+            this.lb510.Text = "lb510";
             this.lb510.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb410
@@ -337,7 +337,7 @@
             this.lb49.Name = "lb49";
             this.lb49.Size = new System.Drawing.Size(72, 59);
             this.lb49.TabIndex = 44;
-            this.lb49.Text = "label42";
+            this.lb49.Text = "lb49";
             this.lb49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb39
@@ -377,7 +377,7 @@
             this.lb58.Name = "lb58";
             this.lb58.Size = new System.Drawing.Size(72, 59);
             this.lb58.TabIndex = 40;
-            this.lb58.Text = "label36";
+            this.lb58.Text = "lb58";
             this.lb58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb48
@@ -437,7 +437,7 @@
             this.lb47.Name = "lb47";
             this.lb47.Size = new System.Drawing.Size(72, 59);
             this.lb47.TabIndex = 34;
-            this.lb47.Text = "label32";
+            this.lb47.Text = "lb47";
             this.lb47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb37
@@ -527,7 +527,7 @@
             this.lb55.Name = "lb55";
             this.lb55.Size = new System.Drawing.Size(72, 59);
             this.lb55.TabIndex = 25;
-            this.lb55.Text = "label21";
+            this.lb55.Text = "lb55";
             this.lb55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb45
@@ -537,7 +537,7 @@
             this.lb45.Name = "lb45";
             this.lb45.Size = new System.Drawing.Size(72, 59);
             this.lb45.TabIndex = 24;
-            this.lb45.Text = "label22";
+            this.lb45.Text = "lb45";
             this.lb45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb35
@@ -727,7 +727,7 @@
             this.lb51.Name = "lb51";
             this.lb51.Size = new System.Drawing.Size(72, 59);
             this.lb51.TabIndex = 5;
-            this.lb51.Text = "label6";
+            this.lb51.Text = "lb51";
             this.lb51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb41
@@ -737,7 +737,7 @@
             this.lb41.Name = "lb41";
             this.lb41.Size = new System.Drawing.Size(72, 59);
             this.lb41.TabIndex = 4;
-            this.lb41.Text = "label5";
+            this.lb41.Text = "lb41";
             this.lb41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb31

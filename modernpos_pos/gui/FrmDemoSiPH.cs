@@ -142,6 +142,7 @@ namespace modernpos_pos
             btnDonate11.Click += BtnDonate11_Click;
             btnDonate12.Click += BtnDonate12_Click;
             txtPttName.Enter += TxtPttName_Enter;
+            txtPttLName.Enter += TxtPttLName_Enter;
 
             lbVersion.Text = mposC.iniC.statusShowListBox1;
             if (mposC.iniC.statusShowListBox1.Equals("1"))
@@ -168,6 +169,27 @@ namespace modernpos_pos
             timerOnLine.Start();
         }
 
+        private void TxtPttLName_Enter(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            Point pp = txtPttLName.Location;
+            Boolean chk = false;
+            FormCollection fc = Application.OpenForms;
+            foreach (Form frm1 in fc)
+            {
+                if (frm1.Name.Equals("FrmKeyBoard2"))
+                {
+                    frm1.Focus();
+                    chk = true;
+                }
+            }
+            if (!chk)
+            {
+                FrmKeyBoard2 frm = new FrmKeyBoard2(mposC, pp, txtPttLName);
+                frm.ShowDialog(this);
+            }
+        }
+
         private void TxtPttName_Enter(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -186,8 +208,8 @@ namespace modernpos_pos
             }
             if (!chk)
             {
-                FrmKeyBoard2 frm = new FrmKeyBoard2(pp, txtPttName);
-                frm.Show(this);
+                FrmKeyBoard2 frm = new FrmKeyBoard2(mposC, pp, txtPttName);
+                frm.ShowDialog(this);
             }
         }
 
