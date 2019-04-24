@@ -186,7 +186,7 @@ namespace modernpos_pos
             if (!chk)
             {
                 FrmKeyBoard2 frm = new FrmKeyBoard2(mposC, pp, txtPttLName);
-                frm.ShowDialog(this);
+                frm.Show(this);
             }
         }
 
@@ -209,7 +209,7 @@ namespace modernpos_pos
             if (!chk)
             {
                 FrmKeyBoard2 frm = new FrmKeyBoard2(mposC, pp, txtPttName);
-                frm.ShowDialog(this);
+                frm.Show(this);
             }
         }
 

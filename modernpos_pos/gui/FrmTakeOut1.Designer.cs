@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTakeOut1));
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.tabMain = new C1.Win.C1Command.C1DockingTab();
             this.tabOrer = new C1.Win.C1Command.C1DockingTabPage();
@@ -62,10 +63,24 @@
             this.tabCheck = new C1.Win.C1Command.C1DockingTabPage();
             this.spCheck = new C1.Win.C1SplitContainer.C1SplitContainer();
             this.c1SplitterPanel1 = new C1.Win.C1SplitContainer.C1SplitterPanel();
-            this.c1DockingTab2 = new C1.Win.C1Command.C1DockingTab();
+            this.tCBill = new C1.Win.C1Command.C1DockingTab();
             this.tabBill = new C1.Win.C1Command.C1DockingTabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.c1Button1 = new C1.Win.C1Input.C1Button();
+            this.pnVoidPay = new System.Windows.Forms.Panel();
+            this.cboRsp = new C1.Win.C1List.C1Combo();
+            this.chkPaypaying = new System.Windows.Forms.RadioButton();
+            this.chkPayBefore = new System.Windows.Forms.RadioButton();
+            this.btnVoidPay = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.c1TextBox1 = new C1.Win.C1Input.C1TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lbStatus = new C1.Win.C1SuperTooltip.C1SuperLabel();
+            this.lbAmt = new C1.Win.C1SuperTooltip.C1SuperLabel();
+            this.btnBillCheck = new System.Windows.Forms.Button();
             this.tabCommand = new C1.Win.C1Command.C1DockingTabPage();
             this.c1SplitterPanel2 = new C1.Win.C1SplitContainer.C1SplitterPanel();
+            this.pnBill = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).BeginInit();
             this.tabMain.SuspendLayout();
@@ -90,8 +105,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.spCheck)).BeginInit();
             this.spCheck.SuspendLayout();
             this.c1SplitterPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab2)).BeginInit();
-            this.c1DockingTab2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tCBill)).BeginInit();
+            this.tCBill.SuspendLayout();
+            this.tabBill.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
+            this.pnVoidPay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).BeginInit();
+            this.c1SplitterPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // theme1
@@ -109,7 +131,7 @@
             this.tabMain.HotTrack = true;
             this.tabMain.Location = new System.Drawing.Point(0, 0);
             this.tabMain.Name = "tabMain";
-            this.tabMain.Size = new System.Drawing.Size(988, 721);
+            this.tabMain.Size = new System.Drawing.Size(1262, 721);
             this.tabMain.TabIndex = 0;
             this.tabMain.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tabMain.TabsShowFocusCues = false;
@@ -122,7 +144,7 @@
             this.tabOrer.Controls.Add(this.spMain);
             this.tabOrer.Location = new System.Drawing.Point(1, 24);
             this.tabOrer.Name = "tabOrer";
-            this.tabOrer.Size = new System.Drawing.Size(986, 696);
+            this.tabOrer.Size = new System.Drawing.Size(1260, 696);
             this.tabOrer.TabIndex = 0;
             this.tabOrer.Text = "Order";
             // 
@@ -141,7 +163,7 @@
             this.spMain.Name = "spMain";
             this.spMain.Panels.Add(this.pnItem);
             this.spMain.Panels.Add(this.pnOrder1);
-            this.spMain.Size = new System.Drawing.Size(986, 696);
+            this.spMain.Size = new System.Drawing.Size(1260, 696);
             this.spMain.SplitterColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.spMain.SplitterMovingColor = System.Drawing.Color.Black;
             this.spMain.TabIndex = 1;
@@ -155,10 +177,10 @@
             this.pnItem.Dock = C1.Win.C1SplitContainer.PanelDockStyle.Left;
             this.pnItem.Location = new System.Drawing.Point(0, 21);
             this.pnItem.Name = "pnItem";
-            this.pnItem.Size = new System.Drawing.Size(484, 675);
+            this.pnItem.Size = new System.Drawing.Size(621, 675);
             this.pnItem.TabIndex = 0;
             this.pnItem.Text = "Item";
-            this.pnItem.Width = 491;
+            this.pnItem.Width = 621;
             // 
             // spItem
             // 
@@ -175,7 +197,7 @@
             this.spItem.Name = "spItem";
             this.spItem.Panels.Add(this.pnFoods);
             this.spItem.Panels.Add(this.pnDrink);
-            this.spItem.Size = new System.Drawing.Size(484, 675);
+            this.spItem.Size = new System.Drawing.Size(621, 675);
             this.spItem.SplitterColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.spItem.SplitterMovingColor = System.Drawing.Color.Black;
             this.spItem.TabIndex = 0;
@@ -185,10 +207,10 @@
             // pnFoods
             // 
             this.pnFoods.Collapsible = true;
-            this.pnFoods.Height = 336;
+            this.pnFoods.Height = 329;
             this.pnFoods.Location = new System.Drawing.Point(0, 21);
             this.pnFoods.Name = "pnFoods";
-            this.pnFoods.Size = new System.Drawing.Size(484, 308);
+            this.pnFoods.Size = new System.Drawing.Size(621, 308);
             this.pnFoods.SizeRatio = 50.075D;
             this.pnFoods.TabIndex = 0;
             this.pnFoods.Text = "Foods";
@@ -198,7 +220,7 @@
             this.pnDrink.Height = 335;
             this.pnDrink.Location = new System.Drawing.Point(0, 361);
             this.pnDrink.Name = "pnDrink";
-            this.pnDrink.Size = new System.Drawing.Size(484, 314);
+            this.pnDrink.Size = new System.Drawing.Size(621, 314);
             this.pnDrink.TabIndex = 1;
             this.pnDrink.Text = "Drink";
             // 
@@ -208,9 +230,9 @@
             this.pnOrder1.Controls.Add(this.panel3);
             this.pnOrder1.Controls.Add(this.panel1);
             this.pnOrder1.Height = 696;
-            this.pnOrder1.Location = new System.Drawing.Point(495, 21);
+            this.pnOrder1.Location = new System.Drawing.Point(632, 21);
             this.pnOrder1.Name = "pnOrder1";
-            this.pnOrder1.Size = new System.Drawing.Size(491, 675);
+            this.pnOrder1.Size = new System.Drawing.Size(628, 675);
             this.pnOrder1.TabIndex = 1;
             this.pnOrder1.Text = "Order";
             // 
@@ -221,7 +243,7 @@
             this.pnOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnOrder.Location = new System.Drawing.Point(0, 40);
             this.pnOrder.Name = "pnOrder";
-            this.pnOrder.Size = new System.Drawing.Size(491, 487);
+            this.pnOrder.Size = new System.Drawing.Size(628, 487);
             this.pnOrder.TabIndex = 2;
             this.theme1.SetTheme(this.pnOrder, "(default)");
             // 
@@ -239,7 +261,7 @@
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel3.Location = new System.Drawing.Point(0, 527);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(491, 148);
+            this.panel3.Size = new System.Drawing.Size(628, 148);
             this.panel3.TabIndex = 1;
             this.theme1.SetTheme(this.panel3, "(default)");
             // 
@@ -361,7 +383,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(491, 40);
+            this.panel1.Size = new System.Drawing.Size(628, 40);
             this.panel1.TabIndex = 0;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
@@ -413,7 +435,7 @@
             this.tabSpecTopping.Controls.Add(this.pnSpecItem);
             this.tabSpecTopping.Location = new System.Drawing.Point(1, 24);
             this.tabSpecTopping.Name = "tabSpecTopping";
-            this.tabSpecTopping.Size = new System.Drawing.Size(986, 696);
+            this.tabSpecTopping.Size = new System.Drawing.Size(1260, 696);
             this.tabSpecTopping.TabIndex = 1;
             this.tabSpecTopping.Text = "Special Topping";
             // 
@@ -425,7 +447,7 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel2.Location = new System.Drawing.Point(0, 93);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(986, 603);
+            this.panel2.Size = new System.Drawing.Size(1260, 603);
             this.panel2.TabIndex = 2;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
@@ -444,7 +466,7 @@
             this.spSpecialTopping.Name = "spSpecialTopping";
             this.spSpecialTopping.Panels.Add(this.pnSpecial);
             this.spSpecialTopping.Panels.Add(this.pnToping);
-            this.spSpecialTopping.Size = new System.Drawing.Size(986, 603);
+            this.spSpecialTopping.Size = new System.Drawing.Size(1260, 603);
             this.spSpecialTopping.SplitterColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.spSpecialTopping.SplitterMovingColor = System.Drawing.Color.Black;
             this.spSpecialTopping.TabIndex = 0;
@@ -480,7 +502,7 @@
             this.pnSpecItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnSpecItem.Location = new System.Drawing.Point(0, 0);
             this.pnSpecItem.Name = "pnSpecItem";
-            this.pnSpecItem.Size = new System.Drawing.Size(986, 93);
+            this.pnSpecItem.Size = new System.Drawing.Size(1260, 93);
             this.pnSpecItem.TabIndex = 1;
             this.theme1.SetTheme(this.pnSpecItem, "(default)");
             // 
@@ -506,7 +528,7 @@
             // 
             this.lbPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbPrice.Location = new System.Drawing.Point(627, 56);
+            this.lbPrice.Location = new System.Drawing.Point(901, 56);
             this.lbPrice.Name = "lbPrice";
             this.lbPrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lbPrice.Size = new System.Drawing.Size(244, 34);
@@ -531,7 +553,7 @@
             this.tabCheck.Controls.Add(this.spCheck);
             this.tabCheck.Location = new System.Drawing.Point(1, 24);
             this.tabCheck.Name = "tabCheck";
-            this.tabCheck.Size = new System.Drawing.Size(986, 696);
+            this.tabCheck.Size = new System.Drawing.Size(1260, 696);
             this.tabCheck.TabIndex = 2;
             this.tabCheck.Text = "Check";
             // 
@@ -550,7 +572,7 @@
             this.spCheck.Name = "spCheck";
             this.spCheck.Panels.Add(this.c1SplitterPanel1);
             this.spCheck.Panels.Add(this.c1SplitterPanel2);
-            this.spCheck.Size = new System.Drawing.Size(986, 696);
+            this.spCheck.Size = new System.Drawing.Size(1260, 696);
             this.spCheck.SplitterColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.spCheck.SplitterMovingColor = System.Drawing.Color.Black;
             this.spCheck.TabIndex = 1;
@@ -560,63 +582,282 @@
             // c1SplitterPanel1
             // 
             this.c1SplitterPanel1.Collapsible = true;
-            this.c1SplitterPanel1.Controls.Add(this.c1DockingTab2);
+            this.c1SplitterPanel1.Controls.Add(this.tCBill);
             this.c1SplitterPanel1.Dock = C1.Win.C1SplitContainer.PanelDockStyle.Left;
             this.c1SplitterPanel1.Location = new System.Drawing.Point(0, 21);
             this.c1SplitterPanel1.Name = "c1SplitterPanel1";
-            this.c1SplitterPanel1.Size = new System.Drawing.Size(484, 675);
+            this.c1SplitterPanel1.Size = new System.Drawing.Size(621, 675);
             this.c1SplitterPanel1.TabIndex = 0;
             this.c1SplitterPanel1.Text = "Panel 1";
-            this.c1SplitterPanel1.Width = 484;
+            this.c1SplitterPanel1.Width = 628;
             // 
-            // c1DockingTab2
+            // tCBill
             // 
-            this.c1DockingTab2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DockingTab2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DockingTab2.Controls.Add(this.tabBill);
-            this.c1DockingTab2.Controls.Add(this.tabCommand);
-            this.c1DockingTab2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.c1DockingTab2.HotTrack = true;
-            this.c1DockingTab2.Location = new System.Drawing.Point(0, 0);
-            this.c1DockingTab2.Name = "c1DockingTab2";
-            this.c1DockingTab2.Size = new System.Drawing.Size(484, 675);
-            this.c1DockingTab2.TabIndex = 0;
-            this.c1DockingTab2.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
-            this.c1DockingTab2.TabsShowFocusCues = false;
-            this.c1DockingTab2.TabsSpacing = 2;
-            this.c1DockingTab2.TabStyle = C1.Win.C1Command.TabStyleEnum.Office2007;
-            this.theme1.SetTheme(this.c1DockingTab2, "(default)");
+            this.tCBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.tCBill.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tCBill.Controls.Add(this.tabBill);
+            this.tCBill.Controls.Add(this.tabCommand);
+            this.tCBill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tCBill.HotTrack = true;
+            this.tCBill.Location = new System.Drawing.Point(0, 0);
+            this.tCBill.Name = "tCBill";
+            this.tCBill.Size = new System.Drawing.Size(621, 675);
+            this.tCBill.TabIndex = 0;
+            this.tCBill.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
+            this.tCBill.TabsShowFocusCues = false;
+            this.tCBill.TabsSpacing = 2;
+            this.tCBill.TabStyle = C1.Win.C1Command.TabStyleEnum.Office2007;
+            this.theme1.SetTheme(this.tCBill, "(default)");
             // 
             // tabBill
             // 
+            this.tabBill.Controls.Add(this.panel4);
             this.tabBill.Location = new System.Drawing.Point(1, 24);
             this.tabBill.Name = "tabBill";
-            this.tabBill.Size = new System.Drawing.Size(482, 650);
+            this.tabBill.Size = new System.Drawing.Size(619, 650);
             this.tabBill.TabIndex = 0;
             this.tabBill.Text = "Bill";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel4.Controls.Add(this.c1Button1);
+            this.panel4.Controls.Add(this.pnVoidPay);
+            this.panel4.Controls.Add(this.btnVoidPay);
+            this.panel4.Controls.Add(this.listBox1);
+            this.panel4.Controls.Add(this.c1TextBox1);
+            this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.lbStatus);
+            this.panel4.Controls.Add(this.lbAmt);
+            this.panel4.Controls.Add(this.btnBillCheck);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(619, 650);
+            this.panel4.TabIndex = 2;
+            this.theme1.SetTheme(this.panel4, "(default)");
+            // 
+            // c1Button1
+            // 
+            this.c1Button1.Location = new System.Drawing.Point(26, 459);
+            this.c1Button1.Name = "c1Button1";
+            this.c1Button1.Size = new System.Drawing.Size(43, 23);
+            this.c1Button1.TabIndex = 241;
+            this.c1Button1.Text = "c1Button1";
+            this.theme1.SetTheme(this.c1Button1, "(default)");
+            this.c1Button1.UseVisualStyleBackColor = true;
+            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // pnVoidPay
+            // 
+            this.pnVoidPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pnVoidPay.Controls.Add(this.cboRsp);
+            this.pnVoidPay.Controls.Add(this.chkPaypaying);
+            this.pnVoidPay.Controls.Add(this.chkPayBefore);
+            this.pnVoidPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pnVoidPay.Location = new System.Drawing.Point(359, 431);
+            this.pnVoidPay.Name = "pnVoidPay";
+            this.pnVoidPay.Size = new System.Drawing.Size(236, 57);
+            this.pnVoidPay.TabIndex = 240;
+            this.theme1.SetTheme(this.pnVoidPay, "(default)");
+            // 
+            // cboRsp
+            // 
+            this.cboRsp.AddItemSeparator = ';';
+            this.cboRsp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboRsp.Caption = "";
+            this.cboRsp.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.cboRsp.DeadAreaBackColor = System.Drawing.Color.White;
+            this.cboRsp.EditorBackColor = System.Drawing.Color.White;
+            this.cboRsp.EditorFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboRsp.EditorForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.cboRsp.FlatStyle = C1.Win.C1List.FlatModeEnum.Flat;
+            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboRsp.Images.Add(((System.Drawing.Image)(resources.GetObject("cboRsp.Images"))));
+            this.cboRsp.Location = new System.Drawing.Point(6, 32);
+            this.cboRsp.MatchEntryTimeout = ((long)(2000));
+            this.cboRsp.MaxDropDownItems = ((short)(5));
+            this.cboRsp.MaxLength = 32767;
+            this.cboRsp.MouseCursor = System.Windows.Forms.Cursors.Default;
+            this.cboRsp.Name = "cboRsp";
+            this.cboRsp.RowDivider.Style = C1.Win.C1List.LineStyleEnum.None;
+            this.cboRsp.RowSubDividerColor = System.Drawing.Color.DarkGray;
+            this.cboRsp.Size = new System.Drawing.Size(221, 19);
+            this.cboRsp.TabIndex = 240;
+            this.cboRsp.Text = "c1Combo1";
+            this.theme1.SetTheme(this.cboRsp, "(default)");
+            this.cboRsp.PropBag = resources.GetString("cboRsp.PropBag");
+            // 
+            // chkPaypaying
+            // 
+            this.chkPaypaying.AutoSize = true;
+            this.chkPaypaying.BackColor = System.Drawing.Color.Transparent;
+            this.chkPaypaying.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkPaypaying.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkPaypaying.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkPaypaying.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkPaypaying.Location = new System.Drawing.Point(149, 9);
+            this.chkPaypaying.Name = "chkPaypaying";
+            this.chkPaypaying.Size = new System.Drawing.Size(84, 17);
+            this.chkPaypaying.TabIndex = 28;
+            this.chkPaypaying.Text = "กำลังรับชำระ";
+            this.theme1.SetTheme(this.chkPaypaying, "(default)");
+            this.chkPaypaying.UseVisualStyleBackColor = false;
+            // 
+            // chkPayBefore
+            // 
+            this.chkPayBefore.AutoSize = true;
+            this.chkPayBefore.BackColor = System.Drawing.Color.Transparent;
+            this.chkPayBefore.Checked = true;
+            this.chkPayBefore.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkPayBefore.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkPayBefore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkPayBefore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkPayBefore.Location = new System.Drawing.Point(6, 9);
+            this.chkPayBefore.Name = "chkPayBefore";
+            this.chkPayBefore.Size = new System.Drawing.Size(94, 17);
+            this.chkPayBefore.TabIndex = 26;
+            this.chkPayBefore.TabStop = true;
+            this.chkPayBefore.Text = "ยังไม่ได้รับเงิน";
+            this.theme1.SetTheme(this.chkPayBefore, "(default)");
+            this.chkPayBefore.UseVisualStyleBackColor = false;
+            // 
+            // btnVoidPay
+            // 
+            this.btnVoidPay.BackColor = System.Drawing.Color.Transparent;
+            this.btnVoidPay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.btnVoidPay.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.btnVoidPay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.btnVoidPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.btnVoidPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnVoidPay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoidPay.Location = new System.Drawing.Point(429, 494);
+            this.btnVoidPay.Name = "btnVoidPay";
+            this.btnVoidPay.Size = new System.Drawing.Size(106, 45);
+            this.btnVoidPay.TabIndex = 239;
+            this.btnVoidPay.Text = "ยกเลิก รับชำระเงิน";
+            this.btnVoidPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnVoidPay, "(default)");
+            this.btnVoidPay.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.Color.White;
+            this.listBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(12, 252);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(587, 173);
+            this.listBox1.TabIndex = 238;
+            this.theme1.SetTheme(this.listBox1, "(default)");
+            // 
+            // c1TextBox1
+            // 
+            this.c1TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox1.Location = new System.Drawing.Point(12, 12);
+            this.c1TextBox1.Name = "c1TextBox1";
+            this.c1TextBox1.Size = new System.Drawing.Size(22, 20);
+            this.c1TextBox1.TabIndex = 237;
+            this.c1TextBox1.Tag = null;
+            this.theme1.SetTheme(this.c1TextBox1, "(default)");
+            this.c1TextBox1.Visible = false;
+            this.c1TextBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(247, 442);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 64);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "พิมพ์ใบกำกับภาษี";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.button1, "(default)");
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // lbStatus
+            // 
+            this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbStatus.Location = new System.Drawing.Point(12, 158);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(464, 81);
+            this.lbStatus.TabIndex = 18;
+            this.lbStatus.Text = "modernpos POS Restaurant";
+            this.theme1.SetTheme(this.lbStatus, "(default)");
+            this.lbStatus.UseMnemonic = true;
+            // 
+            // lbAmt
+            // 
+            this.lbAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbAmt.Location = new System.Drawing.Point(12, 38);
+            this.lbAmt.Name = "lbAmt";
+            this.lbAmt.Size = new System.Drawing.Size(464, 81);
+            this.lbAmt.TabIndex = 17;
+            this.lbAmt.Text = "modernpos POS Restaurant";
+            this.theme1.SetTheme(this.lbAmt, "(default)");
+            this.lbAmt.UseMnemonic = true;
+            // 
+            // btnBillCheck
+            // 
+            this.btnBillCheck.BackColor = System.Drawing.Color.Transparent;
+            this.btnBillCheck.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.btnBillCheck.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.btnBillCheck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.btnBillCheck.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.btnBillCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnBillCheck.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBillCheck.Location = new System.Drawing.Point(75, 442);
+            this.btnBillCheck.Name = "btnBillCheck";
+            this.btnBillCheck.Size = new System.Drawing.Size(106, 64);
+            this.btnBillCheck.TabIndex = 16;
+            this.btnBillCheck.Text = "ชำระเงิน";
+            this.btnBillCheck.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnBillCheck, "(default)");
+            this.btnBillCheck.UseVisualStyleBackColor = true;
             // 
             // tabCommand
             // 
             this.tabCommand.Location = new System.Drawing.Point(1, 24);
             this.tabCommand.Name = "tabCommand";
-            this.tabCommand.Size = new System.Drawing.Size(482, 650);
+            this.tabCommand.Size = new System.Drawing.Size(619, 650);
             this.tabCommand.TabIndex = 1;
             this.tabCommand.Text = "Command";
             // 
             // c1SplitterPanel2
             // 
+            this.c1SplitterPanel2.Controls.Add(this.pnBill);
             this.c1SplitterPanel2.Height = 696;
-            this.c1SplitterPanel2.Location = new System.Drawing.Point(495, 21);
+            this.c1SplitterPanel2.Location = new System.Drawing.Point(632, 21);
             this.c1SplitterPanel2.Name = "c1SplitterPanel2";
-            this.c1SplitterPanel2.Size = new System.Drawing.Size(491, 675);
+            this.c1SplitterPanel2.Size = new System.Drawing.Size(628, 675);
             this.c1SplitterPanel2.TabIndex = 1;
             this.c1SplitterPanel2.Text = "Panel 2";
+            // 
+            // pnBill
+            // 
+            this.pnBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pnBill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pnBill.Location = new System.Drawing.Point(0, 0);
+            this.pnBill.Name = "pnBill";
+            this.pnBill.Size = new System.Drawing.Size(628, 675);
+            this.pnBill.TabIndex = 0;
+            this.theme1.SetTheme(this.pnBill, "(default)");
             // 
             // FrmTakeOut1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 721);
+            this.ClientSize = new System.Drawing.Size(1262, 721);
             this.Controls.Add(this.tabMain);
             this.Name = "FrmTakeOut1";
             this.Text = "FrmTakeOut1";
@@ -647,8 +888,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.spCheck)).EndInit();
             this.spCheck.ResumeLayout(false);
             this.c1SplitterPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab2)).EndInit();
-            this.c1DockingTab2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tCBill)).EndInit();
+            this.tCBill.ResumeLayout(false);
+            this.tabBill.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
+            this.pnVoidPay.ResumeLayout(false);
+            this.pnVoidPay.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).EndInit();
+            this.c1SplitterPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -673,7 +922,7 @@
         private C1.Win.C1SplitContainer.C1SplitContainer spCheck;
         private C1.Win.C1SplitContainer.C1SplitterPanel c1SplitterPanel1;
         private C1.Win.C1SplitContainer.C1SplitterPanel c1SplitterPanel2;
-        private C1.Win.C1Command.C1DockingTab c1DockingTab2;
+        private C1.Win.C1Command.C1DockingTab tCBill;
         private C1.Win.C1Command.C1DockingTabPage tabBill;
         private C1.Win.C1Command.C1DockingTabPage tabCommand;
         private System.Windows.Forms.Panel panel1;
@@ -692,5 +941,19 @@
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel4;
+        private C1.Win.C1Input.C1Button c1Button1;
+        private System.Windows.Forms.Panel pnVoidPay;
+        private C1.Win.C1List.C1Combo cboRsp;
+        private System.Windows.Forms.RadioButton chkPaypaying;
+        private System.Windows.Forms.RadioButton chkPayBefore;
+        private System.Windows.Forms.Button btnVoidPay;
+        private System.Windows.Forms.ListBox listBox1;
+        private C1.Win.C1Input.C1TextBox c1TextBox1;
+        private System.Windows.Forms.Button button1;
+        private C1.Win.C1SuperTooltip.C1SuperLabel lbStatus;
+        private C1.Win.C1SuperTooltip.C1SuperLabel lbAmt;
+        private System.Windows.Forms.Button btnBillCheck;
+        private System.Windows.Forms.Panel pnBill;
     }
 }
