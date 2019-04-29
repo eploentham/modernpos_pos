@@ -143,6 +143,10 @@ namespace modernpos_pos
             btnDonate12.Click += BtnDonate12_Click;
             txtPttName.Enter += TxtPttName_Enter;
             txtPttLName.Enter += TxtPttLName_Enter;
+            txtPttNameE.Enter += TxtPttNameE_Enter;
+            txtPttLNameE.Enter += TxtPttLNameE_Enter;
+            txtRoad.Enter += TxtRoad_Enter;
+            txtPid.Enter += TxtPid_Enter;
 
             lbVersion.Text = mposC.iniC.statusShowListBox1;
             if (mposC.iniC.statusShowListBox1.Equals("1"))
@@ -167,6 +171,90 @@ namespace modernpos_pos
             pnPID.Hide();
 
             timerOnLine.Start();
+        }
+
+        private void TxtPid_Enter(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            Point pp = txtPid.Location;
+            Boolean chk = false;
+            FormCollection fc = Application.OpenForms;
+            foreach (Form frm1 in fc)
+            {
+                if (frm1.Name.Equals("FrmKeyBoard2"))
+                {
+                    frm1.Focus();
+                    chk = true;
+                }
+            }
+            if (!chk)
+            {
+                FrmKeyBoard2 frm = new FrmKeyBoard2(mposC, pp, txtPid);
+                frm.Show(this);
+            }
+        }
+
+        private void TxtRoad_Enter(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            Point pp = txtRoad.Location;
+            Boolean chk = false;
+            FormCollection fc = Application.OpenForms;
+            foreach (Form frm1 in fc)
+            {
+                if (frm1.Name.Equals("FrmKeyBoard2"))
+                {
+                    frm1.Focus();
+                    chk = true;
+                }
+            }
+            if (!chk)
+            {
+                FrmKeyBoard2 frm = new FrmKeyBoard2(mposC, pp, txtRoad);
+                frm.Show(this);
+            }
+        }
+
+        private void TxtPttLNameE_Enter(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            Point pp = txtPttLNameE.Location;
+            Boolean chk = false;
+            FormCollection fc = Application.OpenForms;
+            foreach (Form frm1 in fc)
+            {
+                if (frm1.Name.Equals("FrmKeyBoard2"))
+                {
+                    frm1.Focus();
+                    chk = true;
+                }
+            }
+            if (!chk)
+            {
+                FrmKeyBoard2 frm = new FrmKeyBoard2(mposC, pp, txtPttLNameE);
+                frm.Show(this);
+            }
+        }
+
+        private void TxtPttNameE_Enter(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            Point pp = txtPttNameE.Location;
+            Boolean chk = false;
+            FormCollection fc = Application.OpenForms;
+            foreach (Form frm1 in fc)
+            {
+                if (frm1.Name.Equals("FrmKeyBoard2"))
+                {
+                    frm1.Focus();
+                    chk = true;
+                }
+            }
+            if (!chk)
+            {
+                FrmKeyBoard2 frm = new FrmKeyBoard2(mposC, pp, txtPttNameE);
+                frm.Show(this);
+            }
         }
 
         private void TxtPttLName_Enter(object sender, EventArgs e)
@@ -1040,6 +1128,10 @@ namespace modernpos_pos
             }
             tC.SelectedTab = tab1;
             tC.ShowTabs = false;
+            pic1Back.Hide();
+            pic1Next.Hide();
+            pic2Back.Hide();
+            pic2Next.Hide();
         }
     }
 }
