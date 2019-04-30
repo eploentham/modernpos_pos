@@ -21,5 +21,6 @@ namespace modernpos_pos.object1
         public String timerlabreqaccept = "", timerImgScanNew="", ShareFile="", ShareFileSMBFolder="";
 
         public String VNEip = "", VNEwebapi = "", statusShowListBox1="", takeouttilhorizontalsize="", takeouttilverticalsize="", pnOrderborderstyle="", TileFoodsOrientation="", TileFoodsBackColor="", statuspaytoclose="";
+        public String statushidenavigator = "";
     }
 }

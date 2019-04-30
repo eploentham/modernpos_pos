@@ -191,6 +191,7 @@ namespace modernpos_pos.control
             iniC.VNEwebapi = iniF.getIni("VNE", "VNEwebapi");
             iniC.statusShowListBox1 = iniF.getIni("app", "statusShowListBox1");
             iniC.statuspaytoclose = iniF.getIni("app", "statuspaytoclose");
+            iniC.statushidenavigator = iniF.getIni("app", "statushidenavigator");
 
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
 
@@ -234,6 +235,7 @@ namespace modernpos_pos.control
             int.TryParse(iniC.grdViewFontSize, out grdViewFontSize);
             int.TryParse(iniC.patientaddpanel1weight, out panel1Width);
             iniC.statusShowListBox1 = iniC.statusShowListBox1 != null ? iniC.statusShowListBox1 : "1";
+            iniC.statushidenavigator = iniC.statushidenavigator != null ? iniC.statushidenavigator : "0";
 
             iniC.usePassiveFTP = iniC.usePassiveFTP == null ? "false" : iniC.usePassiveFTP.Equals("") ? "false" : iniC.usePassiveFTP;
             Boolean.TryParse(iniC.usePassiveFTP, out ftpUsePassive);

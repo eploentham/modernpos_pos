@@ -329,7 +329,7 @@
             this.c1SuperLabel3.Name = "c1SuperLabel3";
             this.c1SuperLabel3.Size = new System.Drawing.Size(114, 17);
             this.c1SuperLabel3.TabIndex = 47;
-            this.c1SuperLabel3.Text = "เลือกรายการที่จะบริจาก";
+            this.c1SuperLabel3.Text = "เลือกรายการที่จะบริจาค";
             this.theme1.SetTheme(this.c1SuperLabel3, "(default)");
             this.c1SuperLabel3.UseMnemonic = true;
             // 
@@ -1130,7 +1130,7 @@
             this.btnReadCard.Name = "btnReadCard";
             this.btnReadCard.Size = new System.Drawing.Size(244, 60);
             this.btnReadCard.TabIndex = 44;
-            this.btnReadCard.Text = "ต้องการพิมพ์ใบบริจาก";
+            this.btnReadCard.Text = "ต้องการพิมพ์ใบบริจาค";
             this.theme1.SetTheme(this.btnReadCard, "(default)");
             this.btnReadCard.UseVisualStyleBackColor = true;
             this.btnReadCard.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;

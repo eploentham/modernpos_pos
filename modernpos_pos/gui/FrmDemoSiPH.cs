@@ -499,28 +499,7 @@ namespace modernpos_pos
                 }
             }
         }
-
-        private void BtnPayment_Click(object sender, EventArgs e)
-        {
-            //throw new NotImplementedException();
-            long chk = 0;
-            String re = "", pay="";
-            pay = txtAmount.Text.Replace(".", "");
-            pay = pay + "00";
-            re = mposC.paymentVNE(pay, listBox1);
-            if(long.TryParse(re, out chk))
-            {
-                paymentId = re;
-                timer.Enabled = true;
-                timer.Start();
-                label9.Text = "Start waiting payment";
-            }
-            else
-            {
-                label9.Text = "Error payment "+ re;
-            }
-        }
-
+        
         private void TxtTimerOnLine_TextChanged(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -600,7 +579,26 @@ namespace modernpos_pos
                 btnC(true);
             }).Start();
         }
-
+        private void BtnPayment_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            long chk = 0;
+            String re = "", pay = "";
+            pay = txtAmount.Text.Replace(".", "");
+            pay = pay + "00";
+            re = mposC.paymentVNE(pay, listBox1);
+            if (long.TryParse(re, out chk))
+            {
+                paymentId = re;
+                timer.Enabled = true;
+                timer.Start();
+                label9.Text = "Start waiting payment";
+            }
+            else
+            {
+                label9.Text = "Error payment " + re;
+            }
+        }
         private void Timer_Tick(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -610,6 +608,8 @@ namespace modernpos_pos
             vnePpReq.tipo = "2";
             vnePpReq.id = paymentId;
             vnePpReq.opName = "admin";
+            //MessageBox.Show("01", "");
+            listBox1.Items.Add("paymentId " + paymentId);
             try
             {
                 var baseAddress = "http://" + mposC.iniC.VNEip + mposC.iniC.VNEwebapi;
@@ -624,7 +624,7 @@ namespace modernpos_pos
                 Stream newStream = http.GetRequestStream();
                 newStream.Write(bytes, 0, bytes.Length);
                 newStream.Close();
-
+                listBox1.Items.Add("รอรับชำระ " + txtjson);
                 var response = http.GetResponse();
 
                 var stream = response.GetResponseStream();
@@ -632,7 +632,7 @@ namespace modernpos_pos
                 var content = sr.ReadToEnd();
                 vnePRep = new VNEPaymentPollingResponse();
                 dynamic obj = JsonConvert.DeserializeObject(content);
-
+                listBox1.Items.Add("รอรับชำระ content " + content);
                 vnePRep.id = obj.id;
                 vnePRep.req_status = obj.req_status;
                 vnePRep.tipo = obj.tipo;
@@ -646,13 +646,15 @@ namespace modernpos_pos
                 vnePRepd.inserted = obj1.inserted;
                 vnePRepd.rest = obj1.rest;
                 vnePRepd.status = obj1.status;
-
+                listBox1.Items.Add("content vnePRepd " + aaa);
                 //label10.Text = "ID " + vnePRep.id + " amount " + vnePRepd.amount + " status " + vnePRepd.status;
                 //listBox1.Items.Add(content);
-                if (vnePRepd.status.Equals("complete"))
+                if (vnePRepd.status.Equals("completed"))
                 {
                     label10.Text = vnePRepd.status;
                     timer.Stop();
+                    mposC.statusVNEPaysuccess = "1";
+                    tC.SelectedTab = tab4;
                     //PrintDocument document = new PrintDocument();
                     //document.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
                     //document.PrinterSettings.PrinterName = cboPrinter.Text;
@@ -1132,6 +1134,10 @@ namespace modernpos_pos
             pic1Next.Hide();
             pic2Back.Hide();
             pic2Next.Hide();
+            pic3Back.Hide();
+            pic3Next.Hide();
+            pic4Back.Hide();
+            pic4Next.Hide();
         }
     }
 }
