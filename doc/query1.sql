@@ -130,6 +130,17 @@ ADD COLUMN `printer_bill_print_left` INT NULL AFTER `printer_bill_print_top`,
 ADD COLUMN `printer_bill_print_right` INT NULL AFTER `printer_bill_print_left`;
 
 
+ALTER TABLE `ivf_101`.`t_stock_rec_detail` 
+ADD COLUMN `row1` INT NULL AFTER `user_cancel`;
+
+ALTER TABLE `ivf_101`.`t_stock_draw_detail` 
+ADD COLUMN `row1` INT NULL AFTER `user_cancel`;
+
+ALTER TABLE `ivf_101`.`t_stock_return_detail` 
+ADD COLUMN `row1` INT NULL AFTER `user_cancel`;
+
+ALTER TABLE `ivf`.`lab_t_opu_embryo_dev` 
+ADD COLUMN `desc4` VARCHAR(255) NULL AFTER `embryo_dev_date`;
 
 
 
