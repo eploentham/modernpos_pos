@@ -25,7 +25,7 @@ namespace modernpos_pos
     public partial class FrmDemoSiPH : Form
     {
         mPOSControl mposC;
-        Timer timer, timerOnLine;
+        Timer timer, timerOnLine, timerReader;
         //System.Timers.Timer timerOnLine;
         VNEControl vneC;
         VNEresponsePayment vneRspPay;
@@ -38,7 +38,7 @@ namespace modernpos_pos
         Font ff, ffB;
         Font fEdit, fEditB, fEdit1, fEditBB, fEdit2;
         String donatename = "";
-
+        Boolean statuaRead = false;
         enum NID_FIELD
         {
             NID_Number,   //1234567890123#
@@ -89,7 +89,6 @@ namespace modernpos_pos
                 btnPayment.Enabled = msg;
             }));
         }
-
         public FrmDemoSiPH(mPOSControl x)
         {
             mposC = x;
@@ -163,14 +162,27 @@ namespace modernpos_pos
             timer.Tick += Timer_Tick;
             timer.Enabled = false;
 
+            timerReader = new Timer();
+            timerReader.Interval = 2000;
+            timerReader.Tick += TimerReader_Tick;
+            timerReader.Enabled = false;
+
             timerOnLine = new Timer();
             timerOnLine.Interval = timerOnline * 1000;
             timerOnLine.Tick += TimerOnLine_Tick;
             timerOnLine.Enabled = false;
             lbMessage.Hide();
-            pnPID.Hide();
+            //pnPID.Hide();
 
             timerOnLine.Start();
+        }
+
+        private void TimerReader_Tick(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            statuaRead = true;
+            ReadCard();
+            statuaRead = false;
         }
 
         private void TxtPid_Enter(object sender, EventArgs e)
@@ -367,6 +379,8 @@ namespace modernpos_pos
             document.PrinterSettings.PrinterName = cboPrinter.Text;
 
             document.Print();
+
+            tC.SelectedTab = tab1;
         }
 
         private void BtnReadCard_Click(object sender, EventArgs e)
@@ -1005,6 +1019,7 @@ namespace modernpos_pos
         }
         protected int ReadCard()
         {
+            if (statuaRead) return 0;
             try
             {
                 byte[] Licinfo = new byte[1024];
@@ -1042,7 +1057,7 @@ namespace modernpos_pos
                 String NIDData = aByteToString(data);
                 if (NIDData == "")
                 {
-                    MessageBox.Show("Read Text error");
+                    //MessageBox.Show("Read Text error");
                 }
                 else
                 {
@@ -1121,6 +1136,7 @@ namespace modernpos_pos
                     i++;
                 }
                 PrinterSettings settings1 = new PrinterSettings();
+                cboPrinter.SelectedIndex = i;
                 //settings1.PrinterName = ;
 
             }
@@ -1129,7 +1145,7 @@ namespace modernpos_pos
                 chk = ex.Message.ToString();
             }
             tC.SelectedTab = tab1;
-            tC.ShowTabs = false;
+            tC.ShowTabs = false; 
             pic1Back.Hide();
             pic1Next.Hide();
             pic2Back.Hide();
@@ -1138,6 +1154,8 @@ namespace modernpos_pos
             pic3Next.Hide();
             pic4Back.Hide();
             pic4Next.Hide();
+
+            btnReadCard.Hide();
         }
     }
 }
