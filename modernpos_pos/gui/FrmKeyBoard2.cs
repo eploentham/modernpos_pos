@@ -131,7 +131,8 @@ namespace modernpos_pos.gui
             lb510.Width = 72 + ((lb511.Left + lb511.Width) - (lb510.Left + 72));
             lb411.Width = 72 + ((lb412.Left + lb412.Width) - (lb411.Left + 72));
             lb510.Text = "return";
-            lb510.ForeColor = Color.Green;
+            lb510.BackColor = Color.Green;
+            lb510.ForeColor = Color.White;
         }
         private void setTextThaiShift()
         {
@@ -153,7 +154,8 @@ namespace modernpos_pos.gui
             lb510.Width = 72 + ((lb511.Left + lb511.Width) - (lb510.Left + 72));
             lb411.Width = 72 + ((lb412.Left + lb412.Width) - (lb411.Left + 72));
             lb510.Text = "return";
-            lb510.ForeColor = Color.Green;
+            lb510.BackColor = Color.Green;
+            lb510.ForeColor = Color.White;
         }
         private void setTextEng()
         {
@@ -183,7 +185,8 @@ namespace modernpos_pos.gui
             lb510.Width = 72 + ((lb511.Left + lb511.Width) - (lb510.Left + 72));
             lb411.Width = 72 + ((lb412.Left + lb412.Width) - (lb411.Left + 72));
             lb510.Text = "return";
-            lb510.ForeColor = Color.Green;
+            lb510.BackColor = Color.Green;
+            lb510.ForeColor = Color.White;
         }
         private void setTextEngShift()
         {
@@ -207,7 +210,8 @@ namespace modernpos_pos.gui
             lb510.Width = 72 + ((lb511.Left + lb511.Width) - (lb510.Left + 72));
             lb411.Width = 72 + ((lb412.Left + lb412.Width) - (lb411.Left + 72));
             lb510.Text = "return";
-            lb510.ForeColor = Color.Green;
+            lb510.BackColor = Color.Green;
+            lb510.ForeColor = Color.White;
         }
 
         private void Lb21_Click(object sender, EventArgs e)

@@ -109,6 +109,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cboPrinter = new System.Windows.Forms.ComboBox();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
+            this.btnEdit = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.tC)).BeginInit();
             this.tC.SuspendLayout();
             this.tab1.SuspendLayout();
@@ -176,6 +177,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReadCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             this.SuspendLayout();
             // 
             // tC
@@ -236,10 +238,11 @@
             // 
             // c1PictureBox1
             // 
+            this.c1PictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.c1PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("c1PictureBox1.Image")));
-            this.c1PictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.c1PictureBox1.Location = new System.Drawing.Point(0, 0);
             this.c1PictureBox1.Name = "c1PictureBox1";
-            this.c1PictureBox1.Size = new System.Drawing.Size(1367, 141);
+            this.c1PictureBox1.Size = new System.Drawing.Size(1598, 141);
             this.c1PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.c1PictureBox1.TabIndex = 10;
             this.c1PictureBox1.TabStop = false;
@@ -247,7 +250,7 @@
             // btnDonate2
             // 
             this.btnDonate2.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonate2.Location = new System.Drawing.Point(321, 635);
+            this.btnDonate2.Location = new System.Drawing.Point(353, 635);
             this.btnDonate2.Name = "btnDonate2";
             this.btnDonate2.Size = new System.Drawing.Size(749, 144);
             this.btnDonate2.TabIndex = 9;
@@ -260,7 +263,7 @@
             // 
             this.btnDonate1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDonate1.Image = global::modernpos_pos.Properties.Resources.siph_6;
-            this.btnDonate1.Location = new System.Drawing.Point(11, 150);
+            this.btnDonate1.Location = new System.Drawing.Point(101, 150);
             this.btnDonate1.Name = "btnDonate1";
             this.btnDonate1.Size = new System.Drawing.Size(1347, 470);
             this.btnDonate1.TabIndex = 8;
@@ -385,10 +388,11 @@
             // 
             // c1PictureBox5
             // 
+            this.c1PictureBox5.Dock = System.Windows.Forms.DockStyle.Top;
             this.c1PictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("c1PictureBox5.Image")));
-            this.c1PictureBox5.Location = new System.Drawing.Point(3, 3);
+            this.c1PictureBox5.Location = new System.Drawing.Point(0, 0);
             this.c1PictureBox5.Name = "c1PictureBox5";
-            this.c1PictureBox5.Size = new System.Drawing.Size(1367, 141);
+            this.c1PictureBox5.Size = new System.Drawing.Size(1598, 141);
             this.c1PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.c1PictureBox5.TabIndex = 43;
             this.c1PictureBox5.TabStop = false;
@@ -494,10 +498,11 @@
             // 
             // c1PictureBox4
             // 
+            this.c1PictureBox4.Dock = System.Windows.Forms.DockStyle.Top;
             this.c1PictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("c1PictureBox4.Image")));
-            this.c1PictureBox4.Location = new System.Drawing.Point(3, 3);
+            this.c1PictureBox4.Location = new System.Drawing.Point(0, 0);
             this.c1PictureBox4.Name = "c1PictureBox4";
-            this.c1PictureBox4.Size = new System.Drawing.Size(1367, 141);
+            this.c1PictureBox4.Size = new System.Drawing.Size(1598, 141);
             this.c1PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.c1PictureBox4.TabIndex = 42;
             this.c1PictureBox4.TabStop = false;
@@ -871,6 +876,7 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.Controls.Add(this.btnEdit);
             this.panel9.Controls.Add(this.pic43);
             this.panel9.Controls.Add(this.pic42);
             this.panel9.Controls.Add(this.pic41);
@@ -944,10 +950,11 @@
             // 
             // c1PictureBox6
             // 
+            this.c1PictureBox6.Dock = System.Windows.Forms.DockStyle.Top;
             this.c1PictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("c1PictureBox6.Image")));
-            this.c1PictureBox6.Location = new System.Drawing.Point(3, 3);
+            this.c1PictureBox6.Location = new System.Drawing.Point(0, 0);
             this.c1PictureBox6.Name = "c1PictureBox6";
-            this.c1PictureBox6.Size = new System.Drawing.Size(1367, 141);
+            this.c1PictureBox6.Size = new System.Drawing.Size(1598, 141);
             this.c1PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.c1PictureBox6.TabIndex = 49;
             this.c1PictureBox6.TabStop = false;
@@ -1126,7 +1133,7 @@
             // btnReadCard
             // 
             this.btnReadCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReadCard.Location = new System.Drawing.Point(75, 287);
+            this.btnReadCard.Location = new System.Drawing.Point(75, 229);
             this.btnReadCard.Name = "btnReadCard";
             this.btnReadCard.Size = new System.Drawing.Size(244, 60);
             this.btnReadCard.TabIndex = 44;
@@ -1157,6 +1164,18 @@
             this.cboPrinter.Size = new System.Drawing.Size(272, 21);
             this.cboPrinter.TabIndex = 40;
             this.theme1.SetTheme(this.cboPrinter, "(default)");
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(75, 295);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(244, 60);
+            this.btnEdit.TabIndex = 53;
+            this.btnEdit.Text = "ต้องการแก้ไขชื่อผู้บริจาก";
+            this.theme1.SetTheme(this.btnEdit, "(default)");
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmDemoSiPH
             // 
@@ -1244,6 +1263,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReadCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1330,6 +1350,7 @@
         private C1.Win.C1Input.C1PictureBox pic43;
         private C1.Win.C1Input.C1PictureBox pic42;
         private C1.Win.C1Input.C1PictureBox pic41;
+        private C1.Win.C1Input.C1Button btnEdit;
     }
 }
 

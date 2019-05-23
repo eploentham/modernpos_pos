@@ -38,7 +38,7 @@ namespace modernpos_pos
         Font ff, ffB;
         Font fEdit, fEditB, fEdit1, fEditBB, fEdit2;
         String donatename = "";
-        Boolean statuaRead = false;
+        Boolean statuaRead = false, statusEdit=false;
         enum NID_FIELD
         {
             NID_Number,   //1234567890123#
@@ -135,11 +135,14 @@ namespace modernpos_pos
             pic4Next.Click += Pic4Next_Click;
             pic2Back.Click += Pic2Back_Click1;
             pic2Next.Click += Pic2Next_Click1;
+            pic3Donate.Click += Pic3Donate_Click;
 
             btnReadCard.Click += BtnReadCard_Click;
             btnPrint.Click += BtnPrint_Click;
             btnDonate11.Click += BtnDonate11_Click;
             btnDonate12.Click += BtnDonate12_Click;
+            btnEdit.Click += BtnEdit_Click;
+
             txtPttName.Enter += TxtPttName_Enter;
             txtPttLName.Enter += TxtPttLName_Enter;
             txtPttNameE.Enter += TxtPttNameE_Enter;
@@ -165,7 +168,7 @@ namespace modernpos_pos
             timerReader = new Timer();
             timerReader.Interval = 2000;
             timerReader.Tick += TimerReader_Tick;
-            timerReader.Enabled = false;
+            timerReader.Enabled = true;
 
             timerOnLine = new Timer();
             timerOnLine.Interval = timerOnline * 1000;
@@ -176,11 +179,35 @@ namespace modernpos_pos
 
             timerOnLine.Start();
         }
+        private void setPnPIDEnable(Boolean flag)
+        {
+            txtPid.ReadOnly = flag;
+            txtPttName.ReadOnly = flag;
+            txtPttLName.ReadOnly = flag;
+            txtPttNameE.ReadOnly = flag;
+            txtPttLNameE.ReadOnly = flag;
+            txtRoad.ReadOnly = flag;
+        }
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            statusEdit = true;
+            timerClose();
+            setPnPIDEnable(true);
+        }
+
+        private void Pic3Donate_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            tC.SelectedTab = tab4;
+        }
 
         private void TimerReader_Tick(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            statuaRead = true;
+            //MessageBox.Show("0000000", "");
+            statuaRead = false;
+            setPnPIDEnable(true);
             ReadCard();
             statuaRead = false;
         }
@@ -188,6 +215,7 @@ namespace modernpos_pos
         private void TxtPid_Enter(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            if (!statusEdit) return;
             Point pp = txtPid.Location;
             Boolean chk = false;
             FormCollection fc = Application.OpenForms;
@@ -209,6 +237,7 @@ namespace modernpos_pos
         private void TxtRoad_Enter(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            if (!statusEdit) return;
             Point pp = txtRoad.Location;
             Boolean chk = false;
             FormCollection fc = Application.OpenForms;
@@ -230,6 +259,7 @@ namespace modernpos_pos
         private void TxtPttLNameE_Enter(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            if (!statusEdit) return;
             Point pp = txtPttLNameE.Location;
             Boolean chk = false;
             FormCollection fc = Application.OpenForms;
@@ -251,6 +281,7 @@ namespace modernpos_pos
         private void TxtPttNameE_Enter(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            if (!statusEdit) return;
             Point pp = txtPttNameE.Location;
             Boolean chk = false;
             FormCollection fc = Application.OpenForms;
@@ -272,6 +303,7 @@ namespace modernpos_pos
         private void TxtPttLName_Enter(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            if (!statusEdit) return;
             Point pp = txtPttLName.Location;
             Boolean chk = false;
             FormCollection fc = Application.OpenForms;
@@ -293,6 +325,7 @@ namespace modernpos_pos
         private void TxtPttName_Enter(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            if (!statusEdit) return;
             Point pp = txtPttName.Location;
             //pp.Y = pp.Y + 120 + 20;
             //pp.X = pp.X - 20 + panel4.Left;
@@ -366,6 +399,8 @@ namespace modernpos_pos
         private void BtnPrint_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            timerClose();
+            statusEdit = false;
             PrintDocument document = new PrintDocument();
             //document.PrinterSettings.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("A5", 148, 210);
             //document.DefaultPageSettings.Landscape = true;
@@ -380,7 +415,26 @@ namespace modernpos_pos
 
             document.Print();
 
+            FrmMessage frm = new FrmMessage("ขอบคุณที่บริจาก");
+            frm.ShowDialog(this);
+            txtPid.Value = "";
+            txtPttName.Value = "";
+            txtPttLName.Value = "";
+            txtPttNameE.Value = "";
+            txtPttLNameE.Value = "";
+            txtRoad.Value = "";
+            m_lblDLXInfo.Text = "";
+            picPID.Image = null;
+            FormCollection fc = Application.OpenForms;
+            foreach (Form frm1 in fc)
+            {
+                if (frm1.Name.Equals("FrmKeyBoard2"))
+                {
+                    frm1.Close();
+                }
+            }
             tC.SelectedTab = tab1;
+            timerStart();
         }
 
         private void BtnReadCard_Click(object sender, EventArgs e)
@@ -989,11 +1043,24 @@ namespace modernpos_pos
                 return false;
             }
         }
+        private void timerStart()
+        {
+            //timer.Start();
+            //timerOnLine.Start();
+            timerReader.Start();
+        }
+        private void timerClose()
+        {
+            //timer.Stop();
+            //timerOnLine.Stop();
+            timerReader.Stop();
+        }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             // ...
             if (keyData == (Keys.Escape))
             {
+                timerClose();
                 appExit();
                 //if (MessageBox.Show("ต้องการออกจากโปรแกรม1", "ออกจากโปรแกรม", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
                 //{
@@ -1019,9 +1086,12 @@ namespace modernpos_pos
         }
         protected int ReadCard()
         {
+            //MessageBox.Show("111111", "");
             if (statuaRead) return 0;
             try
             {
+                statuaRead = true;
+                //MessageBox.Show("22222", "");
                 byte[] Licinfo = new byte[1024];
                 RDNID.getLicenseInfoRD(Licinfo);
                 m_lblDLXInfo.Text = aByteToString(Licinfo);
@@ -1036,7 +1106,7 @@ namespace modernpos_pos
                 {
                     String m;
                     m = String.Format(" error no {0} ", nInsertCard);
-                    MessageBox.Show(m);
+                    //MessageBox.Show(m);
 
                     RDNID.disconnectCardRD(obj);
                     RDNID.deselectReaderRD(obj);
@@ -1126,17 +1196,21 @@ namespace modernpos_pos
             try
             {
                 PrinterSettings settings = new PrinterSettings();
-                int i = 0;
+                int i = 0, chk1=0;
                 foreach (string printer in PrinterSettings.InstalledPrinters)
                 {
                     settings.PrinterName = printer;
                     cboPrinter.Items.Insert(i, printer);
                     if (settings.IsDefaultPrinter)
+                    {
                         printerDefault = printer;
+                        chk1 = i;
+                    }
+                        
                     i++;
                 }
                 PrinterSettings settings1 = new PrinterSettings();
-                cboPrinter.SelectedIndex = i;
+                cboPrinter.SelectedIndex = chk1;
                 //settings1.PrinterName = ;
 
             }
@@ -1154,8 +1228,11 @@ namespace modernpos_pos
             pic3Next.Hide();
             pic4Back.Hide();
             pic4Next.Hide();
-
-            btnReadCard.Hide();
+            if (mposC.iniC.statusHide.Equals("1"))
+            {
+                btnReadCard.Hide();
+            }
+            //
         }
     }
 }

@@ -12,9 +12,28 @@ namespace modernpos_pos.gui
 {
     public partial class FrmMessage : Form
     {
-        public FrmMessage()
+        String message = "";
+        public FrmMessage(String message)
         {
             InitializeComponent();
+            this.message = message;
+            initConfig();
+        }
+        private void initConfig()
+        {
+            lbMessage.Text = message;
+            btnOk.Click += BtnOk_Click;
+        }
+
+        private void BtnOk_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            Close();
+        }
+
+        private void FrmMessage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
