@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace modernpos_pos.gui
 {
-    public partial class FrmTakeOut1 : Form
+    public partial class FrmTakeOut2 : Form
     {
         mPOSControl mposC;
         Font fEdit, fEditB, fEdit1,fgrd;
@@ -82,7 +82,7 @@ namespace modernpos_pos.gui
         Image imgMinus, imgPlus, imgArrowDown, imgAdd, imgThumb;
         private string _tip = "";
 
-        public FrmTakeOut1(mPOSControl x, Form frmmain)
+        public FrmTakeOut2(mPOSControl x, Form frmmain)
         {
             InitializeComponent();
             mposC = x;
@@ -114,8 +114,8 @@ namespace modernpos_pos.gui
             }
             stt = new C1SuperTooltip();
             _tip = @"<table><tr>
-              <td><parm><img src='minus_red.png'></parm>
-              <td><b><parm>This is a SuperTooltip</parm></b>
+              <td><parm><img src='minus_red.png'></parm></td>
+              <td><b><parm>This is a SuperTooltip</parm></b></td></tr>
             </table>
             <parm><hr noshade size=1 style='margin:2' color=Darker></parm>
             <div style='margin:1 12'><parm>
@@ -125,8 +125,9 @@ namespace modernpos_pos.gui
             </parm></div>
             <parm><hr noshade size=1 style='margin:2' color=Darker></parm>
             <table><tr>
-              <td><parm></parm>
-              <td><b><parm>enjoy your SuperTooltip today!</parm></b>
+              <td><parm></parm></td>
+              <td><b><parm>enjoy your SuperTooltip today!</parm></b></td></tr>
+            <tr><td><parm></parm></td><td><b><parm>enjoy your SuperTooltip today!</parm></b></td></tr>
             </table>";
 
             bg = txtTableCode.BackColor;

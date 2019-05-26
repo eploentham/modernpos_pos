@@ -208,6 +208,12 @@
     <Compile Include="gui\FrmTakeOut1.Designer.cs">
       <DependentUpon>FrmTakeOut1.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmTakeOut2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmTakeOut2.Designer.cs">
+      <DependentUpon>FrmTakeOut2.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmTakeOutCheck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -428,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmTakeOut1.resx">
       <DependentUpon>FrmTakeOut1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmTakeOut2.resx">
+      <DependentUpon>FrmTakeOut2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmTakeOutCheck.resx">
       <DependentUpon>FrmTakeOutCheck.cs</DependentUpon>
@@ -1129,6 +1138,14 @@
     </Content>
     <None Include="Resources\the-button-859346_960_720.png" />
     <None Include="Resources\4981e6d5c6e9446ebfe3755b86a658f8-tile.jpg" />
+    <None Include="Resources\minus_red_1.png" />
+    <None Include="Resources\plus_green.png" />
+    <None Include="Resources\arrow-24845_960_720.png" />
+    <None Include="Resources\arrow_down_100.png" />
+    <None Include="Resources\minus_red_100.png" />
+    <None Include="Resources\plus_green_100.png" />
+    <None Include="Resources\minus_cir_red_100.png" />
+    <None Include="Resources\recycle_bin_50.png" />
     <Content Include="togo_banner.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

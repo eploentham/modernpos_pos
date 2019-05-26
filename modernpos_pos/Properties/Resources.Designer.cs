@@ -213,6 +213,26 @@ namespace modernpos_pos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow_24845_960_720 {
+            get {
+                object obj = ResourceManager.GetObject("arrow_24845_960_720", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrow_down_100 {
+            get {
+                object obj = ResourceManager.GetObject("arrow_down_100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_true {
             get {
                 object obj = ResourceManager.GetObject("arrow_true", resourceCulture);
@@ -1173,6 +1193,36 @@ namespace modernpos_pos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap minus_cir_red_100 {
+            get {
+                object obj = ResourceManager.GetObject("minus_cir_red_100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minus_red_1 {
+            get {
+                object obj = ResourceManager.GetObject("minus_red_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minus_red_100 {
+            get {
+                object obj = ResourceManager.GetObject("minus_red_100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Navigate_left {
             get {
                 object obj = ResourceManager.GetObject("Navigate_left", resourceCulture);
@@ -1423,6 +1473,26 @@ namespace modernpos_pos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap plus_green {
+            get {
+                object obj = ResourceManager.GetObject("plus_green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus_green_100 {
+            get {
+                object obj = ResourceManager.GetObject("plus_green_100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap power24 {
             get {
                 object obj = ResourceManager.GetObject("power24", resourceCulture);
@@ -1566,6 +1636,16 @@ namespace modernpos_pos.Properties {
         internal static System.Drawing.Bitmap QuickPrint_large {
             get {
                 object obj = ResourceManager.GetObject("QuickPrint_large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap recycle_bin_50 {
+            get {
+                object obj = ResourceManager.GetObject("recycle_bin_50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
