@@ -43,6 +43,7 @@
             this.txtTopUp3 = new System.Windows.Forms.TextBox();
             this.c1DockingTab1 = new C1.Win.C1Command.C1DockingTab();
             this.c1DockingTabPage1 = new C1.Win.C1Command.C1DockingTabPage();
+            this.c1DockingTabPage2 = new C1.Win.C1Command.C1DockingTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
             this.c1DockingTab1.SuspendLayout();
             this.c1DockingTabPage1.SuspendLayout();
@@ -157,13 +158,23 @@
             // 
             // c1DockingTab1
             // 
+            this.c1DockingTab1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(255)))));
             this.c1DockingTab1.Controls.Add(this.c1DockingTabPage1);
+            this.c1DockingTab1.Controls.Add(this.c1DockingTabPage2);
             this.c1DockingTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c1DockingTab1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
+            this.c1DockingTab1.Indent = 40;
             this.c1DockingTab1.Location = new System.Drawing.Point(0, 0);
             this.c1DockingTab1.Name = "c1DockingTab1";
+            this.c1DockingTab1.Padding = new System.Drawing.Point(5, 8);
             this.c1DockingTab1.Size = new System.Drawing.Size(800, 450);
+            this.c1DockingTab1.TabAreaBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.c1DockingTab1.TabAreaSpacing = 18;
             this.c1DockingTab1.TabIndex = 19;
-            this.c1DockingTab1.TabsSpacing = 5;
+            this.c1DockingTab1.TabsSpacing = 4;
+            this.c1DockingTab1.TabStyle = C1.Win.C1Command.TabStyleEnum.Classic;
+            this.c1DockingTab1.VisualStyle = C1.Win.C1Command.VisualStyle.Custom;
+            this.c1DockingTab1.VisualStyleBase = C1.Win.C1Command.VisualStyle.Classic;
             // 
             // c1DockingTabPage1
             // 
@@ -180,11 +191,19 @@
             this.c1DockingTabPage1.Controls.Add(this.txtDesk);
             this.c1DockingTabPage1.Controls.Add(this.txtTopUp1);
             this.c1DockingTabPage1.Controls.Add(this.label3);
-            this.c1DockingTabPage1.Location = new System.Drawing.Point(1, 24);
+            this.c1DockingTabPage1.Location = new System.Drawing.Point(2, 51);
             this.c1DockingTabPage1.Name = "c1DockingTabPage1";
-            this.c1DockingTabPage1.Size = new System.Drawing.Size(798, 425);
+            this.c1DockingTabPage1.Size = new System.Drawing.Size(796, 397);
             this.c1DockingTabPage1.TabIndex = 0;
             this.c1DockingTabPage1.Text = "Page1";
+            // 
+            // c1DockingTabPage2
+            // 
+            this.c1DockingTabPage2.Location = new System.Drawing.Point(2, 51);
+            this.c1DockingTabPage2.Name = "c1DockingTabPage2";
+            this.c1DockingTabPage2.Size = new System.Drawing.Size(796, 397);
+            this.c1DockingTabPage2.TabIndex = 1;
+            this.c1DockingTabPage2.Text = "Page2";
             // 
             // Form3
             // 
@@ -221,5 +240,6 @@
         private System.Windows.Forms.TextBox txtTopUp3;
         private C1.Win.C1Command.C1DockingTab c1DockingTab1;
         private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage1;
+        private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage2;
     }
 }

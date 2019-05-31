@@ -259,7 +259,6 @@ namespace modernpos_pos.gui
                 }
             }
         }
-
         private void BtnBillCheck_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -1001,7 +1000,7 @@ namespace modernpos_pos.gui
             mposC.fooName = fooTopping.Equals("") ? mposC.fooName.Replace("+", "").Trim() : mposC.fooName.Replace(fooTopping.Trim(), "").Replace("+", "").Trim();
 
             setGrfSpecialTopping();
-            tabMain.SelectedTab = tabOrer;
+            tabMain.SelectedTab = tabOrder;
         }
 
         private void BtnVoidAll_Click(object sender, EventArgs e)
@@ -1114,7 +1113,64 @@ namespace modernpos_pos.gui
             tC.TabIndex = 0;
             tC.TabsSpacing = 5;
             tC.Font = fEdit1;
-            
+
+            if (mposC.iniC.tabFoodsCustom.Equals("1"))
+            {
+                if (mposC.iniC.tabFoodsAlign.Equals("0"))
+                {
+                    tC.AlignTabs = StringAlignment.Near;
+                }
+                else if (mposC.iniC.tabFoodsAlign.Equals("1"))
+                {
+                    tC.AlignTabs = StringAlignment.Center;
+                }
+                else if (mposC.iniC.tabFoodsAlign.Equals("2"))
+                {
+                    tC.AlignTabs = StringAlignment.Far;
+                }
+                else
+                {
+                    tC.AlignTabs = StringAlignment.Near;
+                }
+                tC.TabAreaSpacing = int.Parse(mposC.iniC.tabFoodsAreaSpacing);
+                tC.Indent = int.Parse(mposC.iniC.tabFoodsIndent);
+                tC.TabsSpacing = int.Parse(mposC.iniC.tabFoodsSpacing);
+                tC.TabAreaSpacing = int.Parse(mposC.iniC.tabFoodsAreaSpacing);
+                if (mposC.iniC.tabFoodsAlign.Equals("0"))
+                {
+                    tC.TabLook = ButtonLookFlags.Default;
+                }
+                else if (mposC.iniC.tabFoodsAlign.Equals("16"))
+                {
+                    tC.TabLook = ButtonLookFlags.Control;
+                }
+                else if (mposC.iniC.tabFoodsAlign.Equals("2"))
+                {
+                    tC.TabLook = ButtonLookFlags.Image;
+                }
+                else if (mposC.iniC.tabFoodsAlign.Equals("1"))
+                {
+                    tC.TabLook = ButtonLookFlags.Text;
+                }
+                else if (mposC.iniC.tabFoodsAlign.Equals("3"))
+                {
+                    tC.TabLook = ButtonLookFlags.TextAndImage;
+                }
+                Size ss = new Size();
+                ss.Height = int.Parse(mposC.iniC.tabFoodsPaddingHeight);
+                ss.Width = int.Parse(mposC.iniC.tabFoodsPaddingWidth);
+                Point pp = new Point(ss);
+                tC.Padding = pp;
+                tC.TabAreaSpacing = int.Parse(mposC.iniC.tabFoodsAreaSpacing);
+
+                Color carea, cback, cfore;
+                carea = ColorTranslator.FromHtml(mposC.iniC.tabFoodsAreaColor);
+                cback = ColorTranslator.FromHtml(mposC.iniC.tabFoodsBackGroundColor);
+                cfore = ColorTranslator.FromHtml(mposC.iniC.tabFoodsForeGroundColor);
+                tC.TabAreaBackColor = carea;
+                tC.BackColor = cback;
+                tC.ForeColor = cfore;
+            }
 
             pnFoods.Controls.Add(tC);
             tabPage = new C1DockingTabPage[dtCat.Rows.Count + 1];
@@ -1129,6 +1185,7 @@ namespace modernpos_pos.gui
             tabPage[0].Name = "Page0";
             tabPage[0].TabBackColor = tilecolor;
             tC.Controls.Add(tabPage[0]);
+
 
             TileRec = new C1TileControl();
             TileRec.Dock = DockStyle.Fill;
@@ -1284,7 +1341,20 @@ namespace modernpos_pos.gui
                 //}
 
             }
-            initTileDrink();
+            
+            if (mposC.iniC.statusDrinkHide.Equals("0"))
+            {
+                int heigth = 0, spItemhei=0, tabMainHei=0;
+                heigth = pnDrink.Height;
+                spItemhei = spItem.Height;
+                tabMainHei = tabMain.Height;
+                pnDrink.Hide();
+                pnFoods.Height = pnFoods.Height + heigth;
+            }
+            else
+            {
+                initTileDrink();
+            }
         }
         private void initTileDrink()
         {

@@ -45,7 +45,7 @@ namespace modernpos_pos.gui
         private void PicOK_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmTakeOut1 frm = new FrmTakeOut1(mposC, this);
+            FrmTakeOut2 frm = new FrmTakeOut2(mposC, this);
             frm.Show(this);
         }
 

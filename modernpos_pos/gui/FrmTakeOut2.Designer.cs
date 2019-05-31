@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTakeOut2));
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.tabMain = new C1.Win.C1Command.C1DockingTab();
-            this.tabOrer = new C1.Win.C1Command.C1DockingTabPage();
+            this.tabOrder = new C1.Win.C1Command.C1DockingTabPage();
             this.spMain = new C1.Win.C1SplitContainer.C1SplitContainer();
             this.pnItem = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.spItem = new C1.Win.C1SplitContainer.C1SplitContainer();
@@ -84,7 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).BeginInit();
             this.tabMain.SuspendLayout();
-            this.tabOrer.SuspendLayout();
+            this.tabOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spMain)).BeginInit();
             this.spMain.SuspendLayout();
             this.pnItem.SuspendLayout();
@@ -124,7 +124,7 @@
             // 
             this.tabMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.tabMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabMain.Controls.Add(this.tabOrer);
+            this.tabMain.Controls.Add(this.tabOrder);
             this.tabMain.Controls.Add(this.tabSpecTopping);
             this.tabMain.Controls.Add(this.tabCheck);
             this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -139,14 +139,14 @@
             this.tabMain.TabStyle = C1.Win.C1Command.TabStyleEnum.Office2007;
             this.theme1.SetTheme(this.tabMain, "(default)");
             // 
-            // tabOrer
+            // tabOrder
             // 
-            this.tabOrer.Controls.Add(this.spMain);
-            this.tabOrer.Location = new System.Drawing.Point(1, 24);
-            this.tabOrer.Name = "tabOrer";
-            this.tabOrer.Size = new System.Drawing.Size(1260, 696);
-            this.tabOrer.TabIndex = 0;
-            this.tabOrer.Text = "Order";
+            this.tabOrder.Controls.Add(this.spMain);
+            this.tabOrder.Location = new System.Drawing.Point(1, 24);
+            this.tabOrder.Name = "tabOrder";
+            this.tabOrder.Size = new System.Drawing.Size(1260, 696);
+            this.tabOrder.TabIndex = 0;
+            this.tabOrder.Text = "Order";
             // 
             // spMain
             // 
@@ -180,7 +180,7 @@
             this.pnItem.Size = new System.Drawing.Size(621, 675);
             this.pnItem.TabIndex = 0;
             this.pnItem.Text = "Item";
-            this.pnItem.Width = 621;
+            this.pnItem.Width = 628;
             // 
             // spItem
             // 
@@ -207,7 +207,7 @@
             // pnFoods
             // 
             this.pnFoods.Collapsible = true;
-            this.pnFoods.Height = 329;
+            this.pnFoods.Height = 336;
             this.pnFoods.Location = new System.Drawing.Point(0, 21);
             this.pnFoods.Name = "pnFoods";
             this.pnFoods.Size = new System.Drawing.Size(621, 308);
@@ -478,7 +478,7 @@
             this.pnSpecial.Height = 300;
             this.pnSpecial.Location = new System.Drawing.Point(0, 21);
             this.pnSpecial.Name = "pnSpecial";
-            this.pnSpecial.Size = new System.Drawing.Size(986, 279);
+            this.pnSpecial.Size = new System.Drawing.Size(1260, 279);
             this.pnSpecial.SizeRatio = 50.083D;
             this.pnSpecial.TabIndex = 0;
             this.pnSpecial.Text = "Special Item";
@@ -488,7 +488,7 @@
             this.pnToping.Height = 299;
             this.pnToping.Location = new System.Drawing.Point(0, 325);
             this.pnToping.Name = "pnToping";
-            this.pnToping.Size = new System.Drawing.Size(986, 278);
+            this.pnToping.Size = new System.Drawing.Size(1260, 278);
             this.pnToping.TabIndex = 1;
             this.pnToping.Text = "Topping Item";
             // 
@@ -589,7 +589,7 @@
             this.c1SplitterPanel1.Size = new System.Drawing.Size(621, 675);
             this.c1SplitterPanel1.TabIndex = 0;
             this.c1SplitterPanel1.Text = "Panel 1";
-            this.c1SplitterPanel1.Width = 628;
+            this.c1SplitterPanel1.Width = 621;
             // 
             // tCBill
             // 
@@ -866,7 +866,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).EndInit();
             this.tabMain.ResumeLayout(false);
-            this.tabOrer.ResumeLayout(false);
+            this.tabOrder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spMain)).EndInit();
             this.spMain.ResumeLayout(false);
             this.pnItem.ResumeLayout(false);
@@ -905,7 +905,7 @@
         #endregion
         private C1.Win.C1Themes.C1ThemeController theme1;
         private C1.Win.C1Command.C1DockingTab tabMain;
-        private C1.Win.C1Command.C1DockingTabPage tabOrer;
+        private C1.Win.C1Command.C1DockingTabPage tabOrder;
         private C1.Win.C1Command.C1DockingTabPage tabSpecTopping;
         private C1.Win.C1Command.C1DockingTabPage tabCheck;
         private C1.Win.C1SplitContainer.C1SplitContainer spMain;

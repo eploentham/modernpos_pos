@@ -193,6 +193,18 @@ namespace modernpos_pos.control
             iniC.statuspaytoclose = iniF.getIni("app", "statuspaytoclose");
             iniC.statushidenavigator = iniF.getIni("app", "statushidenavigator");
             iniC.statusHide = iniF.getIni("app", "statusHide");
+            iniC.statusDrinkHide = iniF.getIni("app", "statusDrinkHide");
+            iniC.tabFoodsAlign = iniF.getIni("app", "tabFoodsAlign");
+            iniC.tabFoodsAreaSpacing = iniF.getIni("app", "tabFoodsAreaSpacing");
+            iniC.tabFoodsIndent = iniF.getIni("app", "tabFoodsIndent");
+            iniC.tabFoodsSpacing = iniF.getIni("app", "tabFoodsSpacing");
+            iniC.tabFoodsLook = iniF.getIni("app", "tabFoodsLook");
+            iniC.tabFoodsPaddingHeight = iniF.getIni("app", "tabFoodsPaddingHeight");
+            iniC.tabFoodsPaddingWidth = iniF.getIni("app", "tabFoodsPaddingWidth");
+            iniC.tabFoodsAreaColor = iniF.getIni("app", "tabFoodsAreaColor");
+            iniC.tabFoodsBackGroundColor = iniF.getIni("app", "tabFoodsBackGroundColor");
+            iniC.tabFoodsForeGroundColor = iniF.getIni("app", "tabFoodsForeGroundColor");
+            iniC.tabFoodsCustom = iniF.getIni("app", "tabFoodsCustom");
 
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
 
@@ -238,6 +250,19 @@ namespace modernpos_pos.control
             iniC.statusShowListBox1 = iniC.statusShowListBox1 != null ? iniC.statusShowListBox1 : "1";
             iniC.statushidenavigator = iniC.statushidenavigator != null ? iniC.statushidenavigator : "0";
             iniC.statusHide = iniC.statusHide != null ? iniC.statusHide : "0";
+            iniC.statusDrinkHide = iniC.statusDrinkHide != null ? iniC.statusDrinkHide : "0";
+
+            iniC.tabFoodsAlign = iniC.tabFoodsAlign != null ? iniC.tabFoodsAlign : "0";
+            iniC.tabFoodsAreaSpacing = iniC.tabFoodsAreaSpacing != null ? iniC.tabFoodsAreaSpacing : "2";
+            iniC.tabFoodsIndent = iniC.tabFoodsIndent != null ? iniC.tabFoodsIndent : "3";
+            iniC.tabFoodsSpacing = iniC.tabFoodsSpacing != null ? iniC.tabFoodsSpacing : "3";
+            iniC.tabFoodsLook = iniC.tabFoodsLook != null ? iniC.tabFoodsLook : "0";
+            iniC.tabFoodsPaddingHeight = iniC.tabFoodsPaddingHeight != null ? iniC.tabFoodsPaddingHeight : "3";
+            iniC.tabFoodsPaddingWidth = iniC.tabFoodsPaddingWidth != null ? iniC.tabFoodsPaddingWidth : "3";
+            iniC.tabFoodsAreaColor = iniC.tabFoodsAreaColor == null ? "#FFDE03" : iniC.tabFoodsAreaColor.Equals("") ? "#FFDE03" : iniC.tabFoodsAreaColor;
+            iniC.tabFoodsBackGroundColor = iniC.tabFoodsBackGroundColor == null ? "#7CB342" : iniC.tabFoodsBackGroundColor.Equals("") ? "#7CB342" : iniC.tabFoodsBackGroundColor;
+            iniC.tabFoodsForeGroundColor = iniC.tabFoodsForeGroundColor == null ? "#FF0266" : iniC.tabFoodsForeGroundColor.Equals("") ? "#FF0266" : iniC.tabFoodsForeGroundColor;
+            iniC.tabFoodsCustom = iniC.tabFoodsCustom != null ? iniC.tabFoodsCustom : "0";
 
             iniC.usePassiveFTP = iniC.usePassiveFTP == null ? "false" : iniC.usePassiveFTP.Equals("") ? "false" : iniC.usePassiveFTP;
             Boolean.TryParse(iniC.usePassiveFTP, out ftpUsePassive);
