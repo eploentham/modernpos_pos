@@ -166,6 +166,12 @@
     <Compile Include="gui\FrmMessage.Designer.cs">
       <DependentUpon>FrmMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmNoodleMake.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmNoodleMake.Designer.cs">
+      <DependentUpon>FrmNoodleMake.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -410,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmMessage.resx">
       <DependentUpon>FrmMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmNoodleMake.resx">
+      <DependentUpon>FrmNoodleMake.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmOrdering.resx">
       <DependentUpon>FrmOrdering.cs</DependentUpon>
