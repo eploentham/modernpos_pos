@@ -29,26 +29,30 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnName = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnName = new System.Windows.Forms.Panel();
+            this.pnQty = new System.Windows.Forms.Panel();
+            this.lbQty = new C1.Win.C1SuperTooltip.C1SuperLabel();
+            this.picPlus = new C1.Win.C1Input.C1PictureBox();
+            this.picMinus = new C1.Win.C1Input.C1PictureBox();
+            this.lbQtyShow = new C1.Win.C1SuperTooltip.C1SuperLabel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.c1SuperLabel1 = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.pnQty = new System.Windows.Forms.Panel();
-            this.c1SuperLabel2 = new C1.Win.C1SuperTooltip.C1SuperLabel();
-            this.c1PictureBox1 = new C1.Win.C1Input.C1PictureBox();
-            this.c1PictureBox2 = new C1.Win.C1Input.C1PictureBox();
-            this.c1SuperLabel3 = new C1.Win.C1SuperTooltip.C1SuperLabel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.pnName.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.pnName.SuspendLayout();
             this.pnQty.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPlus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMinus)).BeginInit();
+            this.panel7.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,6 +66,25 @@
             this.panel1.Size = new System.Drawing.Size(1144, 785);
             this.panel1.TabIndex = 0;
             // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(660, 62);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(484, 723);
+            this.panel3.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 62);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(660, 723);
+            this.panel2.TabIndex = 0;
+            // 
             // pnName
             // 
             this.pnName.Controls.Add(this.pnQty);
@@ -72,24 +95,60 @@
             this.pnName.Size = new System.Drawing.Size(1144, 62);
             this.pnName.TabIndex = 0;
             // 
-            // panel2
+            // pnQty
             // 
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 62);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(571, 723);
-            this.panel2.TabIndex = 0;
+            this.pnQty.Controls.Add(this.lbQty);
+            this.pnQty.Controls.Add(this.picPlus);
+            this.pnQty.Controls.Add(this.picMinus);
+            this.pnQty.Controls.Add(this.lbQtyShow);
+            this.pnQty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnQty.Location = new System.Drawing.Point(920, 0);
+            this.pnQty.Name = "pnQty";
+            this.pnQty.Size = new System.Drawing.Size(224, 62);
+            this.pnQty.TabIndex = 1;
             // 
-            // panel3
+            // lbQty
             // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(571, 62);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(573, 723);
-            this.panel3.TabIndex = 1;
+            this.lbQty.Location = new System.Drawing.Point(73, 25);
+            this.lbQty.Name = "lbQty";
+            this.lbQty.Size = new System.Drawing.Size(75, 30);
+            this.lbQty.TabIndex = 3;
+            this.lbQty.Text = "c1SuperLabel3";
+            this.lbQty.UseMnemonic = true;
+            // 
+            // picPlus
+            // 
+            this.picPlus.Location = new System.Drawing.Point(171, 25);
+            this.picPlus.Name = "picPlus";
+            this.picPlus.Size = new System.Drawing.Size(43, 31);
+            this.picPlus.TabIndex = 2;
+            this.picPlus.TabStop = false;
+            // 
+            // picMinus
+            // 
+            this.picMinus.Location = new System.Drawing.Point(10, 25);
+            this.picMinus.Name = "picMinus";
+            this.picMinus.Size = new System.Drawing.Size(43, 31);
+            this.picMinus.TabIndex = 1;
+            this.picMinus.TabStop = false;
+            // 
+            // lbQtyShow
+            // 
+            this.lbQtyShow.Location = new System.Drawing.Point(73, 3);
+            this.lbQtyShow.Name = "lbQtyShow";
+            this.lbQtyShow.Size = new System.Drawing.Size(75, 23);
+            this.lbQtyShow.TabIndex = 0;
+            this.lbQtyShow.Text = "c1SuperLabel2";
+            this.lbQtyShow.UseMnemonic = true;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.c1SuperLabel1);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(920, 62);
+            this.panel7.TabIndex = 0;
             // 
             // c1SuperLabel1
             // 
@@ -103,82 +162,54 @@
             // 
             // panel4
             // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(571, 242);
+            this.panel4.Size = new System.Drawing.Size(16, 723);
             this.panel4.TabIndex = 0;
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.panel10);
+            this.panel5.Controls.Add(this.panel9);
+            this.panel5.Controls.Add(this.panel8);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 242);
+            this.panel5.Location = new System.Drawing.Point(16, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(571, 275);
+            this.panel5.Size = new System.Drawing.Size(644, 360);
             this.panel5.TabIndex = 1;
             // 
             // panel6
             // 
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 517);
+            this.panel6.Location = new System.Drawing.Point(16, 360);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(571, 206);
-            this.panel6.TabIndex = 2;
+            this.panel6.Size = new System.Drawing.Size(644, 363);
+            this.panel6.TabIndex = 0;
             // 
-            // panel7
+            // panel8
             // 
-            this.panel7.Controls.Add(this.c1SuperLabel1);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(920, 62);
-            this.panel7.TabIndex = 0;
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(312, 360);
+            this.panel8.TabIndex = 0;
             // 
-            // pnQty
+            // panel9
             // 
-            this.pnQty.Controls.Add(this.c1SuperLabel3);
-            this.pnQty.Controls.Add(this.c1PictureBox2);
-            this.pnQty.Controls.Add(this.c1PictureBox1);
-            this.pnQty.Controls.Add(this.c1SuperLabel2);
-            this.pnQty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnQty.Location = new System.Drawing.Point(920, 0);
-            this.pnQty.Name = "pnQty";
-            this.pnQty.Size = new System.Drawing.Size(224, 62);
-            this.pnQty.TabIndex = 1;
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel9.Location = new System.Drawing.Point(312, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(21, 360);
+            this.panel9.TabIndex = 0;
             // 
-            // c1SuperLabel2
+            // panel10
             // 
-            this.c1SuperLabel2.Location = new System.Drawing.Point(73, 3);
-            this.c1SuperLabel2.Name = "c1SuperLabel2";
-            this.c1SuperLabel2.Size = new System.Drawing.Size(75, 23);
-            this.c1SuperLabel2.TabIndex = 0;
-            this.c1SuperLabel2.Text = "c1SuperLabel2";
-            this.c1SuperLabel2.UseMnemonic = true;
-            // 
-            // c1PictureBox1
-            // 
-            this.c1PictureBox1.Location = new System.Drawing.Point(10, 25);
-            this.c1PictureBox1.Name = "c1PictureBox1";
-            this.c1PictureBox1.Size = new System.Drawing.Size(43, 31);
-            this.c1PictureBox1.TabIndex = 1;
-            this.c1PictureBox1.TabStop = false;
-            // 
-            // c1PictureBox2
-            // 
-            this.c1PictureBox2.Location = new System.Drawing.Point(171, 25);
-            this.c1PictureBox2.Name = "c1PictureBox2";
-            this.c1PictureBox2.Size = new System.Drawing.Size(43, 31);
-            this.c1PictureBox2.TabIndex = 2;
-            this.c1PictureBox2.TabStop = false;
-            // 
-            // c1SuperLabel3
-            // 
-            this.c1SuperLabel3.Location = new System.Drawing.Point(73, 25);
-            this.c1SuperLabel3.Name = "c1SuperLabel3";
-            this.c1SuperLabel3.Size = new System.Drawing.Size(75, 30);
-            this.c1SuperLabel3.TabIndex = 3;
-            this.c1SuperLabel3.Text = "c1SuperLabel3";
-            this.c1SuperLabel3.UseMnemonic = true;
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(333, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(311, 360);
+            this.panel10.TabIndex = 1;
             // 
             // FrmNoodleMake
             // 
@@ -187,14 +218,17 @@
             this.ClientSize = new System.Drawing.Size(1144, 785);
             this.Controls.Add(this.panel1);
             this.Name = "FrmNoodleMake";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNoodleMake";
+            this.Load += new System.EventHandler(this.FrmNoodleMake_Load);
             this.panel1.ResumeLayout(false);
-            this.pnName.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
+            this.pnName.ResumeLayout(false);
             this.pnQty.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPlus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMinus)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -206,14 +240,17 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnName;
         private C1.Win.C1SuperTooltip.C1SuperLabel c1SuperLabel1;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel pnQty;
         private System.Windows.Forms.Panel panel7;
-        private C1.Win.C1SuperTooltip.C1SuperLabel c1SuperLabel2;
-        private C1.Win.C1SuperTooltip.C1SuperLabel c1SuperLabel3;
-        private C1.Win.C1Input.C1PictureBox c1PictureBox2;
-        private C1.Win.C1Input.C1PictureBox c1PictureBox1;
+        private C1.Win.C1SuperTooltip.C1SuperLabel lbQtyShow;
+        private C1.Win.C1SuperTooltip.C1SuperLabel lbQty;
+        private C1.Win.C1Input.C1PictureBox picPlus;
+        private C1.Win.C1Input.C1PictureBox picMinus;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel4;
     }
 }

@@ -31,7 +31,7 @@ namespace modernpos_pos.objdb
         public sequenceDB seqDB;
         public FoodsSpecialDB foosDB;
         public FoodsToppingDB footpDB;
-
+        public NoodleMakeDB noomDB;
         public mPosDB(ConnectDB c)
         {
             conn = c;
@@ -62,6 +62,7 @@ namespace modernpos_pos.objdb
             seqDB = new sequenceDB(conn);
             foosDB = new FoodsSpecialDB(conn);
             footpDB = new FoodsToppingDB(conn);
+            noomDB = new NoodleMakeDB(conn);
             //MessageBox.Show("mPosDB end ", "");
             Console.WriteLine("mPosDB end");
         }

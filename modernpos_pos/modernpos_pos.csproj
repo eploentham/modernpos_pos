@@ -260,6 +260,7 @@
     <Compile Include="objdb\FPrefixDB.cs" />
     <Compile Include="objdb\FSexDB.cs" />
     <Compile Include="objdb\mPosDB.cs" />
+    <Compile Include="objdb\NoodleMakeDB.cs" />
     <Compile Include="objdb\OrderDB.cs" />
     <Compile Include="objdb\PositionDB.cs" />
     <Compile Include="objdb\RestaurantDB.cs" />
@@ -325,6 +326,7 @@
     <Compile Include="object1\InitConfig.cs" />
     <Compile Include="object1\LogFile.cs" />
     <Compile Include="object1\NativeMethods.cs" />
+    <Compile Include="object1\NoodleMake.cs" />
     <Compile Include="object1\Order1.cs" />
     <Compile Include="object1\Persistent.cs" />
     <Compile Include="object1\Position.cs" />

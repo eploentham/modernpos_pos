@@ -158,7 +158,7 @@ namespace modernpos_pos.gui
             //originalWidth = imgAdd.Width;
             //imgAdd = imgAdd.GetThumbnailImage(newWidth, (newWidth * imgAdd.Height) / originalWidth, null, IntPtr.Zero);
 
-            btnVoid.Enabled = false;
+            //btnVoid.Enabled = false;
             //MessageBox.Show("FrmTakeOut initConfig 3", "");
             if (mposC.iniC.pnOrderborderstyle.Equals("0"))
             {
@@ -1093,12 +1093,14 @@ namespace modernpos_pos.gui
         private void BtnVoid_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            int row = 0;
-            if (int.TryParse(txtRow.Text, out row))
-            {
-                if (grfOrder.Rows.Count > row)
-                    grfOrder.Rows.Remove(row);
-            }
+            //int row = 0;
+            //if (int.TryParse(txtRow.Text, out row))
+            //{
+            //    if (grfOrder.Rows.Count > row)
+            //        grfOrder.Rows.Remove(row);
+            //}
+            FrmNoodleMake frm = new FrmNoodleMake(mposC);
+            frm.ShowDialog(this);
         }
 
         private void initTC()
@@ -1545,7 +1547,7 @@ namespace modernpos_pos.gui
         }
         private void setBtnEnable(Boolean flag)
         {
-            btnVoid.Enabled = flag;
+            //btnVoid.Enabled = flag;
             btnSpec.Enabled = flag;
             //btnTopping.Enabled = flag;
         }
