@@ -49,6 +49,8 @@ namespace modernpos_pos.gui
             lbNoom.Font = fEdit;
             //lbNoom.Location = new System.Drawing.Point(0, 0);
             lbNoom.TextAlign = ContentAlignment.MiddleCenter;
+            lbNoom.Font = fEdit;
+            //lbNoom.
             pnMid1T.Controls.Add(lbNoom);
 
             lbWatm = new Label();
