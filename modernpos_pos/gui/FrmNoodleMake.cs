@@ -24,7 +24,8 @@ namespace modernpos_pos.gui
 
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
-        C1SuperLabel lbNoom, lbWatm, lbOpt, lbGrf5, lbGrf6, lbGrf7, lbGrf8, lbFooName, lbPrice;
+        //C1SuperLabel lbNoom, lbWatm, lbOpt, lbGrf5, lbGrf6, lbGrf7, lbGrf8, lbFooName, lbPrice;
+        Label lbNoom, lbWatm, lbOpt, lbGrf5, lbGrf6, lbGrf7, lbGrf8, lbFooName, lbPrice;
         C1FlexGrid grfNoom, grfWatm, grfOpt, grf5, grf6, grf7, grf8;
         int colNId = 1, colNImg = 2, colNName = 3, colNStatusUs = 4, colNflag=5,colNPrice=6;
         int colOId = 1, colOImgL = 2, colOName = 3, colOImgR=4, colOStatusUs = 5, colOflag = 6;
@@ -41,67 +42,77 @@ namespace modernpos_pos.gui
             fEditB = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Bold);
             fEdit1 = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 5, FontStyle.Regular + 2);
             fgrd = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 15, FontStyle.Regular);
-            lbNoom = new C1SuperLabel();
+            lbNoom = new Label();
             lbNoom.Dock = DockStyle.Fill;
-            lbNoom.AutoSize = true;
+            lbNoom.AutoSize = false;
             lbNoom.Text = "เส้น";
             lbNoom.Font = fEdit;
+            //lbNoom.Location = new System.Drawing.Point(0, 0);
+            lbNoom.TextAlign = ContentAlignment.MiddleCenter;
             pnMid1T.Controls.Add(lbNoom);
 
-            lbWatm = new C1SuperLabel();
+            lbWatm = new Label();
             lbWatm.Dock = DockStyle.Fill;
-            lbWatm.AutoSize = true;
+            lbWatm.AutoSize = false;
             lbWatm.Text = "น้ำ";
             lbWatm.Font = fEdit;
+            lbWatm.TextAlign = ContentAlignment.MiddleCenter;
             pnMid2T.Controls.Add(lbWatm);
 
-            lbOpt = new C1SuperLabel();
+            lbOpt = new Label();
             lbOpt.Dock = DockStyle.Fill;
-            lbOpt.AutoSize = true;
+            lbOpt.AutoSize = false;
             lbOpt.Text = "รายละเอียด";
             lbOpt.Font = fEdit;
+            lbOpt.TextAlign = ContentAlignment.MiddleCenter;
             pnMid3T.Controls.Add(lbOpt);
 
-            lbGrf5 = new C1SuperLabel();
+            lbGrf5 = new Label();
             lbGrf5.Dock = DockStyle.Fill;
-            lbGrf5.AutoSize = true;
+            lbGrf5.AutoSize = false;
             lbGrf5.Text = "ลูกชิ้น/เกี๊ยว";
             lbGrf5.Font = fEdit;
+            lbGrf5.TextAlign = ContentAlignment.MiddleCenter;
             pnMid5T.Controls.Add(lbGrf5);
 
-            lbGrf6 = new C1SuperLabel();
+            lbGrf6 = new Label();
             lbGrf6.Dock = DockStyle.Fill;
-            lbGrf6.AutoSize = true;
+            lbGrf6.AutoSize = false;
             lbGrf6.Text = "ทะเล";
             lbGrf6.Font = fEdit;
+            lbGrf6.TextAlign = ContentAlignment.MiddleCenter;
             pnMid6T.Controls.Add(lbGrf6);
 
-            lbGrf7 = new C1SuperLabel();
+            lbGrf7 = new Label();
             lbGrf7.Dock = DockStyle.Fill;
-            lbGrf7.AutoSize = true;
+            lbGrf7.AutoSize = false;
             lbGrf7.Text = "หมู/เป็ด/ไก่";
             lbGrf7.Font = fEdit;
+            lbGrf7.TextAlign = ContentAlignment.MiddleCenter;
             pnMid7T.Controls.Add(lbGrf7);
 
-            lbGrf8 = new C1SuperLabel();
+            lbGrf8 = new Label();
             lbGrf8.Dock = DockStyle.Fill;
-            lbGrf8.AutoSize = true;
+            lbGrf8.AutoSize = false;
             lbGrf8.Text = "ผัก";
             lbGrf8.Font = fEdit;
+            lbGrf8.TextAlign = ContentAlignment.MiddleCenter;
             pnMid8T.Controls.Add(lbGrf8);
 
-            lbFooName = new C1SuperLabel();
+            lbFooName = new Label();
             lbFooName.Dock = DockStyle.Fill;
-            lbFooName.AutoSize = true;
+            lbFooName.AutoSize = false;
             lbFooName.Text = "รายละเอียด";
             lbFooName.Font = fEdit;
+            lbFooName.TextAlign = ContentAlignment.MiddleLeft;
             pnName.Controls.Add(lbFooName);
 
-            lbPrice = new C1SuperLabel();
+            lbPrice = new Label();
             lbPrice.Dock = DockStyle.Fill;
-            lbPrice.AutoSize = true;
+            lbPrice.AutoSize = false;
             lbPrice.Text = "";
             lbPrice.Font = fEdit;
+            lbPrice.TextAlign = ContentAlignment.MiddleRight;
             pnPrice.Controls.Add(lbPrice);
 
             lbQtyShow.Text = "จำนวน";
@@ -213,7 +224,7 @@ namespace modernpos_pos.gui
                 if (row[colNStatusUs] == null) continue;
                 if (row[colNStatusUs].Equals("1"))
                 {
-                    fooname7 += row[colNPrice].ToString() + " ";
+                    fooname7 += row[colNName].ToString() + " ";
                     Decimal.TryParse(row[colNPrice].ToString(), out chk);
                     price7 += chk;
                     //break;
@@ -234,6 +245,7 @@ namespace modernpos_pos.gui
             fooname = fooname1 +" "+ fooname2 + " " + fooname3 + " " + fooname5 + " " + fooname6 + " " + fooname7 + " " + fooname8 ;
             lbFooName.Text = fooname;
             lbPrice.Text = price.ToString("#,###.00");
+            this.Focus();
         }
         private void PicPlus_Click(object sender, EventArgs e)
         {
@@ -553,6 +565,7 @@ namespace modernpos_pos.gui
             grf5.Cols[colNStatusUs].Visible = false;
             grf5.Cols[colNName].AllowEditing = false;
             grf5.Cols[colNImg].AllowEditing = false;
+            grf5.Cols[colNPrice].AllowEditing = false;
             grf5.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.None;
             grf5.EditOptions = EditFlags.None;
             grf5.TabStop = false;
@@ -564,6 +577,8 @@ namespace modernpos_pos.gui
             CellBorder cb = cs.Border;
             cb.Style = BorderStyleEnum.None;
             grf5.HighLight = HighLightEnum.Never;
+            grf5.FocusRect = FocusRectEnum.None;
+            grf5.SelectionMode = SelectionModeEnum.Cell;
             //pageLoad = false;
         }
         private void initGrf6()
@@ -584,6 +599,7 @@ namespace modernpos_pos.gui
             grf6.TabStop = false;
             grf6.EditOptions = EditFlags.None;
             grf6.Cols[colNName].AllowEditing = false;
+            grf6.Cols[colNPrice].AllowEditing = false;
 
             pnMid6G.Controls.Add(grf6);
             grf6.Cols[colNId].Visible = false;
@@ -718,6 +734,8 @@ namespace modernpos_pos.gui
             CellBorder cb = cs.Border;
             cb.Style = BorderStyleEnum.None;
             grf6.HighLight = HighLightEnum.Never;
+            grf6.FocusRect = FocusRectEnum.None;
+            grf6.SelectionMode = SelectionModeEnum.Cell;
             //pageLoad = false;
         }
         private void initGrf8()
@@ -852,6 +870,7 @@ namespace modernpos_pos.gui
 
             grf8.Cols[colNName].AllowEditing = false;
             grf8.Cols[colNImg].AllowEditing = false;
+            grf8.Cols[colNPrice].AllowEditing = false;
             grf8.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.None;
             grf8.EditOptions = EditFlags.None;
             grf8.TabStop = false;
@@ -863,6 +882,8 @@ namespace modernpos_pos.gui
             CellBorder cb = cs.Border;
             cb.Style = BorderStyleEnum.None;
             grf8.HighLight = HighLightEnum.Never;
+            grf8.FocusRect = FocusRectEnum.None;
+            grf8.SelectionMode = SelectionModeEnum.Cell;
             //pageLoad = false;
         }
         private void initGrf7()
@@ -996,6 +1017,7 @@ namespace modernpos_pos.gui
             grf7.Cols[colNStatusUs].Visible = false;
             grf7.Cols[colNName].AllowEditing = false;
             grf7.Cols[colNImg].AllowEditing = false;
+            grf7.Cols[colNPrice].AllowEditing = false;
             grf7.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.None;
             grf7.EditOptions = EditFlags.None;
             grf7.TabStop = false;
@@ -1007,6 +1029,8 @@ namespace modernpos_pos.gui
             CellBorder cb = cs.Border;
             cb.Style = BorderStyleEnum.None;
             grf7.HighLight = HighLightEnum.Never;
+            grf7.FocusRect = FocusRectEnum.None;
+            grf7.SelectionMode = SelectionModeEnum.Cell;
             //pageLoad = false;
         }
         private void GrfNoom_Click(object sender, EventArgs e)
@@ -1119,6 +1143,8 @@ namespace modernpos_pos.gui
             CellBorder cb = cs.Border;
             cb.Style = BorderStyleEnum.None;
             grfNoom.HighLight = HighLightEnum.Never;
+            grfNoom.FocusRect = FocusRectEnum.None;
+            grfNoom.SelectionMode = SelectionModeEnum.Cell;
             //pageLoad = false;
         }
         private void initGrfOpt()
@@ -1271,6 +1297,8 @@ namespace modernpos_pos.gui
             CellBorder cb = cs.Border;
             cb.Style = BorderStyleEnum.None;
             grfOpt.HighLight = HighLightEnum.Never;
+            grfOpt.FocusRect = FocusRectEnum.None;
+            grfOpt.SelectionMode = SelectionModeEnum.Cell;
             //grfOpt.Styles.EmptyArea = this.BackColor;
             //pageLoad = false;
         }
