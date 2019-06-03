@@ -24,9 +24,11 @@ namespace modernpos_pos.gui
 
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
-        C1FlexGrid grfNoom, grfWatm;
-        int colNId = 1, colNImg = 2, colNName = 3, colNStatusUs = 4, colNflag=5;
-        Image imgChk;
+        C1SuperLabel lbNoom, lbWatm, lbOpt, lbGrf5, lbGrf6, lbGrf7, lbGrf8, lbFooName, lbPrice;
+        C1FlexGrid grfNoom, grfWatm, grfOpt, grf5, grf6, grf7, grf8;
+        int colNId = 1, colNImg = 2, colNName = 3, colNStatusUs = 4, colNflag=5,colNPrice=6;
+        int colOId = 1, colOImgL = 2, colOName = 3, colOImgR=4, colOStatusUs = 5, colOflag = 6;
+        Image imgChk, imgChkUn, imgChkNo;
         public FrmNoodleMake(mPOSControl x)
         {
             InitializeComponent();
@@ -39,6 +41,68 @@ namespace modernpos_pos.gui
             fEditB = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Bold);
             fEdit1 = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 5, FontStyle.Regular + 2);
             fgrd = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 15, FontStyle.Regular);
+            lbNoom = new C1SuperLabel();
+            lbNoom.Dock = DockStyle.Fill;
+            lbNoom.AutoSize = true;
+            lbNoom.Text = "เส้น";
+            lbNoom.Font = fEdit;
+            pnMid1T.Controls.Add(lbNoom);
+
+            lbWatm = new C1SuperLabel();
+            lbWatm.Dock = DockStyle.Fill;
+            lbWatm.AutoSize = true;
+            lbWatm.Text = "น้ำ";
+            lbWatm.Font = fEdit;
+            pnMid2T.Controls.Add(lbWatm);
+
+            lbOpt = new C1SuperLabel();
+            lbOpt.Dock = DockStyle.Fill;
+            lbOpt.AutoSize = true;
+            lbOpt.Text = "รายละเอียด";
+            lbOpt.Font = fEdit;
+            pnMid3T.Controls.Add(lbOpt);
+
+            lbGrf5 = new C1SuperLabel();
+            lbGrf5.Dock = DockStyle.Fill;
+            lbGrf5.AutoSize = true;
+            lbGrf5.Text = "ลูกชิ้น/เกี๊ยว";
+            lbGrf5.Font = fEdit;
+            pnMid5T.Controls.Add(lbGrf5);
+
+            lbGrf6 = new C1SuperLabel();
+            lbGrf6.Dock = DockStyle.Fill;
+            lbGrf6.AutoSize = true;
+            lbGrf6.Text = "ทะเล";
+            lbGrf6.Font = fEdit;
+            pnMid6T.Controls.Add(lbGrf6);
+
+            lbGrf7 = new C1SuperLabel();
+            lbGrf7.Dock = DockStyle.Fill;
+            lbGrf7.AutoSize = true;
+            lbGrf7.Text = "หมู/เป็ด/ไก่";
+            lbGrf7.Font = fEdit;
+            pnMid7T.Controls.Add(lbGrf7);
+
+            lbGrf8 = new C1SuperLabel();
+            lbGrf8.Dock = DockStyle.Fill;
+            lbGrf8.AutoSize = true;
+            lbGrf8.Text = "ผัก";
+            lbGrf8.Font = fEdit;
+            pnMid8T.Controls.Add(lbGrf8);
+
+            lbFooName = new C1SuperLabel();
+            lbFooName.Dock = DockStyle.Fill;
+            lbFooName.AutoSize = true;
+            lbFooName.Text = "รายละเอียด";
+            lbFooName.Font = fEdit;
+            pnName.Controls.Add(lbFooName);
+
+            lbPrice = new C1SuperLabel();
+            lbPrice.Dock = DockStyle.Fill;
+            lbPrice.AutoSize = true;
+            lbPrice.Text = "";
+            lbPrice.Font = fEdit;
+            pnPrice.Controls.Add(lbPrice);
 
             lbQtyShow.Text = "จำนวน";
             lbQty.Text = "1";
@@ -53,10 +117,21 @@ namespace modernpos_pos.gui
             picPlus.Image = resizedImage;
             picPlus.SizeMode = PictureBoxSizeMode.StretchImage;
             picMinus.SizeMode = PictureBoxSizeMode.StretchImage;
+
             imgChk = Resources.images;
             originalWidth = imgChk.Width;
             newWidth = 40;
             imgChk = imgChk.GetThumbnailImage(newWidth, (newWidth * imgChk.Height) / originalWidth, null, IntPtr.Zero);
+
+            imgChkNo = Resources.close;
+            originalWidth = imgChkNo.Width;
+            newWidth = 40;
+            imgChkNo = imgChkNo.GetThumbnailImage(newWidth, (newWidth * imgChkNo.Height) / originalWidth, null, IntPtr.Zero);
+
+            imgChkUn = Resources.open48;
+            originalWidth = imgChkUn.Width;
+            newWidth = 40;
+            imgChkUn = imgChkUn.GetThumbnailImage(newWidth, (newWidth * imgChkUn.Height) / originalWidth, null, IntPtr.Zero);
 
             picMinus.Click += PicMinus_Click;
             picPlus.Click += PicPlus_Click;
@@ -67,8 +142,99 @@ namespace modernpos_pos.gui
             setGrfNoom();
             initGrfWatm();
             setGrfWatm();
+            initGrfOpt();
+            setGrfOpt();
+            initGrf5();
+            initGrf6();
+            initGrf7();
+            initGrf8();
+            setGrf8();
+            setGrf7();
+            setGrf6();
+            setGrf5();
         }
-
+        private void setFoodName()
+        {
+            Decimal price = 0, price5=0, price6=0, price7=0, price8=0, chk=0;
+            String fooname = "",fooname1 = "", fooname2 = "", fooname3 = "",fooname5 = "", fooname6 = "", fooname7 = "", fooname8 = "";
+            foreach(Row row in grfNoom.Rows)
+            {
+                if (row[colNStatusUs] == null) continue;
+                if (row[colNStatusUs].Equals("1")){
+                    fooname1 = row[colNName].ToString();
+                    break;
+                }
+            }
+            foreach (Row row in grfWatm.Rows)
+            {
+                if (row[colNStatusUs] == null) continue;
+                if (row[colNStatusUs].Equals("1"))
+                {
+                    fooname2 = row[colNName].ToString();
+                    break;
+                }
+            }
+            foreach (Row row in grfOpt.Rows)
+            {
+                if (row[colNStatusUs] == null) continue;
+                if (row[colOStatusUs].Equals("1"))
+                {
+                    fooname3 += "เพิ่ม " + row[colNName].ToString();
+                }
+                else if (row[colOStatusUs].Equals("3"))
+                {
+                    fooname3 += "ไม่ใส่ " + row[colNName].ToString();
+                }
+            }
+            foreach (Row row in grf5.Rows)
+            {
+                if (row[colNStatusUs] == null) continue;
+                if (row[colNStatusUs].Equals("1"))
+                {
+                    fooname5 += row[colNName].ToString() + " ";
+                    Decimal.TryParse(row[colNPrice].ToString(), out chk);
+                    price5 += chk;
+                    //break;
+                }
+            }
+            foreach (Row row in grf6.Rows)
+            {
+                if (row[colNStatusUs] == null) continue;
+                if (row[colNStatusUs].Equals("1"))
+                {
+                    fooname6 += row[colNName].ToString() + " ";
+                    Decimal.TryParse(row[colNPrice].ToString(), out chk);
+                    price6 += chk;
+                    //break;
+                }
+            }
+            foreach (Row row in grf7.Rows)
+            {
+                if (row[colNStatusUs] == null) continue;
+                if (row[colNStatusUs].Equals("1"))
+                {
+                    fooname7 += row[colNPrice].ToString() + " ";
+                    Decimal.TryParse(row[colNPrice].ToString(), out chk);
+                    price7 += chk;
+                    //break;
+                }
+            }
+            foreach (Row row in grf8.Rows)
+            {
+                if (row[colNStatusUs] == null) continue;
+                if (row[colNStatusUs].Equals("1"))
+                {
+                    fooname8 += row[colNName].ToString()+" ";
+                    Decimal.TryParse(row[colNPrice].ToString(), out chk);
+                    price8 += chk;
+                    //break;
+                }
+            }
+            price = price5 + price6 + price7 + price8;
+            fooname = fooname1 +" "+ fooname2 + " " + fooname3 + " " + fooname5 + " " + fooname6 + " " + fooname7 + " " + fooname8 ;
+            lbFooName.Text = fooname;
+            lbPrice.Text = price.ToString("#,###.00");
+        }
         private void PicPlus_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -79,6 +245,32 @@ namespace modernpos_pos.gui
         {
             //throw new NotImplementedException();
             lbQty.Text = (int.Parse(lbQty.Text) - 1).ToString();
+        }
+        private void initGrfNoom()
+        {
+            grfNoom = new C1FlexGrid();
+            grfNoom.Font = fgrd;
+            grfNoom.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfNoom.Location = new System.Drawing.Point(0, 0);
+            grfNoom.Rows[0].Visible = false;
+            grfNoom.Cols[0].Visible = false;
+            //grf.Cols[colStatus].Visible = false;
+            //grfOrder.Rows.Count = 1;
+            //grfOrder.Cols.Count = 15;
+            grfNoom.Cols[colNName].Width = 40;
+            grfNoom.Click += GrfNoom_Click;
+
+            //FilterRow fr = new FilterRow(grfExpn);
+            grfNoom.TabStop = false;
+            grfNoom.EditOptions = EditFlags.None;
+            grfNoom.Cols[colNName].AllowEditing = false;
+
+            pnMid1G.Controls.Add(grfNoom);
+            grfNoom.Cols[colNId].Visible = false;
+            CellRange rng1 = grfNoom.GetCellRange(0, colNId, 1, colNflag);
+            rng1.Data = "Time";
+
+            //theme.SetTheme(grf, "Office2010Blue");
         }
         private void initGrfWatm()
         {
@@ -101,7 +293,7 @@ namespace modernpos_pos.gui
             //grfWatm.EditOptions = EditFlags.None;
             grfWatm.Cols[colNName].AllowEditing = false;
 
-            panel10.Controls.Add(grfWatm);
+            pnMid2G.Controls.Add(grfWatm);
             grfWatm.Cols[colNId].Visible = false;
 
             //theme.SetTheme(grf, "Office2010Blue");
@@ -131,6 +323,7 @@ namespace modernpos_pos.gui
                 grfWatm[grfWatm.Row, colNImg] = null;
                 grfWatm[grfWatm.Row, colNStatusUs] = "";
             }
+            setFoodName();
         }
 
         private void setGrfWatm()
@@ -168,6 +361,7 @@ namespace modernpos_pos.gui
 
             grfWatm.Cols[colNName].Width = 220;
             grfWatm.Cols[colNImg].Width = 50;
+            
             grfWatm.EditOptions = EditFlags.None;
             grfWatm.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
@@ -192,16 +386,16 @@ namespace modernpos_pos.gui
                 row.StyleNew.BackColor = this.BackColor;
                 row[colNflag] = "";
             }
-            if (grfWatm.Rows.Count < 10)
-            {
-                for (int i = grfWatm.Rows.Count; i <= 8; i++)
-                {
-                    Row row = grfWatm.Rows.Add();
-                    row.StyleNew.BackColor = this.BackColor;
-                    row[colNStatusUs] = "";
-                    row[colNflag] = "1";
-                }
-            }
+            //if (grfWatm.Rows.Count < 10)
+            //{
+            //    for (int i = grfWatm.Rows.Count; i <= 8; i++)
+            //    {
+            //        Row row = grfWatm.Rows.Add();
+            //        row.StyleNew.BackColor = this.BackColor;
+            //        row[colNStatusUs] = "";
+            //        row[colNflag] = "1";
+            //    }
+            //}
             grfWatm.Cols[colNId].Visible = false;
             grfWatm.Cols[colNflag].Visible = false;
             grfWatm.Cols[colNStatusUs].Visible = false;
@@ -213,35 +407,608 @@ namespace modernpos_pos.gui
             //grfWatm.EditOptions = EditFlags.None;
             grfWatm.TabStop = false;
             grfWatm.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
+            CellStyle cs = null;
+            cs = grfWatm.Styles.EmptyArea;
+            cs.BackColor = this.BackColor;
+            grfWatm.FocusRect = FocusRectEnum.None;
+            grfWatm.SelectionMode = SelectionModeEnum.Cell;
+
+            CellBorder cb = cs.Border;
+            cb.Style = BorderStyleEnum.None;
+            grfWatm.HighLight = HighLightEnum.Never;
+            //CellStyle cs = null;
+            //cs.s
+            //grfWatm.se
             //pageLoad = false;
         }
-        private void initGrfNoom()
+        private void initGrf5()
         {
-            grfNoom = new C1FlexGrid();
-            grfNoom.Font = fgrd;
-            grfNoom.Dock = System.Windows.Forms.DockStyle.Fill;
-            grfNoom.Location = new System.Drawing.Point(0, 0);
-            grfNoom.Rows[0].Visible = false;
-            grfNoom.Cols[0].Visible = false;
+            grf5 = new C1FlexGrid();
+            grf5.Font = fgrd;
+            grf5.Dock = System.Windows.Forms.DockStyle.Fill;
+            grf5.Location = new System.Drawing.Point(0, 0);
+            grf5.Rows[0].Visible = false;
+            grf5.Cols[0].Visible = false;
             //grf.Cols[colStatus].Visible = false;
             //grfOrder.Rows.Count = 1;
             //grfOrder.Cols.Count = 15;
-            grfNoom.Cols[colNName].Width = 40;
-            grfNoom.Click += GrfNoom_Click;
+            grf5.Cols[colNName].Width = 40;
+            grf5.Click += Grf5_Click;
 
             //FilterRow fr = new FilterRow(grfExpn);
-            grfNoom.TabStop = false;
-            grfNoom.EditOptions = EditFlags.None;
-            grfNoom.Cols[colNName].AllowEditing = false;
+            grf5.TabStop = false;
+            grf5.EditOptions = EditFlags.None;
+            grf5.Cols[colNName].AllowEditing = false;
 
-            panel8.Controls.Add(grfNoom);
-            grfNoom.Cols[colNId].Visible = false;
-            CellRange rng1 = grfNoom.GetCellRange(0, colNId, 1, colNflag);
+            pnMid5G.Controls.Add(grf5);
+            grf5.Cols[colNId].Visible = false;
+            CellRange rng1 = grf5.GetCellRange(0, colNId, 1, colNflag);
             rng1.Data = "Time";
 
             //theme.SetTheme(grf, "Office2010Blue");
         }
 
+        private void Grf5_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (grf5.Row <= 0) return;
+            if (grf5[grf5.Row, colNflag].ToString().Equals("1")) return;
+            String chk = "";
+            int row1 = 0;
+            row1 = grf5.Row;
+            chk = grf5[grf5.Row, colNStatusUs].ToString();
+            //foreach (Row row in grfNoom.Rows)
+            //{
+            //    row[colNImg] = null;
+            //    row[colNStatusUs] = "";
+            //}
+            if (chk.Equals(""))
+            {
+                grf5[grf5.Row, colNImg] = imgChk;
+                grf5[grf5.Row, colNStatusUs] = "1";
+            }
+            else
+            {
+                grf5[grf5.Row, colNImg] = null;
+                grf5[grf5.Row, colNStatusUs] = "";
+            }
+            setFoodName();
+        }
+
+
+        private void setGrf5()
+        {
+            //grfDept.Rows.Count = 7;
+            //pageLoad = true;
+            //c1SuperLabel2.Text = "เส้น";
+            //c1SuperLabel2.Font = fEdit;
+            grf5.Clear();
+            DataTable dt = new DataTable();
+            dt = mposC.mposDB.noomDB.selectByWhere1("noodle_meat_ball");
+            grf5.Cols.Count = 7;
+            grf5.Rows.Count = 1;
+            grf5.Rows[0].Visible = false;
+            grf5.Cols[0].Visible = false;
+            //if (dt.Rows.Count > 0)
+            grf5.Rows[0].Visible = false;
+            Column col = grf5.Cols[colNImg];
+            col.DataType = typeof(Image);
+            //CellStyle cs = grf.Styles.Add("btn");
+            //cs.DataType = typeof(Button);
+            ////cs.ComboList = "|Tom|Dick|Harry";
+            //cs.ForeColor = Color.Navy;
+            //cs.Font = new Font(Font, FontStyle.Bold);
+            //cs = grf.Styles.Add("date");
+            //cs.DataType = typeof(DateTime);
+            //cs.Format = "dd-MMM-yy";
+            //cs.ForeColor = Color.DarkGoldenrod;
+
+            grf5.Cols[1].Width = 60;
+
+            grf5.Cols[colNName].Width = 220;
+            grf5.Cols[colNImg].Width = 50;
+            grf5.Cols[colNPrice].Width = 100;
+            grf5.EditOptions = EditFlags.None;
+            grf5.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grf5.Cols[colNName].Caption = "";
+
+            //grfFooS.AfterRowColChange += GrfFooS_AfterRowColChange;
+            //grfDept.Cols[coledit].Visible = false;
+            //CellRange rg = grf.GetCellRange(2, colE);
+            Image loadedImage = null, resizedImage;
+            int originalWidth = Resources.images.Width;
+            int newWidth = 40;
+            resizedImage = Resources.images.GetThumbnailImage(newWidth, (newWidth * Resources.images.Height) / originalWidth, null, IntPtr.Zero);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Decimal price = 0;
+                Row row = grf5.Rows.Add();
+                Decimal.TryParse(dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_price].ToString(), out price);
+                //row[i + 1, 0] = (i + 1);
+                row[colNName] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_name].ToString();
+                row[colNStatusUs] = "";
+                row[colNImg] = null;
+                row[colNPrice] = price > 0 ? price.ToString("#,###.00") : "";
+                //if (i % 2 == 0)
+                //row.StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+                row.StyleNew.BackColor = this.BackColor;
+                row[colNflag] = "";
+                //grfNoom.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+            }
+            //if (grf5.Rows.Count < 10)
+            //{
+            //    for (int i = grf5.Rows.Count; i <= 8; i++)
+            //    {
+            //        Row row = grf5.Rows.Add();
+            //        row.StyleNew.BackColor = this.BackColor;
+            //        row[colNStatusUs] = "";
+            //        row[colNflag] = "1";
+            //    }
+            //}
+            grf5.Cols[colNId].Visible = false;
+            grf5.Cols[colNflag].Visible = false;
+            grf5.Cols[colNStatusUs].Visible = false;
+            grf5.Cols[colNName].AllowEditing = false;
+            grf5.Cols[colNImg].AllowEditing = false;
+            grf5.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.None;
+            grf5.EditOptions = EditFlags.None;
+            grf5.TabStop = false;
+            grf5.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
+            //grfNoom.st
+            CellStyle cs = null;
+            cs = grf5.Styles.EmptyArea;
+            cs.BackColor = this.BackColor;
+            CellBorder cb = cs.Border;
+            cb.Style = BorderStyleEnum.None;
+            grf5.HighLight = HighLightEnum.Never;
+            //pageLoad = false;
+        }
+        private void initGrf6()
+        {
+            grf6 = new C1FlexGrid();
+            grf6.Font = fgrd;
+            grf6.Dock = System.Windows.Forms.DockStyle.Fill;
+            grf6.Location = new System.Drawing.Point(0, 0);
+            grf6.Rows[0].Visible = false;
+            grf6.Cols[0].Visible = false;
+            //grf.Cols[colStatus].Visible = false;
+            //grfOrder.Rows.Count = 1;
+            //grfOrder.Cols.Count = 15;
+            grf6.Cols[colNName].Width = 40;
+            grf6.Click += Grf6_Click;
+
+            //FilterRow fr = new FilterRow(grfExpn);
+            grf6.TabStop = false;
+            grf6.EditOptions = EditFlags.None;
+            grf6.Cols[colNName].AllowEditing = false;
+
+            pnMid6G.Controls.Add(grf6);
+            grf6.Cols[colNId].Visible = false;
+            CellRange rng1 = grf6.GetCellRange(0, colNId, 1, colNflag);
+            rng1.Data = "Time";
+
+            //theme.SetTheme(grf, "Office2010Blue");
+        }
+
+        private void Grf6_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (grf6.Row <= 0) return;
+            if (grf6[grf6.Row, colNflag].ToString().Equals("1")) return;
+            String chk = "";
+            int row1 = 0;
+            row1 = grf6.Row;
+            chk = grf6[grf6.Row, colNStatusUs].ToString();
+            //foreach (Row row in grfNoom.Rows)
+            //{
+            //    row[colNImg] = null;
+            //    row[colNStatusUs] = "";
+            //}
+            if (chk.Equals(""))
+            {
+                grf6[grf6.Row, colNImg] = imgChk;
+                grf6[grf6.Row, colNStatusUs] = "1";
+            }
+            else
+            {
+                grf6[grf6.Row, colNImg] = null;
+                grf6[grf6.Row, colNStatusUs] = "";
+            }
+            setFoodName();
+        }
+
+        private void setGrf6()
+        {
+            //grfDept.Rows.Count = 7;
+            //pageLoad = true;
+            //c1SuperLabel2.Text = "เส้น";
+            //c1SuperLabel2.Font = fEdit;
+            grf6.Clear();
+            DataTable dt = new DataTable();
+            dt = mposC.mposDB.noomDB.selectByWhere1("noodle_sea");
+            grf6.Cols.Count = 7;
+            grf6.Rows.Count = 1;
+            grf6.Rows[0].Visible = false;
+            grf6.Cols[0].Visible = false;
+            //if (dt.Rows.Count > 0)
+            grf6.Rows[0].Visible = false;
+            Column col = grf6.Cols[colNImg];
+            col.DataType = typeof(Image);
+            //CellStyle cs = grf.Styles.Add("btn");
+            //cs.DataType = typeof(Button);
+            ////cs.ComboList = "|Tom|Dick|Harry";
+            //cs.ForeColor = Color.Navy;
+            //cs.Font = new Font(Font, FontStyle.Bold);
+            //cs = grf.Styles.Add("date");
+            //cs.DataType = typeof(DateTime);
+            //cs.Format = "dd-MMM-yy";
+            //cs.ForeColor = Color.DarkGoldenrod;
+
+            grf6.Cols[1].Width = 60;
+
+            grf6.Cols[colNName].Width = 220;
+            grf6.Cols[colNImg].Width = 50;
+            grf6.Cols[colNPrice].Width = 100;
+            grf6.EditOptions = EditFlags.None;
+            grf6.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grf6.Cols[colNName].Caption = "";
+
+            //grfFooS.AfterRowColChange += GrfFooS_AfterRowColChange;
+            //grfDept.Cols[coledit].Visible = false;
+            //CellRange rg = grf.GetCellRange(2, colE);
+            Image loadedImage = null, resizedImage;
+            int originalWidth = Resources.images.Width;
+            int newWidth = 40;
+            resizedImage = Resources.images.GetThumbnailImage(newWidth, (newWidth * Resources.images.Height) / originalWidth, null, IntPtr.Zero);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Decimal price = 0;
+                Row row = grf6.Rows.Add();
+                Decimal.TryParse(dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_price].ToString(), out price);
+                //row[i + 1, 0] = (i + 1);
+                row[colNName] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_name].ToString();
+                if (price > 0)
+                {
+                    row[colNPrice] = price.ToString("#,###.00");
+                }
+                else
+                {
+                    row[colNPrice] = "";
+                }
+                //row[colNPrice] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_price].ToString();
+                row[colNStatusUs] = "";
+                row[colNImg] = null;
+                //if (i % 2 == 0)
+                //row.StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+                row.StyleNew.BackColor = this.BackColor;
+                row[colNflag] = "";
+                //grfNoom.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+            }
+            //if (grf6.Rows.Count < 10)
+            //{
+            //    for (int i = grf6.Rows.Count; i <= 8; i++)
+            //    {
+            //        Row row = grf6.Rows.Add();
+            //        row.StyleNew.BackColor = this.BackColor;
+            //        row[colNStatusUs] = "";
+            //        row[colNflag] = "1";
+            //    }
+            //}
+            grf6.Cols[colNId].Visible = false;
+            grf6.Cols[colNflag].Visible = false;
+            grf6.Cols[colNStatusUs].Visible = false;
+
+            grf6.Cols[colNName].AllowEditing = false;
+            grf6.Cols[colNPrice].AllowEditing = false;
+            grf6.Cols[colNImg].AllowEditing = false;
+            grf6.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.None;
+            grf6.EditOptions = EditFlags.None;
+            grf6.TabStop = false;
+            grf6.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
+            //grfNoom.st
+            CellStyle cs = null;
+            cs = grf6.Styles.EmptyArea;
+            cs.BackColor = this.BackColor;
+            CellBorder cb = cs.Border;
+            cb.Style = BorderStyleEnum.None;
+            grf6.HighLight = HighLightEnum.Never;
+            //pageLoad = false;
+        }
+        private void initGrf8()
+        {
+            grf8 = new C1FlexGrid();
+            grf8.Font = fgrd;
+            grf8.Dock = System.Windows.Forms.DockStyle.Fill;
+            grf8.Location = new System.Drawing.Point(0, 0);
+            grf8.Rows[0].Visible = false;
+            grf8.Cols[0].Visible = false;
+            //grf.Cols[colStatus].Visible = false;
+            //grfOrder.Rows.Count = 1;
+            //grfOrder.Cols.Count = 15;
+            grf8.Cols[colNName].Width = 40;
+            grf8.Click += Grf8_Click;
+
+            //FilterRow fr = new FilterRow(grfExpn);
+            grf8.TabStop = false;
+            grf8.EditOptions = EditFlags.None;
+            grf8.Cols[colNName].AllowEditing = false;
+
+            pnMid8G.Controls.Add(grf8);
+            grf8.Cols[colNId].Visible = false;
+            CellRange rng1 = grf8.GetCellRange(0, colNId, 1, colNflag);
+            rng1.Data = "Time";
+
+            //theme.SetTheme(grf, "Office2010Blue");
+        }
+
+        private void Grf8_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (grf8.Row <= 0) return;
+            if (grf8[grf8.Row, colNflag].ToString().Equals("1")) return;
+            String chk = "";
+            int row1 = 0;
+            row1 = grf8.Row;
+            chk = grf8[grf8.Row, colNStatusUs].ToString();
+            //foreach (Row row in grfNoom.Rows)
+            //{
+            //    row[colNImg] = null;
+            //    row[colNStatusUs] = "";
+            //}
+            if (chk.Equals(""))
+            {
+                grf8[grf8.Row, colNImg] = imgChk;
+                grf8[grf8.Row, colNStatusUs] = "1";
+            }
+            else
+            {
+                grf8[grf8.Row, colNImg] = null;
+                grf8[grf8.Row, colNStatusUs] = "";
+            }
+            setFoodName();
+        }
+
+        private void setGrf8()
+        {
+            //grfDept.Rows.Count = 7;
+            //pageLoad = true;
+            //c1SuperLabel2.Text = "เส้น";
+            //c1SuperLabel2.Font = fEdit;
+            grf8.Clear();
+            DataTable dt = new DataTable();
+            dt = mposC.mposDB.noomDB.selectByWhere1("noodle_vagetable");
+            grf8.Cols.Count = 7;
+            grf8.Rows.Count = 1;
+            grf8.Rows[0].Visible = false;
+            grf8.Cols[0].Visible = false;
+            //if (dt.Rows.Count > 0)
+            grf8.Rows[0].Visible = false;
+            Column col = grf8.Cols[colNImg];
+            col.DataType = typeof(Image);
+            //CellStyle cs = grf.Styles.Add("btn");
+            //cs.DataType = typeof(Button);
+            ////cs.ComboList = "|Tom|Dick|Harry";
+            //cs.ForeColor = Color.Navy;
+            //cs.Font = new Font(Font, FontStyle.Bold);
+            //cs = grf.Styles.Add("date");
+            //cs.DataType = typeof(DateTime);
+            //cs.Format = "dd-MMM-yy";
+            //cs.ForeColor = Color.DarkGoldenrod;
+
+            grf8.Cols[1].Width = 60;
+
+            grf8.Cols[colNName].Width = 220;
+            grf8.Cols[colNImg].Width = 50;
+            grf8.Cols[colNPrice].Width = 100;
+            grf8.EditOptions = EditFlags.None;
+            grf8.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grf8.Cols[colNName].Caption = "";
+
+            //grfFooS.AfterRowColChange += GrfFooS_AfterRowColChange;
+            //grfDept.Cols[coledit].Visible = false;
+            //CellRange rg = grf.GetCellRange(2, colE);
+            Image loadedImage = null, resizedImage;
+            int originalWidth = Resources.images.Width;
+            int newWidth = 40;
+            resizedImage = Resources.images.GetThumbnailImage(newWidth, (newWidth * Resources.images.Height) / originalWidth, null, IntPtr.Zero);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Decimal price = 0;
+                Row row = grf8.Rows.Add();
+                Decimal.TryParse(dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_price].ToString(), out price);
+                //row[i + 1, 0] = (i + 1);
+                row[colNName] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_name].ToString();
+                row[colNStatusUs] = "";
+                row[colNImg] = null;
+                row[colNPrice] = price > 0 ? price.ToString("#,###.00") : "";
+                //if (i % 2 == 0)
+                //row.StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+                row.StyleNew.BackColor = this.BackColor;
+                row[colNflag] = "";
+                //grfNoom.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+            }
+            //if (grf8.Rows.Count < 10)
+            //{
+            //    for (int i = grf8.Rows.Count; i <= 8; i++)
+            //    {
+            //        Row row = grf8.Rows.Add();
+            //        row.StyleNew.BackColor = this.BackColor;
+            //        row[colNStatusUs] = "";
+            //        row[colNflag] = "1";
+            //    }
+            //}
+            grf8.Cols[colNId].Visible = false;
+            grf8.Cols[colNflag].Visible = false;
+            grf8.Cols[colNStatusUs].Visible = false;
+
+            grf8.Cols[colNName].AllowEditing = false;
+            grf8.Cols[colNImg].AllowEditing = false;
+            grf8.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.None;
+            grf8.EditOptions = EditFlags.None;
+            grf8.TabStop = false;
+            grf8.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
+            //grfNoom.st
+            CellStyle cs = null;
+            cs = grf8.Styles.EmptyArea;
+            cs.BackColor = this.BackColor;
+            CellBorder cb = cs.Border;
+            cb.Style = BorderStyleEnum.None;
+            grf8.HighLight = HighLightEnum.Never;
+            //pageLoad = false;
+        }
+        private void initGrf7()
+        {
+            grf7 = new C1FlexGrid();
+            grf7.Font = fgrd;
+            grf7.Dock = System.Windows.Forms.DockStyle.Fill;
+            grf7.Location = new System.Drawing.Point(0, 0);
+            grf7.Rows[0].Visible = false;
+            grf7.Cols[0].Visible = false;
+            //grf.Cols[colStatus].Visible = false;
+            //grfOrder.Rows.Count = 1;
+            //grfOrder.Cols.Count = 15;
+            grf7.Cols[colNName].Width = 40;
+            grf7.Click += Grf7_Click;
+
+            //FilterRow fr = new FilterRow(grfExpn);
+            grf7.TabStop = false;
+            grf7.EditOptions = EditFlags.None;
+            grf7.Cols[colNName].AllowEditing = false;
+
+            pnMid7G.Controls.Add(grf7);
+            grf7.Cols[colNId].Visible = false;
+            CellRange rng1 = grf7.GetCellRange(0, colNId, 1, colNflag);
+            rng1.Data = "Time";
+
+            //theme.SetTheme(grf, "Office2010Blue");
+        }
+
+        private void Grf7_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (grf7.Row <= 0) return;
+            if (grf7[grf7.Row, colNflag].ToString().Equals("1")) return;
+            String chk = "";
+            int row1 = 0;
+            row1 = grf7.Row;
+            chk = grf7[grf7.Row, colNStatusUs].ToString();
+            //foreach (Row row in grfNoom.Rows)
+            //{
+            //    row[colNImg] = null;
+            //    row[colNStatusUs] = "";
+            //}
+            if (chk.Equals(""))
+            {
+                grf7[grf7.Row, colNImg] = imgChk;
+                grf7[grf7.Row, colNStatusUs] = "1";
+            }
+            else
+            {
+                grf7[grf7.Row, colNImg] = null;
+                grf7[grf7.Row, colNStatusUs] = "";
+            }
+            setFoodName();
+        }
+
+        private void setGrf7()
+        {
+            //grfDept.Rows.Count = 7;
+            //pageLoad = true;
+            //c1SuperLabel2.Text = "เส้น";
+            //c1SuperLabel2.Font = fEdit;
+            grf7.Clear();
+            DataTable dt = new DataTable();
+            dt = mposC.mposDB.noomDB.selectByWhere1("noodle_meat");
+            grf7.Cols.Count = 7;
+            grf7.Rows.Count = 1;
+            grf7.Rows[0].Visible = false;
+            grf7.Cols[0].Visible = false;
+            //if (dt.Rows.Count > 0)
+            grf7.Rows[0].Visible = false;
+            Column col = grf7.Cols[colNImg];
+            col.DataType = typeof(Image);
+            //CellStyle cs = grf.Styles.Add("btn");
+            //cs.DataType = typeof(Button);
+            ////cs.ComboList = "|Tom|Dick|Harry";
+            //cs.ForeColor = Color.Navy;
+            //cs.Font = new Font(Font, FontStyle.Bold);
+            //cs = grf.Styles.Add("date");
+            //cs.DataType = typeof(DateTime);
+            //cs.Format = "dd-MMM-yy";
+            //cs.ForeColor = Color.DarkGoldenrod;
+
+            grf7.Cols[1].Width = 60;
+
+            grf7.Cols[colNName].Width = 220;
+            grf7.Cols[colNImg].Width = 50;
+            grf7.Cols[colNPrice].Width = 100;
+            grf7.EditOptions = EditFlags.None;
+            grf7.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grf7.Cols[colNName].Caption = "";
+
+            //grfFooS.AfterRowColChange += GrfFooS_AfterRowColChange;
+            //grfDept.Cols[coledit].Visible = false;
+            //CellRange rg = grf.GetCellRange(2, colE);
+            Image loadedImage = null, resizedImage;
+            int originalWidth = Resources.images.Width;
+            int newWidth = 40;
+            resizedImage = Resources.images.GetThumbnailImage(newWidth, (newWidth * Resources.images.Height) / originalWidth, null, IntPtr.Zero);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Decimal price = 0;
+                Row row = grf7.Rows.Add();
+                Decimal.TryParse(dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_price].ToString(), out price);
+                //row[i + 1, 0] = (i + 1);
+                row[colNName] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_name].ToString();
+                row[colNStatusUs] = "";
+                row[colNImg] = null;
+                row[colNPrice] = price > 0 ? price.ToString("#,###.00") : "";
+                //if (i % 2 == 0)
+                //row.StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+                row.StyleNew.BackColor = this.BackColor;
+                row[colNflag] = "";
+                //grfNoom.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+            }
+            //if (grf7.Rows.Count < 10)
+            //{
+            //    for (int i = grf7.Rows.Count; i <= 8; i++)
+            //    {
+            //        Row row = grf7.Rows.Add();
+            //        row.StyleNew.BackColor = this.BackColor;
+            //        row[colNStatusUs] = "";
+            //        row[colNflag] = "1";
+            //    }
+            //}
+            grf7.Cols[colNId].Visible = false;
+            grf7.Cols[colNflag].Visible = false;
+            grf7.Cols[colNStatusUs].Visible = false;
+            grf7.Cols[colNName].AllowEditing = false;
+            grf7.Cols[colNImg].AllowEditing = false;
+            grf7.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.None;
+            grf7.EditOptions = EditFlags.None;
+            grf7.TabStop = false;
+            grf7.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
+            //grfNoom.st
+            CellStyle cs = null;
+            cs = grf7.Styles.EmptyArea;
+            cs.BackColor = this.BackColor;
+            CellBorder cb = cs.Border;
+            cb.Style = BorderStyleEnum.None;
+            grf7.HighLight = HighLightEnum.Never;
+            //pageLoad = false;
+        }
         private void GrfNoom_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -266,8 +1033,8 @@ namespace modernpos_pos.gui
                 grfNoom[grfNoom.Row, colNImg] = null;
                 grfNoom[grfNoom.Row, colNStatusUs] = "";
             }
+            setFoodName();
         }
-
         private void setGrfNoom()
         {
             //grfDept.Rows.Count = 7;
@@ -326,16 +1093,16 @@ namespace modernpos_pos.gui
                 row[colNflag] = "";
                 //grfNoom.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
-            if(grfNoom.Rows.Count < 10)
-            {
-                for(int i = grfNoom.Rows.Count; i <= 8; i++)
-                {
-                    Row row = grfNoom.Rows.Add();
-                    row.StyleNew.BackColor = this.BackColor;
-                    row[colNStatusUs] = "";
-                    row[colNflag] = "1";
-                }
-            }
+            //if(grfNoom.Rows.Count < 10)
+            //{
+            //    for(int i = grfNoom.Rows.Count; i <= 8; i++)
+            //    {
+            //        Row row = grfNoom.Rows.Add();
+            //        row.StyleNew.BackColor = this.BackColor;
+            //        row[colNStatusUs] = "";
+            //        row[colNflag] = "1";
+            //    }
+            //}
             grfNoom.Cols[colNId].Visible = false;
             grfNoom.Cols[colNflag].Visible = false;
             grfNoom.Cols[colNStatusUs].Visible = false;
@@ -345,6 +1112,166 @@ namespace modernpos_pos.gui
             grfNoom.EditOptions = EditFlags.None;
             grfNoom.TabStop = false;
             grfNoom.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
+            //grfNoom.st
+            CellStyle cs = null;
+            cs = grfNoom.Styles.EmptyArea;
+            cs.BackColor = this.BackColor;
+            CellBorder cb = cs.Border;
+            cb.Style = BorderStyleEnum.None;
+            grfNoom.HighLight = HighLightEnum.Never;
+            //pageLoad = false;
+        }
+        private void initGrfOpt()
+        {
+            grfOpt = new C1FlexGrid();
+            grfOpt.Font = fgrd;
+            grfOpt.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfOpt.Location = new System.Drawing.Point(0, 0);
+            grfOpt.Rows[0].Visible = false;
+            grfOpt.Cols[0].Visible = false;
+            //grf.Cols[colStatus].Visible = false;
+            //grfOrder.Rows.Count = 1;
+            //grfOrder.Cols.Count = 15;
+            grfOpt.Cols[colNName].Width = 40;
+            grfOpt.Click += GrfOpt_Click;
+
+            //FilterRow fr = new FilterRow(grfExpn);
+            grfOpt.TabStop = false;
+            grfOpt.EditOptions = EditFlags.None;
+            grfOpt.Cols[colNName].AllowEditing = false;
+
+            pnMid3G.Controls.Add(grfOpt);
+            grfOpt.Cols[colOId].Visible = false;
+            //CellRange rng1 = grfOpt.GetCellRange(0, colOId, 1, colOflag);
+            //rng1.Data = "Time";
+
+            //theme.SetTheme(grf, "Office2010Blue");
+        }
+
+        private void GrfOpt_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (grfOpt.Row <= 0) return;
+            if (grfOpt.Col <= 0) return;
+            if (grfOpt[grfOpt.Row, colOflag].ToString().Equals("1")) return;
+            String chk = "";
+            int row1 = 0;
+            row1 = grfOpt.Row;
+            chk = grfOpt[grfOpt.Row, colOStatusUs].ToString();
+            //foreach (Row row in grfOpt.Rows)
+            //{
+            //    row[colNImg] = null;
+            //    row[colNStatusUs] = "";
+            //}
+            if (grfOpt.Col== colOImgL)
+            {
+                grfOpt[grfOpt.Row, colOImgL] = imgChk;
+                grfOpt[grfOpt.Row, colOImgR] = imgChkUn;
+                grfOpt[grfOpt.Row, colOStatusUs] = "1";
+            }
+            else if (grfOpt.Col == colOImgR)
+            {
+                grfOpt[grfOpt.Row, colOImgL] = imgChkUn;
+                grfOpt[grfOpt.Row, colOImgR] = imgChkNo;
+                grfOpt[grfOpt.Row, colOStatusUs] = "3";
+            }
+            setFoodName();
+        }
+
+        private void setGrfOpt()
+        {
+            //grfDept.Rows.Count = 7;
+            //pageLoad = true;
+            //c1SuperLabel2.Text = "เส้น";
+            //c1SuperLabel2.Font = fEdit;
+            grfOpt.Clear();
+            DataTable dt = new DataTable();
+            dt = mposC.mposDB.noomDB.selectByWhere1("option_noodle");
+            grfOpt.Cols.Count = 7;
+            grfOpt.Rows.Count = 1;
+            grfOpt.Rows[0].Visible = false;
+            grfOpt.Cols[0].Visible = false;
+            //if (dt.Rows.Count > 0)
+            grfOpt.Rows[0].Visible = false;
+            Column col = grfOpt.Cols[colOImgL];
+            col.DataType = typeof(Image);
+            Column col1 = grfOpt.Cols[colOImgR];
+            col1.DataType = typeof(Image);
+            //CellStyle cs = grf.Styles.Add("btn");
+            //cs.DataType = typeof(Button);
+            ////cs.ComboList = "|Tom|Dick|Harry";
+            //cs.ForeColor = Color.Navy;
+            //cs.Font = new Font(Font, FontStyle.Bold);
+            //cs = grf.Styles.Add("date");
+            //cs.DataType = typeof(DateTime);
+            //cs.Format = "dd-MMM-yy";
+            //cs.ForeColor = Color.DarkGoldenrod;
+
+            grfOpt.Cols[1].Width = 60;
+
+            grfOpt.Cols[colOName].Width = pnMid3G.Width - 50 - 50 -17;
+            grfOpt.Cols[colOImgL].Width = 50;
+            grfOpt.Cols[colOImgR].Width = 50;
+            grfOpt.EditOptions = EditFlags.None;
+            grfOpt.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grfOpt.Cols[colNName].Caption = "";
+
+            //grfFooS.AfterRowColChange += GrfFooS_AfterRowColChange;
+            //grfDept.Cols[coledit].Visible = false;
+            //CellRange rg = grf.GetCellRange(2, colE);
+            Image loadedImage = null, resizedImage;
+            int originalWidth = Resources.images.Width;
+            int newWidth = 40;
+            resizedImage = Resources.images.GetThumbnailImage(newWidth, (newWidth * Resources.images.Height) / originalWidth, null, IntPtr.Zero);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Row row = grfOpt.Rows.Add();
+                //row[i + 1, 0] = (i + 1);
+                row[colOName] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_name].ToString();
+                row[colOStatusUs] = "";
+                row[colOImgL] = imgChkUn;
+                row[colOImgR] = imgChkUn;
+                //if (i % 2 == 0)
+                //row.StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+                //row.StyleNew.BackColor = this.BackColor;
+                CellStyle rs = row.StyleNew;
+                rs.BackColor = this.BackColor;
+                //rs.Border 
+                row[colOflag] = "";
+                //grfNoom.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+            }
+            //if (grfOpt.Rows.Count < 9)
+            //{
+            //    for (int i = grfOpt.Rows.Count; i <= 8; i++)
+            //    {
+            //        Row row = grfOpt.Rows.Add();
+            //        row.StyleNew.BackColor = this.BackColor;
+            //        row[colOStatusUs] = "";
+            //        row[colOflag] = "1";
+            //        row.StyleDisplay.BackColor = this.BackColor;
+            //    }
+            //}
+            grfOpt.Cols[colOId].Visible = false;
+            grfOpt.Cols[colOflag].Visible = false;
+            grfOpt.Cols[colOStatusUs].Visible = false;
+            grfOpt.Cols[colOName].AllowEditing = false;
+            grfOpt.Cols[colOImgL].AllowEditing = false;
+            grfOpt.Cols[colOImgR].AllowEditing = false;
+            grfOpt.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.None;
+            grfOpt.EditOptions = EditFlags.None;
+            grfOpt.TabStop = false;
+            grfOpt.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
+            grfOpt.BackColor = this.BackColor;
+            CellStyle cs = null;
+            cs = grfOpt.Styles.EmptyArea;
+            cs.BackColor = this.BackColor;
+            CellBorder cb = cs.Border;
+            cb.Style = BorderStyleEnum.None;
+            grfOpt.HighLight = HighLightEnum.Never;
+            //grfOpt.Styles.EmptyArea = this.BackColor;
             //pageLoad = false;
         }
         private void FrmNoodleMake_Load(object sender, EventArgs e)

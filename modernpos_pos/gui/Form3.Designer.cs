@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.btnPrint = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cboPrinter = new System.Windows.Forms.ComboBox();
@@ -44,9 +45,13 @@
             this.c1DockingTab1 = new C1.Win.C1Command.C1DockingTab();
             this.c1DockingTabPage1 = new C1.Win.C1Command.C1DockingTabPage();
             this.c1DockingTabPage2 = new C1.Win.C1Command.C1DockingTabPage();
+            this.c1FlexGrid1 = new C1.Win.C1FlexGrid.C1FlexGrid();
+            this.c1DockingTabPage3 = new C1.Win.C1Command.C1DockingTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
             this.c1DockingTab1.SuspendLayout();
             this.c1DockingTabPage1.SuspendLayout();
+            this.c1DockingTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPrint
@@ -161,6 +166,7 @@
             this.c1DockingTab1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(255)))));
             this.c1DockingTab1.Controls.Add(this.c1DockingTabPage1);
             this.c1DockingTab1.Controls.Add(this.c1DockingTabPage2);
+            this.c1DockingTab1.Controls.Add(this.c1DockingTabPage3);
             this.c1DockingTab1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.c1DockingTab1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
             this.c1DockingTab1.Indent = 40;
@@ -199,11 +205,35 @@
             // 
             // c1DockingTabPage2
             // 
+            this.c1DockingTabPage2.Controls.Add(this.c1FlexGrid1);
             this.c1DockingTabPage2.Location = new System.Drawing.Point(2, 51);
             this.c1DockingTabPage2.Name = "c1DockingTabPage2";
             this.c1DockingTabPage2.Size = new System.Drawing.Size(796, 397);
             this.c1DockingTabPage2.TabIndex = 1;
             this.c1DockingTabPage2.Text = "Page2";
+            // 
+            // c1FlexGrid1
+            // 
+            this.c1FlexGrid1.BackColor = System.Drawing.SystemColors.Info;
+            this.c1FlexGrid1.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.None;
+            this.c1FlexGrid1.ColumnInfo = "3,1,0,0,0,95,Columns:1{StyleFixed:\"Font:Microsoft Sans Serif, 8.25pt;Margins:1, 0" +
+    ", 0, 0;TextEffect:Flat;TextDirection:Normal;Trimming:None;Border:None,1,Black,Bo" +
+    "th;\";}\t2{Style:\"\";StyleFixed:\"\";}\t";
+            this.c1FlexGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c1FlexGrid1.Location = new System.Drawing.Point(0, 0);
+            this.c1FlexGrid1.Name = "c1FlexGrid1";
+            this.c1FlexGrid1.Rows.DefaultSize = 19;
+            this.c1FlexGrid1.Size = new System.Drawing.Size(796, 397);
+            this.c1FlexGrid1.StyleInfo = resources.GetString("c1FlexGrid1.StyleInfo");
+            this.c1FlexGrid1.TabIndex = 0;
+            // 
+            // c1DockingTabPage3
+            // 
+            this.c1DockingTabPage3.Location = new System.Drawing.Point(2, 51);
+            this.c1DockingTabPage3.Name = "c1DockingTabPage3";
+            this.c1DockingTabPage3.Size = new System.Drawing.Size(796, 397);
+            this.c1DockingTabPage3.TabIndex = 2;
+            this.c1DockingTabPage3.Text = "Page3";
             // 
             // Form3
             // 
@@ -219,6 +249,8 @@
             this.c1DockingTab1.ResumeLayout(false);
             this.c1DockingTabPage1.ResumeLayout(false);
             this.c1DockingTabPage1.PerformLayout();
+            this.c1DockingTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -241,5 +273,7 @@
         private C1.Win.C1Command.C1DockingTab c1DockingTab1;
         private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage1;
         private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage2;
+        private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGrid1;
+        private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage3;
     }
 }
