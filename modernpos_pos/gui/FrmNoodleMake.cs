@@ -43,9 +43,10 @@ namespace modernpos_pos.gui
             fgrd = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 15, FontStyle.Regular);
             lbNoom = new C1SuperLabel();
             lbNoom.Dock = DockStyle.Fill;
-            lbNoom.AutoSize = true;
-            lbNoom.Text = "เส้น";
+            lbNoom.AutoSize = false;
+            lbNoom.Text = "<table width='100%'><tr><td align='center'><b>เส้น</b></td></tr></table>";
             lbNoom.Font = fEdit;
+            //lbNoom.
             pnMid1T.Controls.Add(lbNoom);
 
             lbWatm = new C1SuperLabel();
@@ -67,6 +68,7 @@ namespace modernpos_pos.gui
             lbGrf5.AutoSize = true;
             lbGrf5.Text = "ลูกชิ้น/เกี๊ยว";
             lbGrf5.Font = fEdit;
+            
             pnMid5T.Controls.Add(lbGrf5);
 
             lbGrf6 = new C1SuperLabel();

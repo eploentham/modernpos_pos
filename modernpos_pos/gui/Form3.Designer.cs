@@ -47,11 +47,15 @@
             this.c1DockingTabPage2 = new C1.Win.C1Command.C1DockingTabPage();
             this.c1FlexGrid1 = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.c1DockingTabPage3 = new C1.Win.C1Command.C1DockingTabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.c1SuperLabel1 = new C1.Win.C1SuperTooltip.C1SuperLabel();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
             this.c1DockingTab1.SuspendLayout();
             this.c1DockingTabPage1.SuspendLayout();
             this.c1DockingTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).BeginInit();
+            this.c1DockingTabPage3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPrint
@@ -218,7 +222,7 @@
             this.c1FlexGrid1.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.None;
             this.c1FlexGrid1.ColumnInfo = "3,1,0,0,0,95,Columns:1{StyleFixed:\"Font:Microsoft Sans Serif, 8.25pt;Margins:1, 0" +
     ", 0, 0;TextEffect:Flat;TextDirection:Normal;Trimming:None;Border:None,1,Black,Bo" +
-    "th;\";}\t2{Style:\"\";StyleFixed:\"\";}\t";
+    "th;\";}\t";
             this.c1FlexGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.c1FlexGrid1.Location = new System.Drawing.Point(0, 0);
             this.c1FlexGrid1.Name = "c1FlexGrid1";
@@ -229,11 +233,31 @@
             // 
             // c1DockingTabPage3
             // 
+            this.c1DockingTabPage3.Controls.Add(this.panel1);
             this.c1DockingTabPage3.Location = new System.Drawing.Point(2, 51);
             this.c1DockingTabPage3.Name = "c1DockingTabPage3";
             this.c1DockingTabPage3.Size = new System.Drawing.Size(796, 397);
             this.c1DockingTabPage3.TabIndex = 2;
             this.c1DockingTabPage3.Text = "Page3";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.c1SuperLabel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(796, 100);
+            this.panel1.TabIndex = 0;
+            // 
+            // c1SuperLabel1
+            // 
+            this.c1SuperLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c1SuperLabel1.Location = new System.Drawing.Point(0, 0);
+            this.c1SuperLabel1.Name = "c1SuperLabel1";
+            this.c1SuperLabel1.Size = new System.Drawing.Size(796, 100);
+            this.c1SuperLabel1.TabIndex = 0;
+            this.c1SuperLabel1.Text = "<table width=\"100%\">\r\n<tr><td align=\'center\'>\r\nitem 1\r\n</td></tr></table>";
+            this.c1SuperLabel1.UseMnemonic = true;
             // 
             // Form3
             // 
@@ -251,6 +275,8 @@
             this.c1DockingTabPage1.PerformLayout();
             this.c1DockingTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).EndInit();
+            this.c1DockingTabPage3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -275,5 +301,7 @@
         private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage2;
         private C1.Win.C1FlexGrid.C1FlexGrid c1FlexGrid1;
         private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage3;
+        private System.Windows.Forms.Panel panel1;
+        private C1.Win.C1SuperTooltip.C1SuperLabel c1SuperLabel1;
     }
 }
