@@ -1488,7 +1488,7 @@ namespace modernpos_pos.gui
             grfOrder.Cols.Count = 15;
             grfOrder.Cols[colOrdNo].Width = 40;
             grfOrder.Cols[colOrdFooName].Width = 300;
-            grfOrder.Cols[colOrdPrice].Width = 80;
+            grfOrder.Cols[colOrdPrice].Width = 120;
             grfOrder.Cols[colOrdqtyplus].Width = 50;
             grfOrder.Cols[colOrdqtyminus].Width = 50;
             grfOrder.Cols[colOrdArrowDown].Width = 50;
