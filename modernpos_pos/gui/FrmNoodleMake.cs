@@ -1,4 +1,5 @@
 ﻿using C1.Win.C1FlexGrid;
+using C1.Win.C1Input;
 using C1.Win.C1SuperTooltip;
 using modernpos_pos.control;
 using modernpos_pos.Properties;
@@ -30,6 +31,7 @@ namespace modernpos_pos.gui
         int colNId = 1, colNImg = 2, colNName = 3, colNStatusUs = 4, colNflag=5,colNPrice=6;
         int colOId = 1, colOImgL = 2, colOName = 3, colOImgR=4, colOStatusUs = 5, colOflag = 6;
         Image imgChk, imgChkUn, imgChkNo;
+        C1Button btnExit;
         public FrmNoodleMake(mPOSControl x)
         {
             InitializeComponent();
@@ -60,6 +62,14 @@ namespace modernpos_pos.gui
             lbWatm.Font = fEdit;
             lbWatm.TextAlign = ContentAlignment.MiddleCenter;
             pnMid2T.Controls.Add(lbWatm);
+
+            btnExit = new C1Button();
+            btnExit.Dock = DockStyle.Fill;
+            btnExit.AutoSize = false;
+            btnExit.Text = "Exit";
+            btnExit.Font = fEdit;
+            btnExit.Click += BtnExit_Click;
+            pnExit.Controls.Add(btnExit);
 
             lbOpt = new Label();
             lbOpt.Dock = DockStyle.Fill;
@@ -166,11 +176,24 @@ namespace modernpos_pos.gui
             setGrf6();
             setGrf5();
         }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            this.Dispose();
+        }
+
         private void setFoodName()
         {
             Decimal price = 0, price5=0, price6=0, price7=0, price8=0, chk=0;
             String fooname = "",fooname1 = "", fooname2 = "", fooname3 = "",fooname5 = "", fooname6 = "", fooname7 = "", fooname8 = "";
-            foreach(Row row in grfNoom.Rows)
+            mposC.NooId = "";
+            mposC.NooName = "";
+            mposC.NooPrice = "";
+            mposC.NooQty = "";
+            mposC.NooRemark = "";
+            mposC.NooPrinter = "";
+            foreach (Row row in grfNoom.Rows)
             {
                 if (row[colNStatusUs] == null) continue;
                 if (row[colNStatusUs].Equals("1")){
@@ -247,6 +270,12 @@ namespace modernpos_pos.gui
             fooname = fooname1 +" "+ fooname2 + " " + fooname3 + " " + fooname5 + " " + fooname6 + " " + fooname7 + " " + fooname8 ;
             lbFooName.Text = fooname;
             lbPrice.Text = price.ToString("#,###.00");
+            mposC.NooId = "";
+            mposC.NooName = fooname;
+            mposC.NooPrice = lbPrice.Text;
+            mposC.NooQty = lbQty.Text;
+            mposC.NooRemark = "";
+            mposC.NooPrinter = "";
             this.Focus();
         }
         private void PicPlus_Click(object sender, EventArgs e)

@@ -54,7 +54,7 @@ namespace modernpos_pos.control
         String soapTaxId = "";
         public String theme = "", StartupPath = "", passOK="", tableidToGo="";
         public String FixJobCode = "IMP", FixEccCode = "CC", fooName="", fooSpec="", toppingPrice="", fooTopping="", foosumprice="", fooToppingPrice = "";
-        
+        public String NooId = "", NooName = "", NooPrice = "", NooQty = "", NooRemark = "", NooPrinter = "";
 
         //public VideoCaptureDevice video;
 

@@ -1093,14 +1093,14 @@ namespace modernpos_pos.gui
         private void BtnVoid_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            //int row = 0;
-            //if (int.TryParse(txtRow.Text, out row))
-            //{
-            //    if (grfOrder.Rows.Count > row)
-            //        grfOrder.Rows.Remove(row);
-            //}
-            FrmNoodleMake frm = new FrmNoodleMake(mposC);
-            frm.ShowDialog(this);
+            int row = 0;
+            if (int.TryParse(txtRow.Text, out row))
+            {
+                if (grfOrder.Rows.Count > row)
+                    grfOrder.Rows.Remove(row);
+            }
+            //FrmNoodleMake frm = new FrmNoodleMake(mposC);
+            //frm.ShowDialog(this);
         }
 
         private void initTC()
@@ -1474,7 +1474,6 @@ namespace modernpos_pos.gui
             //    }
             //}
         }
-
         private void initGrfOrder()
         {
             grfOrder = new C1FlexGrid();
@@ -2328,7 +2327,24 @@ namespace modernpos_pos.gui
             {
                 Foods foo = new Foods();
                 foo = (Foods)tile.Tag;
-                setGrfOrder(tile.Name, tile.Text, tile.Text1.Replace("ราคา", "").Trim(), "1", "", foo.printer_name);
+                if (foo.status_create.Equals("1"))
+                {
+                    mposC.NooId = "";
+                    mposC.NooName = "";
+                    mposC.NooPrice = "";
+                    mposC.NooQty = "";
+                    mposC.NooRemark = "";
+                    mposC.NooPrinter = "";
+                    FrmNoodleMake frm = new FrmNoodleMake(mposC);
+                    frm.ShowDialog(this);
+                    
+                    setGrfOrder(mposC.NooId, mposC.NooName, mposC.NooPrice, mposC.NooQty, mposC.NooRemark, mposC.NooPrinter);
+                }
+                else
+                {
+                    setGrfOrder(tile.Name, tile.Text, tile.Text1.Replace("ราคา", "").Trim(), "1", "", foo.printer_name);
+                }
+                
                 //FlickrPhoto photo = (FlickrPhoto)tile.Tag;
                 //string uri = photo.ContentUri;
                 //if (!string.IsNullOrEmpty(uri))

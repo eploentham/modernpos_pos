@@ -70,6 +70,7 @@
             this.lbQtyShow = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.pnPrice = new System.Windows.Forms.Panel();
             this.pnName = new System.Windows.Forms.Panel();
+            this.pnExit = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.pnBot4.SuspendLayout();
             this.pnBot3.SuspendLayout();
@@ -394,6 +395,7 @@
             // 
             // pnTop
             // 
+            this.pnTop.Controls.Add(this.pnExit);
             this.pnTop.Controls.Add(this.pnQty);
             this.pnTop.Controls.Add(this.pnPrice);
             this.pnTop.Controls.Add(this.pnName);
@@ -409,10 +411,10 @@
             this.pnQty.Controls.Add(this.picPlus);
             this.pnQty.Controls.Add(this.picMinus);
             this.pnQty.Controls.Add(this.lbQtyShow);
-            this.pnQty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnQty.Location = new System.Drawing.Point(1357, 0);
+            this.pnQty.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnQty.Location = new System.Drawing.Point(1192, 0);
             this.pnQty.Name = "pnQty";
-            this.pnQty.Size = new System.Drawing.Size(227, 62);
+            this.pnQty.Size = new System.Drawing.Size(276, 62);
             this.pnQty.TabIndex = 1;
             // 
             // lbQty
@@ -452,7 +454,7 @@
             // pnPrice
             // 
             this.pnPrice.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnPrice.Location = new System.Drawing.Point(1157, 0);
+            this.pnPrice.Location = new System.Drawing.Point(992, 0);
             this.pnPrice.Name = "pnPrice";
             this.pnPrice.Size = new System.Drawing.Size(200, 62);
             this.pnPrice.TabIndex = 0;
@@ -462,8 +464,16 @@
             this.pnName.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnName.Location = new System.Drawing.Point(0, 0);
             this.pnName.Name = "pnName";
-            this.pnName.Size = new System.Drawing.Size(1157, 62);
+            this.pnName.Size = new System.Drawing.Size(992, 62);
             this.pnName.TabIndex = 0;
+            // 
+            // pnExit
+            // 
+            this.pnExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnExit.Location = new System.Drawing.Point(1468, 0);
+            this.pnExit.Name = "pnExit";
+            this.pnExit.Size = new System.Drawing.Size(116, 62);
+            this.pnExit.TabIndex = 2;
             // 
             // FrmNoodleMake
             // 
@@ -537,5 +547,6 @@
         private System.Windows.Forms.Panel pnMid3T;
         private System.Windows.Forms.Panel pnMid3L;
         private System.Windows.Forms.Panel pnPrice;
+        private System.Windows.Forms.Panel pnExit;
     }
 }

@@ -144,6 +144,9 @@ ADD COLUMN `desc4` VARCHAR(255) NULL AFTER `embryo_dev_date`;
 
 
 
+ALTER TABLE `modern_pos`.`b_foods` 
+ADD COLUMN `status_create` VARCHAR(45) NULL DEFAULT 0 COMMENT '0=default;1=สร้างรายการเอง เป็นก๋วยเตี่ยว' AFTER `status_recommend`;
+
 
 
 
