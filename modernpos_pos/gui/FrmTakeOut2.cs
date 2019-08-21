@@ -87,7 +87,7 @@ namespace modernpos_pos.gui
             InitializeComponent();
             mposC = x;
             this.frmmain = frmmain;
-            initConfig();
+            //initConfig();
         }
         private void initConfig()
         {
@@ -965,14 +965,7 @@ namespace modernpos_pos.gui
         private void PnOrder_Resize(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            label2.Text = pnOrder.Width.ToString();
-            if(pnOrder.Width>500)
-                grfOrder.Cols[colOrdFooName].Width = pnOrder.Width - 300;
-            else
-                grfOrder.Cols[colOrdFooName].Width = 300;
-
-
-
+            
         }
 
         private void SpMain_SplitterMoved(object sender, SplitterEventArgs e)
@@ -1483,6 +1476,12 @@ namespace modernpos_pos.gui
             grfOrder.Rows[0].Visible = false;
             grfOrder.Cols[0].Visible = false;
             //grf.Cols[colStatus].Visible = false;
+            label2.Text = pnOrder.Width.ToString();
+            if (pnOrder.Width > 500)
+                grfOrder.Cols[colOrdFooName].Width = pnOrder.Width - 300;
+            else
+                grfOrder.Cols[colOrdFooName].Width = 300;
+
             grfOrder.Rows.Count = 1;
             grfOrder.Cols.Count = 15;
             grfOrder.Cols[colOrdNo].Width = 40;
@@ -1537,7 +1536,8 @@ namespace modernpos_pos.gui
             grfOrder.Cols[colOrdFooId].Visible = false;
             grfOrder.Cols[colOrdStatus].Visible = false;
             grfOrder.Cols[colOrdPrinterName].Visible = false;
-            //grfOrder.Cols[colOrdQty].Visible = false;
+            grfOrder.Cols[colOrdArrowDown].Visible = false;     //  hide ไปก่อน
+            grfOrder.Cols[colOrdTopping].Visible = false;       //    hide ไปก่อน
             grfOrder.Cols[colOrdRemark].Visible = false;
             //grfOrder.Cols[colOrdTopping].Visible = false;
             grfOrder.Cols[colOrdFooName1].Visible = false;
@@ -2422,9 +2422,11 @@ namespace modernpos_pos.gui
         }
         private void FrmTakeOut1_Load(object sender, EventArgs e)
         {
+            initConfig();
+
             flagShowTitle = false;
             setTitle(flagShowTitle);
-            pnItem.Width = this.Width - 450;
+            pnItem.Width = this.Width - 850;
             pnFoods.Height = this.Height - 250;
             lbFooName.Text = "";
             LoadFoods(false);
