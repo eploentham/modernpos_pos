@@ -42,7 +42,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnVoidAll = new System.Windows.Forms.Button();
             this.lbFooName = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.btnSpec = new System.Windows.Forms.Button();
             this.btnVoid = new System.Windows.Forms.Button();
@@ -252,7 +251,6 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.btnVoidAll);
             this.panel3.Controls.Add(this.lbFooName);
             this.panel3.Controls.Add(this.btnSpec);
             this.panel3.Controls.Add(this.btnVoid);
@@ -288,24 +286,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             this.theme1.SetTheme(this.label1, "(default)");
-            // 
-            // btnVoidAll
-            // 
-            this.btnVoidAll.BackColor = System.Drawing.Color.Transparent;
-            this.btnVoidAll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.btnVoidAll.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.btnVoidAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.btnVoidAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.btnVoidAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.btnVoidAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoidAll.Location = new System.Drawing.Point(372, 31);
-            this.btnVoidAll.Name = "btnVoidAll";
-            this.btnVoidAll.Size = new System.Drawing.Size(65, 41);
-            this.btnVoidAll.TabIndex = 247;
-            this.btnVoidAll.Text = "cancel all";
-            this.btnVoidAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnVoidAll, "(default)");
-            this.btnVoidAll.UseVisualStyleBackColor = true;
             // 
             // lbFooName
             // 
@@ -350,7 +330,7 @@
             this.btnVoid.Name = "btnVoid";
             this.btnVoid.Size = new System.Drawing.Size(100, 64);
             this.btnVoid.TabIndex = 243;
-            this.btnVoid.Text = "cancel";
+            this.btnVoid.Text = "cancel all";
             this.btnVoid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnVoid, "(default)");
             this.btnVoid.UseVisualStyleBackColor = true;
@@ -673,7 +653,7 @@
             this.cboRsp.EditorFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboRsp.EditorForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.cboRsp.FlatStyle = C1.Win.C1List.FlatModeEnum.Flat;
-            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRsp.Images.Add(((System.Drawing.Image)(resources.GetObject("cboRsp.Images"))));
             this.cboRsp.Location = new System.Drawing.Point(6, 32);
             this.cboRsp.MatchEntryTimeout = ((long)(2000));
@@ -928,7 +908,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pnOrder;
-        private System.Windows.Forms.Button btnVoidAll;
         private C1.Win.C1SuperTooltip.C1SuperLabel lbFooName;
         private System.Windows.Forms.Button btnSpec;
         private System.Windows.Forms.Button btnVoid;

@@ -178,11 +178,11 @@ namespace modernpos_pos.gui
             timer.Enabled = false;
 
             btnPay.Click += BtnPay_Click;
-            btnVoid.Click += BtnVoid_Click;
+            btnVoid.Click += BtnVoidAll_Click;
             btnSpec.Click += BtnSpec_Click;
             btnReturn.Click += BtnReturn_Click;
             //btnTopping.Click += BtnTopping_Click;
-            btnVoidAll.Click += BtnVoidAll_Click;
+            //btnVoidAll.Click += BtnVoidAll_Click;
             //spMain.SplitterMoved += SpMain_SplitterMoved;
             pnOrder.Resize += PnOrder_Resize;
             btnBillCheck.Click += BtnBillCheck_Click;
@@ -1086,12 +1086,14 @@ namespace modernpos_pos.gui
         private void BtnVoid_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            int row = 0;
-            if (int.TryParse(txtRow.Text, out row))
-            {
-                if (grfOrder.Rows.Count > row)
-                    grfOrder.Rows.Remove(row);
-            }
+            //int row = 0;
+            //if (int.TryParse(txtRow.Text, out row))
+            //{
+            //    if (grfOrder.Rows.Count > row)
+            //        grfOrder.Rows.Remove(row);
+            //}
+            grfOrder.Dispose();
+            initGrfOrder();
             //FrmNoodleMake frm = new FrmNoodleMake(mposC);
             //frm.ShowDialog(this);
         }
@@ -1592,8 +1594,8 @@ namespace modernpos_pos.gui
                 int row = 0;
                 if (int.TryParse(grfOrder.Row.ToString(), out row))
                 {
-                    if (grfOrder.Rows.Count > grfOrder.Row)
-                        grfOrder.Rows.Remove(grfOrder.Row);
+                    if (grfOrder.Rows.Count > row)
+                        grfOrder.Rows.Remove(row);
                 }
             }
             else if (grfOrder.Col == colOrdArrowDown)
