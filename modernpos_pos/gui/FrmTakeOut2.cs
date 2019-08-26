@@ -207,6 +207,7 @@ namespace modernpos_pos.gui
         {
             //throw new NotImplementedException();
             String err = "";
+            if (vneRspPay == null) return;
             if (MessageBox.Show("ต้องการ ลบ Payment ID " + vneRspPay.id, "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 try
@@ -1596,6 +1597,10 @@ namespace modernpos_pos.gui
                 {
                     if (grfOrder.Rows.Count > row)
                         grfOrder.Rows.Remove(row);
+                    if (grfOrder.Rows.Count == 2)
+                    {
+
+                    }
                 }
             }
             else if (grfOrder.Col == colOrdArrowDown)
@@ -1610,6 +1615,7 @@ namespace modernpos_pos.gui
                 string tip = _tip.Replace("(row,col)", string.Format("<b>({0},{1})</b>", grfOrder.Row, grfOrder.Col));
                 stt.SetToolTip(grfOrder, tip);
             }
+            UpdateTotals();
         }
 
         private void GrfOrder_AfterRowColChange(object sender, RangeEventArgs e)
@@ -2337,7 +2343,7 @@ namespace modernpos_pos.gui
                     mposC.NooQty = "";
                     mposC.NooRemark = "";
                     mposC.NooPrinter = "";
-                    FrmNoodleMake frm = new FrmNoodleMake(mposC);
+                    FrmNoodleMake frm = new FrmNoodleMake(mposC, foo.foods_price);
                     frm.ShowDialog(this);
                     
                     setGrfOrder(mposC.NooId, mposC.NooName, mposC.NooPrice, mposC.NooQty, mposC.NooRemark, mposC.NooPrinter);

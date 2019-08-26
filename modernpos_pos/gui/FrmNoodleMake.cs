@@ -32,10 +32,12 @@ namespace modernpos_pos.gui
         int colOId = 1, colOImgL = 2, colOName = 3, colOImgR=4, colOStatusUs = 5, colOflag = 6;
         Image imgChk, imgChkUn, imgChkNo;
         C1Button btnExit;
-        public FrmNoodleMake(mPOSControl x)
+        String price = "";
+        public FrmNoodleMake(mPOSControl x, String price)
         {
             InitializeComponent();
             mposC = x;
+            this.price = price;
             initConfig();
         }
         private void initConfig()
@@ -185,7 +187,7 @@ namespace modernpos_pos.gui
 
         private void setFoodName()
         {
-            Decimal price = 0, price5=0, price6=0, price7=0, price8=0, chk=0;
+            Decimal price = 0, price5=0, price6=0, price7=0, price8=0, chk=0, pricefix=0;
             String fooname = "",fooname1 = "", fooname2 = "", fooname3 = "",fooname5 = "", fooname6 = "", fooname7 = "", fooname8 = "";
             mposC.NooId = "";
             mposC.NooName = "";
@@ -193,6 +195,7 @@ namespace modernpos_pos.gui
             mposC.NooQty = "";
             mposC.NooRemark = "";
             mposC.NooPrinter = "";
+            Decimal.TryParse(this.price,out pricefix);
             foreach (Row row in grfNoom.Rows)
             {
                 if (row[colNStatusUs] == null) continue;
@@ -266,7 +269,7 @@ namespace modernpos_pos.gui
                     //break;
                 }
             }
-            price = price5 + price6 + price7 + price8;
+            price = pricefix + price5 + price6 + price7 + price8;
             fooname = fooname1 +" "+ fooname2 + " " + fooname3 + " " + fooname5 + " " + fooname6 + " " + fooname7 + " " + fooname8 ;
             lbFooName.Text = fooname;
             lbPrice.Text = price.ToString("#,###.00");
