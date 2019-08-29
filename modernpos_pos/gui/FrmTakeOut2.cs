@@ -181,6 +181,7 @@ namespace modernpos_pos.gui
             btnVoid.Click += BtnVoidAll_Click;
             btnSpec.Click += BtnSpec_Click;
             btnReturn.Click += BtnReturn_Click;
+            btnBack.Click += BtnBack_Click;
             //btnTopping.Click += BtnTopping_Click;
             //btnVoidAll.Click += BtnVoidAll_Click;
             //spMain.SplitterMoved += SpMain_SplitterMoved;
@@ -201,6 +202,12 @@ namespace modernpos_pos.gui
             flagModi = false;
             setBtnEnable(flagModi);
             this.FormBorderStyle = FormBorderStyle.None;
+        }
+
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            tabMain.SelectedTab = tabOrder;
         }
 
         private void BtnVoidPay_Click(object sender, EventArgs e)
@@ -1450,6 +1457,8 @@ namespace modernpos_pos.gui
         private void BtnPay_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            lbAmt.Text = "";
+            lbStatus.Text = "";
             mposC.statusVNEPaysuccess = "";
             genLotId();
             setFooNameRemark();
@@ -1596,10 +1605,17 @@ namespace modernpos_pos.gui
                 if (int.TryParse(grfOrder.Row.ToString(), out row))
                 {
                     if (grfOrder.Rows.Count > row)
+                    {
                         grfOrder.Rows.Remove(row);
+                        if (lOrd.Count >= (row - 1))
+                        {
+                            lOrd.RemoveAt(row - 1);
+                        }
+                    }
+                        
                     if (grfOrder.Rows.Count == 2)
                     {
-
+                        
                     }
                 }
             }

@@ -65,7 +65,7 @@
             this.tCBill = new C1.Win.C1Command.C1DockingTab();
             this.tabBill = new C1.Win.C1Command.C1DockingTabPage();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.c1Button1 = new C1.Win.C1Input.C1Button();
+            this.btnBack = new C1.Win.C1Input.C1Button();
             this.pnVoidPay = new System.Windows.Forms.Panel();
             this.cboRsp = new C1.Win.C1List.C1Combo();
             this.chkPaypaying = new System.Windows.Forms.RadioButton();
@@ -108,7 +108,7 @@
             this.tCBill.SuspendLayout();
             this.tabBill.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             this.pnVoidPay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).BeginInit();
@@ -179,7 +179,7 @@
             this.pnItem.Size = new System.Drawing.Size(621, 675);
             this.pnItem.TabIndex = 0;
             this.pnItem.Text = "Item";
-            this.pnItem.Width = 628;
+            this.pnItem.Width = 621;
             // 
             // spItem
             // 
@@ -206,7 +206,7 @@
             // pnFoods
             // 
             this.pnFoods.Collapsible = true;
-            this.pnFoods.Height = 336;
+            this.pnFoods.Height = 329;
             this.pnFoods.Location = new System.Drawing.Point(0, 21);
             this.pnFoods.Name = "pnFoods";
             this.pnFoods.Size = new System.Drawing.Size(621, 308);
@@ -569,7 +569,7 @@
             this.c1SplitterPanel1.Size = new System.Drawing.Size(621, 675);
             this.c1SplitterPanel1.TabIndex = 0;
             this.c1SplitterPanel1.Text = "Panel 1";
-            this.c1SplitterPanel1.Width = 621;
+            this.c1SplitterPanel1.Width = 628;
             // 
             // tCBill
             // 
@@ -601,7 +601,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel4.Controls.Add(this.c1Button1);
+            this.panel4.Controls.Add(this.btnBack);
             this.panel4.Controls.Add(this.pnVoidPay);
             this.panel4.Controls.Add(this.btnVoidPay);
             this.panel4.Controls.Add(this.listBox1);
@@ -618,16 +618,16 @@
             this.panel4.TabIndex = 2;
             this.theme1.SetTheme(this.panel4, "(default)");
             // 
-            // c1Button1
+            // btnBack
             // 
-            this.c1Button1.Location = new System.Drawing.Point(26, 459);
-            this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(43, 23);
-            this.c1Button1.TabIndex = 241;
-            this.c1Button1.Text = "c1Button1";
-            this.theme1.SetTheme(this.c1Button1, "(default)");
-            this.c1Button1.UseVisualStyleBackColor = true;
-            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnBack.Location = new System.Drawing.Point(75, 512);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(106, 64);
+            this.btnBack.TabIndex = 241;
+            this.btnBack.Text = "กลับสั่งต่อ";
+            this.theme1.SetTheme(this.btnBack, "(default)");
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // pnVoidPay
             // 
@@ -872,7 +872,7 @@
             this.tCBill.ResumeLayout(false);
             this.tabBill.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             this.pnVoidPay.ResumeLayout(false);
             this.pnVoidPay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).EndInit();
@@ -921,7 +921,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
-        private C1.Win.C1Input.C1Button c1Button1;
+        private C1.Win.C1Input.C1Button btnBack;
         private System.Windows.Forms.Panel pnVoidPay;
         private C1.Win.C1List.C1Combo cboRsp;
         private System.Windows.Forms.RadioButton chkPaypaying;
