@@ -27,7 +27,7 @@ namespace modernpos_pos.gui
         mPOSControl mposC;
         Font fEdit, fEditB, fEdit1,fgrd;
 
-        Color bg, fc, tilecolor;
+        Color bg, fc, tilecolor, tileFoodsPriceColor, tileFoodsNameColor;
         Font ff, ffB;
 
         Boolean flagEdit = false;
@@ -107,6 +107,8 @@ namespace modernpos_pos.gui
             try
             {
                 tilecolor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsBackColor);
+                tileFoodsPriceColor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsPriceColor);
+                tileFoodsNameColor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsNameColor);
             }
             catch (Exception ex)
             {
@@ -821,17 +823,18 @@ namespace modernpos_pos.gui
         private void initGrfBill()
         {
             grfBill = new C1FlexGrid();
-            grfBill.Font = fEdit;
+            //grfBill.Font = fEdit;
+            grfBill.Font = fgrd;
             grfBill.Dock = System.Windows.Forms.DockStyle.Fill;
             grfBill.Location = new System.Drawing.Point(0, 0);
             grfBill.Rows[0].Visible = false;
             grfBill.Cols[0].Visible = false;
             //grf.Cols[colStatus].Visible = false;
             grfBill.Rows.Count = 1;
-            grfBill.Cols.Count = 8;
+            grfBill.Cols.Count = 9;
             grfBill.Cols[colBNo].Width = 40;
-            grfBill.Cols[colBFooName].Width = 300;
-            grfBill.Cols[colBPrice].Width = 80;
+            grfBill.Cols[colBFooName].Width = 600;
+            grfBill.Cols[colBPrice].Width = 200;
             //FilterRow fr = new FilterRow(grfExpn);
             grfBill.TabStop = false;
             grfBill.EditOptions = EditFlags.None;
@@ -847,6 +850,8 @@ namespace modernpos_pos.gui
             grfBill.Cols[colBFooId].Visible = false;
             grfBill.Cols[colBStatus].Visible = false;
             grfBill.Cols[colBQty].Visible = false;
+            grfBill.Cols[colBPrinterName].Visible = false;
+            grfBill.Cols[colBRemark].Visible = false;
 
             pnBill.Width = mposC.panel1Width + 130;
             //theme.SetTheme(grf, "Office2010Blue");
@@ -1219,12 +1224,13 @@ namespace modernpos_pos.gui
             teOrdFoodsName.ForeColor = System.Drawing.Color.Black;
             teOrdFoodsName.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
             teOrdFoodsName.SingleLine = true;
-            pnFoodsName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            pnFoodsName.BackColor = tileFoodsNameColor;
             pnFoodsName.Children.Add(teOrdFoodsName);
             pnFoodsName.Dock = System.Windows.Forms.DockStyle.Top;
             pnFoodsName.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
             pnFoodsPrice.AlignmentOfContents = System.Drawing.ContentAlignment.MiddleRight;
-            pnFoodsPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            //pnFoodsPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            pnFoodsPrice.BackColor = tileFoodsPriceColor;
             //panelElement11.Children.Add(panelElement12);
             pnFoodsPrice.Children.Add(teOrdFoodsPrice);
             pnFoodsPrice.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1254,7 +1260,7 @@ namespace modernpos_pos.gui
             TileRec.SurfaceContentAlignment = System.Drawing.ContentAlignment.TopLeft;
             TileRec.Padding = new System.Windows.Forms.Padding(0);
             TileRec.GroupPadding = new System.Windows.Forms.Padding(20);
-            TileRec.BackColor = tilecolor;
+            TileRec.BackColor = tilecolor;       // tab recommend color
             tabPage[0].Controls.Add(TileRec);
             for (int i = 1; i < dtCat.Rows.Count + 1; i++)
             {
@@ -1273,7 +1279,7 @@ namespace modernpos_pos.gui
                 tabPage[i].TabIndex = 0;
                 tabPage[i].Text = dtCat.Rows[i - 1]["foods_cat_name"].ToString();
                 tabPage[i].Name = "Page" + i;
-                tabPage[i].TabBackColor = tilecolor;
+                tabPage[i].TabBackColor = tilecolor;         // tab foods color
                 //tabPage[i].st
                 tC.Controls.Add(tabPage[i]);
 
@@ -1305,12 +1311,13 @@ namespace modernpos_pos.gui
                 teOrdFoodsName.ForeColor = System.Drawing.Color.Black;
                 teOrdFoodsName.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
                 teOrdFoodsName.SingleLine = true;
-                pnFoodsName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+                pnFoodsName.BackColor = tileFoodsNameColor;
                 pnFoodsName.Children.Add(teOrdFoodsName);
                 pnFoodsName.Dock = System.Windows.Forms.DockStyle.Top;
                 pnFoodsName.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
                 pnFoodsPrice.AlignmentOfContents = System.Drawing.ContentAlignment.MiddleRight;
-                pnFoodsPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+                //pnFoodsPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+                pnFoodsPrice.BackColor = tileFoodsPriceColor;
                 //panelElement11.Children.Add(panelElement12);
                 pnFoodsPrice.Children.Add(teOrdFoodsPrice);
                 pnFoodsPrice.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1330,7 +1337,7 @@ namespace modernpos_pos.gui
                 //TileFoods = new C1TileControl();
                 TileFoods[i].Name = "tile" + i;
                 TileFoods[i].Dock = DockStyle.Fill;
-                TileFoods[i].BackColor = tilecolor;
+                TileFoods[i].BackColor = tilecolor;     // tile color
                 //pnOrder.Controls.Add(TileFoods);                    
 
                 this.tempFlickr.Elements.Add(imageElement8);
@@ -1392,13 +1399,14 @@ namespace modernpos_pos.gui
             imageElementDrink = new C1.Win.C1Tile.ImageElement();
             imageElementDrink.ImageLayout = C1.Win.C1Tile.ForeImageLayout.ScaleOuter;
             pnElementDrink = new C1.Win.C1Tile.PanelElement();
-            pnElementDrink.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            pnElementDrink.BackColor = tileFoodsNameColor;
             pnElementDrink.Children.Add(teOrdFoodsName);
             pnElementDrink.Dock = System.Windows.Forms.DockStyle.Top;
             pnElementDrink.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
             pnElementPrice = new C1.Win.C1Tile.PanelElement();
             pnElementPrice.AlignmentOfContents = System.Drawing.ContentAlignment.MiddleRight;
-            pnElementPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            //pnElementPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            pnElementPrice.BackColor = tileFoodsPriceColor;
             pnElementPrice.Children.Add(teOrdFoodsPrice);
             pnElementPrice.Dock = System.Windows.Forms.DockStyle.Bottom;
             pnElementPrice.FixedHeight = 32;
@@ -1497,7 +1505,7 @@ namespace modernpos_pos.gui
             grfOrder.Rows.Count = 1;
             grfOrder.Cols.Count = 15;
             grfOrder.Cols[colOrdNo].Width = 40;
-            grfOrder.Cols[colOrdFooName].Width = 300;
+            grfOrder.Cols[colOrdFooName].Width = 400;
             grfOrder.Cols[colOrdPrice].Width = 120;
             grfOrder.Cols[colOrdqtyplus].Width = 50;
             grfOrder.Cols[colOrdqtyminus].Width = 50;
@@ -1587,6 +1595,23 @@ namespace modernpos_pos.gui
                 int.TryParse(chk, out qty);
                 qty++;
                 grfOrder[grfOrder.Row, colOrdQty] = qty;
+                int row = 0;
+                if (int.TryParse(grfOrder.Row.ToString(), out row))
+                {
+                    if (lOrd.Count >= (row - 1))
+                    {
+                        Decimal price = 0;
+                        Order1 ord = new Order1();
+                        ord = lOrd[row - 1];
+                        if (Decimal.TryParse(ord.price, out price))
+                        {
+                            ord.qty = qty.ToString();
+                            //ord.price = (qty * price).ToString();
+                            ord.sumPrice = (qty * price).ToString();
+                            grfOrder[grfOrder.Row, colOrdPrice] = ord.sumPrice;
+                        }
+                    }
+                }
             }
             else if (grfOrder.Col == colOrdqtyminus)
             {
@@ -1597,6 +1622,23 @@ namespace modernpos_pos.gui
                 qty--;
                 if (qty <= 0) return;
                 grfOrder[grfOrder.Row, colOrdQty] = qty;
+                int row = 0;
+                if (int.TryParse(grfOrder.Row.ToString(), out row))
+                {
+                    if (lOrd.Count >= (row - 1))
+                    {
+                        Decimal price = 0;
+                        Order1 ord = new Order1();
+                        ord = lOrd[row - 1];
+                        if(Decimal.TryParse(ord.price, out price))
+                        {
+                            ord.qty = qty.ToString();
+                            //ord.price = (qty * price).ToString();
+                            ord.sumPrice = (qty * price).ToString();
+                            grfOrder[grfOrder.Row, colOrdPrice] = ord.sumPrice;
+                        }
+                    }
+                }
             }
             else if (grfOrder.Col == colOrdThrumb)
             {
@@ -1632,6 +1674,8 @@ namespace modernpos_pos.gui
                 stt.SetToolTip(grfOrder, tip);
             }
             UpdateTotals();
+            grfOrder.Select(grfOrder.Row, colOrdNo);
+            btnPay.Focus();
         }
 
         private void GrfOrder_AfterRowColChange(object sender, RangeEventArgs e)

@@ -186,6 +186,8 @@ namespace modernpos_pos.control
             iniC.ShareFileSMBFolder = iniF.getIni("app", "ShareFileSMBFolder");
             iniC.TileFoodsOrientation = iniF.getIni("app", "TileFoodsOrientation");
             iniC.TileFoodsBackColor = iniF.getIni("app", "TileFoodsBackColor");
+            iniC.TileFoodsPriceColor = iniF.getIni("app", "TileFoodsPriceColor");
+            iniC.TileFoodsNameColor = iniF.getIni("app", "TileFoodsNameColor");
 
             iniC.VNEip = iniF.getIni("VNE", "VNEip");
             iniC.VNEwebapi = iniF.getIni("VNE", "VNEwebapi");

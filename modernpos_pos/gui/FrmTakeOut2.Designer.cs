@@ -79,6 +79,7 @@
             this.btnBillCheck = new System.Windows.Forms.Button();
             this.tabCommand = new C1.Win.C1Command.C1DockingTabPage();
             this.c1SplitterPanel2 = new C1.Win.C1SplitContainer.C1SplitterPanel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.pnBill = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).BeginInit();
@@ -620,6 +621,7 @@
             // 
             // btnBack
             // 
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnBack.Location = new System.Drawing.Point(75, 512);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(106, 64);
@@ -653,7 +655,7 @@
             this.cboRsp.EditorFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboRsp.EditorForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.cboRsp.FlatStyle = C1.Win.C1List.FlatModeEnum.Flat;
-            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboRsp.Images.Add(((System.Drawing.Image)(resources.GetObject("cboRsp.Images"))));
             this.cboRsp.Location = new System.Drawing.Point(6, 32);
             this.cboRsp.MatchEntryTimeout = ((long)(2000));
@@ -753,11 +755,12 @@
             this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(247, 442);
+            this.button1.Location = new System.Drawing.Point(210, 442);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 64);
+            this.button1.Size = new System.Drawing.Size(143, 64);
             this.button1.TabIndex = 19;
             this.button1.Text = "พิมพ์ใบกำกับภาษี";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -793,6 +796,7 @@
             this.btnBillCheck.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
             this.btnBillCheck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.btnBillCheck.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.btnBillCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnBillCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.btnBillCheck.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBillCheck.Location = new System.Drawing.Point(75, 442);
@@ -800,7 +804,6 @@
             this.btnBillCheck.Size = new System.Drawing.Size(106, 64);
             this.btnBillCheck.TabIndex = 16;
             this.btnBillCheck.Text = "ชำระเงิน";
-            this.btnBillCheck.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnBillCheck, "(default)");
             this.btnBillCheck.UseVisualStyleBackColor = true;
             // 
@@ -815,6 +818,7 @@
             // c1SplitterPanel2
             // 
             this.c1SplitterPanel2.Controls.Add(this.pnBill);
+            this.c1SplitterPanel2.Controls.Add(this.panel5);
             this.c1SplitterPanel2.Height = 696;
             this.c1SplitterPanel2.Location = new System.Drawing.Point(632, 21);
             this.c1SplitterPanel2.Name = "c1SplitterPanel2";
@@ -822,15 +826,26 @@
             this.c1SplitterPanel2.TabIndex = 1;
             this.c1SplitterPanel2.Text = "Panel 2";
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(628, 29);
+            this.panel5.TabIndex = 0;
+            this.theme1.SetTheme(this.panel5, "(default)");
+            // 
             // pnBill
             // 
             this.pnBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.pnBill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.pnBill.Location = new System.Drawing.Point(0, 0);
+            this.pnBill.Location = new System.Drawing.Point(0, 29);
             this.pnBill.Name = "pnBill";
-            this.pnBill.Size = new System.Drawing.Size(628, 675);
-            this.pnBill.TabIndex = 0;
+            this.pnBill.Size = new System.Drawing.Size(628, 646);
+            this.pnBill.TabIndex = 1;
             this.theme1.SetTheme(this.pnBill, "(default)");
             // 
             // FrmTakeOut2
@@ -934,5 +949,6 @@
         private C1.Win.C1SuperTooltip.C1SuperLabel lbAmt;
         private System.Windows.Forms.Button btnBillCheck;
         private System.Windows.Forms.Panel pnBill;
+        private System.Windows.Forms.Panel panel5;
     }
 }
