@@ -890,7 +890,8 @@ namespace modernpos_pos.gui
                     row[colBPrice] = ord.sumPrice;
                     row[colBFooId] = ord.foods_id;
                     row[colBRemark] = ord.remark;
-                    row[colBNo] = grfBill.Rows.Count - 1;
+                    //row[colBNo] = grfBill.Rows.Count - 1;
+                    row[colBNo] = grfBill.Rows.Count;
                 }
                 //String[] ext = name.Split('#');
                 UpdateTotalsBill();
@@ -1472,6 +1473,8 @@ namespace modernpos_pos.gui
             setFooNameRemark();
             tabMain.SelectedTab = tabCheck;
             tCBill.ShowTabs = false;
+            //grfBill.Clear();
+            grfBill.Rows.Count = 0;
             setGrfBill();
             //FrmTakeOutCheck frm = new FrmTakeOutCheck(mposC, lOrd);
             //frm.ShowDialog(this);
