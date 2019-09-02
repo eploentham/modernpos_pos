@@ -11,7 +11,7 @@ namespace modernpos_pos.objdb
 {
     public class FoodsCatDB
     {
-        FoodsCat fooC;
+        public FoodsCat fooC;
         ConnectDB conn;
         public List<FoodsCat> lfooC;
         public FoodsCatDB(ConnectDB c)
@@ -99,12 +99,12 @@ namespace modernpos_pos.objdb
 
             return dt;
         }
-        public void getlArea()
+        public void getlFoodsCat()
         {
             //lDept = new List<Position>();
             lfooC.Clear();
             DataTable dt = new DataTable();
-            dt = selectAll();
+            if (lfooC.Count <= 0) dt = selectAll();
             foreach (DataRow row in dt.Rows)
             {
                 FoodsCat itm1 = new FoodsCat();
@@ -117,7 +117,7 @@ namespace modernpos_pos.objdb
         public String getList(String id)
         {
             String re = "";
-            if (lfooC.Count <= 0) getlArea();
+            if (lfooC.Count <= 0) getlFoodsCat();
             foreach (FoodsCat sex in lfooC)
             {
                 if (sex.foods_cat_id.Equals(id))
@@ -127,6 +127,22 @@ namespace modernpos_pos.objdb
                 }
             }
             return re;
+        }
+        public FoodsCat getFoodsCat(String id)
+        {
+            String re = "";
+            FoodsCat fooc = new FoodsCat();
+            if (lfooC.Count <= 0) getlFoodsCat();
+            foreach (FoodsCat sex in lfooC)
+            {
+                if (sex.foods_cat_id.Equals(id))
+                {
+                    //re = sex.foods_cat_name;
+                    fooc = sex;
+                    break;
+                }
+            }
+            return fooc;
         }
         private void chkNull(FoodsCat p)
         {
@@ -252,7 +268,7 @@ namespace modernpos_pos.objdb
         {
             ComboBoxItem item = new ComboBoxItem();
             //DataTable dt = selectC1();
-            if (lfooC.Count <= 0) getlArea();
+            if (lfooC.Count <= 0) getlFoodsCat();
             ComboBoxItem item1 = new ComboBoxItem();
             item1.Text = "";
             item1.Value = "000";

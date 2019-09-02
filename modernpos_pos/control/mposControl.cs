@@ -32,7 +32,7 @@ namespace modernpos_pos.control
         public InitConfig iniC;
         private IniFile iniF;
         
-        public int grdViewFontSize = 0, panel1Width=0, takeouttilhorizontalsize=0, takeouttilverticalsize=0;
+        public int grdViewFontSize = 0, panel1Width=0, takeouttilhorizontalsize=0, takeouttilverticalsize=0, TileFoodstakeouttilhorizontalsize = 0, TileFoodstakeouttilverticalsize = 0;
         public List<Department> lDept;
         public Company cop;
 
@@ -207,6 +207,10 @@ namespace modernpos_pos.control
             iniC.tabFoodsBackGroundColor = iniF.getIni("app", "tabFoodsBackGroundColor");
             iniC.tabFoodsForeGroundColor = iniF.getIni("app", "tabFoodsForeGroundColor");
             iniC.tabFoodsCustom = iniF.getIni("app", "tabFoodsCustom");
+            iniC.VNEtimer = iniF.getIni("VNE", "VNEtimer");
+            iniC.TileFoodsCatOrientation = iniF.getIni("app", "TileFoodsCatOrientation");
+            iniC.TileFoodstakeouttilhorizontalsize = iniF.getIni("app", "TileFoodstakeouttilhorizontalsize");
+            iniC.TileFoodstakeouttilverticalsize = iniF.getIni("app", "TileFoodstakeouttilverticalsize");
 
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
 
@@ -228,6 +232,8 @@ namespace modernpos_pos.control
             iniC.pnOrderborderstyle = iniC.pnOrderborderstyle.Equals("") ? "0" : iniC.pnOrderborderstyle;
             iniC.TileFoodsOrientation = iniC.TileFoodsOrientation==null  ? "0" : iniC.TileFoodsOrientation;
             iniC.statuspaytoclose = iniC.statuspaytoclose == null ? "0" : iniC.statuspaytoclose;
+            iniC.TileFoodstakeouttilhorizontalsize = iniC.TileFoodstakeouttilhorizontalsize == null ? "2" : iniC.TileFoodstakeouttilhorizontalsize;
+            iniC.TileFoodstakeouttilverticalsize = iniC.TileFoodstakeouttilverticalsize == null ? "3" : iniC.TileFoodstakeouttilverticalsize;
 
             iniC.hostFTP = iniC.hostFTP == null ? "" : iniC.hostFTP;
             iniC.userFTP = iniC.userFTP == null ? "" : iniC.userFTP;
@@ -253,6 +259,7 @@ namespace modernpos_pos.control
             iniC.statushidenavigator = iniC.statushidenavigator != null ? iniC.statushidenavigator : "0";
             iniC.statusHide = iniC.statusHide != null ? iniC.statusHide : "0";
             iniC.statusDrinkHide = iniC.statusDrinkHide != null ? iniC.statusDrinkHide : "0";
+            iniC.TileFoodsCatOrientation = iniC.TileFoodsCatOrientation != null ? iniC.TileFoodsCatOrientation : "0";
 
             iniC.tabFoodsAlign = iniC.tabFoodsAlign != null ? iniC.tabFoodsAlign : "0";
             iniC.tabFoodsAreaSpacing = iniC.tabFoodsAreaSpacing != null ? iniC.tabFoodsAreaSpacing : "2";
@@ -270,6 +277,8 @@ namespace modernpos_pos.control
             Boolean.TryParse(iniC.usePassiveFTP, out ftpUsePassive);
             int.TryParse(iniC.takeouttilhorizontalsize, out takeouttilhorizontalsize);
             int.TryParse(iniC.takeouttilverticalsize, out takeouttilverticalsize);
+            int.TryParse(iniC.TileFoodstakeouttilhorizontalsize, out TileFoodstakeouttilhorizontalsize);
+            int.TryParse(iniC.TileFoodstakeouttilverticalsize, out TileFoodstakeouttilverticalsize);
         }
         public String datetoDB(String dt)
         {

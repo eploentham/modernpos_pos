@@ -40,15 +40,32 @@ namespace modernpos_pos.gui
         private void initConfig()
         {
             picOK.Click += PicOK_Click;
+            picAds.Click += PicAds_Click;
+            picLogo.Click += PicLogo_Click;
+        }
+
+        private void PicLogo_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            opennew();
+        }
+
+        private void PicAds_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            opennew();
         }
 
         private void PicOK_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmTakeOut2 frm = new FrmTakeOut2(mposC, this);
+            opennew();
+        }
+        private void opennew()
+        {
+            FrmTakeOut3 frm = new FrmTakeOut3(mposC, this);
             frm.Show(this);
         }
-
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             // ...
