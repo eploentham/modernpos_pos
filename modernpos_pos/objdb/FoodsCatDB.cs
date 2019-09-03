@@ -38,7 +38,7 @@ namespace modernpos_pos.objdb
             fooC.host_id = "host_id";
             fooC.branch_id = "branch_id";
             fooC.device_id = "device_id";
-            //fooC.status_aircondition = "status_aircondition";
+            fooC.filename = "filename";
 
             fooC.pkField = "foods_cat_id";
             fooC.table = "b_foods_category";
@@ -110,7 +110,7 @@ namespace modernpos_pos.objdb
                 FoodsCat itm1 = new FoodsCat();
                 itm1.foods_cat_id = row[fooC.foods_cat_id].ToString();
                 itm1.foods_cat_name = row[fooC.foods_cat_name].ToString();
-
+                itm1.filename = row[fooC.filename].ToString();
                 lfooC.Add(itm1);
             }
         }
@@ -156,7 +156,7 @@ namespace modernpos_pos.objdb
 
             p.foods_cat_name = p.foods_cat_name == null ? "" : p.foods_cat_name;
             p.foods_cat_code = p.foods_cat_code == null ? "" : p.foods_cat_code;
-
+            p.filename = p.filename == null ? "" : p.filename;
             //p.status_aircondition = p.status_aircondition == null ? "0" : p.status_aircondition;
 
             p.host_id = long.TryParse(p.host_id, out chk) ? chk.ToString() : "0";
@@ -183,7 +183,7 @@ namespace modernpos_pos.objdb
                 "," + fooC.host_id + " = '" + p.host_id + "' " +
                 "," + fooC.branch_id + " = '" + p.branch_id + "' " +
                 "," + fooC.device_id + " = '" + p.device_id + "' " +
-                //"," + fooC.status_aircondition + " = '" + p.status_aircondition + "' " +
+                "," + fooC.filename + " = '" + p.filename + "' " +
                 " ";
             try
             {
@@ -239,6 +239,28 @@ namespace modernpos_pos.objdb
             else
             {
                 re = update(p, "");
+            }
+
+            return re;
+        }
+        public String updateFileName(String fooid, String filename)
+        {
+            String re = "";
+            String sql = "";
+            int chk = 0;
+            
+            sql = "Update " + fooC.table + " Set " +
+                " " + fooC.filename + " = '" + filename + "'" +
+                "Where " + fooC.pkField + "='" + fooid + "'"
+                ;
+
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
             }
 
             return re;
@@ -311,7 +333,7 @@ namespace modernpos_pos.objdb
                 dept1.user_cancel = dt.Rows[0][fooC.user_cancel] != null ? dt.Rows[0][fooC.user_cancel].ToString() : "";
                 dept1.active = dt.Rows[0][fooC.active] != null ? dt.Rows[0][fooC.active].ToString() : "";
                 dept1.sort1 = dt.Rows[0][fooC.sort1] != null ? dt.Rows[0][fooC.sort1].ToString() : "";
-                //dept1.status_aircondition = dt.Rows[0][fooC.status_aircondition] != null ? dt.Rows[0][fooC.status_aircondition].ToString() : "";
+                dept1.filename = dt.Rows[0][fooC.filename] != null ? dt.Rows[0][fooC.filename].ToString() : "";
             }
             else
             {
@@ -328,7 +350,7 @@ namespace modernpos_pos.objdb
                 dept1.user_cancel = "";
                 dept1.active = "";
                 dept1.sort1 = "";
-                //dept1.status_aircondition = "";
+                dept1.filename = "";
                 //dept1.status_embryologist = "";
             }
 

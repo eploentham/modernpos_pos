@@ -68,7 +68,8 @@ namespace modernpos_pos.gui
             FrmWaiting frmW = new FrmWaiting();
             frmW.Show();
 
-            FrmTakeOut3 frm = new FrmTakeOut3(mposC, this);
+            FrmTakeOut2 frm = new FrmTakeOut2(mposC, this);
+            //FrmTakeOut3 frm = new FrmTakeOut3(mposC, this);
             frm.Show(this);
             frmW.Dispose();
         }

@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using modernpos_pos.control;
 using modernpos_pos.object1;
 using modernpos_pos.Properties;
+using System.IO;
 
 namespace modernpos_pos.gui
 {
@@ -31,7 +32,7 @@ namespace modernpos_pos.gui
         C1FlexGrid grfFooC;
 
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
-        Boolean flagEdit = false;
+        Boolean flagEdit = false, pageLoad = false;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
 
@@ -54,12 +55,15 @@ namespace modernpos_pos.gui
             theme1.SetTheme(sB, "BeigeOne");
             foreach (Control c in panel3.Controls)
             {
+                if (c is C1PictureBox) continue;
                 theme1.SetTheme(c, mposC.iniC.themeApplication);
             }
 
             bg = txtAreaCode.BackColor;
             fc = txtAreaCode.ForeColor;
             ff = txtAreaCode.Font;
+            btnImg.Click += BtnImg_Click;
+
             txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
 
             initGrfFoodsCat();
@@ -73,7 +77,51 @@ namespace modernpos_pos.gui
             sep = new C1SuperErrorProvider();
             //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
-        
+
+        private void BtnImg_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (txtID.Text.Length <= 0) return;
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Images (*.BMP;*.JPG;*.Jepg;*.Png;*.GIF)|*.BMP;*.JPG;*.Jepg;*.Png;*.GIF|Pdf Files|*.pdf|All files (*.*)|*.*";
+            ofd.Multiselect = false;
+            ofd.Title = "My Image Browser";
+            DialogResult dr = ofd.ShowDialog();
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+                if (File.Exists(ofd.FileName))
+                {
+                    mposC.savePicFoodsCattoServer(txtID.Text, ofd.FileName);
+                    showImg();
+                }
+            }
+        }
+        private void showImg()
+        {
+            if (pageLoad) return;
+            try
+            {
+                picFoo.Image = null;
+                MemoryStream stream = new MemoryStream();
+                Image loadedImage = null, resizedImage;
+                if (fooC.filename.Equals("")) return;
+                string ext = Path.GetExtension(fooC.filename);
+                String filename = "/foods/" + fooC.filename.Replace(ext, "") + "_210" + ext;
+                stream = mposC.ftpC.download(mposC.iniC.ShareFile + filename);
+                loadedImage = new Bitmap(stream);
+                if (loadedImage != null)
+                {
+                    int originalWidth = loadedImage.Width;
+                    int newWidth = 210;
+                    resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
+                    picFoo.Image = resizedImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("" + ex.Message, "showImg");
+            }
+        }
         private void initGrfFoodsCat()
         {
             grfFooC = new C1FlexGrid();
@@ -167,6 +215,7 @@ namespace modernpos_pos.gui
             txtAreaCode.Value = fooC.foods_cat_code;
             txtFooTNameT.Value = fooC.foods_cat_name;
             txtRemark.Value = fooC.remark;
+            showImg();
             //if (fooT.status_aircondition.Equals("1"))
             //{
             //    chkStatusAirCondition.Checked = true;

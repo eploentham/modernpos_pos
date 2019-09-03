@@ -1196,8 +1196,7 @@ namespace modernpos_pos.gui
             tabPage[0].Name = "Page0";
             tabPage[0].TabBackColor = tilecolor;
             tC.Controls.Add(tabPage[0]);
-
-
+            
             TileRec = new C1TileControl();
             TileRec.Dock = DockStyle.Fill;
             if (mposC.iniC.TileFoodsOrientation.Equals("0"))

@@ -181,6 +181,7 @@ namespace modernpos_pos.gui
             imgR = Resources.red_checkmark_png_16;
             //MessageBox.Show("FrmTakeOut initConfig", "");
             TileFoods = new C1TileControl[dtCat.Rows.Count + 1];
+            //initTempFlicker();
             initGrfOrder();
             initTileCategory();
             setTileCategory();
@@ -195,6 +196,40 @@ namespace modernpos_pos.gui
             flagModi = false;
             setBtnEnable(flagModi);
             this.FormBorderStyle = FormBorderStyle.None;
+        }
+        private void initTempFlicker()
+        {
+            tempFlickr = new C1.Win.C1Tile.Template();
+            imageElement8 = new C1.Win.C1Tile.ImageElement();
+            imageElement8.ImageLayout = C1.Win.C1Tile.ForeImageLayout.ScaleOuter;
+            teOrdFoodsName = new C1.Win.C1Tile.TextElement();
+            teOrdFoodsName.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
+            teOrdFoodsName.ForeColor = System.Drawing.Color.Black;
+            teOrdFoodsName.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
+            teOrdFoodsName.SingleLine = true;
+            teOrdFoodsPrice = new C1.Win.C1Tile.TextElement();
+            teOrdFoodsPrice.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
+            teOrdFoodsPrice.Margin = new System.Windows.Forms.Padding(0, 0, 37, 0);
+            teOrdFoodsPrice.TextSelector = C1.Win.C1Tile.TextSelector.Text1;
+
+            pnFoodsName = new C1.Win.C1Tile.PanelElement();
+            pnFoodsName.BackColor = tileFoodsNameColor;
+            pnFoodsName.Children.Add(teOrdFoodsName);
+            pnFoodsName.Dock = System.Windows.Forms.DockStyle.Top;
+            pnFoodsName.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            pnFoodsPrice = new C1.Win.C1Tile.PanelElement();
+            pnFoodsPrice.AlignmentOfContents = System.Drawing.ContentAlignment.MiddleRight;
+            pnFoodsPrice.BackColor = tileFoodsPriceColor;
+            pnFoodsPrice.Children.Add(teOrdFoodsPrice);
+            pnFoodsPrice.Dock = System.Windows.Forms.DockStyle.Bottom;
+            pnFoodsPrice.FixedHeight = 32;
+            
+
+            pnFoodsPrice.Children.Add(teOrdFoodsPrice);
+            tempFlickr.Elements.Add(imageElement8);
+            tempFlickr.Elements.Add(pnFoodsName);
+            tempFlickr.Elements.Add(pnFoodsPrice);
+            tempFlickr.Name = "tempFlickrrec";
         }
         private void initGrfBill()
         {
@@ -424,7 +459,7 @@ namespace modernpos_pos.gui
                 TileFoods[index].GroupPadding = new System.Windows.Forms.Padding(20);
                 TileFoods[index].BackColor = tilecolor;
                 TileFoods[index].Templates.Add(tempFoo);
-
+                //TileFoods[index].Font = fEdit;
                 index++;
             }
         }
@@ -547,7 +582,7 @@ namespace modernpos_pos.gui
 
             tempDrink = new C1.Win.C1Tile.Template();
 
-            this.tempDrink.Name = "tempDrink";
+            tempDrink.Name = "tempDrink";
             imageElementDrink = new C1.Win.C1Tile.ImageElement();
             imageElementDrink.ImageLayout = C1.Win.C1Tile.ForeImageLayout.ScaleOuter;
             pnElementDrink = new C1.Win.C1Tile.PanelElement();

@@ -603,6 +603,39 @@ namespace modernpos_pos.control
             }
             return equals;
         }
+        public void savePicFoodsCattoServer(String foocId, String pathLocalFile)
+        {
+            string ext = Path.GetExtension(pathLocalFile);
+            //if (iniC.ShareFile.Equals("FTP"))
+            //{
+
+            FileInfo fi1 = new FileInfo(pathLocalFile);
+            if (fi1.Exists)
+            {
+                ftpC.createDirectory(iniC.ShareFile + "/foods");
+                ftpC.delete(iniC.ShareFile + "/foods/" + foocId + ext);
+                ftpC.upload(iniC.ShareFile + "/foods/" + foocId + ext, pathLocalFile);
+
+                Image loadedImage, resizedImage;
+                loadedImage = Image.FromFile(pathLocalFile);
+                int originalWidth = 0;
+                originalWidth = loadedImage.Width;
+                int newWidth = 210;
+                resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
+                //byte[] buf = imgToByteArray(resizedImage);
+                var data = new MemoryStream();
+                resizedImage.Save(data, ImageFormat.Jpeg);
+                
+                ftpC.delete(iniC.ShareFile + "/foods/" + foocId + "_210" + ext);
+                ftpC.upload(iniC.ShareFile + "/foods/" + foocId + "_210" + ext, data);
+            }
+            else
+            {
+                MessageBox.Show("ไม่พบ File", "");
+            }
+            
+            mposDB.foocDB.updateFileName(foocId, foocId + ext);
+        }
         public void savePicFoodstoServer(String fooId, String pathLocalFile)
         {
             string ext = Path.GetExtension(pathLocalFile);
