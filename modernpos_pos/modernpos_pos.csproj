@@ -250,6 +250,9 @@
     <Compile Include="gui\FrmToGo.Designer.cs">
       <DependentUpon>FrmToGo.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmWaiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="objdb\AreaDB.cs" />
     <Compile Include="objdb\BillDB.cs" />
     <Compile Include="objdb\BillDetailDB.cs" />

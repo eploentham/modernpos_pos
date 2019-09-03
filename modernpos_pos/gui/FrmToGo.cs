@@ -47,7 +47,9 @@ namespace modernpos_pos.gui
         private void PicLogo_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            
             opennew();
+            
         }
 
         private void PicAds_Click(object sender, EventArgs e)
@@ -63,8 +65,12 @@ namespace modernpos_pos.gui
         }
         private void opennew()
         {
+            FrmWaiting frmW = new FrmWaiting();
+            frmW.Show();
+
             FrmTakeOut3 frm = new FrmTakeOut3(mposC, this);
             frm.Show(this);
+            frmW.Dispose();
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {

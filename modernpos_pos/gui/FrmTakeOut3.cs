@@ -189,12 +189,49 @@ namespace modernpos_pos.gui
             //initTC();
             //initSpec();
             //initTopping();
-            //initGrfBill();
+            initGrfBill();
             //initGrfTopping();
 
             flagModi = false;
             setBtnEnable(flagModi);
             this.FormBorderStyle = FormBorderStyle.None;
+        }
+        private void initGrfBill()
+        {
+            grfBill = new C1FlexGrid();
+            //grfBill.Font = fEdit;
+            grfBill.Font = fgrd;
+            grfBill.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfBill.Location = new System.Drawing.Point(0, 0);
+            grfBill.Rows[0].Visible = false;
+            grfBill.Cols[0].Visible = false;
+            //grf.Cols[colStatus].Visible = false;
+            grfBill.Rows.Count = 1;
+            grfBill.Cols.Count = 9;
+            grfBill.Cols[colBNo].Width = 40;
+            grfBill.Cols[colBFooName].Width = 600;
+            grfBill.Cols[colBPrice].Width = 200;
+            //FilterRow fr = new FilterRow(grfExpn);
+            grfBill.TabStop = false;
+            grfBill.EditOptions = EditFlags.None;
+            grfBill.Cols[colBNo].AllowEditing = false;
+            grfBill.Cols[colBFooName].AllowEditing = false;
+            grfBill.Cols[colBPrice].AllowEditing = false;
+            //grf.ExtendLastCol = true;
+            grfBill.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
+
+            grfBill.SubtotalPosition = SubtotalPositionEnum.BelowData;
+
+            pnCheckOrder.Controls.Add(grfBill);
+            grfBill.Cols[colBFooId].Visible = false;
+            grfBill.Cols[colBStatus].Visible = false;
+            grfBill.Cols[colBQty].Visible = false;
+            grfBill.Cols[colBPrinterName].Visible = false;
+            grfBill.Cols[colBRemark].Visible = false;
+
+            pnCheckOrder.Width = mposC.panel1Width + 130;
+            //theme.SetTheme(grf, "Office2010Blue");
+
         }
         private void setTileFoods()
         {
@@ -212,8 +249,8 @@ namespace modernpos_pos.gui
                     tile.VerticalSize = mposC.TileFoodstakeouttilverticalsize;
                     tile.Template = tempFlickr;
                     tile.Text = drow[mposC.mposDB.foocDB.fooC.foods_cat_name].ToString();
-                    tile.HorizontalSize = 2;
-                    tile.VerticalSize = 1;
+                    tile.HorizontalSize = mposC.TileFoodstakeouttilhorizontalsize;
+                    tile.VerticalSize = mposC.TileFoodstakeouttilverticalsize;
                     
                     tile.Tag = foorow;
                     tile.Name = foorow.foods_id;
@@ -1073,6 +1110,14 @@ namespace modernpos_pos.gui
                     {
 
                     }
+                    int i = 0;
+                    foreach(Row rowo in grfOrder.Rows)
+                    {
+                        rowo[colOrdNo] = i;
+                        //grfOrder.SetData(i-1,0,i);
+                        i++;
+                    }
+                    
                 }
             }
             else if (grfOrder.Col == colOrdArrowDown)
@@ -1188,6 +1233,7 @@ namespace modernpos_pos.gui
                 listBox1.Items.Add(err + " " + ex.Message);
             }
         }
+
         private void printBill()
         {
             PrintDocument document = new PrintDocument();
