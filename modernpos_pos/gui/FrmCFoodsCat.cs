@@ -243,9 +243,7 @@ namespace modernpos_pos.gui
             chkVoid.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
-
         
-
         private void setFoodsCat()
         {
             fooC.foods_cat_id = txtID.Text;
@@ -310,8 +308,10 @@ namespace modernpos_pos.gui
             txtFooTNameT.Value = "";
             txtRemark.Value = "";
             chkVoid.Checked = false;
+            picFoo.Image = null;
             btnVoid.Hide();
             flagEdit = true;
+            fooC = new FoodsCat();
             setControlEnable(true);
         }
         private void btnEdit_Click(object sender, EventArgs e)

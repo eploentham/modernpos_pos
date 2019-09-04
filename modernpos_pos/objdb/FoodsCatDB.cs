@@ -39,7 +39,7 @@ namespace modernpos_pos.objdb
             fooC.branch_id = "branch_id";
             fooC.device_id = "device_id";
             fooC.filename = "filename";
-            fooC.status_recommand = "status_recommand";
+            fooC.status_recommand = "status_recommend";
 
             fooC.pkField = "foods_cat_id";
             fooC.table = "b_foods_category";
