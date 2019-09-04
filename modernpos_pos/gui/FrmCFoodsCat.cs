@@ -215,7 +215,8 @@ namespace modernpos_pos.gui
             txtAreaCode.Value = fooC.foods_cat_code;
             txtFooTNameT.Value = fooC.foods_cat_name;
             txtRemark.Value = fooC.remark;
-            chkRecommand.Value = fooC.status_recommand.Equals("0") ? true : false;
+            chkRecommand.Value = fooC.status_recommend.Equals("1") ? true : false;
+            txtSort1.Value = fooC.sort1;
             showImg();
             //if (fooT.status_aircondition.Equals("1"))
             //{
@@ -251,7 +252,8 @@ namespace modernpos_pos.gui
             fooC.foods_cat_name = txtFooTNameT.Text;
             //posi.posi_name_e = txtPosiNameE.Text;
             fooC.remark = txtRemark.Text;
-            fooC.status_recommand = chkRecommand.Checked == true ? "1" : "0";
+            fooC.status_recommend = chkRecommand.Checked == true ? "1" : "0";
+            fooC.sort1 = txtSort1.Text;
             //area.status_embryologist = chkEmbryologist.Checked == true ? "1" : "0";
         }
         private void grfPosi_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
