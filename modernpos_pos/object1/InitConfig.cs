@@ -23,6 +23,6 @@ namespace modernpos_pos.object1
         public String TileFoodsPriceColor = "", TileFoodsNameColor = "";
         public String VNEip = "", VNEwebapi = "", statusShowListBox1="", takeouttilhorizontalsize="", takeouttilverticalsize="", pnOrderborderstyle="", TileFoodsOrientation="", TileFoodsBackColor="", statuspaytoclose="";
         public String statushidenavigator = "", statusHide="", statusDrinkHide="", tabFoodsAlign="", tabFoodsAreaSpacing="",tabFoodsIndent="", tabFoodsSpacing="", tabFoodsLook = "", tabFoodsPaddingHeight="", tabFoodsPaddingWidth="", tabFoodsAreaColor="", tabFoodsBackGroundColor = "", tabFoodsForeGroundColor = "", tabFoodsCustom="";
-        public String VNEtimer = "", TileFoodsCatOrientation="", TileFoodstakeouttilverticalsize="", TileFoodstakeouttilhorizontalsize="";
+        public String VNEtimer = "", TileFoodsCatOrientation="", TileFoodstakeouttilverticalsize="", TileFoodstakeouttilhorizontalsize="", VNEopName="";
     }
 }

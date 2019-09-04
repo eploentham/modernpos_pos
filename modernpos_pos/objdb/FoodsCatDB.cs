@@ -39,6 +39,7 @@ namespace modernpos_pos.objdb
             fooC.branch_id = "branch_id";
             fooC.device_id = "device_id";
             fooC.filename = "filename";
+            fooC.status_recommand = "status_recommand";
 
             fooC.pkField = "foods_cat_id";
             fooC.table = "b_foods_category";
@@ -50,7 +51,7 @@ namespace modernpos_pos.objdb
                 "From " + fooC.table + " fooC " +
                 " " +
                 "Where fooC." + fooC.active + " ='1' " +
-                "Order By fooC." + fooC.foods_cat_id;
+                "Order By fooC." + fooC.sort1;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -157,7 +158,8 @@ namespace modernpos_pos.objdb
             p.foods_cat_name = p.foods_cat_name == null ? "" : p.foods_cat_name;
             p.foods_cat_code = p.foods_cat_code == null ? "" : p.foods_cat_code;
             p.filename = p.filename == null ? "" : p.filename;
-            //p.status_aircondition = p.status_aircondition == null ? "0" : p.status_aircondition;
+            p.status_recommand = p.status_recommand == null ? "0" : p.status_recommand;
+            p.sort1 = p.sort1 == null ? "9999" : p.sort1;
 
             p.host_id = long.TryParse(p.host_id, out chk) ? chk.ToString() : "0";
             p.branch_id = long.TryParse(p.branch_id, out chk) ? chk.ToString() : "0";
@@ -184,6 +186,8 @@ namespace modernpos_pos.objdb
                 "," + fooC.branch_id + " = '" + p.branch_id + "' " +
                 "," + fooC.device_id + " = '" + p.device_id + "' " +
                 "," + fooC.filename + " = '" + p.filename + "' " +
+                "," + fooC.status_recommand + " = '" + p.status_recommand + "' " +
+                "," + fooC.sort1 + " = '" + p.sort1 + "' " +
                 " ";
             try
             {
@@ -212,8 +216,8 @@ namespace modernpos_pos.objdb
                 "," + fooC.host_id + " = '" + p.host_id + "' " +
                 "," + fooC.branch_id + " = '" + p.branch_id + "' " +
                 "," + fooC.device_id + " = '" + p.device_id + "' " +
-                //"," + fooC.status_aircondition + " = '" + p.status_aircondition + "' " +
-
+                "," + fooC.status_recommand + " = '" + p.status_recommand + "' " +
+                "," + fooC.sort1 + " = '" + p.sort1 + "' " +
                 "Where " + fooC.pkField + "='" + p.foods_cat_id + "'"
                 ;
 
@@ -334,6 +338,7 @@ namespace modernpos_pos.objdb
                 dept1.active = dt.Rows[0][fooC.active] != null ? dt.Rows[0][fooC.active].ToString() : "";
                 dept1.sort1 = dt.Rows[0][fooC.sort1] != null ? dt.Rows[0][fooC.sort1].ToString() : "";
                 dept1.filename = dt.Rows[0][fooC.filename] != null ? dt.Rows[0][fooC.filename].ToString() : "";
+                dept1.status_recommand = dt.Rows[0][fooC.status_recommand] != null ? dt.Rows[0][fooC.status_recommand].ToString() : "";
             }
             else
             {
@@ -351,7 +356,7 @@ namespace modernpos_pos.objdb
                 dept1.active = "";
                 dept1.sort1 = "";
                 dept1.filename = "";
-                //dept1.status_embryologist = "";
+                dept1.status_recommand = "";
             }
 
             return dept1;

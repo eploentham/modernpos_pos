@@ -191,6 +191,9 @@ namespace modernpos_pos.control
 
             iniC.VNEip = iniF.getIni("VNE", "VNEip");
             iniC.VNEwebapi = iniF.getIni("VNE", "VNEwebapi");
+            iniC.VNEtimer = iniF.getIni("VNE", "VNEtimer");
+            iniC.VNEopName = iniF.getIni("VNE", "opName");
+
             iniC.statusShowListBox1 = iniF.getIni("app", "statusShowListBox1");
             iniC.statuspaytoclose = iniF.getIni("app", "statuspaytoclose");
             iniC.statushidenavigator = iniF.getIni("app", "statushidenavigator");
@@ -207,7 +210,7 @@ namespace modernpos_pos.control
             iniC.tabFoodsBackGroundColor = iniF.getIni("app", "tabFoodsBackGroundColor");
             iniC.tabFoodsForeGroundColor = iniF.getIni("app", "tabFoodsForeGroundColor");
             iniC.tabFoodsCustom = iniF.getIni("app", "tabFoodsCustom");
-            iniC.VNEtimer = iniF.getIni("VNE", "VNEtimer");
+            
             iniC.TileFoodsCatOrientation = iniF.getIni("app", "TileFoodsCatOrientation");
             iniC.TileFoodstakeouttilhorizontalsize = iniF.getIni("app", "TileFoodstakeouttilhorizontalsize");
             iniC.TileFoodstakeouttilverticalsize = iniF.getIni("app", "TileFoodstakeouttilverticalsize");
@@ -272,6 +275,7 @@ namespace modernpos_pos.control
             iniC.tabFoodsBackGroundColor = iniC.tabFoodsBackGroundColor == null ? "#7CB342" : iniC.tabFoodsBackGroundColor.Equals("") ? "#7CB342" : iniC.tabFoodsBackGroundColor;
             iniC.tabFoodsForeGroundColor = iniC.tabFoodsForeGroundColor == null ? "#FF0266" : iniC.tabFoodsForeGroundColor.Equals("") ? "#FF0266" : iniC.tabFoodsForeGroundColor;
             iniC.tabFoodsCustom = iniC.tabFoodsCustom != null ? iniC.tabFoodsCustom : "0";
+            iniC.VNEopName = iniC.VNEopName != null ? iniC.VNEopName : "admin";
 
             iniC.usePassiveFTP = iniC.usePassiveFTP == null ? "false" : iniC.usePassiveFTP.Equals("") ? "false" : iniC.usePassiveFTP;
             Boolean.TryParse(iniC.usePassiveFTP, out ftpUsePassive);

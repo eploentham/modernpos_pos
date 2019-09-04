@@ -12,6 +12,6 @@ namespace modernpos_pos.object1
         public String foods_cat_code { get; set; }
         public String foods_cat_name { get; set; }
         public String filename { get; set; }
-
+        public String status_recommand { get; set; }
     }
 }

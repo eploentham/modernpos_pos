@@ -215,6 +215,7 @@ namespace modernpos_pos.gui
             txtAreaCode.Value = fooC.foods_cat_code;
             txtFooTNameT.Value = fooC.foods_cat_name;
             txtRemark.Value = fooC.remark;
+            chkRecommand.Value = fooC.status_recommand.Equals("0") ? true : false;
             showImg();
             //if (fooT.status_aircondition.Equals("1"))
             //{
@@ -245,14 +246,14 @@ namespace modernpos_pos.gui
 
         
 
-        private void setArea()
+        private void setFoodsCat()
         {
             fooC.foods_cat_id = txtID.Text;
             fooC.foods_cat_code = txtAreaCode.Text;
             fooC.foods_cat_name = txtFooTNameT.Text;
             //posi.posi_name_e = txtPosiNameE.Text;
             fooC.remark = txtRemark.Text;
-            //fooT.status_aircondition = chkStatusAirCondition.Checked == true ? "1" : "0";
+            fooC.status_recommand = chkRecommand.Checked == true ? "1" : "0";
             //area.status_embryologist = chkEmbryologist.Checked == true ? "1" : "0";
         }
         private void grfPosi_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
@@ -330,7 +331,7 @@ namespace modernpos_pos.gui
         {
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                setArea();
+                setFoodsCat();
                 String re = mposC.mposDB.foocDB.insertFoodsCat(fooC, mposC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))

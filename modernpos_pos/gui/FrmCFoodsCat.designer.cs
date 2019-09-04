@@ -38,6 +38,8 @@
             this.tabView = new C1.Win.C1Command.C1DockingTabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.picFoo = new C1.Win.C1Input.C1PictureBox();
+            this.btnImg = new C1.Win.C1Input.C1Button();
             this.chkEmbryologist = new C1.Win.C1Input.C1CheckBox();
             this.chkStatusAirCondition = new C1.Win.C1Input.C1CheckBox();
             this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
@@ -55,8 +57,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnImg = new C1.Win.C1Input.C1Button();
-            this.picFoo = new C1.Win.C1Input.C1PictureBox();
+            this.chkRecommand = new C1.Win.C1Input.C1CheckBox();
+            this.txtSort1 = new C1.Win.C1Input.C1TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -69,6 +72,8 @@
             this.tabAdd.SuspendLayout();
             this.tabView.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatusAirCondition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
@@ -82,8 +87,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaCode)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFoo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkRecommand)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSort1)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -202,6 +207,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.txtSort1);
+            this.panel3.Controls.Add(this.chkRecommand);
             this.panel3.Controls.Add(this.picFoo);
             this.panel3.Controls.Add(this.btnImg);
             this.panel3.Controls.Add(this.chkEmbryologist);
@@ -227,6 +235,28 @@
             this.panel3.TabIndex = 0;
             this.theme1.SetTheme(this.panel3, "(default)");
             // 
+            // picFoo
+            // 
+            this.picFoo.Location = new System.Drawing.Point(13, 286);
+            this.picFoo.Name = "picFoo";
+            this.picFoo.Size = new System.Drawing.Size(210, 210);
+            this.picFoo.TabIndex = 274;
+            this.picFoo.TabStop = false;
+            // 
+            // btnImg
+            // 
+            this.btnImg.Image = global::modernpos_pos.Properties.Resources.refresh24;
+            this.btnImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImg.Location = new System.Drawing.Point(426, 125);
+            this.btnImg.Name = "btnImg";
+            this.btnImg.Size = new System.Drawing.Size(83, 39);
+            this.btnImg.TabIndex = 273;
+            this.btnImg.Text = "upload รูป";
+            this.btnImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnImg, "(default)");
+            this.btnImg.UseVisualStyleBackColor = true;
+            this.btnImg.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // chkEmbryologist
             // 
             this.chkEmbryologist.BackColor = System.Drawing.Color.Transparent;
@@ -234,7 +264,7 @@
             this.chkEmbryologist.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkEmbryologist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkEmbryologist.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkEmbryologist.Location = new System.Drawing.Point(229, 173);
+            this.chkEmbryologist.Location = new System.Drawing.Point(229, 152);
             this.chkEmbryologist.Name = "chkEmbryologist";
             this.chkEmbryologist.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkEmbryologist.Size = new System.Drawing.Size(155, 24);
@@ -252,12 +282,12 @@
             this.chkStatusAirCondition.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkStatusAirCondition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkStatusAirCondition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkStatusAirCondition.Location = new System.Drawing.Point(124, 173);
+            this.chkStatusAirCondition.Location = new System.Drawing.Point(124, 152);
             this.chkStatusAirCondition.Name = "chkStatusAirCondition";
             this.chkStatusAirCondition.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkStatusAirCondition.Size = new System.Drawing.Size(99, 24);
             this.chkStatusAirCondition.TabIndex = 260;
-            this.chkStatusAirCondition.Text = "เป้นห้องแอร์";
+            this.chkStatusAirCondition.Text = "เป็นห้องแอร์";
             this.theme1.SetTheme(this.chkStatusAirCondition, "(default)");
             this.chkStatusAirCondition.UseVisualStyleBackColor = true;
             this.chkStatusAirCondition.Value = null;
@@ -465,27 +495,49 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // btnImg
+            // chkRecommand
             // 
-            this.btnImg.Image = global::modernpos_pos.Properties.Resources.refresh24;
-            this.btnImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImg.Location = new System.Drawing.Point(426, 125);
-            this.btnImg.Name = "btnImg";
-            this.btnImg.Size = new System.Drawing.Size(83, 39);
-            this.btnImg.TabIndex = 273;
-            this.btnImg.Text = "upload รูป";
-            this.btnImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnImg, "(default)");
-            this.btnImg.UseVisualStyleBackColor = true;
-            this.btnImg.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.chkRecommand.BackColor = System.Drawing.Color.Transparent;
+            this.chkRecommand.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkRecommand.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkRecommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkRecommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkRecommand.Location = new System.Drawing.Point(124, 193);
+            this.chkRecommand.Name = "chkRecommand";
+            this.chkRecommand.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkRecommand.Size = new System.Drawing.Size(154, 24);
+            this.chkRecommand.TabIndex = 275;
+            this.chkRecommand.Text = "Foods Recommand";
+            this.theme1.SetTheme(this.chkRecommand, "(default)");
+            this.chkRecommand.UseVisualStyleBackColor = true;
+            this.chkRecommand.Value = null;
+            this.chkRecommand.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // picFoo
+            // txtSort1
             // 
-            this.picFoo.Location = new System.Drawing.Point(13, 286);
-            this.picFoo.Name = "picFoo";
-            this.picFoo.Size = new System.Drawing.Size(210, 210);
-            this.picFoo.TabIndex = 274;
-            this.picFoo.TabStop = false;
+            this.txtSort1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSort1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtSort1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtSort1.Location = new System.Drawing.Point(124, 231);
+            this.txtSort1.Name = "txtSort1";
+            this.txtSort1.Size = new System.Drawing.Size(207, 20);
+            this.txtSort1.TabIndex = 276;
+            this.txtSort1.Tag = null;
+            this.theme1.SetTheme(this.txtSort1, "(default)");
+            this.txtSort1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label4.Location = new System.Drawing.Point(20, 233);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 16);
+            this.label4.TabIndex = 277;
+            this.label4.Text = "sort1 :";
+            this.theme1.SetTheme(this.label4, "(default)");
             // 
             // FrmCFoodsCat
             // 
@@ -511,6 +563,8 @@
             this.tabView.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatusAirCondition)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
@@ -525,8 +579,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFoo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkRecommand)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSort1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -563,5 +617,8 @@
         private System.Windows.Forms.Panel panel5;
         private C1.Win.C1Input.C1Button btnImg;
         private C1.Win.C1Input.C1PictureBox picFoo;
+        private C1.Win.C1Input.C1CheckBox chkRecommand;
+        private System.Windows.Forms.Label label4;
+        private C1.Win.C1Input.C1TextBox txtSort1;
     }
 }
