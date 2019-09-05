@@ -173,7 +173,7 @@
             this.scFoods.SizeRatio = 57.048D;
             this.scFoods.TabIndex = 0;
             this.scFoods.Text = "Foods";
-            this.scFoods.Width = 766;
+            this.scFoods.Width = 773;
             // 
             // sCFoodsMain
             // 
@@ -444,7 +444,7 @@
             this.c1SplitterPanel1.Size = new System.Drawing.Size(671, 611);
             this.c1SplitterPanel1.TabIndex = 0;
             this.c1SplitterPanel1.Text = "Panel 1";
-            this.c1SplitterPanel1.Width = 678;
+            this.c1SplitterPanel1.Width = 671;
             // 
             // pnCheckBill
             // 

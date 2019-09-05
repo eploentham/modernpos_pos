@@ -46,9 +46,9 @@ namespace modernpos_pos.objdb
             ord.branch_id = "branch_id";
             ord.device_id = "device_id";
 
-            ord.table_id = "table_code";
-            ord.res_id = "res_code";
-            ord.area_id = "area_code";
+            ord.table_id = "table_id";
+            ord.res_id = "res_id";
+            ord.area_id = "area_id";
             ord.status_foods_1 = "status_foods_1";
             ord.status_foods_2 = "status_foods_2";
 
@@ -207,7 +207,7 @@ namespace modernpos_pos.objdb
             //p.bill_id = p.bill_id == null ? "" : p.bill_id;
             p.order_user = p.order_user == null ? "" : p.order_user;
             p.status_closeday = p.status_closeday == null ? "" : p.status_closeday;
-            p.closeday_id = p.closeday_id == null ? "" : p.closeday_id;
+            //p.closeday_id = p.closeday_id == null ? "" : p.closeday_id;
             p.cnt_cust = p.cnt_cust == null ? "" : p.cnt_cust;
             p.foods_name = p.foods_name == null ? "" : p.foods_name;
 
@@ -221,6 +221,7 @@ namespace modernpos_pos.objdb
             p.area_id = long.TryParse(p.area_id, out chk) ? chk.ToString() : "0";
             p.res_id = long.TryParse(p.res_id, out chk) ? chk.ToString() : "0";
             p.table_id = long.TryParse(p.table_id, out chk) ? chk.ToString() : "0";
+            p.closeday_id = long.TryParse(p.closeday_id, out chk) ? chk.ToString() : "0";
 
             p.price = Decimal.TryParse(p.price, out chk1) ? chk1.ToString() : "0";
             p.qty = Decimal.TryParse(p.qty, out chk1) ? chk1.ToString() : "0";
@@ -280,6 +281,7 @@ namespace modernpos_pos.objdb
             catch (Exception ex)
             {
                 sql = ex.Message + " " + ex.InnerException;
+                new LogFile("Order -> insert" + ex.Message + " " + ex.InnerException);
             }
 
             return re;

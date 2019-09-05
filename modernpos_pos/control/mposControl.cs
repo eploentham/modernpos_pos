@@ -216,6 +216,9 @@ namespace modernpos_pos.control
             iniC.TileFoodstakeouttilverticalsize = iniF.getIni("app", "TileFoodstakeouttilverticalsize");
             iniC.statusdebug = iniF.getIni("app", "statusdebug");
             iniC.TileCategoryOrientation = iniF.getIni("app", "TileCategoryOrientation");
+            iniC.sCFoodsMainSplitterWidth = iniF.getIni("app", "sCFoodsMainSplitterWidth");
+            iniC.sCOrderSplitterWidth = iniF.getIni("app", "sCOrderSplitterWidth");
+            iniC.TileCategoryColor = iniF.getIni("app", "TileCategoryColor");
 
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
 
@@ -280,6 +283,8 @@ namespace modernpos_pos.control
             iniC.VNEopName = iniC.VNEopName != null ? iniC.VNEopName : "admin";
             iniC.statusdebug = iniC.statusdebug != null ? iniC.statusdebug : "0";
             iniC.TileCategoryOrientation = iniC.TileCategoryOrientation != null ? iniC.TileCategoryOrientation : "0";
+            iniC.sCFoodsMainSplitterWidth = iniC.sCFoodsMainSplitterWidth != null ? iniC.sCFoodsMainSplitterWidth : "0";
+            iniC.sCOrderSplitterWidth = iniC.sCOrderSplitterWidth != null ? iniC.sCOrderSplitterWidth : "0";
 
             iniC.usePassiveFTP = iniC.usePassiveFTP == null ? "false" : iniC.usePassiveFTP.Equals("") ? "false" : iniC.usePassiveFTP;
             Boolean.TryParse(iniC.usePassiveFTP, out ftpUsePassive);

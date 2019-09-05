@@ -225,6 +225,7 @@ namespace modernpos_pos.objdb
             catch (Exception ex)
             {
                 sql = ex.Message + " " + ex.InnerException;
+                new LogFile("BillDetail -> insert" + ex.Message + " " + ex.InnerException);
             }
 
             return re;

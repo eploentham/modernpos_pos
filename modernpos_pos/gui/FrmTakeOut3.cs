@@ -27,7 +27,7 @@ namespace modernpos_pos.gui
         mPOSControl mposC;
         Font fEdit, fEditB, fEdit1, fgrd, ford;
 
-        Color bg, fc, tilecolor, tileFoodsPriceColor, tileFoodsNameColor;
+        Color bg, fc, tilecolor, tileFoodsPriceColor, tileFoodsNameColor, tileCatColor;
         Font ff, ffB;
 
         Boolean flagEdit = false;
@@ -110,6 +110,7 @@ namespace modernpos_pos.gui
                 tilecolor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsBackColor);
                 tileFoodsPriceColor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsPriceColor);
                 tileFoodsNameColor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsNameColor);
+                tileCatColor = ColorTranslator.FromHtml(mposC.iniC.TileCategoryColor);
             }
             catch (Exception ex)
             {
@@ -529,7 +530,7 @@ namespace modernpos_pos.gui
             TileCat.SurfaceContentAlignment = System.Drawing.ContentAlignment.TopLeft;
             TileCat.Padding = new System.Windows.Forms.Padding(0);
             TileCat.GroupPadding = new System.Windows.Forms.Padding(20);
-            TileCat.BackColor = tilecolor;       // tab recommend color
+            TileCat.BackColor = tileCatColor;       // tab recommend color
             TileCat.Templates.Add(this.tempRec);
             
             scFoodsCat.BackColor = tilecolor;
@@ -979,7 +980,7 @@ namespace modernpos_pos.gui
                         ord = new Order1();
                         ord.order_id = row.order_id;
                         ord.lot_id = row.lot_id;
-                        ord.res_id = "";
+                        ord.res_id = mposC.res.res_id;
                         ord.host_id = "";
                         ord.device_id = mposC.MACAddress;
                         ord.branch_id = "";
@@ -992,7 +993,8 @@ namespace modernpos_pos.gui
                         ord.printer_name = row.printer_name;
                         ord.status_bill = row.status_bill;
                         ord.table_id = mposC.tableidToGo;
-                        mposC.mposDB.ordDB.insertOrder(ord, "");
+                        String re = mposC.mposDB.ordDB.insertOrder(ord, "");
+                        row.order_id = re;
                     }
                 }
             }
@@ -1421,6 +1423,7 @@ namespace modernpos_pos.gui
                     {
                         timerVNE.Stop();
                         mposC.statusVNEPaysuccess = "1";
+
                         printOrder();
                         printBill();
                         lbStatus.Text = "รับชำระเรียบร้อย ";
@@ -1446,6 +1449,25 @@ namespace modernpos_pos.gui
             {
                 timerVNE.Stop();
                 mposC.statusVNEPaysuccess = "1";
+                Bill bil = new Bill();
+                bil = setBill();
+                long chk = 0;
+                String re = "";
+                re = mposC.mposDB.bilDB.insertBill(bil, "");
+                if(long.TryParse(re, out chk))
+                {
+                    foreach (Order1 row in lOrd)
+                    {
+                        BillDetail bild1 = new BillDetail();
+                        bild1 = setBillDetail(re, row);
+                        String re1 = "";
+                        re1 = mposC.mposDB.bildDB.insertBillDetail(bild1, "");
+                        if (!long.TryParse(re1, out chk))
+                        {
+                            MessageBox.Show("error", "");
+                        }
+                    }
+                }
                 printOrder();
                 printBill();
                 lbStatus.Text = "รับชำระเรียบร้อย ";
@@ -1461,7 +1483,93 @@ namespace modernpos_pos.gui
                 }
             }
         }
+        private BillDetail setBillDetail(String billid, Order1 row)
+        {
+            
+                BillDetail bild1 = new BillDetail();
+                bild1.bill_detail_id = "";
+                bild1.bill_id = billid;
+                bild1.order_id = row.order_id;
+                bild1.lot_id = row.lot_id;
+                bild1.status_void = "";
+                bild1.row1 = row.row1;
+                bild1.foods_id = row.foods_id;
+                bild1.foods_code = row.foods_code;
 
+                bild1.active = "";
+                bild1.remark = "";
+                bild1.sort1 = "";
+                bild1.date_cancel = "";
+                bild1.date_create = "";
+                bild1.date_modi = "";
+                bild1.user_cancel = "";
+                bild1.user_create = "";
+                bild1.user_modi = "";
+                bild1.host_id = "";
+                bild1.branch_id = "";
+                bild1.device_id = "";
+                bild1.price = row.price;
+                bild1.qty = row.qty;
+                bild1.amount = row.sumPrice;
+
+                //bild.Add(bild1);
+            
+
+            return bild1;
+        }
+        private Bill setBill()
+        {
+            Order1 ord = new Order1();
+            ord = lOrd[0];
+            decimal amt = 0;
+            foreach (Order1 row in lOrd)
+            {
+                String amt1 = "";
+                decimal price = 0, qty = 0;
+                decimal.TryParse(row.price, out price);
+                decimal.TryParse(row.qty, out qty);
+                amt += (price * qty);
+            }
+            Bill bil = new Bill();
+            bil.bill_id = "";
+            bil.bill_code = "";
+            bil.bill_date = "";
+            bil.lot_id = ord.lot_id;
+            bil.status_void = "";
+            bil.void_date = "";
+            bil.void_user = "";
+
+            bil.active = "";
+            bil.remark = "";
+            bil.sort1 = "";
+            bil.date_cancel = "";
+            bil.date_create = "";
+            bil.date_modi = "";
+            bil.user_cancel = "";
+            bil.user_create = "";
+            bil.user_modi = "";
+            bil.host_id = "";
+            bil.branch_id = "";
+            bil.device_id = mposC.MACAddress;
+
+            bil.table_id = mposC.tableidToGo;
+            bil.res_id = mposC.res.res_id;
+            bil.area_id = "";
+            bil.amount = amt.ToString();
+            bil.discount = "0";
+
+            bil.service_charge = "";
+            bil.vat = "";
+            bil.total = amt.ToString();
+            bil.nettotal = amt.ToString();
+            bil.cash_receive = amt.ToString();
+            bil.cash_ton = "";
+            bil.bill_user = "";
+            bil.status_closeday = "0";
+            bil.closeday_id = "";
+
+            return bil;
+        }
         private void printBill()
         {
             PrintDocument document = new PrintDocument();
@@ -1753,6 +1861,35 @@ namespace modernpos_pos.gui
         {
             flagShowTitle = false;
             setTitle(flagShowTitle);
+            if (mposC.iniC.sCFoodsMainSplitterWidth.Equals("0"))
+            {
+                sCFoodsMain.SplitterWidth = 0;
+                //scFoodsCat.Collapsed = false;
+            }
+            else
+            {
+                sCFoodsMain.SplitterWidth = 1;
+                scFoodsCat.Collapsed = true;
+            }
+            if (mposC.iniC.sCOrderSplitterWidth.Equals("0"))
+            {
+                //sCOrder.SplitterWidth = 0;
+                //scFoods.Collapsed = false;
+            }
+            else
+            {
+                sCOrder.SplitterWidth = 1;
+                //scFoodsCat.Collapsed = true;
+            }
+
+            if (mposC.iniC.takeouttilverticalsize.Equals("2"))
+            {
+                scFoodsCat.Height = 260;
+            }
+            else
+            {
+                scFoodsCat.Height = 260;
+            }
         }
     }
 }
