@@ -25,7 +25,7 @@ namespace modernpos_pos.gui
     public partial class FrmTakeOut3 : Form
     {
         mPOSControl mposC;
-        Font fEdit, fEditB, fEdit1, fgrd;
+        Font fEdit, fEditB, fEdit1, fgrd, ford;
 
         Color bg, fc, tilecolor, tileFoodsPriceColor, tileFoodsNameColor;
         Font ff, ffB;
@@ -82,7 +82,7 @@ namespace modernpos_pos.gui
         Image imgMinus, imgPlus, imgArrowDown, imgAdd, imgThumb;
         private string _tip = "";
         int indexTile = 0;
-        String testdebug = "debug";
+        String testdebug = "debug", que="";
         public FrmTakeOut3(mPOSControl x, Form frmmain)
         {
             InitializeComponent();
@@ -96,6 +96,7 @@ namespace modernpos_pos.gui
             fEditB = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Bold);
             fEdit1 = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 5, FontStyle.Regular + 2);
             fgrd = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 15, FontStyle.Regular);
+            ford = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Regular);
 
             C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
@@ -468,7 +469,7 @@ namespace modernpos_pos.gui
                 ord1.foods_id = id;
                 ord1.foods_name = name;
                 ord1.remark = remark;
-                ord1.row1 = grfOrder.Rows.Count.ToString();
+                ord1.row1 = row[colOrdNo].ToString();
                 ord1.printer_name = printer;
                 ord1.sumPrice = price;
                 ord1.toppingPrice = "";
@@ -689,15 +690,22 @@ namespace modernpos_pos.gui
             {
                 FoodsCat fooc = new FoodsCat();
                 fooc = (FoodsCat)tile.Tag;
-                if (scFoodsItem.Controls.Count > 0)
+                if (scFoodsItem.Controls.Count > 1)
                 {
-                    foreach(Control c in scFoodsItem.Controls)
+                    foreach (Control c in scFoodsItem.Controls)
                     {
                         scFoodsItem.Controls.Remove(c);
                     }
                 }
                 if (indexTile != tile.Index)
                 {
+                    if (scFoodsItem.Controls.Count > 0)
+                    {
+                        foreach (Control c in scFoodsItem.Controls)
+                        {
+                            scFoodsItem.Controls.Remove(c);
+                        }
+                    }
                     indexTile = tile.Index;
                     //scFoodsItem.Controls.Remove(TileFoodsOld);
                     //TileFoodsOld = new C1TileControl();
@@ -1535,7 +1543,7 @@ namespace modernpos_pos.gui
 
             count++;
             yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
-            line = mposC.res.receipt_header2;
+            line = mposC.res.receipt_header2 + " "+que;
             textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
@@ -1569,13 +1577,13 @@ namespace modernpos_pos.gui
                 count++;
                 yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
                 line = i + ". " + ord.foods_name + " " + ord.qty;
-                textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+                textSize = TextRenderer.MeasureText(line, ford, proposedSize, TextFormatFlags.RightToLeft);
                 xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
                 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
                 //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());
-                e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
-                textSize = TextRenderer.MeasureText(ord.price, fEdit, proposedSize, TextFormatFlags.RightToLeft);
-                e.Graphics.DrawString(ord.price, fEdit, Brushes.Black, marginR - textSize.Width - gap - 5, yPos, flags);
+                e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin, yPos, flags);
+                textSize = TextRenderer.MeasureText(ord.price, ford, proposedSize, TextFormatFlags.RightToLeft);
+                e.Graphics.DrawString(ord.price, ford, Brushes.Black, marginR - textSize.Width - gap - 5, yPos, flags);
                 if ((ord.special != null) && !ord.special.Equals(""))
                 {
                     String[] txt = ord.special.Split('+');
@@ -1583,11 +1591,11 @@ namespace modernpos_pos.gui
                     {
                         count++;
                         line = "     " + txt1.Trim();
-                        yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
-                        textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+                        yPos = topMargin + (count * ford.GetHeight(e.Graphics) + gap);
+                        textSize = TextRenderer.MeasureText(line, ford, proposedSize, TextFormatFlags.RightToLeft);
                         xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
                         yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
-                        e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+                        e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin, yPos, flags);
                     }
                 }
                 if ((ord.topping != null) && !ord.topping.Equals(""))
@@ -1597,11 +1605,11 @@ namespace modernpos_pos.gui
                     {
                         count++;
                         line = "     " + txt1.Trim();
-                        yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
-                        textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+                        yPos = topMargin + (count * ford.GetHeight(e.Graphics) + gap);
+                        textSize = TextRenderer.MeasureText(line, ford, proposedSize, TextFormatFlags.RightToLeft);
                         xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
                         yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
-                        e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+                        e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin, yPos, flags);
                     }
                 }
 
@@ -1611,7 +1619,7 @@ namespace modernpos_pos.gui
             yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, marginR + 300, yPos);
 
-            count++; count++; count++;
+            count++; count++; count++; count++; count++;
             yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             line = mposC.res.receipt_footer1;
             textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
@@ -1633,6 +1641,8 @@ namespace modernpos_pos.gui
         {
             List<String> lprn = new List<String>();
             iprn = 1;
+            que = "";
+            que = mposC.mposDB.copDB.genQueue1Doc();
             foreach (Order1 ord in lOrd)
             {
                 //String printername = "";
@@ -1640,6 +1650,7 @@ namespace modernpos_pos.gui
                 ord1 = ord;
                 PrintDocument document = new PrintDocument();
                 //MessageBox.Show("ord1.printer_name "+ ord1.printer_name, "");
+                
                 document.PrinterSettings.PrinterName = ord1.printer_name;
                 document.PrintPage += new PrintPageEventHandler(printOrder_PrintPage);
                 //This is where you set the printer in your case you could use "EPSON USB"
@@ -1658,16 +1669,7 @@ namespace modernpos_pos.gui
             //gets the text from the textbox
             String stringToPrint = "";
             string printText = "";
-            //String RECEIPT = Environment.CurrentDirectory + "\\comprovante.txt";
-            //if (File.Exists(RECEIPT))
-            //{
-            //    FileStream fs = new FileStream(RECEIPT, FileMode.Open);
-            //    StreamReader sr = new StreamReader(fs);
-            //    stringToPrint = sr.ReadToEnd();
-
-            //    sr.Close();
-            //    fs.Close();
-            //}
+            
             String date = "";
             date = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
             String amt = "";
@@ -1684,27 +1686,20 @@ namespace modernpos_pos.gui
             {
 
             }
-            stringToPrint = mposC.mposDB.copDB.genQueue1Doc() + Environment.NewLine;
+            
+            //que = mposC.mposDB.copDB.genQueue1Doc();
+            stringToPrint = que + Environment.NewLine;
             stringToPrint += "เวลา " + date + Environment.NewLine;
-            //stringToPrint += "" + textBox1.Text + Environment.NewLine;
-            //stringToPrint += "" + txtTopUp1.Text + Environment.NewLine;
-            //stringToPrint += "" + txtTopUp2.Text + Environment.NewLine;
-            //stringToPrint += "" + txtTopUp3.Text + Environment.NewLine;
-            //stringToPrint += "โต๊ะ   " + txtDesk.Text + Environment.NewLine;
-            //Makes the file to print and sets the look of it
-            //int i = 1;
-            //foreach (Order1 ord in lOrd)
-            //{
-            //    printText += i.ToString() + "  " + ord.foods_name + "  " + ord.qty + "  " + ord.price + Environment.NewLine;
-            //    printText += "          " + ord.remark + Environment.NewLine;
-            //    i++;
-            //}
+            
             String name = "";
             name = ord1.foods_name;
             ord1.special = ord1.special == null ? "" : ord1.special;
             ord1.topping = ord1.topping == null ? "" : ord1.topping;
-
-            printText += iprn.ToString() + "  " + ord1.foods_name + "  " + ord1.qty + Environment.NewLine;
+            int row = 0;
+            int.TryParse(ord1.row1, out row);
+            //int.TryParse(lOrd.Count, out cnt);
+            //printText += iprn.ToString() + "  " + ord1.foods_name + "  " + ord1.qty + Environment.NewLine;
+            printText += (row) +"["+lOrd.Count + "]  " + ord1.foods_name + "  " + ord1.qty + Environment.NewLine;
 
             String[] txt = ord1.special.Split('+');
             if (txt.Length > 1)
@@ -1722,7 +1717,6 @@ namespace modernpos_pos.gui
                 //printText += iprn.ToString() + "  " + ord1.foods_name + "  " + ord1.qty + Environment.NewLine;
                 //printText += "         " + ord1.qty + "  " + ord1.price + Environment.NewLine;
                 printText += name1 + Environment.NewLine;
-
             }
             String[] txtT = ord1.topping.Split('+');
             if (txtT.Length > 1)
@@ -1753,7 +1747,7 @@ namespace modernpos_pos.gui
             stringToPrint += Environment.NewLine;
             stringToPrint += "         จำนวนเงิน " + amt1.ToString("0.00") + Environment.NewLine;
             g.DrawString(stringToPrint, new Font("arial", 16), Brush, 10, 10);
-
+            
         }
         private void FrmTakeOut3_Load(object sender, EventArgs e)
         {
