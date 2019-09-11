@@ -49,6 +49,8 @@
             this.c1DockingTabPage3 = new C1.Win.C1Command.C1DockingTabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.c1SuperLabel1 = new C1.Win.C1SuperTooltip.C1SuperLabel();
+            this.c1DockingTabPage4 = new C1.Win.C1Command.C1DockingTabPage();
+            this.c1PictureBox1 = new C1.Win.C1Input.C1PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
             this.c1DockingTab1.SuspendLayout();
             this.c1DockingTabPage1.SuspendLayout();
@@ -56,6 +58,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).BeginInit();
             this.c1DockingTabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.c1DockingTabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPrint
@@ -171,6 +175,7 @@
             this.c1DockingTab1.Controls.Add(this.c1DockingTabPage1);
             this.c1DockingTab1.Controls.Add(this.c1DockingTabPage2);
             this.c1DockingTab1.Controls.Add(this.c1DockingTabPage3);
+            this.c1DockingTab1.Controls.Add(this.c1DockingTabPage4);
             this.c1DockingTab1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.c1DockingTab1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
             this.c1DockingTab1.Indent = 40;
@@ -259,6 +264,23 @@
             this.c1SuperLabel1.Text = "<table width=\"100%\">\r\n<tr><td align=\'center\'>\r\nitem 1\r\n</td></tr></table>";
             this.c1SuperLabel1.UseMnemonic = true;
             // 
+            // c1DockingTabPage4
+            // 
+            this.c1DockingTabPage4.Controls.Add(this.c1PictureBox1);
+            this.c1DockingTabPage4.Location = new System.Drawing.Point(2, 51);
+            this.c1DockingTabPage4.Name = "c1DockingTabPage4";
+            this.c1DockingTabPage4.Size = new System.Drawing.Size(796, 397);
+            this.c1DockingTabPage4.TabIndex = 3;
+            this.c1DockingTabPage4.Text = "Page4";
+            // 
+            // c1PictureBox1
+            // 
+            this.c1PictureBox1.Location = new System.Drawing.Point(74, 55);
+            this.c1PictureBox1.Name = "c1PictureBox1";
+            this.c1PictureBox1.Size = new System.Drawing.Size(190, 142);
+            this.c1PictureBox1.TabIndex = 0;
+            this.c1PictureBox1.TabStop = false;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,6 +299,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).EndInit();
             this.c1DockingTabPage3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.c1DockingTabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -303,5 +327,7 @@
         private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage3;
         private System.Windows.Forms.Panel panel1;
         private C1.Win.C1SuperTooltip.C1SuperLabel c1SuperLabel1;
+        private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage4;
+        private C1.Win.C1Input.C1PictureBox c1PictureBox1;
     }
 }

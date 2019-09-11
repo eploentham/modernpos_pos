@@ -250,6 +250,9 @@
     <Compile Include="gui\FrmToGo.Designer.cs">
       <DependentUpon>FrmToGo.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmToGo1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="gui\FrmWaiting.cs">
       <SubType>Form</SubType>
     </Compile>
