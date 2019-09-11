@@ -112,7 +112,7 @@ namespace modernpos_pos.gui
             txtHeader.Text = mposC.txtHeader;
             if (mposC.iniC.statusAppToGo.Equals("1"))
             {
-                FrmToGo frm = new FrmToGo(mposC, this);
+                FrmToGo1 frm = new FrmToGo1(mposC, this);
                 frm.WindowState = FormWindowState.Maximized;
                 frm.Show(this);
                 this.Hide();

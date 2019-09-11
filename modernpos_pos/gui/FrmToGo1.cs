@@ -2,7 +2,10 @@
 using modernpos_pos.control;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +13,7 @@ using System.Windows.Forms;
 
 namespace modernpos_pos.gui
 {
-    public class FrmToGo1:Form
+    public partial class FrmToGo1 : Form
     {
         mPOSControl mposC;
         Font fEdit, fEditB, fEdit1;
@@ -27,13 +30,23 @@ namespace modernpos_pos.gui
 
         public FrmToGo1(mPOSControl x, Form frmmain)
         {
-            mposC = x;
-            this.frmmain = frmmain;
+            InitializeComponent();
             initConfig();
         }
         private void initConfig()
         {
+            vlcControl1.Click += VlcControl1_Click;
+        }
 
+        private void VlcControl1_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+
+        }
+
+        private void FrmToGo1_Load(object sender, EventArgs e)
+        {
+            vlcControl1.Play(new FileInfo(@"C:\Users\ekapop-pc\Downloads\SSNI-547.mp4"));
         }
     }
 }
