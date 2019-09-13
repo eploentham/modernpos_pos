@@ -38,13 +38,22 @@ namespace modernpos_pos.gui
         }
         private void initConfig()
         {
-            this.vlcControl1 = new Vlc.DotNet.Forms.VlcControl();
+            vlcControl1 = new VlcControl();
+
+
+            var currentAssembly = Assembly.GetEntryAssembly();
+            var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
+            // Default installation path of VideoLAN.LibVLC.Windows
+            var libDirectory = new DirectoryInfo(Path.Combine(currentDirectory, "libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64"));
+
+            vlcControl1.BeginInit();
+            vlcControl1.VlcLibDirectory = libDirectory;
             vlcControl1.Dock = DockStyle.Fill;
+            vlcControl1.EndInit();
+            //control.Dock = DockStyle.Fill;
             this.Controls.Add(vlcControl1);
-            vlcControl1.VlcLibDirectory = new DirectoryInfo(@"C:\Users\ekapop-pc\Downloads");
-            //vlcControl1.VlcLibDirectoryNeeded += new System.EventHandler<Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs>(this.OnVlcControlNeedLibDirectory);
-            vlcControl1.Click += VlcControl1_Click;
-            this.FormClosing += FrmToGo1_FormClosing;
+            //vlcControl1.Click += VlcControl1_Click;
+            //this.FormClosing += FrmToGo1_FormClosing;
         }
 
         private void FrmToGo1_FormClosing(object sender, FormClosingEventArgs e)
@@ -86,7 +95,7 @@ namespace modernpos_pos.gui
 
         private void FrmToGo1_Load(object sender, EventArgs e)
         {
-            vlcControl1.Play(new FileInfo(@"C:\Users\ekapop-pc\Downloads\SSNI-547.mp4"));
+            vlcControl1.Play(new FileInfo(@"D:\Aladdin.2019.1080p.BluRay.DTS.x264_by SkiesIT\Aladdin.2019.1080p.BluRay.DTS.x264_by SkiesIT.mkv"));
         }
     }
 }

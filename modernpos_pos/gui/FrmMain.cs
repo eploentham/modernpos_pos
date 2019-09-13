@@ -56,7 +56,7 @@ namespace modernpos_pos.gui
         private void BtnTakeOut_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmTakeOut2 frm = new FrmTakeOut2(mposC,this);
+            FrmTakeOut3 frm = new FrmTakeOut3(mposC,this);
             frm.Show(this);
             this.Hide();
         }
@@ -112,7 +112,7 @@ namespace modernpos_pos.gui
             txtHeader.Text = mposC.txtHeader;
             if (mposC.iniC.statusAppToGo.Equals("1"))
             {
-                FrmToGo1 frm = new FrmToGo1(mposC, this);
+                FrmToGo2 frm = new FrmToGo2(mposC, this);
                 frm.WindowState = FormWindowState.Maximized;
                 frm.Show(this);
                 this.Hide();

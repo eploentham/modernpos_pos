@@ -148,5 +148,8 @@ ALTER TABLE `modern_pos`.`b_foods`
 ADD COLUMN `status_create` VARCHAR(45) NULL DEFAULT 0 COMMENT '0=default;1=สร้างรายการเอง เป็นก๋วยเตี่ยว' AFTER `status_recommend`;
 
 
+ALTER TABLE ivf_101_donor.CreditCardAccount CHANGE COLUMN CreditCardID CreditCardID INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 4;
+
+
 
 
