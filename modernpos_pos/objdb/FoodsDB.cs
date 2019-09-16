@@ -213,19 +213,20 @@ namespace modernpos_pos.objdb
                 lfoo.Add(itm1);
             }
         }
-        public String getList(String id)
+        public Foods getList(String id)
         {
             String re = "";
-            if (lfoo.Count <= 0) getlFoods();
+            Foods foo = new Foods();
+            if (lfoo.Count <= 0) getlFoods1();
             foreach (Foods sex in lfoo)
             {
                 if (sex.foods_id.Equals(id))
                 {
-                    re = sex.foods_name;
+                    foo = sex;
                     break;
                 }
             }
-            return re;
+            return foo;
         }
         private void chkNull(Foods p)
         {

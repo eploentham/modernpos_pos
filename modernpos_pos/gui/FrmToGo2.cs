@@ -199,7 +199,8 @@ namespace modernpos_pos.gui
             frmW.Show();
 
             //FrmTakeOut2 frm = new FrmTakeOut2(mposC, this);
-            FrmTakeOut3 frm = new FrmTakeOut3(mposC, this);
+            //FrmTakeOut3 frm = new FrmTakeOut3(mposC, this);
+            FrmTakeOut4 frm = new FrmTakeOut4(mposC, this);
             frm.Show(this);
             frmW.Dispose();
         }
