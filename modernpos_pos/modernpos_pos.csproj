@@ -61,6 +61,7 @@
     <Reference Include="C1.Win.C1SuperTooltip.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Themes.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1TileControl.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.TreeView.4, Version=4.0.20182.314, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="INIFileParser, Version=2.5.2.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL">
       <HintPath>..\packages\ini-parser.2.5.2\lib\net20\INIFileParser.dll</HintPath>
     </Reference>
@@ -236,6 +237,12 @@
     <Compile Include="gui\FrmTakeOut3.Designer.cs">
       <DependentUpon>FrmTakeOut3.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmTakeOut4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmTakeOut4.Designer.cs">
+      <DependentUpon>FrmTakeOut4.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmTakeOutCheck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,6 +278,12 @@
     </Compile>
     <Compile Include="gui\FrmWaiting.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\ucOrderTakeOut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="gui\ucOrderTakeOut.Designer.cs">
+      <DependentUpon>ucOrderTakeOut.cs</DependentUpon>
     </Compile>
     <Compile Include="objdb\AreaDB.cs" />
     <Compile Include="objdb\BillDB.cs" />
@@ -483,6 +496,9 @@
     <EmbeddedResource Include="gui\FrmTakeOut3.resx">
       <DependentUpon>FrmTakeOut3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmTakeOut4.resx">
+      <DependentUpon>FrmTakeOut4.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmTakeOutCheck.resx">
       <DependentUpon>FrmTakeOutCheck.cs</DependentUpon>
     </EmbeddedResource>
@@ -497,6 +513,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmToGo1.resx">
       <DependentUpon>FrmToGo1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\ucOrderTakeOut.resx">
+      <DependentUpon>ucOrderTakeOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -1194,6 +1213,9 @@
     <None Include="Resources\plus_green_100.png" />
     <None Include="Resources\minus_cir_red_100.png" />
     <None Include="Resources\recycle_bin_50.png" />
+    <None Include="Resources\minus.jpg" />
+    <None Include="Resources\plus.jpg" />
+    <None Include="Resources\Trashcan.png" />
     <Content Include="togo_banner.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

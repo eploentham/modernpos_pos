@@ -83,6 +83,8 @@ namespace modernpos_pos.gui
         private string _tip = "";
         int indexTile = 0;
         String testdebug = "debug", que="";
+
+        //UserControl1 uc1;
         public FrmTakeOut3(mPOSControl x, Form frmmain)
         {
             InitializeComponent();
@@ -1873,7 +1875,7 @@ namespace modernpos_pos.gui
             }
             if (mposC.iniC.sCOrderSplitterWidth.Equals("0"))
             {
-                //sCOrder.SplitterWidth = 0;
+                sCOrder.SplitterWidth = 0;
                 //scFoods.Collapsed = false;
             }
             else
