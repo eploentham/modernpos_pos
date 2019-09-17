@@ -285,6 +285,12 @@
     <Compile Include="gui\ucOrderTakeOut.Designer.cs">
       <DependentUpon>ucOrderTakeOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\ucOrderTakeOut1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="gui\ucOrderTakeOut1.Designer.cs">
+      <DependentUpon>ucOrderTakeOut1.cs</DependentUpon>
+    </Compile>
     <Compile Include="objdb\AreaDB.cs" />
     <Compile Include="objdb\BillDB.cs" />
     <Compile Include="objdb\BillDetailDB.cs" />
@@ -516,6 +522,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\ucOrderTakeOut.resx">
       <DependentUpon>ucOrderTakeOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\ucOrderTakeOut1.resx">
+      <DependentUpon>ucOrderTakeOut1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

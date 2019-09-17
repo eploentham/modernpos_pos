@@ -364,7 +364,7 @@ namespace modernpos_pos.gui
             {
                 //String[] ext = name.Split('#');
                 int row1 = tplOrd.RowCount++;
-                ucOrderTakeOut ucto = new ucOrderTakeOut(mposC, row1.ToString(), id, name, qty, price);
+                ucOrderTakeOut1 ucto = new ucOrderTakeOut1(mposC, row1.ToString(), id, qty);
                 //tplOrd.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                 tplOrd.Controls.Add(ucto, 0, row1);
 

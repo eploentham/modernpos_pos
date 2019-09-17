@@ -155,6 +155,26 @@ namespace modernpos_pos.objdb
             }
             return lfoo1;
         }
+        public void getlFoods2()
+        {
+            lfoo.Clear();
+            DataTable dt = new DataTable();
+            dt = selectAll();
+            foreach (DataRow row in dt.Rows)
+            {
+                Foods itm1 = new Foods();
+                itm1.foods_id = row[foo.foods_id].ToString();
+                itm1.foods_name = row[foo.foods_name].ToString();
+                itm1.foods_price = row[foo.foods_price].ToString();
+                itm1.printer_name = row[foo.printer_name].ToString();
+                itm1.foods_code = row[foo.foods_code].ToString();
+                itm1.foods_type_id = row[foo.foods_type_id].ToString();
+                itm1.foods_cat_id = row[foo.foods_cat_id].ToString();
+                itm1.filename = row[foo.filename].ToString();
+                itm1.status_recommend = row[foo.status_recommend].ToString();
+                lfoo.Add(itm1);
+            }
+        }
         public List<Foods> getlFoods1()
         {
             List<Foods> lfoo1 = new List<Foods>();
@@ -217,7 +237,7 @@ namespace modernpos_pos.objdb
         {
             String re = "";
             Foods foo = new Foods();
-            if (lfoo.Count <= 0) getlFoods1();
+            if (lfoo.Count <= 0) getlFoods2();
             foreach (Foods sex in lfoo)
             {
                 if (sex.foods_id.Equals(id))
