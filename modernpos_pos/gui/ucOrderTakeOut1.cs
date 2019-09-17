@@ -34,15 +34,19 @@ namespace modernpos_pos.gui
         List<FoodsSpecial> lfoos;
         TableLayoutPanel tpl;
         int cnt = 0;
-        public ucOrderTakeOut1(mPOSControl x, String row, String fooid, String qty)
+        Order1 ord;
+        FrmTakeOut4 frmtakeout4;
+        public ucOrderTakeOut1(mPOSControl x, String row, String fooid, String qty,ref Order1 ord, FrmTakeOut4 frmtakeout4)
         {
             InitializeComponent();
             mposC = x;
             //fooName = foodsname;
             this.qty = qty;
-            this.price = price;
+            //this.price = price;
             this.row = row;
             this.fooid = fooid;
+            this.ord = ord;
+            this.frmtakeout4 = frmtakeout4;
             initConfig();
         }
         private void initConfig()
@@ -66,6 +70,7 @@ namespace modernpos_pos.gui
             initTlp();
 
             setControl();
+            sizeNormal = this.Size;
             //PicDesc_Click(null, null);
         }
         private void initTlp()
@@ -92,6 +97,7 @@ namespace modernpos_pos.gui
         {
             //throw new NotImplementedException();
             this.Dispose();
+            setBill();
         }
 
         private void PicDesc_Click(object sender, EventArgs e)
@@ -99,19 +105,35 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             if (flagExplan)
             {
-                Size size1 = new Size();
-                size1 = sizeNormal;
-                size1.Height = sizeNormal.Height + hei1 + hei2 + hei3 + hei4 + heiselect;
-                sizeNormal = size1;
-                this.Height = size1.Height;
+                //int heisum = 0;
+                //for (int i = 0; i < tpl.RowCount - 1; i++)
+                //{
+                //    Panel pn = new Panel();
+                //    pn = (Panel)tpl.Controls["pnCri" + i];
+                //    heisum += pn.Height;
+                //}
+
+                //Size size1 = new Size();
+                //size1 = sizeNormal;
+                //size1.Height = sizeNormal.Height + heisum + (tpl.RowCount * 5);
+                ////sizeNormal = size1;
+                this.Height = sizeNormal.Height;
                 flagExplan = false;
             }
             else
             {
+                int heisum = 0;
                 Size size1 = new Size();
                 size1 = sizeNormal;
-                size1.Height = sizeNormal.Height - hei1 - hei2 - hei3 - hei4 - heiselect;
-                sizeNormal = size1;
+                for(int i = 0; i < tpl.RowCount-1; i++)
+                {
+                    Panel pn = new Panel();
+                    pn = (Panel)tpl.Controls["pnCri" + i];
+                    heisum += pn.Height;
+                }
+
+                size1.Height = sizeNormal.Height - heisum - (tpl.RowCount * 5);
+                //sizeNormal = size1;
                 this.Height = size1.Height;
                 flagExplan = true;
             }
@@ -127,6 +149,7 @@ namespace modernpos_pos.gui
                 lbQty.Value = chk.ToString();
                 qty = chk.ToString();
             }
+            setPrice();
         }
 
         private void PicPlus_Click(object sender, EventArgs e)
@@ -139,6 +162,7 @@ namespace modernpos_pos.gui
                 lbQty.Value = chk.ToString();
                 qty = chk.ToString();
             }
+            setPrice();
         }
 
         private void setControl()
@@ -149,10 +173,19 @@ namespace modernpos_pos.gui
             foreach(FoodsTopping foot in lfoot)
             {
                 //lbFoot1.Value = foot.foods_topping_name+" "+foot.price;
-                initTopping(foot.foods_topping_name + " " + foot.price);
+                initTopping(foot.foods_topping_name + " " + foot.price, foot.price, mposC.lcolorTopping[cnt]);
                 cnt++;
             }
+            lfoos = new List<FoodsSpecial>();
             lfoos = mposC.mposDB.foosDB.getlFooSpecByFooId(foo.foods_id);
+            int i1 = 0;
+            foreach (FoodsSpecial foot in lfoos)
+            {
+                //lbFoot1.Value = foot.foods_topping_name+" "+foot.price;
+                initSpecial(foot.foods_spec_name, mposC.lcolorSpec[i1]);
+                i1++;
+                cnt++;
+            }
 
             lbName.Value = foo.foods_name;
             lbQty.Value = qty;
@@ -168,9 +201,146 @@ namespace modernpos_pos.gui
                 hei += ctn.Height;
             }
             //Padding padding = this.Padding;
-            this.Height = phHead.Height + hei;
+            this.Height = phHead.Height + hei + (cnt*5)+3;
+            sizeNormal = this.Size;
         }
-        private void initTopping(String name)
+        private void setPrice()
+        {
+            decimal sum = 0, fooprice=0, fooqty=0, foosum=0;
+            if(decimal.TryParse(foo.foods_price, out fooprice))
+            {
+                if (decimal.TryParse(lbQty.Text, out fooqty))
+                {
+            //        foosum = fooprice * fooqty;
+                }
+            }
+            for (int i = 0; i < lfoot.Count; i++)
+            {
+                decimal price = 0;
+                int qty = 0;
+                String name = "", cnt = "";
+                Panel pn = (Panel)tpl.Controls["pnCri" + i];
+                C1Label lbQtyTopping = new C1Label();
+                C1Label lbPriceTopping = new C1Label();
+                cnt = pn.Name.Replace("pnCri", "");
+                lbQtyTopping = (C1Label)pn.Controls["lbQtyTopping" + cnt];
+                lbPriceTopping = (C1Label)pn.Controls["lbPriceTopping" + cnt];
+                if (int.TryParse(lbQtyTopping.Text, out qty))
+                {
+                    if(decimal.TryParse(lbPriceTopping.Text, out price))
+                    {
+                        sum += (price * qty);
+                    }
+                }
+                
+            }
+            foosum = (fooprice + sum) * fooqty;
+            //sum = foosum + sum;
+            lbPrice.Value = foosum.ToString("#,###.00");
+            setBill();
+        }
+        private void setBill()
+        {
+            frmtakeout4.calBill();
+        }
+        private void initSpecial(String name, Color cor)
+        {
+            Panel pnCri1 = new Panel();
+            C1PictureBox picSelect = new C1PictureBox();
+            C1Label lbFoot1 = new C1Label();
+            C1Label lbFoot2 = new C1Label();
+
+            pnCri1.BackColor = Color.FromArgb(255, 209, 81);
+            pnCri1.Dock = System.Windows.Forms.DockStyle.Top;
+            //pnCri1.Location = new System.Drawing.Point(0, 85);
+            pnCri1.Size = new System.Drawing.Size(390, 47);
+            pnCri1.Name = "pnCri" + cnt;
+            pnCri1.BorderStyle = BorderStyle.FixedSingle;
+            pnCri1.BackColor = cor;
+            pnCri1.Click += PicSpecSelect_Click;
+            picSelect.Image = global::modernpos_pos.Properties.Resources.circle_png_circle_icon_1600;
+            picSelect.Location = new System.Drawing.Point(4, 8);
+            picSelect.Name = "picSelect" + cnt;
+            picSelect.Size = new System.Drawing.Size(32, 32);
+            picSelect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            picSelect.TabStop = false;
+            picSelect.Click += PicSpecSelect_Click;
+            lbFoot1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(209)))), ((int)(((byte)(81)))));
+            lbFoot1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            lbFoot1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lbFoot1.Location = new System.Drawing.Point(40, 8);
+            lbFoot1.Name = "lbFoot1" + cnt;
+            lbFoot1.Size = new System.Drawing.Size(232, 31);
+            lbFoot1.TabIndex = 6;
+            lbFoot1.Tag = null;
+            lbFoot1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lbFoot1.Value = name;
+            lbFoot1.BackColor = cor;
+            lbFoot1.Click += PicSpecSelect_Click;
+            lbFoot2.Name = "lbFoot12" + cnt;
+            lbFoot2.Hide();
+
+            pnCri1.Controls.Add(picSelect);
+            pnCri1.Controls.Add(lbFoot1);
+            pnCri1.Controls.Add(lbFoot2);
+            tpl.Controls.Add(pnCri1, 0, tpl.RowCount++);
+        }
+
+        private void PicSpecSelect_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            String name = "", cnt="";
+            C1Label lbFoot1 = new C1Label();
+            C1Label lbFoot12 = new C1Label();
+            C1PictureBox picSelect = new C1PictureBox();
+            if (sender is C1Label)
+            {
+                lbFoot1 = (C1Label)sender;
+                cnt = lbFoot1.Name.Replace("lbFoot1", "");
+                Panel pn = new Panel();
+                pn = (Panel)tpl.Controls["pnCri" + cnt];
+                picSelect = (C1PictureBox)pn.Controls["picSelect" + cnt];
+                lbFoot12 = (C1Label)pn.Controls["lbFoot12" + cnt];
+            }
+            else if (sender is C1PictureBox)
+            {
+                picSelect = (C1PictureBox)sender;
+                cnt = picSelect.Name.Replace("picSelect", "");
+                lbFoot1 = new C1Label();
+                Panel pn = new Panel();
+                pn = (Panel)tpl.Controls["pnCri" + cnt];
+                lbFoot12 = (C1Label)pn.Controls["lbFoot12" + cnt];
+                
+            }
+            else if(sender is Panel)
+            {
+                Panel pn = (Panel)sender;
+                cnt = pn.Name.Replace("pnCri", "");
+                lbFoot1 = new C1Label();
+                lbFoot1 = (C1Label)pn.Controls["lbFoot1" + cnt];
+                lbFoot12 = (C1Label)pn.Controls["lbFoot12" + cnt];
+                picSelect = (C1PictureBox)pn.Controls["picSelect" + cnt];
+            }
+            if (lbFoot12.Text.Equals("NO"))
+            {
+                picSelect.Image = global::modernpos_pos.Properties.Resources.images;
+                //ord.foods_name = ord.foods_name + " 11111111";
+                lbFoot12.Value = "YES";
+            }
+            else if (lbFoot12.Text.Equals("YES"))
+            {
+                picSelect.Image = global::modernpos_pos.Properties.Resources.circle_png_circle_icon_1600;
+                //ord.foods_name = "";
+                lbFoot12.Value = "NO";
+            }
+            else
+            {
+                picSelect.Image = global::modernpos_pos.Properties.Resources.images;
+                lbFoot12.Value = "YES";
+            }
+        }
+
+        private void initTopping(String name, String price, Color cor)
         {
             Panel pnCri1 = new Panel();
             C1PictureBox picTrah = new C1PictureBox();
@@ -178,6 +348,7 @@ namespace modernpos_pos.gui
             C1Label lbQty = new C1Label();
             C1PictureBox picPlus = new C1PictureBox();
             C1Label lbFoot1 = new C1Label();
+            C1Label lbPrice = new C1Label();
             //pnCri1.BackColor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsBackColor);
             pnCri1.BackColor = Color.FromArgb(255, 209, 81);
             pnCri1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -185,17 +356,17 @@ namespace modernpos_pos.gui
             pnCri1.Size = new System.Drawing.Size(390, 47);
             pnCri1.Name = "pnCri"+cnt;
             pnCri1.BorderStyle = BorderStyle.FixedSingle;
-
+            pnCri1.BackColor = cor;
 
             picTrah.Image = global::modernpos_pos.Properties.Resources.Trashcan;
             picTrah.Location = new System.Drawing.Point(360, 8);
-            picTrah.Name = "picTrah";
+            picTrah.Name = "picTrahTopping" + cnt;
             picTrah.Size = new System.Drawing.Size(32, 32);
             picTrah.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             picTrah.TabStop = false;
             picMinus.Image = global::modernpos_pos.Properties.Resources.minus_red;
             picMinus.Location = new System.Drawing.Point(241, 8);
-            picMinus.Name = "picMinus";
+            picMinus.Name = "picMinusTopping" + cnt;
             picMinus.Size = new System.Drawing.Size(32, 32);
             picMinus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             picMinus.TabIndex = 10;
@@ -204,14 +375,14 @@ namespace modernpos_pos.gui
             lbQty.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lbQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lbQty.Location = new System.Drawing.Point(276, 8);
-            lbQty.Name = "c1Label2";
+            lbQty.Name = "lbQtyTopping" + cnt;
             lbQty.Size = new System.Drawing.Size(49, 32);
             lbQty.TabIndex = 12;
             lbQty.Tag = null;
             lbQty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             picPlus.Image = global::modernpos_pos.Properties.Resources.plus_green_100;
             picPlus.Location = new System.Drawing.Point(327, 8);
-            picPlus.Name = "c1PictureBox2";
+            picPlus.Name = "picPlusTopping" + cnt;
             picPlus.Size = new System.Drawing.Size(32, 32);
             picPlus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             picPlus.TabIndex = 11;
@@ -220,20 +391,83 @@ namespace modernpos_pos.gui
             lbFoot1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lbFoot1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lbFoot1.Location = new System.Drawing.Point(4, 8);
-            lbFoot1.Name = "lbFoot1";
+            lbFoot1.Name = "lbFootTopping" + cnt;
             lbFoot1.Size = new System.Drawing.Size(232, 31);
             lbFoot1.TabIndex = 6;
             lbFoot1.Tag = null;
             lbFoot1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lbFoot1.Value = name;
+            lbFoot1.BackColor = cor;
+            picMinus.Click += PicMinusTopping_Click1;
+            picPlus.Click += PicPlusTopping_Click1;
+            picTrah.Click += PicTrahTopping_Click;
+            lbPrice.Name = "lbPriceTopping" + cnt;
+            lbPrice.Visible = false;
+            lbPrice.Value = price;
 
             pnCri1.Controls.Add(picTrah);
             pnCri1.Controls.Add(picMinus);
             pnCri1.Controls.Add(lbQty);
             pnCri1.Controls.Add(picPlus);
-
+            pnCri1.Controls.Add(lbFoot1);
+            pnCri1.Controls.Add(lbPrice);
             //Padding padding = pnCri1.Padding;
             tpl.Controls.Add(pnCri1, 0, tpl.RowCount++);
+        }
+
+        private void PicTrahTopping_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            String name = "", cnt = "";
+            Panel pn = new Panel();
+            C1PictureBox pic = (C1PictureBox)sender;
+            cnt = pic.Name.Replace("picTrahTopping", "");
+            pn = (Panel)tpl.Controls["pnCri" + cnt];
+
+            pn.Dispose();
+            setPrice();
+        }
+
+        private void PicPlusTopping_Click1(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            String name = "", cnt = "";
+            Panel pn = new Panel();
+            C1Label lbQtyTopping = new C1Label();
+            C1PictureBox pic = (C1PictureBox)sender;
+            cnt = pic.Name.Replace("picPlusTopping", "");
+            pn = (Panel)tpl.Controls["pnCri" + cnt];
+            lbQtyTopping = (C1Label)pn.Controls["lbQtyTopping" + cnt];
+            if (lbQtyTopping.Text.Equals("")) lbQtyTopping.Value = "0";
+            int chk = 0;
+            if (int.TryParse(lbQtyTopping.Text, out chk))
+            {
+                chk++;
+                lbQtyTopping.Value = chk.ToString();
+                //qty = chk.ToString();
+            }
+            setPrice();
+        }
+
+        private void PicMinusTopping_Click1(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            String name = "", cnt = "";
+            Panel pn = new Panel();
+            C1Label lbQtyTopping = new C1Label();
+            C1PictureBox pic = (C1PictureBox)sender;
+            cnt = pic.Name.Replace("picMinusTopping", "");
+            pn = (Panel)tpl.Controls["pnCri" + cnt];
+            lbQtyTopping = (C1Label)pn.Controls["lbQtyTopping" + cnt];
+            if (lbQtyTopping.Text.Equals("")) return;
+            int chk = 0;
+            if (int.TryParse(lbQtyTopping.Text, out chk))
+            {
+                chk--;
+                lbQtyTopping.Value = chk.ToString();
+                //qty = chk.ToString();
+            }
+            setPrice();
         }
     }
 }

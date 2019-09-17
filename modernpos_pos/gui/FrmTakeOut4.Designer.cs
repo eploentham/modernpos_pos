@@ -185,7 +185,7 @@
             this.scFoods.Location = new System.Drawing.Point(0, 21);
             this.scFoods.Name = "scFoods";
             this.scFoods.Size = new System.Drawing.Size(793, 727);
-            this.scFoods.SizeRatio = 57.048D;
+            this.scFoods.SizeRatio = 57.061D;
             this.scFoods.TabIndex = 0;
             this.scFoods.Text = "Foods";
             this.scFoods.Width = 800;

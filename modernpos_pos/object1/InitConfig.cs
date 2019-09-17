@@ -24,5 +24,7 @@ namespace modernpos_pos.object1
         public String VNEip = "", VNEwebapi = "", statusShowListBox1="", takeouttilhorizontalsize="", takeouttilverticalsize="", pnOrderborderstyle="", TileFoodsOrientation="", TileFoodsBackColor="", statuspaytoclose="";
         public String statushidenavigator = "", statusHide="", statusDrinkHide="", tabFoodsAlign="", tabFoodsAreaSpacing="",tabFoodsIndent="", tabFoodsSpacing="", tabFoodsLook = "", tabFoodsPaddingHeight="", tabFoodsPaddingWidth="", tabFoodsAreaColor="", tabFoodsBackGroundColor = "", tabFoodsForeGroundColor = "", tabFoodsCustom="";
         public String VNEtimer = "", TileFoodsCatOrientation="", TileFoodstakeouttilverticalsize="", TileFoodstakeouttilhorizontalsize="", VNEopName="";
+        public String lcuctakeouttopping1 = "", lcuctakeouttopping2 = "", lcuctakeouttopping3 = "", lcuctakeouttopping4 = "", lcuctakeouttopping5 = "", lcuctakeouttopping6 = "", lcuctakeouttopping7 = "", lcuctakeouttopping8 = "", lcuctakeouttopping9 = "", lcuctakeouttopping10 = "";
+        public String lcuctakeoutspecial1 = "", lcuctakeoutspecial2 = "", lcuctakeoutspecial3 = "", lcuctakeoutspecial4 = "", lcuctakeoutspecial5 = "", lcuctakeoutspecial6 = "", lcuctakeoutspecial7 = "", lcuctakeoutspecial8 = "", lcuctakeoutspecial9 = "", lcuctakeoutspecial10 = "";
     }
 }

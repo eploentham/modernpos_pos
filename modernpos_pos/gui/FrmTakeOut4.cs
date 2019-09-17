@@ -1,5 +1,6 @@
 ﻿using C1.Win.C1Command;
 using C1.Win.C1FlexGrid;
+using C1.Win.C1Input;
 using C1.Win.C1SuperTooltip;
 using C1.Win.C1Themes;
 using C1.Win.C1Tile;
@@ -355,6 +356,7 @@ namespace modernpos_pos.gui
                 //    backButton.Enabled = true;
                 //    this.Focus();
                 //}
+                calBill();
             }
         }
         private void setTplOrder(String id, String name, String price, String qty, String remark, String printer)
@@ -364,10 +366,6 @@ namespace modernpos_pos.gui
             {
                 //String[] ext = name.Split('#');
                 int row1 = tplOrd.RowCount++;
-                ucOrderTakeOut1 ucto = new ucOrderTakeOut1(mposC, row1.ToString(), id, qty);
-                //tplOrd.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-                tplOrd.Controls.Add(ucto, 0, row1);
-
                 Order1 ord1 = new Order1();
                 //Row row = grfOrder.Rows.Add();
                 //row[colOrdFooName] = name;
@@ -398,6 +396,10 @@ namespace modernpos_pos.gui
                 ord1.topping = "";
                 ord1.special = "";
                 lOrd.Add(ord1);
+                
+                ucOrderTakeOut1 ucto = new ucOrderTakeOut1(mposC, row1.ToString(), id, qty,ref ord1, this);
+                //tplOrd.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                tplOrd.Controls.Add(ucto, 0, row1);
                 //UpdateTotals();
             }
         }
@@ -461,6 +463,25 @@ namespace modernpos_pos.gui
             //{
             //    LoadFoods(false, i, dtCat.Rows[i]["foods_cat_id"].ToString());
             //}
+        }
+        public void calBill()
+        {
+            decimal sumprice = 0;
+            for(int i=0;i< tplOrd.RowCount-1; i++)
+            {
+                decimal price = 0;
+                ucOrderTakeOut1 ucto;
+                ucto = (ucOrderTakeOut1)tplOrd.GetControlFromPosition(0, i+1);
+                if (ucto == null) continue;
+                C1Label lbPrice = new C1Label();
+                Panel pn = (Panel)ucto.Controls["phHead"];
+                lbPrice = (C1Label)pn.Controls["lbPrice"];
+                if(decimal.TryParse(lbPrice.Text, out price))
+                {
+                    sumprice += price;
+                }
+            }
+            btnPay.Text = sumprice.ToString("#,###.00");
         }
         private void initTlpOrder()
         {
@@ -1504,6 +1525,10 @@ namespace modernpos_pos.gui
             g.DrawString(stringToPrint, new Font("arial", 16), Brush, 10, 10);
 
         }
+        public void setBtnPay(String pay)
+        {
+            btnPay.Text = pay;
+        }
         private void FrmTakeOut4_Load(object sender, EventArgs e)
         {
             flagShowTitle = false;
@@ -1538,6 +1563,11 @@ namespace modernpos_pos.gui
                 scFoodsCat.Height = 260;
             }
             pnOrdOrder.Height = this.Height - pnOrdHead.Height -120;
+            pnOrdOrder.Width = 420;
+            scFoods.Width = this.Width - 440;
+            btnPay.Width = 420;
+            btnPay.TextAlign = ContentAlignment.MiddleCenter;
+            btnPay.Font = fgrd;
             //pnOrdOrder.Height = this.Height - pnOrdHead.Height - pnOrdBill.Height;
         }
     }

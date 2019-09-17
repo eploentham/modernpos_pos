@@ -62,6 +62,8 @@ namespace modernpos_pos.control
         public Boolean ftpUsePassive = false;
 
         public Restaurant res;
+        public List<Color> lcolorTopping;
+        public List<Color> lcolorSpec;
         public mPOSControl()
         {
             initConfig();
@@ -89,6 +91,7 @@ namespace modernpos_pos.control
             res = new Restaurant();
 
             GetConfig();
+            setListColor();
             conn = new ConnectDB(iniC);
             //MessageBox.Show("mPOSControl before ftpC", "");
             ftpC = new FtpClient(iniC.hostFTP, iniC.userFTP, iniC.passFTP, ftpUsePassive);
@@ -108,7 +111,32 @@ namespace modernpos_pos.control
             {
                 txtHeader = s.ReadToEnd();
             }
-    }
+        }
+        private void setListColor()
+        {
+            lcolorTopping = new List<Color>();
+            lcolorTopping.Add(ColorTranslator.FromHtml(iniC.lcuctakeouttopping1));
+            lcolorTopping.Add(ColorTranslator.FromHtml(iniC.lcuctakeouttopping2));
+            lcolorTopping.Add(ColorTranslator.FromHtml(iniC.lcuctakeouttopping3));
+            lcolorTopping.Add(ColorTranslator.FromHtml(iniC.lcuctakeouttopping4));
+            lcolorTopping.Add(ColorTranslator.FromHtml(iniC.lcuctakeouttopping5));
+            lcolorTopping.Add(ColorTranslator.FromHtml(iniC.lcuctakeouttopping6));
+            lcolorTopping.Add(ColorTranslator.FromHtml(iniC.lcuctakeouttopping7));
+            lcolorTopping.Add(ColorTranslator.FromHtml(iniC.lcuctakeouttopping8));
+            lcolorTopping.Add(ColorTranslator.FromHtml(iniC.lcuctakeouttopping9));
+            lcolorTopping.Add(ColorTranslator.FromHtml(iniC.lcuctakeouttopping10));
+            lcolorSpec = new List<Color>();
+            lcolorSpec.Add(ColorTranslator.FromHtml(iniC.lcuctakeoutspecial1));
+            lcolorSpec.Add(ColorTranslator.FromHtml(iniC.lcuctakeoutspecial2));
+            lcolorSpec.Add(ColorTranslator.FromHtml(iniC.lcuctakeoutspecial3));
+            lcolorSpec.Add(ColorTranslator.FromHtml(iniC.lcuctakeoutspecial4));
+            lcolorSpec.Add(ColorTranslator.FromHtml(iniC.lcuctakeoutspecial5));
+            lcolorSpec.Add(ColorTranslator.FromHtml(iniC.lcuctakeoutspecial6));
+            lcolorSpec.Add(ColorTranslator.FromHtml(iniC.lcuctakeoutspecial7));
+            lcolorSpec.Add(ColorTranslator.FromHtml(iniC.lcuctakeoutspecial8));
+            lcolorSpec.Add(ColorTranslator.FromHtml(iniC.lcuctakeoutspecial9));
+            lcolorSpec.Add(ColorTranslator.FromHtml(iniC.lcuctakeoutspecial10));
+        }
         public static string GetCurrentExecutingDirectory(System.Reflection.Assembly assembly)
         {
             string filePath = new Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath;
@@ -219,6 +247,26 @@ namespace modernpos_pos.control
             iniC.sCFoodsMainSplitterWidth = iniF.getIni("app", "sCFoodsMainSplitterWidth");
             iniC.sCOrderSplitterWidth = iniF.getIni("app", "sCOrderSplitterWidth");
             iniC.TileCategoryColor = iniF.getIni("app", "TileCategoryColor");
+            iniC.lcuctakeouttopping1 = iniF.getIni("app", "lcuctakeouttopping1");
+            iniC.lcuctakeouttopping2 = iniF.getIni("app", "lcuctakeouttopping2");
+            iniC.lcuctakeouttopping3 = iniF.getIni("app", "lcuctakeouttopping3");
+            iniC.lcuctakeouttopping4 = iniF.getIni("app", "lcuctakeouttopping4");
+            iniC.lcuctakeouttopping5 = iniF.getIni("app", "lcuctakeouttopping5");
+            iniC.lcuctakeouttopping6 = iniF.getIni("app", "lcuctakeouttopping6");
+            iniC.lcuctakeouttopping7 = iniF.getIni("app", "lcuctakeouttopping7");
+            iniC.lcuctakeouttopping8 = iniF.getIni("app", "lcuctakeouttopping8");
+            iniC.lcuctakeouttopping9 = iniF.getIni("app", "lcuctakeouttopping9");
+            iniC.lcuctakeouttopping10 = iniF.getIni("app", "lcuctakeouttopping10");
+            iniC.lcuctakeoutspecial1 = iniF.getIni("app", "lcuctakeoutspecial1");
+            iniC.lcuctakeoutspecial2 = iniF.getIni("app", "lcuctakeoutspecial2");
+            iniC.lcuctakeoutspecial3 = iniF.getIni("app", "lcuctakeoutspecial3");
+            iniC.lcuctakeoutspecial4 = iniF.getIni("app", "lcuctakeoutspecial4");
+            iniC.lcuctakeoutspecial5 = iniF.getIni("app", "lcuctakeoutspecial5");
+            iniC.lcuctakeoutspecial6= iniF.getIni("app", "lcuctakeoutspecial6");
+            iniC.lcuctakeoutspecial7 = iniF.getIni("app", "lcuctakeoutspecial7");
+            iniC.lcuctakeoutspecial8 = iniF.getIni("app", "lcuctakeoutspecial8");
+            iniC.lcuctakeoutspecial9 = iniF.getIni("app", "lcuctakeoutspecial9");
+            iniC.lcuctakeoutspecial10 = iniF.getIni("app", "lcuctakeoutspecial10");
 
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
 

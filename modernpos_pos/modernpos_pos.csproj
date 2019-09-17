@@ -1225,6 +1225,8 @@
     <None Include="Resources\minus.jpg" />
     <None Include="Resources\plus.jpg" />
     <None Include="Resources\Trashcan.png" />
+    <None Include="Resources\close1.png" />
+    <None Include="Resources\circle-png-circle-icon-1600.png" />
     <Content Include="togo_banner.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
