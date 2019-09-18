@@ -26,5 +26,9 @@ namespace modernpos_pos.object1
         public String VNEtimer = "", TileFoodsCatOrientation="", TileFoodstakeouttilverticalsize="", TileFoodstakeouttilhorizontalsize="", VNEopName="";
         public String lcuctakeouttopping1 = "", lcuctakeouttopping2 = "", lcuctakeouttopping3 = "", lcuctakeouttopping4 = "", lcuctakeouttopping5 = "", lcuctakeouttopping6 = "", lcuctakeouttopping7 = "", lcuctakeouttopping8 = "", lcuctakeouttopping9 = "", lcuctakeouttopping10 = "";
         public String lcuctakeoutspecial1 = "", lcuctakeoutspecial2 = "", lcuctakeoutspecial3 = "", lcuctakeoutspecial4 = "", lcuctakeoutspecial5 = "", lcuctakeoutspecial6 = "", lcuctakeoutspecial7 = "", lcuctakeoutspecial8 = "", lcuctakeoutspecial9 = "", lcuctakeoutspecial10 = "";
+
+        public String noodlemakepn1t = "", noodlemakepn1g = "",noodlemakepn1l = "", noodlemakepn2t = "", noodlemakepn2g = "", noodlemakepn2l = "", noodlemakepn3t = "", noodlemakepn3g = "", noodlemakepn3l = "";
+        public String noodlemakepn4t = "", noodlemakepn4g = "", noodlemakepn4l = "", noodlemakepn5t = "", noodlemakepn5g = "", noodlemakepn5l = "";
+        public String noodlemakepn6t = "", noodlemakepn6g = "", noodlemakepn6l = "", noodlemakepn7t = "", noodlemakepn7g = "", noodlemakepn7l = "", noodlemakepn8t = "", noodlemakepn8g = "", noodlemakepn8l = "";
     }
 }

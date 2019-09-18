@@ -267,6 +267,30 @@ namespace modernpos_pos.control
             iniC.lcuctakeoutspecial8 = iniF.getIni("app", "lcuctakeoutspecial8");
             iniC.lcuctakeoutspecial9 = iniF.getIni("app", "lcuctakeoutspecial9");
             iniC.lcuctakeoutspecial10 = iniF.getIni("app", "lcuctakeoutspecial10");
+            iniC.noodlemakepn1t = iniF.getIni("app", "noodlemakepn1t");
+            iniC.noodlemakepn1g = iniF.getIni("app", "noodlemakepn1g");
+            iniC.noodlemakepn1l = iniF.getIni("app", "noodlemakepn1l");
+            iniC.noodlemakepn2t = iniF.getIni("app", "noodlemakepn2t");
+            iniC.noodlemakepn2g = iniF.getIni("app", "noodlemakepn2g");
+            iniC.noodlemakepn2l = iniF.getIni("app", "noodlemakepn2l");
+            iniC.noodlemakepn3t = iniF.getIni("app", "noodlemakepn3t");
+            iniC.noodlemakepn3g = iniF.getIni("app", "noodlemakepn3g");
+            iniC.noodlemakepn3l = iniF.getIni("app", "noodlemakepn3l");
+            iniC.noodlemakepn4t = iniF.getIni("app", "noodlemakepn4t");
+            iniC.noodlemakepn4g = iniF.getIni("app", "noodlemakepn4g");
+            iniC.noodlemakepn4l = iniF.getIni("app", "noodlemakepn4l");
+            iniC.noodlemakepn5t = iniF.getIni("app", "noodlemakepn5t");
+            iniC.noodlemakepn5g = iniF.getIni("app", "noodlemakepn5g");
+            iniC.noodlemakepn5l = iniF.getIni("app", "noodlemakepn5l");
+            iniC.noodlemakepn6t = iniF.getIni("app", "noodlemakepn6t");
+            iniC.noodlemakepn6g = iniF.getIni("app", "noodlemakepn6g");
+            iniC.noodlemakepn6l = iniF.getIni("app", "noodlemakepn6l");
+            iniC.noodlemakepn7t = iniF.getIni("app", "noodlemakepn7t");
+            iniC.noodlemakepn7g = iniF.getIni("app", "noodlemakepn7g");
+            iniC.noodlemakepn7l = iniF.getIni("app", "noodlemakepn7l");
+            iniC.noodlemakepn8t = iniF.getIni("app", "noodlemakepn8t");
+            iniC.noodlemakepn8g = iniF.getIni("app", "noodlemakepn8g");
+            iniC.noodlemakepn8l = iniF.getIni("app", "noodlemakepn8l");
 
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
 

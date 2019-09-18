@@ -32,11 +32,13 @@ namespace modernpos_pos.gui
         FoodsSpecial foos;
         List<FoodsTopping> lfoot;
         List<FoodsSpecial> lfoos;
+        List<OrderTopping> lordt;
+        List<OrderSpecial> lords;
         TableLayoutPanel tpl;
         int cnt = 0;
         Order1 ord;
         FrmTakeOut4 frmtakeout4;
-        public ucOrderTakeOut1(mPOSControl x, String row, String fooid, String qty,ref Order1 ord, FrmTakeOut4 frmtakeout4)
+        public ucOrderTakeOut1(mPOSControl x, String row, String fooid, String qty,ref Order1 ord, ref List<OrderSpecial> lords, ref List<OrderTopping> lordt, FrmTakeOut4 frmtakeout4)
         {
             InitializeComponent();
             mposC = x;
@@ -47,6 +49,8 @@ namespace modernpos_pos.gui
             this.fooid = fooid;
             this.ord = ord;
             this.frmtakeout4 = frmtakeout4;
+            this.lordt = lordt;
+            this.lords = lords;
             initConfig();
         }
         private void initConfig()
@@ -169,11 +173,34 @@ namespace modernpos_pos.gui
             lfoot = new List<FoodsTopping>();
             foo = mposC.mposDB.fooDB.getList(fooid);
             lfoot = mposC.mposDB.footpDB.getlFooSpecByFooId(foo.foods_id);
+            int i2 = 0;
             foreach(FoodsTopping foot in lfoot)
             {
                 //lbFoot1.Value = foot.foods_topping_name+" "+foot.price;
-                initTopping(foot.foods_topping_name + " " + foot.price, foot.price, mposC.lcolorTopping[cnt]);
+                initTopping(foot.foods_topping_name + " " + foot.price, foot.price, mposC.lcolorTopping[cnt], foot.foods_topping_id);
+                OrderTopping ordt = new OrderTopping();
+                ordt.order_topping_id = "";
+                ordt.order_id = "";
+                ordt.foods_topping_id = foot.foods_topping_id;
+                ordt.active = "1";
+                ordt.remark = "";
+                ordt.row1 = i2.ToString();
+                ordt.date_cancel = "";
+                ordt.date_create = "";
+                ordt.date_modi = "";
+                ordt.user_cancel = "";
+                ordt.user_create = "";
+                ordt.user_modi = "";
+                ordt.host_id = "";
+                ordt.branch_id = "";
+                ordt.device_id = "";
+                ordt.qty = "";
+                ordt.price = foot.price;
+                ordt.name = foot.foods_topping_name;
+                ordt.foods_id = foot.foods_id;
+                lordt.Add(ordt);
                 cnt++;
+                i2++;
             }
             lfoos = new List<FoodsSpecial>();
             lfoos = mposC.mposDB.foosDB.getlFooSpecByFooId(foo.foods_id);
@@ -181,7 +208,26 @@ namespace modernpos_pos.gui
             foreach (FoodsSpecial foot in lfoos)
             {
                 //lbFoot1.Value = foot.foods_topping_name+" "+foot.price;
-                initSpecial(foot.foods_spec_name, mposC.lcolorSpec[i1]);
+                initSpecial(foot.foods_spec_name, mposC.lcolorSpec[i1], foot.foods_spec_id);
+                OrderSpecial ords = new OrderSpecial();
+                ords.order_special_id = "";
+                ords.order_id = "";
+                ords.foods_spec_id = foot.foods_spec_id;
+                ords.active = "1";
+                ords.remark = "";
+                ords.row1 = i1.ToString();
+                ords.date_cancel = "";
+                ords.date_create = "";
+                ords.date_modi = "";
+                ords.user_cancel = "";
+                ords.user_create = "";
+                ords.user_modi = "";
+                ords.host_id = "";
+                ords.branch_id = "";
+                ords.device_id = "";
+                ords.name = foot.foods_spec_name;
+                ords.foods_id = foot.foods_id;
+                lords.Add(ords);
                 i1++;
                 cnt++;
             }
@@ -244,12 +290,13 @@ namespace modernpos_pos.gui
         {
             frmtakeout4.calBill();
         }
-        private void initSpecial(String name, Color cor)
+        private void initSpecial(String name, Color cor, String ordspecialid)
         {
             Panel pnCri1 = new Panel();
             C1PictureBox picSelect = new C1PictureBox();
             C1Label lbFoot1 = new C1Label();
             C1Label lbFoot2 = new C1Label();
+            C1Label lbID = new C1Label();
 
             pnCri1.BackColor = Color.FromArgb(255, 209, 81);
             pnCri1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -279,11 +326,15 @@ namespace modernpos_pos.gui
             lbFoot1.BackColor = cor;
             lbFoot1.Click += PicSpecSelect_Click;
             lbFoot2.Name = "lbFoot12" + cnt;
-            lbFoot2.Hide();
+            lbFoot2.Visible = false;
+            lbID.Visible = false;
+            lbID.Value = ordspecialid;
+            lbID.Name = "lbOrdSpecID" + cnt;
 
             pnCri1.Controls.Add(picSelect);
             pnCri1.Controls.Add(lbFoot1);
             pnCri1.Controls.Add(lbFoot2);
+            pnCri1.Controls.Add(lbID);
             tpl.Controls.Add(pnCri1, 0, tpl.RowCount++);
         }
 
@@ -293,6 +344,7 @@ namespace modernpos_pos.gui
             String name = "", cnt="";
             C1Label lbFoot1 = new C1Label();
             C1Label lbFoot12 = new C1Label();
+            C1Label lbID = new C1Label();
             C1PictureBox picSelect = new C1PictureBox();
             if (sender is C1Label)
             {
@@ -302,6 +354,7 @@ namespace modernpos_pos.gui
                 pn = (Panel)tpl.Controls["pnCri" + cnt];
                 picSelect = (C1PictureBox)pn.Controls["picSelect" + cnt];
                 lbFoot12 = (C1Label)pn.Controls["lbFoot12" + cnt];
+                lbID = (C1Label)pn.Controls["lbOrdSpecID" + cnt];
             }
             else if (sender is C1PictureBox)
             {
@@ -311,7 +364,7 @@ namespace modernpos_pos.gui
                 Panel pn = new Panel();
                 pn = (Panel)tpl.Controls["pnCri" + cnt];
                 lbFoot12 = (C1Label)pn.Controls["lbFoot12" + cnt];
-                
+                lbID = (C1Label)pn.Controls["lbOrdSpecID" + cnt];
             }
             else if(sender is Panel)
             {
@@ -321,27 +374,52 @@ namespace modernpos_pos.gui
                 lbFoot1 = (C1Label)pn.Controls["lbFoot1" + cnt];
                 lbFoot12 = (C1Label)pn.Controls["lbFoot12" + cnt];
                 picSelect = (C1PictureBox)pn.Controls["picSelect" + cnt];
+                lbID = (C1Label)pn.Controls["lbOrdSpecID" + cnt];
             }
             if (lbFoot12.Text.Equals("NO"))
             {
                 picSelect.Image = global::modernpos_pos.Properties.Resources.images;
                 //ord.foods_name = ord.foods_name + " 11111111";
                 lbFoot12.Value = "YES";
+                foreach(OrderSpecial ords in lords)
+                {
+                    if (ords.foods_spec_id.Equals(lbID.Text))
+                    {
+                        ords.status_ok = "1";
+                        break;
+                    }
+                }
             }
             else if (lbFoot12.Text.Equals("YES"))
             {
                 picSelect.Image = global::modernpos_pos.Properties.Resources.circle_png_circle_icon_1600;
                 //ord.foods_name = "";
                 lbFoot12.Value = "NO";
+                foreach (OrderSpecial ords in lords)
+                {
+                    if (ords.foods_spec_id.Equals(lbID.Text))
+                    {
+                        ords.status_ok = "0";
+                        break;
+                    }
+                }
             }
             else
             {
                 picSelect.Image = global::modernpos_pos.Properties.Resources.images;
                 lbFoot12.Value = "YES";
+                foreach (OrderSpecial ords in lords)
+                {
+                    if (ords.foods_spec_id.Equals(lbID.Text))
+                    {
+                        ords.status_ok = "1";
+                        break;
+                    }
+                }
             }
         }
 
-        private void initTopping(String name, String price, Color cor)
+        private void initTopping(String name, String price, Color cor,String footoppingid)
         {
             Panel pnCri1 = new Panel();
             C1PictureBox picTrah = new C1PictureBox();
@@ -350,6 +428,7 @@ namespace modernpos_pos.gui
             C1PictureBox picPlus = new C1PictureBox();
             C1Label lbFoot1 = new C1Label();
             C1Label lbPrice = new C1Label();
+            C1Label lbID = new C1Label();
             //pnCri1.BackColor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsBackColor);
             pnCri1.BackColor = Color.FromArgb(255, 209, 81);
             pnCri1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -405,6 +484,9 @@ namespace modernpos_pos.gui
             lbPrice.Name = "lbPriceTopping" + cnt;
             lbPrice.Visible = false;
             lbPrice.Value = price;
+            lbID.Value = footoppingid;
+            lbID.Visible = false;
+            lbID.Name = "lbOrdTopping" + cnt;
 
             pnCri1.Controls.Add(picTrah);
             pnCri1.Controls.Add(picMinus);
@@ -412,6 +494,7 @@ namespace modernpos_pos.gui
             pnCri1.Controls.Add(picPlus);
             pnCri1.Controls.Add(lbFoot1);
             pnCri1.Controls.Add(lbPrice);
+            pnCri1.Controls.Add(lbID);
             //Padding padding = pnCri1.Padding;
             tpl.Controls.Add(pnCri1, 0, tpl.RowCount++);
         }
@@ -435,10 +518,12 @@ namespace modernpos_pos.gui
             String name = "", cnt = "";
             Panel pn = new Panel();
             C1Label lbQtyTopping = new C1Label();
+            C1Label lbID = new C1Label();
             C1PictureBox pic = (C1PictureBox)sender;
             cnt = pic.Name.Replace("picPlusTopping", "");
             pn = (Panel)tpl.Controls["pnCri" + cnt];
             lbQtyTopping = (C1Label)pn.Controls["lbQtyTopping" + cnt];
+            lbID = (C1Label)pn.Controls["lbOrdTopping" + cnt];
             if (lbQtyTopping.Text.Equals("")) lbQtyTopping.Value = "0";
             int chk = 0;
             if (int.TryParse(lbQtyTopping.Text, out chk))
@@ -446,6 +531,16 @@ namespace modernpos_pos.gui
                 chk++;
                 lbQtyTopping.Value = chk.ToString();
                 //qty = chk.ToString();
+            }
+            foreach (OrderTopping ordt in lordt)
+            {
+                if (ordt.foods_topping_id.Equals(lbID.Text))
+                {
+                    ordt.status_ok = "1";
+                    ordt.qty = lbQtyTopping.Text;
+                    //ordt.price = "";
+                    break;
+                }
             }
             setPrice();
         }
@@ -456,10 +551,12 @@ namespace modernpos_pos.gui
             String name = "", cnt = "";
             Panel pn = new Panel();
             C1Label lbQtyTopping = new C1Label();
+            C1Label lbID = new C1Label();
             C1PictureBox pic = (C1PictureBox)sender;
             cnt = pic.Name.Replace("picMinusTopping", "");
             pn = (Panel)tpl.Controls["pnCri" + cnt];
             lbQtyTopping = (C1Label)pn.Controls["lbQtyTopping" + cnt];
+            lbID = (C1Label)pn.Controls["lbOrdTopping" + cnt];
             if (lbQtyTopping.Text.Equals("")) return;
             int chk = 0;
             if (int.TryParse(lbQtyTopping.Text, out chk))
@@ -467,6 +564,16 @@ namespace modernpos_pos.gui
                 chk--;
                 lbQtyTopping.Value = chk.ToString();
                 //qty = chk.ToString();
+            }
+            foreach (OrderTopping ordt in lordt)
+            {
+                if (ordt.foods_topping_id.Equals(lbID.Text))
+                {
+                    ordt.status_ok = "1";
+                    ordt.qty = lbQtyTopping.Text;
+                    //ordt.price = "";
+                    break;
+                }
             }
             setPrice();
         }

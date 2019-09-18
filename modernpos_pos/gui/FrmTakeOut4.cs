@@ -61,6 +61,9 @@ namespace modernpos_pos.gui
         List<Order1> lOrd;
         List<FoodsSpecial> lFoos;
         List<FoodsTopping> lFoot;
+        List<OrderTopping> lordt;
+        List<OrderSpecial> lords;
+
         Order1 ord;
         DataTable dtCat = new DataTable();
         DataTable dtRec = new DataTable();
@@ -127,6 +130,8 @@ namespace modernpos_pos.gui
             lOrd = new List<Order1>();
             lFoos = new List<FoodsSpecial>();
             lFoot = new List<FoodsTopping>();
+            lordt = new List<OrderTopping>();
+            lords = new List<OrderSpecial>();
             foo = new Foods();
             ord = new Order1();
             lfooT = mposC.mposDB.fooDB.getlFoods1();
@@ -397,7 +402,7 @@ namespace modernpos_pos.gui
                 ord1.special = "";
                 lOrd.Add(ord1);
                 
-                ucOrderTakeOut1 ucto = new ucOrderTakeOut1(mposC, row1.ToString(), id, qty,ref ord1, this);
+                ucOrderTakeOut1 ucto = new ucOrderTakeOut1(mposC, row1.ToString(), id, qty,ref ord1, ref lords, ref lordt, this);
                 //tplOrd.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                 tplOrd.Controls.Add(ucto, 0, row1);
                 //UpdateTotals();
@@ -1098,7 +1103,7 @@ namespace modernpos_pos.gui
                         if (mposC.statusVNEPaysuccess.Equals("1"))
                         {
                             lOrd.Clear();
-                            grfOrder.Dispose();
+                            //grfOrder.Dispose();
                             //initGrfOrder();
                             if (mposC.iniC.statuspaytoclose.Equals("1"))
                             {
@@ -1142,7 +1147,7 @@ namespace modernpos_pos.gui
                 if (mposC.statusVNEPaysuccess.Equals("1"))
                 {
                     lOrd.Clear();
-                    grfOrder.Dispose();
+                    //grfOrder.Dispose();
                     //initGrfOrder();
                     if (mposC.iniC.statuspaytoclose.Equals("1"))
                     {
@@ -1469,49 +1474,72 @@ namespace modernpos_pos.gui
 
             String name = "";
             name = ord1.foods_name;
-            ord1.special = ord1.special == null ? "" : ord1.special;
-            ord1.topping = ord1.topping == null ? "" : ord1.topping;
+            //ord1.special = ord1.special == null ? "" : ord1.special;
+            //ord1.topping = ord1.topping == null ? "" : ord1.topping;
             int row = 0;
             int.TryParse(ord1.row1, out row);
             //int.TryParse(lOrd.Count, out cnt);
             //printText += iprn.ToString() + "  " + ord1.foods_name + "  " + ord1.qty + Environment.NewLine;
             printText += (row) + "[" + lOrd.Count + "]  " + ord1.foods_name + "  " + ord1.qty + Environment.NewLine;
 
-            String[] txt = ord1.special.Split('+');
-            if (txt.Length > 1)
+            foreach(OrderTopping ordt in lordt)
             {
-                String name1 = "";
-                foreach (String txt1 in txt)
+                if (ordt.foods_id.Equals(ord1.foods_id) && ordt.status_ok.Equals("1"))
                 {
-                    name1 += txt1.Trim() + Environment.NewLine;
-                }
-                name1 = name1.Trim();
-                if (name1.IndexOf("+") == 0)
-                {
-                    name1 = name1.Substring(1, name1.Length - 1);
-                }
-                //printText += iprn.ToString() + "  " + ord1.foods_name + "  " + ord1.qty + Environment.NewLine;
-                //printText += "         " + ord1.qty + "  " + ord1.price + Environment.NewLine;
-                printText += name1 + Environment.NewLine;
-            }
-            String[] txtT = ord1.topping.Split('+');
-            if (txtT.Length > 1)
-            {
-                String name1 = "";
-                foreach (String txt1 in txtT)
-                {
-                    name1 += txt1.Trim() + Environment.NewLine;
-                }
-                name1 = name1.Trim();
-                if (name1.IndexOf("+") == 0)
-                {
-                    name1 = name1.Substring(1, name1.Length - 1);
-                }
-                //printText += iprn.ToString() + "  " + ord1.foods_name + "  " + ord1.qty + Environment.NewLine;
-                //printText += "         " + ord1.qty + "  " + ord1.price + Environment.NewLine;
-                printText += name1 + Environment.NewLine;
+                    decimal price = 0, qty = 0;
+                    if(decimal.TryParse(ordt.price, out price))
+                    {
 
+                    }
+                    if (decimal.TryParse(ordt.qty, out qty))
+                    {
+
+                    }
+                    printText += "   " + ordt.name + " " + (price * qty).ToString() + " " + Environment.NewLine;
+                }
             }
+            foreach (OrderSpecial ords in lords)
+            {
+                if (ords.foods_id.Equals(ord1.foods_id) && ords.status_ok.Equals("1"))
+                {
+                    printText += "   " + ords.name + Environment.NewLine;
+                }
+            }
+            //String[] txt = ord1.special.Split('+');
+            //if (txt.Length > 1)
+            //{
+            //    String name1 = "";
+            //    foreach (String txt1 in txt)
+            //    {
+            //        name1 += txt1.Trim() + Environment.NewLine;
+            //    }
+            //    name1 = name1.Trim();
+            //    if (name1.IndexOf("+") == 0)
+            //    {
+            //        name1 = name1.Substring(1, name1.Length - 1);
+            //    }
+            //    //printText += iprn.ToString() + "  " + ord1.foods_name + "  " + ord1.qty + Environment.NewLine;
+            //    //printText += "         " + ord1.qty + "  " + ord1.price + Environment.NewLine;
+            //    printText += name1 + Environment.NewLine;
+            //}
+            //String[] txtT = ord1.topping.Split('+');
+            //if (txtT.Length > 1)
+            //{
+            //    String name1 = "";
+            //    foreach (String txt1 in txtT)
+            //    {
+            //        name1 += txt1.Trim() + Environment.NewLine;
+            //    }
+            //    name1 = name1.Trim();
+            //    if (name1.IndexOf("+") == 0)
+            //    {
+            //        name1 = name1.Substring(1, name1.Length - 1);
+            //    }
+            //    //printText += iprn.ToString() + "  " + ord1.foods_name + "  " + ord1.qty + Environment.NewLine;
+            //    //printText += "         " + ord1.qty + "  " + ord1.price + Environment.NewLine;
+            //    printText += name1 + Environment.NewLine;
+
+            //}
             //else
             //{
             //    //printText += iprn.ToString() + "  " + ord1.foods_name + "  " + ord1.qty + "  " + ord1.price + Environment.NewLine;

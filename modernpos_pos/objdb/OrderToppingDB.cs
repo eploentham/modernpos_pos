@@ -39,6 +39,8 @@ namespace modernpos_pos.objdb
             foos.host_id = "host_id";
             foos.branch_id = "branch_id";
             foos.device_id = "device_id";
+            foos.qty = "qty";
+            foos.price = "price";
             //foos.status_aircondition = "status_aircondition";
 
             foos.pkField = "order_topping_id";
@@ -178,6 +180,7 @@ namespace modernpos_pos.objdb
         private void chkNull(OrderTopping p)
         {
             long chk = 0;
+            decimal chk1 = 0;
 
             p.date_modi = p.date_modi == null ? "" : p.date_modi;
             p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
@@ -194,8 +197,9 @@ namespace modernpos_pos.objdb
             p.remark = p.remark == null ? "" : p.remark;
             p.row1 = p.row1 == null ? "" : p.row1;
 
-            //p.host_id = long.TryParse(p.host_id, out chk) ? chk.ToString() : "0";
-            //p.branch_id = long.TryParse(p.branch_id, out chk) ? chk.ToString() : "0";
+            p.qty = long.TryParse(p.qty, out chk) ? chk.ToString() : "0";
+            
+            p.price = decimal.TryParse(p.price, out chk1) ? chk1.ToString() : "0";
             //p.device_id = long.TryParse(p.device_id, out chk) ? chk.ToString() : "0";
 
         }
@@ -219,6 +223,8 @@ namespace modernpos_pos.objdb
                 "," + foos.branch_id + " = '" + p.branch_id + "' " +
                 "," + foos.device_id + " = '" + p.device_id + "' " +
                 "," + foos.row1 + " = '" + p.row1 + "' " +
+                "," + foos.qty + " = '" + p.qty + "' " +
+                "," + foos.price + " = '" + p.price + "' " +
                 " ";
             try
             {
@@ -248,7 +254,8 @@ namespace modernpos_pos.objdb
                 "," + foos.branch_id + " = '" + p.branch_id + "' " +
                 "," + foos.device_id + " = '" + p.device_id + "' " +
                 "," + foos.row1 + " = '" + p.row1 + "' " +
-
+                "," + foos.qty + " = '" + p.qty + "' " +
+                "," + foos.price + " = '" + p.price + "' " +
                 "Where " + foos.pkField + "='" + p.order_topping_id + "'"
                 ;
 
@@ -369,6 +376,8 @@ namespace modernpos_pos.objdb
                 dept1.user_cancel = dt.Rows[0][foos.user_cancel] != null ? dt.Rows[0][foos.user_cancel].ToString() : "";
                 dept1.active = dt.Rows[0][foos.active] != null ? dt.Rows[0][foos.active].ToString() : "";
                 dept1.row1 = dt.Rows[0][foos.row1] != null ? dt.Rows[0][foos.row1].ToString() : "";
+                dept1.qty = dt.Rows[0][foos.qty] != null ? dt.Rows[0][foos.qty].ToString() : "";
+                dept1.price = dt.Rows[0][foos.price] != null ? dt.Rows[0][foos.price].ToString() : "";
                 //dept1.status_aircondition = dt.Rows[0][foos.status_aircondition] != null ? dt.Rows[0][foos.status_aircondition].ToString() : "";
             }
             else
@@ -386,6 +395,8 @@ namespace modernpos_pos.objdb
                 dept1.user_cancel = "";
                 dept1.active = "";
                 dept1.row1 = "";
+                dept1.qty = "";
+                dept1.price = "";
                 //dept1.status_aircondition = "";
                 //dept1.status_embryologist = "";
             }

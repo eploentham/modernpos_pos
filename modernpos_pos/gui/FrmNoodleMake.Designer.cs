@@ -47,7 +47,7 @@
             this.pnMid5L = new System.Windows.Forms.Panel();
             this.pnMid = new System.Windows.Forms.Panel();
             this.pnMid4 = new System.Windows.Forms.Panel();
-            this.pnMid4GL = new System.Windows.Forms.Panel();
+            this.pnMid4G = new System.Windows.Forms.Panel();
             this.pnMid4T = new System.Windows.Forms.Panel();
             this.pnMid4L = new System.Windows.Forms.Panel();
             this.pnMid3 = new System.Windows.Forms.Panel();
@@ -63,6 +63,7 @@
             this.pnMid1T = new System.Windows.Forms.Panel();
             this.pnMid1L = new System.Windows.Forms.Panel();
             this.pnTop = new System.Windows.Forms.Panel();
+            this.pnExit = new System.Windows.Forms.Panel();
             this.pnQty = new System.Windows.Forms.Panel();
             this.lbQty = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.picPlus = new C1.Win.C1Input.C1PictureBox();
@@ -70,7 +71,6 @@
             this.lbQtyShow = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.pnPrice = new System.Windows.Forms.Panel();
             this.pnName = new System.Windows.Forms.Panel();
-            this.pnExit = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.pnBot4.SuspendLayout();
             this.pnBot3.SuspendLayout();
@@ -255,7 +255,7 @@
             // 
             // pnMid4
             // 
-            this.pnMid4.Controls.Add(this.pnMid4GL);
+            this.pnMid4.Controls.Add(this.pnMid4G);
             this.pnMid4.Controls.Add(this.pnMid4T);
             this.pnMid4.Controls.Add(this.pnMid4L);
             this.pnMid4.Dock = System.Windows.Forms.DockStyle.Left;
@@ -264,13 +264,13 @@
             this.pnMid4.Size = new System.Drawing.Size(396, 364);
             this.pnMid4.TabIndex = 3;
             // 
-            // pnMid4GL
+            // pnMid4G
             // 
-            this.pnMid4GL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMid4GL.Location = new System.Drawing.Point(13, 52);
-            this.pnMid4GL.Name = "pnMid4GL";
-            this.pnMid4GL.Size = new System.Drawing.Size(383, 312);
-            this.pnMid4GL.TabIndex = 8;
+            this.pnMid4G.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMid4G.Location = new System.Drawing.Point(13, 52);
+            this.pnMid4G.Name = "pnMid4G";
+            this.pnMid4G.Size = new System.Drawing.Size(383, 312);
+            this.pnMid4G.TabIndex = 8;
             // 
             // pnMid4T
             // 
@@ -405,6 +405,14 @@
             this.pnTop.Size = new System.Drawing.Size(1584, 62);
             this.pnTop.TabIndex = 0;
             // 
+            // pnExit
+            // 
+            this.pnExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnExit.Location = new System.Drawing.Point(1468, 0);
+            this.pnExit.Name = "pnExit";
+            this.pnExit.Size = new System.Drawing.Size(116, 62);
+            this.pnExit.TabIndex = 2;
+            // 
             // pnQty
             // 
             this.pnQty.Controls.Add(this.lbQty);
@@ -466,14 +474,6 @@
             this.pnName.Name = "pnName";
             this.pnName.Size = new System.Drawing.Size(992, 62);
             this.pnName.TabIndex = 0;
-            // 
-            // pnExit
-            // 
-            this.pnExit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnExit.Location = new System.Drawing.Point(1468, 0);
-            this.pnExit.Name = "pnExit";
-            this.pnExit.Size = new System.Drawing.Size(116, 62);
-            this.pnExit.TabIndex = 2;
             // 
             // FrmNoodleMake
             // 
@@ -540,7 +540,7 @@
         private System.Windows.Forms.Panel pnMid5G;
         private System.Windows.Forms.Panel pnMid5T;
         private System.Windows.Forms.Panel pnMid5L;
-        private System.Windows.Forms.Panel pnMid4GL;
+        private System.Windows.Forms.Panel pnMid4G;
         private System.Windows.Forms.Panel pnMid4T;
         private System.Windows.Forms.Panel pnMid4L;
         private System.Windows.Forms.Panel pnMid3G;

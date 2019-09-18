@@ -12,5 +12,8 @@ namespace modernpos_pos.object1
         public String order_id { get; set; }
         public String foods_spec_id { get; set; }
         public String row1 { get; set; }
+        public String status_ok { get; set; }
+        public String name { get; set; }
+        public String foods_id { get; set; }
     }
 }

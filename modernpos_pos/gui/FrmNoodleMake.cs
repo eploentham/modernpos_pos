@@ -163,6 +163,31 @@ namespace modernpos_pos.gui
             lbQty.Font = fEdit;
             lbQtyShow.Font = fEdit;
 
+            pnMid1G.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn1g);
+            pnMid1L.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn1l);
+            pnMid1T.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn1t);
+            pnMid2G.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn2g);
+            pnMid2L.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn2l);
+            pnMid2T.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn2t);
+            pnMid3G.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn3g);
+            pnMid3L.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn3l);
+            pnMid3T.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn3t);
+            pnMid4G.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn4g);
+            pnMid4L.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn4l);
+            pnMid4T.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn4t);
+            pnMid5G.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn5g);
+            pnMid5L.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn5l);
+            pnMid5T.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn5t);
+            pnMid6G.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn6g);
+            pnMid6L.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn6l);
+            pnMid6T.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn6t);
+            pnMid7G.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn7g);
+            pnMid7L.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn7l);
+            pnMid7T.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn7t);
+            pnMid8G.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn8g);
+            pnMid8L.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn8l);
+            pnMid8T.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn8t);
+
             initGrfNoom();
             setGrfNoom();
             initGrfWatm();
@@ -310,6 +335,8 @@ namespace modernpos_pos.gui
             grfNoom.TabStop = false;
             grfNoom.EditOptions = EditFlags.None;
             grfNoom.Cols[colNName].AllowEditing = false;
+            grfNoom.BackColor = pnMid1G.BackColor;
+            grfNoom.Styles.Normal.BackColor = pnMid1G.BackColor;
 
             pnMid1G.Controls.Add(grfNoom);
             grfNoom.Cols[colNId].Visible = false;
@@ -336,6 +363,7 @@ namespace modernpos_pos.gui
             //rng1.Data = "Time";
             //FilterRow fr = new FilterRow(grfExpn);
             grfWatm.TabStop = false;
+            grfWatm.BackColor = pnMid2G.BackColor;
             //grfWatm.EditOptions = EditFlags.None;
             grfWatm.Cols[colNName].AllowEditing = false;
 
@@ -429,7 +457,8 @@ namespace modernpos_pos.gui
                 row[colNName] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_name].ToString();
                 row[colNStatusUs] = "";
                 row[colNImg] = null;
-                row.StyleNew.BackColor = this.BackColor;
+                //row.StyleNew.BackColor = this.BackColor;
+                row.StyleNew.BackColor = pnMid2G.BackColor;
                 row[colNflag] = "";
             }
             //if (grfWatm.Rows.Count < 10)
@@ -455,7 +484,8 @@ namespace modernpos_pos.gui
             grfWatm.Styles.Normal.Border.Style = C1.Win.C1FlexGrid.BorderStyleEnum.None;
             CellStyle cs = null;
             cs = grfWatm.Styles.EmptyArea;
-            cs.BackColor = this.BackColor;
+            //cs.BackColor = this.BackColor;
+            cs.BackColor = pnMid2G.BackColor;
             grfWatm.FocusRect = FocusRectEnum.None;
             grfWatm.SelectionMode = SelectionModeEnum.Cell;
 
@@ -556,6 +586,7 @@ namespace modernpos_pos.gui
             grf5.Cols[colNPrice].Width = 100;
             grf5.EditOptions = EditFlags.None;
             grf5.ShowCursor = true;
+            grf5.BackColor = pnMid5G.BackColor;
             //grdFlex.Cols[colID].Caption = "no";
             //grfDept.Cols[colCode].Caption = "รหัส";
 
@@ -580,7 +611,8 @@ namespace modernpos_pos.gui
                 row[colNPrice] = price > 0 ? price.ToString("#,###.00") : "";
                 //if (i % 2 == 0)
                 //row.StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
-                row.StyleNew.BackColor = this.BackColor;
+                //row.StyleNew.BackColor = this.BackColor;
+                row.StyleNew.BackColor = pnMid5G.BackColor;
                 row[colNflag] = "";
                 //grfNoom.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
@@ -607,7 +639,8 @@ namespace modernpos_pos.gui
             //grfNoom.st
             CellStyle cs = null;
             cs = grf5.Styles.EmptyArea;
-            cs.BackColor = this.BackColor;
+            //cs.BackColor = this.BackColor;
+            cs.BackColor = pnMid5G.BackColor;
             CellBorder cb = cs.Border;
             cb.Style = BorderStyleEnum.None;
             grf5.HighLight = HighLightEnum.Never;
@@ -632,6 +665,7 @@ namespace modernpos_pos.gui
             //FilterRow fr = new FilterRow(grfExpn);
             grf6.TabStop = false;
             grf6.EditOptions = EditFlags.None;
+            grf6.BackColor = pnMid6G.BackColor;
             grf6.Cols[colNName].AllowEditing = false;
             grf6.Cols[colNPrice].AllowEditing = false;
 
@@ -736,7 +770,8 @@ namespace modernpos_pos.gui
                 row[colNImg] = null;
                 //if (i % 2 == 0)
                 //row.StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
-                row.StyleNew.BackColor = this.BackColor;
+                //row.StyleNew.BackColor = this.BackColor;
+                row.StyleNew.BackColor = grf6.BackColor;
                 row[colNflag] = "";
                 //grfNoom.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
@@ -764,7 +799,8 @@ namespace modernpos_pos.gui
             //grfNoom.st
             CellStyle cs = null;
             cs = grf6.Styles.EmptyArea;
-            cs.BackColor = this.BackColor;
+            //cs.BackColor = this.BackColor;
+            cs.BackColor = grf6.BackColor;
             CellBorder cb = cs.Border;
             cb.Style = BorderStyleEnum.None;
             grf6.HighLight = HighLightEnum.Never;
@@ -789,6 +825,7 @@ namespace modernpos_pos.gui
             //FilterRow fr = new FilterRow(grfExpn);
             grf8.TabStop = false;
             grf8.EditOptions = EditFlags.None;
+            grf8.BackColor = pnMid8G.BackColor;
             grf8.Cols[colNName].AllowEditing = false;
 
             pnMid8G.Controls.Add(grf8);
@@ -884,7 +921,8 @@ namespace modernpos_pos.gui
                 row[colNPrice] = price > 0 ? price.ToString("#,###.00") : "";
                 //if (i % 2 == 0)
                 //row.StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
-                row.StyleNew.BackColor = this.BackColor;
+                //row.StyleNew.BackColor = this.BackColor;
+                row.StyleNew.BackColor = grf8.BackColor;
                 row[colNflag] = "";
                 //grfNoom.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
@@ -912,7 +950,8 @@ namespace modernpos_pos.gui
             //grfNoom.st
             CellStyle cs = null;
             cs = grf8.Styles.EmptyArea;
-            cs.BackColor = this.BackColor;
+            //cs.BackColor = this.BackColor;
+            cs.BackColor = grf8.BackColor;
             CellBorder cb = cs.Border;
             cb.Style = BorderStyleEnum.None;
             grf8.HighLight = HighLightEnum.Never;
@@ -937,6 +976,7 @@ namespace modernpos_pos.gui
             //FilterRow fr = new FilterRow(grfExpn);
             grf7.TabStop = false;
             grf7.EditOptions = EditFlags.None;
+            grf7.BackColor = pnMid7G.BackColor;
             grf7.Cols[colNName].AllowEditing = false;
 
             pnMid7G.Controls.Add(grf7);
@@ -1032,7 +1072,8 @@ namespace modernpos_pos.gui
                 row[colNPrice] = price > 0 ? price.ToString("#,###.00") : "";
                 //if (i % 2 == 0)
                 //row.StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
-                row.StyleNew.BackColor = this.BackColor;
+                //row.StyleNew.BackColor = this.BackColor;
+                row.StyleNew.BackColor = grf7.BackColor;
                 row[colNflag] = "";
                 //grfNoom.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
@@ -1059,7 +1100,8 @@ namespace modernpos_pos.gui
             //grfNoom.st
             CellStyle cs = null;
             cs = grf7.Styles.EmptyArea;
-            cs.BackColor = this.BackColor;
+            //cs.BackColor = this.BackColor;
+            cs.BackColor = grf7.BackColor;
             CellBorder cb = cs.Border;
             cb.Style = BorderStyleEnum.None;
             grf7.HighLight = HighLightEnum.Never;
@@ -1147,7 +1189,8 @@ namespace modernpos_pos.gui
                 row[colNImg] = null;
                 //if (i % 2 == 0)
                 //row.StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
-                row.StyleNew.BackColor = this.BackColor;
+                //row.StyleNew.BackColor = this.BackColor;
+                row.StyleNew.BackColor = pnMid1G.BackColor;
                 row[colNflag] = "";
                 //grfNoom.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
@@ -1173,8 +1216,10 @@ namespace modernpos_pos.gui
             //grfNoom.st
             CellStyle cs = null;
             cs = grfNoom.Styles.EmptyArea;
-            cs.BackColor = this.BackColor;
+            //cs.BackColor = this.BackColor;
+            cs.BackColor = pnMid1G.BackColor;
             CellBorder cb = cs.Border;
+            //CellBorder cb = cs.Border;
             cb.Style = BorderStyleEnum.None;
             grfNoom.HighLight = HighLightEnum.Never;
             grfNoom.FocusRect = FocusRectEnum.None;
@@ -1198,6 +1243,7 @@ namespace modernpos_pos.gui
             //FilterRow fr = new FilterRow(grfExpn);
             grfOpt.TabStop = false;
             grfOpt.EditOptions = EditFlags.None;
+            grfOpt.BackColor = pnMid3G.BackColor;
             grfOpt.Cols[colNName].AllowEditing = false;
 
             pnMid3G.Controls.Add(grfOpt);
@@ -1298,7 +1344,8 @@ namespace modernpos_pos.gui
                 //row.StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
                 //row.StyleNew.BackColor = this.BackColor;
                 CellStyle rs = row.StyleNew;
-                rs.BackColor = this.BackColor;
+                //rs.BackColor = this.BackColor;
+                rs.BackColor = pnMid3G.BackColor;
                 //rs.Border 
                 row[colOflag] = "";
                 //grfNoom.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
@@ -1327,7 +1374,8 @@ namespace modernpos_pos.gui
             grfOpt.BackColor = this.BackColor;
             CellStyle cs = null;
             cs = grfOpt.Styles.EmptyArea;
-            cs.BackColor = this.BackColor;
+            //cs.BackColor = this.BackColor;
+            cs.BackColor = pnMid3G.BackColor;
             CellBorder cb = cs.Border;
             cb.Style = BorderStyleEnum.None;
             grfOpt.HighLight = HighLightEnum.Never;

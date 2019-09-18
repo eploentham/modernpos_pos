@@ -89,7 +89,7 @@ namespace modernpos_pos.objdb
         public DataTable selectByFoodsId2(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select foos." + foos.foods_spec_id + ",'' as img,foos." + foos.foods_spec_name +
+            String sql = "select foos." + foos.foods_spec_id + ",'' as img,foos." + foos.foods_spec_name + ", foos." + foos.foods_id +
                 " From " + foos.table + " foos " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where foos." + foos.foods_id + " ='" + copId + "' and foos." + foos.active + "='1' ";
@@ -141,7 +141,7 @@ namespace modernpos_pos.objdb
                 FoodsSpecial itm1 = new FoodsSpecial();
                 itm1.foods_spec_id = row[foos.foods_spec_id].ToString();
                 itm1.foods_spec_name = row[foos.foods_spec_name].ToString();
-
+                itm1.foods_id = row[foos.foods_id].ToString();
                 lfooC1.Add(itm1);
             }
             return lfooC1;

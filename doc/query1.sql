@@ -198,6 +198,10 @@ ADD COLUMN `host_id` VARCHAR(45) NULL AFTER `user_cancel`,
 ADD COLUMN `branch_id` VARCHAR(45) NULL AFTER `host_id`,
 ADD COLUMN `device_id` VARCHAR(45) NULL AFTER `branch_id`;
 
+ALTER TABLE `modern_pos`.`t_order_topping` 
+ADD COLUMN `qty` DECIMAL(17,2) NULL DEFAULT 0 AFTER `device_id`,
+ADD COLUMN `price` DECIMAL(17,2) NULL DEFAULT 0 AFTER `qty`;
+
 
 
 
