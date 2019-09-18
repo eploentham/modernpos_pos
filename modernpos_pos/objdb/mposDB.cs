@@ -32,6 +32,8 @@ namespace modernpos_pos.objdb
         public FoodsSpecialDB foosDB;
         public FoodsToppingDB footpDB;
         public NoodleMakeDB noomDB;
+        public OrderToppingDB ordtDB;
+        public OrderSpecialDB ordSpecDB;
         public mPosDB(ConnectDB c)
         {
             conn = c;

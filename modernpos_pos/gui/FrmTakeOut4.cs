@@ -947,7 +947,7 @@ namespace modernpos_pos.gui
             lbStatus.Text = "";
             mposC.statusVNEPaysuccess = "";
             genLotId();
-            setFooNameRemark();
+            //setFooNameRemark();
             tCMain.SelectedTab = tabCheck;
             tCMain.ShowTabs = false;
             //grfBill.Clear();

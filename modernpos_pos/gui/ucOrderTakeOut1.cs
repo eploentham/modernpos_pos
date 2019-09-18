@@ -164,7 +164,6 @@ namespace modernpos_pos.gui
             }
             setPrice();
         }
-
         private void setControl()
         {
             lfoot = new List<FoodsTopping>();
@@ -237,6 +236,8 @@ namespace modernpos_pos.gui
             foosum = (fooprice + sum) * fooqty;
             //sum = foosum + sum;
             lbPrice.Value = foosum.ToString("#,###.00");
+            ord.sumPrice = lbPrice.Text;
+            //ord.toppingPrice = 
             setBill();
         }
         private void setBill()

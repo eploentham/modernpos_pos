@@ -152,4 +152,52 @@ ALTER TABLE ivf_101_donor.CreditCardAccount CHANGE COLUMN CreditCardID CreditCar
 
 
 
+CREATE TABLE `modern_pos`.`t_order_topping` (
+  `order_topping_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `order_id` BIGINT NULL,
+  `foods_topping_id` BIGINT NULL,
+  `active` VARCHAR(45) NULL,
+  `remark` VARCHAR(45) NULL,
+  `row1` VARCHAR(45) NULL,
+  `date_create` VARCHAR(45) NULL,
+  `date_modi` VARCHAR(45) NULL,
+  `date_cancel` VARCHAR(45) NULL,
+  `user_create` VARCHAR(45) NULL,
+  `user_modi` VARCHAR(45) NULL,
+  `user_cancel` VARCHAR(45) NULL,
+  `host_id` VARCHAR(45) NULL,
+  `branch_id` VARCHAR(45) NULL,
+  `device_id` VARCHAR(45) NULL,
+  PRIMARY KEY (`order_topping_id`))
+ENGINE = MyISAM
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin
+COMMENT = 'id=131';
+
+CREATE TABLE `modern_pos`.`t_order_special` (
+  `order_special_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `order_id` BIGINT NULL,
+  `foods_spec_id` BIGINT NULL,  
+  `active` VARCHAR(45) NULL,
+  `remark` VARCHAR(45) NULL,
+  `row1` VARCHAR(45) NULL,
+  `date_create` VARCHAR(45) NULL,
+  `date_modi` VARCHAR(45) NULL,
+  `date_cancel` VARCHAR(45) NULL,
+  `user_create` VARCHAR(45) NULL,
+  `user_modi` VARCHAR(45) NULL,
+  `user_cancel` VARCHAR(45) NULL,
+  PRIMARY KEY (`order_special_id`))
+ENGINE = MyISAM
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin
+COMMENT = 'id=132';
+
+ALTER TABLE `modern_pos`.`t_order_special` 
+ADD COLUMN `host_id` VARCHAR(45) NULL AFTER `user_cancel`,
+ADD COLUMN `branch_id` VARCHAR(45) NULL AFTER `host_id`,
+ADD COLUMN `device_id` VARCHAR(45) NULL AFTER `branch_id`;
+
+
+
 
