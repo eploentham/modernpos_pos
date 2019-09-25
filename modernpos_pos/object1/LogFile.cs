@@ -21,15 +21,18 @@ namespace modernpos_pos.object1
             m_exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             try
             {
-                double len = new FileInfo(m_exePath + "\\" + "log.txt").Length;
-                string[] sizes = { "B", "KB", "MB", "GB", "TB" };
-                //if (len > 1000)
-                //{
-                //    File.Delete(m_exePath + "\\" + "log.txt");
-                //}
-                if (len > 300000)
+                if(File.Exists(m_exePath + "\\" + "log.txt"))
                 {
-                    File.Delete(m_exePath + "\\" + "log.txt");
+                    double len = new FileInfo(m_exePath + "\\" + "log.txt").Length;
+                    string[] sizes = { "B", "KB", "MB", "GB", "TB" };
+                    //if (len > 1000)
+                    //{
+                    //    File.Delete(m_exePath + "\\" + "log.txt");
+                    //}
+                    if (len > 300000)
+                    {
+                        File.Delete(m_exePath + "\\" + "log.txt");
+                    }
                 }
                 using (StreamWriter w = File.AppendText(m_exePath + "\\" + "log.txt"))
 

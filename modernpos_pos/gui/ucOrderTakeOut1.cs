@@ -198,6 +198,7 @@ namespace modernpos_pos.gui
                 ordt.price = foot.price;
                 ordt.name = foot.foods_topping_name;
                 ordt.foods_id = foot.foods_id;
+                ordt.status_ok = "";
                 lordt.Add(ordt);
                 cnt++;
                 i2++;
@@ -227,6 +228,7 @@ namespace modernpos_pos.gui
                 ords.device_id = "";
                 ords.name = foot.foods_spec_name;
                 ords.foods_id = foot.foods_id;
+                ords.status_ok = "";
                 lords.Add(ords);
                 i1++;
                 cnt++;

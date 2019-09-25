@@ -216,6 +216,7 @@ namespace modernpos_pos.control
             iniC.TileFoodsBackColor = iniF.getIni("app", "TileFoodsBackColor");
             iniC.TileFoodsPriceColor = iniF.getIni("app", "TileFoodsPriceColor");
             iniC.TileFoodsNameColor = iniF.getIni("app", "TileFoodsNameColor");
+            iniC.printerOrder = iniF.getIni("app", "printerOrder");
 
             iniC.VNEip = iniF.getIni("VNE", "VNEip");
             iniC.VNEwebapi = iniF.getIni("VNE", "VNEwebapi");

@@ -1253,6 +1253,15 @@ namespace modernpos_pos.gui
 
             //document.PrinterSettings.PrinterName = ord1.printer_name;
             document.Print();
+
+            document = new PrintDocument();
+            document.PrinterSettings.PrinterName = mposC.iniC.printerOrder;
+            document.PrintPage += new PrintPageEventHandler(printBill_PrintPage);
+            //This is where you set the printer in your case you could use "EPSON USB"
+            //or whatever it is called on your machine, by Default it will choose the default printer
+
+            //document.PrinterSettings.PrinterName = ord1.printer_name;
+            document.Print();
         }
         private void printBill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
@@ -1334,6 +1343,15 @@ namespace modernpos_pos.gui
             count++;
             yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             line = "Staff : Machine VNE1";
+            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
+            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+            //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());
+            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+
+            count++;
+            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            line = "Date :" + System.DateTime.Now.ToString("dd/MM/yyyy hh:mm");
             textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?

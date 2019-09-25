@@ -17,7 +17,7 @@ namespace modernpos_pos.object1
 
         public String sticker_donor_takeout_panel1 = "", sticker_donor_height = "", sticker_donor_start_x = "", sticker_donor_start_y = "", sticker_donor_barcode_height = "", sticker_donor_barcode_gap_x = "", sticker_donor_barcode_gap_y = "", sticker_donor_gap="";
         public String statusAppToGo = "", patientaddpanel1weight="", barcode_width_minus="", status_show_border="";
-        public String themeDonor = "",themeDonor1 = "", printerBill="", sCFoodsMainSplitterWidth="", sCOrderSplitterWidth="";
+        public String themeDonor = "",themeDonor1 = "", printerBill="", printerOrder = "", sCFoodsMainSplitterWidth="", sCOrderSplitterWidth="";
         public String timerlabreqaccept = "", timerImgScanNew="", ShareFile="", ShareFileSMBFolder="", TileCategoryColor="";
 
         public String TileFoodsPriceColor = "", TileFoodsNameColor = "", statusdebug="", TileCategoryOrientation="";
