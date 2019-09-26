@@ -167,9 +167,9 @@ namespace modernpos_pos.objdb
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
 
-            p.order_id = p.order_id == null ? "" : p.order_id;
+            //p.order_id = p.order_id == null ? "" : p.order_id;
             //p.bill_id = p.bill_id == null ? "" : p.bill_id;
-            p.foods_id = p.foods_id == null ? "" : p.foods_id;
+            //p.foods_id = p.foods_id == null ? "" : p.foods_id;
             //p.price = p.price == null ? "0" : p.price;
             p.foods_code = p.foods_code == null ? "" : p.foods_code;
             //p.amount = p.amount == null ? "0" : p.amount;
@@ -184,7 +184,7 @@ namespace modernpos_pos.objdb
             p.bill_id = long.TryParse(p.bill_id, out chk) ? chk.ToString() : "0";
             p.order_id = long.TryParse(p.order_id, out chk) ? chk.ToString() : "0";
             p.lot_id = long.TryParse(p.lot_id, out chk) ? chk.ToString() : "0";
-            //p.foods_cat_id = long.TryParse(p.foods_cat_id, out chk) ? chk.ToString() : "0";
+            p.foods_id = long.TryParse(p.foods_id, out chk) ? chk.ToString() : "0";
 
             p.price = Decimal.TryParse(p.price, out chk1) ? chk1.ToString() : "0";
             p.qty = Decimal.TryParse(p.qty, out chk1) ? chk1.ToString() : "0";
