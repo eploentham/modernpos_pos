@@ -334,11 +334,11 @@ namespace modernpos_pos.gui
                     FrmNoodleMake frm = new FrmNoodleMake(mposC, foo.foods_price);
                     frm.ShowDialog(this);
 
-                    setTplOrder(mposC.NooId, mposC.NooName, mposC.NooPrice, mposC.NooQty, mposC.NooRemark, foo.printer_name);
+                    setTplOrder(foo.foods_id, mposC.NooName, mposC.NooPrice, mposC.NooQty, mposC.NooRemark, foo.printer_name, foo.status_create);
                 }
                 else
                 {
-                    setTplOrder(tile.Name, tile.Text, tile.Text1.Replace("ราคา", "").Trim(), "1", "", foo.printer_name);
+                    setTplOrder(tile.Name, tile.Text, tile.Text1.Replace("ราคา", "").Trim(), "1", "", foo.printer_name, foo.status_create);
                 }
 
                 //FlickrPhoto photo = (FlickrPhoto)tile.Tag;
@@ -364,13 +364,14 @@ namespace modernpos_pos.gui
                 calBill();
             }
         }
-        private void setTplOrder(String id, String name, String price, String qty, String remark, String printer)
+        private void setTplOrder(String id, String name, String price, String qty, String remark, String printer, String statuscreate)
         {
             String re = "";
             if (!name.Equals(""))
             {
                 //String[] ext = name.Split('#');
-                int row1 = tplOrd.RowCount++;
+                int row1 = tplOrd.RowCount;
+                tplOrd.RowCount++;
                 Order1 ord1 = new Order1();
                 //Row row = grfOrder.Rows.Add();
                 //row[colOrdFooName] = name;
@@ -400,6 +401,7 @@ namespace modernpos_pos.gui
                 ord1.toppingPrice = "";
                 ord1.topping = "";
                 ord1.special = "";
+                ord1.status_create = statuscreate;
                 lOrd.Add(ord1);
                 
                 ucOrderTakeOut1 ucto = new ucOrderTakeOut1(mposC, row1.ToString(), id, qty,ref ord1, ref lords, ref lordt, this);
@@ -468,6 +470,11 @@ namespace modernpos_pos.gui
             //{
             //    LoadFoods(false, i, dtCat.Rows[i]["foods_cat_id"].ToString());
             //}
+        }
+        public void delTplRow(ucOrderTakeOut1 uco, String row)
+        {
+            tplOrd.Controls.Remove(uco);
+            //tplOrd.RowCount--;
         }
         public void calBill()
         {
@@ -1498,7 +1505,30 @@ namespace modernpos_pos.gui
             int.TryParse(ord1.row1, out row);
             //int.TryParse(lOrd.Count, out cnt);
             //printText += iprn.ToString() + "  " + ord1.foods_name + "  " + ord1.qty + Environment.NewLine;
-            printText += (row) + "[" + lOrd.Count + "]  " + ord1.foods_name + "  " + ord1.qty + Environment.NewLine;
+            if (ord1.status_create.Equals("1"))
+            {
+                if (ord1.foods_name.IndexOf("เพิ่ม") >= 0)
+                {
+                    String temp1 = ord1.foods_name.Substring(0, ord1.foods_name.IndexOf("เพิ่ม")).Trim();
+                    printText += (row) + "[" + lOrd.Count + "]  " + temp1 + Environment.NewLine;
+
+                    String temp2 = (ord1.foods_name.Substring(ord1.foods_name.IndexOf("เพิ่ม")).Trim()).Replace("เพิ่ม","").Trim();
+                    String[] temp22 = temp2.Split(' ');
+                    if (temp2.Length > 0)
+                    {
+                        printText += "       เพิ่ม" + Environment.NewLine;
+                        foreach (String temp222 in temp22)
+                        {
+                            printText += "       " + temp222.Trim() + Environment.NewLine;
+                        }
+                    }
+                }
+                
+            }
+            else
+            {
+                printText += (row) + "[" + lOrd.Count + "]  " + ord1.foods_name + "  " + ord1.qty + Environment.NewLine;
+            }
 
             foreach(OrderTopping ordt in lordt)
             {

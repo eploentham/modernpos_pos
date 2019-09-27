@@ -1384,9 +1384,23 @@ namespace modernpos_pos.gui
             //grfOpt.Styles.EmptyArea = this.BackColor;
             //pageLoad = false;
         }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            // ...
+            if (keyData == (Keys.Escape))
+            {
+                //appExit();                
+                Close();
+            }
+            else
+            {
+                
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         private void FrmNoodleMake_Load(object sender, EventArgs e)
         {
-
+            this.FormBorderStyle = FormBorderStyle.None;
         }
     }
 }

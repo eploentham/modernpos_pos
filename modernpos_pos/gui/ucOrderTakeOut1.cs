@@ -100,7 +100,8 @@ namespace modernpos_pos.gui
         private void PicDel_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            this.Dispose();
+            //this.Dispose();
+            frmtakeout4.delTplRow(this, row);
             setBill();
         }
 
@@ -233,10 +234,19 @@ namespace modernpos_pos.gui
                 i1++;
                 cnt++;
             }
-
-            lbName.Value = foo.foods_name;
-            lbQty.Value = qty;
-            lbPrice.Value = foo.foods_price;
+            if (ord.status_create.Equals("1"))
+            {
+                lbName.Value = ord.foods_name;
+                lbQty.Value = ord.qty;
+                lbPrice.Value = ord.sumPrice;
+            }
+            else
+            {
+                lbName.Value = foo.foods_name;
+                lbQty.Value = qty;
+                lbPrice.Value = foo.foods_price;
+            }
+            
             lbRow.Value = row;
 
             int hei = 0;
