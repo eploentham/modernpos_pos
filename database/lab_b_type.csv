@@ -1,0 +1,6 @@
+"labtype_id";"labtype_name";"active";"remark";"sort1";"date_create";"date_modi";"date_cancel";"user_create";"user_modi";"user_cancel"
+2560000000;"Hematology";"1";"";"100";"";"";"";"";"";""
+2560000001;"Immunology";"1";"";"101";"";"";"";"";"";""
+2560000002;"Hepatitis C Virus Marker";"1";"";"102";"";"";"";"";"";""
+2560000003;"Hepatitis B Virus Markers";"1";"";"103";"";"";"";"";"";""
+2560000004;"Human Immune - Deficiency Virus Markers";"1";"";"104";"";"";"";"";"";""
