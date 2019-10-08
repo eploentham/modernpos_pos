@@ -407,6 +407,8 @@ namespace modernpos_pos.gui
                 ucOrderTakeOut1 ucto = new ucOrderTakeOut1(mposC, row1.ToString(), id, qty,ref ord1, ref lords, ref lordt, this);
                 //tplOrd.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                 tplOrd.Controls.Add(ucto, 0, row1);
+                tplOrd.ResumeLayout();
+                tplOrd.AutoScrollPosition = new Point(0, tplOrd.VerticalScroll.Maximum);
                 //UpdateTotals();
             }
         }
@@ -508,6 +510,11 @@ namespace modernpos_pos.gui
             tplOrd.TabIndex = 0;
             tplOrd.Dock = DockStyle.Fill;
             tplOrd.AutoScroll = true;
+            tplOrd.ResumeLayout();
+            tplOrd.SuspendLayout();
+            tplOrd.GrowStyle = TableLayoutPanelGrowStyle.AddRows;
+            tplOrd.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            tplOrd.RowCount = tplOrd.RowStyles.Count;
             pnOrdOrder.Controls.Add(tplOrd);
         }
         private void initTileFoods()

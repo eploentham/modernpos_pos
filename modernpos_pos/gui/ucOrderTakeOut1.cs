@@ -150,6 +150,7 @@ namespace modernpos_pos.gui
             int chk = 0;
             if (int.TryParse(qty, out chk))
             {
+                if (chk <= 0) return;
                 chk--;
                 lbQty.Value = chk.ToString();
                 qty = chk.ToString();
@@ -540,6 +541,7 @@ namespace modernpos_pos.gui
             int chk = 0;
             if (int.TryParse(lbQtyTopping.Text, out chk))
             {
+                //if (chk <= 0) return;
                 chk++;
                 lbQtyTopping.Value = chk.ToString();
                 //qty = chk.ToString();
@@ -573,6 +575,7 @@ namespace modernpos_pos.gui
             int chk = 0;
             if (int.TryParse(lbQtyTopping.Text, out chk))
             {
+                if (chk <= 0) return;
                 chk--;
                 lbQtyTopping.Value = chk.ToString();
                 //qty = chk.ToString();
