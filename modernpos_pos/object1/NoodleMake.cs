@@ -13,5 +13,6 @@ namespace modernpos_pos.object1
         public String noodle_make_price { get; set; }
         public String noodle_make_where { get; set; }
         public String noodle_make_where1 { get; set; }
+        public String status_us { get; set; }
     }
 }

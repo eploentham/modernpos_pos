@@ -2,6 +2,7 @@
 using C1.Win.C1Input;
 using C1.Win.C1SuperTooltip;
 using modernpos_pos.control;
+using modernpos_pos.object1;
 using modernpos_pos.Properties;
 using System;
 using System.Collections.Generic;
@@ -33,11 +34,35 @@ namespace modernpos_pos.gui
         Image imgChk, imgChkUn, imgChkNo;
         C1Button btnExit;
         String price = "";
+        public List<NoodleMake> lnooNoodle = new List<NoodleMake>();
+        public List<NoodleMake> lnooWater = new List<NoodleMake>();
+        public List<NoodleMake> lnooOptNoodle = new List<NoodleMake>();
+        public List<NoodleMake> lnooNoodleMeatBall = new List<NoodleMake>();
+        public List<NoodleMake> lnooNoodleSea = new List<NoodleMake>();
+        public List<NoodleMake> lnooNoodleMeat = new List<NoodleMake>();
+        public List<NoodleMake> lnooNoodleVagetable = new List<NoodleMake>();
         public FrmNoodleMake(mPOSControl x, String price)
         {
             InitializeComponent();
             mposC = x;
             this.price = price;
+            initConfig();
+        }
+        public FrmNoodleMake(mPOSControl x, String price
+            , List<NoodleMake> lnooNoodle, List<NoodleMake> lnooWater, List<NoodleMake> lnooOptNoodle, List<NoodleMake> lnooNoodleMeatBall, List<NoodleMake> lnooNoodleSea
+            , List<NoodleMake> lnooNoodleMeat, List<NoodleMake> lnooNoodleVagetable)
+        {
+            InitializeComponent();
+            mposC = x;
+            this.price = price;
+            this.lnooNoodle = lnooNoodle;
+            this.lnooWater = lnooWater;
+            this.lnooOptNoodle = lnooOptNoodle;
+            this.lnooNoodleMeatBall = lnooNoodleMeatBall;
+            this.lnooNoodleSea = lnooNoodleSea;
+            this.lnooNoodleMeat = lnooNoodleMeat;
+            this.lnooNoodleVagetable = lnooNoodleVagetable;
+
             initConfig();
         }
         private void initConfig()
@@ -46,6 +71,138 @@ namespace modernpos_pos.gui
             fEditB = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Bold);
             fEdit1 = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 5, FontStyle.Regular + 2);
             fgrd = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 15, FontStyle.Regular);
+
+            createObject();
+            
+            picMinus.Click += PicMinus_Click;
+            picPlus.Click += PicPlus_Click;
+            lbQty.Font = fEdit;
+            lbQtyShow.Font = fEdit;
+
+            setBackGround();
+
+            initGrfNoom();
+            setGrfNoom();
+            initGrfWatm();
+            setGrfWatm();
+            initGrfOpt();
+            setGrfOpt();
+            initGrf5();
+            initGrf6();
+            initGrf7();
+            initGrf8();
+            setGrf8();
+            setGrf7();
+            setGrf6();
+            setGrf5();
+
+            setControl();
+        }
+        private void setControl()
+        {
+            foreach(NoodleMake noom in lnooNoodle)
+            {
+                //foreach (Row row in grfNoom.Rows)
+                //{
+                //    row[colNImg] = null;
+                //    row[colNStatusUs] = "";
+                //}
+                foreach (Row row in grfNoom.Rows)
+                {
+                    if (row[colNId] == null) continue;
+                    if (row[colNId].ToString().Trim().Equals(noom.noodle_make_id))
+                    {
+                        row[colNImg] = imgChk;
+                        row[colNStatusUs] = "1";
+                    }
+                }
+            }
+            foreach (NoodleMake noom in lnooWater)
+            {
+                foreach (Row row in grfWatm.Rows)
+                {
+                    if (row[colNId] == null) continue;
+                    if (row[colNId].ToString().Trim().Equals(noom.noodle_make_id))
+                    {
+                        row[colNImg] = imgChk;
+                        row[colNStatusUs] = "1";
+                    }
+                }
+            }
+            foreach (NoodleMake noom in lnooOptNoodle)
+            {
+                foreach (Row row in grfOpt.Rows)
+                {
+                    if (row[colNId] == null) continue;
+                    if (row[colNId].ToString().Trim().Equals(noom.noodle_make_id))
+                    {
+                        if (noom.status_us.Equals("1"))
+                        {
+                            row[colOImgL] = imgChk;
+                            row[colOImgR] = imgChkUn;
+                            row[colOStatusUs] = "1";
+                        }
+                        else
+                        {
+                            row[colOImgR] = imgChkUn;
+                            row[colOImgR] = imgChkNo;
+                            row[colOStatusUs] = "3";
+                        }
+                        
+                    }
+                }
+            }
+            foreach (NoodleMake noom in lnooNoodleMeatBall)
+            {
+                foreach (Row row in grf5.Rows)
+                {
+                    if (row[colNId] == null) continue;
+                    if (row[colNId].ToString().Trim().Equals(noom.noodle_make_id))
+                    {
+                        row[colNImg] = imgChk;
+                        row[colNStatusUs] = "1";
+                    }
+                }
+            }
+            foreach (NoodleMake noom in lnooNoodleSea)
+            {
+                foreach (Row row in grf6.Rows)
+                {
+                    if (row[colNId] == null) continue;
+                    if (row[colNId].ToString().Trim().Equals(noom.noodle_make_id))
+                    {
+                        row[colNImg] = imgChk;
+                        row[colNStatusUs] = "1";
+                    }
+                }
+            }
+            foreach (NoodleMake noom in lnooNoodleMeat)
+            {
+                foreach (Row row in grf7.Rows)
+                {
+                    if (row[colNId] == null) continue;
+                    if (row[colNId].ToString().Trim().Equals(noom.noodle_make_id))
+                    {
+                        row[colNImg] = imgChk;
+                        row[colNStatusUs] = "1";
+                    }
+                }
+            }
+            foreach (NoodleMake noom in lnooNoodleVagetable)
+            {
+                foreach (Row row in grf8.Rows)
+                {
+                    if (row[colNId] == null) continue;
+                    if (row[colNId].ToString().Trim().Equals(noom.noodle_make_id))
+                    {
+                        row[colNImg] = imgChk;
+                        row[colNStatusUs] = "1";
+                    }
+                }
+            }
+        }
+        private void createObject()
+        {
             lbNoom = new Label();
             lbNoom.Dock = DockStyle.Fill;
             lbNoom.AutoSize = false;
@@ -157,12 +314,10 @@ namespace modernpos_pos.gui
             originalWidth = imgChkUn.Width;
             newWidth = 40;
             imgChkUn = imgChkUn.GetThumbnailImage(newWidth, (newWidth * imgChkUn.Height) / originalWidth, null, IntPtr.Zero);
-
-            picMinus.Click += PicMinus_Click;
-            picPlus.Click += PicPlus_Click;
-            lbQty.Font = fEdit;
-            lbQtyShow.Font = fEdit;
-
+            
+        }
+        private void setBackGround()
+        {
             pnMid1G.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn1g);
             pnMid1L.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn1l);
             pnMid1T.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn1t);
@@ -187,29 +342,108 @@ namespace modernpos_pos.gui
             pnMid8G.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn8g);
             pnMid8L.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn8l);
             pnMid8T.BackColor = ColorTranslator.FromHtml(mposC.iniC.noodlemakepn8t);
-
-            initGrfNoom();
-            setGrfNoom();
-            initGrfWatm();
-            setGrfWatm();
-            initGrfOpt();
-            setGrfOpt();
-            initGrf5();
-            initGrf6();
-            initGrf7();
-            initGrf8();
-            setGrf8();
-            setGrf7();
-            setGrf6();
-            setGrf5();
         }
-
         private void BtnExit_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            setListNoodleMake();
             this.Dispose();
         }
-
+        private void setListNoodleMake()
+        {
+            lnooNoodle = new List<NoodleMake>();
+            lnooWater = new List<NoodleMake>();
+            lnooOptNoodle = new List<NoodleMake>();
+            lnooNoodleMeatBall = new List<NoodleMake>();
+            lnooNoodleSea = new List<NoodleMake>();
+            lnooNoodleMeat = new List<NoodleMake>();
+            lnooNoodleVagetable = new List<NoodleMake>();
+            foreach (Row row in grfNoom.Rows)
+            {
+                if (row[colNStatusUs] == null) continue;
+                if (row[colNStatusUs].Equals("1"))
+                {
+                    NoodleMake noom = new NoodleMake();
+                    noom.noodle_make_id = row[colNId].ToString();
+                    noom.noodle_make_name = row[colNName].ToString();
+                    lnooNoodle.Add(noom);
+                    //break;
+                }
+            }
+            foreach (Row row in grfWatm.Rows)
+            {
+                if (row[colNStatusUs] == null) continue;
+                if (row[colNStatusUs].Equals("1"))
+                {
+                    NoodleMake noom = new NoodleMake();
+                    noom.noodle_make_id = row[colNId].ToString();
+                    noom.noodle_make_name = row[colNName].ToString();
+                    lnooWater.Add(noom);
+                    //break;
+                }
+            }
+            foreach (Row row in grfOpt.Rows)
+            {
+                if (row[colOStatusUs] == null) continue;
+                if (row[colOStatusUs].Equals("1") || row[colOStatusUs].Equals("3"))
+                {
+                    NoodleMake noom = new NoodleMake();
+                    noom.noodle_make_id = row[colOId].ToString();
+                    noom.noodle_make_name = row[colOName].ToString();
+                    noom.status_us = row[colOStatusUs].ToString();
+                    lnooOptNoodle.Add(noom);
+                    //break;
+                }
+            }
+            foreach (Row row in grf5.Rows)
+            {
+                if (row[colNStatusUs] == null) continue;
+                if (row[colNStatusUs].Equals("1"))
+                {
+                    NoodleMake noom = new NoodleMake();
+                    noom.noodle_make_id = row[colNId].ToString();
+                    noom.noodle_make_name = row[colNName].ToString();
+                    lnooNoodleMeatBall.Add(noom);
+                    //break;
+                }
+            }
+            foreach (Row row in grf6.Rows)
+            {
+                if (row[colNStatusUs] == null) continue;
+                if (row[colNStatusUs].Equals("1"))
+                {
+                    NoodleMake noom = new NoodleMake();
+                    noom.noodle_make_id = row[colNId].ToString();
+                    noom.noodle_make_name = row[colNName].ToString();
+                    lnooNoodleSea.Add(noom);
+                    //break;
+                }
+            }
+            foreach (Row row in grf7.Rows)
+            {
+                if (row[colNStatusUs] == null) continue;
+                if (row[colNStatusUs].Equals("1"))
+                {
+                    NoodleMake noom = new NoodleMake();
+                    noom.noodle_make_id = row[colNId].ToString();
+                    noom.noodle_make_name = row[colNName].ToString();
+                    lnooNoodleMeat.Add(noom);
+                    //break;
+                }
+            }
+            foreach (Row row in grf8.Rows)
+            {
+                if (row[colNStatusUs] == null) continue;
+                if (row[colNStatusUs].Equals("1"))
+                {
+                    NoodleMake noom = new NoodleMake();
+                    noom.noodle_make_id = row[colNId].ToString();
+                    noom.noodle_make_name = row[colNName].ToString();
+                    lnooNoodleVagetable.Add(noom);
+                    //break;
+                }
+            }
+        }
         private void setFoodName()
         {
             Decimal price = 0, price5=0, price6=0, price7=0, price8=0, chk=0, pricefix=0;
@@ -224,7 +458,8 @@ namespace modernpos_pos.gui
             foreach (Row row in grfNoom.Rows)
             {
                 if (row[colNStatusUs] == null) continue;
-                if (row[colNStatusUs].Equals("1")){
+                if (row[colNStatusUs].Equals("1"))
+                {
                     fooname1 = row[colNName].ToString();
                     break;
                 }
@@ -345,6 +580,32 @@ namespace modernpos_pos.gui
 
             //theme.SetTheme(grf, "Office2010Blue");
         }
+        private void GrfNoom_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (grfNoom.Row <= 0) return;
+            if (grfNoom[grfNoom.Row, colNflag].ToString().Equals("1")) return;
+            String chk = "";
+            int row1 = 0;
+            row1 = grfNoom.Row;
+            chk = grfNoom[grfNoom.Row, colNStatusUs].ToString();
+            foreach (Row row in grfNoom.Rows)
+            {
+                row[colNImg] = null;
+                row[colNStatusUs] = "";
+            }
+            if (chk.Equals(""))
+            {
+                grfNoom[grfNoom.Row, colNImg] = imgChk;
+                grfNoom[grfNoom.Row, colNStatusUs] = "1";
+            }
+            else
+            {
+                grfNoom[grfNoom.Row, colNImg] = null;
+                grfNoom[grfNoom.Row, colNStatusUs] = "";
+            }
+            setFoodName();
+        }
         private void initGrfWatm()
         {
             grfWatm = new C1FlexGrid();
@@ -454,6 +715,7 @@ namespace modernpos_pos.gui
             {
                 Row row = grfWatm.Rows.Add();
                 //row[i + 1, 0] = (i + 1);
+                row[colNId] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_id].ToString();
                 row[colNName] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_name].ToString();
                 row[colNStatusUs] = "";
                 row[colNImg] = null;
@@ -605,6 +867,7 @@ namespace modernpos_pos.gui
                 Row row = grf5.Rows.Add();
                 Decimal.TryParse(dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_price].ToString(), out price);
                 //row[i + 1, 0] = (i + 1);
+                row[colNId] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_id].ToString();
                 row[colNName] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_name].ToString();
                 row[colNStatusUs] = "";
                 row[colNImg] = null;
@@ -756,6 +1019,7 @@ namespace modernpos_pos.gui
                 Row row = grf6.Rows.Add();
                 Decimal.TryParse(dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_price].ToString(), out price);
                 //row[i + 1, 0] = (i + 1);
+                row[colNId] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_id].ToString();
                 row[colNName] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_name].ToString();
                 if (price > 0)
                 {
@@ -915,6 +1179,7 @@ namespace modernpos_pos.gui
                 Row row = grf8.Rows.Add();
                 Decimal.TryParse(dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_price].ToString(), out price);
                 //row[i + 1, 0] = (i + 1);
+                row[colNId] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_id].ToString();
                 row[colNName] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_name].ToString();
                 row[colNStatusUs] = "";
                 row[colNImg] = null;
@@ -1066,6 +1331,7 @@ namespace modernpos_pos.gui
                 Row row = grf7.Rows.Add();
                 Decimal.TryParse(dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_price].ToString(), out price);
                 //row[i + 1, 0] = (i + 1);
+                row[colNId] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_id].ToString();
                 row[colNName] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_name].ToString();
                 row[colNStatusUs] = "";
                 row[colNImg] = null;
@@ -1108,32 +1374,6 @@ namespace modernpos_pos.gui
             grf7.FocusRect = FocusRectEnum.None;
             grf7.SelectionMode = SelectionModeEnum.Cell;
             //pageLoad = false;
-        }
-        private void GrfNoom_Click(object sender, EventArgs e)
-        {
-            //throw new NotImplementedException();
-            if (grfNoom.Row <= 0) return;
-            if (grfNoom[grfNoom.Row, colNflag].ToString().Equals("1")) return;
-            String chk = "";
-            int row1 = 0;
-            row1 = grfNoom.Row;
-            chk = grfNoom[grfNoom.Row, colNStatusUs].ToString();
-            foreach (Row row in grfNoom.Rows)
-            {
-                row[colNImg] = null;
-                row[colNStatusUs] = "";
-            }
-            if (chk.Equals(""))
-            {
-                grfNoom[grfNoom.Row, colNImg] = imgChk;
-                grfNoom[grfNoom.Row, colNStatusUs] = "1";
-            }
-            else
-            {
-                grfNoom[grfNoom.Row, colNImg] = null;
-                grfNoom[grfNoom.Row, colNStatusUs] = "";
-            }
-            setFoodName();
         }
         private void setGrfNoom()
         {
@@ -1184,6 +1424,7 @@ namespace modernpos_pos.gui
             {
                 Row row = grfNoom.Rows.Add();
                 //row[i + 1, 0] = (i + 1);
+                row[colNId] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_id].ToString();
                 row[colNName] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_name].ToString();
                 row[colNStatusUs] = "";
                 row[colNImg] = null;
@@ -1336,6 +1577,7 @@ namespace modernpos_pos.gui
             {
                 Row row = grfOpt.Rows.Add();
                 //row[i + 1, 0] = (i + 1);
+                row[colNId] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_id].ToString();
                 row[colOName] = dt.Rows[i][mposC.mposDB.noomDB.noom.noodle_make_name].ToString();
                 row[colOStatusUs] = "";
                 row[colOImgL] = imgChkUn;

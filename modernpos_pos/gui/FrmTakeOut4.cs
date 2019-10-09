@@ -334,7 +334,8 @@ namespace modernpos_pos.gui
                     FrmNoodleMake frm = new FrmNoodleMake(mposC, foo.foods_price);
                     frm.ShowDialog(this);
 
-                    setTplOrder(foo.foods_id, mposC.NooName, mposC.NooPrice, mposC.NooQty, mposC.NooRemark, foo.printer_name, foo.status_create);
+                    setTplOrder(foo.foods_id, mposC.NooName, mposC.NooPrice, mposC.NooQty, mposC.NooRemark, foo.printer_name, foo.status_create
+                        , frm.lnooNoodle, frm.lnooWater, frm.lnooOptNoodle, frm.lnooNoodleMeatBall, frm.lnooNoodleSea, frm.lnooNoodleMeat, frm.lnooNoodleVagetable);
                 }
                 else
                 {
@@ -364,6 +365,42 @@ namespace modernpos_pos.gui
                 calBill();
             }
         }
+        private void setTplOrder(String id, String name, String price, String qty, String remark, String printer, String statuscreate
+            , List<NoodleMake> lnooNoodle, List<NoodleMake> lnooWater, List<NoodleMake> lnooOptNoodle, List<NoodleMake> lnooNoodleMeatBall, List<NoodleMake> lnooNoodleSea
+            , List<NoodleMake> lnooNoodleMeat, List<NoodleMake> lnooNoodleVagetable)
+        {
+            String re = "";
+            if (!name.Equals(""))
+            {
+                //String[] ext = name.Split('#');
+                int row1 = tplOrd.RowCount;
+                tplOrd.RowCount++;
+                Order1 ord1 = new Order1();
+                ord1.order_id = "";
+                ord1.price = price;
+                ord1.qty = "1";
+                ord1.status_bill = "0";
+                ord1.foods_id = id;
+                ord1.foods_name = name;
+                ord1.remark = remark;
+                ord1.row1 = row1.ToString();
+                ord1.printer_name = printer;
+                ord1.sumPrice = price;
+                ord1.toppingPrice = "";
+                ord1.topping = "";
+                ord1.special = "";
+                ord1.status_create = statuscreate;
+                lOrd.Add(ord1);
+
+                ucOrderTakeOut1 ucto = new ucOrderTakeOut1(mposC, row1.ToString(), id, qty, ref ord1, ref lords, ref lordt, this
+                    , lnooNoodle, lnooWater, lnooOptNoodle, lnooNoodleMeatBall, lnooNoodleSea, lnooNoodleMeat, lnooNoodleVagetable);
+                //tplOrd.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                tplOrd.Controls.Add(ucto, 0, row1);
+                tplOrd.ResumeLayout();
+                tplOrd.AutoScrollPosition = new Point(0, tplOrd.VerticalScroll.Maximum);
+                //UpdateTotals();
+            }
+        }
         private void setTplOrder(String id, String name, String price, String qty, String remark, String printer, String statuscreate)
         {
             String re = "";
@@ -373,21 +410,6 @@ namespace modernpos_pos.gui
                 int row1 = tplOrd.RowCount;
                 tplOrd.RowCount++;
                 Order1 ord1 = new Order1();
-                //Row row = grfOrder.Rows.Add();
-                //row[colOrdFooName] = name;
-                //row[colOrdPrice] = price;
-                //row[colOrdFooId] = id;
-                //row[colOrdRemark] = remark;
-                //row[colOrdNo] = grfOrder.Rows.Count - 2;
-                //row[colOrdPrinterName] = printer;
-                //row[colOrdFooName1] = name;
-                //row[colOrdQty] = "1";
-                //row[colOrdqtyplus] = imgPlus;
-                //row[colOrdqtyminus] = imgMinus;
-                //row[colOrdArrowDown] = imgArrowDown;
-                //row[colOrdTopping] = imgAdd;
-                //row[colOrdThrumb] = imgThumb;
-
                 ord1.order_id = "";
                 ord1.price = price;
                 ord1.qty = "1";

@@ -34,11 +34,18 @@ namespace modernpos_pos.gui
         List<FoodsSpecial> lfoos;
         List<OrderTopping> lordt;
         List<OrderSpecial> lords;
+        List<NoodleMake> lnooNoodle;
+        List<NoodleMake> lnooWater;
+        List<NoodleMake> lnooOptNoodle;
+        List<NoodleMake> lnooNoodleMeatBall;
+        List<NoodleMake> lnooNoodleSea;
+        List<NoodleMake> lnooNoodleMeat;
+        List<NoodleMake> lnooNoodleVagetable;
         TableLayoutPanel tpl;
         int cnt = 0;
         Order1 ord;
         FrmTakeOut4 frmtakeout4;
-        public ucOrderTakeOut1(mPOSControl x, String row, String fooid, String qty,ref Order1 ord, ref List<OrderSpecial> lords, ref List<OrderTopping> lordt, FrmTakeOut4 frmtakeout4)
+        public ucOrderTakeOut1(mPOSControl x, String row, String fooid, String qty, ref Order1 ord, ref List<OrderSpecial> lords, ref List<OrderTopping> lordt, FrmTakeOut4 frmtakeout4)
         {
             InitializeComponent();
             mposC = x;
@@ -51,6 +58,39 @@ namespace modernpos_pos.gui
             this.frmtakeout4 = frmtakeout4;
             this.lordt = lordt;
             this.lords = lords;
+
+            lnooNoodle = new List<NoodleMake>();
+            lnooWater = new List<NoodleMake>();
+            lnooOptNoodle = new List<NoodleMake>();
+            lnooNoodleMeatBall = new List<NoodleMake>();
+            lnooNoodleSea = new List<NoodleMake>();
+            lnooNoodleMeat = new List<NoodleMake>();
+            lnooNoodleVagetable = new List<NoodleMake>();
+            initConfig();
+        }
+        public ucOrderTakeOut1(mPOSControl x, String row, String fooid, String qty,ref Order1 ord, ref List<OrderSpecial> lords, ref List<OrderTopping> lordt, FrmTakeOut4 frmtakeout4
+            , List<NoodleMake> lnooNoodle, List<NoodleMake> lnooWater, List<NoodleMake> lnooOptNoodle, List<NoodleMake> lnooNoodleMeatBall, List<NoodleMake> lnooNoodleSea
+            , List<NoodleMake> lnooNoodleMeat, List<NoodleMake> lnooNoodleVagetable)
+        {
+            InitializeComponent();
+            mposC = x;
+            //fooName = foodsname;
+            this.qty = qty;
+            //this.price = price;
+            this.row = row;
+            this.fooid = fooid;
+            this.ord = ord;
+            this.frmtakeout4 = frmtakeout4;
+            this.lordt = lordt;
+            this.lords = lords;
+
+            this.lnooNoodle = lnooNoodle;
+            this.lnooWater = lnooWater;
+            this.lnooOptNoodle = lnooOptNoodle;
+            this.lnooNoodleMeatBall = lnooNoodleMeatBall;
+            this.lnooNoodleSea = lnooNoodleSea;
+            this.lnooNoodleMeat = lnooNoodleMeat;
+            this.lnooNoodleVagetable = lnooNoodleVagetable;
             initConfig();
         }
         private void initConfig()
@@ -65,6 +105,7 @@ namespace modernpos_pos.gui
             picMinus.Click += PicMinus_Click;
             picDesc.Click += PicDesc_Click;
             picDel.Click += PicDel_Click;
+            picDesc.Click += PicDesc_Click1;
 
             flagExplan = false;
             sizeNormal = this.Size;
@@ -77,6 +118,31 @@ namespace modernpos_pos.gui
             sizeNormal = this.Size;
             //PicDesc_Click(null, null);
         }
+
+        private void PicDesc_Click1(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (foo.status_create.Equals("1"))
+            {
+                mposC.NooId = "";
+                mposC.NooName = "";
+                mposC.NooPrice = "";
+                mposC.NooQty = "";
+                mposC.NooRemark = "";
+                mposC.NooPrinter = "";
+                FrmNoodleMake frm = new FrmNoodleMake(mposC, foo.foods_price
+                    , lnooNoodle, lnooWater, lnooOptNoodle, lnooNoodleMeatBall, lnooNoodleSea, lnooNoodleMeat, lnooNoodleVagetable);
+                frm.ShowDialog(this);
+                lnooNoodle = frm.lnooNoodle;
+                lnooWater = frm.lnooWater;
+                lnooOptNoodle = frm.lnooOptNoodle;
+                lnooNoodleMeatBall = frm.lnooNoodleMeatBall;
+                lnooNoodleSea = frm.lnooNoodleSea;
+                lnooNoodleMeat = frm.lnooNoodleMeat;
+                lnooNoodleVagetable = frm.lnooNoodleVagetable;
+            }
+        }
+
         private void initTlp()
         {
             tpl = new TableLayoutPanel();

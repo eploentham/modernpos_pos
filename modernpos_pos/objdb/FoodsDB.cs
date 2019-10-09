@@ -172,6 +172,7 @@ namespace modernpos_pos.objdb
                 itm1.foods_cat_id = row[foo.foods_cat_id].ToString();
                 itm1.filename = row[foo.filename].ToString();
                 itm1.status_recommend = row[foo.status_recommend].ToString();
+                itm1.status_create = row[foo.status_create].ToString();
                 lfoo.Add(itm1);
             }
         }
