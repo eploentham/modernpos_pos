@@ -1,0 +1,21 @@
+CREATE TABLE `modern_pos`.`b_foods_material` (
+  `material_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `material_name` VARCHAR(255) NULL,
+  `price` DECIMAL(17,2) NULL,
+  `weight` DECIMAL(17,4) NULL,
+  `active` VARCHAR(45) NULL,
+  `remark` VARCHAR(45) NULL,
+  `date_create` VARCHAR(45) NULL,
+  `date_modi` VARCHAR(45) NULL,
+  `date_cancel` VARCHAR(45) NULL,
+  `user_create` VARCHAR(45) NULL,
+  `user_modi` VARCHAR(45) NULL,
+  `user_cancel` VARCHAR(45) NULL,
+  `host_id` VARCHAR(45) NULL,
+  `branch_id` VARCHAR(45) NULL,
+  `device_id` VARCHAR(45) NULL,
+  PRIMARY KEY (`material_id`))
+ENGINE = MyISAM
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin
+COMMENT = 'id=140';
