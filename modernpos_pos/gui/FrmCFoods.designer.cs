@@ -32,9 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.c1CheckBox2 = new C1.Win.C1Input.C1CheckBox();
-            this.c1CheckBox1 = new C1.Win.C1Input.C1CheckBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tC1 = new C1.Win.C1Command.C1DockingTab();
             this.tabImg = new C1.Win.C1Command.C1DockingTabPage();
@@ -61,6 +58,16 @@
             this.txtFootpName = new C1.Win.C1Input.C1TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.pnTopping = new System.Windows.Forms.Panel();
+            this.tabMaterial = new C1.Win.C1Command.C1DockingTabPage();
+            this.pnMaterial = new System.Windows.Forms.Panel();
+            this.pnMaterialAdd1 = new System.Windows.Forms.Panel();
+            this.pnMaterialAdd = new System.Windows.Forms.Panel();
+            this.pnMaterialAddTotal = new System.Windows.Forms.Panel();
+            this.pnMaterial2 = new System.Windows.Forms.Panel();
+            this.pnMaterialView = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.c1CheckBox2 = new C1.Win.C1Input.C1CheckBox();
+            this.c1CheckBox1 = new C1.Win.C1Input.C1CheckBox();
             this.chkStatusRecommend = new C1.Win.C1Input.C1CheckBox();
             this.c1ComboBox1 = new C1.Win.C1Input.C1ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -96,15 +103,14 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnFoomAdd = new C1.Win.C1Input.C1Button();
+            this.btnFoomVoid = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tC1)).BeginInit();
             this.tC1.SuspendLayout();
@@ -127,6 +133,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnFootSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFootpId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFootpName)).BeginInit();
+            this.tabMaterial.SuspendLayout();
+            this.pnMaterial.SuspendLayout();
+            this.pnMaterialAdd1.SuspendLayout();
+            this.pnMaterial2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatusRecommend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1ComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImg)).BeginInit();
@@ -152,6 +165,8 @@
             this.tabFoods.SuspendLayout();
             this.tabRecommend.SuspendLayout();
             this.sB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoomAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoomVoid)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -166,7 +181,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1172, 682);
+            this.panel1.Size = new System.Drawing.Size(1285, 751);
             this.panel1.TabIndex = 4;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
@@ -188,11 +203,12 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.splitContainer1.Panel2.Controls.Add(this.panel5);
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
             this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.theme1.SetTheme(this.splitContainer1.Panel2, "(default)");
-            this.splitContainer1.Size = new System.Drawing.Size(1172, 682);
-            this.splitContainer1.SplitterDistance = 448;
+            this.splitContainer1.Size = new System.Drawing.Size(1285, 751);
+            this.splitContainer1.SplitterDistance = 491;
             this.splitContainer1.TabIndex = 0;
             this.theme1.SetTheme(this.splitContainer1, "(default)");
             // 
@@ -203,98 +219,19 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(448, 682);
+            this.panel2.Size = new System.Drawing.Size(491, 751);
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel3.Controls.Add(this.c1CheckBox2);
-            this.panel3.Controls.Add(this.c1CheckBox1);
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.chkStatusRecommend);
-            this.panel3.Controls.Add(this.c1ComboBox1);
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.btnImg);
-            this.panel3.Controls.Add(this.cboPrinter);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.cboRes);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.txtPrice);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.cboFoodsCat);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.cboFoodsType);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.chkDineIn);
-            this.panel3.Controls.Add(this.chkStatusToGo);
-            this.panel3.Controls.Add(this.txtPasswordVoid);
-            this.panel3.Controls.Add(this.btnNew);
-            this.panel3.Controls.Add(this.chkVoid);
-            this.panel3.Controls.Add(this.btnVoid);
-            this.panel3.Controls.Add(this.btnEdit);
-            this.panel3.Controls.Add(this.btnSave);
-            this.panel3.Controls.Add(this.txtRemark);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.txtFooNameT);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.txtID);
-            this.panel3.Controls.Add(this.txtFooCode);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(720, 682);
-            this.panel3.TabIndex = 0;
-            this.theme1.SetTheme(this.panel3, "(default)");
-            // 
-            // c1CheckBox2
-            // 
-            this.c1CheckBox2.BackColor = System.Drawing.Color.Transparent;
-            this.c1CheckBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.c1CheckBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.c1CheckBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.c1CheckBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1CheckBox2.Location = new System.Drawing.Point(124, 331);
-            this.c1CheckBox2.Name = "c1CheckBox2";
-            this.c1CheckBox2.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.c1CheckBox2.Size = new System.Drawing.Size(155, 24);
-            this.c1CheckBox2.TabIndex = 278;
-            this.c1CheckBox2.Text = "ใช้เป็นรายการ Topping";
-            this.theme1.SetTheme(this.c1CheckBox2, "(default)");
-            this.c1CheckBox2.UseVisualStyleBackColor = true;
-            this.c1CheckBox2.Value = null;
-            this.c1CheckBox2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1CheckBox1
-            // 
-            this.c1CheckBox1.BackColor = System.Drawing.Color.Transparent;
-            this.c1CheckBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.c1CheckBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.c1CheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.c1CheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1CheckBox1.Location = new System.Drawing.Point(124, 301);
-            this.c1CheckBox1.Name = "c1CheckBox1";
-            this.c1CheckBox1.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.c1CheckBox1.Size = new System.Drawing.Size(155, 24);
-            this.c1CheckBox1.TabIndex = 277;
-            this.c1CheckBox1.Text = "สถานะขายหน้าร้าน";
-            this.theme1.SetTheme(this.c1CheckBox1, "(default)");
-            this.c1CheckBox1.UseVisualStyleBackColor = true;
-            this.c1CheckBox1.Value = null;
-            this.c1CheckBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel5.Controls.Add(this.tC1);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel5.Location = new System.Drawing.Point(0, 392);
+            this.panel5.Location = new System.Drawing.Point(0, 277);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(720, 290);
+            this.panel5.Size = new System.Drawing.Size(790, 474);
             this.panel5.TabIndex = 276;
             this.theme1.SetTheme(this.panel5, "(default)");
             // 
@@ -305,12 +242,13 @@
             this.tC1.Controls.Add(this.tabImg);
             this.tC1.Controls.Add(this.tabSpecial);
             this.tC1.Controls.Add(this.tabTopping);
+            this.tC1.Controls.Add(this.tabMaterial);
             this.tC1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tC1.HotTrack = true;
             this.tC1.Location = new System.Drawing.Point(0, 0);
             this.tC1.Name = "tC1";
-            this.tC1.SelectedIndex = 2;
-            this.tC1.Size = new System.Drawing.Size(720, 290);
+            this.tC1.SelectedIndex = 3;
+            this.tC1.Size = new System.Drawing.Size(790, 474);
             this.tC1.TabIndex = 0;
             this.tC1.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tC1.TabsShowFocusCues = false;
@@ -323,7 +261,7 @@
             this.tabImg.Controls.Add(this.picFoo);
             this.tabImg.Location = new System.Drawing.Point(1, 24);
             this.tabImg.Name = "tabImg";
-            this.tabImg.Size = new System.Drawing.Size(718, 265);
+            this.tabImg.Size = new System.Drawing.Size(788, 449);
             this.tabImg.TabIndex = 0;
             this.tabImg.Text = "รูปอาหาร";
             // 
@@ -340,7 +278,7 @@
             this.tabSpecial.Controls.Add(this.panel6);
             this.tabSpecial.Location = new System.Drawing.Point(1, 24);
             this.tabSpecial.Name = "tabSpecial";
-            this.tabSpecial.Size = new System.Drawing.Size(718, 265);
+            this.tabSpecial.Size = new System.Drawing.Size(788, 449);
             this.tabSpecial.TabIndex = 1;
             this.tabSpecial.Text = "สั่งพิเศษ Special";
             // 
@@ -353,7 +291,7 @@
             this.panel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(718, 265);
+            this.panel6.Size = new System.Drawing.Size(788, 449);
             this.panel6.TabIndex = 6;
             this.theme1.SetTheme(this.panel6, "(default)");
             // 
@@ -370,7 +308,7 @@
             this.panel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel9.Location = new System.Drawing.Point(419, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(299, 265);
+            this.panel9.Size = new System.Drawing.Size(369, 449);
             this.panel9.TabIndex = 1;
             this.theme1.SetTheme(this.panel9, "(default)");
             // 
@@ -463,7 +401,7 @@
             this.pnSpec.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnSpec.Location = new System.Drawing.Point(0, 0);
             this.pnSpec.Name = "pnSpec";
-            this.pnSpec.Size = new System.Drawing.Size(419, 265);
+            this.pnSpec.Size = new System.Drawing.Size(419, 449);
             this.pnSpec.TabIndex = 0;
             this.theme1.SetTheme(this.pnSpec, "(default)");
             // 
@@ -472,7 +410,7 @@
             this.tabTopping.Controls.Add(this.panel7);
             this.tabTopping.Location = new System.Drawing.Point(1, 24);
             this.tabTopping.Name = "tabTopping";
-            this.tabTopping.Size = new System.Drawing.Size(718, 265);
+            this.tabTopping.Size = new System.Drawing.Size(788, 449);
             this.tabTopping.TabIndex = 2;
             this.tabTopping.Text = "สั่งเพิ่ม Topping";
             // 
@@ -485,7 +423,7 @@
             this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(718, 265);
+            this.panel7.Size = new System.Drawing.Size(788, 449);
             this.panel7.TabIndex = 0;
             this.theme1.SetTheme(this.panel7, "(default)");
             // 
@@ -504,7 +442,7 @@
             this.panel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel11.Location = new System.Drawing.Point(428, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(290, 265);
+            this.panel11.Size = new System.Drawing.Size(360, 449);
             this.panel11.TabIndex = 1;
             this.theme1.SetTheme(this.panel11, "(default)");
             // 
@@ -623,9 +561,169 @@
             this.pnTopping.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnTopping.Location = new System.Drawing.Point(0, 0);
             this.pnTopping.Name = "pnTopping";
-            this.pnTopping.Size = new System.Drawing.Size(428, 265);
+            this.pnTopping.Size = new System.Drawing.Size(428, 449);
             this.pnTopping.TabIndex = 0;
             this.theme1.SetTheme(this.pnTopping, "(default)");
+            // 
+            // tabMaterial
+            // 
+            this.tabMaterial.Controls.Add(this.pnMaterial);
+            this.tabMaterial.Location = new System.Drawing.Point(1, 24);
+            this.tabMaterial.Name = "tabMaterial";
+            this.tabMaterial.Size = new System.Drawing.Size(788, 449);
+            this.tabMaterial.TabIndex = 3;
+            this.tabMaterial.Text = "Material";
+            // 
+            // pnMaterial
+            // 
+            this.pnMaterial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pnMaterial.Controls.Add(this.pnMaterialAdd1);
+            this.pnMaterial.Controls.Add(this.pnMaterial2);
+            this.pnMaterial.Controls.Add(this.pnMaterialView);
+            this.pnMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMaterial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pnMaterial.Location = new System.Drawing.Point(0, 0);
+            this.pnMaterial.Name = "pnMaterial";
+            this.pnMaterial.Size = new System.Drawing.Size(788, 449);
+            this.pnMaterial.TabIndex = 0;
+            this.theme1.SetTheme(this.pnMaterial, "(default)");
+            // 
+            // pnMaterialAdd1
+            // 
+            this.pnMaterialAdd1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pnMaterialAdd1.Controls.Add(this.pnMaterialAdd);
+            this.pnMaterialAdd1.Controls.Add(this.pnMaterialAddTotal);
+            this.pnMaterialAdd1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMaterialAdd1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pnMaterialAdd1.Location = new System.Drawing.Point(466, 0);
+            this.pnMaterialAdd1.Name = "pnMaterialAdd1";
+            this.pnMaterialAdd1.Size = new System.Drawing.Size(322, 449);
+            this.pnMaterialAdd1.TabIndex = 1;
+            this.theme1.SetTheme(this.pnMaterialAdd1, "(default)");
+            // 
+            // pnMaterialAdd
+            // 
+            this.pnMaterialAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pnMaterialAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMaterialAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pnMaterialAdd.Location = new System.Drawing.Point(0, 0);
+            this.pnMaterialAdd.Name = "pnMaterialAdd";
+            this.pnMaterialAdd.Size = new System.Drawing.Size(322, 349);
+            this.pnMaterialAdd.TabIndex = 1;
+            this.theme1.SetTheme(this.pnMaterialAdd, "(default)");
+            // 
+            // pnMaterialAddTotal
+            // 
+            this.pnMaterialAddTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pnMaterialAddTotal.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnMaterialAddTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pnMaterialAddTotal.Location = new System.Drawing.Point(0, 349);
+            this.pnMaterialAddTotal.Name = "pnMaterialAddTotal";
+            this.pnMaterialAddTotal.Size = new System.Drawing.Size(322, 100);
+            this.pnMaterialAddTotal.TabIndex = 0;
+            this.theme1.SetTheme(this.pnMaterialAddTotal, "(default)");
+            // 
+            // pnMaterial2
+            // 
+            this.pnMaterial2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pnMaterial2.Controls.Add(this.btnFoomVoid);
+            this.pnMaterial2.Controls.Add(this.btnFoomAdd);
+            this.pnMaterial2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnMaterial2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pnMaterial2.Location = new System.Drawing.Point(391, 0);
+            this.pnMaterial2.Name = "pnMaterial2";
+            this.pnMaterial2.Size = new System.Drawing.Size(75, 449);
+            this.pnMaterial2.TabIndex = 2;
+            this.theme1.SetTheme(this.pnMaterial2, "(default)");
+            // 
+            // pnMaterialView
+            // 
+            this.pnMaterialView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pnMaterialView.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnMaterialView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pnMaterialView.Location = new System.Drawing.Point(0, 0);
+            this.pnMaterialView.Name = "pnMaterialView";
+            this.pnMaterialView.Size = new System.Drawing.Size(391, 449);
+            this.pnMaterialView.TabIndex = 0;
+            this.theme1.SetTheme(this.pnMaterialView, "(default)");
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel3.Controls.Add(this.c1CheckBox2);
+            this.panel3.Controls.Add(this.c1CheckBox1);
+            this.panel3.Controls.Add(this.chkStatusRecommend);
+            this.panel3.Controls.Add(this.c1ComboBox1);
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.btnImg);
+            this.panel3.Controls.Add(this.cboPrinter);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.cboRes);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.txtPrice);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.cboFoodsCat);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.cboFoodsType);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.chkDineIn);
+            this.panel3.Controls.Add(this.chkStatusToGo);
+            this.panel3.Controls.Add(this.txtPasswordVoid);
+            this.panel3.Controls.Add(this.btnNew);
+            this.panel3.Controls.Add(this.chkVoid);
+            this.panel3.Controls.Add(this.btnVoid);
+            this.panel3.Controls.Add(this.btnEdit);
+            this.panel3.Controls.Add(this.btnSave);
+            this.panel3.Controls.Add(this.txtRemark);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.txtFooNameT);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.txtID);
+            this.panel3.Controls.Add(this.txtFooCode);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(790, 277);
+            this.panel3.TabIndex = 0;
+            this.theme1.SetTheme(this.panel3, "(default)");
+            // 
+            // c1CheckBox2
+            // 
+            this.c1CheckBox2.BackColor = System.Drawing.Color.Transparent;
+            this.c1CheckBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.c1CheckBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1CheckBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.c1CheckBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.c1CheckBox2.Location = new System.Drawing.Point(392, 167);
+            this.c1CheckBox2.Name = "c1CheckBox2";
+            this.c1CheckBox2.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.c1CheckBox2.Size = new System.Drawing.Size(155, 24);
+            this.c1CheckBox2.TabIndex = 278;
+            this.c1CheckBox2.Text = "ใช้เป็นรายการ Topping";
+            this.theme1.SetTheme(this.c1CheckBox2, "(default)");
+            this.c1CheckBox2.UseVisualStyleBackColor = true;
+            this.c1CheckBox2.Value = null;
+            this.c1CheckBox2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1CheckBox1
+            // 
+            this.c1CheckBox1.BackColor = System.Drawing.Color.Transparent;
+            this.c1CheckBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.c1CheckBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1CheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.c1CheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.c1CheckBox1.Location = new System.Drawing.Point(392, 137);
+            this.c1CheckBox1.Name = "c1CheckBox1";
+            this.c1CheckBox1.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.c1CheckBox1.Size = new System.Drawing.Size(155, 24);
+            this.c1CheckBox1.TabIndex = 277;
+            this.c1CheckBox1.Text = "สถานะขายหน้าร้าน";
+            this.theme1.SetTheme(this.c1CheckBox1, "(default)");
+            this.c1CheckBox1.UseVisualStyleBackColor = true;
+            this.c1CheckBox1.Value = null;
+            this.c1CheckBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // chkStatusRecommend
             // 
@@ -634,7 +732,7 @@
             this.chkStatusRecommend.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkStatusRecommend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkStatusRecommend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkStatusRecommend.Location = new System.Drawing.Point(124, 211);
+            this.chkStatusRecommend.Location = new System.Drawing.Point(392, 47);
             this.chkStatusRecommend.Name = "chkStatusRecommend";
             this.chkStatusRecommend.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkStatusRecommend.Size = new System.Drawing.Size(155, 24);
@@ -683,7 +781,7 @@
             // 
             this.btnImg.Image = global::modernpos_pos.Properties.Resources.refresh24;
             this.btnImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImg.Location = new System.Drawing.Point(426, 156);
+            this.btnImg.Location = new System.Drawing.Point(650, 152);
             this.btnImg.Name = "btnImg";
             this.btnImg.Size = new System.Drawing.Size(83, 39);
             this.btnImg.TabIndex = 272;
@@ -862,7 +960,7 @@
             this.chkDineIn.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkDineIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkDineIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkDineIn.Location = new System.Drawing.Point(124, 271);
+            this.chkDineIn.Location = new System.Drawing.Point(392, 107);
             this.chkDineIn.Name = "chkDineIn";
             this.chkDineIn.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkDineIn.Size = new System.Drawing.Size(155, 24);
@@ -880,7 +978,7 @@
             this.chkStatusToGo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkStatusToGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkStatusToGo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkStatusToGo.Location = new System.Drawing.Point(124, 241);
+            this.chkStatusToGo.Location = new System.Drawing.Point(392, 77);
             this.chkStatusToGo.Name = "chkStatusToGo";
             this.chkStatusToGo.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkStatusToGo.Size = new System.Drawing.Size(135, 24);
@@ -896,7 +994,7 @@
             this.txtPasswordVoid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPasswordVoid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtPasswordVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtPasswordVoid.Location = new System.Drawing.Point(314, 271);
+            this.txtPasswordVoid.Location = new System.Drawing.Point(490, 237);
             this.txtPasswordVoid.Name = "txtPasswordVoid";
             this.txtPasswordVoid.PasswordChar = '*';
             this.txtPasswordVoid.Size = new System.Drawing.Size(78, 20);
@@ -910,7 +1008,7 @@
             // 
             this.btnNew.Image = global::modernpos_pos.Properties.Resources.custom_reports24;
             this.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNew.Location = new System.Drawing.Point(426, 14);
+            this.btnNew.Location = new System.Drawing.Point(650, 10);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(83, 39);
             this.btnNew.TabIndex = 245;
@@ -928,7 +1026,7 @@
             this.chkVoid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkVoid.Location = new System.Drawing.Point(285, 241);
+            this.chkVoid.Location = new System.Drawing.Point(461, 207);
             this.chkVoid.Name = "chkVoid";
             this.chkVoid.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkVoid.Size = new System.Drawing.Size(135, 24);
@@ -944,7 +1042,7 @@
             // 
             this.btnVoid.Image = global::modernpos_pos.Properties.Resources.trash24;
             this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoid.Location = new System.Drawing.Point(426, 241);
+            this.btnVoid.Location = new System.Drawing.Point(650, 207);
             this.btnVoid.Name = "btnVoid";
             this.btnVoid.Size = new System.Drawing.Size(83, 39);
             this.btnVoid.TabIndex = 243;
@@ -959,7 +1057,7 @@
             // 
             this.btnEdit.Image = global::modernpos_pos.Properties.Resources.lock24;
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(426, 59);
+            this.btnEdit.Location = new System.Drawing.Point(650, 55);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(83, 39);
             this.btnEdit.TabIndex = 242;
@@ -974,7 +1072,7 @@
             // 
             this.btnSave.Image = global::modernpos_pos.Properties.Resources.accept_database24;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(426, 108);
+            this.btnSave.Location = new System.Drawing.Point(650, 100);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(83, 39);
             this.btnSave.TabIndex = 241;
@@ -1088,7 +1186,7 @@
             this.tC.Location = new System.Drawing.Point(0, 0);
             this.tC.Name = "tC";
             this.tC.SelectedIndex = 1;
-            this.tC.Size = new System.Drawing.Size(1174, 707);
+            this.tC.Size = new System.Drawing.Size(1287, 776);
             this.tC.TabIndex = 5;
             this.tC.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tC.TabsShowFocusCues = false;
@@ -1101,7 +1199,7 @@
             this.tabFoods.Controls.Add(this.panel1);
             this.tabFoods.Location = new System.Drawing.Point(1, 24);
             this.tabFoods.Name = "tabFoods";
-            this.tabFoods.Size = new System.Drawing.Size(1172, 682);
+            this.tabFoods.Size = new System.Drawing.Size(1285, 751);
             this.tabFoods.TabIndex = 0;
             this.tabFoods.Text = "Foods";
             // 
@@ -1110,7 +1208,7 @@
             this.tabRecommend.Controls.Add(this.panel4);
             this.tabRecommend.Location = new System.Drawing.Point(1, 24);
             this.tabRecommend.Name = "tabRecommend";
-            this.tabRecommend.Size = new System.Drawing.Size(1172, 682);
+            this.tabRecommend.Size = new System.Drawing.Size(1285, 751);
             this.tabRecommend.TabIndex = 1;
             this.tabRecommend.Text = "Recommend";
             // 
@@ -1121,7 +1219,7 @@
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1172, 682);
+            this.panel4.Size = new System.Drawing.Size(1285, 751);
             this.panel4.TabIndex = 0;
             this.theme1.SetTheme(this.panel4, "(default)");
             // 
@@ -1129,9 +1227,9 @@
             // 
             this.sB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sB1});
-            this.sB.Location = new System.Drawing.Point(0, 707);
+            this.sB.Location = new System.Drawing.Point(0, 776);
             this.sB.Name = "sB";
-            this.sB.Size = new System.Drawing.Size(1174, 22);
+            this.sB.Size = new System.Drawing.Size(1287, 22);
             this.sB.TabIndex = 3;
             this.sB.Text = "statusStrip1";
             // 
@@ -1141,11 +1239,33 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
+            // btnFoomAdd
+            // 
+            this.btnFoomAdd.Location = new System.Drawing.Point(0, 75);
+            this.btnFoomAdd.Name = "btnFoomAdd";
+            this.btnFoomAdd.Size = new System.Drawing.Size(75, 46);
+            this.btnFoomAdd.TabIndex = 0;
+            this.btnFoomAdd.Text = ">>";
+            this.theme1.SetTheme(this.btnFoomAdd, "(default)");
+            this.btnFoomAdd.UseVisualStyleBackColor = true;
+            this.btnFoomAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnFoomVoid
+            // 
+            this.btnFoomVoid.Location = new System.Drawing.Point(0, 201);
+            this.btnFoomVoid.Name = "btnFoomVoid";
+            this.btnFoomVoid.Size = new System.Drawing.Size(75, 46);
+            this.btnFoomVoid.TabIndex = 1;
+            this.btnFoomVoid.Text = "<<";
+            this.theme1.SetTheme(this.btnFoomVoid, "(default)");
+            this.btnFoomVoid.UseVisualStyleBackColor = true;
+            this.btnFoomVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // FrmCFoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1174, 729);
+            this.ClientSize = new System.Drawing.Size(1287, 798);
             this.Controls.Add(this.tC);
             this.Controls.Add(this.sB);
             this.Name = "FrmCFoods";
@@ -1158,10 +1278,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tC1)).EndInit();
             this.tC1.ResumeLayout(false);
@@ -1186,6 +1302,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnFootSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFootpId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFootpName)).EndInit();
+            this.tabMaterial.ResumeLayout(false);
+            this.pnMaterial.ResumeLayout(false);
+            this.pnMaterialAdd1.ResumeLayout(false);
+            this.pnMaterial2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatusRecommend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1ComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImg)).EndInit();
@@ -1212,6 +1336,8 @@
             this.tabRecommend.ResumeLayout(false);
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoomAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoomVoid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1287,5 +1413,14 @@
         private C1.Win.C1Input.C1Button btnFoosVoid;
         private C1.Win.C1Input.C1TextBox txtFootpPrice;
         private System.Windows.Forms.Label label12;
+        private C1.Win.C1Command.C1DockingTabPage tabMaterial;
+        private System.Windows.Forms.Panel pnMaterial;
+        private System.Windows.Forms.Panel pnMaterialAdd1;
+        private System.Windows.Forms.Panel pnMaterialView;
+        private System.Windows.Forms.Panel pnMaterialAddTotal;
+        private System.Windows.Forms.Panel pnMaterialAdd;
+        private System.Windows.Forms.Panel pnMaterial2;
+        private C1.Win.C1Input.C1Button btnFoomVoid;
+        private C1.Win.C1Input.C1Button btnFoomAdd;
     }
 }

@@ -96,6 +96,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="control\mPOSControl.cs" />
+    <Compile Include="gui\FrmMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmMaterial.Designer.cs">
+      <DependentUpon>FrmMaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmDemoSiPH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +306,8 @@
     <Compile Include="objdb\FoodsCatDB.cs" />
     <Compile Include="objdb\FoodsCatSubDB.cs" />
     <Compile Include="objdb\FoodsDB.cs" />
+    <Compile Include="objdb\FoodsMaterialDB.cs" />
+    <Compile Include="objdb\MaterialDB.cs" />
     <Compile Include="objdb\FoodsRecommendDB.cs" />
     <Compile Include="objdb\FoodsSpecialDB.cs" />
     <Compile Include="objdb\FoodsToppingDB.cs" />
@@ -364,6 +372,8 @@
     <Compile Include="object1\Foods.cs" />
     <Compile Include="object1\FoodsCat.cs" />
     <Compile Include="object1\FoodsCatSub.cs" />
+    <Compile Include="object1\FoodsMaterial.cs" />
+    <Compile Include="object1\Material.cs" />
     <Compile Include="object1\FoodsRecommend.cs" />
     <Compile Include="object1\FoodsSpecial.cs" />
     <Compile Include="object1\FoodsTopping.cs" />
@@ -416,6 +426,9 @@
     <Compile Include="object1\VNE\VNErequestPayment.cs" />
     <Compile Include="object1\VNE\VNEresponsePayment.cs" />
     <Compile Include="object1\VNE\VNEPaymentPendingDeleteRequest.cs" />
+    <EmbeddedResource Include="gui\FrmMaterial.resx">
+      <DependentUpon>FrmMaterial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmDemoSiPH.resx">
       <DependentUpon>FrmDemoSiPH.cs</DependentUpon>
     </EmbeddedResource>

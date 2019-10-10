@@ -29,7 +29,7 @@ namespace modernpos_pos.gui
         Font ff, ffB;
         int colID = 1, colCode = 2, colName = 3, colRemark = 4, colE = 5, colS = 6, coledit = 7, colCnt = 7;
 
-        C1FlexGrid grfFoo, grfRec, grfFooS, grfFooT;
+        C1FlexGrid grfFoo, grfRec, grfFooS, grfFooT, grfMat, grfFooM;
 
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false, pageLoad=false;
@@ -71,6 +71,10 @@ namespace modernpos_pos.gui
             btnFootSave.Click += BtnFootSave_Click;
             btnFootNew.Click += BtnFootNew_Click;
             btnFootVoid.Click += BtnFootVoid_Click;
+            btnFoomAdd.Click += BtnFoomAdd_Click;
+            btnFoomVoid.Click += BtnFoomVoid_Click;
+            //btnFoomNew.Click += BtnFoomNew_Click;
+            //btnFoomSave.Click += BtnFoomSave_Click;
 
             mposC.mposDB.resDB.setCboRestaurant(cboRes);
             mposC.mposDB.footDB.setCboFoodsType(cboFoodsType);
@@ -81,8 +85,10 @@ namespace modernpos_pos.gui
             initGrfRec();
             initGrfSpec();
             initGrfTopping();
+            initGrfMaterial();
+            initGrfFoodsMaterial();
             setGrfFoo();
-            
+
             setGrfRec();
             
             setControlEnable(false);
@@ -96,12 +102,80 @@ namespace modernpos_pos.gui
             //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
 
+        private void BtnFoomVoid_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            voidFoodsMaterial();
+        }
+
+        private void BtnFoomAdd_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            saveFoodsMaterial();
+        }
+        private void voidFoodsMaterial()
+        {
+            if (grfFooM.Row <= 0) return;
+            if (grfFooM.Col <= 1) return;
+            String foomid = "", foomname = "", foomprice = "", foomqty = "", foomweight = "", matid = "";
+            matid = grfFooM[grfFooM.Row, 1] != null ? grfFooM[grfFooM.Row, 1].ToString() : "";
+            mposC.mposDB.foomDB.voidFoodsMeterial(matid, "");
+            setGrfFoodsMaterial(txtID.Text);
+        }
+        private void saveFoodsMaterial()
+        {
+            //throw new NotImplementedException();
+            if(grfMat.Row <= 0) return;
+            if (grfMat.Col <= 1) return;
+
+            String foomid = "", foomname = "", foomprice = "", foomqty = "", foomweight = "", matid="";
+            matid = grfMat[grfMat.Row, 1] != null ? grfMat[grfMat.Row, 1].ToString() : "";
+            foomname = grfMat[grfMat.Row, 2] != null ? grfMat[grfMat.Row, 2].ToString() : "";
+            foomprice = grfMat[grfMat.Row, 3] != null ? grfMat[grfMat.Row, 3].ToString() : "";
+            foomweight = grfMat[grfMat.Row, 4] != null ? grfMat[grfMat.Row, 4].ToString() : "";
+            //foomid = grfMat[grfMat.Row, 1] != null ? grfMat[grfMat.Row, 1].ToString() : "";
+
+            FoodsMaterial foom = new FoodsMaterial();
+            foom.foods_material_id = "";
+            foom.foods_id = txtID.Text;
+            foom.material_id = matid.Trim();
+            foom.material_name = foomname;
+            foom.active = "1";
+            foom.remark = "";
+            foom.sort1 = "";
+            foom.date_cancel = "";
+            foom.date_create = "";
+            foom.date_modi = "";
+            foom.user_cancel = "";
+            foom.user_create = "";
+            foom.user_modi = "";
+            foom.host_id = "";
+            foom.branch_id = "";
+            foom.device_id = mposC.MACAddress;
+            foom.price = foomprice;
+            foom.qty = "1";
+            foom.weight = foomweight;
+            mposC.mposDB.foomDB.insertFoodsMaterial(foom, "");
+            setGrfFoodsMaterial(txtID.Text);
+        }
+
+        private void BtnFoomNew_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            //txtFoomId.Value = "";
+            //txtFoomName.Value = "";
+            //txtFoomPrice.Value = "";
+            //txtFoomWeight.Value = "";
+            //txtFoomQty.Value = "";
+        }
+
         private void BtnFootVoid_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             if (txtFootpId.Text.Equals("")) return;
             mposC.mposDB.footpDB.voidFoodsTopping(txtFootpId.Text, "");
             setGrfTopping(txtID.Text);
+            //setGrfTopping(txtID.Text);
         }
 
         private void BtnFootNew_Click(object sender, EventArgs e)
@@ -227,6 +301,167 @@ namespace modernpos_pos.gui
                 MessageBox.Show(""+ex.Message, "showImg");
             }
         }
+        private void initGrfFoodsMaterial()
+        {
+            grfFooM = new C1FlexGrid();
+            grfFooM.Font = fEdit;
+            grfFooM.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfFooM.Location = new System.Drawing.Point(0, 0);
+
+            //FilterRow fr = new FilterRow(grfPosi);
+
+            //grfRec.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfPosi_AfterRowColChange);
+            //grfRec.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
+            //grfRec.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellChanged);
+
+            pnMaterialAdd.Controls.Add(this.grfFooM);
+
+            C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
+            C1ThemeController.ApplyThemeToObject(grfFooM, theme);
+        }
+        private void setGrfFoodsMaterial(String fooId)
+        {
+            //grfDept.Rows.Count = 7;
+            pageLoad = true;
+            grfFooM.DataSource = mposC.mposDB.foomDB.selectByFoodsId(fooId);
+            grfFooM.Cols.Count = 5;
+
+            CellStyle cs = grfFooM.Styles.Add("btn");
+            cs.DataType = typeof(Button);
+            //cs.ComboList = "|Tom|Dick|Harry";
+            cs.ForeColor = Color.Navy;
+            cs.Font = new Font(Font, FontStyle.Bold);
+            cs = grfFooM.Styles.Add("date");
+            cs.DataType = typeof(DateTime);
+            cs.Format = "dd-MMM-yy";
+            cs.ForeColor = Color.DarkGoldenrod;
+
+            grfFooM.Cols[1].Width = 60;
+
+            grfFooM.Cols[2].Width = 80;
+            grfFooM.Cols[3].Width = 200;
+
+            grfFooM.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grfFooM.Cols[2].Caption = "Material";
+            grfFooM.Cols[2].Caption = "Price";
+            grfFooM.Cols[2].Caption = "Qty";
+
+            grfFooM.AfterRowColChange += GrfFooM_AfterRowColChange; ;
+            //grfDept.Cols[coledit].Visible = false;
+            CellRange rg = grfFooM.GetCellRange(2, colE);
+            for (int i = 1; i < grfFooM.Rows.Count; i++)
+            {
+                grfFooM[i, 0] = i;
+                if (i % 2 == 0)
+                    grfFooM.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+            }
+            //grfFooT.Cols[colCode].Visible = false;
+            grfFooM.Cols[colID].Visible = false;
+            //grfFooT.Cols[colE].Visible = false;
+            //grfFooT.Cols[colS].Visible = false;
+            pageLoad = false;
+        }
+
+        private void GrfFooM_AfterRowColChange(object sender, RangeEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (grfMat.Row < 0) return;
+            if (grfMat.Col < 0) return;
+            if (grfMat[grfMat.Row, grfFooS.Col] == null) return;
+            String id = "", name = "", price = "";
+            id = grfMat[grfMat.Row, 1].ToString();
+            name = grfMat[grfMat.Row, 2].ToString();
+            price = grfMat[grfMat.Row, 3].ToString();
+            //txtFoomId.Value = id;
+            //txtFoomName.Value = name;
+            //txtFoomPrice.Value = price;
+        }
+        private void initGrfMaterial()
+        {
+            grfMat = new C1FlexGrid();
+            grfMat.Font = fEdit;
+            grfMat.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfMat.Location = new System.Drawing.Point(0, 0);
+
+            //FilterRow fr = new FilterRow(grfPosi);
+
+            //grfRec.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfPosi_AfterRowColChange);
+            //grfRec.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
+            //grfRec.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellChanged);
+
+            pnMaterialView.Controls.Add(this.grfMat);
+
+            C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
+            C1ThemeController.ApplyThemeToObject(grfMat, theme);
+        }
+        private void setGrfMaterial(String fooId)
+        {
+            //grfDept.Rows.Count = 7;
+            pageLoad = true;
+            grfMat.DataSource = mposC.mposDB.matDB.selectByFoodsId();
+            grfMat.Cols.Count = 5;
+
+            CellStyle cs = grfMat.Styles.Add("btn");
+            cs.DataType = typeof(Button);
+            //cs.ComboList = "|Tom|Dick|Harry";
+            cs.ForeColor = Color.Navy;
+            cs.Font = new Font(Font, FontStyle.Bold);
+            cs = grfMat.Styles.Add("date");
+            cs.DataType = typeof(DateTime);
+            cs.Format = "dd-MMM-yy";
+            cs.ForeColor = Color.DarkGoldenrod;
+
+            grfMat.Cols[1].Width = 60;
+
+            grfMat.Cols[2].Width = 80;
+            grfMat.Cols[3].Width = 200;
+
+            grfMat.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grfMat.Cols[2].Caption = "รายการสั่งเพิ่ม";
+
+            grfMat.AfterRowColChange += GrfMat_AfterRowColChange;
+            //grfMat.DoubleClick += GrfMat_DoubleClick;
+            //grfMat.MouseDoubleClick += GrfMat_MouseDoubleClick;
+            
+            //grfDept.Cols[coledit].Visible = false;
+            CellRange rg = grfMat.GetCellRange(2, colE);
+            for (int i = 1; i < grfMat.Rows.Count; i++)
+            {
+                grfMat[i, 0] = i;
+                if (i % 2 == 0)
+                    grfMat.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+            }
+            //grfFooT.Cols[colCode].Visible = false;
+            grfMat.Cols[colID].Visible = false;
+            grfMat.Cols[0].AllowEditing = false;
+            grfMat.Cols[1].AllowEditing = false;
+            grfMat.Cols[3].AllowEditing = false;
+            grfMat.Cols[4].AllowEditing = false;
+            //grfMat.Cols[colE].AllowEditing = false;
+            //grfFooT.Cols[colS].Visible = false;
+            pageLoad = false;
+        }
+
+        private void GrfMat_AfterRowColChange(object sender, RangeEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (grfMat.Row < 0) return;
+            if (grfMat.Col < 0) return;
+            if (grfMat[grfMat.Row, grfFooS.Col] == null) return;
+            String id = "", name = "", price = "";
+            id = grfMat[grfMat.Row, 1].ToString();
+            name = grfMat[grfMat.Row, 2].ToString();
+            price = grfMat[grfMat.Row, 3].ToString();
+            //txtFoomId.Value = id;
+            //txtFoomName.Value = name;
+            //txtFoomPrice.Value = price;
+        }
         private void initGrfTopping()
         {
             grfFooT = new C1FlexGrid();
@@ -294,7 +529,7 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             if (grfFooT.Row < 0) return;
             if (grfFooT.Col < 0) return;
-            if (grfFooT[grfFooS.Row, grfFooS.Col] == null) return;
+            if (grfFooT[grfFooT.Row, grfFooS.Col] == null) return;
             String id = "", name = "", price="";
             id = grfFooT[grfFooT.Row, 1].ToString();
             name = grfFooT[grfFooT.Row, 2].ToString();
@@ -530,9 +765,9 @@ namespace modernpos_pos.gui
             a.ForeColor = fc;
             a.Font = new Font(ff, FontStyle.Regular);
         }
-        private void setControl(String posiId)
+        private void setControl(String fooId)
         {
-            foo = mposC.mposDB.fooDB.selectByPk1(posiId);
+            foo = mposC.mposDB.fooDB.selectByPk1(fooId);
             txtID.Value = foo.foods_id;
             txtFooCode.Value = foo.foods_code;
             txtFooNameT.Value = foo.foods_name;
@@ -555,8 +790,10 @@ namespace modernpos_pos.gui
             chkStatusRecommend.Checked = foo.status_recommend.Equals("1") ? true : false;
 
             showImg();
-            setGrfSpec(posiId);
-            setGrfTopping(posiId);
+            setGrfSpec(fooId);
+            setGrfTopping(fooId);
+            setGrfMaterial(fooId);
+            setGrfFoodsMaterial(fooId);
             //if (area.status_embryologist.Equals("1"))
             //{
             //    chkEmbryologist.Checked = true;

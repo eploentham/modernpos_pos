@@ -38,6 +38,9 @@
             this.tabView = new C1.Win.C1Command.C1DockingTabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSort1 = new C1.Win.C1Input.C1TextBox();
+            this.chkRecommand = new C1.Win.C1Input.C1CheckBox();
             this.picFoo = new C1.Win.C1Input.C1PictureBox();
             this.btnImg = new C1.Win.C1Input.C1Button();
             this.chkEmbryologist = new C1.Win.C1Input.C1CheckBox();
@@ -57,9 +60,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.chkRecommand = new C1.Win.C1Input.C1CheckBox();
-            this.txtSort1 = new C1.Win.C1Input.C1TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -72,6 +72,8 @@
             this.tabAdd.SuspendLayout();
             this.tabView.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSort1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkRecommand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFoo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).BeginInit();
@@ -87,8 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaCode)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkRecommand)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSort1)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -103,7 +103,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(922, 510);
+            this.panel1.Size = new System.Drawing.Size(1047, 728);
             this.panel1.TabIndex = 4;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
@@ -128,8 +128,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
             this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.theme1.SetTheme(this.splitContainer1.Panel2, "(default)");
-            this.splitContainer1.Size = new System.Drawing.Size(922, 510);
-            this.splitContainer1.SplitterDistance = 354;
+            this.splitContainer1.Size = new System.Drawing.Size(1047, 728);
+            this.splitContainer1.SplitterDistance = 401;
             this.splitContainer1.TabIndex = 0;
             this.theme1.SetTheme(this.splitContainer1, "(default)");
             // 
@@ -141,7 +141,7 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(354, 510);
+            this.panel2.Size = new System.Drawing.Size(401, 728);
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
@@ -156,7 +156,7 @@
             this.tC.Location = new System.Drawing.Point(0, 0);
             this.tC.Name = "tC";
             this.tC.SelectedIndex = 1;
-            this.tC.Size = new System.Drawing.Size(354, 510);
+            this.tC.Size = new System.Drawing.Size(401, 728);
             this.tC.TabIndex = 5;
             this.tC.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tC.TabsShowFocusCues = false;
@@ -169,7 +169,7 @@
             this.tabAdd.Controls.Add(this.panel4);
             this.tabAdd.Location = new System.Drawing.Point(1, 24);
             this.tabAdd.Name = "tabAdd";
-            this.tabAdd.Size = new System.Drawing.Size(352, 485);
+            this.tabAdd.Size = new System.Drawing.Size(399, 703);
             this.tabAdd.TabIndex = 0;
             this.tabAdd.Text = "กลุ่มอาหาร";
             // 
@@ -180,7 +180,7 @@
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(352, 485);
+            this.panel4.Size = new System.Drawing.Size(399, 703);
             this.panel4.TabIndex = 0;
             this.theme1.SetTheme(this.panel4, "(default)");
             // 
@@ -189,7 +189,7 @@
             this.tabView.Controls.Add(this.panel5);
             this.tabView.Location = new System.Drawing.Point(1, 24);
             this.tabView.Name = "tabView";
-            this.tabView.Size = new System.Drawing.Size(352, 485);
+            this.tabView.Size = new System.Drawing.Size(399, 703);
             this.tabView.TabIndex = 1;
             this.tabView.Text = "อาหารตามกลุ่ม";
             // 
@@ -200,7 +200,7 @@
             this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(352, 485);
+            this.panel5.Size = new System.Drawing.Size(399, 703);
             this.panel5.TabIndex = 5;
             this.theme1.SetTheme(this.panel5, "(default)");
             // 
@@ -231,9 +231,53 @@
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(564, 510);
+            this.panel3.Size = new System.Drawing.Size(642, 728);
             this.panel3.TabIndex = 0;
             this.theme1.SetTheme(this.panel3, "(default)");
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label4.Location = new System.Drawing.Point(20, 233);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 16);
+            this.label4.TabIndex = 277;
+            this.label4.Text = "sort1 :";
+            this.theme1.SetTheme(this.label4, "(default)");
+            // 
+            // txtSort1
+            // 
+            this.txtSort1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSort1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtSort1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtSort1.Location = new System.Drawing.Point(124, 231);
+            this.txtSort1.Name = "txtSort1";
+            this.txtSort1.Size = new System.Drawing.Size(207, 20);
+            this.txtSort1.TabIndex = 276;
+            this.txtSort1.Tag = null;
+            this.theme1.SetTheme(this.txtSort1, "(default)");
+            this.txtSort1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // chkRecommand
+            // 
+            this.chkRecommand.BackColor = System.Drawing.Color.Transparent;
+            this.chkRecommand.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkRecommand.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkRecommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkRecommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkRecommand.Location = new System.Drawing.Point(124, 193);
+            this.chkRecommand.Name = "chkRecommand";
+            this.chkRecommand.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkRecommand.Size = new System.Drawing.Size(154, 24);
+            this.chkRecommand.TabIndex = 275;
+            this.chkRecommand.Text = "Foods Recommand";
+            this.theme1.SetTheme(this.chkRecommand, "(default)");
+            this.chkRecommand.UseVisualStyleBackColor = true;
+            this.chkRecommand.Value = null;
+            this.chkRecommand.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // picFoo
             // 
@@ -483,9 +527,9 @@
             // 
             this.sB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sB1});
-            this.sB.Location = new System.Drawing.Point(0, 510);
+            this.sB.Location = new System.Drawing.Point(0, 728);
             this.sB.Name = "sB";
-            this.sB.Size = new System.Drawing.Size(922, 22);
+            this.sB.Size = new System.Drawing.Size(1047, 22);
             this.sB.TabIndex = 3;
             this.sB.Text = "statusStrip1";
             // 
@@ -495,55 +539,11 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // chkRecommand
-            // 
-            this.chkRecommand.BackColor = System.Drawing.Color.Transparent;
-            this.chkRecommand.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkRecommand.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.chkRecommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkRecommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkRecommand.Location = new System.Drawing.Point(124, 193);
-            this.chkRecommand.Name = "chkRecommand";
-            this.chkRecommand.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkRecommand.Size = new System.Drawing.Size(154, 24);
-            this.chkRecommand.TabIndex = 275;
-            this.chkRecommand.Text = "Foods Recommand";
-            this.theme1.SetTheme(this.chkRecommand, "(default)");
-            this.chkRecommand.UseVisualStyleBackColor = true;
-            this.chkRecommand.Value = null;
-            this.chkRecommand.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtSort1
-            // 
-            this.txtSort1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSort1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtSort1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtSort1.Location = new System.Drawing.Point(124, 231);
-            this.txtSort1.Name = "txtSort1";
-            this.txtSort1.Size = new System.Drawing.Size(207, 20);
-            this.txtSort1.TabIndex = 276;
-            this.txtSort1.Tag = null;
-            this.theme1.SetTheme(this.txtSort1, "(default)");
-            this.txtSort1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label4.Location = new System.Drawing.Point(20, 233);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 16);
-            this.label4.TabIndex = 277;
-            this.label4.Text = "sort1 :";
-            this.theme1.SetTheme(this.label4, "(default)");
-            // 
             // FrmCFoodsCat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 532);
+            this.ClientSize = new System.Drawing.Size(1047, 750);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sB);
             this.Name = "FrmCFoodsCat";
@@ -563,6 +563,8 @@
             this.tabView.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSort1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkRecommand)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFoo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).EndInit();
@@ -579,8 +581,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkRecommand)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSort1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

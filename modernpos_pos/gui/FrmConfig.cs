@@ -39,6 +39,14 @@ namespace modernpos_pos.gui
             btnFoods.Click += BtnFoods_Click;
             btnFoodsCatSub.Click += BtnFoodsCatSub_Click;
             btnReCom.Click += BtnReCom_Click;
+            btnFooMaterial.Click += BtnFooMaterial_Click;
+        }
+
+        private void BtnFooMaterial_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmMaterial frm = new FrmMaterial(mposC);
+            frm.Show(this);
         }
 
         private void BtnReCom_Click(object sender, EventArgs e)
