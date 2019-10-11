@@ -28,6 +28,8 @@ namespace modernpos_pos.gui
         Color bg, fc;
         Font ff, ffB;
         int colID = 1, colCode = 2, colName = 3, colRemark = 4, colE = 5, colS = 6, coledit = 7, colCnt = 7;
+        int colFmId = 1, colFmName = 2, colFmprice = 3, colFmWeight = 4, colFmQty = 5, colFmedit = 6;
+        int colmId = 1, colmName = 2, colmPrice = 3, colmWeight = 4;
 
         C1FlexGrid grfFoo, grfRec, grfFooS, grfFooT, grfMat, grfFooM;
 
@@ -324,7 +326,7 @@ namespace modernpos_pos.gui
             //grfDept.Rows.Count = 7;
             pageLoad = true;
             grfFooM.DataSource = mposC.mposDB.foomDB.selectByFoodsId(fooId);
-            grfFooM.Cols.Count = 5;
+            grfFooM.Cols.Count = 8AQ;
 
             CellStyle cs = grfFooM.Styles.Add("btn");
             cs.DataType = typeof(Button);
@@ -338,16 +340,19 @@ namespace modernpos_pos.gui
 
             grfFooM.Cols[1].Width = 60;
 
-            grfFooM.Cols[2].Width = 80;
-            grfFooM.Cols[3].Width = 200;
+            grfFooM.Cols[colFmName].Width = 200;
+            grfFooM.Cols[colFmprice].Width = 120;
+            grfFooM.Cols[colFmWeight].Width = 120;
+            grfFooM.Cols[colFmQty].Width = 70;
 
             grfFooM.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
             //grfDept.Cols[colCode].Caption = "รหัส";
 
-            grfFooM.Cols[2].Caption = "Material";
-            grfFooM.Cols[2].Caption = "Price";
-            grfFooM.Cols[2].Caption = "Qty";
+            grfFooM.Cols[colFmName].Caption = "Material";
+            grfFooM.Cols[colFmprice].Caption = "Price";
+            grfFooM.Cols[colFmWeight].Caption = "Weight";
+            grfFooM.Cols[colFmQty].Caption = "Qty";
 
             grfFooM.AfterRowColChange += GrfFooM_AfterRowColChange; ;
             //grfDept.Cols[coledit].Visible = false;
@@ -372,9 +377,9 @@ namespace modernpos_pos.gui
             if (grfMat.Col < 0) return;
             if (grfMat[grfMat.Row, grfFooS.Col] == null) return;
             String id = "", name = "", price = "";
-            id = grfMat[grfMat.Row, 1].ToString();
-            name = grfMat[grfMat.Row, 2].ToString();
-            price = grfMat[grfMat.Row, 3].ToString();
+            id = grfMat[grfMat.Row, colFmId].ToString();
+            name = grfMat[grfMat.Row, colFmName].ToString();
+            price = grfMat[grfMat.Row, colFmprice].ToString();
             //txtFoomId.Value = id;
             //txtFoomName.Value = name;
             //txtFoomPrice.Value = price;
@@ -414,16 +419,17 @@ namespace modernpos_pos.gui
             cs.Format = "dd-MMM-yy";
             cs.ForeColor = Color.DarkGoldenrod;
 
-            grfMat.Cols[1].Width = 60;
+            grfMat.Cols[colmId].Width = 60;
 
-            grfMat.Cols[2].Width = 80;
-            grfMat.Cols[3].Width = 200;
+            grfMat.Cols[colmName].Width = 200;
+            grfMat.Cols[colmPrice].Width = 120;
+            grfMat.Cols[colmWeight].Width = 120;
 
             grfMat.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
             //grfDept.Cols[colCode].Caption = "รหัส";
 
-            grfMat.Cols[2].Caption = "รายการสั่งเพิ่ม";
+            grfMat.Cols[colmName].Caption = "Material";
 
             grfMat.AfterRowColChange += GrfMat_AfterRowColChange;
             //grfMat.DoubleClick += GrfMat_DoubleClick;
@@ -438,11 +444,11 @@ namespace modernpos_pos.gui
                     grfMat.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
             //grfFooT.Cols[colCode].Visible = false;
-            grfMat.Cols[colID].Visible = false;
-            grfMat.Cols[0].AllowEditing = false;
-            grfMat.Cols[1].AllowEditing = false;
-            grfMat.Cols[3].AllowEditing = false;
-            grfMat.Cols[4].AllowEditing = false;
+            grfMat.Cols[colmId].Visible = false;
+            grfMat.Cols[colmId].AllowEditing = false;
+            grfMat.Cols[colmName].AllowEditing = false;
+            grfMat.Cols[colmPrice].AllowEditing = false;
+            grfMat.Cols[colmWeight].AllowEditing = false;
             //grfMat.Cols[colE].AllowEditing = false;
             //grfFooT.Cols[colS].Visible = false;
             pageLoad = false;
@@ -455,9 +461,9 @@ namespace modernpos_pos.gui
             if (grfMat.Col < 0) return;
             if (grfMat[grfMat.Row, grfFooS.Col] == null) return;
             String id = "", name = "", price = "";
-            id = grfMat[grfMat.Row, 1].ToString();
-            name = grfMat[grfMat.Row, 2].ToString();
-            price = grfMat[grfMat.Row, 3].ToString();
+            id = grfMat[grfMat.Row, colmId].ToString();
+            name = grfMat[grfMat.Row, colmName].ToString();
+            price = grfMat[grfMat.Row, colmPrice].ToString();
             //txtFoomId.Value = id;
             //txtFoomName.Value = name;
             //txtFoomPrice.Value = price;

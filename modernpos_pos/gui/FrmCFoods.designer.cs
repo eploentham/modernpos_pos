@@ -64,6 +64,8 @@
             this.pnMaterialAdd = new System.Windows.Forms.Panel();
             this.pnMaterialAddTotal = new System.Windows.Forms.Panel();
             this.pnMaterial2 = new System.Windows.Forms.Panel();
+            this.btnFoomVoid = new C1.Win.C1Input.C1Button();
+            this.btnFoomAdd = new C1.Win.C1Input.C1Button();
             this.pnMaterialView = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.c1CheckBox2 = new C1.Win.C1Input.C1CheckBox();
@@ -103,8 +105,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnFoomAdd = new C1.Win.C1Input.C1Button();
-            this.btnFoomVoid = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -137,6 +137,8 @@
             this.pnMaterial.SuspendLayout();
             this.pnMaterialAdd1.SuspendLayout();
             this.pnMaterial2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoomVoid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoomAdd)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).BeginInit();
@@ -165,8 +167,6 @@
             this.tabFoods.SuspendLayout();
             this.tabRecommend.SuspendLayout();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFoomAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFoomVoid)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -635,6 +635,28 @@
             this.pnMaterial2.Size = new System.Drawing.Size(75, 449);
             this.pnMaterial2.TabIndex = 2;
             this.theme1.SetTheme(this.pnMaterial2, "(default)");
+            // 
+            // btnFoomVoid
+            // 
+            this.btnFoomVoid.Location = new System.Drawing.Point(0, 201);
+            this.btnFoomVoid.Name = "btnFoomVoid";
+            this.btnFoomVoid.Size = new System.Drawing.Size(75, 46);
+            this.btnFoomVoid.TabIndex = 1;
+            this.btnFoomVoid.Text = "<<";
+            this.theme1.SetTheme(this.btnFoomVoid, "(default)");
+            this.btnFoomVoid.UseVisualStyleBackColor = true;
+            this.btnFoomVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnFoomAdd
+            // 
+            this.btnFoomAdd.Location = new System.Drawing.Point(0, 75);
+            this.btnFoomAdd.Name = "btnFoomAdd";
+            this.btnFoomAdd.Size = new System.Drawing.Size(75, 46);
+            this.btnFoomAdd.TabIndex = 0;
+            this.btnFoomAdd.Text = ">>";
+            this.theme1.SetTheme(this.btnFoomAdd, "(default)");
+            this.btnFoomAdd.UseVisualStyleBackColor = true;
+            this.btnFoomAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // pnMaterialView
             // 
@@ -1239,28 +1261,6 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // btnFoomAdd
-            // 
-            this.btnFoomAdd.Location = new System.Drawing.Point(0, 75);
-            this.btnFoomAdd.Name = "btnFoomAdd";
-            this.btnFoomAdd.Size = new System.Drawing.Size(75, 46);
-            this.btnFoomAdd.TabIndex = 0;
-            this.btnFoomAdd.Text = ">>";
-            this.theme1.SetTheme(this.btnFoomAdd, "(default)");
-            this.btnFoomAdd.UseVisualStyleBackColor = true;
-            this.btnFoomAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnFoomVoid
-            // 
-            this.btnFoomVoid.Location = new System.Drawing.Point(0, 201);
-            this.btnFoomVoid.Name = "btnFoomVoid";
-            this.btnFoomVoid.Size = new System.Drawing.Size(75, 46);
-            this.btnFoomVoid.TabIndex = 1;
-            this.btnFoomVoid.Text = "<<";
-            this.theme1.SetTheme(this.btnFoomVoid, "(default)");
-            this.btnFoomVoid.UseVisualStyleBackColor = true;
-            this.btnFoomVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmCFoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1306,6 +1306,8 @@
             this.pnMaterial.ResumeLayout(false);
             this.pnMaterialAdd1.ResumeLayout(false);
             this.pnMaterial2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoomVoid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFoomAdd)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).EndInit();
@@ -1336,8 +1338,6 @@
             this.tabRecommend.ResumeLayout(false);
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFoomAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFoomVoid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
