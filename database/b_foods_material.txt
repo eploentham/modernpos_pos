@@ -63,3 +63,7 @@ ALTER TABLE `modern_pos`.`b_foods_material`
 ADD COLUMN `sort1` VARCHAR(45) NULL AFTER `qty`;
 
 
+ALTER TABLE `modern_pos`.`b_material` 
+ADD COLUMN `material_type_id` BIGINT NULL AFTER `material_code`;
+
+

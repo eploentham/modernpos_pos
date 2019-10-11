@@ -35,6 +35,10 @@
             this.tabView = new C1.Win.C1Command.C1DockingTabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtWeight = new C1.Win.C1Input.C1TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPrice = new C1.Win.C1Input.C1TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSort1 = new C1.Win.C1Input.C1TextBox();
             this.chkRecommand = new C1.Win.C1Input.C1CheckBox();
@@ -58,16 +62,16 @@
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
-            this.txtPrice = new C1.Win.C1Input.C1TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtWeight = new C1.Win.C1Input.C1TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.cboMatt = new C1.Win.C1Input.C1ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tC)).BeginInit();
             this.tC.SuspendLayout();
             this.tabAdd.SuspendLayout();
             this.tabView.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSort1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkRecommand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFoo)).BeginInit();
@@ -86,8 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaCode)).BeginInit();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtWeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboMatt)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -155,6 +158,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cboMatt);
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txtWeight);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.txtPrice);
@@ -184,6 +189,60 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(561, 765);
             this.panel2.TabIndex = 1;
+            // 
+            // txtWeight
+            // 
+            this.txtWeight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtWeight.DataType = typeof(decimal);
+            this.txtWeight.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtWeight.Location = new System.Drawing.Point(123, 160);
+            this.txtWeight.Name = "txtWeight";
+            this.txtWeight.Size = new System.Drawing.Size(207, 20);
+            this.txtWeight.TabIndex = 301;
+            this.txtWeight.Tag = null;
+            this.theme1.SetTheme(this.txtWeight, "(default)");
+            this.txtWeight.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label6.Location = new System.Drawing.Point(19, 162);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 16);
+            this.label6.TabIndex = 300;
+            this.label6.Text = "น้ำหนัก :";
+            this.theme1.SetTheme(this.label6, "(default)");
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrice.DataType = typeof(decimal);
+            this.txtPrice.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPrice.Location = new System.Drawing.Point(123, 134);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(207, 20);
+            this.txtPrice.TabIndex = 299;
+            this.txtPrice.Tag = null;
+            this.theme1.SetTheme(this.txtPrice, "(default)");
+            this.txtPrice.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label5.Location = new System.Drawing.Point(19, 136);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 16);
+            this.label5.TabIndex = 298;
+            this.label5.Text = "ราคา :";
+            this.theme1.SetTheme(this.label5, "(default)");
             // 
             // label4
             // 
@@ -475,61 +534,41 @@
             // 
             this.theme1.Theme = "Office2013Red";
             // 
-            // txtPrice
+            // cboMatt
             // 
-            this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPrice.DataType = typeof(decimal);
-            this.txtPrice.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtPrice.Location = new System.Drawing.Point(123, 134);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(207, 20);
-            this.txtPrice.TabIndex = 299;
-            this.txtPrice.Tag = null;
-            this.theme1.SetTheme(this.txtPrice, "(default)");
-            this.txtPrice.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.cboMatt.AllowSpinLoop = false;
+            this.cboMatt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboMatt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboMatt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboMatt.GapHeight = 0;
+            this.cboMatt.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboMatt.ItemsDisplayMember = "";
+            this.cboMatt.ItemsValueMember = "";
+            this.cboMatt.Location = new System.Drawing.Point(123, 56);
+            this.cboMatt.Name = "cboMatt";
+            this.cboMatt.Size = new System.Drawing.Size(207, 20);
+            this.cboMatt.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboMatt.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboMatt.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboMatt.TabIndex = 303;
+            this.cboMatt.Tag = null;
+            this.theme1.SetTheme(this.cboMatt, "(default)");
+            this.cboMatt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // label5
+            // label7
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label5.Location = new System.Drawing.Point(19, 136);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 16);
-            this.label5.TabIndex = 298;
-            this.label5.Text = "ราคา :";
-            this.theme1.SetTheme(this.label5, "(default)");
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label7.Location = new System.Drawing.Point(19, 58);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(102, 16);
+            this.label7.TabIndex = 302;
+            this.label7.Text = "ประเภท Material :";
+            this.theme1.SetTheme(this.label7, "(default)");
             // 
-            // txtWeight
-            // 
-            this.txtWeight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtWeight.DataType = typeof(decimal);
-            this.txtWeight.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtWeight.Location = new System.Drawing.Point(123, 160);
-            this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(207, 20);
-            this.txtWeight.TabIndex = 301;
-            this.txtWeight.Tag = null;
-            this.theme1.SetTheme(this.txtWeight, "(default)");
-            this.txtWeight.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label6.Location = new System.Drawing.Point(19, 162);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 16);
-            this.label6.TabIndex = 300;
-            this.label6.Text = "น้ำหนัก :";
-            this.theme1.SetTheme(this.label6, "(default)");
-            // 
-            // FrmCFoodsMaterial
+            // FrmMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -537,7 +576,7 @@
             this.Controls.Add(this.sB);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "FrmCFoodsMaterial";
+            this.Name = "FrmMaterial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCFoodsMaterial";
             this.Load += new System.EventHandler(this.FrmMaterial_Load);
@@ -548,6 +587,8 @@
             this.tabView.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSort1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkRecommand)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFoo)).EndInit();
@@ -567,8 +608,7 @@
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtWeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboMatt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -610,5 +650,7 @@
         private System.Windows.Forms.Label label6;
         private C1.Win.C1Input.C1TextBox txtPrice;
         private System.Windows.Forms.Label label5;
+        private C1.Win.C1Input.C1ComboBox cboMatt;
+        private System.Windows.Forms.Label label7;
     }
 }

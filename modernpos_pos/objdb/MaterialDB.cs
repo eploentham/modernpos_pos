@@ -41,6 +41,7 @@ namespace modernpos_pos.objdb
             mat.device_id = "device_id";
             mat.price = "price";
             mat.material_code = "material_code";
+            mat.material_type_id = "material_type_id";
 
             mat.pkField = "material_id";
             mat.table = "b_material";
@@ -70,7 +71,7 @@ namespace modernpos_pos.objdb
         public DataTable selectByFoodsId()
         {
             DataTable dt = new DataTable();
-            String sql = "select foos." + mat.material_id + ",foos." + mat.material_name + ",foos." + mat.price +
+            String sql = "select foos." + mat.material_id + ",foos." + mat.material_name + ",foos." + mat.price + ",foos." + mat.weight +
                 " From " + mat.table + " foos " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where  foos." + mat.active + "='1' ";
@@ -196,7 +197,7 @@ namespace modernpos_pos.objdb
 
             p.remark = p.remark == null ? "" : p.remark;
 
-            //p.host_id = long.TryParse(p.host_id, out chk) ? chk.ToString() : "0";
+            p.material_type_id = long.TryParse(p.material_type_id, out chk) ? chk.ToString() : "0";
             //p.branch_id = long.TryParse(p.branch_id, out chk) ? chk.ToString() : "0";
             //p.device_id = long.TryParse(p.device_id, out chk) ? chk.ToString() : "0";
 
@@ -223,6 +224,8 @@ namespace modernpos_pos.objdb
                 "," + mat.branch_id + " = '" + p.branch_id + "' " +
                 "," + mat.device_id + " = '" + p.device_id + "' " +
                 "," + mat.price + " = '" + p.price + "' " +
+                "," + mat.material_type_id + " = '" + p.material_type_id + "' " +
+                "," + mat.material_code + " = '" + p.material_code + "' " +
                 " ";
             try
             {
@@ -253,6 +256,7 @@ namespace modernpos_pos.objdb
                 "," + mat.device_id + " = '" + p.device_id + "' " +
                 "," + mat.price + " = '" + p.price + "' " +
                 "," + mat.material_code + " = '" + p.material_code + "' " +
+                "," + mat.material_type_id + " = '" + p.material_type_id + "' " +
                 "Where " + mat.pkField + "='" + p.material_id + "'"
                 ;
 
@@ -374,6 +378,7 @@ namespace modernpos_pos.objdb
                 dept1.active = dt.Rows[0][mat.active] != null ? dt.Rows[0][mat.active].ToString() : "";
                 dept1.sort1 = dt.Rows[0][mat.sort1] != null ? dt.Rows[0][mat.sort1].ToString() : "";
                 dept1.price = dt.Rows[0][mat.price] != null ? dt.Rows[0][mat.price].ToString() : "";
+                dept1.material_type_id = dt.Rows[0][mat.material_type_id] != null ? dt.Rows[0][mat.material_type_id].ToString() : "";
             }
             else
             {
@@ -392,6 +397,7 @@ namespace modernpos_pos.objdb
                 dept1.sort1 = "";
                 dept1.price = "";
                 dept1.weight = "";
+                dept1.material_type_id = "";
             }
 
             return dept1;

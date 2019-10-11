@@ -177,6 +177,12 @@
     <Compile Include="gui\FrmKeyBoard2.Designer.cs">
       <DependentUpon>FrmKeyBoard2.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmMaterialType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmMaterialType.Designer.cs">
+      <DependentUpon>FrmMaterialType.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmMessage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,6 +320,7 @@
     <Compile Include="objdb\FoodsTypeDB.cs" />
     <Compile Include="objdb\FPrefixDB.cs" />
     <Compile Include="objdb\FSexDB.cs" />
+    <Compile Include="objdb\MaterialTypeDB.cs" />
     <Compile Include="objdb\mPosDB.cs" />
     <Compile Include="objdb\NoodleMakeDB.cs" />
     <Compile Include="objdb\OrderDB.cs" />
@@ -384,6 +391,7 @@
     <Compile Include="object1\IniFile.cs" />
     <Compile Include="object1\InitConfig.cs" />
     <Compile Include="object1\LogFile.cs" />
+    <Compile Include="object1\MaterialType.cs" />
     <Compile Include="object1\NativeMethods.cs" />
     <Compile Include="object1\NoodleMake.cs" />
     <Compile Include="object1\Order1.cs" />
@@ -482,6 +490,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmMaterialType.resx">
+      <DependentUpon>FrmMaterialType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmMessage.resx">
       <DependentUpon>FrmMessage.cs</DependentUpon>

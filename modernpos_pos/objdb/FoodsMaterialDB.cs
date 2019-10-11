@@ -11,7 +11,7 @@ namespace modernpos_pos.objdb
 {
     public class FoodsMaterialDB
     {
-        public FoodsMaterial mat;
+        public FoodsMaterial foom;
         ConnectDB conn;
         public List<FoodsMaterial> lfootp;
 
@@ -23,38 +23,38 @@ namespace modernpos_pos.objdb
         private void initConfig()
         {
             lfootp = new List<FoodsMaterial>();
-            mat = new FoodsMaterial();
-            mat.foods_material_id = "foods_material_id";
-            mat.weight = "weight";
-            mat.material_name = "material_name";
-            mat.active = "active";
-            mat.remark = "remark";
-            mat.sort1 = "sort1";
-            mat.date_cancel = "date_cancel";
-            mat.date_create = "date_create";
-            mat.date_modi = "date_modi";
-            mat.user_cancel = "user_cancel";
-            mat.user_create = "user_create";
-            mat.user_modi = "user_modi";
-            mat.host_id = "host_id";
-            mat.branch_id = "branch_id";
-            mat.device_id = "device_id";
-            mat.price = "price";
-            mat.foods_id = "foods_id";
-            mat.qty = "qty";
-            mat.material_id = "material_id";
+            foom = new FoodsMaterial();
+            foom.foods_material_id = "foods_material_id";
+            foom.weight = "weight";
+            foom.material_name = "material_name";
+            foom.active = "active";
+            foom.remark = "remark";
+            foom.sort1 = "sort1";
+            foom.date_cancel = "date_cancel";
+            foom.date_create = "date_create";
+            foom.date_modi = "date_modi";
+            foom.user_cancel = "user_cancel";
+            foom.user_create = "user_create";
+            foom.user_modi = "user_modi";
+            foom.host_id = "host_id";
+            foom.branch_id = "branch_id";
+            foom.device_id = "device_id";
+            foom.price = "price";
+            foom.foods_id = "foods_id";
+            foom.qty = "qty";
+            foom.material_id = "material_id";
 
-            mat.pkField = "foods_material_id";
-            mat.table = "b_foods_material";
+            foom.pkField = "foods_material_id";
+            foom.table = "b_foods_material";
         }
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
             String sql = "select foos.*  " +
-                "From " + mat.table + " foos " +
+                "From " + foom.table + " foos " +
                 " " +
-                "Where foos." + mat.active + " ='1' " +
-                "Order By foos." + mat.foods_material_id;
+                "Where foos." + foom.active + " ='1' " +
+                "Order By foos." + foom.foods_material_id;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -63,29 +63,29 @@ namespace modernpos_pos.objdb
         {
             DataTable dt = new DataTable();
             String sql = "select foos.* " +
-                "From " + mat.table + " foos " +
+                "From " + foom.table + " foos " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where foos." + mat.pkField + " ='" + copId + "' ";
+                "Where foos." + foom.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
         public DataTable selectByFoodsId(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select foos." + mat.foods_material_id + ",foos." + mat.material_name + ",foos." + mat.price+ ",foos." + mat.qty + ",foos." + mat.weight +
-               " From " + mat.table + " foos " +
+            String sql = "select foos." + foom.foods_material_id + ",foos." + foom.material_name + ",foos." + foom.price+ ",foos." + foom.weight + ",foos." + foom.qty +
+               " From " + foom.table + " foos " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where foos." + mat.foods_id + " ='" + copId + "' and foos." + mat.active + "='1' ";
+                "Where foos." + foom.foods_id + " ='" + copId + "' and foos." + foom.active + "='1' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
         public DataTable selectByFoodsId1(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select foos." + mat.weight + ",'' as img,foos." + mat.material_name + ",foos." + mat.price +
-                " From " + mat.table + " foos " +
+            String sql = "select foos." + foom.weight + ",'' as img,foos." + foom.material_name + ",foos." + foom.price +
+                " From " + foom.table + " foos " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where foos." + mat.weight + " ='" + copId + "' and foos." + mat.active + "='1' ";
+                "Where foos." + foom.weight + " ='" + copId + "' and foos." + foom.active + "='1' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -94,9 +94,9 @@ namespace modernpos_pos.objdb
             FoodsMaterial cop1 = new FoodsMaterial();
             DataTable dt = new DataTable();
             String sql = "select sex.* " +
-                "From " + mat.table + " sex " +
+                "From " + foom.table + " sex " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where sex." + mat.pkField + " ='" + copId + "' ";
+                "Where sex." + foom.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setFoodsMaterial(dt);
             return cop1;
@@ -106,8 +106,8 @@ namespace modernpos_pos.objdb
             FoodsMaterial dept1 = new FoodsMaterial();
             if (dt.Rows.Count > 0)
             {
-                dept1.foods_material_id = dt.Rows[0][mat.foods_material_id].ToString();
-                dept1.material_name = dt.Rows[0][mat.material_name].ToString();
+                dept1.foods_material_id = dt.Rows[0][foom.foods_material_id].ToString();
+                dept1.material_name = dt.Rows[0][foom.material_name].ToString();
             }
 
             return dept1;
@@ -115,10 +115,10 @@ namespace modernpos_pos.objdb
         public DataTable selectC1()
         {
             DataTable dt = new DataTable();
-            String sql = "select sex." + mat.pkField + ",sex." + mat.material_name + " " +
-                "From " + mat.table + " sex " +
+            String sql = "select sex." + foom.pkField + ",sex." + foom.material_name + " " +
+                "From " + foom.table + " sex " +
                 " " +
-                "Where sex." + mat.active + " ='1' ";
+                "Where sex." + foom.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -126,10 +126,10 @@ namespace modernpos_pos.objdb
         public DataTable selectByFoodsId2(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select footp." + mat.foods_material_id + ",'' as img,footp." + mat.material_name + ",footp." + mat.price + ", footp." + mat.weight +
-                " From " + mat.table + " footp " +
+            String sql = "select footp." + foom.foods_material_id + ",'' as img,footp." + foom.material_name + ",footp." + foom.price + ", footp." + foom.weight +
+                " From " + foom.table + " footp " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where footp." + mat.weight + " ='" + copId + "' and footp." + mat.active + "='1' ";
+                "Where footp." + foom.weight + " ='" + copId + "' and footp." + foom.active + "='1' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -142,10 +142,10 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 FoodsMaterial itm1 = new FoodsMaterial();
-                itm1.foods_material_id = row[mat.foods_material_id].ToString();
-                itm1.material_name = row[mat.material_name].ToString();
-                itm1.price = row[mat.price].ToString();
-                itm1.weight = row[mat.weight].ToString();
+                itm1.foods_material_id = row[foom.foods_material_id].ToString();
+                itm1.material_name = row[foom.material_name].ToString();
+                itm1.price = row[foom.price].ToString();
+                itm1.weight = row[foom.weight].ToString();
                 lfooC1.Add(itm1);
             }
             return lfooC1;
@@ -159,8 +159,8 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 FoodsMaterial itm1 = new FoodsMaterial();
-                itm1.foods_material_id = row[mat.foods_material_id].ToString();
-                itm1.material_name = row[mat.material_name].ToString();
+                itm1.foods_material_id = row[foom.foods_material_id].ToString();
+                itm1.material_name = row[foom.material_name].ToString();
 
                 lfootp.Add(itm1);
             }
@@ -215,21 +215,21 @@ namespace modernpos_pos.objdb
             int chk = 0;
 
             chkNull(p);
-            sql = "Insert Into " + mat.table + " set " +
-                " " + mat.weight + " = '" + p.weight + "'" +
-                "," + mat.material_name + " = '" + p.material_name.Replace("'", "''") + "'" +
-                "," + mat.remark + " = '" + p.remark.Replace("'", "''") + "'" +
-                "," + mat.date_create + " = now()" +
-                "," + mat.active + " = '1'" +
-                "," + mat.user_create + " = '" + userId + "' " +
-                "," + mat.host_id + " = '" + p.host_id + "' " +
-                "," + mat.branch_id + " = '" + p.branch_id + "' " +
-                "," + mat.device_id + " = '" + p.device_id + "' " +
-                "," + mat.price + " = '" + p.price + "' " +
-                "," + mat.sort1 + " = '" + p.sort1 + "' " +
-                "," + mat.qty + " = '" + p.qty + "' " +
-                "," + mat.material_id + " = '" + p.material_id + "' " +
-                "," + mat.foods_id + " = '" + p.foods_id + "' " +
+            sql = "Insert Into " + foom.table + " set " +
+                " " + foom.weight + " = '" + p.weight + "'" +
+                "," + foom.material_name + " = '" + p.material_name.Replace("'", "''") + "'" +
+                "," + foom.remark + " = '" + p.remark.Replace("'", "''") + "'" +
+                "," + foom.date_create + " = now()" +
+                "," + foom.active + " = '1'" +
+                "," + foom.user_create + " = '" + userId + "' " +
+                "," + foom.host_id + " = '" + p.host_id + "' " +
+                "," + foom.branch_id + " = '" + p.branch_id + "' " +
+                "," + foom.device_id + " = '" + p.device_id + "' " +
+                "," + foom.price + " = '" + p.price + "' " +
+                "," + foom.sort1 + " = '" + p.sort1 + "' " +
+                "," + foom.qty + " = '" + p.qty + "' " +
+                "," + foom.material_id + " = '" + p.material_id + "' " +
+                "," + foom.foods_id + " = '" + p.foods_id + "' " +
                 " ";
             try
             {
@@ -249,21 +249,21 @@ namespace modernpos_pos.objdb
             int chk = 0;
 
             chkNull(p);
-            sql = "Update " + mat.table + " Set " +
-                " " + mat.weight + " = '" + p.weight + "'" +
-                "," + mat.material_name + " = '" + p.material_name.Replace("'", "''") + "'" +
-                "," + mat.remark + " = '" + p.remark.Replace("'", "''") + "'" +
-                "," + mat.date_modi + " = now()" +
-                "," + mat.user_modi + " = '" + userId + "' " +
-                "," + mat.host_id + " = '" + p.host_id + "' " +
-                "," + mat.branch_id + " = '" + p.branch_id + "' " +
-                "," + mat.device_id + " = '" + p.device_id + "' " +
-                "," + mat.price + " = '" + p.price + "' " +
-                "," + mat.foods_id + " = '" + p.foods_id + "' " +
-                "," + mat.qty + " = '" + p.qty + "' " +
-                "," + mat.sort1 + " = '" + p.sort1 + "' " +
-                "," + mat.material_id + " = '" + p.material_id + "' " +
-                "Where " + mat.pkField + "='" + p.foods_material_id + "'"
+            sql = "Update " + foom.table + " Set " +
+                " " + foom.weight + " = '" + p.weight + "'" +
+                "," + foom.material_name + " = '" + p.material_name.Replace("'", "''") + "'" +
+                "," + foom.remark + " = '" + p.remark.Replace("'", "''") + "'" +
+                "," + foom.date_modi + " = now()" +
+                "," + foom.user_modi + " = '" + userId + "' " +
+                "," + foom.host_id + " = '" + p.host_id + "' " +
+                "," + foom.branch_id + " = '" + p.branch_id + "' " +
+                "," + foom.device_id + " = '" + p.device_id + "' " +
+                "," + foom.price + " = '" + p.price + "' " +
+                "," + foom.foods_id + " = '" + p.foods_id + "' " +
+                "," + foom.qty + " = '" + p.qty + "' " +
+                "," + foom.sort1 + " = '" + p.sort1 + "' " +
+                "," + foom.material_id + " = '" + p.material_id + "' " +
+                "Where " + foom.pkField + "='" + p.foods_material_id + "'"
                 ;
 
             try
@@ -298,11 +298,11 @@ namespace modernpos_pos.objdb
             String sql = "";
             int chk = 0;
 
-            sql = "Update " + mat.table + " Set " +
-                " " + mat.active + " = '3'" +
-                "," + mat.date_cancel + " = now()" +
-                "," + mat.user_modi + " = '" + userId + "' " +
-                "Where " + mat.pkField + "='" + foosid + "'"
+            sql = "Update " + foom.table + " Set " +
+                " " + foom.active + " = '3'" +
+                "," + foom.date_cancel + " = now()" +
+                "," + foom.user_modi + " = '" + userId + "' " +
+                "Where " + foom.pkField + "='" + foosid + "'"
                 ;
             try
             {
@@ -329,8 +329,8 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 item = new ComboBoxItem();
-                item.Text = row[mat.material_name].ToString();
-                item.Value = row[mat.foods_material_id].ToString();
+                item.Text = row[foom.material_name].ToString();
+                item.Value = row[foom.foods_material_id].ToString();
 
                 c.Items.Add(item);
             }
@@ -369,25 +369,25 @@ namespace modernpos_pos.objdb
             FoodsMaterial dept1 = new FoodsMaterial();
             if (dt.Rows.Count > 0)
             {
-                dept1.foods_material_id = dt.Rows[0][mat.foods_material_id].ToString();
-                dept1.weight = dt.Rows[0][mat.weight].ToString();
-                dept1.material_name = dt.Rows[0][mat.material_name].ToString();
-                dept1.foods_id = dt.Rows[0][mat.foods_id] != null ? dt.Rows[0][mat.foods_id].ToString() : "";
-                dept1.weight = dt.Rows[0][mat.weight] != null ? dt.Rows[0][mat.weight].ToString() : "";
-                dept1.remark = dt.Rows[0][mat.remark] != null ? dt.Rows[0][mat.remark].ToString() : "";
-                dept1.date_create = dt.Rows[0][mat.date_create] != null ? dt.Rows[0][mat.date_create].ToString() : "";
-                dept1.date_modi = dt.Rows[0][mat.date_modi] != null ? dt.Rows[0][mat.date_modi].ToString() : "";
-                dept1.date_cancel = dt.Rows[0][mat.date_cancel] != null ? dt.Rows[0][mat.date_cancel].ToString() : "";
-                dept1.user_create = dt.Rows[0][mat.user_create] != null ? dt.Rows[0][mat.user_create].ToString() : "";
-                dept1.user_modi = dt.Rows[0][mat.user_modi] != null ? dt.Rows[0][mat.user_modi].ToString() : "";
-                dept1.user_cancel = dt.Rows[0][mat.user_cancel] != null ? dt.Rows[0][mat.user_cancel].ToString() : "";
-                dept1.active = dt.Rows[0][mat.active] != null ? dt.Rows[0][mat.active].ToString() : "";
-                dept1.sort1 = dt.Rows[0][mat.sort1] != null ? dt.Rows[0][mat.sort1].ToString() : "";
-                dept1.price = dt.Rows[0][mat.price] != null ? dt.Rows[0][mat.price].ToString() : "";
-                dept1.qty = dt.Rows[0][mat.qty] != null ? dt.Rows[0][mat.qty].ToString() : "";
-                dept1.material_id = dt.Rows[0][mat.material_id] != null ? dt.Rows[0][mat.material_id].ToString() : "";
-                dept1.host_id = dt.Rows[0][mat.host_id] != null ? dt.Rows[0][mat.host_id].ToString() : "";
-                dept1.device_id = dt.Rows[0][mat.device_id] != null ? dt.Rows[0][mat.device_id].ToString() : "";
+                dept1.foods_material_id = dt.Rows[0][foom.foods_material_id].ToString();
+                dept1.weight = dt.Rows[0][foom.weight].ToString();
+                dept1.material_name = dt.Rows[0][foom.material_name].ToString();
+                dept1.foods_id = dt.Rows[0][foom.foods_id] != null ? dt.Rows[0][foom.foods_id].ToString() : "";
+                dept1.weight = dt.Rows[0][foom.weight] != null ? dt.Rows[0][foom.weight].ToString() : "";
+                dept1.remark = dt.Rows[0][foom.remark] != null ? dt.Rows[0][foom.remark].ToString() : "";
+                dept1.date_create = dt.Rows[0][foom.date_create] != null ? dt.Rows[0][foom.date_create].ToString() : "";
+                dept1.date_modi = dt.Rows[0][foom.date_modi] != null ? dt.Rows[0][foom.date_modi].ToString() : "";
+                dept1.date_cancel = dt.Rows[0][foom.date_cancel] != null ? dt.Rows[0][foom.date_cancel].ToString() : "";
+                dept1.user_create = dt.Rows[0][foom.user_create] != null ? dt.Rows[0][foom.user_create].ToString() : "";
+                dept1.user_modi = dt.Rows[0][foom.user_modi] != null ? dt.Rows[0][foom.user_modi].ToString() : "";
+                dept1.user_cancel = dt.Rows[0][foom.user_cancel] != null ? dt.Rows[0][foom.user_cancel].ToString() : "";
+                dept1.active = dt.Rows[0][foom.active] != null ? dt.Rows[0][foom.active].ToString() : "";
+                dept1.sort1 = dt.Rows[0][foom.sort1] != null ? dt.Rows[0][foom.sort1].ToString() : "";
+                dept1.price = dt.Rows[0][foom.price] != null ? dt.Rows[0][foom.price].ToString() : "";
+                dept1.qty = dt.Rows[0][foom.qty] != null ? dt.Rows[0][foom.qty].ToString() : "";
+                dept1.material_id = dt.Rows[0][foom.material_id] != null ? dt.Rows[0][foom.material_id].ToString() : "";
+                dept1.host_id = dt.Rows[0][foom.host_id] != null ? dt.Rows[0][foom.host_id].ToString() : "";
+                dept1.device_id = dt.Rows[0][foom.device_id] != null ? dt.Rows[0][foom.device_id].ToString() : "";
 
             }
             else

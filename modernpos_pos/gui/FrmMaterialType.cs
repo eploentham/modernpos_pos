@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,26 +17,25 @@ using System.Windows.Forms;
 
 namespace modernpos_pos.gui
 {
-    public partial class FrmMaterial : Form
+    public partial class FrmMaterialType : Form
     {
         mPOSControl mposC;
-        Material fooC;
+        MaterialType fooT;
 
         Font fEdit, fEditB;
 
         Color bg, fc;
         Font ff, ffB;
-        int colID = 1, colCode = 2, colName = 3, colRemark = 4, coledit = 5, colCnt = 6;
+        int colID = 1, colCode = 2, colName = 3, colRemark = 4, colE = 5, colS = 6, coledit = 7, colCnt = 7;
 
-        C1FlexGrid grfFooC;
+        C1FlexGrid grfFooT;
 
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
-        Boolean flagEdit = false, pageLoad = false;
+        Boolean flagEdit = false;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
-
         String userIdVoid = "";
-        public FrmMaterial(mPOSControl x)
+        public FrmMaterialType(mPOSControl x)
         {
             InitializeComponent();
             mposC = x;
@@ -45,34 +43,29 @@ namespace modernpos_pos.gui
         }
         private void initConfig()
         {
-            fooC = new Material();
+            fooT = new MaterialType();
             fEdit = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Regular);
             fEditB = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Bold);
 
             //C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
             theme1.Theme = mposC.iniC.themeApplication;
             theme1.SetTheme(sB, "BeigeOne");
-            foreach (Control c in panel2.Controls)
+            foreach (Control c in panel3.Controls)
             {
-                if (c is C1PictureBox) continue;
                 theme1.SetTheme(c, mposC.iniC.themeApplication);
             }
 
             bg = txtAreaCode.BackColor;
             fc = txtAreaCode.ForeColor;
             ff = txtAreaCode.Font;
-
-            mposC.mposDB.mattDB.setCboMaterial(cboMatt);
-
-            btnImg.Click += BtnImg_Click;
+            txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
             btnNew.Click += BtnNew_Click;
             btnEdit.Click += BtnEdit_Click;
+            btnVoid.Click += BtnVoid_Click;
             btnSave.Click += BtnSave_Click;
 
-            txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
-
-            initGrfFoodsCat();
-            setGrfFoodsCat();
+            initGrfMaterialType();
+            setGrfMaterialType();
             setControlEnable(false);
             setFocusColor();
             sB1.Text = "";
@@ -88,8 +81,8 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                setFoodsCat();
-                String re = mposC.mposDB.matDB.insertFoodsMaterial(fooC, mposC.user.staff_id);
+                setMaterialType();
+                String re = mposC.mposDB.mattDB.insertFoodsMaterial(fooT, mposC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -99,9 +92,19 @@ namespace modernpos_pos.gui
                 {
                     btnSave.Image = Resources.accept_database24;
                 }
-                setGrfFoodsCat();
+                setGrfMaterialType();
                 //setGrdView();
                 //this.Dispose();
+            }
+        }
+
+        private void BtnVoid_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                mposC.mposDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
+                setGrfMaterialType();
             }
         }
 
@@ -120,129 +123,72 @@ namespace modernpos_pos.gui
             txtFooTNameT.Value = "";
             txtRemark.Value = "";
             chkVoid.Checked = false;
-            picFoo.Image = null;
             btnVoid.Hide();
             flagEdit = true;
-            fooC = new Material();
             setControlEnable(true);
         }
 
-        private void BtnImg_Click(object sender, EventArgs e)
+        private void initGrfMaterialType()
         {
-            //throw new NotImplementedException();
-            if (txtID.Text.Length <= 0) return;
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Images (*.BMP;*.JPG;*.Jepg;*.Png;*.GIF)|*.BMP;*.JPG;*.Jepg;*.Png;*.GIF|Pdf Files|*.pdf|All files (*.*)|*.*";
-            ofd.Multiselect = false;
-            ofd.Title = "My Image Browser";
-            DialogResult dr = ofd.ShowDialog();
-            if (dr == System.Windows.Forms.DialogResult.OK)
-            {
-                if (File.Exists(ofd.FileName))
-                {
-                    mposC.savePicFoodsCattoServer(txtID.Text, ofd.FileName);
-                    showImg();
-                }
-            }
-        }
-        private void showImg()
-        {
-            if (pageLoad) return;
-            try
-            {
-                picFoo.Image = null;
-                MemoryStream stream = new MemoryStream();
-                Image loadedImage = null, resizedImage;
-                if (fooC.filename.Equals("")) return;
-                string ext = Path.GetExtension(fooC.filename);
-                String filename = "/foods/" + fooC.filename.Replace(ext, "") + "_210" + ext;
-                stream = mposC.ftpC.download(mposC.iniC.ShareFile + filename);
-                loadedImage = new Bitmap(stream);
-                if (loadedImage != null)
-                {
-                    int originalWidth = loadedImage.Width;
-                    int newWidth = 210;
-                    resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
-                    picFoo.Image = resizedImage;
-                }
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show("" + ex.Message, "showImg");
-            }
-        }
-        private void initGrfFoodsCat()
-        {
-            grfFooC = new C1FlexGrid();
-            grfFooC.Font = fEdit;
-            grfFooC.Dock = System.Windows.Forms.DockStyle.Fill;
-            grfFooC.Location = new System.Drawing.Point(0, 0);
+            grfFooT = new C1FlexGrid();
+            grfFooT.Font = fEdit;
+            grfFooT.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfFooT.Location = new System.Drawing.Point(0, 0);
 
             //FilterRow fr = new FilterRow(grfPosi);
 
-            grfFooC.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfPosi_AfterRowColChange);
-            grfFooC.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
-            grfFooC.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellChanged);
+            grfFooT.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfPosi_AfterRowColChange);
+            grfFooT.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
+            grfFooT.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellChanged);
 
-            panel4.Controls.Add(this.grfFooC);
+            panel4.Controls.Add(this.grfFooT);
 
             C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
-            C1ThemeController.ApplyThemeToObject(grfFooC, theme);
+            C1ThemeController.ApplyThemeToObject(grfFooT, theme);
         }
-        private void setGrfFoodsCat()
+        private void setGrfMaterialType()
         {
             //grfDept.Rows.Count = 7;
-            DataTable dt = new DataTable();
-            dt = mposC.mposDB.matDB.selectAll();
-            grfFooC.Cols.Count = colCnt;
-            grfFooC.Rows.Count = dt.Rows.Count+1;
-            //CellStyle cs = grfFooC.Styles.Add("btn");
-            //cs.DataType = typeof(Button);
-            ////cs.ComboList = "|Tom|Dick|Harry";
-            //cs.ForeColor = Color.Navy;
-            //cs.Font = new Font(Font, FontStyle.Bold);
-            //cs = grfFooC.Styles.Add("date");
-            //cs.DataType = typeof(DateTime);
-            //cs.Format = "dd-MMM-yy";
-            //cs.ForeColor = Color.DarkGoldenrod;
 
-            //grfFooC.Cols[colE].Style = grfFooC.Styles["btn"];
-            //grfFooC.Cols[colS].Style = grfFooC.Styles["date"];
+            grfFooT.DataSource = mposC.mposDB.mattDB.selectAll();
+            grfFooT.Cols.Count = colCnt;
+            CellStyle cs = grfFooT.Styles.Add("btn");
+            cs.DataType = typeof(Button);
+            //cs.ComboList = "|Tom|Dick|Harry";
+            cs.ForeColor = Color.Navy;
+            cs.Font = new Font(Font, FontStyle.Bold);
+            cs = grfFooT.Styles.Add("date");
+            cs.DataType = typeof(DateTime);
+            cs.Format = "dd-MMM-yy";
+            cs.ForeColor = Color.DarkGoldenrod;
 
-            grfFooC.Cols[colID].Width = 60;
+            grfFooT.Cols[colE].Style = grfFooT.Styles["btn"];
+            grfFooT.Cols[colS].Style = grfFooT.Styles["date"];
 
-            grfFooC.Cols[colCode].Width = 80;
-            grfFooC.Cols[colName].Width = 300;
-            grfFooC.Cols[colRemark].Width = 300;
+            grfFooT.Cols[colID].Width = 60;
 
-            grfFooC.ShowCursor = true;
+            grfFooT.Cols[colCode].Width = 80;
+            grfFooT.Cols[colName].Width = 300;
+
+            grfFooT.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
             //grfDept.Cols[colCode].Caption = "รหัส";
 
-            grfFooC.Cols[colCode].Caption = "รหัส";
-            grfFooC.Cols[colName].Caption = "ชื่อ Material";
-            grfFooC.Cols[colRemark].Caption = "หมายเหตุ";
+            grfFooT.Cols[colCode].Caption = "รหัส";
+            grfFooT.Cols[colName].Caption = "ชื่อประเภท Material";
+            grfFooT.Cols[colRemark].Caption = "หมายเหตุ";
 
             //grfDept.Cols[coledit].Visible = false;
-            //CellRange rg = grfFooC.GetCellRange(2, colE);
-            int i = 1;
-            foreach (DataRow row in dt.Rows)
+            CellRange rg = grfFooT.GetCellRange(2, colE);
+            for (int i = 1; i < grfFooT.Rows.Count; i++)
             {
-                grfFooC[i, 0] = i; 
-                grfFooC[i, colID] = row[mposC.mposDB.matDB.mat.material_id].ToString();
-                grfFooC[i, colCode] = row[mposC.mposDB.matDB.mat.material_code].ToString();
-                grfFooC[i, colName] = row[mposC.mposDB.matDB.mat.material_name].ToString();
-                grfFooC[i, colRemark] = row[mposC.mposDB.matDB.mat.remark].ToString();
+                grfFooT[i, 0] = i;
                 if (i % 2 == 0)
-                    grfFooC.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
-                i++;
+                    grfFooT.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
-            grfFooC.Cols[colID].Visible = false;
-            grfFooC.Cols[coledit].Visible = false;
-
-            grfFooC.Cols[colCode].AllowEditing = false;
-            grfFooC.Cols[colName].AllowEditing = false;
-            grfFooC.Cols[colRemark].AllowEditing = false;
+            grfFooT.Cols[colID].Visible = false;
+            grfFooT.Cols[colE].Visible = false;
+            grfFooT.Cols[colS].Visible = false;
         }
         private void textBox_Enter(object sender, EventArgs e)
         {
@@ -270,17 +216,11 @@ namespace modernpos_pos.gui
         }
         private void setControl(String posiId)
         {
-            fooC = mposC.mposDB.matDB.selectByPk1(posiId);
-            txtID.Value = fooC.material_id;
-            txtAreaCode.Value = fooC.material_code;
-            txtFooTNameT.Value = fooC.material_name;
-            txtRemark.Value = fooC.remark;
-            txtPrice.Value = fooC.price;
-            txtWeight.Value = fooC.weight;
-            //chkRecommand.Value = fooC.status_recommend.Equals("1") ? true : false;
-            txtSort1.Value = fooC.sort1;
-            mposC.setC1Combo(cboMatt, fooC.material_type_id);
-            showImg();
+            fooT = mposC.mposDB.mattDB.selectByPk1(posiId);
+            txtID.Value = fooT.material_type_id;
+            txtAreaCode.Value = fooT.material_type_code;
+            txtFooTNameT.Value = fooT.material_type_name;
+            txtRemark.Value = fooT.remark;
             //if (fooT.status_aircondition.Equals("1"))
             //{
             //    chkStatusAirCondition.Checked = true;
@@ -304,23 +244,17 @@ namespace modernpos_pos.gui
             txtAreaCode.Enabled = flag;
             txtFooTNameT.Enabled = flag;
             txtRemark.Enabled = flag;
-            txtPrice.Enabled = flag;
-            txtWeight.Enabled = flag;
             chkVoid.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
-
-        private void setFoodsCat()
+        private void setMaterialType()
         {
-            fooC.material_id = txtID.Text;
-            fooC.material_code = txtAreaCode.Text;
-            fooC.material_name = txtFooTNameT.Text;
+            fooT.material_type_id = txtID.Text;
+            fooT.material_type_code = txtAreaCode.Text;
+            fooT.material_type_name = txtFooTNameT.Text.Trim();
             //posi.posi_name_e = txtPosiNameE.Text;
-            fooC.remark = txtRemark.Text;
-            fooC.weight = txtWeight.Text;
-            fooC.price = txtPrice.Text;
-            fooC.material_type_id = cboMatt.SelectedItem == null ? "" : ((ComboBoxItem)cboMatt.SelectedItem).Value;
-            fooC.sort1 = txtSort1.Text;
+            fooT.remark = txtRemark.Text;
+            //fooT.status_aircondition = chkStatusAirCondition.Checked == true ? "1" : "0";
             //area.status_embryologist = chkEmbryologist.Checked == true ? "1" : "0";
         }
         private void grfPosi_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
@@ -329,7 +263,7 @@ namespace modernpos_pos.gui
             if (e.NewRange.Data == null) return;
 
             String deptId = "";
-            deptId = grfFooC[e.NewRange.r1, colID] != null ? grfFooC[e.NewRange.r1, colID].ToString() : "";
+            deptId = grfFooT[e.NewRange.r1, colID] != null ? grfFooT[e.NewRange.r1, colID].ToString() : "";
             setControl(deptId);
             setControlEnable(false);
             //setControlAddr(addrId);
@@ -369,18 +303,18 @@ namespace modernpos_pos.gui
                     sep.SetError(txtPasswordVoid, "333");
                 }
             }
-        }        
+        }
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            
+        }
         private void btnEdit_Click(object sender, EventArgs e)
         {
             
         }
         private void btnVoid_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
-            {
-                mposC.mposDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
-                setGrfFoodsCat();
-            }
+            
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -399,9 +333,9 @@ namespace modernpos_pos.gui
                 //stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> กรุณาป้อนรหัสผ่าน", txtPasswordVoid);
             }
         }
-        private void FrmMaterial_Load(object sender, EventArgs e)
+        private void FrmMaterialType_Load(object sender, EventArgs e)
         {
-            tC.SelectedTab = tabAdd;
+            tC.SelectedTab = tabType;
         }
     }
 }

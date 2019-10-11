@@ -45,6 +45,7 @@
             this.btnFoodsCatSub = new C1.Win.C1Input.C1Button();
             this.btnReCom = new C1.Win.C1Input.C1Button();
             this.btnFooMaterial = new C1.Win.C1Input.C1Button();
+            this.btnMaterialType = new C1.Win.C1Input.C1Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTable)).BeginInit();
@@ -60,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnFoodsCatSub)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReCom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFooMaterial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMaterialType)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -221,11 +223,21 @@
             this.btnFooMaterial.Text = "Foods Material";
             this.btnFooMaterial.UseVisualStyleBackColor = true;
             // 
+            // btnMaterialType
+            // 
+            this.btnMaterialType.Location = new System.Drawing.Point(362, 351);
+            this.btnMaterialType.Name = "btnMaterialType";
+            this.btnMaterialType.Size = new System.Drawing.Size(116, 77);
+            this.btnMaterialType.TabIndex = 19;
+            this.btnMaterialType.Text = "Foods Material Type";
+            this.btnMaterialType.UseVisualStyleBackColor = true;
+            // 
             // FrmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 629);
+            this.Controls.Add(this.btnMaterialType);
             this.Controls.Add(this.btnFooMaterial);
             this.Controls.Add(this.btnReCom);
             this.Controls.Add(this.btnFoodsCatSub);
@@ -260,6 +272,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnFoodsCatSub)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReCom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFooMaterial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMaterialType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -283,5 +296,6 @@
         private C1.Win.C1Input.C1Button btnFoodsCatSub;
         private C1.Win.C1Input.C1Button btnReCom;
         private C1.Win.C1Input.C1Button btnFooMaterial;
+        private C1.Win.C1Input.C1Button btnMaterialType;
     }
 }

@@ -595,9 +595,9 @@
             this.pnMaterialAdd1.Controls.Add(this.pnMaterialAddTotal);
             this.pnMaterialAdd1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMaterialAdd1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.pnMaterialAdd1.Location = new System.Drawing.Point(466, 0);
+            this.pnMaterialAdd1.Location = new System.Drawing.Point(499, 0);
             this.pnMaterialAdd1.Name = "pnMaterialAdd1";
-            this.pnMaterialAdd1.Size = new System.Drawing.Size(322, 449);
+            this.pnMaterialAdd1.Size = new System.Drawing.Size(289, 449);
             this.pnMaterialAdd1.TabIndex = 1;
             this.theme1.SetTheme(this.pnMaterialAdd1, "(default)");
             // 
@@ -608,7 +608,7 @@
             this.pnMaterialAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnMaterialAdd.Location = new System.Drawing.Point(0, 0);
             this.pnMaterialAdd.Name = "pnMaterialAdd";
-            this.pnMaterialAdd.Size = new System.Drawing.Size(322, 349);
+            this.pnMaterialAdd.Size = new System.Drawing.Size(289, 349);
             this.pnMaterialAdd.TabIndex = 1;
             this.theme1.SetTheme(this.pnMaterialAdd, "(default)");
             // 
@@ -619,7 +619,7 @@
             this.pnMaterialAddTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnMaterialAddTotal.Location = new System.Drawing.Point(0, 349);
             this.pnMaterialAddTotal.Name = "pnMaterialAddTotal";
-            this.pnMaterialAddTotal.Size = new System.Drawing.Size(322, 100);
+            this.pnMaterialAddTotal.Size = new System.Drawing.Size(289, 100);
             this.pnMaterialAddTotal.TabIndex = 0;
             this.theme1.SetTheme(this.pnMaterialAddTotal, "(default)");
             // 
@@ -630,7 +630,7 @@
             this.pnMaterial2.Controls.Add(this.btnFoomAdd);
             this.pnMaterial2.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnMaterial2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.pnMaterial2.Location = new System.Drawing.Point(391, 0);
+            this.pnMaterial2.Location = new System.Drawing.Point(424, 0);
             this.pnMaterial2.Name = "pnMaterial2";
             this.pnMaterial2.Size = new System.Drawing.Size(75, 449);
             this.pnMaterial2.TabIndex = 2;
@@ -665,7 +665,7 @@
             this.pnMaterialView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnMaterialView.Location = new System.Drawing.Point(0, 0);
             this.pnMaterialView.Name = "pnMaterialView";
-            this.pnMaterialView.Size = new System.Drawing.Size(391, 449);
+            this.pnMaterialView.Size = new System.Drawing.Size(424, 449);
             this.pnMaterialView.TabIndex = 0;
             this.theme1.SetTheme(this.pnMaterialView, "(default)");
             // 

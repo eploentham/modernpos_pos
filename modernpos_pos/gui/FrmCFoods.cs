@@ -28,7 +28,7 @@ namespace modernpos_pos.gui
         Color bg, fc;
         Font ff, ffB;
         int colID = 1, colCode = 2, colName = 3, colRemark = 4, colE = 5, colS = 6, coledit = 7, colCnt = 7;
-        int colFmId = 1, colFmName = 2, colFmprice = 3, colFmWeight = 4, colFmQty = 5, colFmedit = 6;
+        int colFmId = 1, colFmName = 2, colFmprice = 3, colFmWeight = 4, colFmQty = 5, colFmTotal=6, colFmedit = 7;
         int colmId = 1, colmName = 2, colmPrice = 3, colmWeight = 4;
 
         C1FlexGrid grfFoo, grfRec, grfFooS, grfFooT, grfMat, grfFooM;
@@ -131,10 +131,10 @@ namespace modernpos_pos.gui
             if (grfMat.Col <= 1) return;
 
             String foomid = "", foomname = "", foomprice = "", foomqty = "", foomweight = "", matid="";
-            matid = grfMat[grfMat.Row, 1] != null ? grfMat[grfMat.Row, 1].ToString() : "";
-            foomname = grfMat[grfMat.Row, 2] != null ? grfMat[grfMat.Row, 2].ToString() : "";
-            foomprice = grfMat[grfMat.Row, 3] != null ? grfMat[grfMat.Row, 3].ToString() : "";
-            foomweight = grfMat[grfMat.Row, 4] != null ? grfMat[grfMat.Row, 4].ToString() : "";
+            matid = grfMat[grfMat.Row, colFmId] != null ? grfMat[grfMat.Row, colFmId].ToString() : "";
+            foomname = grfMat[grfMat.Row, colFmName] != null ? grfMat[grfMat.Row, colFmName].ToString() : "";
+            foomprice = grfMat[grfMat.Row, colFmprice] != null ? grfMat[grfMat.Row, colFmprice].ToString() : "";
+            foomweight = grfMat[grfMat.Row, colFmWeight] != null ? grfMat[grfMat.Row, colFmWeight].ToString() : "";
             //foomid = grfMat[grfMat.Row, 1] != null ? grfMat[grfMat.Row, 1].ToString() : "";
 
             FoodsMaterial foom = new FoodsMaterial();
@@ -325,8 +325,10 @@ namespace modernpos_pos.gui
         {
             //grfDept.Rows.Count = 7;
             pageLoad = true;
-            grfFooM.DataSource = mposC.mposDB.foomDB.selectByFoodsId(fooId);
-            grfFooM.Cols.Count = 8AQ;
+            grfFooM.Rows.Count = 0;
+            DataTable dt = new DataTable();
+            dt = mposC.mposDB.foomDB.selectByFoodsId(fooId);
+            grfFooM.Cols.Count = 8;
 
             CellStyle cs = grfFooM.Styles.Add("btn");
             cs.DataType = typeof(Button);
@@ -353,20 +355,43 @@ namespace modernpos_pos.gui
             grfFooM.Cols[colFmprice].Caption = "Price";
             grfFooM.Cols[colFmWeight].Caption = "Weight";
             grfFooM.Cols[colFmQty].Caption = "Qty";
+            grfFooM.Cols[colFmTotal].Caption = "Total";
 
             grfFooM.AfterRowColChange += GrfFooM_AfterRowColChange; ;
             //grfDept.Cols[coledit].Visible = false;
             CellRange rg = grfFooM.GetCellRange(2, colE);
-            for (int i = 1; i < grfFooM.Rows.Count; i++)
+            int i = 1;
+            foreach (DataRow row in dt.Rows)
             {
-                grfFooM[i, 0] = i;
+                Row row1 = grfFooM.Rows.Add();
+                row1[0] = i; 
+                String price = "", qty = "", weight = "";
+                Decimal price1 =0, qty1 = 0, weight1 =0, tota1l=0;
+                row1[colFmprice] = row[mposC.mposDB.foomDB.foom.price].ToString();
+                row1[colFmName] = row[mposC.mposDB.foomDB.foom.material_name].ToString();
+                row1[colFmWeight] = row[mposC.mposDB.foomDB.foom.weight].ToString();
+                row1[colFmQty] = row[mposC.mposDB.foomDB.foom.qty].ToString();
+                row1[colFmId] = row[mposC.mposDB.foomDB.foom.foods_material_id].ToString();
+
+                price = grfFooM[grfFooM.Row, colFmprice] != null ? grfFooM[grfFooM.Row, colFmprice].ToString() : "";
+                qty = grfFooM[grfFooM.Row, colFmQty] != null ? grfFooM[grfFooM.Row, colFmQty].ToString() : "";
+                weight = grfFooM[grfFooM.Row, colFmWeight] != null ? grfFooM[grfFooM.Row, colFmWeight].ToString() : "";
+                Decimal.TryParse(price, out price1);
+                Decimal.TryParse(qty, out qty1);
+                Decimal.TryParse(weight, out weight1);
+                tota1l = price1 * qty1;
+                //price = grfFooM[grfFooM.Row, grfFooM.Col] != null ? grfFooM[grfFooM.Row, grfFooM.Col].ToString() : "";
+                grfFooM[grfFooM.Row, colFmTotal] = Math.Round(tota1l,4);
                 if (i % 2 == 0)
                     grfFooM.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
             //grfFooT.Cols[colCode].Visible = false;
-            grfFooM.Cols[colID].Visible = false;
-            //grfFooT.Cols[colE].Visible = false;
-            //grfFooT.Cols[colS].Visible = false;
+            grfFooM.Cols[colFmId].Visible = false;
+            grfFooM.Cols[colFmedit].Visible = false; 
+            grfFooM.Cols[colFmName].AllowEditing = false;
+            grfFooM.Cols[colFmprice].AllowEditing = false;
+            grfFooM.Cols[colFmWeight].AllowEditing = false;
+            grfFooM.Cols[colFmTotal].AllowEditing = false;
             pageLoad = false;
         }
 
@@ -421,15 +446,17 @@ namespace modernpos_pos.gui
 
             grfMat.Cols[colmId].Width = 60;
 
-            grfMat.Cols[colmName].Width = 200;
-            grfMat.Cols[colmPrice].Width = 120;
-            grfMat.Cols[colmWeight].Width = 120;
+            grfMat.Cols[colmName].Width = 180;
+            grfMat.Cols[colmPrice].Width = 80;
+            grfMat.Cols[colmWeight].Width = 100;
 
             grfMat.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
             //grfDept.Cols[colCode].Caption = "รหัส";
 
             grfMat.Cols[colmName].Caption = "Material";
+            grfMat.Cols[colmPrice].Caption = "Price";
+            grfMat.Cols[colmWeight].Caption = "Weight";
 
             grfMat.AfterRowColChange += GrfMat_AfterRowColChange;
             //grfMat.DoubleClick += GrfMat_DoubleClick;

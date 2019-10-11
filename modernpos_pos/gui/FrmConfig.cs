@@ -40,13 +40,23 @@ namespace modernpos_pos.gui
             btnFoodsCatSub.Click += BtnFoodsCatSub_Click;
             btnReCom.Click += BtnReCom_Click;
             btnFooMaterial.Click += BtnFooMaterial_Click;
+            btnMaterialType.Click += BtnMaterialType_Click;
+        }
+
+        private void BtnMaterialType_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmMaterialType frm = new FrmMaterialType(mposC);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
         }
 
         private void BtnFooMaterial_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             FrmMaterial frm = new FrmMaterial(mposC);
-            frm.Show(this);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
         }
 
         private void BtnReCom_Click(object sender, EventArgs e)
@@ -59,49 +69,56 @@ namespace modernpos_pos.gui
         {
             //throw new NotImplementedException();
             FrmCFoodsCatSub frm = new FrmCFoodsCatSub(mposC);
-            frm.Show(this);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
         }
 
         private void BtnFoods_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             FrmCFoods frm = new FrmCFoods(mposC);
-            frm.Show(this);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
         }
 
         private void BtnFoodsCategory_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             FrmCFoodsCat frm = new FrmCFoodsCat(mposC);
-            frm.Show(this);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
         }
 
         private void BtnFoodsType_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             FrmCFoodsType frm = new FrmCFoodsType(mposC);
-            frm.Show(this);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
         }
 
         private void BtnRes_Click1(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             FrmCRestaurant frm = new FrmCRestaurant(mposC);
-            frm.Show(this);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
         }
 
         private void BtnArea_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             FrmCArea frm = new FrmCArea(mposC);
-            frm.Show(this);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
         }
 
         private void BtnTable_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             FrmCTable frm = new FrmCTable(mposC);
-            frm.Show(this);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
         }
 
         private void BtnRes_Click(object sender, EventArgs e)

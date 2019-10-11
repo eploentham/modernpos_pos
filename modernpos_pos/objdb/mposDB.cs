@@ -36,6 +36,7 @@ namespace modernpos_pos.objdb
         public OrderSpecialDB ordSpecDB;
         public MaterialDB matDB;
         public FoodsMaterialDB foomDB;
+        public MaterialTypeDB mattDB;
         public mPosDB(ConnectDB c)
         {
             conn = c;
@@ -69,6 +70,7 @@ namespace modernpos_pos.objdb
             noomDB = new NoodleMakeDB(conn);
             matDB = new MaterialDB(conn);
             foomDB = new FoodsMaterialDB(conn);
+            mattDB = new MaterialTypeDB(conn);
             //MessageBox.Show("mPosDB end ", "");
             Console.WriteLine("mPosDB end");
         }
