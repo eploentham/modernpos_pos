@@ -49,6 +49,7 @@ namespace modernpos_pos.gui
 
             //C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
             theme1.Theme = mposC.iniC.themeApplication;
+            theme1.SetTheme(panel3, mposC.iniC.themeApplication);
             theme1.SetTheme(sB, "BeigeOne");
             foreach (Control c in panel3.Controls)
             {

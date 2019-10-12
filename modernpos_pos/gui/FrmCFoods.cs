@@ -309,7 +309,23 @@ namespace modernpos_pos.gui
             grfFooM.Font = fEdit;
             grfFooM.Dock = System.Windows.Forms.DockStyle.Fill;
             grfFooM.Location = new System.Drawing.Point(0, 0);
+            grfFooM.Rows.Count = 1;
+            grfFooM.Cols[colFmId].Width = 60;
 
+            grfFooM.Cols[colFmName].Width = 200;
+            grfFooM.Cols[colFmprice].Width = 120;
+            grfFooM.Cols[colFmWeight].Width = 120;
+            grfFooM.Cols[colFmQty].Width = 70;
+
+            grfFooM.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grfFooM.Cols[colFmName].Caption = "Material";
+            grfFooM.Cols[colFmprice].Caption = "Price";
+            grfFooM.Cols[colFmWeight].Caption = "Weight";
+            grfFooM.Cols[colFmQty].Caption = "Qty";
+            grfFooM.Cols[colFmTotal].Caption = "Total";
             //FilterRow fr = new FilterRow(grfPosi);
 
             //grfRec.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfPosi_AfterRowColChange);
@@ -325,22 +341,23 @@ namespace modernpos_pos.gui
         {
             //grfDept.Rows.Count = 7;
             pageLoad = true;
-            grfFooM.Rows.Count = 0;
+            grfFooM.Clear();
+            //grfFooM.Rows.Count = 1;
             DataTable dt = new DataTable();
             dt = mposC.mposDB.foomDB.selectByFoodsId(fooId);
             grfFooM.Cols.Count = 8;
 
-            CellStyle cs = grfFooM.Styles.Add("btn");
-            cs.DataType = typeof(Button);
-            //cs.ComboList = "|Tom|Dick|Harry";
-            cs.ForeColor = Color.Navy;
-            cs.Font = new Font(Font, FontStyle.Bold);
-            cs = grfFooM.Styles.Add("date");
-            cs.DataType = typeof(DateTime);
-            cs.Format = "dd-MMM-yy";
-            cs.ForeColor = Color.DarkGoldenrod;
+            //CellStyle cs = grfFooM.Styles.Add("btn");
+            //cs.DataType = typeof(Button);
+            ////cs.ComboList = "|Tom|Dick|Harry";
+            //cs.ForeColor = Color.Navy;
+            //cs.Font = new Font(Font, FontStyle.Bold);
+            //cs = grfFooM.Styles.Add("date");
+            //cs.DataType = typeof(DateTime);
+            //cs.Format = "dd-MMM-yy";
+            //cs.ForeColor = Color.DarkGoldenrod;
 
-            grfFooM.Cols[1].Width = 60;
+            grfFooM.Cols[colFmId].Width = 60;
 
             grfFooM.Cols[colFmName].Width = 200;
             grfFooM.Cols[colFmprice].Width = 120;
@@ -357,7 +374,7 @@ namespace modernpos_pos.gui
             grfFooM.Cols[colFmQty].Caption = "Qty";
             grfFooM.Cols[colFmTotal].Caption = "Total";
 
-            grfFooM.AfterRowColChange += GrfFooM_AfterRowColChange; ;
+            //grfFooM.AfterRowColChange += GrfFooM_AfterRowColChange;
             //grfDept.Cols[coledit].Visible = false;
             CellRange rg = grfFooM.GetCellRange(2, colE);
             int i = 1;
@@ -373,17 +390,19 @@ namespace modernpos_pos.gui
                 row1[colFmQty] = row[mposC.mposDB.foomDB.foom.qty].ToString();
                 row1[colFmId] = row[mposC.mposDB.foomDB.foom.foods_material_id].ToString();
 
-                price = grfFooM[grfFooM.Row, colFmprice] != null ? grfFooM[grfFooM.Row, colFmprice].ToString() : "";
-                qty = grfFooM[grfFooM.Row, colFmQty] != null ? grfFooM[grfFooM.Row, colFmQty].ToString() : "";
-                weight = grfFooM[grfFooM.Row, colFmWeight] != null ? grfFooM[grfFooM.Row, colFmWeight].ToString() : "";
+                price = row1[colFmprice] != null ? row1[colFmprice].ToString() : "";
+                qty = row1[colFmQty] != null ? row1[colFmQty].ToString() : "";
+                weight = row1[colFmWeight] != null ? row1[colFmWeight].ToString() : "";
                 Decimal.TryParse(price, out price1);
                 Decimal.TryParse(qty, out qty1);
                 Decimal.TryParse(weight, out weight1);
                 tota1l = price1 * qty1;
                 //price = grfFooM[grfFooM.Row, grfFooM.Col] != null ? grfFooM[grfFooM.Row, grfFooM.Col].ToString() : "";
-                grfFooM[grfFooM.Row, colFmTotal] = Math.Round(tota1l,4);
+                row1[colFmTotal] = Math.Round(tota1l,4);
                 if (i % 2 == 0)
-                    grfFooM.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+                    grfFooM.Rows[i-1].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+                    //row1[i].st = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+                i++;
             }
             //grfFooT.Cols[colCode].Visible = false;
             grfFooM.Cols[colFmId].Visible = false;

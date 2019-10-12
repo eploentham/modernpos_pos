@@ -52,6 +52,7 @@ namespace modernpos_pos.gui
             //C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
             theme1.Theme = mposC.iniC.themeApplication;
             theme1.SetTheme(sB, "BeigeOne");
+            theme1.SetTheme(panel2, mposC.iniC.themeApplication);
             foreach (Control c in panel2.Controls)
             {
                 if (c is C1PictureBox) continue;
@@ -307,6 +308,7 @@ namespace modernpos_pos.gui
             txtPrice.Enabled = flag;
             txtWeight.Enabled = flag;
             chkVoid.Enabled = flag;
+            cboMatt.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
 
