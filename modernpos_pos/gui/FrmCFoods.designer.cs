@@ -105,6 +105,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtMatTotal = new C1.Win.C1Input.C1TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lbMatCnt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -136,6 +139,7 @@
             this.tabMaterial.SuspendLayout();
             this.pnMaterial.SuspendLayout();
             this.pnMaterialAdd1.SuspendLayout();
+            this.pnMaterialAddTotal.SuspendLayout();
             this.pnMaterial2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnFoomVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFoomAdd)).BeginInit();
@@ -167,6 +171,7 @@
             this.tabFoods.SuspendLayout();
             this.tabRecommend.SuspendLayout();
             this.sB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMatTotal)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -181,7 +186,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1285, 751);
+            this.panel1.Size = new System.Drawing.Size(1405, 751);
             this.panel1.TabIndex = 4;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
@@ -207,8 +212,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
             this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.theme1.SetTheme(this.splitContainer1.Panel2, "(default)");
-            this.splitContainer1.Size = new System.Drawing.Size(1285, 751);
-            this.splitContainer1.SplitterDistance = 491;
+            this.splitContainer1.Size = new System.Drawing.Size(1405, 751);
+            this.splitContainer1.SplitterDistance = 536;
             this.splitContainer1.TabIndex = 0;
             this.theme1.SetTheme(this.splitContainer1, "(default)");
             // 
@@ -219,7 +224,7 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(491, 751);
+            this.panel2.Size = new System.Drawing.Size(536, 751);
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
@@ -231,7 +236,7 @@
             this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel5.Location = new System.Drawing.Point(0, 277);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(790, 474);
+            this.panel5.Size = new System.Drawing.Size(865, 474);
             this.panel5.TabIndex = 276;
             this.theme1.SetTheme(this.panel5, "(default)");
             // 
@@ -248,7 +253,7 @@
             this.tC1.Location = new System.Drawing.Point(0, 0);
             this.tC1.Name = "tC1";
             this.tC1.SelectedIndex = 3;
-            this.tC1.Size = new System.Drawing.Size(790, 474);
+            this.tC1.Size = new System.Drawing.Size(865, 474);
             this.tC1.TabIndex = 0;
             this.tC1.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tC1.TabsShowFocusCues = false;
@@ -261,7 +266,7 @@
             this.tabImg.Controls.Add(this.picFoo);
             this.tabImg.Location = new System.Drawing.Point(1, 24);
             this.tabImg.Name = "tabImg";
-            this.tabImg.Size = new System.Drawing.Size(788, 449);
+            this.tabImg.Size = new System.Drawing.Size(863, 449);
             this.tabImg.TabIndex = 0;
             this.tabImg.Text = "รูปอาหาร";
             // 
@@ -278,7 +283,7 @@
             this.tabSpecial.Controls.Add(this.panel6);
             this.tabSpecial.Location = new System.Drawing.Point(1, 24);
             this.tabSpecial.Name = "tabSpecial";
-            this.tabSpecial.Size = new System.Drawing.Size(788, 449);
+            this.tabSpecial.Size = new System.Drawing.Size(863, 449);
             this.tabSpecial.TabIndex = 1;
             this.tabSpecial.Text = "สั่งพิเศษ Special";
             // 
@@ -291,7 +296,7 @@
             this.panel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(788, 449);
+            this.panel6.Size = new System.Drawing.Size(863, 449);
             this.panel6.TabIndex = 6;
             this.theme1.SetTheme(this.panel6, "(default)");
             // 
@@ -308,7 +313,7 @@
             this.panel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel9.Location = new System.Drawing.Point(419, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(369, 449);
+            this.panel9.Size = new System.Drawing.Size(444, 449);
             this.panel9.TabIndex = 1;
             this.theme1.SetTheme(this.panel9, "(default)");
             // 
@@ -410,7 +415,7 @@
             this.tabTopping.Controls.Add(this.panel7);
             this.tabTopping.Location = new System.Drawing.Point(1, 24);
             this.tabTopping.Name = "tabTopping";
-            this.tabTopping.Size = new System.Drawing.Size(788, 449);
+            this.tabTopping.Size = new System.Drawing.Size(863, 449);
             this.tabTopping.TabIndex = 2;
             this.tabTopping.Text = "สั่งเพิ่ม Topping";
             // 
@@ -423,7 +428,7 @@
             this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(788, 449);
+            this.panel7.Size = new System.Drawing.Size(863, 449);
             this.panel7.TabIndex = 0;
             this.theme1.SetTheme(this.panel7, "(default)");
             // 
@@ -442,7 +447,7 @@
             this.panel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel11.Location = new System.Drawing.Point(428, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(360, 449);
+            this.panel11.Size = new System.Drawing.Size(435, 449);
             this.panel11.TabIndex = 1;
             this.theme1.SetTheme(this.panel11, "(default)");
             // 
@@ -570,7 +575,7 @@
             this.tabMaterial.Controls.Add(this.pnMaterial);
             this.tabMaterial.Location = new System.Drawing.Point(1, 24);
             this.tabMaterial.Name = "tabMaterial";
-            this.tabMaterial.Size = new System.Drawing.Size(788, 449);
+            this.tabMaterial.Size = new System.Drawing.Size(863, 449);
             this.tabMaterial.TabIndex = 3;
             this.tabMaterial.Text = "Material";
             // 
@@ -584,7 +589,7 @@
             this.pnMaterial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnMaterial.Location = new System.Drawing.Point(0, 0);
             this.pnMaterial.Name = "pnMaterial";
-            this.pnMaterial.Size = new System.Drawing.Size(788, 449);
+            this.pnMaterial.Size = new System.Drawing.Size(863, 449);
             this.pnMaterial.TabIndex = 0;
             this.theme1.SetTheme(this.pnMaterial, "(default)");
             // 
@@ -597,7 +602,7 @@
             this.pnMaterialAdd1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnMaterialAdd1.Location = new System.Drawing.Point(499, 0);
             this.pnMaterialAdd1.Name = "pnMaterialAdd1";
-            this.pnMaterialAdd1.Size = new System.Drawing.Size(289, 449);
+            this.pnMaterialAdd1.Size = new System.Drawing.Size(364, 449);
             this.pnMaterialAdd1.TabIndex = 1;
             this.theme1.SetTheme(this.pnMaterialAdd1, "(default)");
             // 
@@ -608,18 +613,21 @@
             this.pnMaterialAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnMaterialAdd.Location = new System.Drawing.Point(0, 0);
             this.pnMaterialAdd.Name = "pnMaterialAdd";
-            this.pnMaterialAdd.Size = new System.Drawing.Size(289, 349);
+            this.pnMaterialAdd.Size = new System.Drawing.Size(364, 349);
             this.pnMaterialAdd.TabIndex = 1;
             this.theme1.SetTheme(this.pnMaterialAdd, "(default)");
             // 
             // pnMaterialAddTotal
             // 
             this.pnMaterialAddTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pnMaterialAddTotal.Controls.Add(this.lbMatCnt);
+            this.pnMaterialAddTotal.Controls.Add(this.txtMatTotal);
+            this.pnMaterialAddTotal.Controls.Add(this.label13);
             this.pnMaterialAddTotal.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnMaterialAddTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnMaterialAddTotal.Location = new System.Drawing.Point(0, 349);
             this.pnMaterialAddTotal.Name = "pnMaterialAddTotal";
-            this.pnMaterialAddTotal.Size = new System.Drawing.Size(289, 100);
+            this.pnMaterialAddTotal.Size = new System.Drawing.Size(364, 100);
             this.pnMaterialAddTotal.TabIndex = 0;
             this.theme1.SetTheme(this.pnMaterialAddTotal, "(default)");
             // 
@@ -707,7 +715,7 @@
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(790, 277);
+            this.panel3.Size = new System.Drawing.Size(865, 277);
             this.panel3.TabIndex = 0;
             this.theme1.SetTheme(this.panel3, "(default)");
             // 
@@ -1208,7 +1216,7 @@
             this.tC.Location = new System.Drawing.Point(0, 0);
             this.tC.Name = "tC";
             this.tC.SelectedIndex = 1;
-            this.tC.Size = new System.Drawing.Size(1287, 776);
+            this.tC.Size = new System.Drawing.Size(1407, 776);
             this.tC.TabIndex = 5;
             this.tC.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tC.TabsShowFocusCues = false;
@@ -1221,7 +1229,7 @@
             this.tabFoods.Controls.Add(this.panel1);
             this.tabFoods.Location = new System.Drawing.Point(1, 24);
             this.tabFoods.Name = "tabFoods";
-            this.tabFoods.Size = new System.Drawing.Size(1285, 751);
+            this.tabFoods.Size = new System.Drawing.Size(1405, 751);
             this.tabFoods.TabIndex = 0;
             this.tabFoods.Text = "Foods";
             // 
@@ -1230,7 +1238,7 @@
             this.tabRecommend.Controls.Add(this.panel4);
             this.tabRecommend.Location = new System.Drawing.Point(1, 24);
             this.tabRecommend.Name = "tabRecommend";
-            this.tabRecommend.Size = new System.Drawing.Size(1285, 751);
+            this.tabRecommend.Size = new System.Drawing.Size(1405, 751);
             this.tabRecommend.TabIndex = 1;
             this.tabRecommend.Text = "Recommend";
             // 
@@ -1241,7 +1249,7 @@
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1285, 751);
+            this.panel4.Size = new System.Drawing.Size(1405, 751);
             this.panel4.TabIndex = 0;
             this.theme1.SetTheme(this.panel4, "(default)");
             // 
@@ -1251,7 +1259,7 @@
             this.sB1});
             this.sB.Location = new System.Drawing.Point(0, 776);
             this.sB.Name = "sB";
-            this.sB.Size = new System.Drawing.Size(1287, 22);
+            this.sB.Size = new System.Drawing.Size(1407, 22);
             this.sB.TabIndex = 3;
             this.sB.Text = "statusStrip1";
             // 
@@ -1261,11 +1269,53 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
+            // txtMatTotal
+            // 
+            this.txtMatTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtMatTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMatTotal.DataType = typeof(decimal);
+            this.txtMatTotal.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtMatTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtMatTotal.Location = new System.Drawing.Point(121, 6);
+            this.txtMatTotal.Name = "txtMatTotal";
+            this.txtMatTotal.ReadOnly = true;
+            this.txtMatTotal.Size = new System.Drawing.Size(207, 24);
+            this.txtMatTotal.TabIndex = 242;
+            this.txtMatTotal.Tag = null;
+            this.theme1.SetTheme(this.txtMatTotal, "(default)");
+            this.txtMatTotal.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label13.Location = new System.Drawing.Point(9, 8);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 16);
+            this.label13.TabIndex = 241;
+            this.label13.Text = "รวมราคา :";
+            this.theme1.SetTheme(this.label13, "(default)");
+            // 
+            // lbMatCnt
+            // 
+            this.lbMatCnt.AutoSize = true;
+            this.lbMatCnt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.lbMatCnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbMatCnt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lbMatCnt.Location = new System.Drawing.Point(9, 39);
+            this.lbMatCnt.Name = "lbMatCnt";
+            this.lbMatCnt.Size = new System.Drawing.Size(56, 16);
+            this.lbMatCnt.TabIndex = 243;
+            this.lbMatCnt.Text = "รวมราคา :";
+            this.theme1.SetTheme(this.lbMatCnt, "(default)");
+            // 
             // FrmCFoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1287, 798);
+            this.ClientSize = new System.Drawing.Size(1407, 798);
             this.Controls.Add(this.tC);
             this.Controls.Add(this.sB);
             this.Name = "FrmCFoods";
@@ -1305,6 +1355,8 @@
             this.tabMaterial.ResumeLayout(false);
             this.pnMaterial.ResumeLayout(false);
             this.pnMaterialAdd1.ResumeLayout(false);
+            this.pnMaterialAddTotal.ResumeLayout(false);
+            this.pnMaterialAddTotal.PerformLayout();
             this.pnMaterial2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnFoomVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFoomAdd)).EndInit();
@@ -1338,6 +1390,7 @@
             this.tabRecommend.ResumeLayout(false);
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMatTotal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1422,5 +1475,8 @@
         private System.Windows.Forms.Panel pnMaterial2;
         private C1.Win.C1Input.C1Button btnFoomVoid;
         private C1.Win.C1Input.C1Button btnFoomAdd;
+        private System.Windows.Forms.Label lbMatCnt;
+        private C1.Win.C1Input.C1TextBox txtMatTotal;
+        private System.Windows.Forms.Label label13;
     }
 }

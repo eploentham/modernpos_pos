@@ -256,7 +256,7 @@ namespace modernpos_pos.objdb
                 "," + ord.cook_finish_date + " = '" + p.cook_finish_date + "' " +
                 "," + ord.void_date + " = '" + p.void_date + "' " +
                 "," + ord.status_void + " = '" + p.status_void + "' " +
-                "," + ord.printer_name + " = '" + p.printer_name + "' " +
+                "," + ord.printer_name + " = '" + p.printer_name.Replace("'", "''") + "' " +
                 "," + ord.status_to_go + " = '" + p.status_to_go + "' " +
                 "," + ord.bill_id + " = '" + p.bill_id + "' " +
                 "," + ord.order_user + " = '" + p.order_user + "' " +
@@ -272,7 +272,8 @@ namespace modernpos_pos.objdb
                 "," + ord.status_foods_1 + " = '" + p.status_foods_1 + "' " +
                 "," + ord.status_foods_2 + " = '" + p.status_foods_2 + "' " +
                 "," + ord.status_foods_3 + " = '" + p.status_foods_3 + "' " +
-                
+                "," + ord.foods_id + " = '" + p.foods_id + "' " +
+                "," + ord.foods_name + " = '" + p.foods_name.Replace("'", "''") + "' " +
                 " ";
             try
             {

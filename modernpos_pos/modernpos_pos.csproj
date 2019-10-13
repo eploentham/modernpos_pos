@@ -324,6 +324,7 @@
     <Compile Include="objdb\mPosDB.cs" />
     <Compile Include="objdb\NoodleMakeDB.cs" />
     <Compile Include="objdb\OrderDB.cs" />
+    <Compile Include="objdb\OrderMaterialDB.cs" />
     <Compile Include="objdb\OrderSpecialDB.cs" />
     <Compile Include="objdb\OrderToppingDB.cs" />
     <Compile Include="objdb\PositionDB.cs" />
@@ -395,6 +396,7 @@
     <Compile Include="object1\NativeMethods.cs" />
     <Compile Include="object1\NoodleMake.cs" />
     <Compile Include="object1\Order1.cs" />
+    <Compile Include="object1\OrderMaterial.cs" />
     <Compile Include="object1\OrderSpecial.cs" />
     <Compile Include="object1\OrderTopping.cs" />
     <Compile Include="object1\Persistent.cs" />

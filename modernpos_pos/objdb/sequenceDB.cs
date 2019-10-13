@@ -27,18 +27,18 @@ namespace modernpos_pos.objdb
         public String genLotId()
         {
             String re = "",sql="";
-            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
 
             //sql = "UPDATE sequence SET lot_id=LAST_INSERT_ID("+seq.lot_id+"+1);";
             try
             {
                 MySqlCommand cmd = new MySqlCommand("gen_lot_id", conn.conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.Add(new MySqlParameter("?lotid", MySqlDbType.VarChar));
-                cmd.Parameters["?lotid"].Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(new MySqlParameter("?lot_id", MySqlDbType.VarChar));
+                cmd.Parameters["?lot_id"].Direction = ParameterDirection.Output;
                 conn.conn.Open();
                 cmd.ExecuteNonQuery();
-                re = (string)cmd.Parameters["?lotid"].Value;
+                re = (string)cmd.Parameters["?lot_id"].Value;
 
             }
             catch (Exception ex)

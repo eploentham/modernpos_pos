@@ -346,7 +346,7 @@ namespace modernpos_pos.gui
             DataTable dt = new DataTable();
             dt = mposC.mposDB.foomDB.selectByFoodsId(fooId);
             grfFooM.Cols.Count = 8;
-
+            grfFooM.Rows.Count = 1;
             //CellStyle cs = grfFooM.Styles.Add("btn");
             //cs.DataType = typeof(Button);
             ////cs.ComboList = "|Tom|Dick|Harry";
@@ -378,12 +378,13 @@ namespace modernpos_pos.gui
             //grfDept.Cols[coledit].Visible = false;
             CellRange rg = grfFooM.GetCellRange(2, colE);
             int i = 1;
+            Decimal nettotal = 0;
             foreach (DataRow row in dt.Rows)
             {
                 Row row1 = grfFooM.Rows.Add();
                 row1[0] = i; 
                 String price = "", qty = "", weight = "";
-                Decimal price1 =0, qty1 = 0, weight1 =0, tota1l=0;
+                Decimal price1 =0, qty1 = 0, weight1 =0, total1=0;
                 row1[colFmprice] = row[mposC.mposDB.foomDB.foom.price].ToString();
                 row1[colFmName] = row[mposC.mposDB.foomDB.foom.material_name].ToString();
                 row1[colFmWeight] = row[mposC.mposDB.foomDB.foom.weight].ToString();
@@ -396,9 +397,11 @@ namespace modernpos_pos.gui
                 Decimal.TryParse(price, out price1);
                 Decimal.TryParse(qty, out qty1);
                 Decimal.TryParse(weight, out weight1);
-                tota1l = price1 * qty1;
+                total1 = price1 * qty1;
+                nettotal += total1;
                 //price = grfFooM[grfFooM.Row, grfFooM.Col] != null ? grfFooM[grfFooM.Row, grfFooM.Col].ToString() : "";
-                row1[colFmTotal] = Math.Round(tota1l,4);
+                row1[colFmTotal] = Math.Round(total1,4);
+
                 if (i % 2 == 0)
                     grfFooM.Rows[i-1].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
                     //row1[i].st = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
@@ -411,6 +414,8 @@ namespace modernpos_pos.gui
             grfFooM.Cols[colFmprice].AllowEditing = false;
             grfFooM.Cols[colFmWeight].AllowEditing = false;
             grfFooM.Cols[colFmTotal].AllowEditing = false;
+            lbMatCnt.Text = grfFooM.Rows.Count.ToString();
+            txtMatTotal.Value = nettotal;
             pageLoad = false;
         }
 

@@ -226,6 +226,7 @@ namespace modernpos_pos.objdb
                 "," + mat.price + " = '" + p.price + "' " +
                 "," + mat.material_type_id + " = '" + p.material_type_id + "' " +
                 "," + mat.material_code + " = '" + p.material_code + "' " +
+                "," + mat.sort1 + " = '" + p.sort1 + "' " +
                 " ";
             try
             {
@@ -257,6 +258,7 @@ namespace modernpos_pos.objdb
                 "," + mat.price + " = '" + p.price + "' " +
                 "," + mat.material_code + " = '" + p.material_code + "' " +
                 "," + mat.material_type_id + " = '" + p.material_type_id + "' " +
+                "," + mat.sort1 + " = '" + p.sort1 + "' " +
                 "Where " + mat.pkField + "='" + p.material_id + "'"
                 ;
 

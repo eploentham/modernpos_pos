@@ -846,7 +846,7 @@ namespace modernpos_pos.gui
                 listBox1.Items.Add("Host " + http.Host + "  VNEwebapi " + mposC.iniC.VNEwebapi);
                 ASCIIEncoding encoding = new ASCIIEncoding();
                 String chk = "";
-
+                String lotid = genLotId();
                 if (!mposC.iniC.statusdebug.Equals("1"))
                 {
                     Byte[] bytes = encoding.GetBytes(txtjson);
@@ -936,14 +936,19 @@ namespace modernpos_pos.gui
                         String re = mposC.mposDB.ordDB.insertOrder(ord, "");
                         row.order_id = re;
                     }
+                    long chk1 = 0;
+                    if(long.TryParse(lotid, out chk1))
+                    {
+                        mposC.mposDB.ordmDB.genOrderMaterial(lotid);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 listBox1.Items.Add(err + " " + ex.Message);
             }
-        }        
-        private void genLotId()
+        }
+        private String genLotId()
         {
             String lotid = "";
             lotid = mposC.mposDB.seqDB.genLotId();
@@ -951,6 +956,7 @@ namespace modernpos_pos.gui
             {
                 ord.lot_id = lotid;
             }
+            return lotid;
         }
         private void setFooNameRemark()
         {
@@ -987,7 +993,7 @@ namespace modernpos_pos.gui
             lbAmt.Text = "";
             lbStatus.Text = "";
             mposC.statusVNEPaysuccess = "";
-            genLotId();
+            //genLotId();
             //setFooNameRemark();
             tCMain.SelectedTab = tabCheck;
             tCMain.ShowTabs = false;
@@ -1077,53 +1083,7 @@ namespace modernpos_pos.gui
             {
                 try
                 {
-                    listBox1.Items.Add("vneRspPay.id " + vneRspPay.id);
-                    VNEPaymentPollingRequest vnePpReq = new VNEPaymentPollingRequest();
-                    vnePRepd = new VNEPaymentPollingResponsePaymentDetail();
-                    vnePpReq.tipo = "2";
-                    vnePpReq.id = vneRspPay.id;
-                    vnePpReq.opName = mposC.iniC.VNEopName;
-
-                    lbStatus.Text = "สถานะ รอการชำระเงิน";
-                    var baseAddress = "http://" + mposC.iniC.VNEip + mposC.iniC.VNEwebapi;
-                    String txtjson = JsonConvert.SerializeObject(vnePpReq, Formatting.Indented);
-                    WebClient webClient = new WebClient();
-                    var http = (HttpWebRequest)WebRequest.Create(new Uri(baseAddress));
-                    http.Accept = "application/json";
-                    http.ContentType = "application/json";
-                    http.Method = "POST";
-                    ASCIIEncoding encoding = new ASCIIEncoding();
-                    Byte[] bytes = encoding.GetBytes(txtjson);
-                    Stream newStream = http.GetRequestStream();
-                    newStream.Write(bytes, 0, bytes.Length);
-                    newStream.Close();
-                    listBox1.Items.Add("รอรับชำระ " + txtjson);
-                    err = "01";
-                    var response = http.GetResponse();
-                    err = "02";
-                    var stream = response.GetResponseStream();
-                    var sr = new StreamReader(stream);
-                    var content = sr.ReadToEnd();
-                    vnePRep = new VNEPaymentPollingResponse();
-                    dynamic obj = JsonConvert.DeserializeObject(content);
-                    err = "03";
-                    listBox1.Items.Add("รอรับชำระ content " + content);
-                    vnePRep.id = obj.id;
-                    vnePRep.req_status = obj.req_status;
-                    vnePRep.tipo = obj.tipo;
-                    vnePRep.payment_status = obj.payment_status;
-                    //vnePRep.payment_detail = obj.payment_details.toString();
-                    err = "04";
-                    String aaa = String.Concat(obj.payment_details);
-                    err = "05";
-                    dynamic obj1 = JsonConvert.DeserializeObject(aaa);
-                    err = "06";
-                    vnePRepd.amount = obj1.amount;
-                    vnePRepd.inserted = obj1.inserted;
-                    vnePRepd.rest = obj1.rest;
-                    vnePRepd.status = obj1.status;
-                    listBox1.Items.Add("content vnePRepd " + aaa);
-                    err = "07";
+                    VNETimer();
                     //listBox1.Items.Add("รอรับชำระ " + vnePpReq.id);
                     //label10.Text = "ID " + vnePRep.id + " amount " + vnePRepd.amount + " status " + vnePRepd.status;
                     //listBox1.Items.Add(content);
@@ -1132,7 +1092,7 @@ namespace modernpos_pos.gui
                     {
                         timerVNE.Stop();
                         mposC.statusVNEPaysuccess = "1";
-
+                        genBill();
                         printOrder();
                         printBill();
                         lbStatus.Text = "รับชำระเรียบร้อย ";
@@ -1158,25 +1118,7 @@ namespace modernpos_pos.gui
             {
                 timerVNE.Stop();
                 mposC.statusVNEPaysuccess = "1";
-                Bill bil = new Bill();
-                bil = setBill();
-                long chk = 0;
-                String re = "";
-                re = mposC.mposDB.bilDB.insertBill(bil, "");
-                if (long.TryParse(re, out chk))
-                {
-                    foreach (Order1 row in lOrd)
-                    {
-                        BillDetail bild1 = new BillDetail();
-                        bild1 = setBillDetail(re, row);
-                        String re1 = "";
-                        re1 = mposC.mposDB.bildDB.insertBillDetail(bild1, "");
-                        if (!long.TryParse(re1, out chk))
-                        {
-                            MessageBox.Show("error", "");
-                        }
-                    }
-                }
+                genBill();
                 printOrder();
                 printBill();
                 lbStatus.Text = "รับชำระเรียบร้อย ";
@@ -1188,6 +1130,86 @@ namespace modernpos_pos.gui
                     if (mposC.iniC.statuspaytoclose.Equals("1"))
                     {
                         Close();
+                    }
+                }
+            }
+        }
+        private void VNETimer()
+        {
+            String err = "00";
+            try
+            {
+                listBox1.Items.Add("vneRspPay.id " + vneRspPay.id);
+                VNEPaymentPollingRequest vnePpReq = new VNEPaymentPollingRequest();
+                vnePRepd = new VNEPaymentPollingResponsePaymentDetail();
+                vnePpReq.tipo = "2";
+                vnePpReq.id = vneRspPay.id;
+                vnePpReq.opName = mposC.iniC.VNEopName;
+
+                lbStatus.Text = "สถานะ รอการชำระเงิน";
+                var baseAddress = "http://" + mposC.iniC.VNEip + mposC.iniC.VNEwebapi;
+                String txtjson = JsonConvert.SerializeObject(vnePpReq, Formatting.Indented);
+                WebClient webClient = new WebClient();
+                var http = (HttpWebRequest)WebRequest.Create(new Uri(baseAddress));
+                http.Accept = "application/json";
+                http.ContentType = "application/json";
+                http.Method = "POST";
+                ASCIIEncoding encoding = new ASCIIEncoding();
+                Byte[] bytes = encoding.GetBytes(txtjson);
+                Stream newStream = http.GetRequestStream();
+                newStream.Write(bytes, 0, bytes.Length);
+                newStream.Close();
+                listBox1.Items.Add("รอรับชำระ " + txtjson);
+                err = "01";
+                var response = http.GetResponse();
+                err = "02";
+                var stream = response.GetResponseStream();
+                var sr = new StreamReader(stream);
+                var content = sr.ReadToEnd();
+                vnePRep = new VNEPaymentPollingResponse();
+                dynamic obj = JsonConvert.DeserializeObject(content);
+                err = "03";
+                listBox1.Items.Add("รอรับชำระ content " + content);
+                vnePRep.id = obj.id;
+                vnePRep.req_status = obj.req_status;
+                vnePRep.tipo = obj.tipo;
+                vnePRep.payment_status = obj.payment_status;
+                //vnePRep.payment_detail = obj.payment_details.toString();
+                err = "04";
+                String aaa = String.Concat(obj.payment_details);
+                err = "05";
+                dynamic obj1 = JsonConvert.DeserializeObject(aaa);
+                err = "06";
+                vnePRepd.amount = obj1.amount;
+                vnePRepd.inserted = obj1.inserted;
+                vnePRepd.rest = obj1.rest;
+                vnePRepd.status = obj1.status;
+                listBox1.Items.Add("content vnePRepd " + aaa);
+                err = "07";
+            }
+            catch (Exception ex)
+            {
+                listBox1.Items.Add(err + " " + ex.Message);
+            }
+        }
+        private void genBill()
+        {
+            Bill bil = new Bill();
+            bil = setBill();
+            long chk = 0;
+            String re = "";
+            re = mposC.mposDB.bilDB.insertBill(bil, "");
+            if (long.TryParse(re, out chk))
+            {
+                foreach (Order1 row in lOrd)
+                {
+                    BillDetail bild1 = new BillDetail();
+                    bild1 = setBillDetail(re, row);
+                    String re1 = "";
+                    re1 = mposC.mposDB.bildDB.insertBillDetail(bild1, "");
+                    if (!long.TryParse(re1, out chk))
+                    {
+                        MessageBox.Show("error", "");
                     }
                 }
             }

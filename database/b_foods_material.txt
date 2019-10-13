@@ -67,3 +67,30 @@ ALTER TABLE `modern_pos`.`b_material`
 ADD COLUMN `material_type_id` BIGINT NULL AFTER `material_code`;
 
 
+CREATE TABLE `t_order_material` (
+  `order_material_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `material_id` bigint(20) ,
+  `foods_id` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `order_id` bigint(20) DEFAULT NULL,
+  `material_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `foods_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `price` decimal(17,2) DEFAULT NULL,
+  `weight` decimal(17,4) DEFAULT NULL,
+  `active` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `remark` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `host_id` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `branch_id` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `device_id` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `sort1` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  
+  PRIMARY KEY (`order_material_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1430000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=143';
+ALTER TABLE `modern_pos`.`t_order_material` 
+ADD COLUMN `foods_material_id` BIGINT NULL AFTER `order_id`;
+
