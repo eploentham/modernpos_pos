@@ -498,6 +498,15 @@ namespace modernpos_pos.gui
         public void delTplRow(ucOrderTakeOut1 uco, String row)
         {
             tplOrd.Controls.Remove(uco);
+            foreach(Order1 ord in lOrd)
+            {
+                if (ord.row1.Equals(row))
+                {
+                    ord.row1 = "";
+                    lOrd.Remove(ord);
+                    break;
+                }
+            }
             //tplOrd.RowCount--;
         }
         public void calBill()
