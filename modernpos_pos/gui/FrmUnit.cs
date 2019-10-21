@@ -17,7 +17,7 @@ using System.Windows.Forms;
 
 namespace modernpos_pos.gui
 {
-    public partial class FrmMaterialType : Form
+    public partial class FrmUnit : Form
     {
         mPOSControl mposC;
         MaterialType fooT;
@@ -35,7 +35,7 @@ namespace modernpos_pos.gui
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
         String userIdVoid = "";
-        public FrmMaterialType(mPOSControl x)
+        public FrmUnit(mPOSControl x)
         {
             InitializeComponent();
             mposC = x;
@@ -49,9 +49,9 @@ namespace modernpos_pos.gui
 
             //C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
             theme1.Theme = mposC.iniC.themeApplication;
-            theme1.SetTheme(panel3, mposC.iniC.themeApplication);
+            theme1.SetTheme(panel1, mposC.iniC.themeApplication);
             theme1.SetTheme(sB, "BeigeOne");
-            foreach (Control c in panel3.Controls)
+            foreach (Control c in panel1.Controls)
             {
                 theme1.SetTheme(c, mposC.iniC.themeApplication);
             }
@@ -76,7 +76,6 @@ namespace modernpos_pos.gui
             sep = new C1SuperErrorProvider();
             //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
-
         private void BtnSave_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -139,10 +138,10 @@ namespace modernpos_pos.gui
             //FilterRow fr = new FilterRow(grfPosi);
 
             grfFooT.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfPosi_AfterRowColChange);
-            grfFooT.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
-            grfFooT.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellChanged);
+            //grfFooT.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
+            //grfFooT.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellChanged);
 
-            panel4.Controls.Add(this.grfFooT);
+            panel2.Controls.Add(this.grfFooT);
 
             C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
             C1ThemeController.ApplyThemeToObject(grfFooT, theme);
@@ -270,23 +269,6 @@ namespace modernpos_pos.gui
             //setControlAddr(addrId);
             //setControlAddrEnable(false);
         }
-        private void grfPosi_CellButtonClick(object sender, C1.Win.C1FlexGrid.RowColEventArgs e)
-        {
-
-        }
-        private void grfPosi_CellChanged(object sender, C1.Win.C1FlexGrid.RowColEventArgs e)
-        {
-            //if (e.Row == 0) return;
-            //CellStyle cs = grfDept.Styles.Add("text");
-            //cs.BackColor = Color.DimGray;
-            //sB1.Text = grfDept[e.Row, e.Col].ToString();
-            ////grfDept[e.Row, coledit] = "1";
-            //grfDept.Rows[e.Row].Style = cs;
-            //if((e.Row+1) == ((RowCollection)grfDept.Rows).Count)
-            //{
-            //    ((RowCollection)grfDept.Rows).Count = ((RowCollection)grfDept.Rows).Count + 1;
-            //}
-        }
         private void TxtPasswordVoid_KeyUp(object sender, KeyEventArgs e)
         {
             //throw new NotImplementedException();
@@ -305,23 +287,10 @@ namespace modernpos_pos.gui
                 }
             }
         }
-        
-        private void chkVoid_Click(object sender, EventArgs e)
+        private void FrmUnit_Load(object sender, EventArgs e)
         {
-            if (btnVoid.Visible)
-            {
-                btnVoid.Hide();
-            }
-            else
-            {
-                txtPasswordVoid.Show();
-                txtPasswordVoid.Focus();
-                //stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> กรุณาป้อนรหัสผ่าน", txtPasswordVoid);
-            }
-        }
-        private void FrmMaterialType_Load(object sender, EventArgs e)
-        {
-            tC.SelectedTab = tabType;
+            tC.SelectedTab = tabUnit;
+            sC1.HeaderHeight = 0;
         }
     }
 }

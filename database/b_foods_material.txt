@@ -94,3 +94,31 @@ CREATE TABLE `t_order_material` (
 ALTER TABLE `modern_pos`.`t_order_material` 
 ADD COLUMN `foods_material_id` BIGINT NULL AFTER `order_id`;
 
+
+
+
+CREATE TABLE `modern_pos`.`b_unit` (
+  `unit_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `unit_name` VARCHAR(255) NULL,
+  `active` VARCHAR(45) NULL,
+  `remark` VARCHAR(255) NULL,
+  `date_create` VARCHAR(45) NULL,
+  `date_modi` VARCHAR(45) NULL,
+  `date_cancel` VARCHAR(45) NULL,
+  `user_create` VARCHAR(45) NULL,
+  `user_modi` VARCHAR(45) NULL,
+  `user_cancel` VARCHAR(45) NULL,
+  `status_unit` VARCHAR(45) NULL COMMENT '0=default, 1= material',
+  `sort1` VARCHAR(45) NULL,
+  PRIMARY KEY (`unit_id`))
+ENGINE = MyISAM
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin
+COMMENT = 'id=144';
+
+ALTER TABLE `modern_pos`.`b_material` 
+ADD COLUMN `unit_id` BIGINT NULL AFTER `material_type_id`;
+
+ALTER TABLE `modern_pos`.`b_unit` 
+ADD COLUMN `unit_code` VARCHAR(45) NULL AFTER `unit_id`;
+

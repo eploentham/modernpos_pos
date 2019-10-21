@@ -10,18 +10,6 @@ namespace modernpos_pos.object1
     {
         public String material_type_id { get; set; }
         public String material_type_name { get; set; }
-        public String active { get; set; }
-        public String remark { get; set; }
-        public String date_create { get; set; }
-        public String date_modi { get; set; }
-        public String date_cancel { get; set; }
-        public String user_create { get; set; }
-        public String user_modi { get; set; }
-        public String user_cancel { get; set; }
-        public String host_id { get; set; }
-        public String branch_id { get; set; }
-        public String device_id { get; set; }
         public String material_type_code { get; set; }
-        public String sort1 { get; set; }
     }
 }
