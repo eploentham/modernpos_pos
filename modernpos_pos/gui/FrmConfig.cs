@@ -41,6 +41,15 @@ namespace modernpos_pos.gui
             btnReCom.Click += BtnReCom_Click;
             btnFooMaterial.Click += BtnFooMaterial_Click;
             btnMaterialType.Click += BtnMaterialType_Click;
+            btnUnit.Click += BtnUnit_Click;
+        }
+
+        private void BtnUnit_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmUnit frm = new FrmUnit(mposC);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
         }
 
         private void BtnMaterialType_Click(object sender, EventArgs e)

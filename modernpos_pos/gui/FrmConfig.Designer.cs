@@ -46,6 +46,7 @@
             this.btnReCom = new C1.Win.C1Input.C1Button();
             this.btnFooMaterial = new C1.Win.C1Input.C1Button();
             this.btnMaterialType = new C1.Win.C1Input.C1Button();
+            this.btnUnit = new C1.Win.C1Input.C1Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTable)).BeginInit();
@@ -62,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnReCom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFooMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaterialType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUnit)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -232,11 +234,21 @@
             this.btnMaterialType.Text = "Foods Material Type";
             this.btnMaterialType.UseVisualStyleBackColor = true;
             // 
+            // btnUnit
+            // 
+            this.btnUnit.Location = new System.Drawing.Point(606, 268);
+            this.btnUnit.Name = "btnUnit";
+            this.btnUnit.Size = new System.Drawing.Size(116, 77);
+            this.btnUnit.TabIndex = 20;
+            this.btnUnit.Text = "หน่วย";
+            this.btnUnit.UseVisualStyleBackColor = true;
+            // 
             // FrmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 629);
+            this.Controls.Add(this.btnUnit);
             this.Controls.Add(this.btnMaterialType);
             this.Controls.Add(this.btnFooMaterial);
             this.Controls.Add(this.btnReCom);
@@ -273,6 +285,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnReCom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFooMaterial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaterialType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUnit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -297,5 +310,6 @@
         private C1.Win.C1Input.C1Button btnReCom;
         private C1.Win.C1Input.C1Button btnFooMaterial;
         private C1.Win.C1Input.C1Button btnMaterialType;
+        private C1.Win.C1Input.C1Button btnUnit;
     }
 }

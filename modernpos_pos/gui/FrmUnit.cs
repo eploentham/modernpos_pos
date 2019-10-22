@@ -6,13 +6,7 @@ using modernpos_pos.control;
 using modernpos_pos.object1;
 using modernpos_pos.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace modernpos_pos.gui
@@ -20,7 +14,7 @@ namespace modernpos_pos.gui
     public partial class FrmUnit : Form
     {
         mPOSControl mposC;
-        MaterialType fooT;
+        Unit unit;
 
         Font fEdit, fEditB;
 
@@ -43,7 +37,7 @@ namespace modernpos_pos.gui
         }
         private void initConfig()
         {
-            fooT = new MaterialType();
+            unit = new Unit();
             fEdit = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Regular);
             fEditB = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Bold);
 
@@ -65,8 +59,8 @@ namespace modernpos_pos.gui
             btnVoid.Click += BtnVoid_Click;
             btnSave.Click += BtnSave_Click;
 
-            initGrfMaterialType();
-            setGrfMaterialType();
+            initGrfUnit();
+            setGrfUnit();
             setControlEnable(false);
             setFocusColor();
             sB1.Text = "";
@@ -81,8 +75,8 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                setMaterialType();
-                String re = mposC.mposDB.mattDB.insertFoodsMaterial(fooT, mposC.user.staff_id);
+                setUnit();
+                String re = mposC.mposDB.unitDB.insertUnit(unit, mposC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -92,7 +86,7 @@ namespace modernpos_pos.gui
                 {
                     btnSave.Image = Resources.accept_database24;
                 }
-                setGrfMaterialType();
+                setGrfUnit();
                 //setGrdView();
                 //this.Dispose();
             }
@@ -104,7 +98,7 @@ namespace modernpos_pos.gui
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 mposC.mposDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
-                setGrfMaterialType();
+                setGrfUnit();
             }
         }
 
@@ -128,7 +122,7 @@ namespace modernpos_pos.gui
             setControlEnable(true);
         }
 
-        private void initGrfMaterialType()
+        private void initGrfUnit()
         {
             grfFooT = new C1FlexGrid();
             grfFooT.Font = fEdit;
@@ -146,11 +140,11 @@ namespace modernpos_pos.gui
             C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
             C1ThemeController.ApplyThemeToObject(grfFooT, theme);
         }
-        private void setGrfMaterialType()
+        private void setGrfUnit()
         {
             //grfDept.Rows.Count = 7;
 
-            grfFooT.DataSource = mposC.mposDB.mattDB.selectAll();
+            grfFooT.DataSource = mposC.mposDB.unitDB.selectAll();
             grfFooT.Cols.Count = colCnt;
             CellStyle cs = grfFooT.Styles.Add("btn");
             cs.DataType = typeof(Button);
@@ -175,7 +169,7 @@ namespace modernpos_pos.gui
             //grfDept.Cols[colCode].Caption = "รหัส";
 
             grfFooT.Cols[colCode].Caption = "รหัส";
-            grfFooT.Cols[colName].Caption = "ชื่อประเภท Material";
+            grfFooT.Cols[colName].Caption = "ชื่อUnit";
             grfFooT.Cols[colRemark].Caption = "หมายเหตุ";
 
             //grfDept.Cols[coledit].Visible = false;
@@ -216,11 +210,11 @@ namespace modernpos_pos.gui
         }
         private void setControl(String posiId)
         {
-            fooT = mposC.mposDB.mattDB.selectByPk1(posiId);
-            txtID.Value = fooT.material_type_id;
-            txtAreaCode.Value = fooT.material_type_code;
-            txtFooTNameT.Value = fooT.material_type_name;
-            txtRemark.Value = fooT.remark;
+            unit = mposC.mposDB.unitDB.selectByPk1(posiId);
+            txtID.Value = unit.unit_id;
+            txtAreaCode.Value = unit.unit_code;
+            txtFooTNameT.Value = unit.unit_name;
+            txtRemark.Value = unit.remark;
             //if (fooT.status_aircondition.Equals("1"))
             //{
             //    chkStatusAirCondition.Checked = true;
@@ -247,13 +241,13 @@ namespace modernpos_pos.gui
             chkVoid.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
-        private void setMaterialType()
+        private void setUnit()
         {
-            fooT.material_type_id = txtID.Text;
-            fooT.material_type_code = txtAreaCode.Text;
-            fooT.material_type_name = txtFooTNameT.Text.Trim();
+            unit.unit_id = txtID.Text;
+            unit.unit_code = txtAreaCode.Text;
+            unit.unit_name = txtFooTNameT.Text.Trim();
             //posi.posi_name_e = txtPosiNameE.Text;
-            fooT.remark = txtRemark.Text;
+            unit.remark = txtRemark.Text;
             //fooT.status_aircondition = chkStatusAirCondition.Checked == true ? "1" : "0";
             //area.status_embryologist = chkEmbryologist.Checked == true ? "1" : "0";
         }

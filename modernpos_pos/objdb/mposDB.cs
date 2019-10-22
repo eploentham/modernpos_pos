@@ -38,6 +38,7 @@ namespace modernpos_pos.objdb
         public FoodsMaterialDB foomDB;
         public MaterialTypeDB mattDB;
         public OrderMaterialDB ordmDB;
+        public UnitDB unitDB;
         public mPosDB(ConnectDB c)
         {
             conn = c;
@@ -73,6 +74,7 @@ namespace modernpos_pos.objdb
             foomDB = new FoodsMaterialDB(conn);
             mattDB = new MaterialTypeDB(conn);
             ordmDB = new OrderMaterialDB(conn);
+            unitDB = new UnitDB(conn);
             //MessageBox.Show("mPosDB end ", "");
             Console.WriteLine("mPosDB end");
         }
