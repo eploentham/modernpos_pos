@@ -42,6 +42,8 @@ namespace modernpos_pos.objdb
             mat.price = "price";
             mat.material_code = "material_code";
             mat.material_type_id = "material_type_id";
+            mat.unit_id = "unit_id";
+            mat.unit_cal_id = "unit_cal_id";
 
             mat.pkField = "material_id";
             mat.table = "b_material";
@@ -97,7 +99,7 @@ namespace modernpos_pos.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where sex." + mat.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setFoodsMaterial(dt);
+            cop1 = setMaterial(dt);
             return cop1;
         }
         private Material setArea1(DataTable dt)
@@ -178,6 +180,20 @@ namespace modernpos_pos.objdb
             }
             return re;
         }
+        public String getMatridByName(String name)
+        {
+            String re = "";
+            if (lfootp.Count <= 0) getlArea();
+            foreach (Material sex in lfootp)
+            {
+                if (sex.material_name.Trim().Equals(name.Trim()))
+                {
+                    re = sex.material_id;
+                    break;
+                }
+            }
+            return re;
+        }
         private void chkNull(Material p)
         {
             long chk = 0;
@@ -198,8 +214,8 @@ namespace modernpos_pos.objdb
             p.remark = p.remark == null ? "" : p.remark;
 
             p.material_type_id = long.TryParse(p.material_type_id, out chk) ? chk.ToString() : "0";
-            //p.branch_id = long.TryParse(p.branch_id, out chk) ? chk.ToString() : "0";
-            //p.device_id = long.TryParse(p.device_id, out chk) ? chk.ToString() : "0";
+            p.unit_cal_id = long.TryParse(p.unit_cal_id, out chk) ? chk.ToString() : "0";
+            p.unit_id = long.TryParse(p.unit_id, out chk) ? chk.ToString() : "0";
 
             p.price = Decimal.TryParse(p.price, out chk1) ? chk1.ToString() : "0";
             p.weight = Decimal.TryParse(p.weight, out chk1) ? chk1.ToString() : "0";
@@ -227,6 +243,8 @@ namespace modernpos_pos.objdb
                 "," + mat.material_type_id + " = '" + p.material_type_id + "' " +
                 "," + mat.material_code + " = '" + p.material_code + "' " +
                 "," + mat.sort1 + " = '" + p.sort1 + "' " +
+                "," + mat.unit_id + " = '" + p.unit_id + "' " +
+                "," + mat.unit_cal_id + " = '" + p.unit_cal_id + "' " +
                 " ";
             try
             {
@@ -259,6 +277,8 @@ namespace modernpos_pos.objdb
                 "," + mat.material_code + " = '" + p.material_code + "' " +
                 "," + mat.material_type_id + " = '" + p.material_type_id + "' " +
                 "," + mat.sort1 + " = '" + p.sort1 + "' " +
+                "," + mat.unit_cal_id + " = '" + p.unit_cal_id + "' " +
+                "," + mat.unit_id + " = '" + p.unit_id + "' " +
                 "Where " + mat.pkField + "='" + p.material_id + "'"
                 ;
 
@@ -273,7 +293,7 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public String insertFoodsMaterial(Material p, String userId)
+        public String insertMaterial(Material p, String userId)
         {
             String re = "";
 
@@ -288,7 +308,7 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public String voidFoodsMeterial(String foosid, String userId)
+        public String voidMeterial(String foosid, String userId)
         {
             String re = "";
             String sql = "";
@@ -311,7 +331,7 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public C1ComboBox setCboFoodsMaterial(C1ComboBox c)
+        public C1ComboBox setCboMaterial(C1ComboBox c)
         {
             ComboBoxItem item = new ComboBoxItem();
             DataTable dt = selectC1();
@@ -332,7 +352,7 @@ namespace modernpos_pos.objdb
             }
             return c;
         }
-        public C1ComboBox setCboFoodsMaterial(C1ComboBox c, String selected)
+        public C1ComboBox setCboMaterial(C1ComboBox c, String selected)
         {
             ComboBoxItem item = new ComboBoxItem();
             //DataTable dt = selectC1();
@@ -360,7 +380,7 @@ namespace modernpos_pos.objdb
             }
             return c;
         }
-        private Material setFoodsMaterial(DataTable dt)
+        private Material setMaterial(DataTable dt)
         {
             Material dept1 = new Material();
             if (dt.Rows.Count > 0)
@@ -381,6 +401,8 @@ namespace modernpos_pos.objdb
                 dept1.sort1 = dt.Rows[0][mat.sort1] != null ? dt.Rows[0][mat.sort1].ToString() : "";
                 dept1.price = dt.Rows[0][mat.price] != null ? dt.Rows[0][mat.price].ToString() : "";
                 dept1.material_type_id = dt.Rows[0][mat.material_type_id] != null ? dt.Rows[0][mat.material_type_id].ToString() : "";
+                dept1.unit_cal_id = dt.Rows[0][mat.unit_cal_id] != null ? dt.Rows[0][mat.unit_cal_id].ToString() : "";
+                dept1.unit_id = dt.Rows[0][mat.unit_id] != null ? dt.Rows[0][mat.unit_id].ToString() : "";
             }
             else
             {
@@ -400,6 +422,8 @@ namespace modernpos_pos.objdb
                 dept1.price = "";
                 dept1.weight = "";
                 dept1.material_type_id = "";
+                dept1.unit_id = "";
+                dept1.unit_cal_id = "";
             }
 
             return dept1;

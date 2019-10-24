@@ -18,11 +18,13 @@ namespace modernpos_pos.gui
 
         Color bg, fc;
         Font ff, ffB;
+        FrmMain frm;
 
-        public FrmConfig(mPOSControl mposC)
+        public FrmConfig(mPOSControl mposC, FrmMain frm)
         {
             InitializeComponent();
             this.mposC = mposC;
+            this.frm = frm;
             initConfig();
         }
         private void initConfig()
@@ -42,6 +44,24 @@ namespace modernpos_pos.gui
             btnFooMaterial.Click += BtnFooMaterial_Click;
             btnMaterialType.Click += BtnMaterialType_Click;
             btnUnit.Click += BtnUnit_Click;
+            btnRecMatr.Click += BtnRecMatr_Click;
+            this.FormClosed += FrmConfig_FormClosed;
+        }
+
+        private void BtnRecMatr_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmMatrView frm = new FrmMatrView(mposC);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
+            frm.ShowDialog(this);
+            this.Show();
+        }
+
+        private void FrmConfig_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //throw new NotImplementedException();
+            frm.Show();
         }
 
         private void BtnUnit_Click(object sender, EventArgs e)
@@ -49,7 +69,9 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             FrmUnit frm = new FrmUnit(mposC);
             frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
             frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtnMaterialType_Click(object sender, EventArgs e)
@@ -57,7 +79,9 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             FrmMaterialType frm = new FrmMaterialType(mposC);
             frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
             frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtnFooMaterial_Click(object sender, EventArgs e)
@@ -65,7 +89,9 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             FrmMaterial frm = new FrmMaterial(mposC);
             frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
             frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtnReCom_Click(object sender, EventArgs e)
@@ -79,7 +105,9 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             FrmCFoodsCatSub frm = new FrmCFoodsCatSub(mposC);
             frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
             frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtnFoods_Click(object sender, EventArgs e)
@@ -87,7 +115,9 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             FrmCFoods frm = new FrmCFoods(mposC);
             frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
             frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtnFoodsCategory_Click(object sender, EventArgs e)
@@ -95,7 +125,9 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             FrmCFoodsCat frm = new FrmCFoodsCat(mposC);
             frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
             frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtnFoodsType_Click(object sender, EventArgs e)
@@ -103,7 +135,9 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             FrmCFoodsType frm = new FrmCFoodsType(mposC);
             frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
             frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtnRes_Click1(object sender, EventArgs e)
@@ -111,7 +145,9 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             FrmCRestaurant frm = new FrmCRestaurant(mposC);
             frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
             frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtnArea_Click(object sender, EventArgs e)
@@ -119,7 +155,9 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             FrmCArea frm = new FrmCArea(mposC);
             frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
             frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtnTable_Click(object sender, EventArgs e)
@@ -127,7 +165,9 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             FrmCTable frm = new FrmCTable(mposC);
             frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
             frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtnRes_Click(object sender, EventArgs e)
@@ -140,21 +180,30 @@ namespace modernpos_pos.gui
         {
             //throw new NotImplementedException();
             FrmPosition frm = new FrmPosition(mposC);
-            frm.Show(this);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
+            frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtnDept_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             FrmDepartment1 frm = new FrmDepartment1(mposC);
-            frm.Show(this);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
+            frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtmStf_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             FrmStaff frm = new FrmStaff(mposC);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
             frm.Show(this);
+            this.Show();
         }
 
         private void FrmConfig_Load(object sender, EventArgs e)

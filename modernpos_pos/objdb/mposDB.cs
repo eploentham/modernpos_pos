@@ -39,6 +39,8 @@ namespace modernpos_pos.objdb
         public MaterialTypeDB mattDB;
         public OrderMaterialDB ordmDB;
         public UnitDB unitDB;
+        public MaterialRecDB matrDB;
+        public MaterialRecDetailDB matrdDB;
         public mPosDB(ConnectDB c)
         {
             conn = c;
@@ -75,6 +77,8 @@ namespace modernpos_pos.objdb
             mattDB = new MaterialTypeDB(conn);
             ordmDB = new OrderMaterialDB(conn);
             unitDB = new UnitDB(conn);
+            matrDB = new MaterialRecDB(conn);
+            matrdDB = new MaterialRecDetailDB(conn);
             //MessageBox.Show("mPosDB end ", "");
             Console.WriteLine("mPosDB end");
         }

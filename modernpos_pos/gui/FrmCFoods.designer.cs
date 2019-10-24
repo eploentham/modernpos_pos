@@ -63,6 +63,9 @@
             this.pnMaterialAdd1 = new System.Windows.Forms.Panel();
             this.pnMaterialAdd = new System.Windows.Forms.Panel();
             this.pnMaterialAddTotal = new System.Windows.Forms.Panel();
+            this.lbMatCnt = new System.Windows.Forms.Label();
+            this.txtMatTotal = new C1.Win.C1Input.C1TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.pnMaterial2 = new System.Windows.Forms.Panel();
             this.btnFoomVoid = new C1.Win.C1Input.C1Button();
             this.btnFoomAdd = new C1.Win.C1Input.C1Button();
@@ -105,9 +108,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtMatTotal = new C1.Win.C1Input.C1TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lbMatCnt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -140,6 +140,7 @@
             this.pnMaterial.SuspendLayout();
             this.pnMaterialAdd1.SuspendLayout();
             this.pnMaterialAddTotal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMatTotal)).BeginInit();
             this.pnMaterial2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnFoomVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFoomAdd)).BeginInit();
@@ -171,7 +172,6 @@
             this.tabFoods.SuspendLayout();
             this.tabRecommend.SuspendLayout();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatTotal)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -630,6 +630,48 @@
             this.pnMaterialAddTotal.Size = new System.Drawing.Size(364, 100);
             this.pnMaterialAddTotal.TabIndex = 0;
             this.theme1.SetTheme(this.pnMaterialAddTotal, "(default)");
+            // 
+            // lbMatCnt
+            // 
+            this.lbMatCnt.AutoSize = true;
+            this.lbMatCnt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.lbMatCnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbMatCnt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lbMatCnt.Location = new System.Drawing.Point(9, 39);
+            this.lbMatCnt.Name = "lbMatCnt";
+            this.lbMatCnt.Size = new System.Drawing.Size(56, 16);
+            this.lbMatCnt.TabIndex = 243;
+            this.lbMatCnt.Text = "รวมราคา :";
+            this.theme1.SetTheme(this.lbMatCnt, "(default)");
+            // 
+            // txtMatTotal
+            // 
+            this.txtMatTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtMatTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMatTotal.DataType = typeof(decimal);
+            this.txtMatTotal.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtMatTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtMatTotal.Location = new System.Drawing.Point(121, 6);
+            this.txtMatTotal.Name = "txtMatTotal";
+            this.txtMatTotal.ReadOnly = true;
+            this.txtMatTotal.Size = new System.Drawing.Size(207, 24);
+            this.txtMatTotal.TabIndex = 242;
+            this.txtMatTotal.Tag = null;
+            this.theme1.SetTheme(this.txtMatTotal, "(default)");
+            this.txtMatTotal.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label13.Location = new System.Drawing.Point(9, 8);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 16);
+            this.label13.TabIndex = 241;
+            this.label13.Text = "รวมราคา :";
+            this.theme1.SetTheme(this.label13, "(default)");
             // 
             // pnMaterial2
             // 
@@ -1269,48 +1311,6 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // txtMatTotal
-            // 
-            this.txtMatTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.txtMatTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMatTotal.DataType = typeof(decimal);
-            this.txtMatTotal.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtMatTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtMatTotal.Location = new System.Drawing.Point(121, 6);
-            this.txtMatTotal.Name = "txtMatTotal";
-            this.txtMatTotal.ReadOnly = true;
-            this.txtMatTotal.Size = new System.Drawing.Size(207, 24);
-            this.txtMatTotal.TabIndex = 242;
-            this.txtMatTotal.Tag = null;
-            this.theme1.SetTheme(this.txtMatTotal, "(default)");
-            this.txtMatTotal.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label13.Location = new System.Drawing.Point(9, 8);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(56, 16);
-            this.label13.TabIndex = 241;
-            this.label13.Text = "รวมราคา :";
-            this.theme1.SetTheme(this.label13, "(default)");
-            // 
-            // lbMatCnt
-            // 
-            this.lbMatCnt.AutoSize = true;
-            this.lbMatCnt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.lbMatCnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbMatCnt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.lbMatCnt.Location = new System.Drawing.Point(9, 39);
-            this.lbMatCnt.Name = "lbMatCnt";
-            this.lbMatCnt.Size = new System.Drawing.Size(56, 16);
-            this.lbMatCnt.TabIndex = 243;
-            this.lbMatCnt.Text = "รวมราคา :";
-            this.theme1.SetTheme(this.lbMatCnt, "(default)");
-            // 
             // FrmCFoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1357,6 +1357,7 @@
             this.pnMaterialAdd1.ResumeLayout(false);
             this.pnMaterialAddTotal.ResumeLayout(false);
             this.pnMaterialAddTotal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMatTotal)).EndInit();
             this.pnMaterial2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnFoomVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFoomAdd)).EndInit();
@@ -1390,7 +1391,6 @@
             this.tabRecommend.ResumeLayout(false);
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatTotal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -49,16 +49,18 @@ namespace modernpos_pos.gui
         private void BtnConfig_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmConfig frm = new FrmConfig(mposC);
+            FrmConfig frm = new FrmConfig(mposC, this);
+            this.Hide();
             frm.ShowDialog(this);
+            
         }
 
         private void BtnTakeOut_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             FrmTakeOut4 frm = new FrmTakeOut4(mposC,this);
-            frm.Show(this);
             this.Hide();
+            frm.Show(this);
         }
 
         private void BtnDineIn_Click(object sender, EventArgs e)

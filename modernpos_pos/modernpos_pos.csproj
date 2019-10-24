@@ -212,6 +212,18 @@
     <Compile Include="gui\FrmMaterialType.Designer.cs">
       <DependentUpon>FrmMaterialType.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmMatrAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmMatrAdd.Designer.cs">
+      <DependentUpon>FrmMatrAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmMatrView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmMatrView.Designer.cs">
+      <DependentUpon>FrmMatrView.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmMessage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -367,6 +379,8 @@
     <Compile Include="objdb\sequenceDB.cs" />
     <Compile Include="objdb\StaffDB.cs" />
     <Compile Include="objdb\TableDB.cs" />
+    <Compile Include="objdb\MaterialRecDB.cs" />
+    <Compile Include="objdb\MaterialRecDetailDB.cs" />
     <Compile Include="objdb\UnitDB.cs" />
     <Compile Include="object1\AsciiControlChars.cs" />
     <Compile Include="control\VNEControl.cs" />
@@ -442,6 +456,8 @@
     <Compile Include="object1\sequence1.cs" />
     <Compile Include="object1\Staff.cs" />
     <Compile Include="object1\Table.cs" />
+    <Compile Include="object1\MaterialRec.cs" />
+    <Compile Include="object1\MaterialRecDetail.cs" />
     <Compile Include="object1\TransparentPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -532,6 +548,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmMaterialType.resx">
       <DependentUpon>FrmMaterialType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmMatrAdd.resx">
+      <DependentUpon>FrmMatrAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmMatrView.resx">
+      <DependentUpon>FrmMatrView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmMessage.resx">
       <DependentUpon>FrmMessage.cs</DependentUpon>

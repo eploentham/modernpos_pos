@@ -64,6 +64,8 @@ namespace modernpos_pos.gui
             ff = txtAreaCode.Font;
 
             mposC.mposDB.mattDB.setCboMaterial(cboMatt);
+            mposC.mposDB.unitDB.setCboUnit(cboUnit);
+            mposC.mposDB.unitDB.setCboUnit(cboUnitCal);
 
             btnImg.Click += BtnImg_Click;
             btnNew.Click += BtnNew_Click;
@@ -72,8 +74,8 @@ namespace modernpos_pos.gui
 
             txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
 
-            initGrfFoodsCat();
-            setGrfFoodsCat();
+            initGrfMaterial();
+            setGrfMaterial();
             setControlEnable(false);
             setFocusColor();
             sB1.Text = "";
@@ -89,8 +91,8 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                setFoodsCat();
-                String re = mposC.mposDB.matDB.insertFoodsMaterial(fooC, mposC.user.staff_id);
+                setMaterial();
+                String re = mposC.mposDB.matDB.insertMaterial(fooC, mposC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -100,7 +102,7 @@ namespace modernpos_pos.gui
                 {
                     btnSave.Image = Resources.accept_database24;
                 }
-                setGrfFoodsCat();
+                setGrfMaterial();
                 //setGrdView();
                 //this.Dispose();
             }
@@ -172,7 +174,7 @@ namespace modernpos_pos.gui
                 //MessageBox.Show("" + ex.Message, "showImg");
             }
         }
-        private void initGrfFoodsCat()
+        private void initGrfMaterial()
         {
             grfFooC = new C1FlexGrid();
             grfFooC.Font = fEdit;
@@ -190,7 +192,7 @@ namespace modernpos_pos.gui
             C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
             C1ThemeController.ApplyThemeToObject(grfFooC, theme);
         }
-        private void setGrfFoodsCat()
+        private void setGrfMaterial()
         {
             //grfDept.Rows.Count = 7;
             DataTable dt = new DataTable();
@@ -281,6 +283,9 @@ namespace modernpos_pos.gui
             //chkRecommand.Value = fooC.status_recommend.Equals("1") ? true : false;
             txtSort1.Value = fooC.sort1;
             mposC.setC1Combo(cboMatt, fooC.material_type_id);
+            mposC.setC1Combo(cboUnit, fooC.unit_id);
+            mposC.setC1Combo(cboUnitCal, fooC.unit_cal_id);
+
             showImg();
             //if (fooT.status_aircondition.Equals("1"))
             //{
@@ -312,7 +317,7 @@ namespace modernpos_pos.gui
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
 
-        private void setFoodsCat()
+        private void setMaterial()
         {
             fooC.material_id = txtID.Text;
             fooC.material_code = txtAreaCode.Text;
@@ -323,6 +328,8 @@ namespace modernpos_pos.gui
             fooC.price = txtPrice.Text;
             fooC.material_type_id = cboMatt.SelectedItem == null ? "" : ((ComboBoxItem)cboMatt.SelectedItem).Value;
             fooC.sort1 = txtSort1.Text;
+            fooC.unit_cal_id = cboUnitCal.SelectedItem == null ? "" : ((ComboBoxItem)cboUnitCal.SelectedItem).Value;
+            fooC.unit_id = cboUnit.SelectedItem == null ? "" : ((ComboBoxItem)cboUnit.SelectedItem).Value;
             //area.status_embryologist = chkEmbryologist.Checked == true ? "1" : "0";
         }
         private void grfPosi_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
@@ -381,7 +388,7 @@ namespace modernpos_pos.gui
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 mposC.mposDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
-                setGrfFoodsCat();
+                setGrfMaterial();
             }
         }
         private void btnSave_Click(object sender, EventArgs e)

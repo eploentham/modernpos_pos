@@ -122,3 +122,83 @@ ADD COLUMN `unit_id` BIGINT NULL AFTER `material_type_id`;
 ALTER TABLE `modern_pos`.`b_unit` 
 ADD COLUMN `unit_code` VARCHAR(45) NULL AFTER `unit_id`;
 
+ALTER TABLE `modern_pos`.`b_unit` 
+ADD COLUMN `host_id` VARCHAR(45) NULL AFTER `sort1`,
+ADD COLUMN `branch_id` VARCHAR(45) NULL AFTER `host_id`,
+ADD COLUMN `device_id` VARCHAR(45) NULL AFTER `branch_id`;
+
+ALTER TABLE `modern_pos`.`b_foods_material` 
+ADD COLUMN `unit_id` BIGINT NULL AFTER `sort1`,
+ADD COLUMN `unit_id_cal` BIGINT NULL AFTER `unit_id`;
+
+ALTER TABLE `modern_pos`.`b_material` 
+ADD COLUMN `unit_id_cal` BIGINT NULL AFTER `unit_id`;
+
+
+ALTER TABLE `modern_pos`.`b_material` 
+CHANGE COLUMN `unit_id_cal` `unit_cal_id` BIGINT(20) NULL DEFAULT NULL ;
+
+
+
+CREATE TABLE `modern_pos`.`t_material` (
+  `matrl_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `matr_code` VARCHAR(45) NULL,
+  `matr_date` VARCHAR(45) NULL,
+  `active` VARCHAR(45) NULL,
+  `remark` VARCHAR(45) NULL,
+  `date_create` VARCHAR(45) NULL,
+  `date_modi` VARCHAR(45) NULL,
+  `date_cancel` VARCHAR(45) NULL,
+  `user_create` VARCHAR(45) NULL,
+  `user_modi` VARCHAR(45) NULL,
+  `user_cancel` VARCHAR(45) NULL,
+  `host_id` VARCHAR(45) NULL,
+  `branch_id` VARCHAR(45) NULL,
+  `device_id` VARCHAR(45) NULL,
+  PRIMARY KEY (`matrl_id`))
+ENGINE = MyISAM
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin
+COMMENT = 'id=145';
+
+CREATE TABLE `modern_pos`.`t_material_detail` (
+  `matr_detail_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `matr_id` BIGINT NULL,
+  `material_id` BIGINT NULL,
+  `row1` INT NULL,
+  `price` DECIMAL(17,4) NULL,
+  `qty` DECIMAL(17,4) NULL,
+  `weight` DECIMAL(17,4) NULL,
+  `remark` VARCHAR(45) NULL,
+  `active` VARCHAR(45) NULL,
+  `sort1` VARCHAR(45) NULL,
+  `date_create` VARCHAR(45) NULL,
+  `date_modi` VARCHAR(45) NULL,
+  `date_cancel` VARCHAR(45) NULL,
+  `user_create` VARCHAR(45) NULL,
+  `user_modi` VARCHAR(45) NULL,
+  `user_cancel` VARCHAR(45) NULL,
+  PRIMARY KEY (`matr_detail_id`))
+ENGINE = MyISAM
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin
+COMMENT = 'id=146';
+
+
+
+ALTER TABLE `modern_pos`.`t_material` 
+ADD COLUMN `year_id` VARCHAR(45) NULL AFTER `device_id`;
+
+ALTER TABLE `modern_pos`.`t_order_material` 
+ADD COLUMN `year_id` VARCHAR(45) NULL AFTER `qty`,
+ADD COLUMN `month_id` VARCHAR(45) NULL AFTER `year_id`,
+ADD COLUMN `day_id` VARCHAR(45) NULL AFTER `month_id`,
+ADD COLUMN `hour_id` VARCHAR(45) NULL AFTER `day_id`;
+
+ALTER TABLE `modern_pos`.`t_order` 
+ADD COLUMN `year_id` VARCHAR(45) NULL AFTER `cnt_cust`,
+ADD COLUMN `month_id` VARCHAR(45) NULL AFTER `year_id`,
+ADD COLUMN `day_id` VARCHAR(45) NULL AFTER `month_id`,
+ADD COLUMN `hour_id` VARCHAR(45) NULL AFTER `day_id`;
+
+

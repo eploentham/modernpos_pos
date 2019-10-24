@@ -226,7 +226,7 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public C1ComboBox setCboFoodsType(C1ComboBox c)
+        public C1ComboBox setCboUnit(C1ComboBox c)
         {
             ComboBoxItem item = new ComboBoxItem();
             DataTable dt = selectC1();
@@ -247,7 +247,7 @@ namespace modernpos_pos.objdb
             }
             return c;
         }
-        public C1ComboBox setCboFoodsType(C1ComboBox c, String selected)
+        public C1ComboBox setCboUnit(C1ComboBox c, String selected)
         {
             ComboBoxItem item = new ComboBoxItem();
             //DataTable dt = selectC1();

@@ -328,15 +328,36 @@ namespace modernpos_pos.gui
             grfFooM.Cols[colFmTotal].Caption = "Total";
             //FilterRow fr = new FilterRow(grfPosi);
 
-            //grfRec.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfPosi_AfterRowColChange);
-            //grfRec.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
-            //grfRec.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellChanged);
+            grfFooM.CellChanged += GrfFooM_CellChanged;
 
             pnMaterialAdd.Controls.Add(this.grfFooM);
 
             C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
             C1ThemeController.ApplyThemeToObject(grfFooM, theme);
         }
+
+        private void GrfFooM_CellChanged(object sender, RowColEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.Col == colFmQty)
+            {
+                Decimal nettotal = 0;
+                foreach (Row row in grfFooM.Rows)
+                {
+                    String qty = "", price = "", weight = "";
+                    Decimal total1 = 0;
+                    qty = row[colFmQty] != null ? row[colFmQty].ToString() : "";
+                    price = row[colFmprice] != null ? row[colFmprice].ToString() : "";
+                    weight = row[colFmWeight] != null ? row[colFmWeight].ToString() : "";
+                    String total = calMaterial(qty, price, weight);
+                    Decimal.TryParse(total, out total1);
+                    row[colFmTotal] = total;
+                    nettotal += total1;
+                }
+                txtMatTotal.Value = nettotal;
+            }
+        }
+
         private void setGrfFoodsMaterial(String fooId)
         {
             //grfDept.Rows.Count = 7;
@@ -442,14 +463,39 @@ namespace modernpos_pos.gui
 
             //FilterRow fr = new FilterRow(grfPosi);
 
-            //grfRec.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfPosi_AfterRowColChange);
-            //grfRec.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
-            //grfRec.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellChanged);
+            grfMat.CellChanged += GrfMat_CellChanged;
 
             pnMaterialView.Controls.Add(this.grfMat);
 
             C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
             C1ThemeController.ApplyThemeToObject(grfMat, theme);
+        }
+
+        private void GrfMat_CellChanged(object sender, RowColEventArgs e)
+        {
+            //throw new NotImplementedException();
+            //if (e.Col == colFmQty)
+            //{
+            //    foreach(Row row in grfMat.Rows)
+            //    {
+            //        String qty = "", price = "", weight = "";
+            //        qty = row[colFmQty] != null ? row[colFmQty].ToString() : "";
+            //        price = row[colFmprice] != null ? row[colFmprice].ToString() : "";
+            //        weight = row[colFmWeight] != null ? row[colFmWeight].ToString() : "";
+            //        String total = calMaterial(qty, price, weight);
+            //        row[colFmTotal] = total;
+            //    }
+            //}
+        }
+        private String calMaterial(String qty, String price, String weight)
+        {
+            String total = "";
+            Decimal qty1 = 0, weight1 = 0, price1 = 0, total1=0;
+            Decimal.TryParse(qty, out qty1);
+            Decimal.TryParse(price, out price1);
+            Decimal.TryParse(weight, out weight1);
+            total1 = ((qty1 * weight1) * price1) / 1000;
+            return total1.ToString();
         }
         private void setGrfMaterial(String fooId)
         {

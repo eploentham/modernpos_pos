@@ -186,6 +186,7 @@ namespace modernpos_pos.gui
 
             btnBillCheck.Click += BtnBillCheck_Click;
             btnVoidPay.Click += BtnVoidPay_Click;
+            this.FormClosed += FrmTakeOut4_FormClosed;
 
             imgR = Resources.red_checkmark_png_16;
             //MessageBox.Show("FrmTakeOut initConfig", "");
@@ -211,6 +212,13 @@ namespace modernpos_pos.gui
             setBtnEnable(flagModi);
             this.FormBorderStyle = FormBorderStyle.None;
         }
+
+        private void FrmTakeOut4_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //throw new NotImplementedException();
+            frmmain.Show();
+        }
+
         private void BtnBack_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -749,7 +757,7 @@ namespace modernpos_pos.gui
                 //appExit();
                 if (MessageBox.Show("ต้องการออกจากโปรแกรม1", "ออกจากโปรแกรม", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
                 {
-                    frmmain.Show();
+                    //frmmain.Show();
                     Close();
                     return true;
                 }
@@ -766,7 +774,7 @@ namespace modernpos_pos.gui
                         setTitle(flagShowTitle);
                         return true;
                     case Keys.X | Keys.Control:
-                        frmmain.Show();
+                        //frmmain.Show();
                         Close();
                         return true;
                 }
