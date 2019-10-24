@@ -9,24 +9,24 @@ using System.Threading.Tasks;
 
 namespace modernpos_pos.objdb
 {
-    public class MaterialRecDetailDB
+    public class MaterialDrawDetailDB
     {
-        public MaterialRecDetail matrd;
+        public MaterialDrawDetail matrd;
         ConnectDB conn;
-        public List<MaterialRecDetail> lfootp;
+        public List<MaterialDrawDetail> lfootp;
 
-        public MaterialRecDetailDB(ConnectDB c)
+        public MaterialDrawDetailDB(ConnectDB c)
         {
             conn = c;
             initConfig();
         }
         private void initConfig()
         {
-            lfootp = new List<MaterialRecDetail>();
-            matrd = new MaterialRecDetail();
-            matrd.matr_detail_id = "matr_detail_id";
+            lfootp = new List<MaterialDrawDetail>();
+            matrd = new MaterialDrawDetail();
+            matrd.matd_detail_id = "matd_detail_id";
             matrd.weight = "weight";
-            matrd.matr_id = "matr_id";
+            matrd.matd_id = "matd_id";
             matrd.active = "active";
             matrd.remark = "remark";
             matrd.sort1 = "sort1";
@@ -44,8 +44,8 @@ namespace modernpos_pos.objdb
             matrd.qty = "qty";
             matrd.row1 = "row1";
 
-            matrd.pkField = "matr_detail_id";
-            matrd.table = "t_material_rec_detail";
+            matrd.pkField = "matd_detail_id";
+            matrd.table = "t_material_draw_detail";
         }
         public DataTable selectAll()
         {
@@ -54,7 +54,7 @@ namespace modernpos_pos.objdb
                 "From " + matrd.table + " foos " +
                 " " +
                 "Where foos." + matrd.active + " ='1' " +
-                "Order By foos." + matrd.matr_detail_id;
+                "Order By foos." + matrd.matd_detail_id;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -72,26 +72,26 @@ namespace modernpos_pos.objdb
         public DataTable selectByMatrId(String matrId)
         {
             DataTable dt = new DataTable();
-            String sql = "select matrd.* " + 
+            String sql = "select matrd.* " +
                " From " + matrd.table + " matrd " +
-                "Left Join t_material_rec matr On matr.matr_id = matrd.matr_id " +
-                "Where matrd." + matrd.matr_id + " ='" + matrId + "' and matrd." + matrd.active + "='1' ";
+                "Left Join t_material_rec matr On matr.matd_id = matrd.matd_id " +
+                "Where matrd." + matrd.matd_id + " ='" + matrId + "' and matrd." + matrd.active + "='1' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
         public DataTable selectByFoodsId1(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select foos." + matrd.weight + ",'' as img,foos." + matrd.matr_id + ",foos." + matrd.price +
+            String sql = "select foos." + matrd.weight + ",'' as img,foos." + matrd.matd_id + ",foos." + matrd.price +
                 " From " + matrd.table + " foos " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where foos." + matrd.weight + " ='" + copId + "' and foos." + matrd.active + "='1' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
-        public MaterialRecDetail selectByPk1(String copId)
+        public MaterialDrawDetail selectByPk1(String copId)
         {
-            MaterialRecDetail cop1 = new MaterialRecDetail();
+            MaterialDrawDetail cop1 = new MaterialDrawDetail();
             DataTable dt = new DataTable();
             String sql = "select sex.* " +
                 "From " + matrd.table + " sex " +
@@ -101,13 +101,13 @@ namespace modernpos_pos.objdb
             cop1 = setFoodsMaterial(dt);
             return cop1;
         }
-        private MaterialRecDetail setArea1(DataTable dt)
+        private MaterialDrawDetail setArea1(DataTable dt)
         {
-            MaterialRecDetail dept1 = new MaterialRecDetail();
+            MaterialDrawDetail dept1 = new MaterialDrawDetail();
             if (dt.Rows.Count > 0)
             {
-                dept1.matr_detail_id = dt.Rows[0][matrd.matr_detail_id].ToString();
-                dept1.matr_id = dt.Rows[0][matrd.matr_id].ToString();
+                dept1.matd_detail_id = dt.Rows[0][matrd.matd_detail_id].ToString();
+                dept1.matd_id = dt.Rows[0][matrd.matd_id].ToString();
             }
 
             return dept1;
@@ -115,7 +115,7 @@ namespace modernpos_pos.objdb
         public DataTable selectC1()
         {
             DataTable dt = new DataTable();
-            String sql = "select sex." + matrd.pkField + ",sex." + matrd.matr_id + " " +
+            String sql = "select sex." + matrd.pkField + ",sex." + matrd.matd_id + " " +
                 "From " + matrd.table + " sex " +
                 " " +
                 "Where sex." + matrd.active + " ='1' ";
@@ -126,24 +126,24 @@ namespace modernpos_pos.objdb
         public DataTable selectByFoodsId2(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select footp." + matrd.matr_detail_id + ",'' as img,footp." + matrd.matr_id + ",footp." + matrd.price + ", footp." + matrd.weight +
+            String sql = "select footp." + matrd.matd_detail_id + ",'' as img,footp." + matrd.matd_id + ",footp." + matrd.price + ", footp." + matrd.weight +
                 " From " + matrd.table + " footp " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where footp." + matrd.weight + " ='" + copId + "' and footp." + matrd.active + "='1' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
-        public List<MaterialRecDetail> getlFooSpecByFooId(String fooid)
+        public List<MaterialDrawDetail> getlFooSpecByFooId(String fooid)
         {
             //lDept = new List<Position>();
-            List<MaterialRecDetail> lfooC1 = new List<MaterialRecDetail>();
+            List<MaterialDrawDetail> lfooC1 = new List<MaterialDrawDetail>();
             DataTable dt = new DataTable();
             dt = selectByFoodsId2(fooid);
             foreach (DataRow row in dt.Rows)
             {
-                MaterialRecDetail itm1 = new MaterialRecDetail();
-                itm1.matr_detail_id = row[matrd.matr_detail_id].ToString();
-                itm1.matr_id = row[matrd.matr_id].ToString();
+                MaterialDrawDetail itm1 = new MaterialDrawDetail();
+                itm1.matd_detail_id = row[matrd.matd_detail_id].ToString();
+                itm1.matd_id = row[matrd.matd_id].ToString();
                 itm1.price = row[matrd.price].ToString();
                 itm1.weight = row[matrd.weight].ToString();
                 lfooC1.Add(itm1);
@@ -158,9 +158,9 @@ namespace modernpos_pos.objdb
             dt = selectAll();
             foreach (DataRow row in dt.Rows)
             {
-                MaterialRecDetail itm1 = new MaterialRecDetail();
-                itm1.matr_detail_id = row[matrd.matr_detail_id].ToString();
-                itm1.matr_id = row[matrd.matr_id].ToString();
+                MaterialDrawDetail itm1 = new MaterialDrawDetail();
+                itm1.matd_detail_id = row[matrd.matd_detail_id].ToString();
+                itm1.matd_id = row[matrd.matd_id].ToString();
 
                 lfootp.Add(itm1);
             }
@@ -169,17 +169,17 @@ namespace modernpos_pos.objdb
         {
             String re = "";
             if (lfootp.Count <= 0) getlArea();
-            foreach (MaterialRecDetail sex in lfootp)
+            foreach (MaterialDrawDetail sex in lfootp)
             {
-                if (sex.matr_detail_id.Equals(id))
+                if (sex.matd_detail_id.Equals(id))
                 {
-                    re = sex.matr_id;
+                    re = sex.matd_id;
                     break;
                 }
             }
             return re;
         }
-        private void chkNull(MaterialRecDetail p)
+        private void chkNull(MaterialDrawDetail p)
         {
             long chk = 0;
             Decimal chk1 = 0;
@@ -193,7 +193,7 @@ namespace modernpos_pos.objdb
             p.branch_id = p.branch_id == null ? "" : p.branch_id;
             p.device_id = p.device_id == null ? "" : p.device_id;
 
-            p.matr_id = p.matr_id == null ? "" : p.matr_id;
+            p.matd_id = p.matd_id == null ? "" : p.matd_id;
             p.weight = p.weight == null ? "" : p.weight;
 
             p.remark = p.remark == null ? "" : p.remark;
@@ -207,7 +207,7 @@ namespace modernpos_pos.objdb
             p.weight = Decimal.TryParse(p.weight, out chk1) ? chk1.ToString() : "0";
             p.qty = Decimal.TryParse(p.qty, out chk1) ? chk1.ToString() : "0";
         }
-        public String insert(MaterialRecDetail p, String userId)
+        public String insert(MaterialDrawDetail p, String userId)
         {
             String re = "";
             String sql = "";
@@ -218,7 +218,7 @@ namespace modernpos_pos.objdb
             chkNull(p);
             sql = "Insert Into " + matrd.table + " set " +
                 " " + matrd.weight + " = '" + p.weight + "'" +
-                "," + matrd.matr_id + " = '" + p.matr_id.Replace("'", "''") + "'" +
+                "," + matrd.matd_id + " = '" + p.matd_id.Replace("'", "''") + "'" +
                 "," + matrd.remark + " = '" + p.remark.Replace("'", "''") + "'" +
                 "," + matrd.date_create + " = now()" +
                 "," + matrd.active + " = '1'" +
@@ -244,7 +244,7 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public String update(MaterialRecDetail p, String userId)
+        public String update(MaterialDrawDetail p, String userId)
         {
             String re = "";
             String sql = "";
@@ -253,7 +253,7 @@ namespace modernpos_pos.objdb
             chkNull(p);
             sql = "Update " + matrd.table + " Set " +
                 " " + matrd.weight + " = '" + p.weight + "'" +
-                "," + matrd.matr_id + " = '" + p.matr_id.Replace("'", "''") + "'" +
+                "," + matrd.matd_id + " = '" + p.matd_id.Replace("'", "''") + "'" +
                 "," + matrd.remark + " = '" + p.remark.Replace("'", "''") + "'" +
                 "," + matrd.date_modi + " = now()" +
                 "," + matrd.user_modi + " = '" + userId + "' " +
@@ -266,7 +266,7 @@ namespace modernpos_pos.objdb
                 "," + matrd.sort1 + " = '" + p.sort1 + "' " +
                 "," + matrd.material_id + " = '" + p.material_id + "' " +
                 "," + matrd.row1 + " = '" + p.row1 + "' " +
-                "Where " + matrd.pkField + "='" + p.matr_detail_id + "'"
+                "Where " + matrd.pkField + "='" + p.matd_detail_id + "'"
                 ;
 
             try
@@ -280,11 +280,11 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public String insertFoodsMaterial(MaterialRecDetail p, String userId)
+        public String insertMaterialDraw(MaterialDrawDetail p, String userId)
         {
             String re = "";
 
-            if (p.matr_detail_id.Equals(""))
+            if (p.matd_detail_id.Equals(""))
             {
                 re = insert(p, "");
             }
@@ -295,7 +295,7 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public String voidFoodsMeterial(String foosid, String userId)
+        public String voidMeterialDraw(String foosid, String userId)
         {
             String re = "";
             String sql = "";
@@ -328,7 +328,7 @@ namespace modernpos_pos.objdb
                 " " + matrd.active + " = '3'" +
                 "," + matrd.date_cancel + " = now()" +
                 "," + matrd.user_modi + " = '" + userId + "' " +
-                "Where " + matrd.matr_id + "='" + matrid + "'"
+                "Where " + matrd.matd_id + "='" + matrid + "'"
                 ;
             try
             {
@@ -355,8 +355,8 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 item = new ComboBoxItem();
-                item.Text = row[matrd.matr_id].ToString();
-                item.Value = row[matrd.matr_detail_id].ToString();
+                item.Text = row[matrd.matd_id].ToString();
+                item.Value = row[matrd.matd_detail_id].ToString();
 
                 c.Items.Add(item);
             }
@@ -374,11 +374,11 @@ namespace modernpos_pos.objdb
             c.Items.Add(item1);
             //for (int i = 0; i < dt.Rows.Count; i++)
             int i = 0;
-            foreach (MaterialRecDetail row in lfootp)
+            foreach (MaterialDrawDetail row in lfootp)
             {
                 item = new ComboBoxItem();
-                item.Value = row.matr_detail_id;
-                item.Text = row.matr_id;
+                item.Value = row.matd_detail_id;
+                item.Text = row.matd_id;
                 c.Items.Add(item);
                 if (item.Value.Equals(selected))
                 {
@@ -390,14 +390,14 @@ namespace modernpos_pos.objdb
             }
             return c;
         }
-        private MaterialRecDetail setFoodsMaterial(DataTable dt)
+        private MaterialDrawDetail setFoodsMaterial(DataTable dt)
         {
-            MaterialRecDetail dept1 = new MaterialRecDetail();
+            MaterialDrawDetail dept1 = new MaterialDrawDetail();
             if (dt.Rows.Count > 0)
             {
-                dept1.matr_detail_id = dt.Rows[0][matrd.matr_detail_id].ToString();
+                dept1.matd_detail_id = dt.Rows[0][matrd.matd_detail_id].ToString();
                 dept1.weight = dt.Rows[0][matrd.weight].ToString();
-                dept1.matr_id = dt.Rows[0][matrd.matr_id].ToString();
+                dept1.matd_id = dt.Rows[0][matrd.matd_id].ToString();
                 dept1.material_id = dt.Rows[0][matrd.material_id] != null ? dt.Rows[0][matrd.material_id].ToString() : "";
                 dept1.weight = dt.Rows[0][matrd.weight] != null ? dt.Rows[0][matrd.weight].ToString() : "";
                 dept1.remark = dt.Rows[0][matrd.remark] != null ? dt.Rows[0][matrd.remark].ToString() : "";
@@ -419,9 +419,9 @@ namespace modernpos_pos.objdb
             }
             else
             {
-                dept1.matr_detail_id = "";
+                dept1.matd_detail_id = "";
                 dept1.weight = "";
-                dept1.matr_id = "";
+                dept1.matd_id = "";
                 dept1.material_id = "";
                 dept1.remark = "";
                 dept1.date_create = "";

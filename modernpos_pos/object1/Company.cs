@@ -56,13 +56,13 @@ namespace modernpos_pos.object1
         public String billing_doc { get; set; }
         public String receipt_doc { get; set; }
         public String billing_cover_doc { get; set; }
-        public String req_doc { get; set; }
+        public String rec_doc { get; set; }
         public String month_curr { get; set; }
         public String prefix_queue_1_doc { get; set; }
         public String prefix_billing_doc { get; set; }
         public String prefix_receipt_doc { get; set; }
         public String prefix_billing_cover_doc { get; set; }
-        public String prefix_req_doc { get; set; }
+        public String prefix_rec_doc { get; set; }
         public String queue_1_doc { get; set; }
         public String hn_doc { get; set; }
         public String prefix_hn_doc { get; set; }

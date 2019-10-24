@@ -1,6 +1,6 @@
 ﻿namespace modernpos_pos.gui
 {
-    partial class FrmMatrAdd
+    partial class FrmMatrDrawAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,7 @@
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDoc = new C1.Win.C1Input.C1Button();
             this.btnVoid = new C1.Win.C1Input.C1Button();
@@ -44,7 +45,6 @@
             this.txtMatrDate = new C1.Win.C1Input.C1DateEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMatrCode = new C1.Win.C1Input.C1TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -63,10 +63,10 @@
             // 
             this.sB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sB1});
-            this.sB.Location = new System.Drawing.Point(0, 705);
+            this.sB.Location = new System.Drawing.Point(0, 699);
             this.sB.Name = "sB";
-            this.sB.Size = new System.Drawing.Size(1193, 22);
-            this.sB.TabIndex = 4;
+            this.sB.Size = new System.Drawing.Size(1130, 22);
+            this.sB.TabIndex = 5;
             this.sB.Text = "statusStrip1";
             // 
             // sB1
@@ -78,6 +78,17 @@
             // theme1
             // 
             this.theme1.Theme = "Office2013Red";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel2.Location = new System.Drawing.Point(0, 71);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1130, 628);
+            this.panel2.TabIndex = 8;
+            this.theme1.SetTheme(this.panel2, "(default)");
             // 
             // panel1
             // 
@@ -98,8 +109,8 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1193, 71);
-            this.panel1.TabIndex = 5;
+            this.panel1.Size = new System.Drawing.Size(1130, 71);
+            this.panel1.TabIndex = 7;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
             // btnDoc
@@ -251,15 +262,16 @@
             this.txtMatrDate.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             this.txtMatrDate.Culture = 1054;
             this.txtMatrDate.CurrentTimeZone = false;
+            this.txtMatrDate.DateTimeInput = false;
             this.txtMatrDate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtMatrDate.DisplayFormat.CalendarType = C1.Win.C1Input.CalendarType.GregorianCalendar;
-            this.txtMatrDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDateShortTime;
+            this.txtMatrDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
             this.txtMatrDate.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd)));
             this.txtMatrDate.EditFormat.CalendarType = C1.Win.C1Input.CalendarType.GregorianCalendar;
-            this.txtMatrDate.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDateShortTime;
+            this.txtMatrDate.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
             this.txtMatrDate.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
@@ -302,29 +314,16 @@
             this.theme1.SetTheme(this.txtMatrCode, "(default)");
             this.txtMatrCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel2.Location = new System.Drawing.Point(0, 71);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1193, 634);
-            this.panel2.TabIndex = 6;
-            this.theme1.SetTheme(this.panel2, "(default)");
-            // 
-            // FrmMatrAdd
+            // FrmMatrDrawAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1193, 727);
+            this.ClientSize = new System.Drawing.Size(1130, 721);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sB);
-            this.Name = "FrmMatrAdd";
-            this.Text = "FrmMatr";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmMatr_Load);
+            this.Name = "FrmMatrDrawAdd";
+            this.Text = "FrmMatrDrawAdd";
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
@@ -349,19 +348,19 @@
         private System.Windows.Forms.StatusStrip sB;
         private System.Windows.Forms.ToolStripStatusLabel sB1;
         private C1.Win.C1Themes.C1ThemeController theme1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private C1.Win.C1Input.C1Button btnDoc;
+        private C1.Win.C1Input.C1Button btnVoid;
+        private C1.Win.C1Input.C1TextBox txtPasswordVoid;
+        private C1.Win.C1Input.C1CheckBox chkVoid;
+        private C1.Win.C1Input.C1Button btnSave;
+        private C1.Win.C1Input.C1TextBox txtMatrId;
         private System.Windows.Forms.Label label1;
         private C1.Win.C1Input.C1TextBox txtRemark;
         private System.Windows.Forms.Label label109;
         private C1.Win.C1Input.C1DateEdit txtMatrDate;
         private System.Windows.Forms.Label label4;
         private C1.Win.C1Input.C1TextBox txtMatrCode;
-        private C1.Win.C1Input.C1TextBox txtMatrId;
-        private C1.Win.C1Input.C1Button btnSave;
-        private C1.Win.C1Input.C1CheckBox chkVoid;
-        private C1.Win.C1Input.C1TextBox txtPasswordVoid;
-        private C1.Win.C1Input.C1Button btnVoid;
-        private C1.Win.C1Input.C1Button btnDoc;
     }
 }

@@ -202,3 +202,32 @@ ADD COLUMN `day_id` VARCHAR(45) NULL AFTER `month_id`,
 ADD COLUMN `hour_id` VARCHAR(45) NULL AFTER `day_id`;
 
 
+ALTER TABLE `modern_pos`.`b_company` 
+CHANGE COLUMN `req_doc` `rec_doc` INT(11) NULL DEFAULT NULL COMMENT 'running ใบภาษีหัก ณ ที่จ่าย' ,
+CHANGE COLUMN `prefix_req_doc` `prefix_rec_doc` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ;
+
+ALTER TABLE `modern_pos`.`t_material_rec` 
+ADD COLUMN `status_stock` VARCHAR(45) NULL COMMENT '0=default;1=cal stock' AFTER `year_id`,
+ADD COLUMN `status_stock_year` VARCHAR(45) NULL COMMENT '0=dafult;1=cal staock' AFTER `status_stock`;
+
+CREATE TABLE `t_material_draw` (
+  `matd_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `matd_code` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `matd_date` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `active` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `remark` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `host_id` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `branch_id` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `device_id` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `year_id` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `status_stock` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT '0=default;1=cal stock',
+  `status_stock_year` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT '0=dafult;1=cal staock',
+  PRIMARY KEY (`matd_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1470000005 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=147';
+

@@ -47,7 +47,8 @@
             this.btnFooMaterial = new C1.Win.C1Input.C1Button();
             this.btnMaterialType = new C1.Win.C1Input.C1Button();
             this.btnUnit = new C1.Win.C1Input.C1Button();
-            this.btnRecMatr = new C1.Win.C1Input.C1Button();
+            this.btnMatrRec = new C1.Win.C1Input.C1Button();
+            this.btnMatrDraw = new C1.Win.C1Input.C1Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTable)).BeginInit();
@@ -65,7 +66,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnFooMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaterialType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUnit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRecMatr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMatrRec)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMatrDraw)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -245,21 +247,31 @@
             this.btnUnit.Text = "หน่วย";
             this.btnUnit.UseVisualStyleBackColor = true;
             // 
-            // btnRecMatr
+            // btnMatrRec
             // 
-            this.btnRecMatr.Location = new System.Drawing.Point(606, 351);
-            this.btnRecMatr.Name = "btnRecMatr";
-            this.btnRecMatr.Size = new System.Drawing.Size(116, 77);
-            this.btnRecMatr.TabIndex = 21;
-            this.btnRecMatr.Text = "รับเข้า Material";
-            this.btnRecMatr.UseVisualStyleBackColor = true;
+            this.btnMatrRec.Location = new System.Drawing.Point(606, 351);
+            this.btnMatrRec.Name = "btnMatrRec";
+            this.btnMatrRec.Size = new System.Drawing.Size(116, 77);
+            this.btnMatrRec.TabIndex = 21;
+            this.btnMatrRec.Text = "รับเข้า Material";
+            this.btnMatrRec.UseVisualStyleBackColor = true;
+            // 
+            // btnMatrDraw
+            // 
+            this.btnMatrDraw.Location = new System.Drawing.Point(606, 434);
+            this.btnMatrDraw.Name = "btnMatrDraw";
+            this.btnMatrDraw.Size = new System.Drawing.Size(116, 77);
+            this.btnMatrDraw.TabIndex = 22;
+            this.btnMatrDraw.Text = "เบิกออก Material";
+            this.btnMatrDraw.UseVisualStyleBackColor = true;
             // 
             // FrmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 629);
-            this.Controls.Add(this.btnRecMatr);
+            this.Controls.Add(this.btnMatrDraw);
+            this.Controls.Add(this.btnMatrRec);
             this.Controls.Add(this.btnUnit);
             this.Controls.Add(this.btnMaterialType);
             this.Controls.Add(this.btnFooMaterial);
@@ -298,7 +310,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnFooMaterial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaterialType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUnit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRecMatr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMatrRec)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMatrDraw)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -324,6 +337,7 @@
         private C1.Win.C1Input.C1Button btnFooMaterial;
         private C1.Win.C1Input.C1Button btnMaterialType;
         private C1.Win.C1Input.C1Button btnUnit;
-        private C1.Win.C1Input.C1Button btnRecMatr;
+        private C1.Win.C1Input.C1Button btnMatrRec;
+        private C1.Win.C1Input.C1Button btnMatrDraw;
     }
 }

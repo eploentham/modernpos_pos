@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace modernpos_pos.gui
 {
-    public partial class FrmMatrAdd : Form
+    public partial class FrmMatrRecAdd : Form
     {
         mPOSControl mposC;
         MaterialRec matr;
@@ -30,10 +30,10 @@ namespace modernpos_pos.gui
         C1SuperErrorProvider sep;
         C1ComboBox cboMethod;
 
-        int colID = 1, colName = 2, colPrice = 3, colQty = 4, colEdit=5;
+        int colID = 1, colName = 2, colPrice = 3, colQty = 4, colRemark=5, colEdit=6;
 
         String userIdVoid = "", matr_id="";
-        public FrmMatrAdd(mPOSControl x, String matrid)
+        public FrmMatrRecAdd(mPOSControl x, String matrid)
         {
             InitializeComponent();
             mposC = x;
@@ -56,16 +56,89 @@ namespace modernpos_pos.gui
             {
                 theme1.SetTheme(c, mposC.iniC.themeApplication);
             }
-
+            txtMatrDate.Value = System.DateTime.Now.Year +"-"+System.DateTime.Now.ToString("MM-dd");
             cboMethod = new C1ComboBox();
             cboMethod.AutoCompleteMode = AutoCompleteMode.Suggest;
             cboMethod.AutoCompleteSource = AutoCompleteSource.ListItems;
             mposC.mposDB.matDB.setCboMaterial(cboMethod, "");
+            btnVoid.Hide();
+            txtPasswordVoid.Hide();
 
             btnSave.Click += BtnSave_Click;
+            chkVoid.CheckedChanged += ChkVoid_CheckedChanged;
+            txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
+            btnVoid.Click += BtnVoid_Click;
+            btnDoc.Click += BtnDoc_Click;
 
             initGrfMatr();
             sB1.Text = "";
+        }
+
+        private void BtnDoc_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ Update Stock material ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                //ic.ivfDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
+                long chk = 0;
+                String re = "";
+                re = mposC.mposDB.matrDB.Void(txtMatrId.Text, "");
+                if (long.TryParse(re, out chk))
+                {
+                    mposC.mposDB.matrdDB.voidMatr(txtMatrId.Text, "");
+                }
+                //setGrfAgent();
+            }
+        }
+
+        private void BtnVoid_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                //ic.ivfDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
+                long chk = 0;
+                String re = "";
+                re = mposC.mposDB.matrDB.Void(txtMatrId.Text,"");
+                if (long.TryParse(re, out chk))
+                {
+                    mposC.mposDB.matrdDB.voidMatr(txtMatrId.Text, "");
+                }
+                //setGrfAgent();
+            }
+        }
+
+        private void TxtPasswordVoid_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.KeyCode == Keys.Enter)
+            {
+                userIdVoid = "";
+                userIdVoid = mposC.mposDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
+                if (userIdVoid.Length > 0)
+                {
+                    txtPasswordVoid.Hide();
+                    btnVoid.Show();
+                    //stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> รหัสผ่านถูกต้อง", btnVoid);
+                }
+                else
+                {
+                    sep.SetError(txtPasswordVoid, "333");
+                }
+            }
+        }
+
+        private void ChkVoid_CheckedChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (chkVoid.Checked)
+            {
+                txtPasswordVoid.Show();
+            }
+            else
+            {
+                txtPasswordVoid.Hide();
+            }
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -73,12 +146,13 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             long chk = 0;
             setMatr();
-            String re = mposC.mposDB.matrDB.insertTMatarial(matr, "");
+            String re = mposC.mposDB.matrDB.insertMatarialRec(matr, "");
             if(long.TryParse(re, out chk))
             {
                 if(txtMatrId.Text.Length==0 && chk > 1)
                 {
                     txtMatrId.Value = re;
+                    matr_id = re;
                 }
                 int i = 0;
                 foreach(Row row in grfMatr.Rows)
@@ -115,12 +189,20 @@ namespace modernpos_pos.gui
                     matrd.row1 = i.ToString();
                     mposC.mposDB.matrdDB.insertFoodsMaterial(matrd, "");
                 }
+                setControl();
             }
         }
         private void setMatr()
         {
             matr.matr_id = txtMatrId.Text;
-            matr.matr_code = txtMatrCode.Text.Trim();
+            if (txtMatrId.Text.Length == 0)
+            {
+                matr.matr_code = mposC.mposDB.copDB.genMatRecDoc();
+            }
+            else
+            {
+                matr.matr_code = txtMatrCode.Text.Trim();
+            }
             matr.matr_date = mposC.datetoDB(txtMatrDate.Text);
             matr.active = "acive";
             matr.remark = txtRemark.Text.Trim();
@@ -146,7 +228,8 @@ namespace modernpos_pos.gui
 
             //grfMatr.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfPosi_AfterRowColChange);
             //grfMatr.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
-            grfMatr.CellChanged += GrfMatr_CellChanged;
+            //grfMatr.CellChanged += GrfMatr_CellChanged;
+            grfMatr.AfterEdit += GrfMatr_AfterEdit;
 
             panel2.Controls.Add(this.grfMatr);
 
@@ -156,10 +239,10 @@ namespace modernpos_pos.gui
             C1ThemeController.ApplyThemeToObject(grfMatr, theme);
         }
 
-        private void GrfMatr_CellChanged(object sender, RowColEventArgs e)
+        private void GrfMatr_AfterEdit(object sender, RowColEventArgs e)
         {
             //throw new NotImplementedException();
-            if(e.Col== colName)
+            if (e.Col == colName)
             {
                 grfMatr[e.Row, colEdit] = "1";
                 grfMatr.Rows.Add();
@@ -174,11 +257,20 @@ namespace modernpos_pos.gui
             }
         }
 
+        private void GrfMatr_CellChanged(object sender, RowColEventArgs e)
+        {
+            //throw new NotImplementedException();
+            
+        }
+
         private void setControl()
         {
             matr = mposC.mposDB.matrDB.selectByPk1(matr_id);
             txtMatrId.Value = matr.matr_id;
-            txtMatrDate.Value = mposC.datetoShow(matr.matr_date);
+            if (matr.matr_date.Length > 0)
+            {
+                txtMatrDate.Value = mposC.datetoShow(matr.matr_date);
+            }
             txtRemark.Value = matr.remark;
             txtMatrCode.Value = matr.matr_code;
 
@@ -190,31 +282,36 @@ namespace modernpos_pos.gui
             dt = mposC.mposDB.matrdDB.selectByMatrId(matr_id);
 
             grfMatr.Rows.Count = 1;
-            grfMatr.Cols.Count = 6;
-            grfMatr.Cols[colName].Width = 60;
-            grfMatr.Cols[colPrice].Width = 60;
-            grfMatr.Cols[colQty].Width = 60;
+            grfMatr.Cols.Count = 7;
+            grfMatr.Cols[colName].Width = 200;
+            grfMatr.Cols[colPrice].Width = 80;
+            grfMatr.Cols[colQty].Width = 90;
+            grfMatr.Cols[colRemark].Width = 200;
             grfMatr.Cols[colName].Caption = "รายการ";
             grfMatr.Cols[colPrice].Caption = "ราคา";
             grfMatr.Cols[colQty].Caption = "จำนวน";
+            grfMatr.Cols[colRemark].Caption = "หมายเหตุ";
             grfMatr.Cols[colName].Editor = cboMethod;
 
             grfMatr.ShowCursor = true;
             if(dt.Rows.Count==0) grfMatr.Rows.Count = 2;
             int i = 0;
-            foreach(DataRow row in dt.Rows)
+            grfMatr.Rows.Count = dt.Rows.Count+2;
+            foreach (DataRow row in dt.Rows)
             {
                 i++;
-                Row row1 = grfMatr.Rows.Add();
+                Row row1 = grfMatr.Rows[i];
                 row1[0] = i;
                 row1[colID] = row[mposC.mposDB.matrdDB.matrd.matr_detail_id].ToString();
                 row1[colName] = mposC.mposDB.matDB.getList(row[mposC.mposDB.matrdDB.matrd.material_id].ToString());
                 row1[colPrice] = row[mposC.mposDB.matrdDB.matrd.price].ToString();
                 row1[colQty] = row[mposC.mposDB.matrdDB.matrd.qty].ToString();
+                row1[colRemark] = row[mposC.mposDB.matrdDB.matrd.remark].ToString();
                 row1[colEdit] = "0";
                 if (i % 2 == 0)
                     row1.StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
+            grfMatr.Cols[colID].Visible = false;
         }
         private void FrmMatr_Load(object sender, EventArgs e)
         {

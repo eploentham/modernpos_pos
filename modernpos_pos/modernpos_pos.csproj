@@ -212,17 +212,29 @@
     <Compile Include="gui\FrmMaterialType.Designer.cs">
       <DependentUpon>FrmMaterialType.cs</DependentUpon>
     </Compile>
-    <Compile Include="gui\FrmMatrAdd.cs">
+    <Compile Include="gui\FrmMatrDrawAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gui\FrmMatrAdd.Designer.cs">
-      <DependentUpon>FrmMatrAdd.cs</DependentUpon>
+    <Compile Include="gui\FrmMatrDrawAdd.Designer.cs">
+      <DependentUpon>FrmMatrDrawAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="gui\FrmMatrView.cs">
+    <Compile Include="gui\FrmMatrDrawView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gui\FrmMatrView.Designer.cs">
-      <DependentUpon>FrmMatrView.cs</DependentUpon>
+    <Compile Include="gui\FrmMatrDrawView.Designer.cs">
+      <DependentUpon>FrmMatrDrawView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmMatrRecAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmMatrRecAdd.Designer.cs">
+      <DependentUpon>FrmMatrRecAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmMatrRecView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmMatrRecView.Designer.cs">
+      <DependentUpon>FrmMatrRecView.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmMessage.cs">
       <SubType>Form</SubType>
@@ -367,6 +379,8 @@
     <Compile Include="objdb\FoodsTypeDB.cs" />
     <Compile Include="objdb\FPrefixDB.cs" />
     <Compile Include="objdb\FSexDB.cs" />
+    <Compile Include="objdb\MaterialDrawDB.cs" />
+    <Compile Include="objdb\MaterialDrawDetailDB.cs" />
     <Compile Include="objdb\MaterialTypeDB.cs" />
     <Compile Include="objdb\mPosDB.cs" />
     <Compile Include="objdb\NoodleMakeDB.cs" />
@@ -442,6 +456,8 @@
     <Compile Include="object1\IniFile.cs" />
     <Compile Include="object1\InitConfig.cs" />
     <Compile Include="object1\LogFile.cs" />
+    <Compile Include="object1\MaterialDraw.cs" />
+    <Compile Include="object1\MaterialDrawDetail.cs" />
     <Compile Include="object1\MaterialType.cs" />
     <Compile Include="object1\NativeMethods.cs" />
     <Compile Include="object1\NoodleMake.cs" />
@@ -549,11 +565,17 @@
     <EmbeddedResource Include="gui\FrmMaterialType.resx">
       <DependentUpon>FrmMaterialType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gui\FrmMatrAdd.resx">
-      <DependentUpon>FrmMatrAdd.cs</DependentUpon>
+    <EmbeddedResource Include="gui\FrmMatrDrawAdd.resx">
+      <DependentUpon>FrmMatrDrawAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gui\FrmMatrView.resx">
-      <DependentUpon>FrmMatrView.cs</DependentUpon>
+    <EmbeddedResource Include="gui\FrmMatrDrawView.resx">
+      <DependentUpon>FrmMatrDrawView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmMatrRecAdd.resx">
+      <DependentUpon>FrmMatrRecAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmMatrRecView.resx">
+      <DependentUpon>FrmMatrRecView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmMessage.resx">
       <DependentUpon>FrmMessage.cs</DependentUpon>

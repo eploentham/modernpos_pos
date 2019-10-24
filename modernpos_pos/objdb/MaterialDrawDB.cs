@@ -9,23 +9,23 @@ using System.Threading.Tasks;
 
 namespace modernpos_pos.objdb
 {
-    public class MaterialRecDB
+    public class MaterialDrawDB
     {
-        public MaterialRec matr;
+        public MaterialDraw matr;
         ConnectDB conn;
-        public List<MaterialRec> lfooT;
-        public MaterialRecDB(ConnectDB c)
+        public List<MaterialDraw> lfooT;
+        public MaterialDrawDB(ConnectDB c)
         {
             conn = c;
             initConfig();
         }
         private void initConfig()
         {
-            lfooT = new List<MaterialRec>();
-            matr = new MaterialRec();
-            matr.matr_id = "matr_id";
-            matr.matr_code = "matr_code";
-            matr.matr_date = "matr_date";
+            lfooT = new List<MaterialDraw>();
+            matr = new MaterialDraw();
+            matr.matd_id = "matd_id";
+            matr.matd_code = "matd_code";
+            matr.matd_date = "matd_date";
             matr.active = "active";
             matr.remark = "remark";
             matr.sort1 = "sort1";
@@ -39,11 +39,11 @@ namespace modernpos_pos.objdb
             matr.branch_id = "branch_id";
             matr.device_id = "device_id";
             matr.year_id = "year_id";
-            matr.status_stock = "status_stock";
             matr.status_stock_year = "status_stock_year";
+            matr.status_stock = "status_stock";
 
-            matr.pkField = "matr_id";
-            matr.table = "t_material_rec";
+            matr.pkField = "matd_id";
+            matr.table = "t_material_draw";
         }
         public DataTable selectByYearId(String yearid)
         {
@@ -51,7 +51,7 @@ namespace modernpos_pos.objdb
             String sql = "select matr.*  " +
                 "From " + matr.table + " matr " +
                 " " +
-                "Where matr." + matr.active + " ='1' and matr."+matr.year_id + "='"+yearid+"'";
+                "Where matr." + matr.active + " ='1' and matr." + matr.year_id + "='" + yearid + "'";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -77,9 +77,9 @@ namespace modernpos_pos.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
-        public MaterialRec selectByPk1(String copId)
+        public MaterialDraw selectByPk1(String copId)
         {
-            MaterialRec cop1 = new MaterialRec();
+            MaterialDraw cop1 = new MaterialDraw();
             DataTable dt = new DataTable();
             String sql = "select sex.* " +
                 "From " + matr.table + " sex " +
@@ -89,18 +89,18 @@ namespace modernpos_pos.objdb
             cop1 = setTMaterial(dt);
             return cop1;
         }
-        private MaterialRec setArea1(DataTable dt)
+        private MaterialDraw setArea1(DataTable dt)
         {
-            MaterialRec dept1 = new MaterialRec();
+            MaterialDraw dept1 = new MaterialDraw();
             if (dt.Rows.Count > 0)
             {
-                dept1.matr_id = dt.Rows[0][matr.matr_id].ToString();
-                dept1.matr_date = dt.Rows[0][matr.matr_date].ToString();
+                dept1.matd_id = dt.Rows[0][matr.matd_id].ToString();
+                dept1.matd_date = dt.Rows[0][matr.matd_date].ToString();
             }
 
             return dept1;
         }
-        
+
         public void getlArea()
         {
             //lDept = new List<Position>();
@@ -109,9 +109,9 @@ namespace modernpos_pos.objdb
             dt = selectAll();
             foreach (DataRow row in dt.Rows)
             {
-                MaterialRec itm1 = new MaterialRec();
-                itm1.matr_id = row[matr.matr_id].ToString();
-                itm1.matr_date = row[matr.matr_date].ToString();
+                MaterialDraw itm1 = new MaterialDraw();
+                itm1.matd_id = row[matr.matd_id].ToString();
+                itm1.matd_date = row[matr.matd_date].ToString();
 
                 lfooT.Add(itm1);
             }
@@ -120,17 +120,17 @@ namespace modernpos_pos.objdb
         {
             String re = "";
             if (lfooT.Count <= 0) getlArea();
-            foreach (MaterialRec sex in lfooT)
+            foreach (MaterialDraw sex in lfooT)
             {
-                if (sex.matr_id.Equals(id))
+                if (sex.matd_id.Equals(id))
                 {
-                    re = sex.matr_date;
+                    re = sex.matd_date;
                     break;
                 }
             }
             return re;
         }
-        private void chkNull(MaterialRec p)
+        private void chkNull(MaterialDraw p)
         {
             long chk = 0;
 
@@ -140,8 +140,8 @@ namespace modernpos_pos.objdb
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
 
-            p.matr_date = p.matr_date == null ? "" : p.matr_date;
-            p.matr_code = p.matr_code == null ? "" : p.matr_code;
+            p.matd_date = p.matd_date == null ? "" : p.matd_date;
+            p.matd_code = p.matd_code == null ? "" : p.matd_code;
 
             p.year_id = p.year_id == null ? "" : p.year_id;
             p.status_stock = p.status_stock == null ? "" : p.status_stock;
@@ -152,7 +152,7 @@ namespace modernpos_pos.objdb
             p.device_id = long.TryParse(p.device_id, out chk) ? chk.ToString() : "0";
 
         }
-        public String insert(MaterialRec p, String userId)
+        public String insert(MaterialDraw p, String userId)
         {
             String re = "";
             String sql = "";
@@ -162,8 +162,8 @@ namespace modernpos_pos.objdb
 
             chkNull(p);
             sql = "Insert Into " + matr.table + " set " +
-                " " + matr.matr_code + " = '" + p.matr_code + "'" +
-                "," + matr.matr_date + " = '" + p.matr_date.Replace("'", "''") + "'" +
+                " " + matr.matd_code + " = '" + p.matd_code + "'" +
+                "," + matr.matd_date + " = '" + p.matd_date.Replace("'", "''") + "'" +
                 "," + matr.remark + " = '" + p.remark.Replace("'", "''") + "'" +
                 "," + matr.date_create + " = now()" +
                 "," + matr.active + " = '1'" +
@@ -186,7 +186,7 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public String update(MaterialRec p, String userId)
+        public String update(MaterialDraw p, String userId)
         {
             String re = "";
             String sql = "";
@@ -194,8 +194,8 @@ namespace modernpos_pos.objdb
 
             chkNull(p);
             sql = "Update " + matr.table + " Set " +
-                " " + matr.matr_code + " = '" + p.matr_code + "'" +
-                "," + matr.matr_date + " = '" + p.matr_date.Replace("'", "''") + "'" +
+                " " + matr.matd_code + " = '" + p.matd_code + "'" +
+                "," + matr.matd_date + " = '" + p.matd_date.Replace("'", "''") + "'" +
                 "," + matr.remark + " = '" + p.remark.Replace("'", "''") + "'" +
                 "," + matr.date_modi + " = now()" +
                 "," + matr.user_modi + " = '" + userId + "' " +
@@ -204,7 +204,7 @@ namespace modernpos_pos.objdb
                 "," + matr.device_id + " = '" + p.device_id + "' " +
                 //"," + fooC.status_aircondition + " = '" + p.status_aircondition + "' " +
 
-                "Where " + matr.pkField + "='" + p.matr_id + "'"
+                "Where " + matr.pkField + "='" + p.matd_id + "'"
                 ;
 
             try
@@ -218,11 +218,11 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public String insertMatarialRec(MaterialRec p, String userId)
+        public String insertTMatarial(MaterialDraw p, String userId)
         {
             String re = "";
 
-            if (p.matr_id.Equals(""))
+            if (p.matd_id.Equals(""))
             {
                 re = insert(p, "");
             }
@@ -264,7 +264,7 @@ namespace modernpos_pos.objdb
                 "From " + matr.table + " matr " +
                 " " +
                 "Where matr." + matr.active + " ='1' " +
-                "Group By "+matr.year_id;
+                "Group By " + matr.year_id;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -306,11 +306,11 @@ namespace modernpos_pos.objdb
             c.Items.Add(item1);
             //for (int i = 0; i < dt.Rows.Count; i++)
             int i = 0;
-            foreach (MaterialRec row in lfooT)
+            foreach (MaterialDraw row in lfooT)
             {
                 item = new ComboBoxItem();
-                item.Value = row.matr_id;
-                item.Text = row.matr_date;
+                item.Value = row.matd_id;
+                item.Text = row.matd_date;
                 c.Items.Add(item);
                 if (item.Value.Equals(selected))
                 {
@@ -322,14 +322,14 @@ namespace modernpos_pos.objdb
             }
             return c;
         }
-        private MaterialRec setTMaterial(DataTable dt)
+        private MaterialDraw setTMaterial(DataTable dt)
         {
-            MaterialRec dept1 = new MaterialRec();
+            MaterialDraw dept1 = new MaterialDraw();
             if (dt.Rows.Count > 0)
             {
-                dept1.matr_id = dt.Rows[0][matr.matr_id].ToString();
-                dept1.matr_code = dt.Rows[0][matr.matr_code].ToString();
-                dept1.matr_date = dt.Rows[0][matr.matr_date].ToString();
+                dept1.matd_id = dt.Rows[0][matr.matd_id].ToString();
+                dept1.matd_code = dt.Rows[0][matr.matd_code].ToString();
+                dept1.matd_date = dt.Rows[0][matr.matd_date].ToString();
                 //dept1.posi_name_e = dt.Rows[0][area.posi_name_e] != null ? dt.Rows[0][area.posi_name_e].ToString() : "";
                 //dept1.status_doctor = dt.Rows[0][area.status_doctor] != null ? dt.Rows[0][area.status_doctor].ToString() : "";
                 dept1.remark = dt.Rows[0][matr.remark] != null ? dt.Rows[0][matr.remark].ToString() : "";
@@ -345,9 +345,9 @@ namespace modernpos_pos.objdb
             }
             else
             {
-                dept1.matr_id = "";
-                dept1.matr_code = "";
-                dept1.matr_date = "";
+                dept1.matd_id = "";
+                dept1.matd_code = "";
+                dept1.matd_date = "";
                 //posi.dept_parent_id = "dept_parent_id";
                 dept1.remark = "";
                 dept1.date_create = "";

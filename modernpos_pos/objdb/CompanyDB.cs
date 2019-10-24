@@ -76,13 +76,13 @@ namespace modernpos_pos.objdb
             cop.billing_doc = "billing_doc";
             cop.receipt_doc = "receipt_doc";
             cop.billing_cover_doc = "billing_cover_doc";
-            cop.req_doc = "req_doc";
+            cop.rec_doc = "rec_doc";
             cop.month_curr = "month_curr";
             cop.prefix_queue_1_doc = "prefix_queue_1_doc";
             cop.prefix_billing_doc = "prefix_billing_doc";
             cop.prefix_receipt_doc = "prefix_receipt_doc";
             cop.prefix_billing_cover_doc = "prefix_billing_cover_doc";
-            cop.prefix_req_doc = "prefix_req_doc";
+            cop.prefix_rec_doc = "prefix_rec_doc";
             cop.queue_1_doc = "queue_1_doc";
             cop.hn_doc = "hn_doc";
             cop.prefix_hn_doc = "prefix_hn_doc";
@@ -135,7 +135,7 @@ namespace modernpos_pos.objdb
             p.prefix_billing_doc = p.prefix_billing_doc == null ? "" : p.prefix_billing_doc;
             p.prefix_receipt_doc = p.prefix_receipt_doc == null ? "" : p.prefix_receipt_doc;
             p.prefix_billing_cover_doc = p.prefix_billing_cover_doc == null ? "" : p.prefix_billing_cover_doc;
-            p.prefix_req_doc = p.prefix_req_doc == null ? "" : p.prefix_req_doc;
+            p.prefix_rec_doc = p.prefix_rec_doc == null ? "" : p.prefix_rec_doc;
             p.queue_1_doc = p.queue_1_doc == null ? "0" : p.queue_1_doc;
             p.hn_doc = p.hn_doc == null ? "0" : p.hn_doc;
             p.prefix_hn_doc = p.prefix_hn_doc == null ? "" : p.prefix_hn_doc;
@@ -150,7 +150,7 @@ namespace modernpos_pos.objdb
             p.receipt_doc = int.TryParse(p.receipt_doc, out chk) ? chk.ToString() : "0";
             p.billing_cover_doc = int.TryParse(p.billing_cover_doc, out chk) ? chk.ToString() : "0";
             p.cash_draw_doc = int.TryParse(p.cash_draw_doc, out chk) ? chk.ToString() : "0";
-            p.req_doc = int.TryParse(p.req_doc, out chk) ? chk.ToString() : "0";
+            p.rec_doc = int.TryParse(p.rec_doc, out chk) ? chk.ToString() : "0";
             p.form_a_doc = int.TryParse(p.form_a_doc, out chk) ? chk.ToString() : "0";
         }
         public String insert(Company p, String userId)
@@ -473,7 +473,7 @@ namespace modernpos_pos.objdb
             doc = "BC" + year.Substring(year.Length - 2, 2) + doc;
             return doc;
         }
-        public String genReqDoc()
+        public String genMatRecDoc()
         {
             String doc = "", year = "", sql = "";
             Company cop1 = new Company();
@@ -483,7 +483,7 @@ namespace modernpos_pos.objdb
             {
                 sql = "Update " + cop.table + " Set " +
                     " " + cop.year_curr + "='" + year + "' " +
-                    "," + cop.req_doc + "=1 " +
+                    "," + cop.rec_doc + "=1 " +
                     "Where " + cop.pkField + "='" + cop1.comp_id + "'";
                 conn.ExecuteNonQuery(conn.conn, sql);
                 doc = "00001";
@@ -491,7 +491,7 @@ namespace modernpos_pos.objdb
             else
             {
                 int chk = 0;
-                if (int.TryParse(cop1.req_doc, out chk))
+                if (int.TryParse(cop1.rec_doc, out chk))
                 {
                     chk++;
                     doc = "00000" + chk;
@@ -499,12 +499,12 @@ namespace modernpos_pos.objdb
                     year = cop1.year_curr;
 
                     sql = "Update " + cop.table + " Set " +
-                    "" + cop.req_doc + "=" + chk +
+                    "" + cop.rec_doc + "=" + chk +
                     " Where " + cop.pkField + "='" + cop1.comp_id + "'";
                     conn.ExecuteNonQuery(conn.conn, sql);
                 }
             }
-            doc = cop1.prefix_req_doc + year.Substring(year.Length - 2, 2) + doc;
+            doc = cop1.prefix_rec_doc + year.Substring(year.Length - 2, 2) + doc;
             return doc;
         }
         public String genOPUDoc()
@@ -779,13 +779,13 @@ namespace modernpos_pos.objdb
                 cop1.billing_doc = dt.Rows[0][cop.billing_doc].ToString();
                 cop1.receipt_doc = dt.Rows[0][cop.receipt_doc].ToString();
                 cop1.billing_cover_doc = dt.Rows[0][cop.billing_cover_doc].ToString();
-                cop1.req_doc = dt.Rows[0][cop.req_doc].ToString();
+                cop1.rec_doc = dt.Rows[0][cop.rec_doc].ToString();
                 cop1.month_curr = dt.Rows[0][cop.month_curr].ToString();
                 cop1.prefix_queue_1_doc = dt.Rows[0][cop.prefix_queue_1_doc].ToString();
                 cop1.prefix_billing_doc = dt.Rows[0][cop.prefix_billing_doc].ToString();
                 cop1.prefix_receipt_doc = dt.Rows[0][cop.prefix_receipt_doc].ToString();
                 cop1.prefix_billing_cover_doc = dt.Rows[0][cop.prefix_billing_cover_doc].ToString();
-                cop1.prefix_req_doc = dt.Rows[0][cop.prefix_req_doc].ToString();
+                cop1.prefix_rec_doc = dt.Rows[0][cop.prefix_rec_doc].ToString();
                 cop1.queue_1_doc = dt.Rows[0][cop.queue_1_doc].ToString();
                 cop1.hn_doc = dt.Rows[0][cop.hn_doc].ToString();
                 cop1.prefix_hn_doc = dt.Rows[0][cop.prefix_hn_doc].ToString();
@@ -860,13 +860,13 @@ namespace modernpos_pos.objdb
                 cop1.billing_doc = "";
                 cop1.receipt_doc = "";
                 cop1.billing_cover_doc = "";
-                cop1.req_doc = "";
+                cop1.rec_doc = "";
                 cop1.month_curr = "";
                 cop1.prefix_queue_1_doc = "";
                 cop1.prefix_billing_doc = "";
                 cop1.prefix_receipt_doc = "";
                 cop1.prefix_billing_cover_doc = "";
-                cop1.prefix_req_doc = "";
+                cop1.prefix_rec_doc = "";
                 cop1.queue_1_doc = "";
                 cop1.hn_doc = "";
                 cop1.prefix_hn_doc = "";

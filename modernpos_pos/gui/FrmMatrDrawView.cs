@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace modernpos_pos.gui
 {
-    public partial class FrmMatrView : Form
+    public partial class FrmMatrDrawView : Form
     {
         mPOSControl mposC;
         Font fEdit, fEditB;
@@ -26,7 +26,7 @@ namespace modernpos_pos.gui
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
         int colID = 1, colcode = 2, colDate = 3, colRemark = 4, colEdit = 5;
-        public FrmMatrView(mPOSControl x)
+        public FrmMatrDrawView(mPOSControl x)
         {
             InitializeComponent();
             mposC = x;
@@ -58,10 +58,11 @@ namespace modernpos_pos.gui
         private void BtnNew_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmMatrAdd frm = new FrmMatrAdd(mposC, "");
+            FrmMatrRecAdd frm = new FrmMatrRecAdd(mposC, "");
             frm.StartPosition = FormStartPosition.CenterScreen;
             this.Hide();
             frm.ShowDialog(this);
+            setGrfMatr();
             this.Show();
         }
 
@@ -93,7 +94,7 @@ namespace modernpos_pos.gui
             if (grfMatr.Col <= 0) return;
             String id = "";
             id = grfMatr[grfMatr.Row, colID].ToString();
-            FrmMatrAdd frm = new FrmMatrAdd(mposC, id);
+            FrmMatrRecAdd frm = new FrmMatrRecAdd(mposC, id);
             frm.StartPosition = FormStartPosition.CenterScreen;
             this.Hide();
             frm.ShowDialog(this);
@@ -136,7 +137,7 @@ namespace modernpos_pos.gui
             grfMatr.Cols[colDate].AllowEditing = false;
             grfMatr.Cols[colRemark].AllowEditing = false;
         }
-        private void FrmMatrView_Load(object sender, EventArgs e)
+        private void FrmMatrDrawView_Load(object sender, EventArgs e)
         {
 
         }

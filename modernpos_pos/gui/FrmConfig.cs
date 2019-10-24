@@ -44,14 +44,25 @@ namespace modernpos_pos.gui
             btnFooMaterial.Click += BtnFooMaterial_Click;
             btnMaterialType.Click += BtnMaterialType_Click;
             btnUnit.Click += BtnUnit_Click;
-            btnRecMatr.Click += BtnRecMatr_Click;
+            btnMatrRec.Click += BtnRecMatr_Click;
+            btnMatrDraw.Click += BtnMatrDraw_Click;
             this.FormClosed += FrmConfig_FormClosed;
+        }
+
+        private void BtnMatrDraw_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmMatrDrawView frm = new FrmMatrDrawView(mposC);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
+            frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtnRecMatr_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmMatrView frm = new FrmMatrView(mposC);
+            FrmMatrRecView frm = new FrmMatrRecView(mposC);
             frm.StartPosition = FormStartPosition.CenterScreen;
             this.Hide();
             frm.ShowDialog(this);
