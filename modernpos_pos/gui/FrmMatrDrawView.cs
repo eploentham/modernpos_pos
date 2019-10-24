@@ -22,7 +22,7 @@ namespace modernpos_pos.gui
         Color bg, fc;
         Font ff, ffB;
 
-        C1FlexGrid grfMatr;
+        C1FlexGrid grfMatd;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
         int colID = 1, colcode = 2, colDate = 3, colRemark = 4, colEdit = 5;
@@ -46,7 +46,7 @@ namespace modernpos_pos.gui
             {
                 theme1.SetTheme(c, mposC.iniC.themeApplication);
             }
-            mposC.mposDB.matrDB.setCboYear(cboYear);
+            mposC.mposDB.matdDB.setCboYear(cboYear);
 
             btnNew.Click += BtnNew_Click;
 
@@ -58,7 +58,7 @@ namespace modernpos_pos.gui
         private void BtnNew_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmMatrRecAdd frm = new FrmMatrRecAdd(mposC, "");
+            FrmMatrDrawAdd frm = new FrmMatrDrawAdd(mposC, "");
             frm.StartPosition = FormStartPosition.CenterScreen;
             this.Hide();
             frm.ShowDialog(this);
@@ -68,33 +68,33 @@ namespace modernpos_pos.gui
 
         private void initGrfMatr()
         {
-            grfMatr = new C1FlexGrid();
-            grfMatr.Font = fEdit;
-            grfMatr.Dock = System.Windows.Forms.DockStyle.Fill;
-            grfMatr.Location = new System.Drawing.Point(0, 0);
+            grfMatd = new C1FlexGrid();
+            grfMatd.Font = fEdit;
+            grfMatd.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfMatd.Location = new System.Drawing.Point(0, 0);
 
             //FilterRow fr = new FilterRow(grfPosi);
 
             //grfMatr.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfPosi_AfterRowColChange);
             //grfMatr.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
-            grfMatr.DoubleClick += GrfMatr_DoubleClick;
+            grfMatd.DoubleClick += GrfMatd_DoubleClick;
 
-            panel2.Controls.Add(this.grfMatr);
+            panel2.Controls.Add(this.grfMatd);
 
             //setControl();
 
             C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
-            C1ThemeController.ApplyThemeToObject(grfMatr, theme);
+            C1ThemeController.ApplyThemeToObject(grfMatd, theme);
         }
 
-        private void GrfMatr_DoubleClick(object sender, EventArgs e)
+        private void GrfMatd_DoubleClick(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            if (grfMatr.Row <= 0) return;
-            if (grfMatr.Col <= 0) return;
+            if (grfMatd.Row <= 0) return;
+            if (grfMatd.Col <= 0) return;
             String id = "";
-            id = grfMatr[grfMatr.Row, colID].ToString();
-            FrmMatrRecAdd frm = new FrmMatrRecAdd(mposC, id);
+            id = grfMatd[grfMatd.Row, colID].ToString();
+            FrmMatrDrawAdd frm = new FrmMatrDrawAdd(mposC, id);
             frm.StartPosition = FormStartPosition.CenterScreen;
             this.Hide();
             frm.ShowDialog(this);
@@ -103,39 +103,39 @@ namespace modernpos_pos.gui
         private void setGrfMatr()
         {
             DataTable dt = new DataTable();
-            dt = mposC.mposDB.matrDB.selectByYearId(cboYear.Text);
+            dt = mposC.mposDB.matdDB.selectByYearId(cboYear.Text);
 
-            grfMatr.Rows.Count = 1;
-            grfMatr.Cols.Count = 6;
-            grfMatr.Cols[colcode].Width = 60;
-            grfMatr.Cols[colDate].Width = 60;
-            grfMatr.Cols[colRemark].Width = 60;
-            grfMatr.Cols[colcode].Caption = "รายการ";
-            grfMatr.Cols[colDate].Caption = "ราคา";
-            grfMatr.Cols[colRemark].Caption = "จำนวน";
+            grfMatd.Rows.Count = 1;
+            grfMatd.Cols.Count = 6;
+            grfMatd.Cols[colcode].Width = 60;
+            grfMatd.Cols[colDate].Width = 60;
+            grfMatd.Cols[colRemark].Width = 60;
+            grfMatd.Cols[colcode].Caption = "รายการ";
+            grfMatd.Cols[colDate].Caption = "ราคา";
+            grfMatd.Cols[colRemark].Caption = "จำนวน";
             //grfMatr.Cols[colName].Editor = cboMethod;
 
-            grfMatr.ShowCursor = true;
-            if (dt.Rows.Count == 0) grfMatr.Rows.Count = 2;
+            grfMatd.ShowCursor = true;
+            if (dt.Rows.Count == 0) grfMatd.Rows.Count = 2;
             int i = 0;
             foreach (DataRow row in dt.Rows)
             {
                 i++;
-                Row row1 = grfMatr.Rows.Add();
+                Row row1 = grfMatd.Rows.Add();
                 row1[0] = i;
-                row1[colID] = row[mposC.mposDB.matrDB.matr.matr_id].ToString();
-                row1[colcode] = row[mposC.mposDB.matrDB.matr.matr_code].ToString();
-                row1[colDate] = mposC.datetoShow(row[mposC.mposDB.matrDB.matr.matr_date].ToString());
-                row1[colRemark] = row[mposC.mposDB.matrDB.matr.remark].ToString();
+                row1[colID] = row[mposC.mposDB.matdDB.matd.matd_id].ToString();
+                row1[colcode] = row[mposC.mposDB.matdDB.matd.matd_code].ToString();
+                row1[colDate] = mposC.datetoShow(row[mposC.mposDB.matdDB.matd.matd_date].ToString());
+                row1[colRemark] = row[mposC.mposDB.matdDB.matd.remark].ToString();
                 row1[colEdit] = "0";
                 if (i % 2 == 0)
                     row1.StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
-            grfMatr.Cols[colID].Visible = false;
-            grfMatr.Cols[colEdit].Visible = false;
-            grfMatr.Cols[colcode].AllowEditing = false;
-            grfMatr.Cols[colDate].AllowEditing = false;
-            grfMatr.Cols[colRemark].AllowEditing = false;
+            grfMatd.Cols[colID].Visible = false;
+            grfMatd.Cols[colEdit].Visible = false;
+            grfMatd.Cols[colcode].AllowEditing = false;
+            grfMatd.Cols[colDate].AllowEditing = false;
+            grfMatd.Cols[colRemark].AllowEditing = false;
         }
         private void FrmMatrDrawView_Load(object sender, EventArgs e)
         {

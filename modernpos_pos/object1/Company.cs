@@ -64,8 +64,8 @@ namespace modernpos_pos.object1
         public String prefix_billing_cover_doc { get; set; }
         public String prefix_rec_doc { get; set; }
         public String queue_1_doc { get; set; }
-        public String hn_doc { get; set; }
-        public String prefix_hn_doc { get; set; }
+        public String draw_doc { get; set; }
+        public String prefix_draw_doc { get; set; }
         public String vn_doc { get; set; }
         public String prefix_vn_doc { get; set; }
         public String queue_doc { get; set; }

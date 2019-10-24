@@ -11,7 +11,7 @@ namespace modernpos_pos.objdb
 {
     public class MaterialDrawDB
     {
-        public MaterialDraw matr;
+        public MaterialDraw matd;
         ConnectDB conn;
         public List<MaterialDraw> lfooT;
         public MaterialDrawDB(ConnectDB c)
@@ -22,36 +22,36 @@ namespace modernpos_pos.objdb
         private void initConfig()
         {
             lfooT = new List<MaterialDraw>();
-            matr = new MaterialDraw();
-            matr.matd_id = "matd_id";
-            matr.matd_code = "matd_code";
-            matr.matd_date = "matd_date";
-            matr.active = "active";
-            matr.remark = "remark";
-            matr.sort1 = "sort1";
-            matr.date_cancel = "date_cancel";
-            matr.date_create = "date_create";
-            matr.date_modi = "date_modi";
-            matr.user_cancel = "user_cancel";
-            matr.user_create = "user_create";
-            matr.user_modi = "user_modi";
-            matr.host_id = "host_id";
-            matr.branch_id = "branch_id";
-            matr.device_id = "device_id";
-            matr.year_id = "year_id";
-            matr.status_stock_year = "status_stock_year";
-            matr.status_stock = "status_stock";
+            matd = new MaterialDraw();
+            matd.matd_id = "matd_id";
+            matd.matd_code = "matd_code";
+            matd.matd_date = "matd_date";
+            matd.active = "active";
+            matd.remark = "remark";
+            matd.sort1 = "sort1";
+            matd.date_cancel = "date_cancel";
+            matd.date_create = "date_create";
+            matd.date_modi = "date_modi";
+            matd.user_cancel = "user_cancel";
+            matd.user_create = "user_create";
+            matd.user_modi = "user_modi";
+            matd.host_id = "host_id";
+            matd.branch_id = "branch_id";
+            matd.device_id = "device_id";
+            matd.year_id = "year_id";
+            matd.status_stock_year = "status_stock_year";
+            matd.status_stock = "status_stock";
 
-            matr.pkField = "matd_id";
-            matr.table = "t_material_draw";
+            matd.pkField = "matd_id";
+            matd.table = "t_material_draw";
         }
         public DataTable selectByYearId(String yearid)
         {
             DataTable dt = new DataTable();
             String sql = "select matr.*  " +
-                "From " + matr.table + " matr " +
+                "From " + matd.table + " matr " +
                 " " +
-                "Where matr." + matr.active + " ='1' and matr." + matr.year_id + "='" + yearid + "'";
+                "Where matr." + matd.active + " ='1' and matr." + matd.year_id + "='" + yearid + "'";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -60,9 +60,9 @@ namespace modernpos_pos.objdb
         {
             DataTable dt = new DataTable();
             String sql = "select matr.*  " +
-                "From " + matr.table + " matr " +
+                "From " + matd.table + " matr " +
                 " " +
-                "Where matr." + matr.active + " ='1' ";
+                "Where matr." + matd.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -71,9 +71,9 @@ namespace modernpos_pos.objdb
         {
             DataTable dt = new DataTable();
             String sql = "select sex.* " +
-                "From " + matr.table + " sex " +
+                "From " + matd.table + " sex " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where sex." + matr.pkField + " ='" + copId + "' ";
+                "Where sex." + matd.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -82,9 +82,9 @@ namespace modernpos_pos.objdb
             MaterialDraw cop1 = new MaterialDraw();
             DataTable dt = new DataTable();
             String sql = "select sex.* " +
-                "From " + matr.table + " sex " +
+                "From " + matd.table + " sex " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where sex." + matr.pkField + " ='" + copId + "' ";
+                "Where sex." + matd.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setTMaterial(dt);
             return cop1;
@@ -94,8 +94,8 @@ namespace modernpos_pos.objdb
             MaterialDraw dept1 = new MaterialDraw();
             if (dt.Rows.Count > 0)
             {
-                dept1.matd_id = dt.Rows[0][matr.matd_id].ToString();
-                dept1.matd_date = dt.Rows[0][matr.matd_date].ToString();
+                dept1.matd_id = dt.Rows[0][matd.matd_id].ToString();
+                dept1.matd_date = dt.Rows[0][matd.matd_date].ToString();
             }
 
             return dept1;
@@ -110,8 +110,8 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 MaterialDraw itm1 = new MaterialDraw();
-                itm1.matd_id = row[matr.matd_id].ToString();
-                itm1.matd_date = row[matr.matd_date].ToString();
+                itm1.matd_id = row[matd.matd_id].ToString();
+                itm1.matd_date = row[matd.matd_date].ToString();
 
                 lfooT.Add(itm1);
             }
@@ -161,19 +161,19 @@ namespace modernpos_pos.objdb
             int chk = 0;
 
             chkNull(p);
-            sql = "Insert Into " + matr.table + " set " +
-                " " + matr.matd_code + " = '" + p.matd_code + "'" +
-                "," + matr.matd_date + " = '" + p.matd_date.Replace("'", "''") + "'" +
-                "," + matr.remark + " = '" + p.remark.Replace("'", "''") + "'" +
-                "," + matr.date_create + " = now()" +
-                "," + matr.active + " = '1'" +
-                "," + matr.user_create + " = '" + userId + "' " +
-                "," + matr.host_id + " = '" + p.host_id + "' " +
-                "," + matr.branch_id + " = '" + p.branch_id + "' " +
-                "," + matr.device_id + " = '" + p.device_id + "' " +
-                "," + matr.year_id + " = year(now()) " +
-                "," + matr.status_stock + " = '" + p.status_stock + "' " +
-                "," + matr.status_stock_year + " = '" + p.status_stock_year + "' " +
+            sql = "Insert Into " + matd.table + " set " +
+                " " + matd.matd_code + " = '" + p.matd_code + "'" +
+                "," + matd.matd_date + " = '" + p.matd_date.Replace("'", "''") + "'" +
+                "," + matd.remark + " = '" + p.remark.Replace("'", "''") + "'" +
+                "," + matd.date_create + " = now()" +
+                "," + matd.active + " = '1'" +
+                "," + matd.user_create + " = '" + userId + "' " +
+                "," + matd.host_id + " = '" + p.host_id + "' " +
+                "," + matd.branch_id + " = '" + p.branch_id + "' " +
+                "," + matd.device_id + " = '" + p.device_id + "' " +
+                "," + matd.year_id + " = year(now()) " +
+                "," + matd.status_stock + " = '" + p.status_stock + "' " +
+                "," + matd.status_stock_year + " = '" + p.status_stock_year + "' " +
                 " ";
             try
             {
@@ -193,18 +193,18 @@ namespace modernpos_pos.objdb
             int chk = 0;
 
             chkNull(p);
-            sql = "Update " + matr.table + " Set " +
-                " " + matr.matd_code + " = '" + p.matd_code + "'" +
-                "," + matr.matd_date + " = '" + p.matd_date.Replace("'", "''") + "'" +
-                "," + matr.remark + " = '" + p.remark.Replace("'", "''") + "'" +
-                "," + matr.date_modi + " = now()" +
-                "," + matr.user_modi + " = '" + userId + "' " +
-                "," + matr.host_id + " = '" + p.host_id + "' " +
-                "," + matr.branch_id + " = '" + p.branch_id + "' " +
-                "," + matr.device_id + " = '" + p.device_id + "' " +
+            sql = "Update " + matd.table + " Set " +
+                " " + matd.matd_code + " = '" + p.matd_code + "'" +
+                "," + matd.matd_date + " = '" + p.matd_date.Replace("'", "''") + "'" +
+                "," + matd.remark + " = '" + p.remark.Replace("'", "''") + "'" +
+                "," + matd.date_modi + " = now()" +
+                "," + matd.user_modi + " = '" + userId + "' " +
+                "," + matd.host_id + " = '" + p.host_id + "' " +
+                "," + matd.branch_id + " = '" + p.branch_id + "' " +
+                "," + matd.device_id + " = '" + p.device_id + "' " +
                 //"," + fooC.status_aircondition + " = '" + p.status_aircondition + "' " +
 
-                "Where " + matr.pkField + "='" + p.matd_id + "'"
+                "Where " + matd.pkField + "='" + p.matd_id + "'"
                 ;
 
             try
@@ -218,7 +218,7 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public String insertTMatarial(MaterialDraw p, String userId)
+        public String insertMatrDraw(MaterialDraw p, String userId)
         {
             String re = "";
 
@@ -240,11 +240,11 @@ namespace modernpos_pos.objdb
             int chk = 0;
 
             //chkNull(p);
-            sql = "Update " + matr.table + " Set " +
-                " " + matr.active + " = '3'" +
-                "," + matr.date_cancel + " = now()" +
-                "," + matr.user_cancel + " = '" + userId + "' " +
-                "Where " + matr.pkField + "='" + matrid + "'"
+            sql = "Update " + matd.table + " Set " +
+                " " + matd.active + " = '3'" +
+                "," + matd.date_cancel + " = now()" +
+                "," + matd.user_cancel + " = '" + userId + "' " +
+                "Where " + matd.pkField + "='" + matrid + "'"
                 ;
             try
             {
@@ -260,11 +260,11 @@ namespace modernpos_pos.objdb
         public DataTable selectYear()
         {
             DataTable dt = new DataTable();
-            String sql = "select matr." + matr.year_id + " " +
-                "From " + matr.table + " matr " +
+            String sql = "select matr." + matd.year_id + " " +
+                "From " + matd.table + " matr " +
                 " " +
-                "Where matr." + matr.active + " ='1' " +
-                "Group By " + matr.year_id;
+                "Where matr." + matd.active + " ='1' " +
+                "Group By " + matd.year_id;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -283,8 +283,8 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 item = new ComboBoxItem();
-                item.Text = row[matr.year_id].ToString();
-                item.Value = row[matr.year_id].ToString();
+                item.Text = row[matd.year_id].ToString();
+                item.Value = row[matd.year_id].ToString();
 
                 c.Items.Add(item);
             }
@@ -327,21 +327,21 @@ namespace modernpos_pos.objdb
             MaterialDraw dept1 = new MaterialDraw();
             if (dt.Rows.Count > 0)
             {
-                dept1.matd_id = dt.Rows[0][matr.matd_id].ToString();
-                dept1.matd_code = dt.Rows[0][matr.matd_code].ToString();
-                dept1.matd_date = dt.Rows[0][matr.matd_date].ToString();
+                dept1.matd_id = dt.Rows[0][matd.matd_id].ToString();
+                dept1.matd_code = dt.Rows[0][matd.matd_code].ToString();
+                dept1.matd_date = dt.Rows[0][matd.matd_date].ToString();
                 //dept1.posi_name_e = dt.Rows[0][area.posi_name_e] != null ? dt.Rows[0][area.posi_name_e].ToString() : "";
                 //dept1.status_doctor = dt.Rows[0][area.status_doctor] != null ? dt.Rows[0][area.status_doctor].ToString() : "";
-                dept1.remark = dt.Rows[0][matr.remark] != null ? dt.Rows[0][matr.remark].ToString() : "";
-                dept1.date_create = dt.Rows[0][matr.date_create] != null ? dt.Rows[0][matr.date_create].ToString() : "";
-                dept1.date_modi = dt.Rows[0][matr.date_modi] != null ? dt.Rows[0][matr.date_modi].ToString() : "";
-                dept1.date_cancel = dt.Rows[0][matr.date_cancel] != null ? dt.Rows[0][matr.date_cancel].ToString() : "";
-                dept1.user_create = dt.Rows[0][matr.user_create] != null ? dt.Rows[0][matr.user_create].ToString() : "";
-                dept1.user_modi = dt.Rows[0][matr.user_modi] != null ? dt.Rows[0][matr.user_modi].ToString() : "";
-                dept1.user_cancel = dt.Rows[0][matr.user_cancel] != null ? dt.Rows[0][matr.user_cancel].ToString() : "";
-                dept1.active = dt.Rows[0][matr.active] != null ? dt.Rows[0][matr.active].ToString() : "";
-                dept1.status_stock = dt.Rows[0][matr.status_stock] != null ? dt.Rows[0][matr.status_stock].ToString() : "";
-                dept1.status_stock_year = dt.Rows[0][matr.status_stock_year] != null ? dt.Rows[0][matr.status_stock_year].ToString() : "";
+                dept1.remark = dt.Rows[0][matd.remark] != null ? dt.Rows[0][matd.remark].ToString() : "";
+                dept1.date_create = dt.Rows[0][matd.date_create] != null ? dt.Rows[0][matd.date_create].ToString() : "";
+                dept1.date_modi = dt.Rows[0][matd.date_modi] != null ? dt.Rows[0][matd.date_modi].ToString() : "";
+                dept1.date_cancel = dt.Rows[0][matd.date_cancel] != null ? dt.Rows[0][matd.date_cancel].ToString() : "";
+                dept1.user_create = dt.Rows[0][matd.user_create] != null ? dt.Rows[0][matd.user_create].ToString() : "";
+                dept1.user_modi = dt.Rows[0][matd.user_modi] != null ? dt.Rows[0][matd.user_modi].ToString() : "";
+                dept1.user_cancel = dt.Rows[0][matd.user_cancel] != null ? dt.Rows[0][matd.user_cancel].ToString() : "";
+                dept1.active = dt.Rows[0][matd.active] != null ? dt.Rows[0][matd.active].ToString() : "";
+                dept1.status_stock = dt.Rows[0][matd.status_stock] != null ? dt.Rows[0][matd.status_stock].ToString() : "";
+                dept1.status_stock_year = dt.Rows[0][matd.status_stock_year] != null ? dt.Rows[0][matd.status_stock_year].ToString() : "";
             }
             else
             {

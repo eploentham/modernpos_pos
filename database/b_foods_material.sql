@@ -231,3 +231,8 @@ CREATE TABLE `t_material_draw` (
   PRIMARY KEY (`matd_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1470000005 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=147';
 
+
+ALTER TABLE `modern_pos`.`b_company` 
+CHANGE COLUMN `hn_doc` `draw_doc` INT(11) NULL DEFAULT NULL COMMENT 'หน้าจอ การเงิน เคลีย์เงินสด' ,
+CHANGE COLUMN `prefix_hn_doc` `prefix_draw_doc` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ;
+

@@ -324,6 +324,7 @@
             this.Controls.Add(this.sB);
             this.Name = "FrmMatrDrawAdd";
             this.Text = "FrmMatrDrawAdd";
+            this.Load += new System.EventHandler(this.FrmMatrDrawAdd_Load);
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();

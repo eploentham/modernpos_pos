@@ -84,8 +84,8 @@ namespace modernpos_pos.objdb
             cop.prefix_billing_cover_doc = "prefix_billing_cover_doc";
             cop.prefix_rec_doc = "prefix_rec_doc";
             cop.queue_1_doc = "queue_1_doc";
-            cop.hn_doc = "hn_doc";
-            cop.prefix_hn_doc = "prefix_hn_doc";
+            cop.draw_doc = "draw_doc";
+            cop.prefix_draw_doc = "prefix_draw_doc";
             cop.vn_doc = "vn_doc";
             cop.prefix_vn_doc = "prefix_vn_doc";
             cop.queue_doc = "queue_doc";
@@ -137,8 +137,8 @@ namespace modernpos_pos.objdb
             p.prefix_billing_cover_doc = p.prefix_billing_cover_doc == null ? "" : p.prefix_billing_cover_doc;
             p.prefix_rec_doc = p.prefix_rec_doc == null ? "" : p.prefix_rec_doc;
             p.queue_1_doc = p.queue_1_doc == null ? "0" : p.queue_1_doc;
-            p.hn_doc = p.hn_doc == null ? "0" : p.hn_doc;
-            p.prefix_hn_doc = p.prefix_hn_doc == null ? "" : p.prefix_hn_doc;
+            p.draw_doc = p.draw_doc == null ? "0" : p.draw_doc;
+            p.prefix_draw_doc = p.prefix_draw_doc == null ? "" : p.prefix_draw_doc;
             p.vn_doc = p.vn_doc == null ? "0" : p.vn_doc;
             p.prefix_vn_doc = p.prefix_vn_doc == null ? "" : p.prefix_vn_doc;
             p.queue_doc = p.queue_doc == null ? "0" : p.queue_doc;
@@ -473,6 +473,40 @@ namespace modernpos_pos.objdb
             doc = "BC" + year.Substring(year.Length - 2, 2) + doc;
             return doc;
         }
+        public String genMatDrawDoc()
+        {
+            String doc = "", year = "", sql = "";
+            Company cop1 = new Company();
+            cop1 = selectByCode1("001");
+            year = DateTime.Now.ToString("yyyy");
+            if (!year.Equals(cop1.year_curr))
+            {
+                sql = "Update " + cop.table + " Set " +
+                    " " + cop.year_curr + "='" + year + "' " +
+                    "," + cop.draw_doc + "=1 " +
+                    "Where " + cop.pkField + "='" + cop1.comp_id + "'";
+                conn.ExecuteNonQuery(conn.conn, sql);
+                doc = "00001";
+            }
+            else
+            {
+                int chk = 0;
+                if (int.TryParse(cop1.draw_doc, out chk))
+                {
+                    chk++;
+                    doc = "00000" + chk;
+                    doc = doc.Substring(doc.Length - 5, 5);
+                    year = cop1.year_curr;
+
+                    sql = "Update " + cop.table + " Set " +
+                    "" + cop.draw_doc + "=" + chk +
+                    " Where " + cop.pkField + "='" + cop1.comp_id + "'";
+                    conn.ExecuteNonQuery(conn.conn, sql);
+                }
+            }
+            doc = cop1.prefix_draw_doc + year.Substring(year.Length - 2, 2) + doc;
+            return doc;
+        }
         public String genMatRecDoc()
         {
             String doc = "", year = "", sql = "";
@@ -551,14 +585,14 @@ namespace modernpos_pos.objdb
             {
                 sql = "Update " + cop.table + " Set " +
                     " " + cop.year_curr + "='" + year + "' " +
-                    "," + cop.hn_doc + "=1 " +
+                    "," + cop.draw_doc + "=1 " +
                     "Where " + cop.pkField + "='" + cop1.comp_id + "'";
                 conn.ExecuteNonQuery(conn.conn, sql);
                 //doc = "00001";
             }
             
             int chk = 0;
-            if (int.TryParse(cop1.hn_doc, out chk))
+            if (int.TryParse(cop1.draw_doc, out chk))
             {
                 chk++;
                 doc = "00000" + chk;
@@ -566,12 +600,12 @@ namespace modernpos_pos.objdb
                 year = cop1.year_curr;
 
                 sql = "Update " + cop.table + " Set " +
-                "" + cop.hn_doc + "=" + chk +
+                "" + cop.draw_doc + "=" + chk +
                 " Where " + cop.pkField + "='" + cop1.comp_id + "'";
                 conn.ExecuteNonQuery(conn.conn, sql);
             }
             year = String.Concat(DateTime.Now.Year +543);
-            doc = cop1.prefix_hn_doc + year.Substring(year.Length - 2, 2) + doc;
+            doc = cop1.prefix_draw_doc + year.Substring(year.Length - 2, 2) + doc;
             return doc;
         }
         public String genVNDoc()
@@ -787,8 +821,8 @@ namespace modernpos_pos.objdb
                 cop1.prefix_billing_cover_doc = dt.Rows[0][cop.prefix_billing_cover_doc].ToString();
                 cop1.prefix_rec_doc = dt.Rows[0][cop.prefix_rec_doc].ToString();
                 cop1.queue_1_doc = dt.Rows[0][cop.queue_1_doc].ToString();
-                cop1.hn_doc = dt.Rows[0][cop.hn_doc].ToString();
-                cop1.prefix_hn_doc = dt.Rows[0][cop.prefix_hn_doc].ToString();
+                cop1.draw_doc = dt.Rows[0][cop.draw_doc].ToString();
+                cop1.prefix_draw_doc = dt.Rows[0][cop.prefix_draw_doc].ToString();
                 cop1.vn_doc = dt.Rows[0][cop.vn_doc].ToString();
                 cop1.prefix_vn_doc = dt.Rows[0][cop.prefix_vn_doc].ToString();
                 cop1.queue_doc = dt.Rows[0][cop.queue_doc].ToString();
@@ -868,8 +902,8 @@ namespace modernpos_pos.objdb
                 cop1.prefix_billing_cover_doc = "";
                 cop1.prefix_rec_doc = "";
                 cop1.queue_1_doc = "";
-                cop1.hn_doc = "";
-                cop1.prefix_hn_doc = "";
+                cop1.draw_doc = "";
+                cop1.prefix_draw_doc = "";
                 cop1.vn_doc = "";
                 cop1.prefix_vn_doc = "";
                 cop1.queue_doc = "";
