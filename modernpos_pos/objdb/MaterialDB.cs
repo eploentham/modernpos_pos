@@ -1,5 +1,6 @@
 ﻿using C1.Win.C1Input;
 using modernpos_pos.object1;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -44,6 +45,7 @@ namespace modernpos_pos.objdb
             mat.material_type_id = "material_type_id";
             mat.unit_id = "unit_id";
             mat.unit_cal_id = "unit_cal_id";
+            mat.on_hand = "onhand";
 
             mat.pkField = "material_id";
             mat.table = "b_material";
@@ -219,6 +221,7 @@ namespace modernpos_pos.objdb
 
             p.price = Decimal.TryParse(p.price, out chk1) ? chk1.ToString() : "0";
             p.weight = Decimal.TryParse(p.weight, out chk1) ? chk1.ToString() : "0";
+            p.on_hand = Decimal.TryParse(p.on_hand, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(Material p, String userId)
         {
@@ -244,7 +247,7 @@ namespace modernpos_pos.objdb
                 "," + mat.material_code + " = '" + p.material_code + "' " +
                 "," + mat.sort1 + " = '" + p.sort1 + "' " +
                 "," + mat.unit_id + " = '" + p.unit_id + "' " +
-                "," + mat.unit_cal_id + " = '" + p.unit_cal_id + "' " +
+                "," + mat.unit_cal_id + " = '" + p.unit_cal_id + "' " +                
                 " ";
             try
             {
@@ -306,6 +309,66 @@ namespace modernpos_pos.objdb
                 re = update(p, "");
             }
 
+            return re;
+        }
+        public String genMaterialDraw(String matrid)
+        {
+            String re = "", sql = "";
+            //DataTable dt = new DataTable();
+
+            //sql = "UPDATE sequence SET lot_id=LAST_INSERT_ID("+seq.lot_id+"+1);";
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("gen_onhand_material_draw", conn.conn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add(new MySqlParameter("?drawid", MySqlDbType.Int32));
+                cmd.Parameters.Add(new MySqlParameter("?ret", MySqlDbType.VarChar));
+                cmd.Parameters["?drawid"].Direction = ParameterDirection.Input;
+                cmd.Parameters["?drawid"].Value = matrid;
+                cmd.Parameters["?ret"].Direction = ParameterDirection.Output;
+                conn.conn.Open();
+                cmd.ExecuteNonQuery();
+                re = (string)cmd.Parameters["?ret"].Value;
+
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+            finally
+            {
+                conn.conn.Close();
+            }
+            return re;
+        }
+        public String genMaterialRec(String matrid)
+        {
+            String re = "", sql = "";
+            //DataTable dt = new DataTable();
+
+            //sql = "UPDATE sequence SET lot_id=LAST_INSERT_ID("+seq.lot_id+"+1);";
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("gen_onhand_material_rec", conn.conn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add(new MySqlParameter("?recid", MySqlDbType.Int32));
+                cmd.Parameters.Add(new MySqlParameter("?ret", MySqlDbType.VarChar));
+                cmd.Parameters["?recid"].Direction = ParameterDirection.Input;
+                cmd.Parameters["?recid"].Value = matrid;
+                cmd.Parameters["?ret"].Direction = ParameterDirection.Output;
+                conn.conn.Open();
+                cmd.ExecuteNonQuery();
+                re = (string)cmd.Parameters["?ret"].Value;
+
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+            finally
+            {
+                conn.conn.Close();
+            }
             return re;
         }
         public String voidMeterial(String foosid, String userId)
@@ -403,6 +466,7 @@ namespace modernpos_pos.objdb
                 dept1.material_type_id = dt.Rows[0][mat.material_type_id] != null ? dt.Rows[0][mat.material_type_id].ToString() : "";
                 dept1.unit_cal_id = dt.Rows[0][mat.unit_cal_id] != null ? dt.Rows[0][mat.unit_cal_id].ToString() : "";
                 dept1.unit_id = dt.Rows[0][mat.unit_id] != null ? dt.Rows[0][mat.unit_id].ToString() : "";
+                dept1.on_hand = dt.Rows[0][mat.on_hand] != null ? dt.Rows[0][mat.on_hand].ToString() : "";
             }
             else
             {
@@ -424,6 +488,7 @@ namespace modernpos_pos.objdb
                 dept1.material_type_id = "";
                 dept1.unit_id = "";
                 dept1.unit_cal_id = "";
+                dept1.on_hand = "";
             }
 
             return dept1;

@@ -82,10 +82,12 @@ namespace modernpos_pos.gui
                 //ic.ivfDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
                 long chk = 0;
                 String re = "";
-                re = mposC.mposDB.matrDB.Void(txtMatrId.Text, "");
+                re = mposC.mposDB.matDB.genMaterialRec(txtMatrId.Text);
                 if (long.TryParse(re, out chk))
                 {
-                    mposC.mposDB.matrdDB.voidMatr(txtMatrId.Text, "");
+                    btnDoc.Enabled = false;
+                    MessageBox.Show("gen stock เรียบร้อย", "");
+                    //mposC.mposDB.matrdDB.voidMatr(txtMatrId.Text, "");
                 }
                 //setGrfAgent();
             }

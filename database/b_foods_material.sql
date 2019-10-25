@@ -236,3 +236,44 @@ ALTER TABLE `modern_pos`.`b_company`
 CHANGE COLUMN `hn_doc` `draw_doc` INT(11) NULL DEFAULT NULL COMMENT 'หน้าจอ การเงิน เคลีย์เงินสด' ,
 CHANGE COLUMN `prefix_hn_doc` `prefix_draw_doc` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ;
 
+CREATE TABLE `modern_pos`.`t_stock` (
+  `stock_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `material_id` BIGINT NULL,
+  `qty` DECIMAL(17,4) NULL,
+  `wright` DECIMAL(17,4) NULL,
+  `rec_draw_matr_id` BIGINT NULL COMMENT 'default=0, rec = 1, draw=2, return=3',
+  `status_rec_draw` VARCHAR(45) NULL,
+  `rec_draw_date` VARCHAR(45) NULL,
+  `active` VARCHAR(45) NULL,
+  `date_create` VARCHAR(45) NULL,
+  `date_modi` VARCHAR(45) NULL,
+  `date_cancel` VARCHAR(45) NULL,
+  `user_create` VARCHAR(45) NULL,
+  `user_modi` VARCHAR(45) NULL,
+  `user_cancel` VARCHAR(45) NULL,
+  `remark` VARCHAR(45) NULL,
+  `sort1` VARCHAR(45) NULL,
+  PRIMARY KEY (`stock_id`))
+ENGINE = MyISAM
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin
+COMMENT = 'id=149';
+
+ALTER TABLE `modern_pos`.`b_material` 
+ADD COLUMN `onhand` DECIMAL(17,4) NULL DEFAULT 0 AFTER `unit_cal_id`;
+
+
+ALTER TABLE `modern_pos`.`t_material_rec` 
+ADD COLUMN `date_gen_stock` VARCHAR(45) NULL AFTER `status_stock_year`;
+
+ALTER TABLE `modern_pos`.`t_material_draw` 
+ADD COLUMN `date_gen_stock` VARCHAR(45) NULL AFTER `status_stock_year`;
+
+
+ALTER TABLE `modern_pos`.`t_material_draw_detail` 
+ADD COLUMN `status_stock` VARCHAR(45) NULL DEFAULT 0 AFTER `device_id`,
+ADD COLUMN `date_gen_stock` VARCHAR(45) NULL AFTER `status_stock`;
+
+ALTER TABLE `modern_pos`.`t_material_rec_detail` 
+ADD COLUMN `status_stock` VARCHAR(45) NULL DEFAULT 0 AFTER `device_id`,
+ADD COLUMN `date_gen_stock` VARCHAR(45) NULL AFTER `status_stock`;

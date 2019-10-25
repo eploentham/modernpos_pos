@@ -188,7 +188,7 @@
             this.scFoods.SizeRatio = 57.061D;
             this.scFoods.TabIndex = 0;
             this.scFoods.Text = "Foods";
-            this.scFoods.Width = 800;
+            this.scFoods.Width = 793;
             // 
             // sCFoodsMain
             // 
@@ -403,10 +403,10 @@
             this.c1SplitterPanel1.Dock = C1.Win.C1SplitContainer.PanelDockStyle.Left;
             this.c1SplitterPanel1.Location = new System.Drawing.Point(0, 21);
             this.c1SplitterPanel1.Name = "c1SplitterPanel1";
-            this.c1SplitterPanel1.Size = new System.Drawing.Size(671, 611);
+            this.c1SplitterPanel1.Size = new System.Drawing.Size(694, 727);
             this.c1SplitterPanel1.TabIndex = 0;
             this.c1SplitterPanel1.Text = "Panel 1";
-            this.c1SplitterPanel1.Width = 671;
+            this.c1SplitterPanel1.Width = 701;
             // 
             // pnCheckBill
             // 
@@ -423,7 +423,7 @@
             this.pnCheckBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnCheckBill.Location = new System.Drawing.Point(0, 0);
             this.pnCheckBill.Name = "pnCheckBill";
-            this.pnCheckBill.Size = new System.Drawing.Size(671, 611);
+            this.pnCheckBill.Size = new System.Drawing.Size(694, 727);
             this.pnCheckBill.TabIndex = 0;
             this.theme1.SetTheme(this.pnCheckBill, "(default)");
             // 
@@ -604,10 +604,10 @@
             // c1SplitterPanel2
             // 
             this.c1SplitterPanel2.Controls.Add(this.pnCheckOrder);
-            this.c1SplitterPanel2.Height = 632;
-            this.c1SplitterPanel2.Location = new System.Drawing.Point(682, 21);
+            this.c1SplitterPanel2.Height = 748;
+            this.c1SplitterPanel2.Location = new System.Drawing.Point(705, 21);
             this.c1SplitterPanel2.Name = "c1SplitterPanel2";
-            this.c1SplitterPanel2.Size = new System.Drawing.Size(677, 611);
+            this.c1SplitterPanel2.Size = new System.Drawing.Size(701, 727);
             this.c1SplitterPanel2.TabIndex = 1;
             this.c1SplitterPanel2.Text = "Panel 2";
             // 
@@ -618,7 +618,7 @@
             this.pnCheckOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnCheckOrder.Location = new System.Drawing.Point(0, 0);
             this.pnCheckOrder.Name = "pnCheckOrder";
-            this.pnCheckOrder.Size = new System.Drawing.Size(677, 611);
+            this.pnCheckOrder.Size = new System.Drawing.Size(701, 727);
             this.pnCheckOrder.TabIndex = 0;
             this.theme1.SetTheme(this.pnCheckOrder, "(default)");
             // 

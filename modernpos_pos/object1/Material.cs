@@ -17,5 +17,6 @@ namespace modernpos_pos.object1
         public String material_type_id { get; set; }
         public String unit_id { get; set; }
         public String unit_cal_id { get; set; }
+        public String on_hand { get; set; }
     }
 }
