@@ -277,3 +277,7 @@ ADD COLUMN `date_gen_stock` VARCHAR(45) NULL AFTER `status_stock`;
 ALTER TABLE `modern_pos`.`t_material_rec_detail` 
 ADD COLUMN `status_stock` VARCHAR(45) NULL DEFAULT 0 AFTER `device_id`,
 ADD COLUMN `date_gen_stock` VARCHAR(45) NULL AFTER `status_stock`;
+
+
+ALTER TABLE `modern_pos`.`b_unit` 
+ADD COLUMN `cal_unit` DECIMAL(17,4) NULL AFTER `device_id`;
