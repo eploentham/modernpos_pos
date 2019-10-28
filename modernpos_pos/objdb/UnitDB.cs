@@ -38,7 +38,7 @@ namespace modernpos_pos.objdb
             fooT.host_id = "host_id";
             fooT.branch_id = "branch_id";
             fooT.device_id = "device_id";
-            //fooC.status_aircondition = "status_aircondition";
+            fooT.device_id = "device_id";
 
             fooT.pkField = "unit_id";
             fooT.table = "b_unit";
