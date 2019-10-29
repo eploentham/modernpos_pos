@@ -37,6 +37,8 @@
             this.tabUnitView = new C1.Win.C1Command.C1DockingTabPage();
             this.c1SplitterPanel2 = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtCalUnit = new C1.Win.C1Input.C1TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.chkEmbryologist = new C1.Win.C1Input.C1CheckBox();
             this.chkStatusAirCondition = new C1.Win.C1Input.C1CheckBox();
             this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
@@ -54,8 +56,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtCalUnit = new C1.Win.C1Input.C1TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbDesc = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sC1)).BeginInit();
             this.sC1.SuspendLayout();
@@ -65,6 +66,7 @@
             this.tabUnit.SuspendLayout();
             this.c1SplitterPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCalUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatusAirCondition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
@@ -78,7 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaCode)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCalUnit)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -178,6 +179,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.lbDesc);
             this.panel1.Controls.Add(this.txtCalUnit);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.chkEmbryologist);
@@ -202,6 +204,33 @@
             this.panel1.Size = new System.Drawing.Size(586, 758);
             this.panel1.TabIndex = 0;
             this.theme1.SetTheme(this.panel1, "(default)");
+            // 
+            // txtCalUnit
+            // 
+            this.txtCalUnit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCalUnit.DataType = typeof(decimal);
+            this.txtCalUnit.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtCalUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtCalUnit.Location = new System.Drawing.Point(148, 130);
+            this.txtCalUnit.Name = "txtCalUnit";
+            this.txtCalUnit.Size = new System.Drawing.Size(91, 24);
+            this.txtCalUnit.TabIndex = 293;
+            this.txtCalUnit.Tag = null;
+            this.theme1.SetTheme(this.txtCalUnit, "(default)");
+            this.txtCalUnit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label4.Location = new System.Drawing.Point(20, 132);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 16);
+            this.label4.TabIndex = 292;
+            this.label4.Text = "หน่วยคำนวณไปหา กรัม :";
+            this.theme1.SetTheme(this.label4, "(default)");
             // 
             // chkEmbryologist
             // 
@@ -375,9 +404,9 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.label2.Location = new System.Drawing.Point(20, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 16);
+            this.label2.Size = new System.Drawing.Size(54, 16);
             this.label2.TabIndex = 280;
-            this.label2.Text = "ชื่อประเภท อาหาร :";
+            this.label2.Text = "ชื่อหน่วย :";
             this.theme1.SetTheme(this.label2, "(default)");
             // 
             // txtID
@@ -436,32 +465,18 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // txtCalUnit
+            // lbDesc
             // 
-            this.txtCalUnit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCalUnit.DataType = typeof(decimal);
-            this.txtCalUnit.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtCalUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtCalUnit.Location = new System.Drawing.Point(148, 130);
-            this.txtCalUnit.Name = "txtCalUnit";
-            this.txtCalUnit.Size = new System.Drawing.Size(183, 20);
-            this.txtCalUnit.TabIndex = 293;
-            this.txtCalUnit.Tag = null;
-            this.theme1.SetTheme(this.txtCalUnit, "(default)");
-            this.txtCalUnit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label4.Location = new System.Drawing.Point(20, 132);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 16);
-            this.label4.TabIndex = 292;
-            this.label4.Text = "หน่วยคำนวณไปหา กรัม :";
-            this.theme1.SetTheme(this.label4, "(default)");
+            this.lbDesc.AutoSize = true;
+            this.lbDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.lbDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lbDesc.Location = new System.Drawing.Point(245, 132);
+            this.lbDesc.Name = "lbDesc";
+            this.lbDesc.Size = new System.Drawing.Size(60, 16);
+            this.lbDesc.TabIndex = 294;
+            this.lbDesc.Text = "กรัม เป็น 1 ";
+            this.theme1.SetTheme(this.lbDesc, "(default)");
             // 
             // FrmUnit
             // 
@@ -483,6 +498,7 @@
             this.c1SplitterPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCalUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatusAirCondition)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
@@ -497,7 +513,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCalUnit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -533,5 +548,6 @@
         private System.Windows.Forms.Panel panel2;
         private C1.Win.C1Input.C1TextBox txtCalUnit;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbDesc;
     }
 }

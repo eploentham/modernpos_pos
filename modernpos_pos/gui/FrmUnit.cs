@@ -75,7 +75,7 @@ namespace modernpos_pos.gui
         {
             //throw new NotImplementedException();
             Decimal chk1 = 0;
-            if(Decimal.TryParse(txtCalUnit.Text.Trim(), out chk1))
+            if(!Decimal.TryParse(txtCalUnit.Text.Trim(), out chk1))
             {
                 MessageBox.Show("หน่วยคำนวณไปหา กรัม ไม่ถูกต้อง", "");
                 return;
@@ -153,7 +153,7 @@ namespace modernpos_pos.gui
             DataTable dt = new DataTable();
             dt = mposC.mposDB.unitDB.selectAll();
             grfFooT.Cols.Count = colCnt;
-            grfFooT.Rows.Count = 0;
+            grfFooT.Rows.Count = 1;
             grfFooT.Rows.Count = dt.Rows.Count + 1;
 
             grfFooT.Cols[colE].Style = grfFooT.Styles["btn"];
@@ -178,9 +178,14 @@ namespace modernpos_pos.gui
             foreach(DataRow row in dt.Rows)
             {
                 grfFooT[i, 0] = i;
-                grfFooT[i, 0] = row[mposC.;
+                grfFooT[i, colID] = row[mposC.mposDB.unitDB.unit.unit_id].ToString();
+                grfFooT[i, colCode] = row[mposC.mposDB.unitDB.unit.unit_code].ToString();
+                grfFooT[i, colName] = row[mposC.mposDB.unitDB.unit.unit_name].ToString();
+                grfFooT[i, colRemark] = row[mposC.mposDB.unitDB.unit.remark].ToString();
+                grfFooT[i, colCalUnit] = row[mposC.mposDB.unitDB.unit.cal_unit].ToString();
                 if (i % 2 == 0)
                     grfFooT.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
+                i++;
             }
             grfFooT.Cols[colID].Visible = false;
             grfFooT.Cols[colE].Visible = false;
@@ -218,6 +223,7 @@ namespace modernpos_pos.gui
             txtFooTNameT.Value = unit.unit_name;
             txtRemark.Value = unit.remark;
             txtCalUnit.Value = unit.cal_unit;
+            lbDesc.Text = "กรัม เป็น 1 " + txtFooTNameT.Text;
             //if (fooT.status_aircondition.Equals("1"))
             //{
             //    chkStatusAirCondition.Checked = true;

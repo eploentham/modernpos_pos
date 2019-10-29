@@ -11,7 +11,7 @@ namespace modernpos_pos.objdb
 {
     public class UnitDB
     {
-        Unit fooT;
+        public Unit unit;
         ConnectDB conn;
         public List<Unit> lfooT;
         public UnitDB(ConnectDB c)
@@ -22,35 +22,35 @@ namespace modernpos_pos.objdb
         private void initConfig()
         {
             lfooT = new List<Unit>();
-            fooT = new Unit();
-            fooT.unit_id = "unit_id";
-            fooT.unit_code = "unit_code";
-            fooT.unit_name = "unit_name";
-            fooT.active = "active";
-            fooT.remark = "remark";
-            fooT.sort1 = "sort1";
-            fooT.date_cancel = "date_cancel";
-            fooT.date_create = "date_create";
-            fooT.date_modi = "date_modi";
-            fooT.user_cancel = "user_cancel";
-            fooT.user_create = "user_create";
-            fooT.user_modi = "user_modi";
-            fooT.host_id = "host_id";
-            fooT.branch_id = "branch_id";
-            fooT.device_id = "device_id";
-            fooT.device_id = "device_id";
-            fooT.cal_unit = "cal_unit";
+            unit = new Unit();
+            unit.unit_id = "unit_id";
+            unit.unit_code = "unit_code";
+            unit.unit_name = "unit_name";
+            unit.active = "active";
+            unit.remark = "remark";
+            unit.sort1 = "sort1";
+            unit.date_cancel = "date_cancel";
+            unit.date_create = "date_create";
+            unit.date_modi = "date_modi";
+            unit.user_cancel = "user_cancel";
+            unit.user_create = "user_create";
+            unit.user_modi = "user_modi";
+            unit.host_id = "host_id";
+            unit.branch_id = "branch_id";
+            unit.device_id = "device_id";
+            unit.device_id = "device_id";
+            unit.cal_unit = "cal_unit";
 
-            fooT.pkField = "unit_id";
-            fooT.table = "b_unit";
+            unit.pkField = "unit_id";
+            unit.table = "b_unit";
         }
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
             String sql = "select sex.*  " +
-                "From " + fooT.table + " sex " +
+                "From " + unit.table + " sex " +
                 " " +
-                "Where sex." + fooT.active + " ='1' ";
+                "Where sex." + unit.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -59,9 +59,9 @@ namespace modernpos_pos.objdb
         {
             DataTable dt = new DataTable();
             String sql = "select sex.* " +
-                "From " + fooT.table + " sex " +
+                "From " + unit.table + " sex " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where sex." + fooT.pkField + " ='" + copId + "' ";
+                "Where sex." + unit.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -70,9 +70,9 @@ namespace modernpos_pos.objdb
             Unit cop1 = new Unit();
             DataTable dt = new DataTable();
             String sql = "select sex.* " +
-                "From " + fooT.table + " sex " +
+                "From " + unit.table + " sex " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where sex." + fooT.pkField + " ='" + copId + "' ";
+                "Where sex." + unit.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setFoodsType(dt);
             return cop1;
@@ -82,8 +82,8 @@ namespace modernpos_pos.objdb
             Unit dept1 = new Unit();
             if (dt.Rows.Count > 0)
             {
-                dept1.unit_id = dt.Rows[0][fooT.unit_id].ToString();
-                dept1.unit_name = dt.Rows[0][fooT.unit_name].ToString();
+                dept1.unit_id = dt.Rows[0][unit.unit_id].ToString();
+                dept1.unit_name = dt.Rows[0][unit.unit_name].ToString();
             }
 
             return dept1;
@@ -91,10 +91,10 @@ namespace modernpos_pos.objdb
         public DataTable selectC1()
         {
             DataTable dt = new DataTable();
-            String sql = "select sex." + fooT.pkField + ",sex." + fooT.unit_name + " " +
-                "From " + fooT.table + " sex " +
+            String sql = "select sex." + unit.pkField + ",sex." + unit.unit_name + " " +
+                "From " + unit.table + " sex " +
                 " " +
-                "Where sex." + fooT.active + " ='1' ";
+                "Where sex." + unit.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -108,8 +108,8 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 Unit itm1 = new Unit();
-                itm1.unit_id = row[fooT.unit_id].ToString();
-                itm1.unit_name = row[fooT.unit_name].ToString();
+                itm1.unit_id = row[unit.unit_id].ToString();
+                itm1.unit_name = row[unit.unit_name].ToString();
 
                 lfooT.Add(itm1);
             }
@@ -148,7 +148,7 @@ namespace modernpos_pos.objdb
             p.branch_id = long.TryParse(p.branch_id, out chk) ? chk.ToString() : "0";
             p.device_id = long.TryParse(p.device_id, out chk) ? chk.ToString() : "0";
 
-            p.cal_unit = Decimal.TryParse(p.cal_unit, out chk1) ? chk.ToString() : "0";
+            p.cal_unit = Decimal.TryParse(p.cal_unit, out chk1) ? chk1.ToString() : "0";
 
         }
         public String insert(Unit p, String userId)
@@ -160,17 +160,17 @@ namespace modernpos_pos.objdb
             int chk = 0;
 
             chkNull(p);
-            sql = "Insert Into " + fooT.table + " set " +
-                " " + fooT.unit_code + " = '" + p.unit_code + "'" +
-                "," + fooT.unit_name + " = '" + p.unit_name.Replace("'", "''") + "'" +
-                "," + fooT.remark + " = '" + p.remark.Replace("'", "''") + "'" +
-                "," + fooT.date_create + " = now()" +
-                "," + fooT.active + " = '1'" +
-                "," + fooT.user_create + " = '" + userId + "' " +
-                "," + fooT.host_id + " = '" + p.host_id + "' " +
-                "," + fooT.branch_id + " = '" + p.branch_id + "' " +
-                "," + fooT.device_id + " = '" + p.device_id + "' " +
-                "," + fooT.cal_unit + " = '" + p.cal_unit + "' " +
+            sql = "Insert Into " + unit.table + " set " +
+                " " + unit.unit_code + " = '" + p.unit_code + "'" +
+                "," + unit.unit_name + " = '" + p.unit_name.Replace("'", "''") + "'" +
+                "," + unit.remark + " = '" + p.remark.Replace("'", "''") + "'" +
+                "," + unit.date_create + " = now()" +
+                "," + unit.active + " = '1'" +
+                "," + unit.user_create + " = '" + userId + "' " +
+                "," + unit.host_id + " = '" + p.host_id + "' " +
+                "," + unit.branch_id + " = '" + p.branch_id + "' " +
+                "," + unit.device_id + " = '" + p.device_id + "' " +
+                "," + unit.cal_unit + " = '" + p.cal_unit + "' " +
                 " ";
             try
             {
@@ -190,18 +190,18 @@ namespace modernpos_pos.objdb
             int chk = 0;
 
             chkNull(p);
-            sql = "Update " + fooT.table + " Set " +
-                " " + fooT.unit_code + " = '" + p.unit_code + "'" +
-                "," + fooT.unit_name + " = '" + p.unit_name.Replace("'", "''") + "'" +
-                "," + fooT.remark + " = '" + p.remark.Replace("'", "''") + "'" +
-                "," + fooT.date_modi + " = now()" +
-                "," + fooT.user_modi + " = '" + userId + "' " +
-                "," + fooT.host_id + " = '" + p.host_id + "' " +
-                "," + fooT.branch_id + " = '" + p.branch_id + "' " +
-                "," + fooT.device_id + " = '" + p.device_id + "' " +
-                "," + fooT.cal_unit + " = '" + p.cal_unit + "' " +
+            sql = "Update " + unit.table + " Set " +
+                " " + unit.unit_code + " = '" + p.unit_code + "'" +
+                "," + unit.unit_name + " = '" + p.unit_name.Replace("'", "''") + "'" +
+                "," + unit.remark + " = '" + p.remark.Replace("'", "''") + "'" +
+                "," + unit.date_modi + " = now()" +
+                "," + unit.user_modi + " = '" + userId + "' " +
+                "," + unit.host_id + " = '" + p.host_id + "' " +
+                "," + unit.branch_id + " = '" + p.branch_id + "' " +
+                "," + unit.device_id + " = '" + p.device_id + "' " +
+                "," + unit.cal_unit + " = '" + p.cal_unit + "' " +
 
-                "Where " + fooT.pkField + "='" + p.unit_id + "'"
+                "Where " + unit.pkField + "='" + p.unit_id + "'"
                 ;
 
             try
@@ -236,12 +236,12 @@ namespace modernpos_pos.objdb
             String sql = "";
             int chk = 0;
 
-            chkNull(p);
-            sql = "Update " + fooT.table + " Set " +
-                " " + fooT.active + " = '3'" +                
-                "," + fooT.date_cancel + " = now()" +
-                "," + fooT.user_cancel + " = '" + userId + "' " +
-                "Where " + fooT.pkField + "='" + unitid + "'"
+            //chkNull(p);
+            sql = "Update " + unit.table + " Set " +
+                " " + unit.active + " = '3'" +                
+                "," + unit.date_cancel + " = now()" +
+                "," + unit.user_cancel + " = '" + userId + "' " +
+                "Where " + unit.pkField + "='" + unitid + "'"
                 ;
 
             try
@@ -269,8 +269,8 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 item = new ComboBoxItem();
-                item.Text = row[fooT.unit_name].ToString();
-                item.Value = row[fooT.unit_id].ToString();
+                item.Text = row[unit.unit_name].ToString();
+                item.Value = row[unit.unit_id].ToString();
 
                 c.Items.Add(item);
             }
@@ -309,21 +309,21 @@ namespace modernpos_pos.objdb
             Unit dept1 = new Unit();
             if (dt.Rows.Count > 0)
             {
-                dept1.unit_id = dt.Rows[0][fooT.unit_id].ToString();
-                dept1.unit_code = dt.Rows[0][fooT.unit_code].ToString();
-                dept1.unit_name = dt.Rows[0][fooT.unit_name].ToString();
+                dept1.unit_id = dt.Rows[0][unit.unit_id].ToString();
+                dept1.unit_code = dt.Rows[0][unit.unit_code].ToString();
+                dept1.unit_name = dt.Rows[0][unit.unit_name].ToString();
                 //dept1.posi_name_e = dt.Rows[0][area.posi_name_e] != null ? dt.Rows[0][area.posi_name_e].ToString() : "";
                 //dept1.status_doctor = dt.Rows[0][area.status_doctor] != null ? dt.Rows[0][area.status_doctor].ToString() : "";
-                dept1.remark = dt.Rows[0][fooT.remark] != null ? dt.Rows[0][fooT.remark].ToString() : "";
-                dept1.date_create = dt.Rows[0][fooT.date_create] != null ? dt.Rows[0][fooT.date_create].ToString() : "";
-                dept1.date_modi = dt.Rows[0][fooT.date_modi] != null ? dt.Rows[0][fooT.date_modi].ToString() : "";
-                dept1.date_cancel = dt.Rows[0][fooT.date_cancel] != null ? dt.Rows[0][fooT.date_cancel].ToString() : "";
-                dept1.user_create = dt.Rows[0][fooT.user_create] != null ? dt.Rows[0][fooT.user_create].ToString() : "";
-                dept1.user_modi = dt.Rows[0][fooT.user_modi] != null ? dt.Rows[0][fooT.user_modi].ToString() : "";
-                dept1.user_cancel = dt.Rows[0][fooT.user_cancel] != null ? dt.Rows[0][fooT.user_cancel].ToString() : "";
-                dept1.active = dt.Rows[0][fooT.active] != null ? dt.Rows[0][fooT.active].ToString() : "";
-                dept1.sort1 = dt.Rows[0][fooT.sort1] != null ? dt.Rows[0][fooT.sort1].ToString() : "";
-                dept1.cal_unit = dt.Rows[0][fooT.cal_unit] != null ? dt.Rows[0][fooT.cal_unit].ToString() : "";
+                dept1.remark = dt.Rows[0][unit.remark] != null ? dt.Rows[0][unit.remark].ToString() : "";
+                dept1.date_create = dt.Rows[0][unit.date_create] != null ? dt.Rows[0][unit.date_create].ToString() : "";
+                dept1.date_modi = dt.Rows[0][unit.date_modi] != null ? dt.Rows[0][unit.date_modi].ToString() : "";
+                dept1.date_cancel = dt.Rows[0][unit.date_cancel] != null ? dt.Rows[0][unit.date_cancel].ToString() : "";
+                dept1.user_create = dt.Rows[0][unit.user_create] != null ? dt.Rows[0][unit.user_create].ToString() : "";
+                dept1.user_modi = dt.Rows[0][unit.user_modi] != null ? dt.Rows[0][unit.user_modi].ToString() : "";
+                dept1.user_cancel = dt.Rows[0][unit.user_cancel] != null ? dt.Rows[0][unit.user_cancel].ToString() : "";
+                dept1.active = dt.Rows[0][unit.active] != null ? dt.Rows[0][unit.active].ToString() : "";
+                dept1.sort1 = dt.Rows[0][unit.sort1] != null ? dt.Rows[0][unit.sort1].ToString() : "";
+                dept1.cal_unit = dt.Rows[0][unit.cal_unit] != null ? dt.Rows[0][unit.cal_unit].ToString() : "";
             }
             else
             {
