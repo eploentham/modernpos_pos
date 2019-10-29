@@ -6,6 +6,7 @@ using modernpos_pos.control;
 using modernpos_pos.object1;
 using modernpos_pos.Properties;
 using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -20,7 +21,7 @@ namespace modernpos_pos.gui
 
         Color bg, fc;
         Font ff, ffB;
-        int colID = 1, colCode = 2, colName = 3, colRemark = 4, colE = 5, colS = 6, coledit = 7, colCnt = 7;
+        int colID = 1, colCode = 2, colName = 3, colCalUnit=4, colRemark = 5, colE = 6, colS = 7, coledit = 8, colCnt = 9;
 
         C1FlexGrid grfFooT;
 
@@ -73,6 +74,12 @@ namespace modernpos_pos.gui
         private void BtnSave_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            Decimal chk1 = 0;
+            if(Decimal.TryParse(txtCalUnit.Text.Trim(), out chk1))
+            {
+                MessageBox.Show("หน่วยคำนวณไปหา กรัม ไม่ถูกต้อง", "");
+                return;
+            }
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setUnit();
@@ -97,7 +104,7 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                mposC.mposDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
+                mposC.mposDB.unitDB.VoidUnit(txtID.Text, userIdVoid);
                 setGrfUnit();
             }
         }
@@ -143,18 +150,11 @@ namespace modernpos_pos.gui
         private void setGrfUnit()
         {
             //grfDept.Rows.Count = 7;
-
-            grfFooT.DataSource = mposC.mposDB.unitDB.selectAll();
+            DataTable dt = new DataTable();
+            dt = mposC.mposDB.unitDB.selectAll();
             grfFooT.Cols.Count = colCnt;
-            CellStyle cs = grfFooT.Styles.Add("btn");
-            cs.DataType = typeof(Button);
-            //cs.ComboList = "|Tom|Dick|Harry";
-            cs.ForeColor = Color.Navy;
-            cs.Font = new Font(Font, FontStyle.Bold);
-            cs = grfFooT.Styles.Add("date");
-            cs.DataType = typeof(DateTime);
-            cs.Format = "dd-MMM-yy";
-            cs.ForeColor = Color.DarkGoldenrod;
+            grfFooT.Rows.Count = 0;
+            grfFooT.Rows.Count = dt.Rows.Count + 1;
 
             grfFooT.Cols[colE].Style = grfFooT.Styles["btn"];
             grfFooT.Cols[colS].Style = grfFooT.Styles["date"];
@@ -163,6 +163,7 @@ namespace modernpos_pos.gui
 
             grfFooT.Cols[colCode].Width = 80;
             grfFooT.Cols[colName].Width = 300;
+            grfFooT.Cols[colCalUnit].Width = 100;
 
             grfFooT.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
@@ -170,13 +171,14 @@ namespace modernpos_pos.gui
 
             grfFooT.Cols[colCode].Caption = "รหัส";
             grfFooT.Cols[colName].Caption = "ชื่อUnit";
+            grfFooT.Cols[colCalUnit].Caption = "คำนวณ";
             grfFooT.Cols[colRemark].Caption = "หมายเหตุ";
 
-            //grfDept.Cols[coledit].Visible = false;
-            CellRange rg = grfFooT.GetCellRange(2, colE);
-            for (int i = 1; i < grfFooT.Rows.Count; i++)
+            int i = 1;
+            foreach(DataRow row in dt.Rows)
             {
                 grfFooT[i, 0] = i;
+                grfFooT[i, 0] = row[mposC.;
                 if (i % 2 == 0)
                     grfFooT.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
@@ -215,6 +217,7 @@ namespace modernpos_pos.gui
             txtAreaCode.Value = unit.unit_code;
             txtFooTNameT.Value = unit.unit_name;
             txtRemark.Value = unit.remark;
+            txtCalUnit.Value = unit.cal_unit;
             //if (fooT.status_aircondition.Equals("1"))
             //{
             //    chkStatusAirCondition.Checked = true;
@@ -248,6 +251,7 @@ namespace modernpos_pos.gui
             unit.unit_name = txtFooTNameT.Text.Trim();
             //posi.posi_name_e = txtPosiNameE.Text;
             unit.remark = txtRemark.Text;
+            unit.cal_unit = txtCalUnit.Text;
             //fooT.status_aircondition = chkStatusAirCondition.Checked == true ? "1" : "0";
             //area.status_embryologist = chkEmbryologist.Checked == true ? "1" : "0";
         }

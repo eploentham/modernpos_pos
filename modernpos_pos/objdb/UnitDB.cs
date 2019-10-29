@@ -39,6 +39,7 @@ namespace modernpos_pos.objdb
             fooT.branch_id = "branch_id";
             fooT.device_id = "device_id";
             fooT.device_id = "device_id";
+            fooT.cal_unit = "cal_unit";
 
             fooT.pkField = "unit_id";
             fooT.table = "b_unit";
@@ -130,6 +131,7 @@ namespace modernpos_pos.objdb
         private void chkNull(Unit p)
         {
             long chk = 0;
+            Decimal chk1 = 0;
 
             p.date_modi = p.date_modi == null ? "" : p.date_modi;
             p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
@@ -145,6 +147,8 @@ namespace modernpos_pos.objdb
             p.host_id = long.TryParse(p.host_id, out chk) ? chk.ToString() : "0";
             p.branch_id = long.TryParse(p.branch_id, out chk) ? chk.ToString() : "0";
             p.device_id = long.TryParse(p.device_id, out chk) ? chk.ToString() : "0";
+
+            p.cal_unit = Decimal.TryParse(p.cal_unit, out chk1) ? chk.ToString() : "0";
 
         }
         public String insert(Unit p, String userId)
@@ -166,7 +170,7 @@ namespace modernpos_pos.objdb
                 "," + fooT.host_id + " = '" + p.host_id + "' " +
                 "," + fooT.branch_id + " = '" + p.branch_id + "' " +
                 "," + fooT.device_id + " = '" + p.device_id + "' " +
-                //"," + fooC.status_aircondition + " = '" + p.status_aircondition + "' " +
+                "," + fooT.cal_unit + " = '" + p.cal_unit + "' " +
                 " ";
             try
             {
@@ -195,7 +199,7 @@ namespace modernpos_pos.objdb
                 "," + fooT.host_id + " = '" + p.host_id + "' " +
                 "," + fooT.branch_id + " = '" + p.branch_id + "' " +
                 "," + fooT.device_id + " = '" + p.device_id + "' " +
-                //"," + fooC.status_aircondition + " = '" + p.status_aircondition + "' " +
+                "," + fooT.cal_unit + " = '" + p.cal_unit + "' " +
 
                 "Where " + fooT.pkField + "='" + p.unit_id + "'"
                 ;
@@ -222,6 +226,31 @@ namespace modernpos_pos.objdb
             else
             {
                 re = update(p, "");
+            }
+
+            return re;
+        }
+        public String VoidUnit(String unitid, String userId)
+        {
+            String re = "";
+            String sql = "";
+            int chk = 0;
+
+            chkNull(p);
+            sql = "Update " + fooT.table + " Set " +
+                " " + fooT.active + " = '3'" +                
+                "," + fooT.date_cancel + " = now()" +
+                "," + fooT.user_cancel + " = '" + userId + "' " +
+                "Where " + fooT.pkField + "='" + unitid + "'"
+                ;
+
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
             }
 
             return re;
@@ -294,7 +323,7 @@ namespace modernpos_pos.objdb
                 dept1.user_cancel = dt.Rows[0][fooT.user_cancel] != null ? dt.Rows[0][fooT.user_cancel].ToString() : "";
                 dept1.active = dt.Rows[0][fooT.active] != null ? dt.Rows[0][fooT.active].ToString() : "";
                 dept1.sort1 = dt.Rows[0][fooT.sort1] != null ? dt.Rows[0][fooT.sort1].ToString() : "";
-                //dept1.status_aircondition = dt.Rows[0][fooC.status_aircondition] != null ? dt.Rows[0][fooC.status_aircondition].ToString() : "";
+                dept1.cal_unit = dt.Rows[0][fooT.cal_unit] != null ? dt.Rows[0][fooT.cal_unit].ToString() : "";
             }
             else
             {
@@ -311,7 +340,7 @@ namespace modernpos_pos.objdb
                 dept1.user_cancel = "";
                 dept1.active = "";
                 dept1.sort1 = "";
-                //dept1.status_aircondition = "";
+                dept1.cal_unit = "";
                 //dept1.status_embryologist = "";
             }
 

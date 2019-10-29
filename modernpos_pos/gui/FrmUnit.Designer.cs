@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
-            this.sB = new System.Windows.Forms.StatusStrip();
-            this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.sC1 = new C1.Win.C1SplitContainer.C1SplitContainer();
             this.c1SplitterPanel1 = new C1.Win.C1SplitContainer.C1SplitterPanel();
-            this.c1SplitterPanel2 = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.tC = new C1.Win.C1Command.C1DockingTab();
             this.tabUnit = new C1.Win.C1Command.C1DockingTabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tabUnitView = new C1.Win.C1Command.C1DockingTabPage();
+            this.c1SplitterPanel2 = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chkEmbryologist = new C1.Win.C1Input.C1CheckBox();
             this.chkStatusAirCondition = new C1.Win.C1Input.C1CheckBox();
@@ -53,16 +52,18 @@
             this.txtID = new C1.Win.C1Input.C1TextBox();
             this.txtAreaCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.sB = new System.Windows.Forms.StatusStrip();
+            this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtCalUnit = new C1.Win.C1Input.C1TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
-            this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sC1)).BeginInit();
             this.sC1.SuspendLayout();
             this.c1SplitterPanel1.SuspendLayout();
-            this.c1SplitterPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tC)).BeginInit();
             this.tC.SuspendLayout();
             this.tabUnit.SuspendLayout();
+            this.c1SplitterPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatusAirCondition)).BeginInit();
@@ -76,44 +77,35 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtFooTNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaCode)).BeginInit();
+            this.sB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCalUnit)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
             // 
             this.theme1.Theme = "Office2013Red";
             // 
-            // sB
-            // 
-            this.sB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sB1});
-            this.sB.Location = new System.Drawing.Point(0, 779);
-            this.sB.Name = "sB";
-            this.sB.Size = new System.Drawing.Size(1176, 22);
-            this.sB.TabIndex = 5;
-            this.sB.Text = "statusStrip1";
-            // 
-            // sB1
-            // 
-            this.sB1.Name = "sB1";
-            this.sB1.Size = new System.Drawing.Size(118, 17);
-            this.sB1.Text = "toolStripStatusLabel1";
-            // 
             // sC1
             // 
             this.sC1.AutoSizeElement = C1.Framework.AutoSizeElement.Both;
-            this.sC1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.sC1.CollapsingCueColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(150)))));
+            this.sC1.BackColor = System.Drawing.Color.White;
+            this.sC1.CollapsingAreaColor = System.Drawing.Color.White;
+            this.sC1.CollapsingCueColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.sC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sC1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.sC1.FixedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.sC1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.sC1.HeaderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.sC1.HeaderLineWidth = 1;
             this.sC1.Location = new System.Drawing.Point(0, 0);
             this.sC1.Name = "sC1";
             this.sC1.Panels.Add(this.c1SplitterPanel1);
             this.sC1.Panels.Add(this.c1SplitterPanel2);
             this.sC1.Size = new System.Drawing.Size(1176, 779);
+            this.sC1.SplitterColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.sC1.SplitterMovingColor = System.Drawing.Color.Black;
             this.sC1.TabIndex = 6;
             this.theme1.SetTheme(this.sC1, "(default)");
+            this.sC1.UseParentVisualStyle = false;
             // 
             // c1SplitterPanel1
             // 
@@ -126,16 +118,6 @@
             this.c1SplitterPanel1.TabIndex = 0;
             this.c1SplitterPanel1.Text = "Panel 1";
             this.c1SplitterPanel1.Width = 586;
-            // 
-            // c1SplitterPanel2
-            // 
-            this.c1SplitterPanel2.Controls.Add(this.panel1);
-            this.c1SplitterPanel2.Height = 779;
-            this.c1SplitterPanel2.Location = new System.Drawing.Point(590, 21);
-            this.c1SplitterPanel2.Name = "c1SplitterPanel2";
-            this.c1SplitterPanel2.Size = new System.Drawing.Size(586, 758);
-            this.c1SplitterPanel2.TabIndex = 1;
-            this.c1SplitterPanel2.Text = "Panel 2";
             // 
             // tC
             // 
@@ -164,6 +146,17 @@
             this.tabUnit.TabIndex = 0;
             this.tabUnit.Text = "หน่วย";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(577, 733);
+            this.panel2.TabIndex = 0;
+            this.theme1.SetTheme(this.panel2, "(default)");
+            // 
             // tabUnitView
             // 
             this.tabUnitView.Location = new System.Drawing.Point(1, 24);
@@ -172,9 +165,21 @@
             this.tabUnitView.TabIndex = 1;
             this.tabUnitView.Text = "การเรียกใช้หน่วย";
             // 
+            // c1SplitterPanel2
+            // 
+            this.c1SplitterPanel2.Controls.Add(this.panel1);
+            this.c1SplitterPanel2.Height = 779;
+            this.c1SplitterPanel2.Location = new System.Drawing.Point(590, 21);
+            this.c1SplitterPanel2.Name = "c1SplitterPanel2";
+            this.c1SplitterPanel2.Size = new System.Drawing.Size(586, 758);
+            this.c1SplitterPanel2.TabIndex = 1;
+            this.c1SplitterPanel2.Text = "Panel 2";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.txtCalUnit);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.chkEmbryologist);
             this.panel1.Controls.Add(this.chkStatusAirCondition);
             this.panel1.Controls.Add(this.txtPasswordVoid);
@@ -415,16 +420,48 @@
             this.label1.Text = "รหัส :";
             this.theme1.SetTheme(this.label1, "(default)");
             // 
-            // panel2
+            // sB
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(577, 733);
-            this.panel2.TabIndex = 0;
-            this.theme1.SetTheme(this.panel2, "(default)");
+            this.sB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sB1});
+            this.sB.Location = new System.Drawing.Point(0, 779);
+            this.sB.Name = "sB";
+            this.sB.Size = new System.Drawing.Size(1176, 22);
+            this.sB.TabIndex = 5;
+            this.sB.Text = "statusStrip1";
+            // 
+            // sB1
+            // 
+            this.sB1.Name = "sB1";
+            this.sB1.Size = new System.Drawing.Size(118, 17);
+            this.sB1.Text = "toolStripStatusLabel1";
+            // 
+            // txtCalUnit
+            // 
+            this.txtCalUnit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCalUnit.DataType = typeof(decimal);
+            this.txtCalUnit.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtCalUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtCalUnit.Location = new System.Drawing.Point(148, 130);
+            this.txtCalUnit.Name = "txtCalUnit";
+            this.txtCalUnit.Size = new System.Drawing.Size(183, 20);
+            this.txtCalUnit.TabIndex = 293;
+            this.txtCalUnit.Tag = null;
+            this.theme1.SetTheme(this.txtCalUnit, "(default)");
+            this.txtCalUnit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label4.Location = new System.Drawing.Point(20, 132);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 16);
+            this.label4.TabIndex = 292;
+            this.label4.Text = "หน่วยคำนวณไปหา กรัม :";
+            this.theme1.SetTheme(this.label4, "(default)");
             // 
             // FrmUnit
             // 
@@ -437,15 +474,13 @@
             this.Text = "FrmUnit";
             this.Load += new System.EventHandler(this.FrmUnit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
-            this.sB.ResumeLayout(false);
-            this.sB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sC1)).EndInit();
             this.sC1.ResumeLayout(false);
             this.c1SplitterPanel1.ResumeLayout(false);
-            this.c1SplitterPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tC)).EndInit();
             this.tC.ResumeLayout(false);
             this.tabUnit.ResumeLayout(false);
+            this.c1SplitterPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkEmbryologist)).EndInit();
@@ -460,6 +495,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtFooTNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaCode)).EndInit();
+            this.sB.ResumeLayout(false);
+            this.sB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCalUnit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,5 +531,7 @@
         private C1.Win.C1Input.C1TextBox txtAreaCode;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
+        private C1.Win.C1Input.C1TextBox txtCalUnit;
+        private System.Windows.Forms.Label label4;
     }
 }
