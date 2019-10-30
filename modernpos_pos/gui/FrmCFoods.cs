@@ -339,25 +339,38 @@ namespace modernpos_pos.gui
         private void GrfFooM_CellChanged(object sender, RowColEventArgs e)
         {
             //throw new NotImplementedException();
-            if (e.Col == colFmQty)
+            if (e.Col == colFmWeight)
             {
-                Decimal nettotal = 0;
-                foreach (Row row in grfFooM.Rows)
-                {
-                    String qty = "", price = "", weight = "";
-                    Decimal total1 = 0;
-                    qty = row[colFmQty] != null ? row[colFmQty].ToString() : "";
-                    price = row[colFmprice] != null ? row[colFmprice].ToString() : "";
-                    weight = row[colFmWeight] != null ? row[colFmWeight].ToString() : "";
-                    String total = calMaterial(qty, price, weight);
-                    Decimal.TryParse(total, out total1);
-                    row[colFmTotal] = total;
-                    nettotal += total1;
-                }
-                txtMatTotal.Value = nettotal;
+                calTotal();
             }
         }
-
+        private void calTotal()
+        {
+            Decimal nettotal = 0;
+            foreach (Row row in grfFooM.Rows)
+            {
+                String qty = "", price = "", weight = "";
+                Decimal total1 = 0;
+                qty = row[colFmQty] != null ? row[colFmQty].ToString() : "";
+                price = row[colFmprice] != null ? row[colFmprice].ToString() : "";
+                weight = row[colFmWeight] != null ? row[colFmWeight].ToString() : "";
+                String total = calMaterial(qty, price, weight);
+                Decimal.TryParse(total, out total1);
+                row[colFmTotal] = total;
+                nettotal += total1;
+            }
+            txtMatTotal.Value = nettotal;
+        }
+        private String calMaterial(String qty, String price, String weight)
+        {
+            String total = "";
+            Decimal qty1 = 0, weight1 = 0, price1 = 0, total1 = 0;
+            Decimal.TryParse(qty, out qty1);
+            Decimal.TryParse(price, out price1);
+            Decimal.TryParse(weight, out weight1);
+            total1 = ((qty1 * weight1) * price1) / 1000;
+            return total1.ToString();
+        }
         private void setGrfFoodsMaterial(String fooId)
         {
             //grfDept.Rows.Count = 7;
@@ -415,10 +428,12 @@ namespace modernpos_pos.gui
                 price = row1[colFmprice] != null ? row1[colFmprice].ToString() : "";
                 qty = row1[colFmQty] != null ? row1[colFmQty].ToString() : "";
                 weight = row1[colFmWeight] != null ? row1[colFmWeight].ToString() : "";
-                Decimal.TryParse(price, out price1);
-                Decimal.TryParse(qty, out qty1);
-                Decimal.TryParse(weight, out weight1);
-                total1 = price1 * qty1;
+                //Decimal.TryParse(price, out price1);
+                //Decimal.TryParse(qty, out qty1);
+                //Decimal.TryParse(weight, out weight1);
+                String total = calMaterial(qty, price, weight);
+                Decimal.TryParse(total, out total1);
+                //total1 = price1 * qty1;
                 nettotal += total1;
                 //price = grfFooM[grfFooM.Row, grfFooM.Col] != null ? grfFooM[grfFooM.Row, grfFooM.Col].ToString() : "";
                 row1[colFmTotal] = Math.Round(total1,4);
@@ -433,11 +448,13 @@ namespace modernpos_pos.gui
             grfFooM.Cols[colFmedit].Visible = false; 
             grfFooM.Cols[colFmName].AllowEditing = false;
             grfFooM.Cols[colFmprice].AllowEditing = false;
-            grfFooM.Cols[colFmWeight].AllowEditing = false;
+            grfFooM.Cols[colFmWeight].AllowEditing = true;
+            grfFooM.Cols[colFmQty].AllowEditing = false;
             grfFooM.Cols[colFmTotal].AllowEditing = false;
             lbMatCnt.Text = grfFooM.Rows.Count.ToString();
             txtMatTotal.Value = nettotal;
             pageLoad = false;
+            //calTotal();
         }
 
         private void GrfFooM_AfterRowColChange(object sender, RangeEventArgs e)
@@ -487,16 +504,7 @@ namespace modernpos_pos.gui
             //    }
             //}
         }
-        private String calMaterial(String qty, String price, String weight)
-        {
-            String total = "";
-            Decimal qty1 = 0, weight1 = 0, price1 = 0, total1=0;
-            Decimal.TryParse(qty, out qty1);
-            Decimal.TryParse(price, out price1);
-            Decimal.TryParse(weight, out weight1);
-            total1 = ((qty1 * weight1) * price1) / 1000;
-            return total1.ToString();
-        }
+        
         private void setGrfMaterial(String fooId)
         {
             //grfDept.Rows.Count = 7;

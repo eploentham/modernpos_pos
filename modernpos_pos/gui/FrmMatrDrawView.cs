@@ -25,7 +25,7 @@ namespace modernpos_pos.gui
         C1FlexGrid grfMatd;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
-        int colID = 1, colcode = 2, colDate = 3, colRemark = 4, colEdit = 5;
+        int colID = 1, colcode = 2, colDate = 3, colRemark = 4, colTotal = 5, colCnt=6, colEdit = 7;
         public FrmMatrDrawView(mPOSControl x)
         {
             InitializeComponent();
@@ -40,6 +40,7 @@ namespace modernpos_pos.gui
             sep = new C1SuperErrorProvider();
 
             theme1.Theme = mposC.iniC.themeApplication;
+            theme1.SetTheme(panel1, mposC.iniC.themeApplication);
             theme1.SetTheme(panel2, mposC.iniC.themeApplication);
             theme1.SetTheme(sB, "BeigeOne");
             foreach (Control c in panel1.Controls)
@@ -106,13 +107,17 @@ namespace modernpos_pos.gui
             dt = mposC.mposDB.matdDB.selectByYearId(cboYear.Text);
 
             grfMatd.Rows.Count = 1;
-            grfMatd.Cols.Count = 6;
-            grfMatd.Cols[colcode].Width = 60;
-            grfMatd.Cols[colDate].Width = 60;
-            grfMatd.Cols[colRemark].Width = 60;
-            grfMatd.Cols[colcode].Caption = "รายการ";
-            grfMatd.Cols[colDate].Caption = "ราคา";
-            grfMatd.Cols[colRemark].Caption = "จำนวน";
+            grfMatd.Cols.Count = 8;
+            grfMatd.Cols[colcode].Width = 120;
+            grfMatd.Cols[colDate].Width = 120;
+            grfMatd.Cols[colRemark].Width = 200;
+            grfMatd.Cols[colTotal].Width = 120;
+            grfMatd.Cols[colCnt].Width = 120;
+            grfMatd.Cols[colcode].Caption = "เลขที่";
+            grfMatd.Cols[colDate].Caption = "วันที่";
+            grfMatd.Cols[colRemark].Caption = "หมายเหตุ";
+            grfMatd.Cols[colTotal].Caption = "รวมราคา";
+            grfMatd.Cols[colCnt].Caption = "รวมจำนวน";
             //grfMatr.Cols[colName].Editor = cboMethod;
 
             grfMatd.ShowCursor = true;
@@ -127,6 +132,8 @@ namespace modernpos_pos.gui
                 row1[colcode] = row[mposC.mposDB.matdDB.matd.matd_code].ToString();
                 row1[colDate] = mposC.datetoShow(row[mposC.mposDB.matdDB.matd.matd_date].ToString());
                 row1[colRemark] = row[mposC.mposDB.matdDB.matd.remark].ToString();
+                row1[colTotal] = row["total1"].ToString();
+                row1[colCnt] = row["cnt"].ToString();
                 row1[colEdit] = "0";
                 if (i % 2 == 0)
                     row1.StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);

@@ -278,6 +278,12 @@
     <Compile Include="gui\FrmStaff.designer.cs">
       <DependentUpon>FrmStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmStockCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmStockCard.Designer.cs">
+      <DependentUpon>FrmStockCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmTakeOut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -392,6 +398,8 @@
     <Compile Include="objdb\RestaurantDB.cs" />
     <Compile Include="objdb\sequenceDB.cs" />
     <Compile Include="objdb\StaffDB.cs" />
+    <Compile Include="objdb\StockCardDB.cs" />
+    <Compile Include="objdb\StockCardEndYearDB.cs" />
     <Compile Include="objdb\TableDB.cs" />
     <Compile Include="objdb\MaterialRecDB.cs" />
     <Compile Include="objdb\MaterialRecDetailDB.cs" />
@@ -471,6 +479,8 @@
     <Compile Include="object1\Restaurant.cs" />
     <Compile Include="object1\sequence1.cs" />
     <Compile Include="object1\Staff.cs" />
+    <Compile Include="object1\StockCard.cs" />
+    <Compile Include="object1\StockCardEndYear.cs" />
     <Compile Include="object1\Table.cs" />
     <Compile Include="object1\MaterialRec.cs" />
     <Compile Include="object1\MaterialRecDetail.cs" />
@@ -600,6 +610,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmStaff.resx">
       <DependentUpon>FrmStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmStockCard.resx">
+      <DependentUpon>FrmStockCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmTakeOut.resx">
       <DependentUpon>FrmTakeOut.cs</DependentUpon>

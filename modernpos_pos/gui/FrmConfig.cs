@@ -46,7 +46,18 @@ namespace modernpos_pos.gui
             btnUnit.Click += BtnUnit_Click;
             btnMatrRec.Click += BtnRecMatr_Click;
             btnMatrDraw.Click += BtnMatrDraw_Click;
+            btnStockCard.Click += BtnStockCard_Click;
             this.FormClosed += FrmConfig_FormClosed;
+        }
+
+        private void BtnStockCard_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmMatrDrawView frm = new FrmMatrDrawView(mposC);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            this.Hide();
+            frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtnMatrDraw_Click(object sender, EventArgs e)

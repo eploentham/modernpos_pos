@@ -49,6 +49,7 @@
             this.btnUnit = new C1.Win.C1Input.C1Button();
             this.btnMatrRec = new C1.Win.C1Input.C1Button();
             this.btnMatrDraw = new C1.Win.C1Input.C1Button();
+            this.btnStockCard = new C1.Win.C1Input.C1Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTable)).BeginInit();
@@ -68,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMatrRec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMatrDraw)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnStockCard)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -265,11 +267,21 @@
             this.btnMatrDraw.Text = "เบิกออก Material";
             this.btnMatrDraw.UseVisualStyleBackColor = true;
             // 
+            // btnStockCard
+            // 
+            this.btnStockCard.Location = new System.Drawing.Point(606, 517);
+            this.btnStockCard.Name = "btnStockCard";
+            this.btnStockCard.Size = new System.Drawing.Size(116, 77);
+            this.btnStockCard.TabIndex = 23;
+            this.btnStockCard.Text = "Stock Card";
+            this.btnStockCard.UseVisualStyleBackColor = true;
+            // 
             // FrmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 629);
+            this.Controls.Add(this.btnStockCard);
             this.Controls.Add(this.btnMatrDraw);
             this.Controls.Add(this.btnMatrRec);
             this.Controls.Add(this.btnUnit);
@@ -312,6 +324,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMatrRec)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMatrDraw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnStockCard)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -339,5 +352,6 @@
         private C1.Win.C1Input.C1Button btnUnit;
         private C1.Win.C1Input.C1Button btnMatrRec;
         private C1.Win.C1Input.C1Button btnMatrDraw;
+        private C1.Win.C1Input.C1Button btnStockCard;
     }
 }

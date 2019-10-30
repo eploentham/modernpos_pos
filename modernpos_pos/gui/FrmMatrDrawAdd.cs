@@ -82,7 +82,7 @@ namespace modernpos_pos.gui
                 //ic.ivfDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
                 long chk = 0;
                 String re = "";
-                re = mposC.mposDB.matDB.genMaterialDraw(txtMatrId.Text);
+                re = mposC.mposDB.matDB.genMaterialDraw(txtMatdId.Text);
                 if (long.TryParse(re, out chk))
                 {
                     btnDoc.Enabled = false;
@@ -101,10 +101,10 @@ namespace modernpos_pos.gui
                 //ic.ivfDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
                 long chk = 0;
                 String re = "";
-                re = mposC.mposDB.matdDB.Void(txtMatrId.Text, "");
+                re = mposC.mposDB.matdDB.Void(txtMatdId.Text, "");
                 if (long.TryParse(re, out chk))
                 {
-                    mposC.mposDB.matddDB.voidMatd(txtMatrId.Text, "");
+                    mposC.mposDB.matddDB.voidMatd(txtMatdId.Text, "");
                 }
                 //setGrfAgent();
             }
@@ -151,9 +151,9 @@ namespace modernpos_pos.gui
             String re = mposC.mposDB.matdDB.insertMatrDraw(matd, "");
             if (long.TryParse(re, out chk))
             {
-                if (txtMatrId.Text.Length == 0 && chk > 1)
+                if (txtMatdId.Text.Length == 0 && chk > 1)
                 {
-                    txtMatrId.Value = re;
+                    txtMatdId.Value = re;
                     matd_id = re;
                 }
                 int i = 0;
@@ -172,7 +172,7 @@ namespace modernpos_pos.gui
                     MaterialDrawDetail matdd = new MaterialDrawDetail();
                     matdd.matd_detail_id = matrdid;
                     matdd.weight = "";
-                    matdd.matd_id = txtMatrId.Text;
+                    matdd.matd_id = txtMatdId.Text;
                     matdd.active = "";
                     matdd.remark = "";
                     matdd.sort1 = "";
@@ -196,14 +196,14 @@ namespace modernpos_pos.gui
         }
         private void setMatd()
         {
-            matd.matd_id = txtMatrId.Text;
-            if (txtMatrId.Text.Length == 0)
+            matd.matd_id = txtMatdId.Text;
+            if (txtMatdId.Text.Length == 0)
             {
                 matd.matd_code = mposC.mposDB.copDB.genMatDrawDoc();
             }
             else
             {
-                matd.matd_code = txtMatrCode.Text.Trim();
+                matd.matd_code = txtMatdCode.Text.Trim();
             }
             matd.matd_date = mposC.datetoDB(txtMatrDate.Text);
             matd.active = "acive";
@@ -268,13 +268,13 @@ namespace modernpos_pos.gui
         private void setControl()
         {
             matd = mposC.mposDB.matdDB.selectByPk1(matd_id);
-            txtMatrId.Value = matd.matd_id;
+            txtMatdId.Value = matd.matd_id;
             if (matd.matd_date.Length > 0)
             {
                 txtMatrDate.Value = mposC.datetoShow(matd.matd_date);
             }
             txtRemark.Value = matd.remark;
-            txtMatrCode.Value = matd.matd_code;
+            txtMatdCode.Value = matd.matd_code;
 
             setGrfMatd();
         }

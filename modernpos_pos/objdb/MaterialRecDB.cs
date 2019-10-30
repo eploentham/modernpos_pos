@@ -48,10 +48,12 @@ namespace modernpos_pos.objdb
         public DataTable selectByYearId(String yearid)
         {
             DataTable dt = new DataTable();
-            String sql = "select matr.*  " +
+            String sql = "select matr.*, sum(matrd.price * matrd.qty) as total1, count(matr_code) as cnt  " +
                 "From " + matr.table + " matr " +
-                " " +
-                "Where matr." + matr.active + " ='1' and matr."+matr.year_id + "='"+yearid+"'";
+                "Left Join t_material_rec_detail matrd on matr.matr_id = matrd.matr_id  " +
+                "Where matr." + matr.active + " ='1' and matr."+matr.year_id + "='"+yearid+"' and matrd.active = '1'" +
+                "Group By matr.matr_code " +
+                "Order By matr.matr_id desc";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;

@@ -281,3 +281,50 @@ ADD COLUMN `date_gen_stock` VARCHAR(45) NULL AFTER `status_stock`;
 
 ALTER TABLE `modern_pos`.`b_unit` 
 ADD COLUMN `cal_unit` DECIMAL(17,4) NULL AFTER `device_id`;
+
+
+ALTER TABLE `modern_pos`.`t_stock` 
+ADD COLUMN `price` DECIMAL(17,4) NULL AFTER `material_id`;
+
+ALTER TABLE `modern_pos`.`t_stock` 
+CHANGE COLUMN `wright` `weight` DECIMAL(17,4) NULL DEFAULT NULL ;
+
+
+CREATE TABLE `modern_pos`.`t_stock_endyear` (
+  `stock_endyear_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `material_id` BIGINT NULL,
+  `year_id` VARCHAR(45) NULL,
+  `rec_draw_matr_id` BIGINT NULL,
+  `price` DECIMAL(17,4) NULL,
+  `qty` DECIMAL(17,4) NULL,
+  `weight` DECIMAL(17,4) NULL,
+  `status_rec_draw` VARCHAR(45) NULL,
+  `rec_draw_date` VARCHAR(45) NULL,
+  `active` VARCHAR(45) NULL,
+  `date_create` VARCHAR(45) NULL,
+  `dae_modi` VARCHAR(45) NULL,
+  `date_cancel` VARCHAR(45) NULL,
+  `user_create` VARCHAR(45) NULL,
+  `user_modi` VARCHAR(45) NULL,
+  `user_cancel` VARCHAR(45) NULL,
+  `remark` VARCHAR(45) NULL,
+  `sort1` VARCHAR(45) NULL,
+  PRIMARY KEY (`stock_endyear_id`))
+ENGINE = MyISAM
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin
+COMMENT = 'id=150';
+
+ALTER TABLE `modern_pos`.`t_stock` 
+ADD COLUMN `onhand` DECIMAL(17,4) NULL AFTER `sort1`,
+ADD COLUMN `host_id` VARCHAR(45) NULL AFTER `onhand`,
+ADD COLUMN `branch_id` VARCHAR(45) NULL AFTER `host_id`,
+ADD COLUMN `device_id` VARCHAR(45) NULL AFTER `branch_id`;
+
+ALTER TABLE `modern_pos`.`t_stock_endyear` 
+ADD COLUMN `onhand` DECIMAL(17,4) NULL AFTER `sort1`,
+ADD COLUMN `host_id` VARCHAR(45) NULL AFTER `onhand`,
+ADD COLUMN `branch_id` VARCHAR(45) NULL AFTER `host_id`,
+ADD COLUMN `device_id` VARCHAR(45) NULL AFTER `branch_id`;
+
+

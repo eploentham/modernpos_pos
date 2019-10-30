@@ -38,13 +38,13 @@
             this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             this.chkVoid = new C1.Win.C1Input.C1CheckBox();
             this.btnSave = new C1.Win.C1Input.C1Button();
-            this.txtMatrId = new C1.Win.C1Input.C1TextBox();
+            this.txtMatdId = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtRemark = new C1.Win.C1Input.C1TextBox();
             this.label109 = new System.Windows.Forms.Label();
             this.txtMatrDate = new C1.Win.C1Input.C1DateEdit();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtMatrCode = new C1.Win.C1Input.C1TextBox();
+            this.txtMatdCode = new C1.Win.C1Input.C1TextBox();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -53,10 +53,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatrId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMatdId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatrDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatrCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMatdCode)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -98,13 +98,13 @@
             this.panel1.Controls.Add(this.txtPasswordVoid);
             this.panel1.Controls.Add(this.chkVoid);
             this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Controls.Add(this.txtMatrId);
+            this.panel1.Controls.Add(this.txtMatdId);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtRemark);
             this.panel1.Controls.Add(this.label109);
             this.panel1.Controls.Add(this.txtMatrDate);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtMatrCode);
+            this.panel1.Controls.Add(this.txtMatdCode);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -121,7 +121,7 @@
             this.btnDoc.Name = "btnDoc";
             this.btnDoc.Size = new System.Drawing.Size(91, 39);
             this.btnDoc.TabIndex = 821;
-            this.btnDoc.Text = "นำเข้าStock";
+            this.btnDoc.Text = "เบิกจ่าย Stock";
             this.btnDoc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnDoc, "(default)");
             this.btnDoc.UseVisualStyleBackColor = true;
@@ -188,18 +188,18 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // txtMatrId
+            // txtMatdId
             // 
-            this.txtMatrId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMatrId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtMatrId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtMatrId.Location = new System.Drawing.Point(314, 12);
-            this.txtMatrId.Name = "txtMatrId";
-            this.txtMatrId.Size = new System.Drawing.Size(34, 20);
-            this.txtMatrId.TabIndex = 816;
-            this.txtMatrId.Tag = null;
-            this.theme1.SetTheme(this.txtMatrId, "(default)");
-            this.txtMatrId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtMatdId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMatdId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtMatdId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtMatdId.Location = new System.Drawing.Point(314, 12);
+            this.txtMatdId.Name = "txtMatdId";
+            this.txtMatdId.Size = new System.Drawing.Size(34, 20);
+            this.txtMatdId.TabIndex = 816;
+            this.txtMatdId.Tag = null;
+            this.theme1.SetTheme(this.txtMatdId, "(default)");
+            this.txtMatdId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label1
             // 
@@ -301,18 +301,18 @@
             this.label4.Text = "เลขที่  :";
             this.theme1.SetTheme(this.label4, "(default)");
             // 
-            // txtMatrCode
+            // txtMatdCode
             // 
-            this.txtMatrCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMatrCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtMatrCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtMatrCode.Location = new System.Drawing.Point(101, 12);
-            this.txtMatrCode.Name = "txtMatrCode";
-            this.txtMatrCode.Size = new System.Drawing.Size(207, 20);
-            this.txtMatrCode.TabIndex = 537;
-            this.txtMatrCode.Tag = null;
-            this.theme1.SetTheme(this.txtMatrCode, "(default)");
-            this.txtMatrCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtMatdCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMatdCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtMatdCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtMatdCode.Location = new System.Drawing.Point(101, 12);
+            this.txtMatdCode.Name = "txtMatdCode";
+            this.txtMatdCode.Size = new System.Drawing.Size(207, 20);
+            this.txtMatdCode.TabIndex = 537;
+            this.txtMatdCode.Tag = null;
+            this.theme1.SetTheme(this.txtMatdCode, "(default)");
+            this.txtMatdCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmMatrDrawAdd
             // 
@@ -335,10 +335,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatrId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMatdId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatrDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatrCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMatdCode)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,12 +356,12 @@
         private C1.Win.C1Input.C1TextBox txtPasswordVoid;
         private C1.Win.C1Input.C1CheckBox chkVoid;
         private C1.Win.C1Input.C1Button btnSave;
-        private C1.Win.C1Input.C1TextBox txtMatrId;
+        private C1.Win.C1Input.C1TextBox txtMatdId;
         private System.Windows.Forms.Label label1;
         private C1.Win.C1Input.C1TextBox txtRemark;
         private System.Windows.Forms.Label label109;
         private C1.Win.C1Input.C1DateEdit txtMatrDate;
         private System.Windows.Forms.Label label4;
-        private C1.Win.C1Input.C1TextBox txtMatrCode;
+        private C1.Win.C1Input.C1TextBox txtMatdCode;
     }
 }
