@@ -472,7 +472,7 @@ namespace modernpos_pos.objdb
                 dept1.rec_draw_matr_id = dt.Rows[0][stkc.rec_draw_matr_id] != null ? dt.Rows[0][stkc.rec_draw_matr_id].ToString() : "";
                 dept1.rec_draw_date = dt.Rows[0][stkc.rec_draw_date] != null ? dt.Rows[0][stkc.rec_draw_date].ToString() : "";
                 dept1.status_rec_draw = dt.Rows[0][stkc.status_rec_draw] != null ? dt.Rows[0][stkc.status_rec_draw].ToString() : "";
-                dept1.on_hand = dt.Rows[0][stkc.on_hand] != null ? dt.Rows[0][stkc.on_hand].ToString() : "";
+                dept1.onhand = dt.Rows[0][stkc.onhand] != null ? dt.Rows[0][stkc.onhand].ToString() : "";
             }
             else
             {
@@ -494,7 +494,7 @@ namespace modernpos_pos.objdb
                 dept1.rec_draw_matr_id = "";
                 dept1.status_rec_draw = "";
                 dept1.rec_draw_date = "";
-                dept1.on_hand = "";
+                dept1.onhand = "";
             }
 
             return dept1;
