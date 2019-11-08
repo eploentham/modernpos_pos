@@ -164,7 +164,7 @@ namespace modernpos_pos.objdb
                 Material itm1 = new Material();
                 itm1.material_id = row[mat.material_id].ToString();
                 itm1.material_name = row[mat.material_name].ToString();
-
+                itm1.price = row[mat.price].ToString();
                 lfootp.Add(itm1);
             }
         }
@@ -177,6 +177,20 @@ namespace modernpos_pos.objdb
                 if (sex.material_id.Equals(id))
                 {
                     re = sex.material_name;
+                    break;
+                }
+            }
+            return re;
+        }
+        public String getPriceById(String id)
+        {
+            String re = "";
+            if (lfootp.Count <= 0) getlArea();
+            foreach (Material sex in lfootp)
+            {
+                if (sex.material_id.Trim().Equals(id.Trim()))
+                {
+                    re = sex.price;
                     break;
                 }
             }
