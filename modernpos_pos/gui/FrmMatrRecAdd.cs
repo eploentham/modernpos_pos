@@ -30,7 +30,7 @@ namespace modernpos_pos.gui
         C1SuperErrorProvider sep;
         C1ComboBox cboMethod;
 
-        int colID = 1, colName = 2, colPrice = 3, colQty = 4, colRemark=5, colEdit=6;
+        int colID = 1, colName = 2, colPrice = 3, colWeight = 4, colRemark=5, colEdit=6;
 
         String userIdVoid = "", matr_id="";
         public FrmMatrRecAdd(mPOSControl x, String matrid)
@@ -159,11 +159,11 @@ namespace modernpos_pos.gui
                 int i = 0;
                 foreach(Row row in grfMatr.Rows)
                 {
-                    String matrid = "", matrdid="", price="", qty="", edit="", matrname="";
+                    String matrid = "", matrdid="", price="", weight="", edit="", matrname="";
                     matrdid = row[colID] != null ? row[colID].ToString() : "";
                     matrname = row[colName] != null ? row[colName].ToString() : "";
                     price = row[colPrice] != null ? row[colPrice].ToString() : "";
-                    qty = row[colQty] != null ? row[colQty].ToString() : "";
+                    weight = row[colWeight] != null ? row[colWeight].ToString() : "";
                     edit = row[colEdit] != null ? row[colEdit].ToString() : "";
                     if (!edit.Equals("1")) continue;
                     matrid = mposC.mposDB.matDB.getMatridByName(matrname);
@@ -171,7 +171,7 @@ namespace modernpos_pos.gui
                     i++;
                     MaterialRecDetail matrd = new MaterialRecDetail();
                     matrd.matr_detail_id = matrdid;
-                    matrd.weight = "";
+                    matrd.weight = weight;
                     matrd.matr_id = txtMatrId.Text;
                     matrd.active = "";
                     matrd.remark = "";
@@ -185,8 +185,8 @@ namespace modernpos_pos.gui
                     matrd.host_id = "";
                     matrd.branch_id = "";
                     matrd.device_id = "";
-                    matrd.price = price;                    
-                    matrd.qty = qty;
+                    matrd.price = price;
+                    matrd.qty = "";
                     matrd.material_id = matrid;
                     matrd.row1 = i.ToString();
                     mposC.mposDB.matrdDB.insertFoodsMaterial(matrd, "");
@@ -232,7 +232,7 @@ namespace modernpos_pos.gui
             //grfMatr.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
             //grfMatr.CellChanged += GrfMatr_CellChanged;
             grfMatr.AfterEdit += GrfMatr_AfterEdit;
-
+            grfMatr.ComboCloseUp += GrfMatr_ComboCloseUp;
             panel2.Controls.Add(this.grfMatr);
 
             setControl();
@@ -241,11 +241,27 @@ namespace modernpos_pos.gui
             C1ThemeController.ApplyThemeToObject(grfMatr, theme);
         }
 
+        private void GrfMatr_ComboCloseUp(object sender, RowColEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.Col == colName)
+            {
+                
+            }
+        }
+
         private void GrfMatr_AfterEdit(object sender, RowColEventArgs e)
         {
             //throw new NotImplementedException();
             if (e.Col == colName)
             {
+                String id = "", price = "";
+                //var obj = (ComboBoxItem)grfMatr[e.Row, colName];
+                ComboBoxItem item = (ComboBoxItem)cboMethod.SelectedItem;
+                id = item.Value;
+                price = mposC.mposDB.matDB.getPriceById(id);
+                grfMatr[e.Row, colPrice] = price;
+
                 grfMatr[e.Row, colEdit] = "1";
                 grfMatr.Rows.Add();
             }
@@ -253,7 +269,7 @@ namespace modernpos_pos.gui
             {
                 grfMatr[e.Row, colEdit] = "1";
             }
-            else if (e.Col == colQty)
+            else if (e.Col == colWeight)
             {
                 grfMatr[e.Row, colEdit] = "1";
             }
@@ -287,11 +303,11 @@ namespace modernpos_pos.gui
             grfMatr.Cols.Count = 7;
             grfMatr.Cols[colName].Width = 200;
             grfMatr.Cols[colPrice].Width = 80;
-            grfMatr.Cols[colQty].Width = 90;
+            grfMatr.Cols[colWeight].Width = 90;
             grfMatr.Cols[colRemark].Width = 200;
             grfMatr.Cols[colName].Caption = "รายการ";
             grfMatr.Cols[colPrice].Caption = "ราคา";
-            grfMatr.Cols[colQty].Caption = "จำนวน";
+            grfMatr.Cols[colWeight].Caption = "น้ำหนัก";
             grfMatr.Cols[colRemark].Caption = "หมายเหตุ";
             grfMatr.Cols[colName].Editor = cboMethod;
 
@@ -307,7 +323,7 @@ namespace modernpos_pos.gui
                 row1[colID] = row[mposC.mposDB.matrdDB.matrd.matr_detail_id].ToString();
                 row1[colName] = mposC.mposDB.matDB.getList(row[mposC.mposDB.matrdDB.matrd.material_id].ToString());
                 row1[colPrice] = row[mposC.mposDB.matrdDB.matrd.price].ToString();
-                row1[colQty] = row[mposC.mposDB.matrdDB.matrd.qty].ToString();
+                row1[colWeight] = row[mposC.mposDB.matrdDB.matrd.qty].ToString();
                 row1[colRemark] = row[mposC.mposDB.matrdDB.matrd.remark].ToString();
                 row1[colEdit] = "0";
                 if (i % 2 == 0)
