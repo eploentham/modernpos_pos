@@ -362,6 +362,29 @@ namespace modernpos_pos.objdb
 
             return re;
         }
+        public String updateStatusBillComplete(String ordid, String bildid)
+        {
+            String re = "";
+            String sql = "";
+            int chk = 0;
+
+            //chkNull(p);
+            sql = "Update " + ord.table + " Set " +
+                " " + ord.status_bill + " = '2'" +
+                ", " +ord.bill_id+" = '" + bildid + "' " +
+                "Where " + ord.pkField + "='" + ordid + "'"
+                ;
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+
+            return re;
+        }
         //public C1ComboBox setCboFoods(C1ComboBox c)
         //{
         //    ComboBoxItem item = new ComboBoxItem();

@@ -240,6 +240,7 @@ namespace modernpos_pos.objdb
             catch (Exception ex)
             {
                 sql = ex.Message + " " + ex.InnerException;
+                new LogFile("error insert " + this.ToString()+" " + ex.Message + " " + ex.InnerException);
             }
 
             return re;
@@ -276,6 +277,7 @@ namespace modernpos_pos.objdb
             catch (Exception ex)
             {
                 sql = ex.Message + " " + ex.InnerException;
+                new LogFile("error update "+ this.ToString()+" " + ex.Message  + " " + ex.InnerException);
             }
 
             return re;

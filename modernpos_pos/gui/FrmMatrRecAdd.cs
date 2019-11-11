@@ -186,7 +186,7 @@ namespace modernpos_pos.gui
                     matrd.branch_id = "";
                     matrd.device_id = "";
                     matrd.price = price;
-                    matrd.qty = "";
+                    matrd.qty = "1";
                     matrd.material_id = matrid;
                     matrd.row1 = i.ToString();
                     mposC.mposDB.matrdDB.insertFoodsMaterial(matrd, "");
@@ -323,7 +323,8 @@ namespace modernpos_pos.gui
                 row1[colID] = row[mposC.mposDB.matrdDB.matrd.matr_detail_id].ToString();
                 row1[colName] = mposC.mposDB.matDB.getList(row[mposC.mposDB.matrdDB.matrd.material_id].ToString());
                 row1[colPrice] = row[mposC.mposDB.matrdDB.matrd.price].ToString();
-                row1[colWeight] = row[mposC.mposDB.matrdDB.matrd.qty].ToString();
+                row1[colWeight] = row[mposC.mposDB.matrdDB.matrd.weight].ToString();
+                //row1[colq] = row[mposC.mposDB.matrdDB.matrd.qty].ToString();
                 row1[colRemark] = row[mposC.mposDB.matrdDB.matrd.remark].ToString();
                 row1[colEdit] = "0";
                 if (i % 2 == 0)

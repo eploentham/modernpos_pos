@@ -256,7 +256,7 @@ namespace modernpos_pos.objdb
                 "," + bil.bill_user + " = '" + p.bill_user + "' " +
                 "," + bil.status_closeday + " = '" + p.status_closeday + "' " +
                 "," + bil.closeday_id + " = '" + p.closeday_id + "' " +
-                //"," + bil.bill_id + " = '" + p.bill_id + "' " +
+                "," + bil.lot_id + " = '" + p.lot_id + "' " +
                 //"," + ord.order_user + " = '" + p.order_user + "' " +
                 //"," + bil.status_closeday + " = '" + p.status_closeday + "' " +
                 //"," + bil.closeday_id + " = '" + p.closeday_id + "' " +

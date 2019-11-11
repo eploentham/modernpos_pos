@@ -230,7 +230,7 @@ namespace modernpos_pos.objdb
                 "," + matrd.sort1 + " = '" + p.sort1 + "' " +
                 "," + matrd.qty + " = '" + p.qty + "' " +
                 "," + matrd.material_id + " = '" + p.material_id + "' " +
-                //"," + matrd.material_id + " = '" + p.material_id + "' " +
+                //"," + matrd.weight + " = '" + p.weight + "' " +
                 "," + matrd.row1 + " = '" + p.row1 + "' " +
                 " ";
             try

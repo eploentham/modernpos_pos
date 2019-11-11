@@ -100,6 +100,7 @@ namespace modernpos_pos.gui
             this.Hide();
             frm.ShowDialog(this);
             this.Show();
+            setGrfMatr();
         }
         private void setGrfMatr()
         {

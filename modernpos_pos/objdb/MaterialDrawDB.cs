@@ -53,7 +53,7 @@ namespace modernpos_pos.objdb
                 "Left Join t_material_draw_detail matdd on matd.matd_id = matdd.matd_id  " +
                 "Where matd." + matd.active + " ='1' and matd." + matd.year_id + "='" + yearid + "' and matd.active = '1' " +
                 "Group By matd.matd_code " +
-                "Order By matd.matd_id";
+                "Order By matd.matd_id  desc";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;

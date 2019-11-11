@@ -1224,11 +1224,13 @@ namespace modernpos_pos.gui
                     bild1 = setBillDetail(re, row);
                     String re1 = "";
                     re1 = mposC.mposDB.bildDB.insertBillDetail(bild1, "");
+                    mposC.mposDB.ordDB.updateStatusBillComplete(bild1.order_id, re1);
                     if (!long.TryParse(re1, out chk))
                     {
                         MessageBox.Show("error", "");
                     }
                 }
+                
             }
         }
         private BillDetail setBillDetail(String billid, Order1 row)
@@ -1281,7 +1283,7 @@ namespace modernpos_pos.gui
             Bill bil = new Bill();
             bil.bill_id = "";
             bil.bill_code = "";
-            bil.bill_date = "";
+            bil.bill_date = DateTime.Now.Year.ToString() +"-"+DateTime.Now.ToString("MM-dd");
             bil.lot_id = ord.lot_id;
             bil.status_void = "";
             bil.void_date = "";
@@ -1315,6 +1317,7 @@ namespace modernpos_pos.gui
             bil.bill_user = "";
             bil.status_closeday = "0";
             bil.closeday_id = "";
+            bil.status_void = "";
 
             return bil;
         }

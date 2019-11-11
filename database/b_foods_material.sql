@@ -328,3 +328,7 @@ ADD COLUMN `branch_id` VARCHAR(45) NULL AFTER `host_id`,
 ADD COLUMN `device_id` VARCHAR(45) NULL AFTER `branch_id`;
 
 
+
+ALTER TABLE `modern_pos`.`t_stock` 
+ADD COLUMN `amount` DECIMAL(17,4) NULL AFTER `device_id`;
+
