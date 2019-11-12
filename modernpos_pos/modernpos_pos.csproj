@@ -125,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="control\mPOSControl.cs" />
+    <Compile Include="gui\CellNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="gui\FrmMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,6 +424,7 @@
     <Compile Include="object1\Area.cs" />
     <Compile Include="object1\Bill.cs" />
     <Compile Include="object1\BillDetail.cs" />
+    <Compile Include="object1\CellNoteManager.cs" />
     <Compile Include="object1\ComboBoxItem.cs" />
     <Compile Include="gui\Form11.cs">
       <SubType>Form</SubType>
@@ -515,6 +519,9 @@
     <Compile Include="object1\VNE\VNErequestPayment.cs" />
     <Compile Include="object1\VNE\VNEresponsePayment.cs" />
     <Compile Include="object1\VNE\VNEPaymentPendingDeleteRequest.cs" />
+    <EmbeddedResource Include="gui\CellNote.resx">
+      <DependentUpon>CellNote.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmMaterial.resx">
       <DependentUpon>FrmMaterial.cs</DependentUpon>
     </EmbeddedResource>

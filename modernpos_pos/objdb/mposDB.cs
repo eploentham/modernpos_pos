@@ -43,6 +43,7 @@ namespace modernpos_pos.objdb
         public MaterialRecDetailDB matrdDB;
         public MaterialDrawDB matdDB;
         public MaterialDrawDetailDB matddDB;
+        public StockCardDB stkDB;
         public mPosDB(ConnectDB c)
         {
             conn = c;
@@ -83,6 +84,7 @@ namespace modernpos_pos.objdb
             matrdDB = new MaterialRecDetailDB(conn);
             matdDB = new MaterialDrawDB(conn);
             matddDB = new MaterialDrawDetailDB(conn);
+            stkDB = new StockCardDB(conn);
             //MessageBox.Show("mPosDB end ", "");
             Console.WriteLine("mPosDB end");
         }

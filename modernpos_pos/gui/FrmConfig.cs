@@ -53,7 +53,7 @@ namespace modernpos_pos.gui
         private void BtnStockCard_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmMatrDrawView frm = new FrmMatrDrawView(mposC);
+            FrmStockCard frm = new FrmStockCard(mposC);
             frm.StartPosition = FormStartPosition.CenterScreen;
             this.Hide();
             frm.ShowDialog(this);

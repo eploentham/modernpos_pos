@@ -50,7 +50,7 @@ namespace modernpos_pos.objdb
             stkc.device_id = "device_id";
 
             stkc.pkField = "stock_id";
-            stkc.table = "b_material";
+            stkc.table = "t_stock";
         }
         public DataTable selectAll()
         {
@@ -84,13 +84,14 @@ namespace modernpos_pos.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
-        public DataTable selectByFoodsId1(String copId)
+        public DataTable selectByMatId(String matid)
         {
             DataTable dt = new DataTable();
-            String sql = "select foos." + stkc.material_id + ",'' as img,foos." + stkc.price + ",foos." + stkc.price +
-                " From " + stkc.table + " foos " +
-                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where foos." + stkc.material_id + " ='" + copId + "' and foos." + stkc.qty + "='1' ";
+            String sql = "select stkc.*, mat.material_name, mat.material_code, DATE_FORMAT(stkc.rec_draw_date, '%Y-%m-%d') AS recdrawdate " +
+                " From " + stkc.table + " stkc " +
+                "Left Join b_material mat On mat.material_id = stkc.material_id " +
+                "Where stkc." + stkc.material_id + " ='" + matid + "'  " +
+                "Order By recdrawdate,material_id, status_rec_draw";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }

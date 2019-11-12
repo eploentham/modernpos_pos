@@ -242,7 +242,6 @@ namespace modernpos_pos.objdb
                 sql = ex.Message + " " + ex.InnerException;
                 new LogFile("error insert " + this.ToString()+" " + ex.Message + " " + ex.InnerException);
             }
-
             return re;
         }
         public String update(MaterialDrawDetail p, String userId)
