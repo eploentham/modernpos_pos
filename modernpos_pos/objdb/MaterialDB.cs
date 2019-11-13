@@ -325,6 +325,36 @@ namespace modernpos_pos.objdb
 
             return re;
         }
+        public String genStock()
+        {
+            String re = "", sql = "";
+            //DataTable dt = new DataTable();
+
+            //sql = "UPDATE sequence SET lot_id=LAST_INSERT_ID("+seq.lot_id+"+1);";
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("gen_stock", conn.conn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add(new MySqlParameter("?drawid", MySqlDbType.Int32));
+                cmd.Parameters.Add(new MySqlParameter("?ret", MySqlDbType.VarChar));
+                //cmd.Parameters["?drawid"].Direction = ParameterDirection.Input;
+                //cmd.Parameters["?drawid"].Value = DateTime.;
+                //cmd.Parameters["?ret"].Direction = ParameterDirection.Output;
+                conn.conn.Open();
+                cmd.ExecuteNonQuery();
+                //re = (string)cmd.Parameters["?ret"].Value;
+
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+            finally
+            {
+                conn.conn.Close();
+            }
+            return re;
+        }
         public String genMaterialDraw(String matrid)
         {
             String re = "", sql = "";

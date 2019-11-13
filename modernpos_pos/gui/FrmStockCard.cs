@@ -66,7 +66,7 @@ namespace modernpos_pos.gui
             tcMain.Controls.Add(tabOnhand);
 
             initgrfOnhand();
-            setGrfOnhand();
+            
         }
         private void initgrfOnhand()
         {
@@ -115,6 +115,7 @@ namespace modernpos_pos.gui
             theme1.SetTheme(grf, "Office2016Black");
             tabMat.Controls.Add(grf);
             setGrf(grf, id);
+            tcMain.SelectedTab = tabMat;
         }
         private void setGrf(C1FlexGrid grf, String matid)
         {
@@ -244,7 +245,8 @@ namespace modernpos_pos.gui
         }
         private void FrmStockCard_Load(object sender, EventArgs e)
         {
-
+            String re = mposC.mposDB.matDB.genStock();
+            setGrfOnhand();
         }
     }
 }
