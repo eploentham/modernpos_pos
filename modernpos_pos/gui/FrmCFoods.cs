@@ -273,6 +273,7 @@ namespace modernpos_pos.gui
                 if (File.Exists(ofd.FileName))
                 {
                     mposC.savePicFoodstoServer(txtID.Text, ofd.FileName);
+                    pageLoad = false;
                     showImg();
                 }
             }
