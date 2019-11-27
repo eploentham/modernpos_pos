@@ -1524,18 +1524,30 @@ namespace modernpos_pos.gui
             {
                 //String printername = "";
                 //printername = ord.printer_name;
-                ord1 = ord;
-                PrintDocument document = new PrintDocument();
-                //MessageBox.Show("ord1.printer_name "+ ord1.printer_name, "");
+                try
+                {
+                    ord1 = ord;
+                    PrintDocument document = new PrintDocument();
+                    //MessageBox.Show("ord1.printer_name "+ ord1.printer_name, "");
+                    if (ord1.printer_name.Length == 0)
+                    {
+                        //MessageBox.Show("ไม่ได้ตั้งชื่อ Printer Order", "");
+                        continue;
+                    }
+                    document.PrinterSettings.PrinterName = ord1.printer_name;
+                    document.PrintPage += new PrintPageEventHandler(printOrder_PrintPage);
+                    //This is where you set the printer in your case you could use "EPSON USB"
+                    //or whatever it is called on your machine, by Default it will choose the default printer
+                    //document.PrinterSettings.PrinterName = mposC.iniC.printerBill;
+                    document.Print();
+                    Application.DoEvents();
+                    iprn++;
+                }
+                catch(Exception ex)
+                {
 
-                document.PrinterSettings.PrinterName = ord1.printer_name;
-                document.PrintPage += new PrintPageEventHandler(printOrder_PrintPage);
-                //This is where you set the printer in your case you could use "EPSON USB"
-                //or whatever it is called on your machine, by Default it will choose the default printer
-                //document.PrinterSettings.PrinterName = mposC.iniC.printerBill;
-                document.Print();
-                Application.DoEvents();
-                iprn++;
+                }
+                
             }
         }
         private void printOrder_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
