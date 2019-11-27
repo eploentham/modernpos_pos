@@ -217,6 +217,7 @@ namespace modernpos_pos.control
             iniC.TileFoodsPriceColor = iniF.getIni("app", "TileFoodsPriceColor");
             iniC.TileFoodsNameColor = iniF.getIni("app", "TileFoodsNameColor");
             iniC.printerOrder = iniF.getIni("app", "printerOrder");
+            iniC.scFoodsWidth = iniF.getIni("app", "scFoodsWidth");
 
             iniC.VNEip = iniF.getIni("VNE", "VNEip");
             iniC.VNEwebapi = iniF.getIni("VNE", "VNEwebapi");
@@ -358,6 +359,7 @@ namespace modernpos_pos.control
             iniC.TileCategoryOrientation = iniC.TileCategoryOrientation != null ? iniC.TileCategoryOrientation : "0";
             iniC.sCFoodsMainSplitterWidth = iniC.sCFoodsMainSplitterWidth != null ? iniC.sCFoodsMainSplitterWidth : "0";
             iniC.sCOrderSplitterWidth = iniC.sCOrderSplitterWidth != null ? iniC.sCOrderSplitterWidth : "0";
+            iniC.scFoodsWidth = iniC.scFoodsWidth != null ? iniC.scFoodsWidth : "600";
 
             iniC.usePassiveFTP = iniC.usePassiveFTP == null ? "false" : iniC.usePassiveFTP.Equals("") ? "false" : iniC.usePassiveFTP;
             Boolean.TryParse(iniC.usePassiveFTP, out ftpUsePassive);

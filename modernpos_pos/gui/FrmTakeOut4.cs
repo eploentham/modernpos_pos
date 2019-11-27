@@ -520,6 +520,7 @@ namespace modernpos_pos.gui
         public void calBill()
         {
             decimal sumprice = 0;
+            int rowno = 1;
             for(int i=0;i< tplOrd.RowCount-1; i++)
             {
                 decimal price = 0;
@@ -533,6 +534,8 @@ namespace modernpos_pos.gui
                 {
                     sumprice += price;
                 }
+                ucto.setRow(rowno.ToString());
+                rowno++;
             }
             btnPay.Text = sumprice.ToString("#,###.00");
         }
@@ -1724,6 +1727,8 @@ namespace modernpos_pos.gui
             pnOrdOrder.Height = this.Height - pnOrdHead.Height -120;
             pnOrdOrder.Width = 420;
             scFoods.Width = this.Width - 440;
+            scCheckLeft.Width = this.Width - 900;
+            //scFoods.Width = int.Parse(mposC.iniC.scFoodsWidth);
             btnPay.Width = 420;
             btnPay.TextAlign = ContentAlignment.MiddleCenter;
             btnPay.Font = fgrd;
