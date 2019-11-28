@@ -41,7 +41,7 @@
             this.scFoodsItem = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.scOrd = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.pnOrdBill = new System.Windows.Forms.Panel();
-            this.lbFooName = new C1.Win.C1SuperTooltip.C1SuperLabel();
+            this.lbTakeOutFooName = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.btnPay = new System.Windows.Forms.Button();
             this.pnOrdOrder = new System.Windows.Forms.Panel();
             this.pnOrdHead = new System.Windows.Forms.Panel();
@@ -188,7 +188,7 @@
             this.scFoods.SizeRatio = 57.061D;
             this.scFoods.TabIndex = 0;
             this.scFoods.Text = "Foods";
-            this.scFoods.Width = 793;
+            this.scFoods.Width = 800;
             // 
             // sCFoodsMain
             // 
@@ -246,7 +246,7 @@
             // pnOrdBill
             // 
             this.pnOrdBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.pnOrdBill.Controls.Add(this.lbFooName);
+            this.pnOrdBill.Controls.Add(this.lbTakeOutFooName);
             this.pnOrdBill.Controls.Add(this.btnPay);
             this.pnOrdBill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnOrdBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -256,17 +256,17 @@
             this.pnOrdBill.TabIndex = 2;
             this.theme1.SetTheme(this.pnOrdBill, "(default)");
             // 
-            // lbFooName
+            // lbTakeOutFooName
             // 
-            this.lbFooName.AutoSize = true;
-            this.lbFooName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbFooName.Location = new System.Drawing.Point(3, 6);
-            this.lbFooName.Name = "lbFooName";
-            this.lbFooName.Size = new System.Drawing.Size(301, 29);
-            this.lbFooName.TabIndex = 253;
-            this.lbFooName.Text = "modernpos POS Restaurant";
-            this.theme1.SetTheme(this.lbFooName, "(default)");
-            this.lbFooName.UseMnemonic = true;
+            this.lbTakeOutFooName.AutoSize = true;
+            this.lbTakeOutFooName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbTakeOutFooName.Location = new System.Drawing.Point(3, 6);
+            this.lbTakeOutFooName.Name = "lbTakeOutFooName";
+            this.lbTakeOutFooName.Size = new System.Drawing.Size(301, 29);
+            this.lbTakeOutFooName.TabIndex = 253;
+            this.lbTakeOutFooName.Text = "modernpos POS Restaurant";
+            this.theme1.SetTheme(this.lbTakeOutFooName, "(default)");
+            this.lbTakeOutFooName.UseMnemonic = true;
             // 
             // btnPay
             // 
@@ -406,7 +406,7 @@
             this.c1SplitterPanel1.Size = new System.Drawing.Size(694, 727);
             this.c1SplitterPanel1.TabIndex = 0;
             this.c1SplitterPanel1.Text = "Panel 1";
-            this.c1SplitterPanel1.Width = 701;
+            this.c1SplitterPanel1.Width = 694;
             // 
             // pnCheckBill
             // 
@@ -463,7 +463,7 @@
             this.cboRsp.EditorFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboRsp.EditorForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.cboRsp.FlatStyle = C1.Win.C1List.FlatModeEnum.Flat;
-            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRsp.Images.Add(((System.Drawing.Image)(resources.GetObject("cboRsp.Images"))));
             this.cboRsp.Location = new System.Drawing.Point(6, 32);
             this.cboRsp.MatchEntryTimeout = ((long)(2000));
@@ -700,7 +700,7 @@
         private C1.Win.C1SplitContainer.C1SplitterPanel scFoodsItem;
         private C1.Win.C1SplitContainer.C1SplitterPanel scOrd;
         private System.Windows.Forms.Panel pnOrdBill;
-        private C1.Win.C1SuperTooltip.C1SuperLabel lbFooName;
+        private C1.Win.C1SuperTooltip.C1SuperLabel lbTakeOutFooName;
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.Panel pnOrdOrder;
         private System.Windows.Forms.Panel pnOrdHead;

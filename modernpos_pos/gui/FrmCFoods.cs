@@ -75,7 +75,7 @@ namespace modernpos_pos.gui
             btnFootVoid.Click += BtnFootVoid_Click;
             btnFoomAdd.Click += BtnFoomAdd_Click;
             btnFoomVoid.Click += BtnFoomVoid_Click;
-            //btnFoomNew.Click += BtnFoomNew_Click;
+            //btnVoid.Click += BtnVoid_Click;
             //btnFoomSave.Click += BtnFoomSave_Click;
 
             mposC.mposDB.resDB.setCboRestaurant(cboRes);
@@ -102,6 +102,12 @@ namespace modernpos_pos.gui
             sep = new C1SuperErrorProvider();
             picFoo.SizeMode = PictureBoxSizeMode.StretchImage;
             //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
+        }
+
+        private void BtnVoid_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+
         }
 
         private void BtnFoomVoid_Click(object sender, EventArgs e)
@@ -1016,7 +1022,8 @@ namespace modernpos_pos.gui
         {
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                mposC.mposDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
+                mposC.mposDB.fooDB.VoidFoods(txtID.Text, userIdVoid);
+                mposC.mposDB.foomDB.voidFoodsMeterial(txtID.Text, userIdVoid);
                 setGrfFoo();
             }
         }

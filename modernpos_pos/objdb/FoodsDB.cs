@@ -375,6 +375,18 @@ namespace modernpos_pos.objdb
 
             return re;
         }
+        public String VoidFoods(String fooId, String userIdVoid)
+        {
+            DataTable dt = new DataTable();
+            String sql = "Update  " + foo.table + " Set " +
+                "" + foo.active + "='3' " +
+                "," + foo.date_cancel + "=now() " +
+                "," + foo.user_cancel + "='" + userIdVoid + "' " +
+                "Where " + foo.pkField + "='" + fooId + "'";
+            conn.ExecuteNonQuery(conn.conn, sql);
+
+            return "1";
+        }
         public String updateFileName(String fooid, String filename)
         {
             String re = "";

@@ -1527,13 +1527,19 @@ namespace modernpos_pos.gui
                 ord1 = ord;
                 PrintDocument document = new PrintDocument();
                 //MessageBox.Show("ord1.printer_name "+ ord1.printer_name, "");
-
-                document.PrinterSettings.PrinterName = ord1.printer_name;
-                document.PrintPage += new PrintPageEventHandler(printOrder_PrintPage);
-                //This is where you set the printer in your case you could use "EPSON USB"
-                //or whatever it is called on your machine, by Default it will choose the default printer
-                //document.PrinterSettings.PrinterName = mposC.iniC.printerBill;
-                document.Print();
+                if (ord1.printer_name.Length > 0)
+                {
+                    document.PrinterSettings.PrinterName = ord1.printer_name;
+                    document.PrintPage += new PrintPageEventHandler(printOrder_PrintPage);
+                    //This is where you set the printer in your case you could use "EPSON USB"
+                    //or whatever it is called on your machine, by Default it will choose the default printer
+                    //document.PrinterSettings.PrinterName = mposC.iniC.printerBill;
+                    document.Print();
+                }
+                else
+                {
+                    MessageBox.Show("ไม่พบ Prnt Name ", "");
+                }
                 Application.DoEvents();
                 iprn++;
             }
