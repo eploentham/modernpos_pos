@@ -11,6 +11,7 @@ using modernpos_pos.control;
 using C1.Win.C1SuperTooltip;
 using modernpos_pos.object1;
 using C1.Win.C1Input;
+using modernpos_pos.Properties;
 
 namespace modernpos_pos.gui
 {
@@ -44,6 +45,7 @@ namespace modernpos_pos.gui
         TableLayoutPanel tpl;
         int cnt = 0;
         Order1 ord;
+        Boolean statusTogo = false;
         FrmTakeOut4 frmtakeout4;        
         public ucOrderTakeOut1(mPOSControl x, String row, String fooid, String qty, ref Order1 ord, ref List<OrderSpecial> lords, ref List<OrderTopping> lordt, FrmTakeOut4 frmtakeout4)
         {
@@ -106,6 +108,7 @@ namespace modernpos_pos.gui
             picDesc.Click += PicDesc_Click;
             picDel.Click += PicDel_Click;
             picDesc.Click += PicDesc_Click1;
+            picTogo.Click += PicTogo_Click;
 
             flagExplan = false;
             sizeNormal = this.Size;
@@ -116,8 +119,30 @@ namespace modernpos_pos.gui
 
             setControl();
             sizeNormal = this.Size;
+            statusTogo = false;
+            if (!mposC.statusApplicationTogo)
+            {
+                picTogo.Hide();
+            }
+            picTogo.Visible = mposC.statusApplicationTogo ? true : false;
             //PicDesc_Click(null, null);
         }
+
+        private void PicTogo_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (statusTogo)
+            {
+                statusTogo = false;
+                picTogo.Image = Resources.togo;
+            }
+            else
+            {
+                statusTogo = true;
+                picTogo.Image = Resources.togo_true;
+            }
+        }
+
         public void setRow(String row)
         {
             this.row = row;

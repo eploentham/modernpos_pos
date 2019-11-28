@@ -1361,6 +1361,8 @@
     <None Include="Resources\Trashcan.png" />
     <None Include="Resources\close1.png" />
     <None Include="Resources\circle-png-circle-icon-1600.png" />
+    <None Include="Resources\togo.png" />
+    <None Include="Resources\togo_true.png" />
     <Content Include="togo_banner.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

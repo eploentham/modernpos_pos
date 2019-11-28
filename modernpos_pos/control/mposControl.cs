@@ -59,7 +59,7 @@ namespace modernpos_pos.control
         //public VideoCaptureDevice video;
 
         public String _IPAddress = "",MACAddress="";
-        public Boolean ftpUsePassive = false;
+        public Boolean ftpUsePassive = false, statusApplicationTogo=false;
 
         public Restaurant res;
         public List<Color> lcolorTopping;
@@ -218,6 +218,7 @@ namespace modernpos_pos.control
             iniC.TileFoodsNameColor = iniF.getIni("app", "TileFoodsNameColor");
             iniC.printerOrder = iniF.getIni("app", "printerOrder");
             iniC.scFoodsWidth = iniF.getIni("app", "scFoodsWidth");
+            iniC.statusApplicationTogo = iniF.getIni("app", "statusApplicationTogo");
 
             iniC.VNEip = iniF.getIni("VNE", "VNEip");
             iniC.VNEwebapi = iniF.getIni("VNE", "VNEwebapi");
@@ -360,6 +361,7 @@ namespace modernpos_pos.control
             iniC.sCFoodsMainSplitterWidth = iniC.sCFoodsMainSplitterWidth != null ? iniC.sCFoodsMainSplitterWidth : "0";
             iniC.sCOrderSplitterWidth = iniC.sCOrderSplitterWidth != null ? iniC.sCOrderSplitterWidth : "0";
             iniC.scFoodsWidth = iniC.scFoodsWidth != null ? iniC.scFoodsWidth : "600";
+            iniC.statusApplicationTogo = iniC.statusApplicationTogo != null ? iniC.statusApplicationTogo : "0";
 
             iniC.usePassiveFTP = iniC.usePassiveFTP == null ? "false" : iniC.usePassiveFTP.Equals("") ? "false" : iniC.usePassiveFTP;
             Boolean.TryParse(iniC.usePassiveFTP, out ftpUsePassive);
@@ -367,6 +369,7 @@ namespace modernpos_pos.control
             int.TryParse(iniC.takeouttilverticalsize, out takeouttilverticalsize);
             int.TryParse(iniC.TileFoodstakeouttilhorizontalsize, out TileFoodstakeouttilhorizontalsize);
             int.TryParse(iniC.TileFoodstakeouttilverticalsize, out TileFoodstakeouttilverticalsize);
+            statusApplicationTogo = iniC.statusApplicationTogo.Equals("1") ? true : false;
         }
         public String datetoDB(String dt)
         {
