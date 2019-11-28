@@ -195,14 +195,16 @@ namespace modernpos_pos.gui
 
         private void opennew()
         {
+            vlcControl1.Stop();
             FrmWaiting frmW = new FrmWaiting();
             frmW.Show();
 
             //FrmTakeOut2 frm = new FrmTakeOut2(mposC, this);
             //FrmTakeOut3 frm = new FrmTakeOut3(mposC, this);
             FrmTakeOut4 frm = new FrmTakeOut4(mposC, this);
-            frm.Show(this);
             frmW.Dispose();
+            frm.ShowDialog(this);
+            vlcControl1.Play();
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {

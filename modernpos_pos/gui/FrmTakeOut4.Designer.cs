@@ -1,5 +1,5 @@
 ﻿namespace modernpos_pos.gui
-{
+{ 
     partial class FrmTakeOut4
     {
         /// <summary>
@@ -51,7 +51,7 @@
             this.tabCheck = new C1.Win.C1Command.C1DockingTabPage();
             this.pnCheckMain = new System.Windows.Forms.Panel();
             this.sCCheck = new C1.Win.C1SplitContainer.C1SplitContainer();
-            this.c1SplitterPanel1 = new C1.Win.C1SplitContainer.C1SplitterPanel();
+            this.scCheckLeft = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.pnCheckBill = new System.Windows.Forms.Panel();
             this.btnBack = new C1.Win.C1Input.C1Button();
             this.pnVoidPay = new System.Windows.Forms.Panel();
@@ -64,7 +64,7 @@
             this.lbStatus = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.lbAmt = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.btnBillCheck = new System.Windows.Forms.Button();
-            this.c1SplitterPanel2 = new C1.Win.C1SplitContainer.C1SplitterPanel();
+            this.scCheckRight = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.pnCheckOrder = new System.Windows.Forms.Panel();
             this.tabCommand = new C1.Win.C1Command.C1DockingTabPage();
             this.pnCommand = new System.Windows.Forms.Panel();
@@ -89,12 +89,12 @@
             this.pnCheckMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sCCheck)).BeginInit();
             this.sCCheck.SuspendLayout();
-            this.c1SplitterPanel1.SuspendLayout();
+            this.scCheckLeft.SuspendLayout();
             this.pnCheckBill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             this.pnVoidPay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).BeginInit();
-            this.c1SplitterPanel2.SuspendLayout();
+            this.scCheckRight.SuspendLayout();
             this.tabCommand.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -387,8 +387,8 @@
             this.sCCheck.HeaderLineWidth = 1;
             this.sCCheck.Location = new System.Drawing.Point(0, 0);
             this.sCCheck.Name = "sCCheck";
-            this.sCCheck.Panels.Add(this.c1SplitterPanel1);
-            this.sCCheck.Panels.Add(this.c1SplitterPanel2);
+            this.sCCheck.Panels.Add(this.scCheckLeft);
+            this.sCCheck.Panels.Add(this.scCheckRight);
             this.sCCheck.Size = new System.Drawing.Size(1406, 748);
             this.sCCheck.SplitterColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.sCCheck.SplitterMovingColor = System.Drawing.Color.Black;
@@ -396,8 +396,9 @@
             this.theme1.SetTheme(this.sCCheck, "(default)");
             this.sCCheck.UseParentVisualStyle = false;
             // 
-            // c1SplitterPanel1
+            // scCheckLeft
             // 
+<<<<<<< HEAD
             this.c1SplitterPanel1.Collapsible = true;
             this.c1SplitterPanel1.Controls.Add(this.pnCheckBill);
             this.c1SplitterPanel1.Dock = C1.Win.C1SplitContainer.PanelDockStyle.Left;
@@ -407,6 +408,17 @@
             this.c1SplitterPanel1.TabIndex = 0;
             this.c1SplitterPanel1.Text = "Panel 1";
             this.c1SplitterPanel1.Width = 694;
+=======
+            this.scCheckLeft.Collapsible = true;
+            this.scCheckLeft.Controls.Add(this.pnCheckBill);
+            this.scCheckLeft.Dock = C1.Win.C1SplitContainer.PanelDockStyle.Left;
+            this.scCheckLeft.Location = new System.Drawing.Point(0, 21);
+            this.scCheckLeft.Name = "scCheckLeft";
+            this.scCheckLeft.Size = new System.Drawing.Size(694, 727);
+            this.scCheckLeft.TabIndex = 0;
+            this.scCheckLeft.Text = "Panel 1";
+            this.scCheckLeft.Width = 701;
+>>>>>>> 96b795ebdf9652338733907d51f3d00097a29b3d
             // 
             // pnCheckBill
             // 
@@ -601,15 +613,15 @@
             this.theme1.SetTheme(this.btnBillCheck, "(default)");
             this.btnBillCheck.UseVisualStyleBackColor = true;
             // 
-            // c1SplitterPanel2
+            // scCheckRight
             // 
-            this.c1SplitterPanel2.Controls.Add(this.pnCheckOrder);
-            this.c1SplitterPanel2.Height = 748;
-            this.c1SplitterPanel2.Location = new System.Drawing.Point(705, 21);
-            this.c1SplitterPanel2.Name = "c1SplitterPanel2";
-            this.c1SplitterPanel2.Size = new System.Drawing.Size(701, 727);
-            this.c1SplitterPanel2.TabIndex = 1;
-            this.c1SplitterPanel2.Text = "Panel 2";
+            this.scCheckRight.Controls.Add(this.pnCheckOrder);
+            this.scCheckRight.Height = 748;
+            this.scCheckRight.Location = new System.Drawing.Point(705, 21);
+            this.scCheckRight.Name = "scCheckRight";
+            this.scCheckRight.Size = new System.Drawing.Size(701, 727);
+            this.scCheckRight.TabIndex = 1;
+            this.scCheckRight.Text = "Panel 2";
             // 
             // pnCheckOrder
             // 
@@ -675,13 +687,13 @@
             this.pnCheckMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sCCheck)).EndInit();
             this.sCCheck.ResumeLayout(false);
-            this.c1SplitterPanel1.ResumeLayout(false);
+            this.scCheckLeft.ResumeLayout(false);
             this.pnCheckBill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             this.pnVoidPay.ResumeLayout(false);
             this.pnVoidPay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).EndInit();
-            this.c1SplitterPanel2.ResumeLayout(false);
+            this.scCheckRight.ResumeLayout(false);
             this.tabCommand.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -710,7 +722,7 @@
         private C1.Win.C1Command.C1DockingTabPage tabCheck;
         private System.Windows.Forms.Panel pnCheckMain;
         private C1.Win.C1SplitContainer.C1SplitContainer sCCheck;
-        private C1.Win.C1SplitContainer.C1SplitterPanel c1SplitterPanel1;
+        private C1.Win.C1SplitContainer.C1SplitterPanel scCheckLeft;
         private System.Windows.Forms.Panel pnCheckBill;
         private C1.Win.C1Input.C1Button btnBack;
         private System.Windows.Forms.Panel pnVoidPay;
@@ -723,7 +735,7 @@
         private C1.Win.C1SuperTooltip.C1SuperLabel lbStatus;
         private C1.Win.C1SuperTooltip.C1SuperLabel lbAmt;
         private System.Windows.Forms.Button btnBillCheck;
-        private C1.Win.C1SplitContainer.C1SplitterPanel c1SplitterPanel2;
+        private C1.Win.C1SplitContainer.C1SplitterPanel scCheckRight;
         private System.Windows.Forms.Panel pnCheckOrder;
         private C1.Win.C1Command.C1DockingTabPage tabCommand;
         private System.Windows.Forms.Panel pnCommand;

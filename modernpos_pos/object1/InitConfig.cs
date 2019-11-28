@@ -30,5 +30,7 @@ namespace modernpos_pos.object1
         public String noodlemakepn1t = "", noodlemakepn1g = "",noodlemakepn1l = "", noodlemakepn2t = "", noodlemakepn2g = "", noodlemakepn2l = "", noodlemakepn3t = "", noodlemakepn3g = "", noodlemakepn3l = "";
         public String noodlemakepn4t = "", noodlemakepn4g = "", noodlemakepn4l = "", noodlemakepn5t = "", noodlemakepn5g = "", noodlemakepn5l = "";
         public String noodlemakepn6t = "", noodlemakepn6g = "", noodlemakepn6l = "", noodlemakepn7t = "", noodlemakepn7g = "", noodlemakepn7l = "", noodlemakepn8t = "", noodlemakepn8g = "", noodlemakepn8l = "";
+
+        public String scFoodsWidth = "";
     }
 }

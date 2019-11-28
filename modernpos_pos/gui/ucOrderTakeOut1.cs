@@ -44,7 +44,7 @@ namespace modernpos_pos.gui
         TableLayoutPanel tpl;
         int cnt = 0;
         Order1 ord;
-        FrmTakeOut4 frmtakeout4;
+        FrmTakeOut4 frmtakeout4;        
         public ucOrderTakeOut1(mPOSControl x, String row, String fooid, String qty, ref Order1 ord, ref List<OrderSpecial> lords, ref List<OrderTopping> lordt, FrmTakeOut4 frmtakeout4)
         {
             InitializeComponent();
@@ -118,7 +118,11 @@ namespace modernpos_pos.gui
             sizeNormal = this.Size;
             //PicDesc_Click(null, null);
         }
-
+        public void setRow(String row)
+        {
+            this.row = row;
+            lbRow.Value = row;
+        }
         private void PicDesc_Click1(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
