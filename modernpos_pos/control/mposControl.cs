@@ -64,6 +64,7 @@ namespace modernpos_pos.control
         public Restaurant res;
         public List<Color> lcolorTopping;
         public List<Color> lcolorSpec;
+        public Decimal priceTogoPerBill = 0;
         public mPOSControl()
         {
             initConfig();
@@ -249,6 +250,11 @@ namespace modernpos_pos.control
             iniC.TileCategoryOrientation = iniF.getIni("app", "TileCategoryOrientation");
             iniC.sCFoodsMainSplitterWidth = iniF.getIni("app", "sCFoodsMainSplitterWidth");
             iniC.sCOrderSplitterWidth = iniF.getIni("app", "sCOrderSplitterWidth");
+            iniC.statusTogoOrderingRepeat = iniF.getIni("app", "statusTogoOrderingRepeat");
+            iniC.textTogoPay = iniF.getIni("app", "textTogoPay");
+            iniC.priceTogoPerBill = iniF.getIni("app", "priceTogoPerItem");
+            iniC.statusPayPriceTogo = iniF.getIni("app", "statusPayPriceTogo");
+
             iniC.TileCategoryColor = iniF.getIni("app", "TileCategoryColor");
             iniC.lcuctakeouttopping1 = iniF.getIni("app", "lcuctakeouttopping1");
             iniC.lcuctakeouttopping2 = iniF.getIni("app", "lcuctakeouttopping2");
@@ -362,6 +368,10 @@ namespace modernpos_pos.control
             iniC.sCOrderSplitterWidth = iniC.sCOrderSplitterWidth != null ? iniC.sCOrderSplitterWidth : "0";
             iniC.scFoodsWidth = iniC.scFoodsWidth != null ? iniC.scFoodsWidth : "600";
             iniC.statusApplicationTogo = iniC.statusApplicationTogo != null ? iniC.statusApplicationTogo : "0";
+            iniC.statusTogoOrderingRepeat = iniC.statusTogoOrderingRepeat != null ? iniC.statusTogoOrderingRepeat : "0";
+            iniC.textTogoPay = iniC.textTogoPay != null ? iniC.textTogoPay : "";
+            iniC.priceTogoPerBill = iniC.priceTogoPerBill != null ? iniC.priceTogoPerBill : "0";
+            iniC.statusPayPriceTogo = iniC.statusPayPriceTogo != null ? iniC.statusPayPriceTogo : "0";
 
             iniC.usePassiveFTP = iniC.usePassiveFTP == null ? "false" : iniC.usePassiveFTP.Equals("") ? "false" : iniC.usePassiveFTP;
             Boolean.TryParse(iniC.usePassiveFTP, out ftpUsePassive);
@@ -370,6 +380,7 @@ namespace modernpos_pos.control
             int.TryParse(iniC.TileFoodstakeouttilhorizontalsize, out TileFoodstakeouttilhorizontalsize);
             int.TryParse(iniC.TileFoodstakeouttilverticalsize, out TileFoodstakeouttilverticalsize);
             statusApplicationTogo = iniC.statusApplicationTogo.Equals("1") ? true : false;
+            Decimal.TryParse(iniC.priceTogoPerBill, out priceTogoPerBill);
         }
         public String datetoDB(String dt)
         {

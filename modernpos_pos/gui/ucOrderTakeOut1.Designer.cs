@@ -32,19 +32,19 @@
             this.lbName = new C1.Win.C1Input.C1Label();
             this.lbQty = new C1.Win.C1Input.C1Label();
             this.phHead = new System.Windows.Forms.Panel();
-            this.lbRow = new C1.Win.C1Input.C1Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.picTogo = new C1.Win.C1Input.C1PictureBox();
+            this.lbRow = new C1.Win.C1Input.C1Label();
             this.picDesc = new C1.Win.C1Input.C1PictureBox();
             this.picDel = new C1.Win.C1Input.C1PictureBox();
             this.picMinus = new C1.Win.C1Input.C1PictureBox();
             this.picPlus = new C1.Win.C1Input.C1PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.lbPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbQty)).BeginInit();
             this.phHead.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lbRow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lbRow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMinus)).BeginInit();
@@ -106,6 +106,16 @@
             this.phHead.Size = new System.Drawing.Size(400, 85);
             this.phHead.TabIndex = 12;
             // 
+            // picTogo
+            // 
+            this.picTogo.BackColor = System.Drawing.Color.White;
+            this.picTogo.Image = global::modernpos_pos.Properties.Resources.togouncheck;
+            this.picTogo.Location = new System.Drawing.Point(269, 49);
+            this.picTogo.Name = "picTogo";
+            this.picTogo.Size = new System.Drawing.Size(78, 32);
+            this.picTogo.TabIndex = 13;
+            this.picTogo.TabStop = false;
+            // 
             // lbRow
             // 
             this.lbRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(208)))));
@@ -117,24 +127,6 @@
             this.lbRow.TabIndex = 12;
             this.lbRow.Tag = null;
             this.lbRow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 85);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 362);
-            this.panel1.TabIndex = 13;
-            // 
-            // picTogo
-            // 
-            this.picTogo.BackColor = System.Drawing.Color.White;
-            this.picTogo.Image = global::modernpos_pos.Properties.Resources.togo;
-            this.picTogo.Location = new System.Drawing.Point(269, 49);
-            this.picTogo.Name = "picTogo";
-            this.picTogo.Size = new System.Drawing.Size(78, 32);
-            this.picTogo.TabIndex = 13;
-            this.picTogo.TabStop = false;
             // 
             // picDesc
             // 
@@ -175,6 +167,14 @@
             this.picPlus.TabIndex = 8;
             this.picPlus.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 85);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(400, 362);
+            this.panel1.TabIndex = 13;
+            // 
             // ucOrderTakeOut1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,8 +187,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lbName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbQty)).EndInit();
             this.phHead.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lbRow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lbRow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDesc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMinus)).EndInit();

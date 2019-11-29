@@ -108,6 +108,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtPricePlusTogo = new C1.Win.C1Input.C1TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -172,6 +174,7 @@
             this.tabFoods.SuspendLayout();
             this.tabRecommend.SuspendLayout();
             this.sB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPricePlusTogo)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -722,6 +725,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel3.Controls.Add(this.txtPricePlusTogo);
+            this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.c1CheckBox2);
             this.panel3.Controls.Add(this.c1CheckBox1);
             this.panel3.Controls.Add(this.chkStatusRecommend);
@@ -767,11 +772,12 @@
             this.c1CheckBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.c1CheckBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.c1CheckBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.c1CheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.c1CheckBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.c1CheckBox2.Location = new System.Drawing.Point(392, 167);
             this.c1CheckBox2.Name = "c1CheckBox2";
             this.c1CheckBox2.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.c1CheckBox2.Size = new System.Drawing.Size(155, 24);
+            this.c1CheckBox2.Size = new System.Drawing.Size(204, 24);
             this.c1CheckBox2.TabIndex = 278;
             this.c1CheckBox2.Text = "ใช้เป็นรายการ Topping";
             this.theme1.SetTheme(this.c1CheckBox2, "(default)");
@@ -785,11 +791,12 @@
             this.c1CheckBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.c1CheckBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.c1CheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.c1CheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.c1CheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.c1CheckBox1.Location = new System.Drawing.Point(392, 137);
             this.c1CheckBox1.Name = "c1CheckBox1";
             this.c1CheckBox1.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.c1CheckBox1.Size = new System.Drawing.Size(155, 24);
+            this.c1CheckBox1.Size = new System.Drawing.Size(204, 24);
             this.c1CheckBox1.TabIndex = 277;
             this.c1CheckBox1.Text = "สถานะขายหน้าร้าน";
             this.theme1.SetTheme(this.c1CheckBox1, "(default)");
@@ -803,11 +810,12 @@
             this.chkStatusRecommend.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.chkStatusRecommend.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkStatusRecommend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkStatusRecommend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkStatusRecommend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.chkStatusRecommend.Location = new System.Drawing.Point(392, 47);
             this.chkStatusRecommend.Name = "chkStatusRecommend";
             this.chkStatusRecommend.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkStatusRecommend.Size = new System.Drawing.Size(155, 24);
+            this.chkStatusRecommend.Size = new System.Drawing.Size(204, 24);
             this.chkStatusRecommend.TabIndex = 275;
             this.chkStatusRecommend.Text = "เป็นรายการอาหาร แนะนำ";
             this.theme1.SetTheme(this.chkStatusRecommend, "(default)");
@@ -820,14 +828,14 @@
             this.c1ComboBox1.AllowSpinLoop = false;
             this.c1ComboBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.c1ComboBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1ComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1ComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.c1ComboBox1.GapHeight = 0;
             this.c1ComboBox1.ImagePadding = new System.Windows.Forms.Padding(0);
             this.c1ComboBox1.ItemsDisplayMember = "";
             this.c1ComboBox1.ItemsValueMember = "";
-            this.c1ComboBox1.Location = new System.Drawing.Point(136, 74);
+            this.c1ComboBox1.Location = new System.Drawing.Point(167, 87);
             this.c1ComboBox1.Name = "c1ComboBox1";
-            this.c1ComboBox1.Size = new System.Drawing.Size(207, 20);
+            this.c1ComboBox1.Size = new System.Drawing.Size(207, 24);
             this.c1ComboBox1.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.c1ComboBox1.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
             this.c1ComboBox1.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
@@ -840,11 +848,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label9.Location = new System.Drawing.Point(24, 77);
+            this.label9.Location = new System.Drawing.Point(24, 90);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 16);
+            this.label9.Size = new System.Drawing.Size(112, 20);
             this.label9.TabIndex = 273;
             this.label9.Text = "subกลุ่ม อาหาร :";
             this.theme1.SetTheme(this.label9, "(default)");
@@ -868,14 +876,14 @@
             this.cboPrinter.AllowSpinLoop = false;
             this.cboPrinter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cboPrinter.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboPrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboPrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboPrinter.GapHeight = 0;
             this.cboPrinter.ImagePadding = new System.Windows.Forms.Padding(0);
             this.cboPrinter.ItemsDisplayMember = "";
             this.cboPrinter.ItemsValueMember = "";
-            this.cboPrinter.Location = new System.Drawing.Point(136, 140);
+            this.cboPrinter.Location = new System.Drawing.Point(167, 168);
             this.cboPrinter.Name = "cboPrinter";
-            this.cboPrinter.Size = new System.Drawing.Size(207, 20);
+            this.cboPrinter.Size = new System.Drawing.Size(207, 24);
             this.cboPrinter.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.cboPrinter.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
             this.cboPrinter.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
@@ -888,11 +896,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label8.Location = new System.Drawing.Point(24, 143);
+            this.label8.Location = new System.Drawing.Point(24, 171);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(107, 16);
+            this.label8.Size = new System.Drawing.Size(135, 20);
             this.label8.TabIndex = 270;
             this.label8.Text = "ห้องครัว เครื่องพิมพ์ :";
             this.theme1.SetTheme(this.label8, "(default)");
@@ -902,14 +910,14 @@
             this.cboRes.AllowSpinLoop = false;
             this.cboRes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cboRes.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboRes.GapHeight = 0;
             this.cboRes.ImagePadding = new System.Windows.Forms.Padding(0);
             this.cboRes.ItemsDisplayMember = "";
             this.cboRes.ItemsValueMember = "";
-            this.cboRes.Location = new System.Drawing.Point(136, 52);
+            this.cboRes.Location = new System.Drawing.Point(167, 60);
             this.cboRes.Name = "cboRes";
-            this.cboRes.Size = new System.Drawing.Size(207, 20);
+            this.cboRes.Size = new System.Drawing.Size(207, 24);
             this.cboRes.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.cboRes.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
             this.cboRes.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
@@ -922,11 +930,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label6.Location = new System.Drawing.Point(24, 55);
+            this.label6.Location = new System.Drawing.Point(24, 63);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 16);
+            this.label6.Size = new System.Drawing.Size(78, 20);
             this.label6.TabIndex = 268;
             this.label6.Text = "ร้านอาหาร :";
             this.theme1.SetTheme(this.label6, "(default)");
@@ -934,11 +942,12 @@
             // txtPrice
             // 
             this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrice.DataType = typeof(decimal);
             this.txtPrice.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtPrice.Location = new System.Drawing.Point(136, 162);
+            this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPrice.Location = new System.Drawing.Point(167, 195);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(207, 20);
+            this.txtPrice.Size = new System.Drawing.Size(207, 24);
             this.txtPrice.TabIndex = 267;
             this.txtPrice.Tag = null;
             this.theme1.SetTheme(this.txtPrice, "(default)");
@@ -948,11 +957,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label5.Location = new System.Drawing.Point(24, 165);
+            this.label5.Location = new System.Drawing.Point(24, 192);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 16);
+            this.label5.Size = new System.Drawing.Size(43, 20);
             this.label5.TabIndex = 266;
             this.label5.Text = "ราคา:";
             this.theme1.SetTheme(this.label5, "(default)");
@@ -962,14 +971,14 @@
             this.cboFoodsCat.AllowSpinLoop = false;
             this.cboFoodsCat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cboFoodsCat.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboFoodsCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboFoodsCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboFoodsCat.GapHeight = 0;
             this.cboFoodsCat.ImagePadding = new System.Windows.Forms.Padding(0);
             this.cboFoodsCat.ItemsDisplayMember = "";
             this.cboFoodsCat.ItemsValueMember = "";
-            this.cboFoodsCat.Location = new System.Drawing.Point(136, 96);
+            this.cboFoodsCat.Location = new System.Drawing.Point(167, 114);
             this.cboFoodsCat.Name = "cboFoodsCat";
-            this.cboFoodsCat.Size = new System.Drawing.Size(207, 20);
+            this.cboFoodsCat.Size = new System.Drawing.Size(207, 24);
             this.cboFoodsCat.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.cboFoodsCat.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
             this.cboFoodsCat.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
@@ -982,11 +991,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label4.Location = new System.Drawing.Point(24, 120);
+            this.label4.Location = new System.Drawing.Point(24, 143);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 16);
+            this.label4.Size = new System.Drawing.Size(103, 20);
             this.label4.TabIndex = 264;
             this.label4.Text = "ประเภทอาหาร :";
             this.theme1.SetTheme(this.label4, "(default)");
@@ -996,14 +1005,14 @@
             this.cboFoodsType.AllowSpinLoop = false;
             this.cboFoodsType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cboFoodsType.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboFoodsType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboFoodsType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboFoodsType.GapHeight = 0;
             this.cboFoodsType.ImagePadding = new System.Windows.Forms.Padding(0);
             this.cboFoodsType.ItemsDisplayMember = "";
             this.cboFoodsType.ItemsValueMember = "";
-            this.cboFoodsType.Location = new System.Drawing.Point(136, 118);
+            this.cboFoodsType.Location = new System.Drawing.Point(167, 141);
             this.cboFoodsType.Name = "cboFoodsType";
-            this.cboFoodsType.Size = new System.Drawing.Size(207, 20);
+            this.cboFoodsType.Size = new System.Drawing.Size(207, 24);
             this.cboFoodsType.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.cboFoodsType.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
             this.cboFoodsType.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
@@ -1016,11 +1025,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label7.Location = new System.Drawing.Point(24, 98);
+            this.label7.Location = new System.Drawing.Point(24, 116);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 16);
+            this.label7.Size = new System.Drawing.Size(82, 20);
             this.label7.TabIndex = 262;
             this.label7.Text = "กลุ่มอาหาร :";
             this.theme1.SetTheme(this.label7, "(default)");
@@ -1031,11 +1040,12 @@
             this.chkDineIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.chkDineIn.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkDineIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkDineIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkDineIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.chkDineIn.Location = new System.Drawing.Point(392, 107);
             this.chkDineIn.Name = "chkDineIn";
             this.chkDineIn.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkDineIn.Size = new System.Drawing.Size(155, 24);
+            this.chkDineIn.Size = new System.Drawing.Size(204, 24);
             this.chkDineIn.TabIndex = 261;
             this.chkDineIn.Text = "เป็นอาหารขายในร้าน";
             this.theme1.SetTheme(this.chkDineIn, "(default)");
@@ -1049,11 +1059,12 @@
             this.chkStatusToGo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.chkStatusToGo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkStatusToGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkStatusToGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkStatusToGo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.chkStatusToGo.Location = new System.Drawing.Point(392, 77);
             this.chkStatusToGo.Name = "chkStatusToGo";
             this.chkStatusToGo.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkStatusToGo.Size = new System.Drawing.Size(135, 24);
+            this.chkStatusToGo.Size = new System.Drawing.Size(204, 24);
             this.chkStatusToGo.TabIndex = 260;
             this.chkStatusToGo.Text = "เป็นอาหารสั่งกลับบ้าน";
             this.theme1.SetTheme(this.chkStatusToGo, "(default)");
@@ -1159,10 +1170,10 @@
             // 
             this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRemark.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtRemark.Location = new System.Drawing.Point(136, 184);
+            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtRemark.Location = new System.Drawing.Point(167, 222);
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(207, 20);
+            this.txtRemark.Size = new System.Drawing.Size(207, 24);
             this.txtRemark.TabIndex = 240;
             this.txtRemark.Tag = null;
             this.theme1.SetTheme(this.txtRemark, "(default)");
@@ -1172,11 +1183,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label3.Location = new System.Drawing.Point(24, 186);
+            this.label3.Location = new System.Drawing.Point(24, 224);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 16);
+            this.label3.Size = new System.Drawing.Size(75, 20);
             this.label3.TabIndex = 239;
             this.label3.Text = "หมายเหตุ :";
             this.theme1.SetTheme(this.label3, "(default)");
@@ -1185,10 +1196,10 @@
             // 
             this.txtFooNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFooNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtFooNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtFooNameT.Location = new System.Drawing.Point(136, 30);
+            this.txtFooNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtFooNameT.Location = new System.Drawing.Point(167, 33);
             this.txtFooNameT.Name = "txtFooNameT";
-            this.txtFooNameT.Size = new System.Drawing.Size(207, 20);
+            this.txtFooNameT.Size = new System.Drawing.Size(207, 24);
             this.txtFooNameT.TabIndex = 238;
             this.txtFooNameT.Tag = null;
             this.theme1.SetTheme(this.txtFooNameT, "(default)");
@@ -1198,11 +1209,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label2.Location = new System.Drawing.Point(24, 32);
+            this.label2.Location = new System.Drawing.Point(24, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 16);
+            this.label2.Size = new System.Drawing.Size(72, 20);
             this.label2.TabIndex = 237;
             this.label2.Text = "ชื่ออาหาร :";
             this.theme1.SetTheme(this.label2, "(default)");
@@ -1211,10 +1222,10 @@
             // 
             this.txtID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtID.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtID.Location = new System.Drawing.Point(349, 8);
+            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtID.Location = new System.Drawing.Point(380, 8);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(30, 20);
+            this.txtID.Size = new System.Drawing.Size(30, 24);
             this.txtID.TabIndex = 236;
             this.txtID.Tag = null;
             this.theme1.SetTheme(this.txtID, "(default)");
@@ -1225,10 +1236,10 @@
             // 
             this.txtFooCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFooCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtFooCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtFooCode.Location = new System.Drawing.Point(136, 8);
+            this.txtFooCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtFooCode.Location = new System.Drawing.Point(167, 7);
             this.txtFooCode.Name = "txtFooCode";
-            this.txtFooCode.Size = new System.Drawing.Size(207, 20);
+            this.txtFooCode.Size = new System.Drawing.Size(207, 24);
             this.txtFooCode.TabIndex = 235;
             this.txtFooCode.Tag = null;
             this.theme1.SetTheme(this.txtFooCode, "(default)");
@@ -1238,11 +1249,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label1.Location = new System.Drawing.Point(24, 10);
+            this.label1.Location = new System.Drawing.Point(24, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 16);
+            this.label1.Size = new System.Drawing.Size(41, 20);
             this.label1.TabIndex = 234;
             this.label1.Text = "รหัส :";
             this.theme1.SetTheme(this.label1, "(default)");
@@ -1310,6 +1321,33 @@
             this.sB1.Name = "sB1";
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
+            // 
+            // txtPricePlusTogo
+            // 
+            this.txtPricePlusTogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPricePlusTogo.DataType = typeof(decimal);
+            this.txtPricePlusTogo.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPricePlusTogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPricePlusTogo.Location = new System.Drawing.Point(167, 249);
+            this.txtPricePlusTogo.Name = "txtPricePlusTogo";
+            this.txtPricePlusTogo.Size = new System.Drawing.Size(207, 24);
+            this.txtPricePlusTogo.TabIndex = 280;
+            this.txtPricePlusTogo.Tag = null;
+            this.theme1.SetTheme(this.txtPricePlusTogo, "(default)");
+            this.txtPricePlusTogo.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label14.Location = new System.Drawing.Point(24, 251);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(130, 20);
+            this.label14.TabIndex = 279;
+            this.label14.Text = "ราคากล่องกลับบ้าน :";
+            this.theme1.SetTheme(this.label14, "(default)");
             // 
             // FrmCFoods
             // 
@@ -1391,6 +1429,7 @@
             this.tabRecommend.ResumeLayout(false);
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPricePlusTogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1478,5 +1517,7 @@
         private System.Windows.Forms.Label lbMatCnt;
         private C1.Win.C1Input.C1TextBox txtMatTotal;
         private System.Windows.Forms.Label label13;
+        private C1.Win.C1Input.C1TextBox txtPricePlusTogo;
+        private System.Windows.Forms.Label label14;
     }
 }

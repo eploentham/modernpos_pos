@@ -347,7 +347,47 @@ namespace modernpos_pos.gui
                 }
                 else
                 {
-                    setTplOrder(tile.Name, tile.Text, tile.Text1.Replace("ราคา", "").Trim(), "1", "", foo.printer_name, foo.status_create);
+                    if (mposC.iniC.statusTogoOrderingRepeat.Equals("1"))
+                    {
+                        Boolean chk = false;
+                        foreach(Order1 ord in lOrd)
+                        {
+                            if (ord.foods_id.Equals(foo.foods_id))
+                            {
+                                int qty = 0;
+                                int.TryParse(ord.qty, out qty);
+                                Decimal price = 0;
+                                Decimal.TryParse(ord.price, out price);
+                                qty++;
+                                ord.qty = qty.ToString();
+                                ord.sumPrice = (price * qty).ToString();
+                                chk = true;
+                                foreach (Control ctl in tplOrd.Controls)
+                                {
+                                    if (ctl is ucOrderTakeOut1)
+                                    {
+                                        ucOrderTakeOut1 ucord;
+                                        //if(ucord.f)
+                                        ucord = (ucOrderTakeOut1)ctl;
+                                        ucord.setQty(foo.foods_id, ord.qty);
+                                        //ucord.setPrice(ord.sumPrice);
+                                    }
+                                }
+                            }
+                        }
+                        if (!chk)
+                        {
+                            setTplOrder(tile.Name, tile.Text, tile.Text1.Replace("ราคา", "").Trim(), "1", "", foo.printer_name, foo.status_create);
+                        }
+                        else
+                        {
+                            
+                        }
+                    }
+                    else
+                    {
+                        setTplOrder(tile.Name, tile.Text, tile.Text1.Replace("ราคา", "").Trim(), "1", "", foo.printer_name, foo.status_create);
+                    }
                 }
 
                 //FlickrPhoto photo = (FlickrPhoto)tile.Tag;
@@ -537,7 +577,7 @@ namespace modernpos_pos.gui
                 ucto.setRow(rowno.ToString());
                 rowno++;
             }
-            btnPay.Text = sumprice.ToString("#,###.00");
+            btnPay.Text = mposC.iniC.textTogoPay+ " "+ sumprice.ToString("#,###.00");
         }
         private void initTlpOrder()
         {
@@ -1028,6 +1068,9 @@ namespace modernpos_pos.gui
             {
                 foreach (Order1 ord in lOrd)
                 {
+                    int qty = 0;
+                    int.TryParse(ord.qty, out qty);
+                    if (qty <= 0) continue;
                     Row row = grfBill.Rows.Add();
                     if (ord.topping.Equals(""))
                     {
@@ -1074,7 +1117,6 @@ namespace modernpos_pos.gui
                 {
 
                 }
-
             }
         }
         private void UpdateTotalsBill()

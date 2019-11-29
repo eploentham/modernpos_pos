@@ -205,3 +205,8 @@ ADD COLUMN `price` DECIMAL(17,2) NULL DEFAULT 0 AFTER `qty`;
 
 
 
+ALTER TABLE `modern_pos`.`b_foods` 
+ADD COLUMN `price_plus_togo` DECIMAL(17,2) NULL AFTER `status_create`;
+
+ALTER TABLE `modern_pos`.`t_order` 
+ADD COLUMN `price_plus_togo` DECIMAL(17,2) NULL AFTER `hour_id`;

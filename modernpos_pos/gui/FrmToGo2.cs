@@ -95,7 +95,7 @@ namespace modernpos_pos.gui
         }
         private void VlcControl1_MouseDown(object sender, MouseEventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void PnVlc_MouseClick(object sender, MouseEventArgs e)
@@ -195,6 +195,7 @@ namespace modernpos_pos.gui
 
         private void opennew()
         {
+
             vlcControl1.Stop();
             FrmWaiting frmW = new FrmWaiting();
             frmW.Show();

@@ -42,5 +42,10 @@ namespace modernpos_pos.object1
         public String toppingPrice { get; set; }
         public String sumPrice { get; set; }
         public String status_create { get; set; }
+        public String price_plus1 { get; set; }
+        public String price_plus2 { get; set; }
+        public String price_plus3 { get; set; }
+        public String price_plus4 { get; set; }
+        public String price_plus_togo { get; set; }
     }
 }

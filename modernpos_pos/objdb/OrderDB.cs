@@ -67,6 +67,7 @@ namespace modernpos_pos.objdb
             ord.status_closeday = "status_closeday";
             ord.closeday_id = "closeday_id";
             ord.cnt_cust = "cnt_cust";
+            ord.price_plus_togo = "price_plus_togo";
 
             ord.pkField = "order_id";
             ord.table = "t_order";
@@ -225,6 +226,7 @@ namespace modernpos_pos.objdb
 
             p.price = Decimal.TryParse(p.price, out chk1) ? chk1.ToString() : "0";
             p.qty = Decimal.TryParse(p.qty, out chk1) ? chk1.ToString() : "0";
+            p.price_plus_togo = Decimal.TryParse(p.price_plus_togo, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(Order1 p, String userId)
         {
@@ -274,6 +276,7 @@ namespace modernpos_pos.objdb
                 "," + ord.status_foods_3 + " = '" + p.status_foods_3 + "' " +
                 "," + ord.foods_id + " = '" + p.foods_id + "' " +
                 "," + ord.foods_name + " = '" + p.foods_name.Replace("'", "''") + "' " +
+                "," + ord.price_plus_togo + " = '" + p.price_plus_togo.Replace("'", "''") + "' " +
                 " ";
             try
             {
@@ -310,7 +313,7 @@ namespace modernpos_pos.objdb
                 "," + ord.res_id + " = '" + p.res_id + "' " +
                 "," + ord.area_id + " = '" + p.area_id + "' " +
                 "," + ord.status_foods_1 + " = '" + p.status_foods_1 + "' " +
-                //"," + foo.status_foods_2 + " = '" + p.status_foods_2 + "' " +
+                "," + ord.price_plus_togo + " = '" + p.price_plus_togo + "' " +
                 "Where " + ord.pkField + "='" + p.order_id + "'"
                 ;
 
@@ -478,6 +481,7 @@ namespace modernpos_pos.objdb
                 dept1.status_closeday = dt.Rows[0][ord.status_closeday] != null ? dt.Rows[0][ord.status_closeday].ToString() : "";
                 dept1.closeday_id = dt.Rows[0][ord.closeday_id] != null ? dt.Rows[0][ord.closeday_id].ToString() : "";
                 dept1.cnt_cust = dt.Rows[0][ord.cnt_cust] != null ? dt.Rows[0][ord.cnt_cust].ToString() : "";
+                dept1.price_plus_togo = dt.Rows[0][ord.price_plus_togo] != null ? dt.Rows[0][ord.price_plus_togo].ToString() : "";
             }
             else
             {
@@ -519,6 +523,7 @@ namespace modernpos_pos.objdb
                 dept1.res_id = "";
                 dept1.status_foods_1 = "";
                 dept1.status_foods_2 = "";
+                dept1.price_plus_togo = "";
             }
 
             return dept1;

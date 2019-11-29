@@ -127,6 +127,21 @@ namespace modernpos_pos.gui
             picTogo.Visible = mposC.statusApplicationTogo ? true : false;
             //PicDesc_Click(null, null);
         }
+        public void setQty(String fooid, String qty)
+        {
+            //lbQty.Value = qty;
+            if (ord.foods_id.Equals(fooid))
+            {
+                this.qty = qty;
+                //PicPlus_Click(null, null);
+                lbQty.Value = qty;
+                setPrice();
+            }
+        }
+        public void setPrice(String price)
+        {
+            lbPrice.Value = price;
+        }
 
         private void PicTogo_Click(object sender, EventArgs e)
         {
@@ -134,13 +149,18 @@ namespace modernpos_pos.gui
             if (statusTogo)
             {
                 statusTogo = false;
-                picTogo.Image = Resources.togo;
+                picTogo.Image = Resources.togouncheck;
+                ord.status_to_go = "0";
+                ord.price_plus_togo = "0";
             }
             else
             {
                 statusTogo = true;
-                picTogo.Image = Resources.togo_true;
+                picTogo.Image = Resources.togocheck;
+                ord.status_to_go = "1";
+                ord.price_plus_togo = foo.price_plus_togo;
             }
+            setPrice();
         }
 
         public void setRow(String row)
@@ -249,6 +269,7 @@ namespace modernpos_pos.gui
                 chk--;
                 lbQty.Value = chk.ToString();
                 qty = chk.ToString();
+                ord.qty = qty;
             }
             setPrice();
         }
@@ -262,6 +283,7 @@ namespace modernpos_pos.gui
                 chk++;
                 lbQty.Value = chk.ToString();
                 qty = chk.ToString();
+                ord.qty = qty;
             }
             setPrice();
         }
@@ -359,7 +381,7 @@ namespace modernpos_pos.gui
         }
         private void setPrice()
         {
-            decimal sum = 0, fooprice=0, fooqty=0, foosum=0;
+            decimal sum = 0, fooprice=0, fooqty=0, foosum=0, pricetogo=0;
             if(decimal.TryParse(foo.foods_price, out fooprice))
             {
                 if (decimal.TryParse(lbQty.Text, out fooqty))
@@ -388,6 +410,11 @@ namespace modernpos_pos.gui
                 
             }
             foosum = (fooprice + sum) * fooqty;
+            if (statusTogo)
+            {
+                decimal.TryParse(ord.price_plus_togo, out pricetogo);
+                foosum += pricetogo;
+            }
             //sum = foosum + sum;
             lbPrice.Value = foosum.ToString("#,###.00");
             ord.sumPrice = lbPrice.Text;

@@ -891,6 +891,7 @@ namespace modernpos_pos.gui
             txtFooNameT.Value = foo.foods_name;
             txtRemark.Value = foo.remark;
             txtPrice.Value = foo.foods_price;
+            txtPricePlusTogo.Value = foo.price_plus_togo;
             //if (foo.status_foods.Equals("1"))
             //{
             //    chkStatusToGo.Checked = true;
@@ -952,6 +953,7 @@ namespace modernpos_pos.gui
             foo.res_id = cboRes.SelectedItem == null ? "" : ((ComboBoxItem)cboRes.SelectedItem).Value;
             foo.printer_name = cboPrinter.SelectedItem == null ? "" : ((ComboBoxItem)cboPrinter.SelectedItem).Value;
             foo.status_recommend = chkStatusRecommend.Checked == true ? "1" : "0";
+            foo.price_plus_togo = txtPricePlusTogo.Text;
         }
         private void grfPosi_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {

@@ -52,6 +52,7 @@ namespace modernpos_pos.objdb
             foo.filename = "filename";
             foo.status_recommend = "status_recommend";
             foo.status_create = "status_create";
+            foo.price_plus_togo = "price_plus_togo";
 
             foo.pkField = "foods_id";
             foo.table = "b_foods";
@@ -173,6 +174,7 @@ namespace modernpos_pos.objdb
                 itm1.filename = row[foo.filename].ToString();
                 itm1.status_recommend = row[foo.status_recommend].ToString();
                 itm1.status_create = row[foo.status_create].ToString();
+                itm1.price_plus_togo = row[foo.price_plus_togo].ToString();
                 lfoo.Add(itm1);
             }
         }
@@ -279,6 +281,7 @@ namespace modernpos_pos.objdb
             p.foods_cat_id = long.TryParse(p.foods_cat_id, out chk) ? chk.ToString() : "0";
 
             p.foods_price = Decimal.TryParse(p.foods_price, out chk1) ? chk1.ToString() : "0";
+            p.price_plus_togo = Decimal.TryParse(p.price_plus_togo, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(Foods p, String userId)
         {
@@ -309,6 +312,7 @@ namespace modernpos_pos.objdb
                 "," + foo.filename + " = '" + p.filename + "' " +
                 "," + foo.status_recommend + " = '" + p.status_recommend + "' " +
                 "," + foo.status_create + " = '0' " +
+                "," + foo.price_plus_togo + " = '" + p.price_plus_togo + "' " +
                 " ";
             try
             {
@@ -346,6 +350,7 @@ namespace modernpos_pos.objdb
                 "," + foo.foods_cat_id + " = '" + p.foods_cat_id + "' " +
                 "," + foo.foods_type_id + " = '" + p.foods_type_id + "' " +
                 "," + foo.status_recommend + " = '" + p.status_recommend + "' " +
+                "," + foo.price_plus_togo + " = '" + p.price_plus_togo + "' " +
                 "Where " + foo.pkField + "='" + p.foods_id + "'"
                 ;
 
@@ -489,6 +494,7 @@ namespace modernpos_pos.objdb
                 dept1.filename = dt.Rows[0][foo.filename] != null ? dt.Rows[0][foo.filename].ToString() : "";
                 dept1.status_recommend = dt.Rows[0][foo.status_recommend] != null ? dt.Rows[0][foo.status_recommend].ToString() : "";
                 dept1.status_create = dt.Rows[0][foo.status_create] != null ? dt.Rows[0][foo.status_create].ToString() : "";
+                dept1.price_plus_togo = dt.Rows[0][foo.price_plus_togo] != null ? dt.Rows[0][foo.price_plus_togo].ToString() : "";
             }
             else
             {
@@ -517,6 +523,7 @@ namespace modernpos_pos.objdb
                 dept1.filename = "";
                 dept1.status_recommend = "";
                 dept1.status_create = "";
+                dept1.price_plus_togo = "";
             }
 
             return dept1;

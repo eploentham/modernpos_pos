@@ -117,7 +117,7 @@ namespace modernpos_pos.gui
             splash.Dispose();
             String date = "";
             date = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM-dd");
-            this.Text = " Update 2019-04-17 format date " + date;
+            this.Text = "Start 2019-04-17 Last Update 2019-11-29 format date " + date;
             txtHeader.Text = mposC.txtHeader;
             if (mposC.iniC.statusAppToGo.Equals("1"))
             {
