@@ -384,7 +384,7 @@
             this.chkVoid.UseVisualStyleBackColor = true;
             this.chkVoid.Value = null;
             this.chkVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.chkVoid.Click += new System.EventHandler(this.chkVoid_Click);
+            
             // 
             // btnVoid
             // 

@@ -65,6 +65,7 @@ namespace modernpos_pos.gui
             btnImg.Click += BtnImg_Click;
 
             txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
+            chkVoid.Click += ChkVoid_Click;
 
             initGrfFoodsCat();
             setGrfFoodsCat();
@@ -76,6 +77,21 @@ namespace modernpos_pos.gui
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
             //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
+        }
+
+        private void ChkVoid_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (btnVoid.Visible)
+            {
+                btnVoid.Hide();
+            }
+            else
+            {
+                txtPasswordVoid.Show();
+                txtPasswordVoid.Focus();
+                //stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> กรุณาป้อนรหัสผ่าน", txtPasswordVoid);
+            }
         }
 
         private void BtnImg_Click(object sender, EventArgs e)
@@ -134,6 +150,7 @@ namespace modernpos_pos.gui
             grfFooC.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfPosi_AfterRowColChange);
             grfFooC.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellButtonClick);
             grfFooC.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfPosi_CellChanged);
+            
 
             panel4.Controls.Add(this.grfFooC);
 
@@ -217,6 +234,8 @@ namespace modernpos_pos.gui
             txtRemark.Value = fooC.remark;
             chkRecommand.Value = fooC.status_recommend.Equals("1") ? true : false;
             txtSort1.Value = fooC.sort1;
+            txtPasswordVoid.Value = "";
+            chkVoid.Checked = false;
             showImg();
             //if (fooT.status_aircondition.Equals("1"))
             //{
@@ -325,7 +344,7 @@ namespace modernpos_pos.gui
         {
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                mposC.mposDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
+                mposC.mposDB.foocDB.VoidFoodCat(txtID.Text, userIdVoid);
                 setGrfFoodsCat();
             }
         }
@@ -347,19 +366,6 @@ namespace modernpos_pos.gui
                 setGrfFoodsCat();
                 //setGrdView();
                 //this.Dispose();
-            }
-        }
-        private void chkVoid_Click(object sender, EventArgs e)
-        {
-            if (btnVoid.Visible)
-            {
-                btnVoid.Hide();
-            }
-            else
-            {
-                txtPasswordVoid.Show();
-                txtPasswordVoid.Focus();
-                //stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> กรุณาป้อนรหัสผ่าน", txtPasswordVoid);
             }
         }
         private void FrmArea_Load(object sender, EventArgs e)

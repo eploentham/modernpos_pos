@@ -226,6 +226,30 @@ namespace modernpos_pos.objdb
 
             return re;
         }
+        public String VoidFoodType(String footid, String userid)
+        {
+            String re = "";
+            String sql = "";
+            int chk = 0;
+
+            sql = "Update " + fooT.table + " Set " +
+                " " + fooT.active + " = '3'" +
+                "," + fooT.user_cancel + " = '" + userid + "'" +
+                "," + fooT.date_cancel + " = now() " +
+                "Where " + fooT.pkField + "='" + footid + "'"
+                ;
+
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+
+            return re;
+        }
         public C1ComboBox setCboFoodsType(C1ComboBox c)
         {
             ComboBoxItem item = new ComboBoxItem();

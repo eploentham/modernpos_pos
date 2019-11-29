@@ -167,6 +167,8 @@ namespace modernpos_pos.gui
             txtAreaCode.Value = fooT.foods_type_code;
             txtFooTNameT.Value = fooT.foods_type_name;
             txtRemark.Value = fooT.remark;
+            txtPasswordVoid.Value = "";
+            chkVoid.Checked = false;
             //if (fooT.status_aircondition.Equals("1"))
             //{
             //    chkStatusAirCondition.Checked = true;
@@ -273,7 +275,7 @@ namespace modernpos_pos.gui
         {
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                mposC.mposDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
+                mposC.mposDB.footDB.VoidFoodType(txtID.Text, userIdVoid);
                 setGrfFoodsType();
             }
         }
