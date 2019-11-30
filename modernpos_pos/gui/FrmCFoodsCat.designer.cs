@@ -239,11 +239,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.label4.Location = new System.Drawing.Point(20, 233);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 16);
+            this.label4.Size = new System.Drawing.Size(53, 20);
             this.label4.TabIndex = 277;
             this.label4.Text = "sort1 :";
             this.theme1.SetTheme(this.label4, "(default)");
@@ -252,10 +252,10 @@
             // 
             this.txtSort1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSort1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtSort1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtSort1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtSort1.Location = new System.Drawing.Point(124, 231);
             this.txtSort1.Name = "txtSort1";
-            this.txtSort1.Size = new System.Drawing.Size(207, 20);
+            this.txtSort1.Size = new System.Drawing.Size(207, 24);
             this.txtSort1.TabIndex = 276;
             this.txtSort1.Tag = null;
             this.theme1.SetTheme(this.txtSort1, "(default)");
@@ -384,7 +384,6 @@
             this.chkVoid.UseVisualStyleBackColor = true;
             this.chkVoid.Value = null;
             this.chkVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            
             // 
             // btnVoid
             // 
@@ -435,10 +434,10 @@
             // 
             this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRemark.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtRemark.Location = new System.Drawing.Point(124, 115);
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(207, 20);
+            this.txtRemark.Size = new System.Drawing.Size(296, 24);
             this.txtRemark.TabIndex = 240;
             this.txtRemark.Tag = null;
             this.theme1.SetTheme(this.txtRemark, "(default)");
@@ -448,11 +447,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.label3.Location = new System.Drawing.Point(20, 117);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 16);
+            this.label3.Size = new System.Drawing.Size(75, 20);
             this.label3.TabIndex = 239;
             this.label3.Text = "หมายเหตุ :";
             this.theme1.SetTheme(this.label3, "(default)");
@@ -461,10 +460,10 @@
             // 
             this.txtFooTNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFooTNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtFooTNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtFooTNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtFooTNameT.Location = new System.Drawing.Point(124, 89);
             this.txtFooTNameT.Name = "txtFooTNameT";
-            this.txtFooTNameT.Size = new System.Drawing.Size(207, 20);
+            this.txtFooTNameT.Size = new System.Drawing.Size(296, 24);
             this.txtFooTNameT.TabIndex = 238;
             this.txtFooTNameT.Tag = null;
             this.theme1.SetTheme(this.txtFooTNameT, "(default)");
@@ -474,11 +473,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.label2.Location = new System.Drawing.Point(20, 91);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 16);
+            this.label2.Size = new System.Drawing.Size(103, 20);
             this.label2.TabIndex = 237;
             this.label2.Text = "ชื่อกลุ่ม อาหาร :";
             this.theme1.SetTheme(this.label2, "(default)");
@@ -501,10 +500,10 @@
             // 
             this.txtAreaCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAreaCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtAreaCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtAreaCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtAreaCode.Location = new System.Drawing.Point(124, 29);
             this.txtAreaCode.Name = "txtAreaCode";
-            this.txtAreaCode.Size = new System.Drawing.Size(207, 20);
+            this.txtAreaCode.Size = new System.Drawing.Size(207, 24);
             this.txtAreaCode.TabIndex = 235;
             this.txtAreaCode.Tag = null;
             this.theme1.SetTheme(this.txtAreaCode, "(default)");
@@ -514,11 +513,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.label1.Location = new System.Drawing.Point(20, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 16);
+            this.label1.Size = new System.Drawing.Size(41, 20);
             this.label1.TabIndex = 234;
             this.label1.Text = "รหัส :";
             this.theme1.SetTheme(this.label1, "(default)");

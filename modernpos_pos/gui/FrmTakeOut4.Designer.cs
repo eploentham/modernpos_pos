@@ -54,7 +54,6 @@
             this.pnCheckMain = new System.Windows.Forms.Panel();
             this.sCCheck = new C1.Win.C1SplitContainer.C1SplitContainer();
             this.scCheckLeft = new C1.Win.C1SplitContainer.C1SplitterPanel();
-            this.scCheckRight = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.pnCheckBill = new System.Windows.Forms.Panel();
             this.btnBack = new C1.Win.C1Input.C1Button();
             this.pnVoidPay = new System.Windows.Forms.Panel();
@@ -67,6 +66,7 @@
             this.lbStatus = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.lbAmt = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.btnBillCheck = new System.Windows.Forms.Button();
+            this.scCheckRight = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.pnCheckOrder = new System.Windows.Forms.Panel();
             this.tabCommand = new C1.Win.C1Command.C1DockingTabPage();
             this.pnCommand = new System.Windows.Forms.Panel();
@@ -91,11 +91,12 @@
             this.pnCheckMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sCCheck)).BeginInit();
             this.sCCheck.SuspendLayout();
-            this.scCheckRight.SuspendLayout();
+            this.scCheckLeft.SuspendLayout();
             this.pnCheckBill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             this.pnVoidPay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).BeginInit();
+            this.scCheckRight.SuspendLayout();
             this.tabCommand.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -447,26 +448,11 @@
             this.scCheckLeft.Text = "Panel 1";
             this.scCheckLeft.Width = 701;
             // 
-            // scCheckRight
-            // 
-            this.scCheckRight.Collapsible = true;
-            
-            this.scCheckRight.Controls.Add(this.pnCheckOrder);
-            this.scCheckRight.Dock = C1.Win.C1SplitContainer.PanelDockStyle.Left;
-            this.scCheckRight.Height = 748;
-            this.scCheckRight.Location = new System.Drawing.Point(705, 21);
-            this.scCheckRight.Name = "scCheckRight";
-            this.scCheckRight.Size = new System.Drawing.Size(701, 727);
-            this.scCheckRight.TabIndex = 1;
-            this.scCheckRight.Text = "Panel 2";
-            this.scCheckRight.Width = 701;
-            // 
             // pnCheckBill
             // 
             this.pnCheckBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.pnCheckBill.Controls.Add(this.btnBack);
             this.pnCheckBill.Controls.Add(this.pnVoidPay);
-            this.pnCheckBill.Controls.Add(this.btnVoidPay);
             this.pnCheckBill.Controls.Add(this.listBox1);
             this.pnCheckBill.Controls.Add(this.button1);
             this.pnCheckBill.Controls.Add(this.lbStatus);
@@ -476,7 +462,7 @@
             this.pnCheckBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnCheckBill.Location = new System.Drawing.Point(0, 0);
             this.pnCheckBill.Name = "pnCheckBill";
-            this.pnCheckBill.Size = new System.Drawing.Size(701, 727);
+            this.pnCheckBill.Size = new System.Drawing.Size(694, 727);
             this.pnCheckBill.TabIndex = 0;
             this.theme1.SetTheme(this.pnCheckBill, "(default)");
             // 
@@ -497,11 +483,12 @@
             this.pnVoidPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.pnVoidPay.Controls.Add(this.cboRsp);
             this.pnVoidPay.Controls.Add(this.chkPaypaying);
+            this.pnVoidPay.Controls.Add(this.btnVoidPay);
             this.pnVoidPay.Controls.Add(this.chkPayBefore);
             this.pnVoidPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnVoidPay.Location = new System.Drawing.Point(358, 425);
             this.pnVoidPay.Name = "pnVoidPay";
-            this.pnVoidPay.Size = new System.Drawing.Size(236, 57);
+            this.pnVoidPay.Size = new System.Drawing.Size(236, 143);
             this.pnVoidPay.TabIndex = 248;
             this.theme1.SetTheme(this.pnVoidPay, "(default)");
             // 
@@ -516,7 +503,7 @@
             this.cboRsp.EditorFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboRsp.EditorForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.cboRsp.FlatStyle = C1.Win.C1List.FlatModeEnum.Flat;
-            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboRsp.Images.Add(((System.Drawing.Image)(resources.GetObject("cboRsp.Images"))));
             this.cboRsp.Location = new System.Drawing.Point(6, 32);
             this.cboRsp.MatchEntryTimeout = ((long)(2000));
@@ -575,7 +562,7 @@
             this.btnVoidPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.btnVoidPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.btnVoidPay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoidPay.Location = new System.Drawing.Point(428, 488);
+            this.btnVoidPay.Location = new System.Drawing.Point(121, 94);
             this.btnVoidPay.Name = "btnVoidPay";
             this.btnVoidPay.Size = new System.Drawing.Size(106, 45);
             this.btnVoidPay.TabIndex = 247;
@@ -654,6 +641,19 @@
             this.theme1.SetTheme(this.btnBillCheck, "(default)");
             this.btnBillCheck.UseVisualStyleBackColor = true;
             // 
+            // scCheckRight
+            // 
+            this.scCheckRight.Collapsible = true;
+            this.scCheckRight.Controls.Add(this.pnCheckOrder);
+            this.scCheckRight.Dock = C1.Win.C1SplitContainer.PanelDockStyle.Left;
+            this.scCheckRight.Height = 748;
+            this.scCheckRight.Location = new System.Drawing.Point(705, 21);
+            this.scCheckRight.Name = "scCheckRight";
+            this.scCheckRight.Size = new System.Drawing.Size(701, 727);
+            this.scCheckRight.TabIndex = 1;
+            this.scCheckRight.Text = "Panel 2";
+            this.scCheckRight.Width = 701;
+            // 
             // pnCheckOrder
             // 
             this.pnCheckOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -718,12 +718,13 @@
             this.pnCheckMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sCCheck)).EndInit();
             this.sCCheck.ResumeLayout(false);
-            this.scCheckRight.ResumeLayout(false);
+            this.scCheckLeft.ResumeLayout(false);
             this.pnCheckBill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             this.pnVoidPay.ResumeLayout(false);
             this.pnVoidPay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).EndInit();
+            this.scCheckRight.ResumeLayout(false);
             this.tabCommand.ResumeLayout(false);
             this.ResumeLayout(false);
 

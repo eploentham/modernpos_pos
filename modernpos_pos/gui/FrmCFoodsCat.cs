@@ -78,7 +78,6 @@ namespace modernpos_pos.gui
             sep = new C1SuperErrorProvider();
             //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
-
         private void ChkVoid_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();

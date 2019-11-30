@@ -211,6 +211,7 @@ namespace modernpos_pos.gui
             flagModi = false;
             setBtnEnable(flagModi);
             this.FormBorderStyle = FormBorderStyle.None;
+            setListBox1Show(false);
         }
 
         private void FrmTakeOut4_FormClosed(object sender, FormClosedEventArgs e)
@@ -223,6 +224,11 @@ namespace modernpos_pos.gui
         {
             //throw new NotImplementedException();
             tCMain.SelectedTab = tabOrder;
+        }
+        private void setListBox1Show(Boolean flag)
+        {
+            listBox1.Visible = flag;
+            pnVoidPay.Visible = flag;
         }
         private void initGrfBill()
         {
