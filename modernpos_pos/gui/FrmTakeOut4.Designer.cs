@@ -41,8 +41,6 @@
             this.scFoodsItem = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.scOrd = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.pnOrdBill = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.lbTakeOutFooName = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.btnPay = new System.Windows.Forms.Button();
             this.pnOrdOrder = new System.Windows.Forms.Panel();
@@ -59,8 +57,8 @@
             this.pnVoidPay = new System.Windows.Forms.Panel();
             this.cboRsp = new C1.Win.C1List.C1Combo();
             this.chkPaypaying = new System.Windows.Forms.RadioButton();
-            this.chkPayBefore = new System.Windows.Forms.RadioButton();
             this.btnVoidPay = new System.Windows.Forms.Button();
+            this.chkPayBefore = new System.Windows.Forms.RadioButton();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lbStatus = new C1.Win.C1SuperTooltip.C1SuperLabel();
@@ -70,6 +68,7 @@
             this.pnCheckOrder = new System.Windows.Forms.Panel();
             this.tabCommand = new C1.Win.C1Command.C1DockingTabPage();
             this.pnCommand = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCMain)).BeginInit();
@@ -248,59 +247,21 @@
             // pnOrdBill
             // 
             this.pnOrdBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.pnOrdBill.Controls.Add(this.button3);
-            this.pnOrdBill.Controls.Add(this.button2);
             this.pnOrdBill.Controls.Add(this.lbTakeOutFooName);
             this.pnOrdBill.Controls.Add(this.btnPay);
             this.pnOrdBill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnOrdBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.pnOrdBill.Location = new System.Drawing.Point(0, 533);
+            this.pnOrdBill.Location = new System.Drawing.Point(0, 527);
             this.pnOrdBill.Name = "pnOrdBill";
-            this.pnOrdBill.Size = new System.Drawing.Size(602, 194);
+            this.pnOrdBill.Size = new System.Drawing.Size(602, 200);
             this.pnOrdBill.TabIndex = 2;
             this.theme1.SetTheme(this.pnOrdBill, "(default)");
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(158, 49);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(149, 64);
-            this.button3.TabIndex = 255;
-            this.button3.Text = "QR Code kbank";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.button3, "(default)");
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(3, 49);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(149, 64);
-            this.button2.TabIndex = 254;
-            this.button2.Text = "ชำระเงินสด";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.button2, "(default)");
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // lbTakeOutFooName
             // 
             this.lbTakeOutFooName.AutoSize = true;
             this.lbTakeOutFooName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbTakeOutFooName.Location = new System.Drawing.Point(3, 6);
+            this.lbTakeOutFooName.Location = new System.Drawing.Point(3, 67);
             this.lbTakeOutFooName.Name = "lbTakeOutFooName";
             this.lbTakeOutFooName.Size = new System.Drawing.Size(301, 29);
             this.lbTakeOutFooName.TabIndex = 253;
@@ -333,7 +294,7 @@
             this.pnOrdOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnOrdOrder.Location = new System.Drawing.Point(0, 31);
             this.pnOrdOrder.Name = "pnOrdOrder";
-            this.pnOrdOrder.Size = new System.Drawing.Size(602, 502);
+            this.pnOrdOrder.Size = new System.Drawing.Size(602, 496);
             this.pnOrdOrder.TabIndex = 1;
             this.theme1.SetTheme(this.pnOrdOrder, "(default)");
             // 
@@ -451,6 +412,7 @@
             // pnCheckBill
             // 
             this.pnCheckBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pnCheckBill.Controls.Add(this.button2);
             this.pnCheckBill.Controls.Add(this.btnBack);
             this.pnCheckBill.Controls.Add(this.pnVoidPay);
             this.pnCheckBill.Controls.Add(this.listBox1);
@@ -469,7 +431,7 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btnBack.Location = new System.Drawing.Point(74, 506);
+            this.btnBack.Location = new System.Drawing.Point(74, 566);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(106, 64);
             this.btnBack.TabIndex = 249;
@@ -535,24 +497,6 @@
             this.theme1.SetTheme(this.chkPaypaying, "(default)");
             this.chkPaypaying.UseVisualStyleBackColor = false;
             // 
-            // chkPayBefore
-            // 
-            this.chkPayBefore.AutoSize = true;
-            this.chkPayBefore.BackColor = System.Drawing.Color.Transparent;
-            this.chkPayBefore.Checked = true;
-            this.chkPayBefore.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkPayBefore.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.chkPayBefore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.chkPayBefore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkPayBefore.Location = new System.Drawing.Point(6, 9);
-            this.chkPayBefore.Name = "chkPayBefore";
-            this.chkPayBefore.Size = new System.Drawing.Size(94, 17);
-            this.chkPayBefore.TabIndex = 26;
-            this.chkPayBefore.TabStop = true;
-            this.chkPayBefore.Text = "ยังไม่ได้รับเงิน";
-            this.theme1.SetTheme(this.chkPayBefore, "(default)");
-            this.chkPayBefore.UseVisualStyleBackColor = false;
-            // 
             // btnVoidPay
             // 
             this.btnVoidPay.BackColor = System.Drawing.Color.Transparent;
@@ -570,6 +514,24 @@
             this.btnVoidPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnVoidPay, "(default)");
             this.btnVoidPay.UseVisualStyleBackColor = true;
+            // 
+            // chkPayBefore
+            // 
+            this.chkPayBefore.AutoSize = true;
+            this.chkPayBefore.BackColor = System.Drawing.Color.Transparent;
+            this.chkPayBefore.Checked = true;
+            this.chkPayBefore.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkPayBefore.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkPayBefore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkPayBefore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkPayBefore.Location = new System.Drawing.Point(6, 9);
+            this.chkPayBefore.Name = "chkPayBefore";
+            this.chkPayBefore.Size = new System.Drawing.Size(94, 17);
+            this.chkPayBefore.TabIndex = 26;
+            this.chkPayBefore.TabStop = true;
+            this.chkPayBefore.Text = "ยังไม่ได้รับเงิน";
+            this.theme1.SetTheme(this.chkPayBefore, "(default)");
+            this.chkPayBefore.UseVisualStyleBackColor = false;
             // 
             // listBox1
             // 
@@ -592,7 +554,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(209, 436);
+            this.button1.Location = new System.Drawing.Point(209, 566);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 64);
             this.button1.TabIndex = 245;
@@ -633,11 +595,11 @@
             this.btnBillCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnBillCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.btnBillCheck.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBillCheck.Location = new System.Drawing.Point(74, 436);
+            this.btnBillCheck.Location = new System.Drawing.Point(11, 434);
             this.btnBillCheck.Name = "btnBillCheck";
-            this.btnBillCheck.Size = new System.Drawing.Size(106, 64);
+            this.btnBillCheck.Size = new System.Drawing.Size(139, 64);
             this.btnBillCheck.TabIndex = 242;
-            this.btnBillCheck.Text = "ชำระเงิน";
+            this.btnBillCheck.Text = "ชำระเงิน เงินสด";
             this.theme1.SetTheme(this.btnBillCheck, "(default)");
             this.btnBillCheck.UseVisualStyleBackColor = true;
             // 
@@ -684,6 +646,24 @@
             this.pnCommand.Size = new System.Drawing.Size(1406, 748);
             this.pnCommand.TabIndex = 0;
             this.theme1.SetTheme(this.pnCommand, "(default)");
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(173, 434);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 64);
+            this.button2.TabIndex = 250;
+            this.button2.Text = "Qr Code Kbank";
+            this.theme1.SetTheme(this.button2, "(default)");
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // FrmTakeOut4
             // 
@@ -770,7 +750,6 @@
         private System.Windows.Forms.Panel pnCheckOrder;
         private C1.Win.C1Command.C1DockingTabPage tabCommand;
         private System.Windows.Forms.Panel pnCommand;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
     }
 }

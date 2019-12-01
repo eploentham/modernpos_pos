@@ -210,3 +210,84 @@ ADD COLUMN `price_plus_togo` DECIMAL(17,2) NULL AFTER `status_create`;
 
 ALTER TABLE `modern_pos`.`t_order` 
 ADD COLUMN `price_plus_togo` DECIMAL(17,2) NULL AFTER `hour_id`;
+
+
+
+ALTER TABLE `onsoon`.`t_closeday` 
+ADD COLUMN `date_create` VARCHAR(45) NULL AFTER `weather`,
+ADD COLUMN `date_modi` VARCHAR(45) NULL AFTER `date_create`;
+
+ALTER TABLE `onsoon`.`t_closeday` 
+CHANGE COLUMN `date_create` `date_create` VARCHAR(45) NULL DEFAULT NULL AFTER `branch_id`,
+CHANGE COLUMN `date_modi` `date_modi` VARCHAR(45) NULL DEFAULT NULL AFTER `date_create`;
+
+ALTER TABLE `onsoon`.`t_closeday` 
+ADD COLUMN `expense_1` DECIMAL(17,2) NULL AFTER `weather`;
+
+ALTER TABLE `onsoon`.`t_closeday` 
+ADD COLUMN `expense_2` DECIMAL(17,2) NULL AFTER `expense_1`,
+ADD COLUMN `expense_3` DECIMAL(17,2) NULL AFTER `expense_2`,
+ADD COLUMN `expense_4` DECIMAL(17,2) NULL AFTER `expense_3`,
+ADD COLUMN `expense_5` DECIMAL(17,2) NULL AFTER `expense_4`;
+
+ALTER TABLE `onsoon`.`t_closeday` 
+ADD COLUMN `cash_receive` DECIMAL(17,2) NULL AFTER `expense_1`,
+ADD COLUMN `cash_ton` DECIMAL(17,2) NULL AFTER `cash_receive`;
+
+drop table if exists onsoon.t_closeday;
+CREATE TABLE onsoon.`t_closeday` (
+  `closeday_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `closeday_date` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `res_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `amount` decimal(17,2) DEFAULT NULL,
+  `discount` decimal(17,2) DEFAULT NULL,
+  `total` decimal(17,2) DEFAULT NULL,
+  `service_charge` decimal(17,2) DEFAULT NULL,
+  `vat` decimal(17,2) DEFAULT NULL,
+  `nettotal` decimal(17,2) DEFAULT NULL,
+  `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `active` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `status_void` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `void_date` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `void_user` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `cnt_bill` decimal(17,2) DEFAULT NULL,
+  `bill_amount` decimal(17,2) DEFAULT NULL,
+  `cnt_order` decimal(17,2) DEFAULT NULL,
+  `amount_order` decimal(17,2) DEFAULT NULL,
+  `closeday_user` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `cash_receive1` decimal(17,2) DEFAULT NULL,
+  `cash_receive2` decimal(17,2) DEFAULT NULL,
+  `cash_receive3` decimal(17,2) DEFAULT NULL,
+  `cash_draw1` decimal(17,2) DEFAULT NULL,
+  `cash_draw2` decimal(17,2) DEFAULT NULL,
+  `cash_draw3` decimal(17,2) DEFAULT NULL,
+  `cash_receive1_remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `cash_receive2_remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `cash_receive3_remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `cash_draw1_remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `cash_draw2_remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `cash_draw3_remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `host_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `branch_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `device_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `date_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `weather` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '0=default;1=sun;2=',
+  `expense_1` decimal(17,2) DEFAULT NULL,
+  `expense_2` decimal(17,2) DEFAULT NULL,
+  `expense_3` decimal(17,2) DEFAULT NULL,
+  `expense_4` decimal(17,2) DEFAULT NULL,
+  `expense_5` decimal(17,2) DEFAULT NULL,
+  `cash_receive` decimal(17,2) DEFAULT NULL,
+  `cash_ton` decimal(17,2) DEFAULT NULL,
+  PRIMARY KEY (`closeday_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1090000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=109';
+
+
+ALTER TABLE `onsoon`.`t_bill` 
+ADD COLUMN `status_payment` VARCHAR(45) NULL DEFAULT 0 COMMENT '0=default, 1=cash,2=' AFTER `user_cancel`;
+

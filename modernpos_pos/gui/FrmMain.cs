@@ -44,6 +44,16 @@ namespace modernpos_pos.gui
             btnTakeOut.Click += BtnTakeOut_Click;
             btnConfig.Click += BtnConfig_Click;
             btnClose.Click += BtnClose_Click;
+            btnCloseDay.Click += BtnCloseDay_Click;
+        }
+
+        private void BtnCloseDay_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmCloseDayAdd frm = new FrmCloseDayAdd(mposC, this,"");
+            this.Hide();
+            frm.ShowDialog(this);
+            this.Show();
         }
 
         private void BtnClose_Click(object sender, EventArgs e)

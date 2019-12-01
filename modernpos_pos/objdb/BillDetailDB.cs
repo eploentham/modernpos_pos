@@ -11,7 +11,7 @@ namespace modernpos_pos.objdb
 {
     public class BillDetailDB
     {
-        BillDetail bil;
+        BillDetail bild;
         ConnectDB conn;
         public List<BillDetail> lBil;
         public BillDetailDB(ConnectDB c)
@@ -22,44 +22,44 @@ namespace modernpos_pos.objdb
         private void initConfig()
         {
             lBil = new List<BillDetail>();
-            bil = new BillDetail();
-            bil.bill_detail_id = "bill_detail_id";
-            bil.bill_id = "bill_id";
-            bil.order_id = "order_id";
-            bil.lot_id = "lot_id";
-            bil.status_void = "status_void";
-            bil.row1 = "row1";
-            bil.foods_id = "foods_id";
-            bil.foods_code = "foods_code";
+            bild = new BillDetail();
+            bild.bill_detail_id = "bill_detail_id";
+            bild.bill_id = "bill_id";
+            bild.order_id = "order_id";
+            bild.lot_id = "lot_id";
+            bild.status_void = "status_void";
+            bild.row1 = "row1";
+            bild.foods_id = "foods_id";
+            bild.foods_code = "foods_code";
 
-            bil.active = "active";
-            bil.remark = "remark";
-            bil.sort1 = "sort1";
-            bil.date_cancel = "date_cancel";
-            bil.date_create = "date_create";
-            bil.date_modi = "date_modi";
-            bil.user_cancel = "user_cancel";
-            bil.user_create = "user_create";
-            bil.user_modi = "user_modi";
-            bil.host_id = "host_id";
-            bil.branch_id = "branch_id";
-            bil.device_id = "device_id";
-            bil.price = "price";
-            bil.qty = "qty";
-            bil.amount = "amount";
+            bild.active = "active";
+            bild.remark = "remark";
+            bild.sort1 = "sort1";
+            bild.date_cancel = "date_cancel";
+            bild.date_create = "date_create";
+            bild.date_modi = "date_modi";
+            bild.user_cancel = "user_cancel";
+            bild.user_create = "user_create";
+            bild.user_modi = "user_modi";
+            bild.host_id = "host_id";
+            bild.branch_id = "branch_id";
+            bild.device_id = "device_id";
+            bild.price = "price";
+            bild.qty = "qty";
+            bild.amount = "amount";
             //bil.foods_cat_id = "foods_cat_id";
             //bil.filename = "filename";
 
-            bil.pkField = "bill_detail_id";
-            bil.table = "t_bill_detail";
+            bild.pkField = "bill_detail_id";
+            bild.table = "t_bill_detail";
         }
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
             String sql = "select foo.*  " +
-                "From " + bil.table + " foo " +
+                "From " + bild.table + " foo " +
                 " " +
-                "Where foo." + bil.active + " ='1' ";
+                "Where foo." + bild.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -68,9 +68,9 @@ namespace modernpos_pos.objdb
         {
             DataTable dt = new DataTable();
             String sql = "select foo.* " +
-                "From " + bil.table + " foo " +
+                "From " + bild.table + " foo " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where foo." + bil.pkField + " ='" + copId + "' ";
+                "Where foo." + bild.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -79,20 +79,31 @@ namespace modernpos_pos.objdb
             BillDetail cop1 = new BillDetail();
             DataTable dt = new DataTable();
             String sql = "select foo.* " +
-                "From " + bil.table + " foo " +
+                "From " + bild.table + " foo " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where foo." + bil.pkField + " ='" + copId + "' ";
+                "Where foo." + bild.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setBillDetail(dt);
             return cop1;
+        }
+        public DataTable selectCloseDayCurr()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select sum(price*qty) as sum_price, count(bil.bill_id) as cnt_order  " +
+                "From " + bild.table + " bild " +
+                "Left Join t_bill bil on bil.bill_id = bild.bill_id " +
+                "Where bild." + bild.active + " = '1' and bil.status_closeday = '0' and bil.active = '1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
         }
         private BillDetail setArea1(DataTable dt)
         {
             BillDetail dept1 = new BillDetail();
             if (dt.Rows.Count > 0)
             {
-                dept1.bill_detail_id = dt.Rows[0][bil.bill_detail_id].ToString();
-                dept1.order_id = dt.Rows[0][bil.order_id].ToString();
+                dept1.bill_detail_id = dt.Rows[0][bild.bill_detail_id].ToString();
+                dept1.order_id = dt.Rows[0][bild.order_id].ToString();
             }
 
             return dept1;
@@ -100,10 +111,10 @@ namespace modernpos_pos.objdb
         public DataTable selectC1()
         {
             DataTable dt = new DataTable();
-            String sql = "select foo." + bil.pkField + ",foo." + bil.order_id + " " +
-                "From " + bil.table + " foo " +
+            String sql = "select foo." + bild.pkField + ",foo." + bild.order_id + " " +
+                "From " + bild.table + " foo " +
                 " " +
-                "Where foo." + bil.active + " ='1' ";
+                "Where foo." + bild.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -116,12 +127,12 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 BillDetail itm1 = new BillDetail();
-                itm1.bill_detail_id = row[bil.bill_detail_id].ToString();
-                itm1.order_id = row[bil.order_id].ToString();
-                itm1.status_void = row[bil.status_void].ToString();
-                itm1.foods_id = row[bil.foods_id].ToString();
-                itm1.bill_id = row[bil.bill_id].ToString();
-                itm1.lot_id = row[bil.lot_id].ToString();
+                itm1.bill_detail_id = row[bild.bill_detail_id].ToString();
+                itm1.order_id = row[bild.order_id].ToString();
+                itm1.status_void = row[bild.status_void].ToString();
+                itm1.foods_id = row[bild.foods_id].ToString();
+                itm1.bill_id = row[bild.bill_id].ToString();
+                itm1.lot_id = row[bild.lot_id].ToString();
                 //itm1.foods_cat_id = row[bil.foods_cat_id].ToString();
                 lfoo1.Add(itm1);
             }
@@ -136,8 +147,8 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 BillDetail itm1 = new BillDetail();
-                itm1.bill_detail_id = row[bil.bill_detail_id].ToString();
-                itm1.order_id = row[bil.order_id].ToString();
+                itm1.bill_detail_id = row[bild.bill_detail_id].ToString();
+                itm1.order_id = row[bild.order_id].ToString();
 
                 lBil.Add(itm1);
             }
@@ -199,22 +210,22 @@ namespace modernpos_pos.objdb
             int chk = 0;
 
             chkNull(p);
-            sql = "Insert Into " + bil.table + " set " +
-                " " + bil.bill_id + " = '" + p.bill_id + "'" +
-                "," + bil.order_id + " = '" + p.order_id.Replace("'", "''") + "'" +
-                "," + bil.remark + " = '" + p.remark.Replace("'", "''") + "'" +
-                "," + bil.date_create + " = now()" +
-                "," + bil.active + " = '1'" +
-                "," + bil.user_create + " = '" + userId + "' " +
-                "," + bil.host_id + " = '" + p.host_id + "' " +
-                "," + bil.branch_id + " = '" + p.branch_id + "' " +
-                "," + bil.device_id + " = '" + p.device_id + "' " +
-                "," + bil.foods_id + " = '" + p.foods_id + "' " +
-                "," + bil.price + " = '" + p.price + "' " +
-                "," + bil.foods_code + " = '" + p.foods_code + "' " +
-                "," + bil.status_void + " = '" + p.status_void + "' " +
-                "," + bil.qty + " = '" + p.qty + "' " +
-                "," + bil.amount + " = '" + p.amount + "' " +
+            sql = "Insert Into " + bild.table + " set " +
+                " " + bild.bill_id + " = '" + p.bill_id + "'" +
+                "," + bild.order_id + " = '" + p.order_id.Replace("'", "''") + "'" +
+                "," + bild.remark + " = '" + p.remark.Replace("'", "''") + "'" +
+                "," + bild.date_create + " = now()" +
+                "," + bild.active + " = '1'" +
+                "," + bild.user_create + " = '" + userId + "' " +
+                "," + bild.host_id + " = '" + p.host_id + "' " +
+                "," + bild.branch_id + " = '" + p.branch_id + "' " +
+                "," + bild.device_id + " = '" + p.device_id + "' " +
+                "," + bild.foods_id + " = '" + p.foods_id + "' " +
+                "," + bild.price + " = '" + p.price + "' " +
+                "," + bild.foods_code + " = '" + p.foods_code + "' " +
+                "," + bild.status_void + " = '" + p.status_void + "' " +
+                "," + bild.qty + " = '" + p.qty + "' " +
+                "," + bild.amount + " = '" + p.amount + "' " +
                 //"," + bil.foods_cat_id + " = '" + p.foods_cat_id + "' " +
                 //"," + bil.filename + " = '" + p.filename + "' " +
                 " ";
@@ -237,24 +248,24 @@ namespace modernpos_pos.objdb
             int chk = 0;
 
             chkNull(p);
-            sql = "Update " + bil.table + " Set " +
-                " " + bil.bill_id + " = '" + p.bill_id + "'" +
-                "," + bil.order_id + " = '" + p.order_id.Replace("'", "''") + "'" +
-                "," + bil.remark + " = '" + p.remark.Replace("'", "''") + "'" +
-                "," + bil.date_modi + " = now()" +
-                "," + bil.user_modi + " = '" + userId + "' " +
-                "," + bil.host_id + " = '" + p.host_id + "' " +
-                "," + bil.branch_id + " = '" + p.branch_id + "' " +
-                "," + bil.device_id + " = '" + p.device_id + "' " +
-                "," + bil.row1 + " = '" + p.row1 + "' " +
-                "," + bil.price + " = '" + p.price + "' " +
-                "," + bil.foods_code + " = '" + p.foods_code + "' " +
-                "," + bil.status_void + " = '" + p.status_void + "' " +
-                "," + bil.qty + " = '" + p.qty + "' " +
-                "," + bil.amount + " = '" + p.amount + "' " +
+            sql = "Update " + bild.table + " Set " +
+                " " + bild.bill_id + " = '" + p.bill_id + "'" +
+                "," + bild.order_id + " = '" + p.order_id.Replace("'", "''") + "'" +
+                "," + bild.remark + " = '" + p.remark.Replace("'", "''") + "'" +
+                "," + bild.date_modi + " = now()" +
+                "," + bild.user_modi + " = '" + userId + "' " +
+                "," + bild.host_id + " = '" + p.host_id + "' " +
+                "," + bild.branch_id + " = '" + p.branch_id + "' " +
+                "," + bild.device_id + " = '" + p.device_id + "' " +
+                "," + bild.row1 + " = '" + p.row1 + "' " +
+                "," + bild.price + " = '" + p.price + "' " +
+                "," + bild.foods_code + " = '" + p.foods_code + "' " +
+                "," + bild.status_void + " = '" + p.status_void + "' " +
+                "," + bild.qty + " = '" + p.qty + "' " +
+                "," + bild.amount + " = '" + p.amount + "' " +
                 //"," + bil.foods_cat_id + " = '" + p.foods_cat_id + "' " +
-                "," + bil.lot_id + " = '" + p.lot_id + "' " +
-                "Where " + bil.pkField + "='" + p.bill_detail_id + "'"
+                "," + bild.lot_id + " = '" + p.lot_id + "' " +
+                "Where " + bild.pkField + "='" + p.bill_detail_id + "'"
                 ;
 
             try
@@ -319,8 +330,8 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 item = new ComboBoxItem();
-                item.Text = row[bil.order_id].ToString();
-                item.Value = row[bil.bill_detail_id].ToString();
+                item.Text = row[bild.order_id].ToString();
+                item.Value = row[bild.bill_detail_id].ToString();
 
                 c.Items.Add(item);
             }
@@ -359,28 +370,28 @@ namespace modernpos_pos.objdb
             BillDetail dept1 = new BillDetail();
             if (dt.Rows.Count > 0)
             {
-                dept1.bill_detail_id = dt.Rows[0][bil.bill_detail_id].ToString();
-                dept1.bill_id = dt.Rows[0][bil.bill_id].ToString();
-                dept1.order_id = dt.Rows[0][bil.order_id].ToString();
+                dept1.bill_detail_id = dt.Rows[0][bild.bill_detail_id].ToString();
+                dept1.bill_id = dt.Rows[0][bild.bill_id].ToString();
+                dept1.order_id = dt.Rows[0][bild.order_id].ToString();
                 //dept1.posi_name_e = dt.Rows[0][area.posi_name_e] != null ? dt.Rows[0][area.posi_name_e].ToString() : "";
                 //dept1.status_doctor = dt.Rows[0][area.status_doctor] != null ? dt.Rows[0][area.status_doctor].ToString() : "";
-                dept1.remark = dt.Rows[0][bil.remark] != null ? dt.Rows[0][bil.remark].ToString() : "";
-                dept1.date_create = dt.Rows[0][bil.date_create] != null ? dt.Rows[0][bil.date_create].ToString() : "";
-                dept1.date_modi = dt.Rows[0][bil.date_modi] != null ? dt.Rows[0][bil.date_modi].ToString() : "";
-                dept1.date_cancel = dt.Rows[0][bil.date_cancel] != null ? dt.Rows[0][bil.date_cancel].ToString() : "";
-                dept1.user_create = dt.Rows[0][bil.user_create] != null ? dt.Rows[0][bil.user_create].ToString() : "";
-                dept1.user_modi = dt.Rows[0][bil.user_modi] != null ? dt.Rows[0][bil.user_modi].ToString() : "";
-                dept1.user_cancel = dt.Rows[0][bil.user_cancel] != null ? dt.Rows[0][bil.user_cancel].ToString() : "";
-                dept1.active = dt.Rows[0][bil.active] != null ? dt.Rows[0][bil.active].ToString() : "";
-                dept1.sort1 = dt.Rows[0][bil.sort1] != null ? dt.Rows[0][bil.sort1].ToString() : "";
-                dept1.status_void = dt.Rows[0][bil.status_void] != null ? dt.Rows[0][bil.status_void].ToString() : "";
-                dept1.lot_id = dt.Rows[0][bil.lot_id] != null ? dt.Rows[0][bil.lot_id].ToString() : "";
-                dept1.row1 = dt.Rows[0][bil.row1] != null ? dt.Rows[0][bil.row1].ToString() : "";
-                dept1.foods_id = dt.Rows[0][bil.foods_id] != null ? dt.Rows[0][bil.foods_id].ToString() : "";
-                dept1.price = dt.Rows[0][bil.price] != null ? dt.Rows[0][bil.price].ToString() : "";
-                dept1.foods_code = dt.Rows[0][bil.foods_code] != null ? dt.Rows[0][bil.foods_code].ToString() : "";
-                dept1.qty = dt.Rows[0][bil.qty] != null ? dt.Rows[0][bil.qty].ToString() : "";
-                dept1.amount = dt.Rows[0][bil.amount] != null ? dt.Rows[0][bil.amount].ToString() : "";
+                dept1.remark = dt.Rows[0][bild.remark] != null ? dt.Rows[0][bild.remark].ToString() : "";
+                dept1.date_create = dt.Rows[0][bild.date_create] != null ? dt.Rows[0][bild.date_create].ToString() : "";
+                dept1.date_modi = dt.Rows[0][bild.date_modi] != null ? dt.Rows[0][bild.date_modi].ToString() : "";
+                dept1.date_cancel = dt.Rows[0][bild.date_cancel] != null ? dt.Rows[0][bild.date_cancel].ToString() : "";
+                dept1.user_create = dt.Rows[0][bild.user_create] != null ? dt.Rows[0][bild.user_create].ToString() : "";
+                dept1.user_modi = dt.Rows[0][bild.user_modi] != null ? dt.Rows[0][bild.user_modi].ToString() : "";
+                dept1.user_cancel = dt.Rows[0][bild.user_cancel] != null ? dt.Rows[0][bild.user_cancel].ToString() : "";
+                dept1.active = dt.Rows[0][bild.active] != null ? dt.Rows[0][bild.active].ToString() : "";
+                dept1.sort1 = dt.Rows[0][bild.sort1] != null ? dt.Rows[0][bild.sort1].ToString() : "";
+                dept1.status_void = dt.Rows[0][bild.status_void] != null ? dt.Rows[0][bild.status_void].ToString() : "";
+                dept1.lot_id = dt.Rows[0][bild.lot_id] != null ? dt.Rows[0][bild.lot_id].ToString() : "";
+                dept1.row1 = dt.Rows[0][bild.row1] != null ? dt.Rows[0][bild.row1].ToString() : "";
+                dept1.foods_id = dt.Rows[0][bild.foods_id] != null ? dt.Rows[0][bild.foods_id].ToString() : "";
+                dept1.price = dt.Rows[0][bild.price] != null ? dt.Rows[0][bild.price].ToString() : "";
+                dept1.foods_code = dt.Rows[0][bild.foods_code] != null ? dt.Rows[0][bild.foods_code].ToString() : "";
+                dept1.qty = dt.Rows[0][bild.qty] != null ? dt.Rows[0][bild.qty].ToString() : "";
+                dept1.amount = dt.Rows[0][bild.amount] != null ? dt.Rows[0][bild.amount].ToString() : "";
                 //dept1.foods_cat_id = dt.Rows[0][bil.foods_cat_id] != null ? dt.Rows[0][bil.foods_cat_id].ToString() : "";
                 //dept1.filename = dt.Rows[0][bil.filename] != null ? dt.Rows[0][bil.filename].ToString() : "";
             }

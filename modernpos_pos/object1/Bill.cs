@@ -29,6 +29,7 @@ namespace modernpos_pos.object1
         public String bill_user { get; set; }
         public String status_closeday { get; set; }
         public String closeday_id { get; set; }
+        public String status_payment { get; set; }
 
     }
 }

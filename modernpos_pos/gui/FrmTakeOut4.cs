@@ -179,7 +179,7 @@ namespace modernpos_pos.gui
             timerVNE.Enabled = false;
 
             btnPay.Click += BtnPay_Click;
-            //btnVoid.Click += BtnVoid_Click;
+            //btnCash.Click += BtnCash_Click;
             //btnSpec.Click += BtnSpec_Click;
             //btnReturn.Click += BtnReturn_Click;
             btnBack.Click += BtnBack_Click;
@@ -212,6 +212,12 @@ namespace modernpos_pos.gui
             setBtnEnable(flagModi);
             this.FormBorderStyle = FormBorderStyle.None;
             setListBox1Show(false);
+        }
+
+        private void BtnCash_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            savePayment();
         }
 
         private void FrmTakeOut4_FormClosed(object sender, FormClosedEventArgs e)
@@ -891,6 +897,10 @@ namespace modernpos_pos.gui
         private void BtnBillCheck_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            billCheck();
+        }
+        private void billCheck()
+        {
             String err = "", sql = "";
             try
             {
@@ -1003,7 +1013,7 @@ namespace modernpos_pos.gui
                         row.order_id = re;
                     }
                     long chk1 = 0;
-                    if(long.TryParse(lotid, out chk1))
+                    if (long.TryParse(lotid, out chk1))
                     {
                         mposC.mposDB.ordmDB.genOrderMaterial(lotid);
                     }
@@ -1056,6 +1066,11 @@ namespace modernpos_pos.gui
         private void BtnPay_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            savePayment();
+            //billCheck();
+        }
+        private void savePayment()
+        {
             lbAmt.Text = "";
             lbStatus.Text = "";
             mposC.statusVNEPaysuccess = "";

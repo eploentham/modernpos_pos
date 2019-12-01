@@ -44,6 +44,7 @@ namespace modernpos_pos.objdb
         public MaterialDrawDB matdDB;
         public MaterialDrawDetailDB matddDB;
         public StockCardDB stkDB;
+        public CloseDayDB cldDB;
         public mPosDB(ConnectDB c)
         {
             conn = c;
@@ -85,6 +86,7 @@ namespace modernpos_pos.objdb
             matdDB = new MaterialDrawDB(conn);
             matddDB = new MaterialDrawDetailDB(conn);
             stkDB = new StockCardDB(conn);
+            cldDB = new CloseDayDB(conn);
             //MessageBox.Show("mPosDB end ", "");
             Console.WriteLine("mPosDB end");
         }

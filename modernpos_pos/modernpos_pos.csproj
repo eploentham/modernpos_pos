@@ -128,6 +128,12 @@
     <Compile Include="gui\CellNote.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="gui\FrmCloseDayAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmCloseDayAdd.Designer.cs">
+      <DependentUpon>FrmCloseDayAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,6 +380,7 @@
     <Compile Include="objdb\AreaDB.cs" />
     <Compile Include="objdb\BillDB.cs" />
     <Compile Include="objdb\BillDetailDB.cs" />
+    <Compile Include="objdb\CloseDayDB.cs" />
     <Compile Include="objdb\CompanyDB.cs" />
     <Compile Include="objdb\ConnectDB.cs" />
     <Compile Include="objdb\DepartmentDB.cs" />
@@ -492,6 +499,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="object1\Unit.cs" />
+    <Compile Include="object1\CloseDay.cs" />
     <Compile Include="object1\VNE\VNECashClosingRequest.cs" />
     <Compile Include="object1\VNE\VNECashClosingResponse.cs" />
     <Compile Include="object1\VNE\VNEDoorOpenRequest.cs" />
@@ -521,6 +529,9 @@
     <Compile Include="object1\VNE\VNEPaymentPendingDeleteRequest.cs" />
     <EmbeddedResource Include="gui\CellNote.resx">
       <DependentUpon>CellNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmCloseDayAdd.resx">
+      <DependentUpon>FrmCloseDayAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmMaterial.resx">
       <DependentUpon>FrmMaterial.cs</DependentUpon>

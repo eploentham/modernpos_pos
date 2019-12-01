@@ -59,7 +59,8 @@ namespace modernpos_pos.objdb
             bil.bill_user = "bill_user";
             bil.status_closeday = "status_closeday";
             bil.closeday_id = "closeday_id";
-            
+            bil.status_payment = "status_payment";
+
             bil.pkField = "bill_id";
             bil.table = "t_order";
         }
@@ -200,7 +201,7 @@ namespace modernpos_pos.objdb
             //p.order_user = p.order_user == null ? "" : p.order_user;
             p.status_closeday = p.status_closeday == null ? "" : p.status_closeday;
             //p.closeday_id = p.closeday_id == null ? "" : p.closeday_id;
-            //p.cnt_cust = p.cnt_cust == null ? "" : p.cnt_cust;
+            p.status_payment = p.status_payment == null ? "0" : p.status_payment;
             p.void_date = p.void_date == null ? "" : p.void_date;
 
             p.host_id = long.TryParse(p.host_id, out chk) ? chk.ToString() : "0";
@@ -230,7 +231,7 @@ namespace modernpos_pos.objdb
             p.active = "1";
             //p.ssdata_id = "";
             int chk = 0;
-            bil.table = "t_bill";
+            //bil.table = "t_bill";
             chkNull(p);
             sql = "Insert Into " + bil.table + " set " +
                 " " + bil.bill_code + " = '" + p.bill_code + "'" +
@@ -265,7 +266,7 @@ namespace modernpos_pos.objdb
                 "," + bil.void_user + " = '" + p.void_user + "' " +
                 "," + bil.table_id + " = '" + p.table_id + "' " +
                 //"," + bil.table_id + " = '" + p.table_id + "' " +
-                //"," + bil.bill_user + " = '" + p.bill_user + "' " +
+                "," + bil.status_payment + " = '" + p.status_payment + "' " +
                 "," + bil.res_id + " = '" + p.res_id + "' " +
                 "," + bil.area_id + " = '" + p.area_id + "' " +
                 "," + bil.amount + " = '" + p.amount + "' " +
@@ -436,6 +437,7 @@ namespace modernpos_pos.objdb
                 dept1.area_id = dt.Rows[0][bil.area_id] != null ? dt.Rows[0][bil.area_id].ToString() : "";
                 dept1.amount = dt.Rows[0][bil.amount] != null ? dt.Rows[0][bil.amount].ToString() : "";
                 dept1.discount = dt.Rows[0][bil.discount] != null ? dt.Rows[0][bil.discount].ToString() : "";
+                dept1.status_payment = dt.Rows[0][bil.status_payment] != null ? dt.Rows[0][bil.status_payment].ToString() : "";
             }
             else
             {
@@ -462,6 +464,7 @@ namespace modernpos_pos.objdb
                 dept1.res_id = "";
                 dept1.amount = "";
                 dept1.discount = "";
+                dept1.status_payment = "";
             }
 
             return dept1;
