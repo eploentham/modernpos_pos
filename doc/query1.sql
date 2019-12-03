@@ -291,3 +291,6 @@ CREATE TABLE onsoon.`t_closeday` (
 ALTER TABLE `onsoon`.`t_bill` 
 ADD COLUMN `status_payment` VARCHAR(45) NULL DEFAULT 0 COMMENT '0=default, 1=cash,2=' AFTER `user_cancel`;
 
+ALTER TABLE `onsoon`.`b_foods` 
+ADD COLUMN `price_plus_togo` DECIMAL(17,2) NULL AFTER `status_create`;
+

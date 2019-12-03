@@ -64,7 +64,10 @@ namespace modernpos_pos.gui
             bg = txtFooCode.BackColor;
             fc = txtFooCode.ForeColor;
             ff = txtFooCode.Font;
+            tC.Font = fEdit;
             txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
+            txtFootpName.KeyUp += TxtFootpName_KeyUp;
+
             btnImg.Click += BtnImg_Click;
             tC.Click += TC_Click;
             btnFoosSave.Click += BtnFoosSave_Click;
@@ -104,10 +107,19 @@ namespace modernpos_pos.gui
             //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
 
+        private void TxtFootpName_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if(e.KeyCode == Keys.Enter)
+            {
+                txtFootpPrice.Focus();
+            }
+        }
+
         private void BtnVoid_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-
+            
         }
 
         private void BtnFoomVoid_Click(object sender, EventArgs e)
@@ -617,8 +629,8 @@ namespace modernpos_pos.gui
 
             grfFooT.Cols[1].Width = 60;
 
-            grfFooT.Cols[2].Width = 80;
-            grfFooT.Cols[3].Width = 200;
+            grfFooT.Cols[2].Width = 200;
+            grfFooT.Cols[3].Width = 120;
 
             grfFooT.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
@@ -636,9 +648,9 @@ namespace modernpos_pos.gui
                     grfFooT.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
             //grfFooT.Cols[colCode].Visible = false;
-            grfFooT.Cols[colID].Visible = false;
-            //grfFooT.Cols[colE].Visible = false;
-            //grfFooT.Cols[colS].Visible = false;
+            grfFooT.Cols[1].Visible = false;
+            //grfFooT.Cols[3].Visible = false;
+            grfFooT.Cols[2].AllowEditing = true;
             pageLoad = false;
         }
 
@@ -694,7 +706,7 @@ namespace modernpos_pos.gui
 
             grfFooS.Cols[1].Width = 60;
 
-            grfFooS.Cols[2].Width = 80;
+            grfFooS.Cols[2].Width = 200;
             grfFooS.Cols[3].Width = 200;
 
             grfFooS.ShowCursor = true;
@@ -713,9 +725,9 @@ namespace modernpos_pos.gui
                     grfFooS.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(mposC.iniC.grfRowColor);
             }
             //grfFooS.Cols[colCode].Visible = false;
-            grfFooS.Cols[colID].Visible = false;
-            //grfFooS.Cols[colE].Visible = false;
-            //grfFooS.Cols[colS].Visible = false;
+            grfFooS.Cols[1].Visible = false;
+            grfFooS.Cols[3].Visible = false;
+            grfFooS.Cols[2].AllowEditing = false;
             pageLoad = false;
         }
 

@@ -69,7 +69,7 @@ namespace modernpos_pos.objdb
         public DataTable selectByFoodsId(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select foos." + footp.foods_id + ",foos." + footp.foods_topping_name + ",foos." + footp.price +
+            String sql = "select foos." + footp.foods_topping_id + ",foos." + footp.foods_topping_name + ",foos." + footp.price +
                 " From " + footp.table + " foos " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where foos." + footp.foods_id + " ='" + copId + "' and foos." + footp.active + "='1' ";

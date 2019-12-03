@@ -71,6 +71,8 @@
             this.btnFoomAdd = new C1.Win.C1Input.C1Button();
             this.pnMaterialView = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtPricePlusTogo = new C1.Win.C1Input.C1TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.c1CheckBox2 = new C1.Win.C1Input.C1CheckBox();
             this.c1CheckBox1 = new C1.Win.C1Input.C1CheckBox();
             this.chkStatusRecommend = new C1.Win.C1Input.C1CheckBox();
@@ -108,8 +110,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtPricePlusTogo = new C1.Win.C1Input.C1TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -147,6 +147,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnFoomVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFoomAdd)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPricePlusTogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatusRecommend)).BeginInit();
@@ -174,7 +175,6 @@
             this.tabFoods.SuspendLayout();
             this.tabRecommend.SuspendLayout();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPricePlusTogo)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -314,9 +314,9 @@
             this.panel9.Controls.Add(this.label10);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel9.Location = new System.Drawing.Point(419, 0);
+            this.panel9.Location = new System.Drawing.Point(486, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(444, 449);
+            this.panel9.Size = new System.Drawing.Size(377, 449);
             this.panel9.TabIndex = 1;
             this.theme1.SetTheme(this.panel9, "(default)");
             // 
@@ -324,9 +324,9 @@
             // 
             this.btnFoosVoid.Image = global::modernpos_pos.Properties.Resources.trash24;
             this.btnFoosVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFoosVoid.Location = new System.Drawing.Point(206, 175);
+            this.btnFoosVoid.Location = new System.Drawing.Point(166, 245);
             this.btnFoosVoid.Name = "btnFoosVoid";
-            this.btnFoosVoid.Size = new System.Drawing.Size(83, 39);
+            this.btnFoosVoid.Size = new System.Drawing.Size(119, 39);
             this.btnFoosVoid.TabIndex = 249;
             this.btnFoosVoid.Text = "ยกเลิกช้อมูล";
             this.btnFoosVoid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -338,9 +338,9 @@
             // 
             this.btnFoosNew.Image = global::modernpos_pos.Properties.Resources.custom_reports24;
             this.btnFoosNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFoosNew.Location = new System.Drawing.Point(206, 3);
+            this.btnFoosNew.Location = new System.Drawing.Point(166, 95);
             this.btnFoosNew.Name = "btnFoosNew";
-            this.btnFoosNew.Size = new System.Drawing.Size(83, 39);
+            this.btnFoosNew.Size = new System.Drawing.Size(119, 39);
             this.btnFoosNew.TabIndex = 246;
             this.btnFoosNew.Text = "เพิ่มช้อมูล";
             this.btnFoosNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -352,9 +352,9 @@
             // 
             this.btnFoosSave.Image = global::modernpos_pos.Properties.Resources.accept_database24;
             this.btnFoosSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFoosSave.Location = new System.Drawing.Point(206, 98);
+            this.btnFoosSave.Location = new System.Drawing.Point(166, 168);
             this.btnFoosSave.Name = "btnFoosSave";
-            this.btnFoosSave.Size = new System.Drawing.Size(83, 39);
+            this.btnFoosSave.Size = new System.Drawing.Size(119, 39);
             this.btnFoosSave.TabIndex = 242;
             this.btnFoosSave.Text = "บันทึกช้อมูล";
             this.btnFoosSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -367,7 +367,7 @@
             this.txtFoosId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFoosId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtFoosId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtFoosId.Location = new System.Drawing.Point(81, 46);
+            this.txtFoosId.Location = new System.Drawing.Point(155, 17);
             this.txtFoosId.Name = "txtFoosId";
             this.txtFoosId.Size = new System.Drawing.Size(30, 20);
             this.txtFoosId.TabIndex = 241;
@@ -380,10 +380,10 @@
             // 
             this.txtFoosName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFoosName.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtFoosName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtFoosName.Location = new System.Drawing.Point(13, 72);
+            this.txtFoosName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtFoosName.Location = new System.Drawing.Point(9, 43);
             this.txtFoosName.Name = "txtFoosName";
-            this.txtFoosName.Size = new System.Drawing.Size(276, 20);
+            this.txtFoosName.Size = new System.Drawing.Size(276, 24);
             this.txtFoosName.TabIndex = 240;
             this.txtFoosName.Tag = null;
             this.theme1.SetTheme(this.txtFoosName, "(default)");
@@ -393,11 +393,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label10.Location = new System.Drawing.Point(10, 53);
+            this.label10.Location = new System.Drawing.Point(6, 24);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 16);
+            this.label10.Size = new System.Drawing.Size(83, 20);
             this.label10.TabIndex = 239;
             this.label10.Text = "ชื่อสั่งพิเศษ :";
             this.theme1.SetTheme(this.label10, "(default)");
@@ -409,7 +409,7 @@
             this.pnSpec.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnSpec.Location = new System.Drawing.Point(0, 0);
             this.pnSpec.Name = "pnSpec";
-            this.pnSpec.Size = new System.Drawing.Size(419, 449);
+            this.pnSpec.Size = new System.Drawing.Size(486, 449);
             this.pnSpec.TabIndex = 0;
             this.theme1.SetTheme(this.pnSpec, "(default)");
             // 
@@ -448,18 +448,19 @@
             this.panel11.Controls.Add(this.label11);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel11.Location = new System.Drawing.Point(428, 0);
+            this.panel11.Location = new System.Drawing.Point(489, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(435, 449);
+            this.panel11.Size = new System.Drawing.Size(374, 449);
             this.panel11.TabIndex = 1;
             this.theme1.SetTheme(this.panel11, "(default)");
             // 
             // txtFootpPrice
             // 
             this.txtFootpPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFootpPrice.DataType = typeof(decimal);
             this.txtFootpPrice.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtFootpPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtFootpPrice.Location = new System.Drawing.Point(6, 139);
+            this.txtFootpPrice.Location = new System.Drawing.Point(12, 86);
             this.txtFootpPrice.Name = "txtFootpPrice";
             this.txtFootpPrice.Size = new System.Drawing.Size(187, 20);
             this.txtFootpPrice.TabIndex = 250;
@@ -473,7 +474,7 @@
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label12.Location = new System.Drawing.Point(3, 120);
+            this.label12.Location = new System.Drawing.Point(9, 67);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(68, 16);
             this.label12.TabIndex = 249;
@@ -484,9 +485,9 @@
             // 
             this.btnFootVoid.Image = global::modernpos_pos.Properties.Resources.trash24;
             this.btnFootVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFootVoid.Location = new System.Drawing.Point(197, 211);
+            this.btnFootVoid.Location = new System.Drawing.Point(235, 217);
             this.btnFootVoid.Name = "btnFootVoid";
-            this.btnFootVoid.Size = new System.Drawing.Size(83, 39);
+            this.btnFootVoid.Size = new System.Drawing.Size(119, 39);
             this.btnFootVoid.TabIndex = 248;
             this.btnFootVoid.Text = "ยกเลิกช้อมูล";
             this.btnFootVoid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -498,9 +499,9 @@
             // 
             this.btnFootNew.Image = global::modernpos_pos.Properties.Resources.custom_reports24;
             this.btnFootNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFootNew.Location = new System.Drawing.Point(197, 3);
+            this.btnFootNew.Location = new System.Drawing.Point(235, 67);
             this.btnFootNew.Name = "btnFootNew";
-            this.btnFootNew.Size = new System.Drawing.Size(83, 39);
+            this.btnFootNew.Size = new System.Drawing.Size(119, 39);
             this.btnFootNew.TabIndex = 247;
             this.btnFootNew.Text = "เพิ่มช้อมูล";
             this.btnFootNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -512,9 +513,9 @@
             // 
             this.btnFootSave.Image = global::modernpos_pos.Properties.Resources.accept_database24;
             this.btnFootSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFootSave.Location = new System.Drawing.Point(197, 166);
+            this.btnFootSave.Location = new System.Drawing.Point(235, 133);
             this.btnFootSave.Name = "btnFootSave";
-            this.btnFootSave.Size = new System.Drawing.Size(83, 39);
+            this.btnFootSave.Size = new System.Drawing.Size(119, 39);
             this.btnFootSave.TabIndex = 246;
             this.btnFootSave.Text = "บันทึกช้อมูล";
             this.btnFootSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -527,7 +528,7 @@
             this.txtFootpId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFootpId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtFootpId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtFootpId.Location = new System.Drawing.Point(74, 56);
+            this.txtFootpId.Location = new System.Drawing.Point(80, 3);
             this.txtFootpId.Name = "txtFootpId";
             this.txtFootpId.Size = new System.Drawing.Size(30, 20);
             this.txtFootpId.TabIndex = 245;
@@ -541,7 +542,7 @@
             this.txtFootpName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFootpName.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtFootpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtFootpName.Location = new System.Drawing.Point(6, 82);
+            this.txtFootpName.Location = new System.Drawing.Point(12, 29);
             this.txtFootpName.Name = "txtFootpName";
             this.txtFootpName.Size = new System.Drawing.Size(276, 20);
             this.txtFootpName.TabIndex = 244;
@@ -555,7 +556,7 @@
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label11.Location = new System.Drawing.Point(3, 63);
+            this.label11.Location = new System.Drawing.Point(9, 10);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(58, 16);
             this.label11.TabIndex = 243;
@@ -569,7 +570,7 @@
             this.pnTopping.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnTopping.Location = new System.Drawing.Point(0, 0);
             this.pnTopping.Name = "pnTopping";
-            this.pnTopping.Size = new System.Drawing.Size(428, 449);
+            this.pnTopping.Size = new System.Drawing.Size(489, 449);
             this.pnTopping.TabIndex = 0;
             this.theme1.SetTheme(this.pnTopping, "(default)");
             // 
@@ -766,6 +767,33 @@
             this.panel3.TabIndex = 0;
             this.theme1.SetTheme(this.panel3, "(default)");
             // 
+            // txtPricePlusTogo
+            // 
+            this.txtPricePlusTogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPricePlusTogo.DataType = typeof(decimal);
+            this.txtPricePlusTogo.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPricePlusTogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPricePlusTogo.Location = new System.Drawing.Point(167, 249);
+            this.txtPricePlusTogo.Name = "txtPricePlusTogo";
+            this.txtPricePlusTogo.Size = new System.Drawing.Size(207, 24);
+            this.txtPricePlusTogo.TabIndex = 280;
+            this.txtPricePlusTogo.Tag = null;
+            this.theme1.SetTheme(this.txtPricePlusTogo, "(default)");
+            this.txtPricePlusTogo.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label14.Location = new System.Drawing.Point(13, 251);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(130, 20);
+            this.label14.TabIndex = 279;
+            this.label14.Text = "ราคากล่องกลับบ้าน :";
+            this.theme1.SetTheme(this.label14, "(default)");
+            // 
             // c1CheckBox2
             // 
             this.c1CheckBox2.BackColor = System.Drawing.Color.Transparent;
@@ -835,10 +863,10 @@
             this.c1ComboBox1.ItemsValueMember = "";
             this.c1ComboBox1.Location = new System.Drawing.Point(167, 87);
             this.c1ComboBox1.Name = "c1ComboBox1";
-            this.c1ComboBox1.Size = new System.Drawing.Size(207, 24);
+            this.c1ComboBox1.Size = new System.Drawing.Size(219, 24);
             this.c1ComboBox1.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.c1ComboBox1.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.c1ComboBox1.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1ComboBox1.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.c1ComboBox1.TabIndex = 274;
             this.c1ComboBox1.Tag = null;
             this.theme1.SetTheme(this.c1ComboBox1, "(default)");
@@ -850,7 +878,7 @@
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label9.Location = new System.Drawing.Point(24, 90);
+            this.label9.Location = new System.Drawing.Point(13, 90);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(112, 20);
             this.label9.TabIndex = 273;
@@ -863,7 +891,7 @@
             this.btnImg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImg.Location = new System.Drawing.Point(650, 152);
             this.btnImg.Name = "btnImg";
-            this.btnImg.Size = new System.Drawing.Size(83, 39);
+            this.btnImg.Size = new System.Drawing.Size(119, 39);
             this.btnImg.TabIndex = 272;
             this.btnImg.Text = "upload รูป";
             this.btnImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -883,10 +911,10 @@
             this.cboPrinter.ItemsValueMember = "";
             this.cboPrinter.Location = new System.Drawing.Point(167, 168);
             this.cboPrinter.Name = "cboPrinter";
-            this.cboPrinter.Size = new System.Drawing.Size(207, 24);
+            this.cboPrinter.Size = new System.Drawing.Size(219, 24);
             this.cboPrinter.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.cboPrinter.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboPrinter.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboPrinter.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboPrinter.TabIndex = 271;
             this.cboPrinter.Tag = null;
             this.theme1.SetTheme(this.cboPrinter, "(default)");
@@ -898,7 +926,7 @@
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label8.Location = new System.Drawing.Point(24, 171);
+            this.label8.Location = new System.Drawing.Point(13, 171);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(135, 20);
             this.label8.TabIndex = 270;
@@ -917,10 +945,10 @@
             this.cboRes.ItemsValueMember = "";
             this.cboRes.Location = new System.Drawing.Point(167, 60);
             this.cboRes.Name = "cboRes";
-            this.cboRes.Size = new System.Drawing.Size(207, 24);
+            this.cboRes.Size = new System.Drawing.Size(219, 24);
             this.cboRes.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.cboRes.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboRes.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboRes.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboRes.TabIndex = 269;
             this.cboRes.Tag = null;
             this.theme1.SetTheme(this.cboRes, "(default)");
@@ -932,7 +960,7 @@
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label6.Location = new System.Drawing.Point(24, 63);
+            this.label6.Location = new System.Drawing.Point(13, 63);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 20);
             this.label6.TabIndex = 268;
@@ -959,7 +987,7 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label5.Location = new System.Drawing.Point(24, 192);
+            this.label5.Location = new System.Drawing.Point(13, 192);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 20);
             this.label5.TabIndex = 266;
@@ -978,10 +1006,10 @@
             this.cboFoodsCat.ItemsValueMember = "";
             this.cboFoodsCat.Location = new System.Drawing.Point(167, 114);
             this.cboFoodsCat.Name = "cboFoodsCat";
-            this.cboFoodsCat.Size = new System.Drawing.Size(207, 24);
+            this.cboFoodsCat.Size = new System.Drawing.Size(219, 24);
             this.cboFoodsCat.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.cboFoodsCat.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboFoodsCat.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboFoodsCat.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboFoodsCat.TabIndex = 265;
             this.cboFoodsCat.Tag = null;
             this.theme1.SetTheme(this.cboFoodsCat, "(default)");
@@ -993,7 +1021,7 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label4.Location = new System.Drawing.Point(24, 143);
+            this.label4.Location = new System.Drawing.Point(13, 143);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 20);
             this.label4.TabIndex = 264;
@@ -1012,10 +1040,10 @@
             this.cboFoodsType.ItemsValueMember = "";
             this.cboFoodsType.Location = new System.Drawing.Point(167, 141);
             this.cboFoodsType.Name = "cboFoodsType";
-            this.cboFoodsType.Size = new System.Drawing.Size(207, 24);
+            this.cboFoodsType.Size = new System.Drawing.Size(219, 24);
             this.cboFoodsType.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.cboFoodsType.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboFoodsType.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboFoodsType.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboFoodsType.TabIndex = 263;
             this.cboFoodsType.Tag = null;
             this.theme1.SetTheme(this.cboFoodsType, "(default)");
@@ -1027,7 +1055,7 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label7.Location = new System.Drawing.Point(24, 116);
+            this.label7.Location = new System.Drawing.Point(13, 116);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 20);
             this.label7.TabIndex = 262;
@@ -1093,7 +1121,7 @@
             this.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNew.Location = new System.Drawing.Point(650, 10);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(83, 39);
+            this.btnNew.Size = new System.Drawing.Size(119, 39);
             this.btnNew.TabIndex = 245;
             this.btnNew.Text = "เพิ่มช้อมูล";
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1127,7 +1155,7 @@
             this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVoid.Location = new System.Drawing.Point(650, 207);
             this.btnVoid.Name = "btnVoid";
-            this.btnVoid.Size = new System.Drawing.Size(83, 39);
+            this.btnVoid.Size = new System.Drawing.Size(119, 39);
             this.btnVoid.TabIndex = 243;
             this.btnVoid.Text = "ยกเลิกช้อมูล";
             this.btnVoid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1142,7 +1170,7 @@
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.Location = new System.Drawing.Point(650, 55);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(83, 39);
+            this.btnEdit.Size = new System.Drawing.Size(119, 39);
             this.btnEdit.TabIndex = 242;
             this.btnEdit.Text = "แก้ไขช้อมูล";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1157,7 +1185,7 @@
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(650, 100);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(83, 39);
+            this.btnSave.Size = new System.Drawing.Size(119, 39);
             this.btnSave.TabIndex = 241;
             this.btnSave.Text = "บันทึกช้อมูล";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1185,7 +1213,7 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label3.Location = new System.Drawing.Point(24, 224);
+            this.label3.Location = new System.Drawing.Point(13, 224);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 20);
             this.label3.TabIndex = 239;
@@ -1199,7 +1227,7 @@
             this.txtFooNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtFooNameT.Location = new System.Drawing.Point(167, 33);
             this.txtFooNameT.Name = "txtFooNameT";
-            this.txtFooNameT.Size = new System.Drawing.Size(207, 24);
+            this.txtFooNameT.Size = new System.Drawing.Size(219, 24);
             this.txtFooNameT.TabIndex = 238;
             this.txtFooNameT.Tag = null;
             this.theme1.SetTheme(this.txtFooNameT, "(default)");
@@ -1211,7 +1239,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label2.Location = new System.Drawing.Point(24, 35);
+            this.label2.Location = new System.Drawing.Point(13, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 20);
             this.label2.TabIndex = 237;
@@ -1251,7 +1279,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label1.Location = new System.Drawing.Point(24, 9);
+            this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 20);
             this.label1.TabIndex = 234;
@@ -1322,33 +1350,6 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // txtPricePlusTogo
-            // 
-            this.txtPricePlusTogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPricePlusTogo.DataType = typeof(decimal);
-            this.txtPricePlusTogo.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtPricePlusTogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtPricePlusTogo.Location = new System.Drawing.Point(167, 249);
-            this.txtPricePlusTogo.Name = "txtPricePlusTogo";
-            this.txtPricePlusTogo.Size = new System.Drawing.Size(207, 24);
-            this.txtPricePlusTogo.TabIndex = 280;
-            this.txtPricePlusTogo.Tag = null;
-            this.theme1.SetTheme(this.txtPricePlusTogo, "(default)");
-            this.txtPricePlusTogo.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label14.Location = new System.Drawing.Point(24, 251);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(130, 20);
-            this.label14.TabIndex = 279;
-            this.label14.Text = "ราคากล่องกลับบ้าน :";
-            this.theme1.SetTheme(this.label14, "(default)");
-            // 
             // FrmCFoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1401,6 +1402,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnFoomAdd)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPricePlusTogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatusRecommend)).EndInit();
@@ -1429,7 +1431,6 @@
             this.tabRecommend.ResumeLayout(false);
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPricePlusTogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
