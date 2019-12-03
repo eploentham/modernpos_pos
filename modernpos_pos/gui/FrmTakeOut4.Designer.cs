@@ -41,7 +41,6 @@
             this.scFoodsItem = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.scOrd = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.pnOrdBill = new System.Windows.Forms.Panel();
-            this.lbTakeOutFooName = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.btnPay = new System.Windows.Forms.Button();
             this.pnOrdOrder = new System.Windows.Forms.Panel();
             this.pnOrdHead = new System.Windows.Forms.Panel();
@@ -53,6 +52,7 @@
             this.sCCheck = new C1.Win.C1SplitContainer.C1SplitContainer();
             this.scCheckLeft = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.pnCheckBill = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnBack = new C1.Win.C1Input.C1Button();
             this.pnVoidPay = new System.Windows.Forms.Panel();
             this.cboRsp = new C1.Win.C1List.C1Combo();
@@ -68,7 +68,6 @@
             this.pnCheckOrder = new System.Windows.Forms.Panel();
             this.tabCommand = new C1.Win.C1Command.C1DockingTabPage();
             this.pnCommand = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCMain)).BeginInit();
@@ -189,7 +188,7 @@
             this.scFoods.SizeRatio = 57.061D;
             this.scFoods.TabIndex = 0;
             this.scFoods.Text = "Foods";
-            this.scFoods.Width = 793;
+            this.scFoods.Width = 800;
             // 
             // sCFoodsMain
             // 
@@ -247,7 +246,6 @@
             // pnOrdBill
             // 
             this.pnOrdBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.pnOrdBill.Controls.Add(this.lbTakeOutFooName);
             this.pnOrdBill.Controls.Add(this.btnPay);
             this.pnOrdBill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnOrdBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -256,18 +254,6 @@
             this.pnOrdBill.Size = new System.Drawing.Size(602, 200);
             this.pnOrdBill.TabIndex = 2;
             this.theme1.SetTheme(this.pnOrdBill, "(default)");
-            // 
-            // lbTakeOutFooName
-            // 
-            this.lbTakeOutFooName.AutoSize = true;
-            this.lbTakeOutFooName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbTakeOutFooName.Location = new System.Drawing.Point(3, 67);
-            this.lbTakeOutFooName.Name = "lbTakeOutFooName";
-            this.lbTakeOutFooName.Size = new System.Drawing.Size(301, 29);
-            this.lbTakeOutFooName.TabIndex = 253;
-            this.lbTakeOutFooName.Text = "modernpos POS Restaurant";
-            this.theme1.SetTheme(this.lbTakeOutFooName, "(default)");
-            this.lbTakeOutFooName.UseMnemonic = true;
             // 
             // btnPay
             // 
@@ -407,7 +393,7 @@
             this.scCheckLeft.Size = new System.Drawing.Size(694, 727);
             this.scCheckLeft.TabIndex = 0;
             this.scCheckLeft.Text = "Panel 1";
-            this.scCheckLeft.Width = 701;
+            this.scCheckLeft.Width = 694;
             // 
             // pnCheckBill
             // 
@@ -427,6 +413,24 @@
             this.pnCheckBill.Size = new System.Drawing.Size(694, 727);
             this.pnCheckBill.TabIndex = 0;
             this.theme1.SetTheme(this.pnCheckBill, "(default)");
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(173, 434);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 64);
+            this.button2.TabIndex = 250;
+            this.button2.Text = "Qr Code Kbank";
+            this.theme1.SetTheme(this.button2, "(default)");
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // btnBack
             // 
@@ -465,7 +469,7 @@
             this.cboRsp.EditorFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboRsp.EditorForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.cboRsp.FlatStyle = C1.Win.C1List.FlatModeEnum.Flat;
-            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRsp.Images.Add(((System.Drawing.Image)(resources.GetObject("cboRsp.Images"))));
             this.cboRsp.Location = new System.Drawing.Point(6, 32);
             this.cboRsp.MatchEntryTimeout = ((long)(2000));
@@ -647,24 +651,6 @@
             this.pnCommand.TabIndex = 0;
             this.theme1.SetTheme(this.pnCommand, "(default)");
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(173, 434);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 64);
-            this.button2.TabIndex = 250;
-            this.button2.Text = "Qr Code Kbank";
-            this.theme1.SetTheme(this.button2, "(default)");
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // FrmTakeOut4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -689,7 +675,6 @@
             this.sCFoodsMain.ResumeLayout(false);
             this.scOrd.ResumeLayout(false);
             this.pnOrdBill.ResumeLayout(false);
-            this.pnOrdBill.PerformLayout();
             this.pnOrdHead.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtFooId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRow)).EndInit();
@@ -723,7 +708,6 @@
         private C1.Win.C1SplitContainer.C1SplitterPanel scFoodsItem;
         private C1.Win.C1SplitContainer.C1SplitterPanel scOrd;
         private System.Windows.Forms.Panel pnOrdBill;
-        private C1.Win.C1SuperTooltip.C1SuperLabel lbTakeOutFooName;
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.Panel pnOrdOrder;
         private System.Windows.Forms.Panel pnOrdHead;

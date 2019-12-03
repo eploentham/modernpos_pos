@@ -194,6 +194,8 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             if (txtFootpId.Text.Equals("")) return;
             mposC.mposDB.footpDB.voidFoodsTopping(txtFootpId.Text, "");
+            txtFootpId.Value = "";
+            txtFootpName.Value = "";
             setGrfTopping(txtID.Text);
             //setGrfTopping(txtID.Text);
         }
@@ -235,6 +237,8 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             if (txtFoosId.Text.Equals("")) return;
             mposC.mposDB.foosDB.voidFoodsSpecial(txtFoosId.Text,"");
+            txtFoosId.Value = "";
+            txtFoosName.Value = "";
             setGrfSpec(txtID.Text);
         }
 
