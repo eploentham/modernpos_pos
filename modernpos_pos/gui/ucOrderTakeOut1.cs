@@ -395,6 +395,7 @@ namespace modernpos_pos.gui
                 int qty = 0;
                 String name = "", cnt = "";
                 Panel pn = (Panel)tpl.Controls["pnCri" + i];
+                if (pn == null) continue;
                 C1Label lbQtyTopping = new C1Label();
                 C1Label lbPriceTopping = new C1Label();
                 cnt = pn.Name.Replace("pnCri", "");
@@ -409,12 +410,15 @@ namespace modernpos_pos.gui
                 }
                 
             }
-            foosum = (fooprice + sum) * fooqty;
+            decimal.TryParse(ord.price_plus_togo, out pricetogo);
+            foosum = (fooprice + sum + pricetogo) * fooqty;
+            /*      เป็นการคิดราคากล่อง แบบ บวกราคากล่อง ตอนท้ายรายการ
             if (statusTogo)
             {
                 decimal.TryParse(ord.price_plus_togo, out pricetogo);
                 foosum += pricetogo;
             }
+            */
             //sum = foosum + sum;
             lbPrice.Value = foosum.ToString("#,###.00");
             ord.sumPrice = lbPrice.Text;
