@@ -363,6 +363,16 @@ namespace modernpos_pos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cancle_Idle {
+            get {
+                object obj = ResourceManager.GetObject("Cancle_Idle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ChangeCase_small {
             get {
                 object obj = ResourceManager.GetObject("ChangeCase_small", resourceCulture);
@@ -596,6 +606,16 @@ namespace modernpos_pos.Properties {
         internal static System.Drawing.Bitmap Edit_Male_User24 {
             get {
                 object obj = ResourceManager.GetObject("Edit_Male_User24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Edit_Pressing {
+            get {
+                object obj = ResourceManager.GetObject("Edit_Pressing", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1356,6 +1376,26 @@ namespace modernpos_pos.Properties {
         internal static System.Drawing.Bitmap open48 {
             get {
                 object obj = ResourceManager.GetObject("open48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Order_Idle {
+            get {
+                object obj = ResourceManager.GetObject("Order_Idle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Order_Pressing {
+            get {
+                object obj = ResourceManager.GetObject("Order_Pressing", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1380,6 +1380,10 @@
     <None Include="Resources\Picture6.png" />
     <None Include="Resources\Picture4.png" />
     <None Include="Resources\Home.ico" />
+    <None Include="Resources\Order_Pressing.png" />
+    <None Include="Resources\Order_Idle.png" />
+    <None Include="Resources\Edit_Pressing.png" />
+    <None Include="Resources\Cancle_Idle.png" />
     <Content Include="togo_banner.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

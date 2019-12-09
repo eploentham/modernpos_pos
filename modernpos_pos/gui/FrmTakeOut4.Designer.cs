@@ -188,7 +188,7 @@
             this.scFoods.SizeRatio = 57.061D;
             this.scFoods.TabIndex = 0;
             this.scFoods.Text = "Foods";
-            this.scFoods.Width = 800;
+            this.scFoods.Width = 793;
             // 
             // sCFoodsMain
             // 
@@ -393,7 +393,7 @@
             this.scCheckLeft.Size = new System.Drawing.Size(694, 727);
             this.scCheckLeft.TabIndex = 0;
             this.scCheckLeft.Text = "Panel 1";
-            this.scCheckLeft.Width = 694;
+            this.scCheckLeft.Width = 701;
             // 
             // pnCheckBill
             // 
@@ -424,7 +424,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(173, 434);
+            this.button2.Location = new System.Drawing.Point(173, 359);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(150, 64);
             this.button2.TabIndex = 250;
@@ -435,7 +435,7 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btnBack.Location = new System.Drawing.Point(74, 566);
+            this.btnBack.Location = new System.Drawing.Point(543, 359);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(106, 64);
             this.btnBack.TabIndex = 249;
@@ -452,9 +452,9 @@
             this.pnVoidPay.Controls.Add(this.btnVoidPay);
             this.pnVoidPay.Controls.Add(this.chkPayBefore);
             this.pnVoidPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.pnVoidPay.Location = new System.Drawing.Point(358, 425);
+            this.pnVoidPay.Location = new System.Drawing.Point(173, 465);
             this.pnVoidPay.Name = "pnVoidPay";
-            this.pnVoidPay.Size = new System.Drawing.Size(236, 143);
+            this.pnVoidPay.Size = new System.Drawing.Size(507, 210);
             this.pnVoidPay.TabIndex = 248;
             this.theme1.SetTheme(this.pnVoidPay, "(default)");
             // 
@@ -471,7 +471,7 @@
             this.cboRsp.FlatStyle = C1.Win.C1List.FlatModeEnum.Flat;
             this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRsp.Images.Add(((System.Drawing.Image)(resources.GetObject("cboRsp.Images"))));
-            this.cboRsp.Location = new System.Drawing.Point(6, 32);
+            this.cboRsp.Location = new System.Drawing.Point(38, 26);
             this.cboRsp.MatchEntryTimeout = ((long)(2000));
             this.cboRsp.MaxDropDownItems = ((short)(5));
             this.cboRsp.MaxLength = 32767;
@@ -493,7 +493,7 @@
             this.chkPaypaying.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.chkPaypaying.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.chkPaypaying.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkPaypaying.Location = new System.Drawing.Point(149, 9);
+            this.chkPaypaying.Location = new System.Drawing.Point(181, 3);
             this.chkPaypaying.Name = "chkPaypaying";
             this.chkPaypaying.Size = new System.Drawing.Size(84, 17);
             this.chkPaypaying.TabIndex = 28;
@@ -509,12 +509,12 @@
             this.btnVoidPay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.btnVoidPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.btnVoidPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnVoidPay.Image = global::modernpos_pos.Properties.Resources.Cancle_Idle;
             this.btnVoidPay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoidPay.Location = new System.Drawing.Point(121, 94);
+            this.btnVoidPay.Location = new System.Drawing.Point(3, 51);
             this.btnVoidPay.Name = "btnVoidPay";
-            this.btnVoidPay.Size = new System.Drawing.Size(106, 45);
+            this.btnVoidPay.Size = new System.Drawing.Size(488, 142);
             this.btnVoidPay.TabIndex = 247;
-            this.btnVoidPay.Text = "ยกเลิก รับชำระเงิน";
             this.btnVoidPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnVoidPay, "(default)");
             this.btnVoidPay.UseVisualStyleBackColor = true;
@@ -528,7 +528,7 @@
             this.chkPayBefore.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.chkPayBefore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.chkPayBefore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkPayBefore.Location = new System.Drawing.Point(6, 9);
+            this.chkPayBefore.Location = new System.Drawing.Point(38, 3);
             this.chkPayBefore.Name = "chkPayBefore";
             this.chkPayBefore.Size = new System.Drawing.Size(94, 17);
             this.chkPayBefore.TabIndex = 26;
@@ -542,7 +542,7 @@
             this.listBox1.BackColor = System.Drawing.Color.White;
             this.listBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(11, 246);
+            this.listBox1.Location = new System.Drawing.Point(11, 168);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(587, 173);
             this.listBox1.TabIndex = 246;
@@ -558,7 +558,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(209, 566);
+            this.button1.Location = new System.Drawing.Point(369, 359);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 64);
             this.button1.TabIndex = 245;
@@ -570,7 +570,7 @@
             // lbStatus
             // 
             this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbStatus.Location = new System.Drawing.Point(11, 152);
+            this.lbStatus.Location = new System.Drawing.Point(11, 99);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(464, 81);
             this.lbStatus.TabIndex = 244;
@@ -599,7 +599,7 @@
             this.btnBillCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnBillCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.btnBillCheck.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBillCheck.Location = new System.Drawing.Point(11, 434);
+            this.btnBillCheck.Location = new System.Drawing.Point(11, 359);
             this.btnBillCheck.Name = "btnBillCheck";
             this.btnBillCheck.Size = new System.Drawing.Size(139, 64);
             this.btnBillCheck.TabIndex = 242;
