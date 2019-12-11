@@ -105,10 +105,16 @@ namespace modernpos_pos.gui
             C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
             //theme1.SetTheme(sB, "BeigeOne");
+            theme1.SetTheme(pnCheckBill, "Office2013Red");
             foreach (Control c in pnMain.Controls)
             {
                 theme1.SetTheme(c, "Office2013Red");
             }
+            //foreach (Control c in pnCheckBill.Controls)
+            //{
+            //    theme1.SetTheme(c, "Office2013Red");
+            //}
+            //theme1.SetTheme(btnVoidPay, "Office2013Red");
             try
             {
                 tilecolor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsBackColor);
@@ -791,14 +797,14 @@ namespace modernpos_pos.gui
                 sCOrder.HeaderHeight = 21;
                 sCFoodsMain.HeaderHeight = 21;
                 //spSpecialTopping.HeaderHeight = 21;
-                sCCheck.HeaderHeight = 21;
+                //sCCheck.HeaderHeight = 21;
             }
             else
             {
                 sCOrder.HeaderHeight = 0;
                 sCFoodsMain.HeaderHeight = 0;
                 //spSpecialTopping.HeaderHeight = 0;
-                sCCheck.HeaderHeight = 0;
+                //sCCheck.HeaderHeight = 0;
             }
 
             //spMain.HeaderHeight = 21;
@@ -1799,7 +1805,7 @@ namespace modernpos_pos.gui
             pnOrdOrder.Height = this.Height - pnOrdHead.Height -200;
             pnOrdOrder.Width = 420;
             scFoods.Width = this.Width - 440;
-            scCheckLeft.Width = this.Width - 900;
+            //scCheckLeft.Width = this.Width - 900;
             //scFoods.Width = int.Parse(mposC.iniC.scFoodsWidth);
             btnPay.Width = 420;
             btnPay.TextAlign = ContentAlignment.MiddleCenter;
