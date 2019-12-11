@@ -665,6 +665,9 @@
     <EmbeddedResource Include="gui\FrmToGo1.resx">
       <DependentUpon>FrmToGo1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmToGo2.resx">
+      <DependentUpon>FrmToGo2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmUnit.resx">
       <DependentUpon>FrmUnit.cs</DependentUpon>
     </EmbeddedResource>
@@ -1384,6 +1387,8 @@
     <None Include="Resources\Order_Idle.png" />
     <None Include="Resources\Edit_Pressing.png" />
     <None Include="Resources\Cancle_Idle.png" />
+    <None Include="Resources\logo_onsoon.png" />
+    <None Include="Resources\screen_first.png" />
     <Content Include="togo_banner.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

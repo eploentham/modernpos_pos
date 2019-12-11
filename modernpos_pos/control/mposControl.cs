@@ -254,6 +254,7 @@ namespace modernpos_pos.control
             iniC.textTogoPay = iniF.getIni("app", "textTogoPay");
             iniC.priceTogoPerBill = iniF.getIni("app", "priceTogoPerItem");
             iniC.statusPayPriceTogo = iniF.getIni("app", "statusPayPriceTogo");
+            iniC.screenFirstFilename = iniF.getIni("app", "screenFirstFilename");
 
             iniC.TileCategoryColor = iniF.getIni("app", "TileCategoryColor");
             iniC.lcuctakeouttopping1 = iniF.getIni("app", "lcuctakeouttopping1");

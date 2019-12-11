@@ -1093,6 +1093,16 @@ namespace modernpos_pos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_onsoon {
+            get {
+                object obj = ResourceManager.GetObject("logo_onsoon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo1 {
             get {
                 object obj = ResourceManager.GetObject("logo1", resourceCulture);
@@ -1926,6 +1936,16 @@ namespace modernpos_pos.Properties {
         internal static System.Drawing.Bitmap SaveAs_large {
             get {
                 object obj = ResourceManager.GetObject("SaveAs_large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap screen_first {
+            get {
+                object obj = ResourceManager.GetObject("screen_first", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -187,6 +187,18 @@ namespace modernpos_pos.gui
             opennew();
         }
 
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // FrmToGo2
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "FrmToGo2";
+            this.ResumeLayout(false);
+
+        }
+
         private void VlcControl1_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -241,7 +253,7 @@ namespace modernpos_pos.gui
         {
             //throw new NotImplementedException();
             string path = Directory.GetCurrentDirectory();
-            vlcControl1.Play(new FileInfo(path+"\\sugar.mp4"));
+            vlcControl1.Play(new FileInfo(path+"\\"+mposC.iniC.screenFirstFilename));
             setPlay();
             //vlcControl1.Play(new FileInfo(@"C:\output\capture-20181210-022923.png"));
         }

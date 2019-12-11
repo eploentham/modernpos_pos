@@ -818,7 +818,7 @@ namespace modernpos_pos.gui
                 //appExit();
                 if (MessageBox.Show("ต้องการออกจากโปรแกรม1", "ออกจากโปรแกรม", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
                 {
-                    //frmmain.Show();
+                    frmmain.Show();
                     Close();
                     return true;
                 }
@@ -835,7 +835,7 @@ namespace modernpos_pos.gui
                         setTitle(flagShowTitle);
                         return true;
                     case Keys.X | Keys.Control:
-                        //frmmain.Show();
+                        frmmain.Show();
                         Close();
                         return true;
                 }
@@ -1194,6 +1194,10 @@ namespace modernpos_pos.gui
                             {
                                 Close();
                             }
+                            else
+                            {
+                                tCMain.SelectedTab = tabOrder;
+                            }
                         }
                         //Close();
                     }
@@ -1219,6 +1223,10 @@ namespace modernpos_pos.gui
                     if (mposC.iniC.statuspaytoclose.Equals("1"))
                     {
                         Close();
+                    }
+                    else
+                    {
+                        tCMain.SelectedTab = tabOrder;
                     }
                 }
             }
@@ -1810,6 +1818,16 @@ namespace modernpos_pos.gui
             btnPay.Width = 420;
             btnPay.TextAlign = ContentAlignment.MiddleCenter;
             btnPay.Font = fgrd;
+
+            int screenWidth = Screen.PrimaryScreen.Bounds.Width;
+            int screenHeight = Screen.PrimaryScreen.Bounds.Height;
+            btnBack.Left = 200;
+            btnBack.Top = screenHeight - 200;
+            btnVoidPay.Left = screenWidth - btnVoidPay.Width - 200;
+            btnVoidPay.Top = btnBack.Top;
+            pnCheckOrder.Top = 80;
+            pnCheckOrder.Left = (screenWidth / 2) - 50;
+            pnCheckOrder.Size = new Size((screenWidth / 2), screenHeight - btnVoidPay.Height - 200 - 50 - 20);
             //pnOrdOrder.Height = this.Height - pnOrdHead.Height - pnOrdBill.Height; 
         }
     }

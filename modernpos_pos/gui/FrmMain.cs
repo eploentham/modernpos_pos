@@ -46,7 +46,6 @@ namespace modernpos_pos.gui
             btnClose.Click += BtnClose_Click;
             btnCloseDay.Click += BtnCloseDay_Click;
         }
-
         private void BtnCloseDay_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();

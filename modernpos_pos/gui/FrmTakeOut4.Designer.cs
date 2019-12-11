@@ -50,6 +50,9 @@
             this.tabCheck = new C1.Win.C1Command.C1DockingTabPage();
             this.pnCheckMain = new System.Windows.Forms.Panel();
             this.pnCheckBill = new System.Windows.Forms.Panel();
+            this.pnCheckOrder = new System.Windows.Forms.Panel();
+            this.btnBack = new C1.Win.C1Input.C1PictureBox();
+            this.btnVoidPay = new C1.Win.C1Input.C1PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.pnVoidPay = new System.Windows.Forms.Panel();
             this.cboRsp = new C1.Win.C1List.C1Combo();
@@ -60,11 +63,9 @@
             this.lbStatus = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.lbAmt = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.btnBillCheck = new System.Windows.Forms.Button();
-            this.pnCheckOrder = new System.Windows.Forms.Panel();
             this.tabCommand = new C1.Win.C1Command.C1DockingTabPage();
             this.pnCommand = new System.Windows.Forms.Panel();
-            this.btnVoidPay = new C1.Win.C1Input.C1PictureBox();
-            this.btnBack = new C1.Win.C1Input.C1PictureBox();
+            this.lbAmt1 = new C1.Win.C1SuperTooltip.C1SuperLabel();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCMain)).BeginInit();
@@ -85,11 +86,11 @@
             this.tabCheck.SuspendLayout();
             this.pnCheckMain.SuspendLayout();
             this.pnCheckBill.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVoidPay)).BeginInit();
             this.pnVoidPay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).BeginInit();
             this.tabCommand.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnVoidPay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -178,11 +179,11 @@
             this.scFoods.Dock = C1.Win.C1SplitContainer.PanelDockStyle.Left;
             this.scFoods.Location = new System.Drawing.Point(0, 21);
             this.scFoods.Name = "scFoods";
-            this.scFoods.Size = new System.Drawing.Size(793, 727);
+            this.scFoods.Size = new System.Drawing.Size(895, 727);
             this.scFoods.SizeRatio = 57.061D;
             this.scFoods.TabIndex = 0;
             this.scFoods.Text = "Foods";
-            this.scFoods.Width = 793;
+            this.scFoods.Width = 895;
             // 
             // sCFoodsMain
             // 
@@ -199,7 +200,7 @@
             this.sCFoodsMain.Name = "sCFoodsMain";
             this.sCFoodsMain.Panels.Add(this.scFoodsCat);
             this.sCFoodsMain.Panels.Add(this.scFoodsItem);
-            this.sCFoodsMain.Size = new System.Drawing.Size(793, 727);
+            this.sCFoodsMain.Size = new System.Drawing.Size(895, 727);
             this.sCFoodsMain.SplitterColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
             this.sCFoodsMain.SplitterMovingColor = System.Drawing.Color.Black;
             this.sCFoodsMain.TabIndex = 0;
@@ -211,7 +212,7 @@
             this.scFoodsCat.Height = 158;
             this.scFoodsCat.Location = new System.Drawing.Point(0, 21);
             this.scFoodsCat.Name = "scFoodsCat";
-            this.scFoodsCat.Size = new System.Drawing.Size(793, 137);
+            this.scFoodsCat.Size = new System.Drawing.Size(895, 137);
             this.scFoodsCat.SizeRatio = 21.911D;
             this.scFoodsCat.TabIndex = 0;
             this.scFoodsCat.Text = "Category";
@@ -221,7 +222,7 @@
             this.scFoodsItem.Height = 565;
             this.scFoodsItem.Location = new System.Drawing.Point(0, 183);
             this.scFoodsItem.Name = "scFoodsItem";
-            this.scFoodsItem.Size = new System.Drawing.Size(793, 544);
+            this.scFoodsItem.Size = new System.Drawing.Size(895, 544);
             this.scFoodsItem.TabIndex = 1;
             this.scFoodsItem.Text = "Item";
             // 
@@ -231,9 +232,9 @@
             this.scOrd.Controls.Add(this.pnOrdOrder);
             this.scOrd.Controls.Add(this.pnOrdHead);
             this.scOrd.Height = 748;
-            this.scOrd.Location = new System.Drawing.Point(804, 21);
+            this.scOrd.Location = new System.Drawing.Point(906, 21);
             this.scOrd.Name = "scOrd";
-            this.scOrd.Size = new System.Drawing.Size(602, 727);
+            this.scOrd.Size = new System.Drawing.Size(679, 727);
             this.scOrd.TabIndex = 1;
             this.scOrd.Text = "Order";
             // 
@@ -245,7 +246,7 @@
             this.pnOrdBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnOrdBill.Location = new System.Drawing.Point(0, 527);
             this.pnOrdBill.Name = "pnOrdBill";
-            this.pnOrdBill.Size = new System.Drawing.Size(602, 200);
+            this.pnOrdBill.Size = new System.Drawing.Size(679, 200);
             this.pnOrdBill.TabIndex = 2;
             this.theme1.SetTheme(this.pnOrdBill, "(default)");
             // 
@@ -274,7 +275,7 @@
             this.pnOrdOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnOrdOrder.Location = new System.Drawing.Point(0, 31);
             this.pnOrdOrder.Name = "pnOrdOrder";
-            this.pnOrdOrder.Size = new System.Drawing.Size(602, 496);
+            this.pnOrdOrder.Size = new System.Drawing.Size(679, 496);
             this.pnOrdOrder.TabIndex = 1;
             this.theme1.SetTheme(this.pnOrdOrder, "(default)");
             // 
@@ -288,7 +289,7 @@
             this.pnOrdHead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.pnOrdHead.Location = new System.Drawing.Point(0, 0);
             this.pnOrdHead.Name = "pnOrdHead";
-            this.pnOrdHead.Size = new System.Drawing.Size(602, 31);
+            this.pnOrdHead.Size = new System.Drawing.Size(679, 31);
             this.pnOrdHead.TabIndex = 0;
             this.theme1.SetTheme(this.pnOrdHead, "(default)");
             // 
@@ -358,6 +359,7 @@
             // pnCheckBill
             // 
             this.pnCheckBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pnCheckBill.Controls.Add(this.lbAmt1);
             this.pnCheckBill.Controls.Add(this.pnCheckOrder);
             this.pnCheckBill.Controls.Add(this.btnBack);
             this.pnCheckBill.Controls.Add(this.btnVoidPay);
@@ -374,6 +376,34 @@
             this.pnCheckBill.Size = new System.Drawing.Size(1585, 748);
             this.pnCheckBill.TabIndex = 0;
             this.theme1.SetTheme(this.pnCheckBill, "(default)");
+            // 
+            // pnCheckOrder
+            // 
+            this.pnCheckOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pnCheckOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pnCheckOrder.Location = new System.Drawing.Point(694, 17);
+            this.pnCheckOrder.Name = "pnCheckOrder";
+            this.pnCheckOrder.Size = new System.Drawing.Size(880, 496);
+            this.pnCheckOrder.TabIndex = 0;
+            this.theme1.SetTheme(this.pnCheckOrder, "(default)");
+            // 
+            // btnBack
+            // 
+            this.btnBack.Image = global::modernpos_pos.Properties.Resources.Edit_Pressing;
+            this.btnBack.Location = new System.Drawing.Point(147, 519);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(474, 134);
+            this.btnBack.TabIndex = 253;
+            this.btnBack.TabStop = false;
+            // 
+            // btnVoidPay
+            // 
+            this.btnVoidPay.Image = global::modernpos_pos.Properties.Resources.Cancle_Idle;
+            this.btnVoidPay.Location = new System.Drawing.Point(774, 519);
+            this.btnVoidPay.Name = "btnVoidPay";
+            this.btnVoidPay.Size = new System.Drawing.Size(480, 134);
+            this.btnVoidPay.TabIndex = 252;
+            this.btnVoidPay.TabStop = false;
             // 
             // button2
             // 
@@ -418,7 +448,7 @@
             this.cboRsp.EditorFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboRsp.EditorForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.cboRsp.FlatStyle = C1.Win.C1List.FlatModeEnum.Flat;
-            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRsp.Images.Add(((System.Drawing.Image)(resources.GetObject("cboRsp.Images"))));
             this.cboRsp.Location = new System.Drawing.Point(38, 26);
             this.cboRsp.MatchEntryTimeout = ((long)(2000));
@@ -501,7 +531,7 @@
             // lbStatus
             // 
             this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbStatus.Location = new System.Drawing.Point(11, 99);
+            this.lbStatus.Location = new System.Drawing.Point(11, 272);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(464, 81);
             this.lbStatus.TabIndex = 244;
@@ -538,16 +568,6 @@
             this.theme1.SetTheme(this.btnBillCheck, "(default)");
             this.btnBillCheck.UseVisualStyleBackColor = true;
             // 
-            // pnCheckOrder
-            // 
-            this.pnCheckOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.pnCheckOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.pnCheckOrder.Location = new System.Drawing.Point(694, 17);
-            this.pnCheckOrder.Name = "pnCheckOrder";
-            this.pnCheckOrder.Size = new System.Drawing.Size(880, 496);
-            this.pnCheckOrder.TabIndex = 0;
-            this.theme1.SetTheme(this.pnCheckOrder, "(default)");
-            // 
             // tabCommand
             // 
             this.tabCommand.Controls.Add(this.pnCommand);
@@ -568,23 +588,17 @@
             this.pnCommand.TabIndex = 0;
             this.theme1.SetTheme(this.pnCommand, "(default)");
             // 
-            // btnVoidPay
+            // lbAmt1
             // 
-            this.btnVoidPay.Image = global::modernpos_pos.Properties.Resources.Cancle_Idle;
-            this.btnVoidPay.Location = new System.Drawing.Point(774, 519);
-            this.btnVoidPay.Name = "btnVoidPay";
-            this.btnVoidPay.Size = new System.Drawing.Size(488, 134);
-            this.btnVoidPay.TabIndex = 252;
-            this.btnVoidPay.TabStop = false;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Image = global::modernpos_pos.Properties.Resources.Edit_Pressing;
-            this.btnBack.Location = new System.Drawing.Point(147, 519);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(488, 134);
-            this.btnBack.TabIndex = 253;
-            this.btnBack.TabStop = false;
+            this.lbAmt1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbAmt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbAmt1.Location = new System.Drawing.Point(11, 119);
+            this.lbAmt1.Name = "lbAmt1";
+            this.lbAmt1.Size = new System.Drawing.Size(464, 81);
+            this.lbAmt1.TabIndex = 254;
+            this.lbAmt1.Text = "modernpos POS Restaurant";
+            this.theme1.SetTheme(this.lbAmt1, "(default)");
+            this.lbAmt1.UseMnemonic = true;
             // 
             // FrmTakeOut4
             // 
@@ -617,12 +631,12 @@
             this.tabCheck.ResumeLayout(false);
             this.pnCheckMain.ResumeLayout(false);
             this.pnCheckBill.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVoidPay)).EndInit();
             this.pnVoidPay.ResumeLayout(false);
             this.pnVoidPay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).EndInit();
             this.tabCommand.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnVoidPay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -664,5 +678,6 @@
         private System.Windows.Forms.Button button2;
         private C1.Win.C1Input.C1PictureBox btnVoidPay;
         private C1.Win.C1Input.C1PictureBox btnBack;
+        private C1.Win.C1SuperTooltip.C1SuperLabel lbAmt1;
     }
 }
