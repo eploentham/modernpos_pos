@@ -1953,6 +1953,26 @@ namespace modernpos_pos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap screen_first_l {
+            get {
+                object obj = ResourceManager.GetObject("screen_first_l", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap screen_first_r {
+            get {
+                object obj = ResourceManager.GetObject("screen_first_r", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Search_globe16 {
             get {
                 object obj = ResourceManager.GetObject("Search_globe16", resourceCulture);

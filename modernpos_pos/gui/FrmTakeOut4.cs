@@ -1190,6 +1190,9 @@ namespace modernpos_pos.gui
                             lOrd.Clear();
                             //grfOrder.Dispose();
                             //initGrfOrder();
+                            tplOrd.Dispose();
+                            initTlpOrder();
+                            btnPay.Text = "";
                             if (mposC.iniC.statuspaytoclose.Equals("1"))
                             {
                                 Close();
@@ -1218,6 +1221,9 @@ namespace modernpos_pos.gui
                 if (mposC.statusVNEPaysuccess.Equals("1"))
                 {
                     lOrd.Clear();
+                    tplOrd.Dispose();
+                    initTlpOrder();
+                    btnPay.Text = "";
                     //grfOrder.Dispose();
                     //initGrfOrder();
                     if (mposC.iniC.statuspaytoclose.Equals("1"))
