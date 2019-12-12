@@ -162,7 +162,6 @@ namespace modernpos_pos.gui
             }
             setPrice();
         }
-
         public void setRow(String row)
         {
             this.row = row;
@@ -191,7 +190,6 @@ namespace modernpos_pos.gui
                 lnooNoodleVagetable = frm.lnooNoodleVagetable;
             }
         }
-
         private void initTlp()
         {
             tpl = new TableLayoutPanel();

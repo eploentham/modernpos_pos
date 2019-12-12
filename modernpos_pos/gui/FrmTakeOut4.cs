@@ -564,7 +564,8 @@ namespace modernpos_pos.gui
         public void delTplRow(ucOrderTakeOut1 uco, String row)
         {
             tplOrd.Controls.Remove(uco);
-            foreach(Order1 ord in lOrd)
+            tplOrd.RowCount = tplOrd.RowCount - 1;
+            foreach (Order1 ord in lOrd)
             {
                 if (ord.row1.Equals(row))
                 {
@@ -579,11 +580,14 @@ namespace modernpos_pos.gui
         {
             decimal sumprice = 0;
             int rowno = 1;
-            for(int i=0;i< tplOrd.RowCount-1; i++)
+            TableLayoutControlCollection controls = tplOrd.Controls;
+            for (int i=0;i< tplOrd.RowCount; i++)
             {
                 decimal price = 0;
-                ucOrderTakeOut1 ucto;
-                ucto = (ucOrderTakeOut1)tplOrd.GetControlFromPosition(0, i+1);
+                ucOrderTakeOut1 ucto=null;
+                //ucto = (ucOrderTakeOut1)tplOrd.GetControlFromPosition(0, i);
+                //ucto = (ucOrderTakeOut1)tplOrd[i];
+                ucto = (ucOrderTakeOut1)controls[i];
                 if (ucto == null) continue;
                 C1Label lbPrice = new C1Label();
                 Panel pn = (Panel)ucto.Controls["phHead"];
@@ -592,7 +596,12 @@ namespace modernpos_pos.gui
                 {
                     sumprice += price;
                 }
-                ucto.setRow(rowno.ToString());
+                ucto.setRow((rowno).ToString());
+                if((lOrd.Count > 0) && (lOrd.Count >= rowno))
+                {
+                    Order1 ord = lOrd[i];
+                    ord.row1 = (rowno).ToString();
+                }
                 rowno++;
             }
             btnPay.Text = mposC.iniC.textTogoPay+ " "+ sumprice.ToString("#,###.00");
@@ -604,7 +613,7 @@ namespace modernpos_pos.gui
             //tplOrd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize, 360F));
             //tplOrd.Location = new System.Drawing.Point(0, 0);
             tplOrd.Name = "tplOrder";
-            tplOrd.RowCount = 1;
+            tplOrd.RowCount = 0;
             //tplOrd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize, 50F));
             //tplOrd.RowStyles.Insert(2, new RowStyle(SizeType.Percent));
             tplOrd.TabIndex = 0;
@@ -615,6 +624,7 @@ namespace modernpos_pos.gui
             tplOrd.GrowStyle = TableLayoutPanelGrowStyle.AddRows;
             tplOrd.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             tplOrd.RowCount = tplOrd.RowStyles.Count;
+            tplOrd.RowCount = 0;
             pnOrdOrder.Controls.Add(tplOrd);
         }
         private void initTileFoods()
@@ -1701,7 +1711,6 @@ namespace modernpos_pos.gui
                         }
                     }
                 }
-                
             }
             else
             {
