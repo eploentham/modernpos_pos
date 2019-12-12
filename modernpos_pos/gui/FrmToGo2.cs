@@ -1,6 +1,7 @@
 ﻿using C1.Win.C1SuperTooltip;
 using modernpos_pos.control;
 using modernpos_pos.object1;
+using modernpos_pos.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -26,10 +27,11 @@ namespace modernpos_pos.gui
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
 
-        Image imgLogo, imgOK;
+        PictureBox imgLeft, imgRight;
         Form frmmain;
         VlcControl vlcControl1;
         TransparentPanel pnVlc;
+        Panel pnMain = null;
         public event System.Windows.Forms.MouseEventHandler MouseClick;
         public FrmToGo2(mPOSControl x, Form frmmain)
         {
@@ -43,38 +45,75 @@ namespace modernpos_pos.gui
             this.FormBorderStyle = FormBorderStyle.None;
             this.Load += FrmToGo2_Load;
 
-            
+
 
             //this.MouseClick += FrmToGo2_MouseClick;
             //this.Click += FrmToGo2_Click;
 
-            vlcControl1 = new VlcControl();
-            var currentAssembly = Assembly.GetEntryAssembly();
-            var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
-            // Default installation path of VideoLAN.LibVLC.Windows
-            var libDirectory = new DirectoryInfo(Path.Combine(currentDirectory, "libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64"));
+            //vlcControl1 = new VlcControl();
+            //var currentAssembly = Assembly.GetEntryAssembly();
+            //var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
+            //// Default installation path of VideoLAN.LibVLC.Windows
+            //var libDirectory = new DirectoryInfo(Path.Combine(currentDirectory, "libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64"));
 
-            vlcControl1.BeginInit();
-            vlcControl1.VlcLibDirectory = libDirectory;
-            vlcControl1.Dock = DockStyle.Fill;
-            vlcControl1.EndInit();
-            //control.Dock = DockStyle.Fill;
-            vlcControl1.Click += VlcControl1_Click;
-            vlcControl1.MouseClick += Control1_MouseClick;
-            vlcControl1.MouseDown += VlcControl1_MouseDown;
-            this.vlcControl1.MouseUp += VlcControl1_MouseUp;
+            //vlcControl1.BeginInit();
+            //vlcControl1.VlcLibDirectory = libDirectory;
+            //vlcControl1.Dock = DockStyle.Fill;
+            //vlcControl1.EndInit();
+            ////control.Dock = DockStyle.Fill;
+            //vlcControl1.Click += VlcControl1_Click;
+            //vlcControl1.MouseClick += Control1_MouseClick;
+            //vlcControl1.MouseDown += VlcControl1_MouseDown;
+            //this.vlcControl1.MouseUp += VlcControl1_MouseUp;
 
-            pnVlc = new TransparentPanel();
-            pnVlc.Dock = DockStyle.Fill;
-            
-            pnVlc.Click += PnVlc_Click;
-            pnVlc.MouseClick += PnVlc_MouseClick;
-            //pnVlc.Controls.Add(vlcControl1);
-            this.Controls.Add(pnVlc);
-            this.Controls.Add(vlcControl1);
-            pnVlc.BringToFront();
+            //pnVlc = new TransparentPanel();
+            //pnVlc.Dock = DockStyle.Fill;
+
+            //pnVlc.Click += PnVlc_Click;
+            //pnVlc.MouseClick += PnVlc_MouseClick;
+            ////pnVlc.Controls.Add(vlcControl1);
+            //this.Controls.Add(pnVlc);
+            //this.Controls.Add(vlcControl1);
+            //pnVlc.BringToFront();
             //this.FormClosing += FrmToGo1_FormClosing;
+            int screenWidth = Screen.PrimaryScreen.Bounds.Width;
+            int screenHeight = Screen.PrimaryScreen.Bounds.Height;
+
+            pnMain = new Panel();
+            pnMain.Dock = DockStyle.Fill;
+            this.Controls.Add(pnMain);
+            imgLeft = new PictureBox();
+            imgLeft.Location = new System.Drawing.Point(0, 0);
+            imgLeft.Name = "imgLeft";
+            imgLeft.Size = new System.Drawing.Size(screenWidth / 2, screenHeight);
+            imgLeft.Image = Resources.screen_first_l;
+            imgLeft.SizeMode = PictureBoxSizeMode.StretchImage;
+            imgLeft.Click += ImgLeft_Click;
+
+            imgRight = new PictureBox();
+            imgRight.Location = new System.Drawing.Point(screenWidth / 2, 0);
+            imgRight.Name = "imgLeft";
+            imgRight.Size = new System.Drawing.Size(screenWidth / 2, screenHeight);
+            imgRight.Image = Resources.screen_first_r;
+            imgRight.SizeMode = PictureBoxSizeMode.StretchImage;
+            imgRight.Click += ImgRight_Click;
+
+            pnMain.Controls.Add(imgLeft);
+            pnMain.Controls.Add(imgRight);
         }
+
+        private void ImgLeft_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            opennew();
+        }
+
+        private void ImgRight_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            opennew();
+        }
+
         private void Control1_MouseClick(Object sender, MouseEventArgs e)
         {
 
@@ -208,7 +247,7 @@ namespace modernpos_pos.gui
         private void opennew()
         {
 
-            vlcControl1.Stop();
+            //vlcControl1.Stop();
             FrmWaiting frmW = new FrmWaiting();
             frmW.Show();
 
@@ -217,7 +256,7 @@ namespace modernpos_pos.gui
             FrmTakeOut4 frm = new FrmTakeOut4(mposC, this);
             frmW.Dispose();
             frm.ShowDialog(this);
-            vlcControl1.Play();
+            //vlcControl1.Play();
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -252,9 +291,9 @@ namespace modernpos_pos.gui
         private void FrmToGo2_Load(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            string path = Directory.GetCurrentDirectory();
-            vlcControl1.Play(new FileInfo(path+"\\"+mposC.iniC.screenFirstFilename));
-            setPlay();
+            //string path = Directory.GetCurrentDirectory();
+            //vlcControl1.Play(new FileInfo(path+"\\"+mposC.iniC.screenFirstFilename));
+            //setPlay();
             //vlcControl1.Play(new FileInfo(@"C:\output\capture-20181210-022923.png"));
         }
     }

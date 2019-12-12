@@ -41,7 +41,6 @@
             this.scFoodsItem = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.scOrd = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.pnOrdBill = new System.Windows.Forms.Panel();
-            this.btnPay = new System.Windows.Forms.Button();
             this.pnOrdOrder = new System.Windows.Forms.Panel();
             this.pnOrdHead = new System.Windows.Forms.Panel();
             this.txtFooId = new C1.Win.C1Input.C1TextBox();
@@ -50,6 +49,7 @@
             this.tabCheck = new C1.Win.C1Command.C1DockingTabPage();
             this.pnCheckMain = new System.Windows.Forms.Panel();
             this.pnCheckBill = new System.Windows.Forms.Panel();
+            this.lbAmt1 = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.pnCheckOrder = new System.Windows.Forms.Panel();
             this.btnBack = new C1.Win.C1Input.C1PictureBox();
             this.btnVoidPay = new C1.Win.C1Input.C1PictureBox();
@@ -65,7 +65,7 @@
             this.btnBillCheck = new System.Windows.Forms.Button();
             this.tabCommand = new C1.Win.C1Command.C1DockingTabPage();
             this.pnCommand = new System.Windows.Forms.Panel();
-            this.lbAmt1 = new C1.Win.C1SuperTooltip.C1SuperLabel();
+            this.btnPay = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCMain)).BeginInit();
@@ -183,7 +183,7 @@
             this.scFoods.SizeRatio = 57.061D;
             this.scFoods.TabIndex = 0;
             this.scFoods.Text = "Foods";
-            this.scFoods.Width = 895;
+            this.scFoods.Width = 902;
             // 
             // sCFoodsMain
             // 
@@ -249,24 +249,6 @@
             this.pnOrdBill.Size = new System.Drawing.Size(679, 200);
             this.pnOrdBill.TabIndex = 2;
             this.theme1.SetTheme(this.pnOrdBill, "(default)");
-            // 
-            // btnPay
-            // 
-            this.btnPay.BackColor = System.Drawing.Color.Transparent;
-            this.btnPay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.btnPay.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.btnPay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.btnPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.btnPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.btnPay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPay.Location = new System.Drawing.Point(3, 119);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(361, 64);
-            this.btnPay.TabIndex = 250;
-            this.btnPay.Text = "bill";
-            this.btnPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnPay, "(default)");
-            this.btnPay.UseVisualStyleBackColor = true;
             // 
             // pnOrdOrder
             // 
@@ -377,6 +359,18 @@
             this.pnCheckBill.TabIndex = 0;
             this.theme1.SetTheme(this.pnCheckBill, "(default)");
             // 
+            // lbAmt1
+            // 
+            this.lbAmt1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbAmt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbAmt1.Location = new System.Drawing.Point(11, 119);
+            this.lbAmt1.Name = "lbAmt1";
+            this.lbAmt1.Size = new System.Drawing.Size(464, 81);
+            this.lbAmt1.TabIndex = 254;
+            this.lbAmt1.Text = "modernpos POS Restaurant";
+            this.theme1.SetTheme(this.lbAmt1, "(default)");
+            this.lbAmt1.UseMnemonic = true;
+            // 
             // pnCheckOrder
             // 
             this.pnCheckOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -422,6 +416,7 @@
             this.button2.Text = "Qr Code Kbank";
             this.theme1.SetTheme(this.button2, "(default)");
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             // 
             // pnVoidPay
             // 
@@ -527,6 +522,7 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.button1, "(default)");
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             // 
             // lbStatus
             // 
@@ -567,6 +563,7 @@
             this.btnBillCheck.Text = "ชำระเงิน เงินสด";
             this.theme1.SetTheme(this.btnBillCheck, "(default)");
             this.btnBillCheck.UseVisualStyleBackColor = true;
+            this.btnBillCheck.Visible = false;
             // 
             // tabCommand
             // 
@@ -588,17 +585,22 @@
             this.pnCommand.TabIndex = 0;
             this.theme1.SetTheme(this.pnCommand, "(default)");
             // 
-            // lbAmt1
+            // btnPay
             // 
-            this.lbAmt1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbAmt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbAmt1.Location = new System.Drawing.Point(11, 119);
-            this.lbAmt1.Name = "lbAmt1";
-            this.lbAmt1.Size = new System.Drawing.Size(464, 81);
-            this.lbAmt1.TabIndex = 254;
-            this.lbAmt1.Text = "modernpos POS Restaurant";
-            this.theme1.SetTheme(this.lbAmt1, "(default)");
-            this.lbAmt1.UseMnemonic = true;
+            this.btnPay.BackColor = System.Drawing.Color.Transparent;
+            this.btnPay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.btnPay.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.btnPay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.btnPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.btnPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnPay.Image = global::modernpos_pos.Properties.Resources.PaymentBtn_green;
+            this.btnPay.Location = new System.Drawing.Point(3, 42);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(648, 141);
+            this.btnPay.TabIndex = 250;
+            this.btnPay.Text = "bill";
+            this.theme1.SetTheme(this.btnPay, "(default)");
+            this.btnPay.UseVisualStyleBackColor = true;
             // 
             // FrmTakeOut4
             // 
@@ -654,7 +656,6 @@
         private C1.Win.C1SplitContainer.C1SplitterPanel scFoodsItem;
         private C1.Win.C1SplitContainer.C1SplitterPanel scOrd;
         private System.Windows.Forms.Panel pnOrdBill;
-        private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.Panel pnOrdOrder;
         private System.Windows.Forms.Panel pnOrdHead;
         private C1.Win.C1Input.C1TextBox txtFooId;
@@ -679,5 +680,6 @@
         private C1.Win.C1Input.C1PictureBox btnVoidPay;
         private C1.Win.C1Input.C1PictureBox btnBack;
         private C1.Win.C1SuperTooltip.C1SuperLabel lbAmt1;
+        private System.Windows.Forms.Button btnPay;
     }
 }

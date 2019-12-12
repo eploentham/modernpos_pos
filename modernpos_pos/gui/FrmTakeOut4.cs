@@ -913,7 +913,8 @@ namespace modernpos_pos.gui
         private void BtnBillCheck_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            billCheck();
+            //billCheck();
+            savePayment();
         }
         private void billCheck()
         {
@@ -1474,7 +1475,8 @@ namespace modernpos_pos.gui
             }
             Pen blackPen = new Pen(Color.Black, 1);
             Image resizedImage;
-            int originalWidth = Resources.logo2.Width;
+            //int originalWidth = Resources.logo2.Width;
+            int originalWidth = Resources.logo_onsoon.Width;
             int newWidth = 100;
             Size proposedSize = new Size(100, 100);
             StringFormat flags = new StringFormat(StringFormatFlags.LineLimit);  //wraps
@@ -1482,7 +1484,8 @@ namespace modernpos_pos.gui
             Int32 xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             Int32 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
 
-            resizedImage = Resources.logo2.GetThumbnailImage(newWidth, (newWidth * Resources.logo2.Height) / originalWidth, null, IntPtr.Zero);
+            //resizedImage = Resources.logo2.GetThumbnailImage(newWidth, (newWidth * Resources.logo2.Height) / originalWidth, null, IntPtr.Zero);
+            resizedImage = Resources.logo_onsoon.GetThumbnailImage(newWidth, (newWidth * Resources.logo_onsoon.Height) / originalWidth, null, IntPtr.Zero);
 
             //e.Graphics.DrawImage(Resources.siph2, avg - (Resources.siph2.Width / 2), topMargin);
             e.Graphics.DrawImage(resizedImage, avg - (resizedImage.Width / 2), topMargin);
@@ -1545,11 +1548,15 @@ namespace modernpos_pos.gui
             yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, marginR + 300, yPos);
             int i = 1;
+            Decimal sumprice = 0, total=0;
             foreach (Order1 ord in lOrd)
             {
                 count++;
                 yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
                 line = i + ". " + ord.foods_name + " " + ord.qty;
+                sumprice = 0;
+                Decimal.TryParse(ord.sumPrice, out sumprice);
+                total += sumprice;
                 textSize = TextRenderer.MeasureText(line, ford, proposedSize, TextFormatFlags.RightToLeft);
                 xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
                 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
@@ -1588,9 +1595,16 @@ namespace modernpos_pos.gui
 
                 i++;
             }
-            count++; count++; count++; count++; count++;
+            count++; count++; count++; 
+            //count++; count++;
             yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, marginR + 300, yPos);
+            count++; count++;
+            e.Graphics.DrawString("Total     "+total.ToString("#,###.00"), ford, Brushes.Black, marginR - textSize.Width - gap - 5, yPos, flags);
+            count++; count++;
+            e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, marginR + 300, yPos);
+            e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, marginR + 300, yPos);
+            //e.Graphics.DrawString(total.ToString("#,###.00"), ford, Brushes.Black, leftMargin, yPos, flags);
 
             count++; count++; count++; count++; count++;
             yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);

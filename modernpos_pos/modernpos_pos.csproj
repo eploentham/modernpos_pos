@@ -1391,6 +1391,7 @@
     <None Include="Resources\screen_first.png" />
     <None Include="Resources\screen_first_r.png" />
     <None Include="Resources\screen_first_l.png" />
+    <None Include="Resources\PaymentBtn_green.png" />
     <Content Include="togo_banner.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
