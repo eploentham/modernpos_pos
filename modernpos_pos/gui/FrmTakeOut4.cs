@@ -26,7 +26,7 @@ namespace modernpos_pos.gui
     public partial class FrmTakeOut4 : Form
     {
         mPOSControl mposC;
-        Font fEdit, fEditB, fEdit1, fgrd, ford;
+        Font fEdit, fEditB, fEdit1, fgrd, ford, ftxtBig;
 
         Color bg, fc, tilecolor, tileFoodsPriceColor, tileFoodsNameColor, tileCatColor;
         Font ff, ffB;
@@ -101,6 +101,7 @@ namespace modernpos_pos.gui
             fEdit1 = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 5, FontStyle.Regular + 2);
             fgrd = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 15, FontStyle.Regular);
             ford = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Regular);
+            ftxtBig = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 35, FontStyle.Regular);
 
             C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
@@ -213,6 +214,7 @@ namespace modernpos_pos.gui
             //initTopping();
             initGrfBill();
             //initGrfTopping();
+
             pnOrdBill.Height = 100;
             flagModi = false;
             setBtnEnable(flagModi);
@@ -914,7 +916,7 @@ namespace modernpos_pos.gui
         {
             //throw new NotImplementedException();
             //billCheck();
-            savePayment();
+            //savePayment();
         }
         private void billCheck()
         {
@@ -925,7 +927,7 @@ namespace modernpos_pos.gui
                 var baseAddress = "http://" + mposC.iniC.VNEip + mposC.iniC.VNEwebapi;
                 VNErequestPayment vne = new VNErequestPayment();
                 vne.tipo = "1";
-                vne.importo = lbAmt.Text.Replace(txtAmt, "").Replace(".", "").Trim();
+                vne.importo = lbAmt1.Text.Replace(txtAmt, "").Replace(".", "").Trim();
                 vne.opname = "admin";
                 vne.operatore = "";
                 String txtjson = JsonConvert.SerializeObject(vne, Formatting.Indented);
@@ -1083,12 +1085,15 @@ namespace modernpos_pos.gui
         private void BtnPay_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            tCMain.SelectedTab = tabCheck;
+            lbAmtText.Text = txtAmt;
             savePayment();
+            billCheck();
             //billCheck();
         }
         private void savePayment()
         {
-            lbAmt.Text = "";
+            lbAmt1.Text = "";
             lbStatus.Text = "";
             mposC.statusVNEPaysuccess = "";
             //genLotId();
@@ -1140,7 +1145,7 @@ namespace modernpos_pos.gui
                 }
                 //String[] ext = name.Split('#');
                 UpdateTotalsBill();
-                lbAmt.Text = "";
+                lbAmt1.Text = "";
                 lbStatus.Text = "";
                 String amt = "";
                 try
@@ -1149,7 +1154,8 @@ namespace modernpos_pos.gui
                     Decimal amt1 = 0;
                     Decimal.TryParse(amt, out amt1);
 
-                    lbAmt.Text = txtAmt + " " + amt1.ToString("0.00");
+                    //lbAmt1.Text = txtAmt + " " + amt1.ToString("0.00");
+                    lbAmt1.Text = amt1.ToString("0.00");
                 }
                 catch (Exception ex)
                 {
@@ -1854,9 +1860,27 @@ namespace modernpos_pos.gui
             btnBack.Top = screenHeight - 200;
             btnVoidPay.Left = screenWidth - btnVoidPay.Width - 200;
             btnVoidPay.Top = btnBack.Top;
-            pnCheckOrder.Top = 80;
-            pnCheckOrder.Left = (screenWidth / 2) - 50;
-            pnCheckOrder.Size = new Size((screenWidth / 2), screenHeight - btnVoidPay.Height - 200 - 50 - 20);
+            //pnCheckOrder.Top = 80;
+            //pnCheckOrder.Left = (screenWidth / 2) - 50;
+            pnCheckOrder.Location = new System.Drawing.Point((screenWidth / 2) - 50, lbAmtText.Location.Y);
+            pnCheckOrder.Size = new Size((screenWidth / 2), screenHeight - btnVoidPay.Height - 200);
+            pnCheckOrder.BorderStyle = BorderStyle.None;
+
+            lbAmtText.Size = new System.Drawing.Size((screenWidth / 2) - 120, 80);
+            lbAmtText.Location = new System.Drawing.Point(40, 40);
+            lbAmtText.TextAlign = ContentAlignment.MiddleCenter;
+            lbAmtText.Font = ftxtBig;
+            lbAmtText.Image = Resources.Order_Pressing;
+            lbAmtText.Size = new System.Drawing.Size(lbAmtText.Image.Width, lbAmtText.Image.Height);
+
+            lbAmt1.Size = new System.Drawing.Size((screenWidth / 2) - 120, 80);
+            lbAmt1.Location = new System.Drawing.Point((lbAmtText.Location.X), (lbAmtText.Location.Y + lbAmtText.Size.Height + 40));
+            lbAmt1.TextAlign = ContentAlignment.MiddleCenter;
+            lbAmt1.Font = ftxtBig;
+            lbAmt1.Image = Resources.Order_Idle;
+            lbAmt1.Size = new System.Drawing.Size(lbAmt1.Image.Width, lbAmt1.Image.Height);
+            theme1.SetTheme(lbAmt1, "Office2013Red");
+            theme1.SetTheme(lbAmtText, "Office2013Red");
             //pnOrdOrder.Height = this.Height - pnOrdHead.Height - pnOrdBill.Height; 
         }
     }
