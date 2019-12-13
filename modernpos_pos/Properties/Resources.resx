@@ -892,4 +892,19 @@
   <data name="PaymentBtn_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PaymentBtn_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Cancle_Idle_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cancle_Idle_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Edit_Pressing_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Edit_Pressing_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Order_Pressing_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Order_Pressing_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Order_Pressing_small_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Order_Pressing_small_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PaymentBtn_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PaymentBtn_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -41,7 +41,7 @@
             this.scFoodsItem = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.scOrd = new C1.Win.C1SplitContainer.C1SplitterPanel();
             this.pnOrdBill = new System.Windows.Forms.Panel();
-            this.btnPay = new System.Windows.Forms.Button();
+            this.btnPay = new System.Windows.Forms.Label();
             this.pnOrdOrder = new System.Windows.Forms.Panel();
             this.pnOrdHead = new System.Windows.Forms.Panel();
             this.txtFooId = new C1.Win.C1Input.C1TextBox();
@@ -50,6 +50,8 @@
             this.tabCheck = new C1.Win.C1Command.C1DockingTabPage();
             this.pnCheckMain = new System.Windows.Forms.Panel();
             this.pnCheckBill = new System.Windows.Forms.Panel();
+            this.lbAmt1 = new System.Windows.Forms.Label();
+            this.lbAmtText = new System.Windows.Forms.Label();
             this.pnCheckOrder = new System.Windows.Forms.Panel();
             this.btnBack = new C1.Win.C1Input.C1PictureBox();
             this.btnVoidPay = new C1.Win.C1Input.C1PictureBox();
@@ -64,8 +66,6 @@
             this.btnBillCheck = new System.Windows.Forms.Button();
             this.tabCommand = new C1.Win.C1Command.C1DockingTabPage();
             this.pnCommand = new System.Windows.Forms.Panel();
-            this.lbAmtText = new System.Windows.Forms.Label();
-            this.lbAmt1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCMain)).BeginInit();
@@ -252,20 +252,16 @@
             // 
             // btnPay
             // 
-            this.btnPay.BackColor = System.Drawing.Color.Transparent;
-            this.btnPay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.btnPay.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.btnPay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.btnPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.btnPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btnPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.btnPay.Image = global::modernpos_pos.Properties.Resources.PaymentBtn_green;
-            this.btnPay.Location = new System.Drawing.Point(3, 42);
+            this.btnPay.Image = global::modernpos_pos.Properties.Resources.PaymentBtn_small;
+            this.btnPay.Location = new System.Drawing.Point(20, 3);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(648, 141);
-            this.btnPay.TabIndex = 250;
-            this.btnPay.Text = "bill";
+            this.btnPay.Size = new System.Drawing.Size(648, 183);
+            this.btnPay.TabIndex = 251;
+            this.btnPay.Text = "label1";
+            this.btnPay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.theme1.SetTheme(this.btnPay, "(default)");
-            this.btnPay.UseVisualStyleBackColor = true;
             // 
             // pnOrdOrder
             // 
@@ -376,6 +372,30 @@
             this.pnCheckBill.TabIndex = 0;
             this.theme1.SetTheme(this.pnCheckBill, "(default)");
             // 
+            // lbAmt1
+            // 
+            this.lbAmt1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.lbAmt1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lbAmt1.Location = new System.Drawing.Point(8, 110);
+            this.lbAmt1.Name = "lbAmt1";
+            this.lbAmt1.Size = new System.Drawing.Size(563, 61);
+            this.lbAmt1.TabIndex = 256;
+            this.lbAmt1.Text = "label1";
+            this.lbAmt1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.theme1.SetTheme(this.lbAmt1, "(default)");
+            // 
+            // lbAmtText
+            // 
+            this.lbAmtText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.lbAmtText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lbAmtText.Location = new System.Drawing.Point(11, 17);
+            this.lbAmtText.Name = "lbAmtText";
+            this.lbAmtText.Size = new System.Drawing.Size(563, 61);
+            this.lbAmtText.TabIndex = 255;
+            this.lbAmtText.Text = "label1";
+            this.lbAmtText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.theme1.SetTheme(this.lbAmtText, "(default)");
+            // 
             // pnCheckOrder
             // 
             this.pnCheckOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -388,7 +408,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Image = global::modernpos_pos.Properties.Resources.Edit_Pressing;
+            this.btnBack.Image = global::modernpos_pos.Properties.Resources.Edit_Pressing_0;
             this.btnBack.Location = new System.Drawing.Point(147, 519);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(474, 134);
@@ -397,7 +417,7 @@
             // 
             // btnVoidPay
             // 
-            this.btnVoidPay.Image = global::modernpos_pos.Properties.Resources.Cancle_Idle;
+            this.btnVoidPay.Image = global::modernpos_pos.Properties.Resources.Cancle_Idle_0;
             this.btnVoidPay.Location = new System.Drawing.Point(774, 519);
             this.btnVoidPay.Name = "btnVoidPay";
             this.btnVoidPay.Size = new System.Drawing.Size(480, 134);
@@ -431,7 +451,7 @@
             this.pnVoidPay.Controls.Add(this.chkPayBefore);
             this.pnVoidPay.Controls.Add(this.listBox1);
             this.pnVoidPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.pnVoidPay.Location = new System.Drawing.Point(300, 454);
+            this.pnVoidPay.Location = new System.Drawing.Point(63, 659);
             this.pnVoidPay.Name = "pnVoidPay";
             this.pnVoidPay.Size = new System.Drawing.Size(371, 59);
             this.pnVoidPay.TabIndex = 248;
@@ -448,7 +468,7 @@
             this.cboRsp.EditorFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboRsp.EditorForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.cboRsp.FlatStyle = C1.Win.C1List.FlatModeEnum.Flat;
-            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRsp.Images.Add(((System.Drawing.Image)(resources.GetObject("cboRsp.Images"))));
             this.cboRsp.Location = new System.Drawing.Point(38, 26);
             this.cboRsp.MatchEntryTimeout = ((long)(2000));
@@ -479,6 +499,7 @@
             this.chkPaypaying.Text = "กำลังรับชำระ";
             this.theme1.SetTheme(this.chkPaypaying, "(default)");
             this.chkPaypaying.UseVisualStyleBackColor = false;
+            this.chkPaypaying.Visible = false;
             // 
             // chkPayBefore
             // 
@@ -497,6 +518,7 @@
             this.chkPayBefore.Text = "ยังไม่ได้รับเงิน";
             this.theme1.SetTheme(this.chkPayBefore, "(default)");
             this.chkPayBefore.UseVisualStyleBackColor = false;
+            this.chkPayBefore.Visible = false;
             // 
             // listBox1
             // 
@@ -508,6 +530,7 @@
             this.listBox1.Size = new System.Drawing.Size(52, 43);
             this.listBox1.TabIndex = 246;
             this.theme1.SetTheme(this.listBox1, "(default)");
+            this.listBox1.Visible = false;
             // 
             // button1
             // 
@@ -532,9 +555,9 @@
             // lbStatus
             // 
             this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbStatus.Location = new System.Drawing.Point(11, 272);
+            this.lbStatus.Location = new System.Drawing.Point(481, 659);
             this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(464, 81);
+            this.lbStatus.Size = new System.Drawing.Size(464, 49);
             this.lbStatus.TabIndex = 244;
             this.lbStatus.Text = "modernpos POS Restaurant";
             this.theme1.SetTheme(this.lbStatus, "(default)");
@@ -578,30 +601,6 @@
             this.pnCommand.Size = new System.Drawing.Size(1585, 748);
             this.pnCommand.TabIndex = 0;
             this.theme1.SetTheme(this.pnCommand, "(default)");
-            // 
-            // lbAmtText
-            // 
-            this.lbAmtText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.lbAmtText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.lbAmtText.Location = new System.Drawing.Point(11, 17);
-            this.lbAmtText.Name = "lbAmtText";
-            this.lbAmtText.Size = new System.Drawing.Size(563, 61);
-            this.lbAmtText.TabIndex = 255;
-            this.lbAmtText.Text = "label1";
-            this.lbAmtText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.theme1.SetTheme(this.lbAmtText, "(default)");
-            // 
-            // lbAmt1
-            // 
-            this.lbAmt1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.lbAmt1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.lbAmt1.Location = new System.Drawing.Point(8, 110);
-            this.lbAmt1.Name = "lbAmt1";
-            this.lbAmt1.Size = new System.Drawing.Size(563, 61);
-            this.lbAmt1.TabIndex = 256;
-            this.lbAmt1.Text = "label1";
-            this.lbAmt1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.theme1.SetTheme(this.lbAmt1, "(default)");
             // 
             // FrmTakeOut4
             // 
@@ -679,8 +678,8 @@
         private System.Windows.Forms.Button button2;
         private C1.Win.C1Input.C1PictureBox btnVoidPay;
         private C1.Win.C1Input.C1PictureBox btnBack;
-        private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.Label lbAmtText;
         private System.Windows.Forms.Label lbAmt1;
+        private System.Windows.Forms.Label btnPay;
     }
 }

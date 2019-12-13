@@ -194,6 +194,7 @@ namespace modernpos_pos.gui
             btnBillCheck.Click += BtnBillCheck_Click;
             btnVoidPay.Click += BtnVoidPay_Click;
             this.FormClosed += FrmTakeOut4_FormClosed;
+            btnBack.Click += BtnBack_Click1;
 
             imgR = Resources.red_checkmark_png_16;
             //MessageBox.Show("FrmTakeOut initConfig", "");
@@ -220,6 +221,12 @@ namespace modernpos_pos.gui
             setBtnEnable(flagModi);
             this.FormBorderStyle = FormBorderStyle.None;
             setListBox1Show(false);
+        }
+
+        private void BtnBack_Click1(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            voidBill();
         }
 
         private void BtnCash_Click(object sender, EventArgs e)
@@ -857,61 +864,64 @@ namespace modernpos_pos.gui
         private void BtnVoidPay_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            String err = "";
-            if (vneRspPay == null) return;
             if (MessageBox.Show("ต้องการ ลบ Payment ID " + vneRspPay.id, "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                try
-                {
-                    String statuspay = "";
-                    statuspay = chkPayBefore.Checked ? "1" : "2";
-                    statuspay = chkPaypaying.Checked ? "1" : "2";
-                    VNEPaymentPendingDeleteRequest vnepdreq = new VNEPaymentPendingDeleteRequest();
-                    vnepdreq.id = vneRspPay.id;
-                    vnepdreq.opName = "admin";
-                    vnepdreq.tipo = "3";
-                    //vnepdreq.tipo_annullamento = statuspay+"/2";
-                    vnepdreq.tipo_annullamento = statuspay;
-                    var baseAddress = "http://" + mposC.iniC.VNEip + mposC.iniC.VNEwebapi;
-                    String txtjson = JsonConvert.SerializeObject(vnepdreq, Formatting.Indented);
-                    WebClient webClient = new WebClient();
-                    var http = (HttpWebRequest)WebRequest.Create(new Uri(baseAddress));
-                    http.Accept = "application/json";
-                    http.ContentType = "application/json";
-                    http.Method = "POST";
-                    ASCIIEncoding encoding = new ASCIIEncoding();
-                    Byte[] bytes = encoding.GetBytes(txtjson);
-                    Stream newStream = http.GetRequestStream();
-                    newStream.Write(bytes, 0, bytes.Length);
-                    newStream.Close();
-                    listBox1.Items.Add(txtjson);
-                    var response = http.GetResponse();
-
-                    var stream = response.GetResponseStream();
-                    var sr = new StreamReader(stream);
-                    var content = sr.ReadToEnd();
-
-                    listBox1.Items.Add(content);
-                    dynamic obj = JsonConvert.DeserializeObject(content);
-                    String status = obj.payment_status;
-                    if (status.Equals("1"))
-                    {
-                        //MessageBox.Show("ทำการยกเลิก รับชำระเงิน เรียบร้อย", "");
-                        lbStatus.Text = "ยกเลิก รับชำระเงิน เรียบร้อย";
-                        timerVNE.Stop();
-                        pnVoidPay.Hide();
-                    }
-
-                    //cboPpl.Text = "";
-                    //BtnListPayment_Click(null, null);
-                }
-                catch (Exception ex)
-                {
-                    listBox1.Items.Add(err + " " + ex.Message);
-                }
+                voidBill();
             }
         }
+        private void voidBill()
+        {
+            String err = "";
+            if (vneRspPay == null) return;
+            try
+            {
+                String statuspay = "";
+                statuspay = chkPayBefore.Checked ? "1" : "2";
+                statuspay = chkPaypaying.Checked ? "1" : "2";
+                VNEPaymentPendingDeleteRequest vnepdreq = new VNEPaymentPendingDeleteRequest();
+                vnepdreq.id = vneRspPay.id;
+                vnepdreq.opName = "admin";
+                vnepdreq.tipo = "3";
+                //vnepdreq.tipo_annullamento = statuspay+"/2";
+                vnepdreq.tipo_annullamento = statuspay;
+                var baseAddress = "http://" + mposC.iniC.VNEip + mposC.iniC.VNEwebapi;
+                String txtjson = JsonConvert.SerializeObject(vnepdreq, Formatting.Indented);
+                WebClient webClient = new WebClient();
+                var http = (HttpWebRequest)WebRequest.Create(new Uri(baseAddress));
+                http.Accept = "application/json";
+                http.ContentType = "application/json";
+                http.Method = "POST";
+                ASCIIEncoding encoding = new ASCIIEncoding();
+                Byte[] bytes = encoding.GetBytes(txtjson);
+                Stream newStream = http.GetRequestStream();
+                newStream.Write(bytes, 0, bytes.Length);
+                newStream.Close();
+                listBox1.Items.Add(txtjson);
+                var response = http.GetResponse();
 
+                var stream = response.GetResponseStream();
+                var sr = new StreamReader(stream);
+                var content = sr.ReadToEnd();
+
+                listBox1.Items.Add(content);
+                dynamic obj = JsonConvert.DeserializeObject(content);
+                String status = obj.payment_status;
+                if (status.Equals("1"))
+                {
+                    //MessageBox.Show("ทำการยกเลิก รับชำระเงิน เรียบร้อย", "");
+                    lbStatus.Text = "ยกเลิก รับชำระเงิน เรียบร้อย";
+                    timerVNE.Stop();
+                    pnVoidPay.Hide();
+                }
+
+                //cboPpl.Text = "";
+                //BtnListPayment_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+                listBox1.Items.Add(err + " " + ex.Message);
+            }
+        }
         private void BtnBillCheck_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -1853,6 +1863,11 @@ namespace modernpos_pos.gui
             btnPay.Width = 420;
             btnPay.TextAlign = ContentAlignment.MiddleCenter;
             btnPay.Font = fgrd;
+            btnPay.BackColor = Color.Transparent;
+            btnPay.Text = "";
+            btnPay.Dock = DockStyle.Fill;
+            btnPay.Size = new Size(pnOrdBill.Width, pnOrdBill.Height);
+            //btnPay.Location = new System.Drawing.Point(pnOrdBill.Width, 40);
 
             int screenWidth = Screen.PrimaryScreen.Bounds.Width;
             int screenHeight = Screen.PrimaryScreen.Bounds.Height;
@@ -1870,17 +1885,18 @@ namespace modernpos_pos.gui
             lbAmtText.Location = new System.Drawing.Point(40, 40);
             lbAmtText.TextAlign = ContentAlignment.MiddleCenter;
             lbAmtText.Font = ftxtBig;
-            lbAmtText.Image = Resources.Order_Pressing;
+            lbAmtText.Image = Resources.Order_Pressing_small_1;
             lbAmtText.Size = new System.Drawing.Size(lbAmtText.Image.Width, lbAmtText.Image.Height);
 
             lbAmt1.Size = new System.Drawing.Size((screenWidth / 2) - 120, 80);
             lbAmt1.Location = new System.Drawing.Point((lbAmtText.Location.X), (lbAmtText.Location.Y + lbAmtText.Size.Height + 40));
             lbAmt1.TextAlign = ContentAlignment.MiddleCenter;
             lbAmt1.Font = ftxtBig;
-            lbAmt1.Image = Resources.Order_Idle;
+            lbAmt1.Image = Resources.Order_Pressing_small_1;
             lbAmt1.Size = new System.Drawing.Size(lbAmt1.Image.Width, lbAmt1.Image.Height);
             theme1.SetTheme(lbAmt1, "Office2013Red");
             theme1.SetTheme(lbAmtText, "Office2013Red");
+            //theme1.SetTheme(btnPay, "Office2013Red");
             //pnOrdOrder.Height = this.Height - pnOrdHead.Height - pnOrdBill.Height; 
         }
     }

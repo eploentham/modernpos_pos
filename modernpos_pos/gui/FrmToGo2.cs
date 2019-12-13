@@ -237,13 +237,11 @@ namespace modernpos_pos.gui
             this.ResumeLayout(false);
 
         }
-
         private void VlcControl1_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             opennew();
         }
-
         private void opennew()
         {
 
