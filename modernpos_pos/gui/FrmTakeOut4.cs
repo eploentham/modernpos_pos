@@ -264,7 +264,7 @@ namespace modernpos_pos.gui
             grfBill.Rows.Count = 1;
             grfBill.Cols.Count = 9;
             grfBill.Cols[colBNo].Width = 40;
-            grfBill.Cols[colBFooName].Width = 600;
+            grfBill.Cols[colBFooName].Width = int.Parse(mposC.iniC.grfBillcolBFooName);
             grfBill.Cols[colBPrice].Width = 200;
             //FilterRow fr = new FilterRow(grfExpn);
             grfBill.TabStop = false;
@@ -1569,6 +1569,8 @@ namespace modernpos_pos.gui
             {
                 count++;
                 yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+                textSize = TextRenderer.MeasureText(ord.foods_name, ford, proposedSize, TextFormatFlags.RightToLeft);
+
                 line = i + ". " + ord.foods_name + " " + ord.qty;
                 sumprice = 0;
                 Decimal.TryParse(ord.sumPrice, out sumprice);
@@ -1578,6 +1580,10 @@ namespace modernpos_pos.gui
                 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
                 //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());
                 e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin, yPos, flags);
+                count++; count++;
+                yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+                e.Graphics.DrawString("textSize " + textSize.Width, ford, Brushes.Black, leftMargin, yPos, flags);
+
                 textSize = TextRenderer.MeasureText(ord.price, ford, proposedSize, TextFormatFlags.RightToLeft);
                 e.Graphics.DrawString(ord.price, ford, Brushes.Black, marginR - textSize.Width - gap - 5, yPos, flags);
                 if ((ord.special != null) && !ord.special.Equals(""))
@@ -1616,7 +1622,8 @@ namespace modernpos_pos.gui
             yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
             e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, marginR + 300, yPos);
             count++; count++;
-            e.Graphics.DrawString("Total     "+total.ToString("#,###.00"), ford, Brushes.Black, marginR - textSize.Width - gap - 5, yPos, flags);
+            textSize = TextRenderer.MeasureText("Total     " + total.ToString("#,###.00"), ford, proposedSize, TextFormatFlags.RightToLeft);
+            e.Graphics.DrawString("Total     "+total.ToString("#,###.00"), ford, Brushes.Black, marginR - textSize.Width - gap - 15, yPos, flags);
             count++; count++;
             e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, marginR + 300, yPos);
             e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, marginR + 300, yPos);
@@ -1885,14 +1892,14 @@ namespace modernpos_pos.gui
             lbAmtText.Location = new System.Drawing.Point(40, 40);
             lbAmtText.TextAlign = ContentAlignment.MiddleCenter;
             lbAmtText.Font = ftxtBig;
-            lbAmtText.Image = Resources.Order_Pressing_small_1;
+            lbAmtText.Image = Resources.Order_Pressing_small_2;
             lbAmtText.Size = new System.Drawing.Size(lbAmtText.Image.Width, lbAmtText.Image.Height);
 
             lbAmt1.Size = new System.Drawing.Size((screenWidth / 2) - 120, 80);
             lbAmt1.Location = new System.Drawing.Point((lbAmtText.Location.X), (lbAmtText.Location.Y + lbAmtText.Size.Height + 40));
             lbAmt1.TextAlign = ContentAlignment.MiddleCenter;
             lbAmt1.Font = ftxtBig;
-            lbAmt1.Image = Resources.Order_Pressing_small_1;
+            lbAmt1.Image = Resources.Order_Pressing_small_2;
             lbAmt1.Size = new System.Drawing.Size(lbAmt1.Image.Width, lbAmt1.Image.Height);
             theme1.SetTheme(lbAmt1, "Office2013Red");
             theme1.SetTheme(lbAmtText, "Office2013Red");

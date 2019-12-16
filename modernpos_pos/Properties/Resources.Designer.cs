@@ -1453,6 +1453,16 @@ namespace modernpos_pos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Order_Pressing_small_2 {
+            get {
+                object obj = ResourceManager.GetObject("Order_Pressing_small_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ordering16 {
             get {
                 object obj = ResourceManager.GetObject("ordering16", resourceCulture);

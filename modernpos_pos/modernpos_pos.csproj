@@ -1397,6 +1397,7 @@
     <None Include="Resources\Cancle_Idle_0.png" />
     <None Include="Resources\Edit_Pressing_0.png" />
     <None Include="Resources\Order_Pressing_small_1.png" />
+    <None Include="Resources\Webp.net-resizeimage.png" />
     <Content Include="togo_banner.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
