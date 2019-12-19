@@ -26,7 +26,7 @@ namespace modernpos_pos.gui
     public partial class FrmTakeOut4 : Form
     {
         mPOSControl mposC;
-        Font fEdit, fEditB, fEdit1, fgrd, ford, ftxtBig;
+        Font fEdit, fEditB, fEdit1, fgrd, ford, ftxtBig, fPrn;
 
         Color bg, fc, tilecolor, tileFoodsPriceColor, tileFoodsNameColor, tileCatColor;
         Font ff, ffB;
@@ -102,6 +102,7 @@ namespace modernpos_pos.gui
             fgrd = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 15, FontStyle.Regular);
             ford = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Regular);
             ftxtBig = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 35, FontStyle.Regular);
+            fPrn = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 5, FontStyle.Regular);
 
             C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
@@ -1496,7 +1497,7 @@ namespace modernpos_pos.gui
             int newWidth = 100;
             Size proposedSize = new Size(100, 100);
             StringFormat flags = new StringFormat(StringFormatFlags.LineLimit);  //wraps
-            Size textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            Size textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
             Int32 xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             Int32 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
 
@@ -1507,68 +1508,68 @@ namespace modernpos_pos.gui
             e.Graphics.DrawImage(resizedImage, avg - (resizedImage.Width / 2), topMargin);
 
             count++; count++; count++; count++; count++; count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
             line = mposC.res.res_name;
-            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
-            //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());leftMargin
-            e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
+            //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());leftMargin
+            e.Graphics.DrawString(line, fPrn, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
 
             count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
             line = mposC.res.receipt_header1;
-            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
-            //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());
-            e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
+            //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
+            e.Graphics.DrawString(line, fPrn, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
 
             count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
             line = mposC.res.receipt_header2 + " " + que;
-            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
-            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
-            //e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
+            e.Graphics.DrawString(line, fPrn, Brushes.Black, leftMargin, yPos, flags);
+            //e.Graphics.DrawString(line, fPrn, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
 
             count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
             line = "Staff : Machine VNE1";
-            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
-            //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());
-            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+            //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
+            e.Graphics.DrawString(line, fPrn, Brushes.Black, leftMargin, yPos, flags);
 
             count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
             line = "Date :" + System.DateTime.Now.ToString("dd/MM/yyyy hh:mm");
-            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
-            //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());
-            e.Graphics.DrawString(line, fEdit, Brushes.Black, leftMargin, yPos, flags);
+            //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
+            e.Graphics.DrawString(line, fPrn, Brushes.Black, leftMargin, yPos, flags);
 
             count++; count++; count++; count++; count++; count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
             line = "GOTO";
-            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
-            //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());
-            e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
+            //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
+            e.Graphics.DrawString(line, fPrn, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
 
             count++; count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
             e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, marginR + 300, yPos);
             int i = 1;
             Decimal sumprice = 0, total=0;
             foreach (Order1 ord in lOrd)
             {
                 count++;
-                yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+                yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
                 textSize = TextRenderer.MeasureText(ord.foods_name, ford, proposedSize, TextFormatFlags.RightToLeft);
 
                 line = i + ". " + ord.foods_name + " " + ord.qty;
@@ -1578,10 +1579,10 @@ namespace modernpos_pos.gui
                 textSize = TextRenderer.MeasureText(line, ford, proposedSize, TextFormatFlags.RightToLeft);
                 xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
                 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
-                //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());
+                //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
                 e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin, yPos, flags);
                 count++; count++;
-                yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+                yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
                 e.Graphics.DrawString("textSize " + textSize.Width, ford, Brushes.Black, leftMargin, yPos, flags);
 
                 textSize = TextRenderer.MeasureText(ord.price, ford, proposedSize, TextFormatFlags.RightToLeft);
@@ -1619,7 +1620,7 @@ namespace modernpos_pos.gui
             }
             count++; count++; count++; 
             //count++; count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
             e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, marginR + 300, yPos);
             count++; count++;
             textSize = TextRenderer.MeasureText("Total     " + total.ToString("#,###.00"), ford, proposedSize, TextFormatFlags.RightToLeft);
@@ -1630,22 +1631,22 @@ namespace modernpos_pos.gui
             //e.Graphics.DrawString(total.ToString("#,###.00"), ford, Brushes.Black, leftMargin, yPos, flags);
 
             count++; count++; count++; count++; count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
             line = mposC.res.receipt_footer1;
-            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
-            //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());
-            e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
+            //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
+            e.Graphics.DrawString(line, fPrn, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
 
             count++; count++;
-            yPos = topMargin + (count * fEdit.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
             line = mposC.res.receipt_footer2;
-            textSize = TextRenderer.MeasureText(line, fEdit, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
-            //e.Graphics.DrawString(line, fEdit, Brushes.Black, xOffset, yPos, new StringFormat());
-            e.Graphics.DrawString(line, fEdit, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
+            //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
+            e.Graphics.DrawString(line, fPrn, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
         }
         private void printOrder()
         {
