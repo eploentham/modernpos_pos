@@ -1572,18 +1572,49 @@ namespace modernpos_pos.gui
                 yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
                 textSize = TextRenderer.MeasureText(ord.foods_name, ford, proposedSize, TextFormatFlags.RightToLeft);
 
-                line = i + ". " + ord.foods_name + " " + ord.qty;
                 sumprice = 0;
                 Decimal.TryParse(ord.sumPrice, out sumprice);
                 total += sumprice;
+                //line = i + ". " + ord.foods_name + " " + ord.qty;
+
+                Size txtSizeLine1 = new Size();
+                Size txtSizeLine2 = new Size();
+                line = i + "." ;
                 textSize = TextRenderer.MeasureText(line, ford, proposedSize, TextFormatFlags.RightToLeft);
                 xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
                 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
                 //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
                 e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin, yPos, flags);
-                count++; count++;
-                yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
-                e.Graphics.DrawString("textSize " + textSize.Width, ford, Brushes.Black, leftMargin, yPos, flags);
+                txtSizeLine1 = textSize;
+
+                line = ord.foods_name;
+                textSize = TextRenderer.MeasureText(line, ford, proposedSize, TextFormatFlags.RightToLeft);
+                if(textSize.Width >= mposC.printBillTextFoodsName)
+                {
+
+                }
+                xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
+                yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+                //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
+                e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin + txtSizeLine1.Width + 2, yPos, flags);
+                txtSizeLine2 = textSize;
+
+                line = ord.qty;
+                textSize = TextRenderer.MeasureText(line, ford, proposedSize, TextFormatFlags.RightToLeft);
+                xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
+                yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+                //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
+                e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin + txtSizeLine1.Width + txtSizeLine2.Width + 2, yPos, flags);
+
+                //textSize = TextRenderer.MeasureText(line, ford, proposedSize, TextFormatFlags.RightToLeft);
+                //xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
+                //yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+                ////e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
+                //e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin, yPos, flags);
+
+                //count++; count++;
+                //yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
+                //e.Graphics.DrawString("textSize " + textSize.Width, ford, Brushes.Black, leftMargin, yPos, flags);
 
                 textSize = TextRenderer.MeasureText(ord.price, ford, proposedSize, TextFormatFlags.RightToLeft);
                 e.Graphics.DrawString(ord.price, ford, Brushes.Black, marginR - textSize.Width - gap - 5, yPos, flags);

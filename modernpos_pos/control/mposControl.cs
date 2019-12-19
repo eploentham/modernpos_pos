@@ -32,7 +32,7 @@ namespace modernpos_pos.control
         public InitConfig iniC;
         private IniFile iniF;
         
-        public int grdViewFontSize = 0, panel1Width=0, takeouttilhorizontalsize=0, takeouttilverticalsize=0, TileFoodstakeouttilhorizontalsize = 0, TileFoodstakeouttilverticalsize = 0;
+        public int grdViewFontSize = 0, panel1Width=0, takeouttilhorizontalsize=0, takeouttilverticalsize=0, TileFoodstakeouttilhorizontalsize = 0, TileFoodstakeouttilverticalsize = 0, printBillTextFoodsName=0;
         public List<Department> lDept;
         public Company cop;
 
@@ -256,6 +256,7 @@ namespace modernpos_pos.control
             iniC.statusPayPriceTogo = iniF.getIni("app", "statusPayPriceTogo");
             iniC.screenFirstFilename = iniF.getIni("app", "screenFirstFilename");
             iniC.grfBillcolBFooName = iniF.getIni("app", "grfBillcolBFooName");
+            iniC.printBillTextFoodsName = iniF.getIni("app", "printBillTextFoodsName");
 
             iniC.TileCategoryColor = iniF.getIni("app", "TileCategoryColor");
             iniC.lcuctakeouttopping1 = iniF.getIni("app", "lcuctakeouttopping1");
@@ -374,6 +375,7 @@ namespace modernpos_pos.control
             iniC.textTogoPay = iniC.textTogoPay != null ? iniC.textTogoPay : "";
             iniC.priceTogoPerBill = iniC.priceTogoPerBill != null ? iniC.priceTogoPerBill : "0";
             iniC.statusPayPriceTogo = iniC.statusPayPriceTogo != null ? iniC.statusPayPriceTogo : "0";
+            iniC.printBillTextFoodsName = iniC.printBillTextFoodsName != null ? iniC.printBillTextFoodsName : "200";
 
             iniC.usePassiveFTP = iniC.usePassiveFTP == null ? "false" : iniC.usePassiveFTP.Equals("") ? "false" : iniC.usePassiveFTP;
             Boolean.TryParse(iniC.usePassiveFTP, out ftpUsePassive);
@@ -381,6 +383,7 @@ namespace modernpos_pos.control
             int.TryParse(iniC.takeouttilverticalsize, out takeouttilverticalsize);
             int.TryParse(iniC.TileFoodstakeouttilhorizontalsize, out TileFoodstakeouttilhorizontalsize);
             int.TryParse(iniC.TileFoodstakeouttilverticalsize, out TileFoodstakeouttilverticalsize);
+            int.TryParse(iniC.printBillTextFoodsName, out printBillTextFoodsName);
             statusApplicationTogo = iniC.statusApplicationTogo.Equals("1") ? true : false;
             Decimal.TryParse(iniC.priceTogoPerBill, out priceTogoPerBill);
         }
