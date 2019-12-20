@@ -226,7 +226,8 @@ namespace modernpos_pos.objdb
             }
             catch (Exception ex)
             {
-                sql = ex.Message + " " + ex.InnerException;
+                //sql = ex.Message + " " + ex.InnerException;
+                new LogFile("OrderSpecialDB -> insert " + ex.Message + " " + ex.InnerException + " \n sql " + sql);
             }
 
             return re;

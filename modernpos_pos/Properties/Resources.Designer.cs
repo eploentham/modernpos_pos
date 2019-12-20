@@ -1273,6 +1273,26 @@ namespace modernpos_pos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Maximun {
+            get {
+                object obj = ResourceManager.GetObject("Maximun", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minimun {
+            get {
+                object obj = ResourceManager.GetObject("minimun", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap minus_cir_red_100 {
             get {
                 object obj = ResourceManager.GetObject("minus_cir_red_100", resourceCulture);

@@ -62,7 +62,7 @@ namespace modernpos_pos.objdb
             bil.status_payment = "status_payment";
 
             bil.pkField = "bill_id";
-            bil.table = "t_order";
+            bil.table = "t_bill";
         }
         public DataTable selectAll()
         {
@@ -278,8 +278,8 @@ namespace modernpos_pos.objdb
             }
             catch (Exception ex)
             {
-                sql = ex.Message + " " + ex.InnerException;
-                new LogFile("Bill -> insert" + ex.Message + " " + ex.InnerException);
+                //sql = ex.Message + " " + ex.InnerException;
+                new LogFile("Bill -> insert " + ex.Message + " " + ex.InnerException+" \n sql "+sql);
             }
 
             return re;

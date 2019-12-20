@@ -581,7 +581,8 @@ namespace modernpos_pos.gui
             picTrah.Size = new System.Drawing.Size(32, 32);
             picTrah.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             picTrah.TabStop = false;
-            picMinus.Image = global::modernpos_pos.Properties.Resources.minus_red;
+            //picMinus.Image = global::modernpos_pos.Properties.Resources.minus_red;
+            picMinus.Image = global::modernpos_pos.Properties.Resources.minimun;
             picMinus.Location = new System.Drawing.Point(241, 8);
             picMinus.Name = "picMinusTopping" + cnt;
             picMinus.Size = new System.Drawing.Size(32, 32);
@@ -597,7 +598,8 @@ namespace modernpos_pos.gui
             lbQty.TabIndex = 12;
             lbQty.Tag = null;
             lbQty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            picPlus.Image = global::modernpos_pos.Properties.Resources.plus_green_100;
+            //picPlus.Image = global::modernpos_pos.Properties.Resources.plus_green_100;
+            picPlus.Image = global::modernpos_pos.Properties.Resources.Maximun;
             picPlus.Location = new System.Drawing.Point(327, 8);
             picPlus.Name = "picPlusTopping" + cnt;
             picPlus.Size = new System.Drawing.Size(32, 32);

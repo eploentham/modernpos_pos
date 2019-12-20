@@ -149,7 +149,7 @@
             // 
             // picMinus
             // 
-            this.picMinus.Image = global::modernpos_pos.Properties.Resources.minus_red;
+            this.picMinus.Image = global::modernpos_pos.Properties.Resources.minimun;
             this.picMinus.Location = new System.Drawing.Point(43, 49);
             this.picMinus.Name = "picMinus";
             this.picMinus.Size = new System.Drawing.Size(32, 32);
@@ -159,7 +159,7 @@
             // 
             // picPlus
             // 
-            this.picPlus.Image = global::modernpos_pos.Properties.Resources.plus_green_100;
+            this.picPlus.Image = global::modernpos_pos.Properties.Resources.Maximun;
             this.picPlus.Location = new System.Drawing.Point(137, 49);
             this.picPlus.Name = "picPlus";
             this.picPlus.Size = new System.Drawing.Size(32, 32);

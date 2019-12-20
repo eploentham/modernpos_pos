@@ -232,7 +232,8 @@ namespace modernpos_pos.objdb
             }
             catch (Exception ex)
             {
-                sql = ex.Message + " " + ex.InnerException;
+                //sql = ex.Message + " " + ex.InnerException;
+                new LogFile("OrderToppingDB -> insert " + ex.Message + " " + ex.InnerException + " \n sql " + sql);
             }
 
             return re;
@@ -270,7 +271,7 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public String insertFoodsSpecial(OrderTopping p, String userId)
+        public String insertFoodsTopping(OrderTopping p, String userId)
         {
             String re = "";
 
@@ -285,7 +286,7 @@ namespace modernpos_pos.objdb
 
             return re;
         }
-        public String voidFoodsSpecial(String foosid, String userId)
+        public String voidFoodsToping(String foosid, String userId)
         {
             String re = "";
             String sql = "";

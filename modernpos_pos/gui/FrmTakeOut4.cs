@@ -26,7 +26,7 @@ namespace modernpos_pos.gui
     public partial class FrmTakeOut4 : Form
     {
         mPOSControl mposC;
-        Font fEdit, fEditB, fEdit1, fgrd, ford, ftxtBig, fPrn;
+        Font fEdit, fEditB, fEdit1, fgrd, ford, ftxtBig, fPrnBil, fPrnOrd;
 
         Color bg, fc, tilecolor, tileFoodsPriceColor, tileFoodsNameColor, tileCatColor;
         Font ff, ffB;
@@ -102,7 +102,8 @@ namespace modernpos_pos.gui
             fgrd = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 15, FontStyle.Regular);
             ford = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Regular);
             ftxtBig = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 35, FontStyle.Regular);
-            fPrn = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 5, FontStyle.Regular);
+            fPrnBil = new Font(mposC.iniC.printBillTextFoodsName, mposC.printBillTextFoodsSize, FontStyle.Regular);
+            fPrnOrd = new Font(mposC.iniC.printOrderTextFoodsName, mposC.printOrderTextFoodsSize, FontStyle.Regular);
 
             C1ThemeController.ApplicationTheme = mposC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
@@ -1446,14 +1447,14 @@ namespace modernpos_pos.gui
             //document.PrinterSettings.PrinterName = ord1.printer_name;
             document.Print();
 
-            document = new PrintDocument();
-            document.PrinterSettings.PrinterName = mposC.iniC.printerOrder;
-            document.PrintPage += new PrintPageEventHandler(printBill_PrintPage);
-            //This is where you set the printer in your case you could use "EPSON USB"
-            //or whatever it is called on your machine, by Default it will choose the default printer
+            //document = new PrintDocument();
+            //document.PrinterSettings.PrinterName = mposC.iniC.printerOrder;
+            //document.PrintPage += new PrintPageEventHandler(printBill_PrintPage);
+            ////This is where you set the printer in your case you could use "EPSON USB"
+            ////or whatever it is called on your machine, by Default it will choose the default printer
 
-            //document.PrinterSettings.PrinterName = ord1.printer_name;
-            document.Print();
+            ////document.PrinterSettings.PrinterName = ord1.printer_name;
+            //document.Print();
         }
         private void printBill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
@@ -1497,7 +1498,7 @@ namespace modernpos_pos.gui
             int newWidth = 100;
             Size proposedSize = new Size(100, 100);
             StringFormat flags = new StringFormat(StringFormatFlags.LineLimit);  //wraps
-            Size textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
+            Size textSize = TextRenderer.MeasureText(line, fPrnBil, proposedSize, TextFormatFlags.RightToLeft);
             Int32 xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             Int32 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
 
@@ -1508,68 +1509,68 @@ namespace modernpos_pos.gui
             e.Graphics.DrawImage(resizedImage, avg - (resizedImage.Width / 2), topMargin);
 
             count++; count++; count++; count++; count++; count++;
-            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrnBil.GetHeight(e.Graphics) + gap);
             line = mposC.res.res_name;
-            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrnBil, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
             //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());leftMargin
-            e.Graphics.DrawString(line, fPrn, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
+            e.Graphics.DrawString(line, fPrnBil, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
 
             count++;
-            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrnBil.GetHeight(e.Graphics) + gap);
             line = mposC.res.receipt_header1;
-            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrnBil, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
             //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
-            e.Graphics.DrawString(line, fPrn, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
+            e.Graphics.DrawString(line, fPrnBil, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
 
             count++;
-            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrnBil.GetHeight(e.Graphics) + gap);
             line = mposC.res.receipt_header2 + " " + que;
-            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrnBil, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
-            e.Graphics.DrawString(line, fPrn, Brushes.Black, leftMargin, yPos, flags);
+            e.Graphics.DrawString(line, fPrnBil, Brushes.Black, leftMargin, yPos, flags);
             //e.Graphics.DrawString(line, fPrn, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
 
             count++;
-            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrnBil.GetHeight(e.Graphics) + gap);
             line = "Staff : Machine VNE1";
-            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrnBil, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
             //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
-            e.Graphics.DrawString(line, fPrn, Brushes.Black, leftMargin, yPos, flags);
+            e.Graphics.DrawString(line, fPrnBil, Brushes.Black, leftMargin, yPos, flags);
 
             count++;
-            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrnBil.GetHeight(e.Graphics) + gap);
             line = "Date :" + System.DateTime.Now.ToString("dd/MM/yyyy hh:mm");
-            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrnBil, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
             //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
-            e.Graphics.DrawString(line, fPrn, Brushes.Black, leftMargin, yPos, flags);
+            e.Graphics.DrawString(line, fPrnBil, Brushes.Black, leftMargin, yPos, flags);
 
-            count++; count++; count++; count++; count++; count++;
-            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
-            line = "GOTO";
-            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
+            count++; count++; //count++; count++; count++; count++;
+            yPos = topMargin + (count * fPrnBil.GetHeight(e.Graphics) + gap);
+            line = mposC.res.receipt_header3;
+            textSize = TextRenderer.MeasureText(line, fPrnBil, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
             //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
-            e.Graphics.DrawString(line, fPrn, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
+            e.Graphics.DrawString(line, fPrnBil, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
 
             count++; count++;
-            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrnBil.GetHeight(e.Graphics) + gap);
             e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, marginR + 300, yPos);
             int i = 1;
             Decimal sumprice = 0, total=0;
             foreach (Order1 ord in lOrd)
             {
                 count++;
-                yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
+                yPos = topMargin + (count * fPrnBil.GetHeight(e.Graphics) + gap);
                 textSize = TextRenderer.MeasureText(ord.foods_name, ford, proposedSize, TextFormatFlags.RightToLeft);
 
                 sumprice = 0;
@@ -1599,7 +1600,7 @@ namespace modernpos_pos.gui
                 e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin + txtSizeLine1.Width + 2, yPos, flags);
                 txtSizeLine2 = textSize;
 
-                line = ord.qty;
+                line = mposC.iniC.printBillCharPlus + " " + ord.qty;
                 textSize = TextRenderer.MeasureText(line, ford, proposedSize, TextFormatFlags.RightToLeft);
                 xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
                 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
@@ -1617,7 +1618,9 @@ namespace modernpos_pos.gui
                 //e.Graphics.DrawString("textSize " + textSize.Width, ford, Brushes.Black, leftMargin, yPos, flags);
 
                 textSize = TextRenderer.MeasureText(ord.price, ford, proposedSize, TextFormatFlags.RightToLeft);
+                //yPos = marginR - textSize.Width - gap - 5;
                 e.Graphics.DrawString(ord.price, ford, Brushes.Black, marginR - textSize.Width - gap - 5, yPos, flags);
+                //new LogFile("FrmTakeOut4 -> printBill_PrintPage yPos " + yPos + " ord.price " + ord.price);
                 if ((ord.special != null) && !ord.special.Equals(""))
                 {
                     String[] txt = ord.special.Split('+');
@@ -1632,52 +1635,84 @@ namespace modernpos_pos.gui
                         e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin, yPos, flags);
                     }
                 }
-                if ((ord.topping != null) && !ord.topping.Equals(""))
+                //if ((ord.topping != null) && !ord.topping.Equals(""))
+                //{
+                //    String[] txt = ord.topping.Split('+');
+                //    foreach (String txt1 in txt)
+                //    {
+                //        count++;
+                //        line = "     " + txt1.Trim();
+                //        yPos = topMargin + (count * ford.GetHeight(e.Graphics) + gap);
+                //        textSize = TextRenderer.MeasureText(line, ford, proposedSize, TextFormatFlags.RightToLeft);
+                //        xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
+                //        yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+                //        e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin, yPos, flags);
+                //    }
+                //}
+                //new LogFile("FrmTakeOut4 -> printBill_PrintPage count " + count +" yPos "+yPos);
+                foreach (OrderTopping ordt in lordt)
                 {
-                    String[] txt = ord.topping.Split('+');
-                    foreach (String txt1 in txt)
+                    String printText = "";
+                    if (ordt.foods_id.Equals(ord1.foods_id) && ordt.status_ok.Equals("1"))
                     {
-                        count++;
-                        line = "     " + txt1.Trim();
-                        yPos = topMargin + (count * ford.GetHeight(e.Graphics) + gap);
-                        textSize = TextRenderer.MeasureText(line, ford, proposedSize, TextFormatFlags.RightToLeft);
-                        xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
-                        yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
-                        e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin, yPos, flags);
+                        decimal price = 0, qty = 0;
+                        if (decimal.TryParse(ordt.price, out price))
+                        {
+
+                        }
+                        if (decimal.TryParse(ordt.qty, out qty))
+                        {
+
+                        }
+                        if (qty > 0)
+                        {
+                            printText = "   " + ordt.name + " " + (price * qty).ToString() + " " + Environment.NewLine;
+                            //total += (price * qty);
+
+                            count++;
+                            line = "     " + printText.Trim();
+                            yPos = topMargin + (count * fPrnBil.GetHeight(e.Graphics) + gap);
+                            textSize = TextRenderer.MeasureText(line, ford, proposedSize, TextFormatFlags.RightToLeft);
+                            xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
+                            yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
+                            e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin, yPos, flags);
+                            //new LogFile("FrmTakeOut4 -> printBill_PrintPage e.Graphics.DrawString yPos " + yPos + " count " + count+ " printText "+ printText);
+                        }
                     }
                 }
-
                 i++;
             }
             count++; count++; count++; 
             //count++; count++;
-            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
+            yPos = topMargin + (count * fPrnBil.GetHeight(e.Graphics) + gap);
             e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, marginR + 300, yPos);
+            
             count++; count++;
             textSize = TextRenderer.MeasureText("Total     " + total.ToString("#,###.00"), ford, proposedSize, TextFormatFlags.RightToLeft);
             e.Graphics.DrawString("Total     "+total.ToString("#,###.00"), ford, Brushes.Black, marginR - textSize.Width - gap - 15, yPos, flags);
+            //new LogFile("FrmTakeOut4 -> printBill_PrintPage e.Graphics.DrawString yPos " + yPos + " count " + count + " Total ");
             count++; count++;
             e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, marginR + 300, yPos);
             e.Graphics.DrawLine(blackPen, leftMargin - 5, yPos, marginR + 300, yPos);
             //e.Graphics.DrawString(total.ToString("#,###.00"), ford, Brushes.Black, leftMargin, yPos, flags);
 
-            count++; count++; count++; count++; count++;
-            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
+            //count++; count++; //count++; count++; count++;
+            yPos = topMargin + (count * fPrnBil.GetHeight(e.Graphics) + gap);
             line = mposC.res.receipt_footer1;
-            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrnBil, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
             //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
-            e.Graphics.DrawString(line, fPrn, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
+            e.Graphics.DrawString(line, fPrnBil, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
 
-            count++; count++;
-            yPos = topMargin + (count * fPrn.GetHeight(e.Graphics) + gap);
+            count++; //count++;
+            yPos = topMargin + (count * fPrnBil.GetHeight(e.Graphics) + gap);
             line = mposC.res.receipt_footer2;
-            textSize = TextRenderer.MeasureText(line, fPrn, proposedSize, TextFormatFlags.RightToLeft);
+            textSize = TextRenderer.MeasureText(line, fPrnBil, proposedSize, TextFormatFlags.RightToLeft);
             xOffset = e.MarginBounds.Right - textSize.Width;  //pad?
             yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
             //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
-            e.Graphics.DrawString(line, fPrn, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
+            e.Graphics.DrawString(line, fPrnBil, Brushes.Black, avg - (textSize.Width / 2), yPos, flags);
         }
         private void printOrder()
         {
@@ -1858,7 +1893,7 @@ namespace modernpos_pos.gui
             stringToPrint += printText;
             stringToPrint += Environment.NewLine;
             stringToPrint += "         จำนวนเงิน " + total.ToString("0.00") + Environment.NewLine;
-            g.DrawString(stringToPrint, new Font("arial", 16), Brush, 10, 10);
+            g.DrawString(stringToPrint, fPrnOrd, Brush, 10, 10);
 
         }
         public void setBtnPay(String pay)
