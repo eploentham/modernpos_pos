@@ -633,6 +633,7 @@ namespace modernpos_pos.gui
             pnCri1.Controls.Add(lbPrice);
             pnCri1.Controls.Add(lbID);
             //Padding padding = pnCri1.Padding;
+            picTrah.Visible = false;
             tpl.Controls.Add(pnCri1, 0, tpl.RowCount++);
         }
 

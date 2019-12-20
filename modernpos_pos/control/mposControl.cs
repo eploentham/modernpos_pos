@@ -257,6 +257,7 @@ namespace modernpos_pos.control
             iniC.screenFirstFilename = iniF.getIni("app", "screenFirstFilename");
             iniC.grfBillcolBFooName = iniF.getIni("app", "grfBillcolBFooName");
             iniC.printBillTextFoodsName = iniF.getIni("app", "printBillTextFoodsName");
+            iniC.printBillCharPlus = iniF.getIni("app", "printBillCharPlus");
 
             iniC.TileCategoryColor = iniF.getIni("app", "TileCategoryColor");
             iniC.lcuctakeouttopping1 = iniF.getIni("app", "lcuctakeouttopping1");
@@ -376,6 +377,7 @@ namespace modernpos_pos.control
             iniC.priceTogoPerBill = iniC.priceTogoPerBill != null ? iniC.priceTogoPerBill : "0";
             iniC.statusPayPriceTogo = iniC.statusPayPriceTogo != null ? iniC.statusPayPriceTogo : "0";
             iniC.printBillTextFoodsName = iniC.printBillTextFoodsName != null ? iniC.printBillTextFoodsName : "200";
+            iniC.printBillCharPlus = iniC.printBillCharPlus != null ? iniC.printBillCharPlus : "";
 
             iniC.usePassiveFTP = iniC.usePassiveFTP == null ? "false" : iniC.usePassiveFTP.Equals("") ? "false" : iniC.usePassiveFTP;
             Boolean.TryParse(iniC.usePassiveFTP, out ftpUsePassive);

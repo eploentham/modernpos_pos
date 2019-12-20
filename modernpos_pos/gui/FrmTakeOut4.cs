@@ -1736,12 +1736,12 @@ namespace modernpos_pos.gui
             String date = "";
             date = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
             String amt = "";
-            Decimal amt1 = 0;
+            Decimal total = 0;
             try
             {
                 //amt = grf[grf.Rows.Count - 1, colPrice].ToString();
                 amt = ord1.price;
-                Decimal.TryParse(amt, out amt1);
+                Decimal.TryParse(amt, out total);
 
                 //lbAmt.Text = "จำนวนเงินต้องชำระ " + amt1.ToString("0.00");
             }
@@ -1783,7 +1783,7 @@ namespace modernpos_pos.gui
             }
             else
             {
-                printText += (row) + "[" + lOrd.Count + "]  " + ord1.foods_name + "  " + ord1.qty + Environment.NewLine;
+                printText += (row) + "[" + lOrd.Count + "]  " + ord1.foods_name + " "+mposC.iniC.printBillCharPlus+" " + ord1.qty + Environment.NewLine;
             }
 
             foreach(OrderTopping ordt in lordt)
@@ -1799,7 +1799,11 @@ namespace modernpos_pos.gui
                     {
 
                     }
-                    printText += "   " + ordt.name + " " + (price * qty).ToString() + " " + Environment.NewLine;
+                    if (qty > 0)
+                    {
+                        printText += "   " + ordt.name + " " + (price * qty).ToString() + " " + Environment.NewLine;
+                        total += (price * qty);
+                    }
                 }
             }
             foreach (OrderSpecial ords in lords)
@@ -1853,7 +1857,7 @@ namespace modernpos_pos.gui
 
             stringToPrint += printText;
             stringToPrint += Environment.NewLine;
-            stringToPrint += "         จำนวนเงิน " + amt1.ToString("0.00") + Environment.NewLine;
+            stringToPrint += "         จำนวนเงิน " + total.ToString("0.00") + Environment.NewLine;
             g.DrawString(stringToPrint, new Font("arial", 16), Brush, 10, 10);
 
         }
