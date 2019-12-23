@@ -1043,6 +1043,33 @@ namespace modernpos_pos.gui
                         ord.table_id = mposC.tableidToGo;
                         String re = mposC.mposDB.ordDB.insertOrder(ord, "");
                         row.order_id = re;
+                        int i = 1;
+                        foreach(OrderTopping ordt in lordt)
+                        {
+                            if (ordt.foods_id.Equals(ord.foods_id))
+                            {
+                                Decimal qty = 0;
+                                Decimal.TryParse(ordt.qty, out qty);
+                                if (qty > 0)
+                                {
+                                    ordt.order_id = re;
+                                    String re1 = mposC.mposDB.ordtDB.insertFoodsTopping(ordt, "");
+                                    i++;
+                                }
+                            }
+                        }
+                        foreach (OrderSpecial ords in lords)
+                        {
+                            if (ords.foods_id.Equals(ord.foods_id))
+                            {
+                                if (ords.status_ok.Equals("1"))
+                                {
+                                    ords.order_id = re;
+                                    String re1 = mposC.mposDB.ordSpecDB.insertFoodsSpecial(ords, "");
+                                    i++;
+                                }
+                            }
+                        }
                     }
                     long chk1 = 0;
                     if (long.TryParse(lotid, out chk1))
@@ -1102,6 +1129,8 @@ namespace modernpos_pos.gui
             lbAmtText.Text = txtAmt;
             savePayment();
             billCheck();
+            //lordt.Clear();
+            //lords.Clear();
             //billCheck();
         }
         private void savePayment()
@@ -1218,6 +1247,8 @@ namespace modernpos_pos.gui
                         if (mposC.statusVNEPaysuccess.Equals("1"))
                         {
                             lOrd.Clear();
+                            lordt.Clear();
+                            lords.Clear();
                             //grfOrder.Dispose();
                             //initGrfOrder();
                             tplOrd.Dispose();
@@ -1251,6 +1282,8 @@ namespace modernpos_pos.gui
                 if (mposC.statusVNEPaysuccess.Equals("1"))
                 {
                     lOrd.Clear();
+                    lordt.Clear();
+                    lords.Clear();
                     tplOrd.Dispose();
                     initTlpOrder();
                     btnPay.Text = "";
@@ -1655,7 +1688,10 @@ namespace modernpos_pos.gui
                 foreach (OrderTopping ordt in lordt)
                 {
                     String printText = "";
-                    if (ordt.foods_id.Equals(ord.foods_id) && ordt.status_ok.Equals("1"))
+
+                    //if (ordt.foods_id.Equals(ord.foods_id) && ordt.status_ok.Equals("1"))
+                    if (ordt.foods_id.Equals(ord1.foods_id))
+
                     {
                         decimal price = 0, qty = 0;
                         if (decimal.TryParse(ordt.price, out price))

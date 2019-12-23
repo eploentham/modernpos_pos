@@ -87,6 +87,8 @@ namespace modernpos_pos.objdb
             matddDB = new MaterialDrawDetailDB(conn);
             stkDB = new StockCardDB(conn);
             cldDB = new CloseDayDB(conn);
+            ordtDB = new OrderToppingDB(conn);
+            ordSpecDB = new OrderSpecialDB(conn);
             //MessageBox.Show("mPosDB end ", "");
             Console.WriteLine("mPosDB end");
         }

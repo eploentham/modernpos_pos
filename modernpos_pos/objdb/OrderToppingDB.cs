@@ -11,7 +11,7 @@ namespace modernpos_pos.objdb
 {
     public class OrderToppingDB
     {
-        public OrderTopping foos;
+        public OrderTopping foot;
         ConnectDB conn;
         public List<OrderTopping> lfooC;
 
@@ -23,37 +23,37 @@ namespace modernpos_pos.objdb
         private void initConfig()
         {
             lfooC = new List<OrderTopping>();
-            foos = new OrderTopping();
-            foos.order_topping_id = "order_topping_id";
-            foos.order_id = "order_id";
-            foos.foods_topping_id = "foods_topping_id";
-            foos.active = "active";
-            foos.remark = "remark";
-            foos.row1 = "row1";
-            foos.date_cancel = "date_cancel";
-            foos.date_create = "date_create";
-            foos.date_modi = "date_modi";
-            foos.user_cancel = "user_cancel";
-            foos.user_create = "user_create";
-            foos.user_modi = "user_modi";
-            foos.host_id = "host_id";
-            foos.branch_id = "branch_id";
-            foos.device_id = "device_id";
-            foos.qty = "qty";
-            foos.price = "price";
+            foot = new OrderTopping();
+            foot.order_topping_id = "order_topping_id";
+            foot.order_id = "order_id";
+            foot.foods_topping_id = "foods_topping_id";
+            foot.active = "active";
+            foot.remark = "remark";
+            foot.row1 = "row1";
+            foot.date_cancel = "date_cancel";
+            foot.date_create = "date_create";
+            foot.date_modi = "date_modi";
+            foot.user_cancel = "user_cancel";
+            foot.user_create = "user_create";
+            foot.user_modi = "user_modi";
+            foot.host_id = "host_id";
+            foot.branch_id = "branch_id";
+            foot.device_id = "device_id";
+            foot.qty = "qty";
+            foot.price = "price";
             //foos.status_aircondition = "status_aircondition";
 
-            foos.pkField = "order_topping_id";
-            foos.table = "t_order_topping";
+            foot.pkField = "order_topping_id";
+            foot.table = "t_order_topping";
         }
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
             String sql = "select foos.*  " +
-                "From " + foos.table + " foos " +
+                "From " + foot.table + " foos " +
                 " " +
-                "Where foos." + foos.active + " ='1' " +
-                "Order By foos." + foos.order_topping_id;
+                "Where foos." + foot.active + " ='1' " +
+                "Order By foos." + foot.order_topping_id;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -62,39 +62,39 @@ namespace modernpos_pos.objdb
         {
             DataTable dt = new DataTable();
             String sql = "select foos.* " +
-                "From " + foos.table + " foos " +
+                "From " + foot.table + " foos " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where foos." + foos.pkField + " ='" + copId + "' ";
+                "Where foos." + foot.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
         public DataTable selectByFoodsId(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select foos." + foos.order_id + ",foos." + foos.foods_topping_id +
-                " From " + foos.table + " foos " +
+            String sql = "select foos." + foot.order_id + ",foos." + foot.foods_topping_id +
+                " From " + foot.table + " foos " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where foos." + foos.order_id + " ='" + copId + "' and foos." + foos.active + "='1' ";
+                "Where foos." + foot.order_id + " ='" + copId + "' and foos." + foot.active + "='1' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
         public DataTable selectByFoodsId1(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select foos." + foos.order_id + ",'' as img,foos." + foos.foods_topping_id +
-                " From " + foos.table + " foos " +
+            String sql = "select foos." + foot.order_id + ",'' as img,foos." + foot.foods_topping_id +
+                " From " + foot.table + " foos " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where foos." + foos.order_id + " ='" + copId + "' and foos." + foos.active + "='1' ";
+                "Where foos." + foot.order_id + " ='" + copId + "' and foos." + foot.active + "='1' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
         public DataTable selectByFoodsId2(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select foos." + foos.order_topping_id + ",'' as img,foos." + foos.foods_topping_id +
-                " From " + foos.table + " foos " +
+            String sql = "select foos." + foot.order_topping_id + ",'' as img,foos." + foot.foods_topping_id +
+                " From " + foot.table + " foos " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where foos." + foos.order_id + " ='" + copId + "' and foos." + foos.active + "='1' ";
+                "Where foos." + foot.order_id + " ='" + copId + "' and foos." + foot.active + "='1' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -103,9 +103,9 @@ namespace modernpos_pos.objdb
             OrderTopping cop1 = new OrderTopping();
             DataTable dt = new DataTable();
             String sql = "select sex.* " +
-                "From " + foos.table + " sex " +
+                "From " + foot.table + " sex " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where sex." + foos.pkField + " ='" + copId + "' ";
+                "Where sex." + foot.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setFoodsSpecial(dt);
             return cop1;
@@ -115,8 +115,8 @@ namespace modernpos_pos.objdb
             OrderTopping dept1 = new OrderTopping();
             if (dt.Rows.Count > 0)
             {
-                dept1.order_topping_id = dt.Rows[0][foos.order_topping_id].ToString();
-                dept1.foods_topping_id = dt.Rows[0][foos.foods_topping_id].ToString();
+                dept1.order_topping_id = dt.Rows[0][foot.order_topping_id].ToString();
+                dept1.foods_topping_id = dt.Rows[0][foot.foods_topping_id].ToString();
             }
 
             return dept1;
@@ -124,10 +124,10 @@ namespace modernpos_pos.objdb
         public DataTable selectC1()
         {
             DataTable dt = new DataTable();
-            String sql = "select sex." + foos.pkField + ",sex." + foos.foods_topping_id + " " +
-                "From " + foos.table + " sex " +
+            String sql = "select sex." + foot.pkField + ",sex." + foot.foods_topping_id + " " +
+                "From " + foot.table + " sex " +
                 " " +
-                "Where sex." + foos.active + " ='1' ";
+                "Where sex." + foot.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -141,8 +141,8 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 OrderTopping itm1 = new OrderTopping();
-                itm1.order_topping_id = row[foos.order_topping_id].ToString();
-                itm1.foods_topping_id = row[foos.foods_topping_id].ToString();
+                itm1.order_topping_id = row[foot.order_topping_id].ToString();
+                itm1.foods_topping_id = row[foot.foods_topping_id].ToString();
 
                 lfooC1.Add(itm1);
             }
@@ -157,8 +157,8 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 OrderTopping itm1 = new OrderTopping();
-                itm1.order_topping_id = row[foos.order_topping_id].ToString();
-                itm1.foods_topping_id = row[foos.foods_topping_id].ToString();
+                itm1.order_topping_id = row[foot.order_topping_id].ToString();
+                itm1.foods_topping_id = row[foot.foods_topping_id].ToString();
 
                 lfooC.Add(itm1);
             }
@@ -212,19 +212,19 @@ namespace modernpos_pos.objdb
             int chk = 0;
 
             chkNull(p);
-            sql = "Insert Into " + foos.table + " set " +
-                " " + foos.order_id + " = '" + p.order_id + "'" +
-                "," + foos.foods_topping_id + " = '" + p.foods_topping_id.Replace("'", "''") + "'" +
-                "," + foos.remark + " = '" + p.remark.Replace("'", "''") + "'" +
-                "," + foos.date_create + " = now()" +
-                "," + foos.active + " = '1'" +
-                "," + foos.user_create + " = '" + userId + "' " +
-                "," + foos.host_id + " = '" + p.host_id + "' " +
-                "," + foos.branch_id + " = '" + p.branch_id + "' " +
-                "," + foos.device_id + " = '" + p.device_id + "' " +
-                "," + foos.row1 + " = '" + p.row1 + "' " +
-                "," + foos.qty + " = '" + p.qty + "' " +
-                "," + foos.price + " = '" + p.price + "' " +
+            sql = "Insert Into " + foot.table + " set " +
+                " " + foot.order_id + " = '" + p.order_id + "'" +
+                "," + foot.foods_topping_id + " = '" + p.foods_topping_id.Replace("'", "''") + "'" +
+                "," + foot.remark + " = '" + p.remark.Replace("'", "''") + "'" +
+                "," + foot.date_create + " = now()" +
+                "," + foot.active + " = '1'" +
+                "," + foot.user_create + " = '" + userId + "' " +
+                "," + foot.host_id + " = '" + p.host_id + "' " +
+                "," + foot.branch_id + " = '" + p.branch_id + "' " +
+                "," + foot.device_id + " = '" + p.device_id + "' " +
+                "," + foot.row1 + " = '" + p.row1 + "' " +
+                "," + foot.qty + " = '" + p.qty + "' " +
+                "," + foot.price + " = '" + p.price + "' " +
                 " ";
             try
             {
@@ -245,19 +245,19 @@ namespace modernpos_pos.objdb
             int chk = 0;
 
             chkNull(p);
-            sql = "Update " + foos.table + " Set " +
-                " " + foos.order_id + " = '" + p.order_id + "'" +
-                "," + foos.foods_topping_id + " = '" + p.foods_topping_id.Replace("'", "''") + "'" +
-                "," + foos.remark + " = '" + p.remark.Replace("'", "''") + "'" +
-                "," + foos.date_modi + " = now()" +
-                "," + foos.user_modi + " = '" + userId + "' " +
-                "," + foos.host_id + " = '" + p.host_id + "' " +
-                "," + foos.branch_id + " = '" + p.branch_id + "' " +
-                "," + foos.device_id + " = '" + p.device_id + "' " +
-                "," + foos.row1 + " = '" + p.row1 + "' " +
-                "," + foos.qty + " = '" + p.qty + "' " +
-                "," + foos.price + " = '" + p.price + "' " +
-                "Where " + foos.pkField + "='" + p.order_topping_id + "'"
+            sql = "Update " + foot.table + " Set " +
+                " " + foot.order_id + " = '" + p.order_id + "'" +
+                "," + foot.foods_topping_id + " = '" + p.foods_topping_id.Replace("'", "''") + "'" +
+                "," + foot.remark + " = '" + p.remark.Replace("'", "''") + "'" +
+                "," + foot.date_modi + " = now()" +
+                "," + foot.user_modi + " = '" + userId + "' " +
+                "," + foot.host_id + " = '" + p.host_id + "' " +
+                "," + foot.branch_id + " = '" + p.branch_id + "' " +
+                "," + foot.device_id + " = '" + p.device_id + "' " +
+                "," + foot.row1 + " = '" + p.row1 + "' " +
+                "," + foot.qty + " = '" + p.qty + "' " +
+                "," + foot.price + " = '" + p.price + "' " +
+                "Where " + foot.pkField + "='" + p.order_topping_id + "'"
                 ;
 
             try
@@ -292,11 +292,11 @@ namespace modernpos_pos.objdb
             String sql = "";
             int chk = 0;
 
-            sql = "Update " + foos.table + " Set " +
-                " " + foos.active + " = '3'" +
-                "," + foos.date_cancel + " = now()" +
-                "," + foos.user_modi + " = '" + userId + "' " +
-                "Where " + foos.pkField + "='" + foosid + "'"
+            sql = "Update " + foot.table + " Set " +
+                " " + foot.active + " = '3'" +
+                "," + foot.date_cancel + " = now()" +
+                "," + foot.user_modi + " = '" + userId + "' " +
+                "Where " + foot.pkField + "='" + foosid + "'"
                 ;
             try
             {
@@ -323,8 +323,8 @@ namespace modernpos_pos.objdb
             foreach (DataRow row in dt.Rows)
             {
                 item = new ComboBoxItem();
-                item.Text = row[foos.foods_topping_id].ToString();
-                item.Value = row[foos.order_topping_id].ToString();
+                item.Text = row[foot.foods_topping_id].ToString();
+                item.Value = row[foot.order_topping_id].ToString();
 
                 c.Items.Add(item);
             }
@@ -363,22 +363,22 @@ namespace modernpos_pos.objdb
             OrderTopping dept1 = new OrderTopping();
             if (dt.Rows.Count > 0)
             {
-                dept1.order_topping_id = dt.Rows[0][foos.order_topping_id].ToString();
-                dept1.order_id = dt.Rows[0][foos.order_id].ToString();
-                dept1.foods_topping_id = dt.Rows[0][foos.foods_topping_id].ToString();
+                dept1.order_topping_id = dt.Rows[0][foot.order_topping_id].ToString();
+                dept1.order_id = dt.Rows[0][foot.order_id].ToString();
+                dept1.foods_topping_id = dt.Rows[0][foot.foods_topping_id].ToString();
                 //dept1.posi_name_e = dt.Rows[0][area.posi_name_e] != null ? dt.Rows[0][area.posi_name_e].ToString() : "";
                 //dept1.status_doctor = dt.Rows[0][area.status_doctor] != null ? dt.Rows[0][area.status_doctor].ToString() : "";
-                dept1.remark = dt.Rows[0][foos.remark] != null ? dt.Rows[0][foos.remark].ToString() : "";
-                dept1.date_create = dt.Rows[0][foos.date_create] != null ? dt.Rows[0][foos.date_create].ToString() : "";
-                dept1.date_modi = dt.Rows[0][foos.date_modi] != null ? dt.Rows[0][foos.date_modi].ToString() : "";
-                dept1.date_cancel = dt.Rows[0][foos.date_cancel] != null ? dt.Rows[0][foos.date_cancel].ToString() : "";
-                dept1.user_create = dt.Rows[0][foos.user_create] != null ? dt.Rows[0][foos.user_create].ToString() : "";
-                dept1.user_modi = dt.Rows[0][foos.user_modi] != null ? dt.Rows[0][foos.user_modi].ToString() : "";
-                dept1.user_cancel = dt.Rows[0][foos.user_cancel] != null ? dt.Rows[0][foos.user_cancel].ToString() : "";
-                dept1.active = dt.Rows[0][foos.active] != null ? dt.Rows[0][foos.active].ToString() : "";
-                dept1.row1 = dt.Rows[0][foos.row1] != null ? dt.Rows[0][foos.row1].ToString() : "";
-                dept1.qty = dt.Rows[0][foos.qty] != null ? dt.Rows[0][foos.qty].ToString() : "";
-                dept1.price = dt.Rows[0][foos.price] != null ? dt.Rows[0][foos.price].ToString() : "";
+                dept1.remark = dt.Rows[0][foot.remark] != null ? dt.Rows[0][foot.remark].ToString() : "";
+                dept1.date_create = dt.Rows[0][foot.date_create] != null ? dt.Rows[0][foot.date_create].ToString() : "";
+                dept1.date_modi = dt.Rows[0][foot.date_modi] != null ? dt.Rows[0][foot.date_modi].ToString() : "";
+                dept1.date_cancel = dt.Rows[0][foot.date_cancel] != null ? dt.Rows[0][foot.date_cancel].ToString() : "";
+                dept1.user_create = dt.Rows[0][foot.user_create] != null ? dt.Rows[0][foot.user_create].ToString() : "";
+                dept1.user_modi = dt.Rows[0][foot.user_modi] != null ? dt.Rows[0][foot.user_modi].ToString() : "";
+                dept1.user_cancel = dt.Rows[0][foot.user_cancel] != null ? dt.Rows[0][foot.user_cancel].ToString() : "";
+                dept1.active = dt.Rows[0][foot.active] != null ? dt.Rows[0][foot.active].ToString() : "";
+                dept1.row1 = dt.Rows[0][foot.row1] != null ? dt.Rows[0][foot.row1].ToString() : "";
+                dept1.qty = dt.Rows[0][foot.qty] != null ? dt.Rows[0][foot.qty].ToString() : "";
+                dept1.price = dt.Rows[0][foot.price] != null ? dt.Rows[0][foot.price].ToString() : "";
                 //dept1.status_aircondition = dt.Rows[0][foos.status_aircondition] != null ? dt.Rows[0][foos.status_aircondition].ToString() : "";
             }
             else
