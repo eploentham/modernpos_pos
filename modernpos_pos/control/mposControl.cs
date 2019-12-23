@@ -36,7 +36,7 @@ namespace modernpos_pos.control
         public List<Department> lDept;
         public Company cop;
 
-        public String userId = "";
+        public String userId = "", statusProgram="";
         public String copID = "", jobID = "", cusID = "", addrID = "", contID = "", cusrID = "", custID = "", stfID = "", deptID = "", posiID = "", drawID = "";
         public String rContactName = "", rContacTel = "", rContID = "", userIderc = "", statusVNEPaysuccess="", pnOrderborderstyle="";
 

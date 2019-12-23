@@ -64,6 +64,9 @@ namespace modernpos_pos.objdb
             res.printer_bill_print_top = "printer_bill_print_top";
             res.printer_bill_print_left = "printer_bill_print_left";
             res.printer_bill_print_right = "printer_bill_print_right";
+            res.printer_bill_print_right = "printer_bill_print_right";
+            res.status_print_order = "status_print_order";
+
             res.pkField = "res_id";
             res.table = "b_restaurant";
         }
@@ -194,6 +197,7 @@ namespace modernpos_pos.objdb
             p.printer_waterbar1 = p.printer_waterbar1 == null ? "" : p.printer_waterbar1;
             p.printer_waterbar2 = p.printer_waterbar2 == null ? "" : p.printer_waterbar2;
             p.printer_waterbar3 = p.printer_waterbar3 == null ? "" : p.printer_waterbar3;
+            p.status_print_order = p.status_print_order == null ? "" : p.status_print_order;
 
             p.host_id = long.TryParse(p.host_id, out chk) ? chk.ToString() : "0";
             p.branch_id = long.TryParse(p.branch_id, out chk) ? chk.ToString() : "0";
@@ -242,6 +246,7 @@ namespace modernpos_pos.objdb
                 "," + res.receipt_footer3 + " = '" + p.receipt_footer3.Replace("'", "''") + "' " +
                 "," + res.receipt_header3 + " = '" + p.receipt_header3.Replace("'", "''") + "' " +
                 "," + res.cop_id + " = '" + p.cop_id + "' " +
+                "," + res.status_print_order + " = '" + p.status_print_order + "' " +
                 " ";
             try
             {
@@ -287,6 +292,7 @@ namespace modernpos_pos.objdb
                 "," + res.receipt_header3 + " = '" + p.receipt_header3 + "' " +
                 "," + res.receipt_footer2 + " = '" + p.receipt_footer2 + "' " +
                 "," + res.cop_id + " = '" + p.cop_id + "' " +
+                "," + res.status_print_order + " = '" + p.status_print_order + "' " +
 
                 "Where " + res.pkField + "='" + p.res_id + "'"
                 ;
@@ -443,6 +449,7 @@ namespace modernpos_pos.objdb
                 dept1.printer_bill_print_top = dt.Rows[0][res.printer_bill_print_top] != null ? dt.Rows[0][res.printer_bill_print_top].ToString() : "";
                 dept1.printer_bill_print_left = dt.Rows[0][res.printer_bill_print_left] != null ? dt.Rows[0][res.printer_bill_print_left].ToString() : "";
                 dept1.printer_bill_print_right = dt.Rows[0][res.printer_bill_print_right] != null ? dt.Rows[0][res.printer_bill_print_right].ToString() : "";
+                dept1.status_print_order = dt.Rows[0][res.status_print_order] != null ? dt.Rows[0][res.status_print_order].ToString() : "";
                 //MessageBox.Show("setRestaurant 33", "");
             }
             else
@@ -483,6 +490,7 @@ namespace modernpos_pos.objdb
                 dept1.printer_bill_print_left = "";
                 dept1.printer_bill_print_right = "";
                 dept1.receipt_footer2 = "";
+                dept1.status_print_order = "";
             }
             //MessageBox.Show("setRestaurant End", "");
             return dept1;

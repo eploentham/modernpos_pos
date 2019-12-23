@@ -87,6 +87,7 @@ namespace modernpos_pos.gui
         private string _tip = "";
         String testdebug = "debug", que = "";
         TableLayoutPanel tplOrd;
+        List<Order1> ordPrn = new List<Order1>();
         public FrmTakeOut4(mPOSControl x, Form frmmain)
         {
             InitializeComponent();
@@ -1605,7 +1606,7 @@ namespace modernpos_pos.gui
                 xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
                 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
                 //e.Graphics.DrawString(line, fPrn, Brushes.Black, xOffset, yPos, new StringFormat());
-                e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin + txtSizeLine1.Width + txtSizeLine2.Width + 2, yPos, flags);
+                e.Graphics.DrawString(line, ford, Brushes.Black, leftMargin + txtSizeLine1.Width + txtSizeLine2.Width + 4, yPos, flags);
 
                 //textSize = TextRenderer.MeasureText(line, ford, proposedSize, TextFormatFlags.RightToLeft);
                 //xOffset = int.Parse(marginR.ToString()) - textSize.Width;  //pad?
@@ -1619,7 +1620,8 @@ namespace modernpos_pos.gui
 
                 textSize = TextRenderer.MeasureText(ord.price, ford, proposedSize, TextFormatFlags.RightToLeft);
                 //yPos = marginR - textSize.Width - gap - 5;
-                e.Graphics.DrawString(ord.price, ford, Brushes.Black, marginR - textSize.Width - gap - 5, yPos, flags);
+                //e.Graphics.DrawString(ord.price, ford, Brushes.Black, marginR - textSize.Width - gap - 5, yPos, flags);
+                e.Graphics.DrawString(ord.sumPrice, ford, Brushes.Black, marginR - textSize.Width - gap - 5, yPos, flags);
                 //new LogFile("FrmTakeOut4 -> printBill_PrintPage yPos " + yPos + " ord.price " + ord.price);
                 if ((ord.special != null) && !ord.special.Equals(""))
                 {
@@ -1653,7 +1655,7 @@ namespace modernpos_pos.gui
                 foreach (OrderTopping ordt in lordt)
                 {
                     String printText = "";
-                    if (ordt.foods_id.Equals(ord1.foods_id) && ordt.status_ok.Equals("1"))
+                    if (ordt.foods_id.Equals(ord.foods_id) && ordt.status_ok.Equals("1"))
                     {
                         decimal price = 0, qty = 0;
                         if (decimal.TryParse(ordt.price, out price))
@@ -1720,6 +1722,167 @@ namespace modernpos_pos.gui
             iprn = 1;
             que = "";
             que = mposC.mposDB.copDB.genQueue1Doc();
+            if (mposC.res.status_print_order.Equals("2"))
+            {
+                printOrderCutByStation();
+            }
+            else
+            {
+                printOrderCutByOrder();
+            }
+        }
+        private void printOrderCutByStation()
+        {
+            List<String> station = new List<string>();
+            String printerold = "";
+            foreach (Order1 ord in lOrd)
+            {
+                if (!ord.printer_name.Equals(printerold))
+                {
+                    printerold = ord.printer_name;
+                    if (station.Count == 0)
+                    {
+                        station.Add(ord.printer_name);
+                    }
+                    else
+                    {
+                        foreach (String aaa in station)
+                        {
+                            if (!ord.printer_name.Equals(aaa))
+                            {
+                                station.Add(ord.printer_name);
+                            }
+                        }
+                    }
+                }
+            }
+            foreach(String stat in station)
+            {
+                ordPrn.Clear();
+                foreach (Order1 ord in lOrd)
+                {
+                    if (ord.printer_name.Equals(stat))
+                    {
+                        ordPrn.Add(ord);
+                    }
+                }
+                if (ordPrn.Count > 0)
+                {
+                    PrintDocument document = new PrintDocument();
+                    if (stat.Length == 0)
+                    {
+                        //MessageBox.Show("ไม่ได้ตั้งชื่อ Printer Order", "");
+                        continue;
+                    }
+                    document.PrinterSettings.PrinterName = stat;
+                    document.PrintPage += new PrintPageEventHandler(printOrderCutByStation_PrintPage);
+                    document.Print();
+                    Application.DoEvents();
+                }
+            }
+        }
+        private void printOrderCutByStation_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            //This part sets up the data to be printed
+            Graphics g = e.Graphics;
+            SolidBrush Brush = new SolidBrush(Color.Black);
+            //gets the text from the textbox
+            String stringToPrint = "";
+            string printText = "";
+
+            String date = "";
+            date = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
+            
+
+            //que = mposC.mposDB.copDB.genQueue1Doc();
+            stringToPrint = que + Environment.NewLine;
+            stringToPrint += "เวลา " + date + Environment.NewLine;
+
+            foreach(Order1 ord2 in ordPrn)
+            {
+                String amt = "";
+                Decimal total = 0;
+                try
+                {
+                    //amt = grf[grf.Rows.Count - 1, colPrice].ToString();
+                    amt = ord2.sumPrice;
+                    Decimal.TryParse(amt, out total);
+
+                    //lbAmt.Text = "จำนวนเงินต้องชำระ " + amt1.ToString("0.00");
+                }
+                catch (Exception ex)
+                {
+
+                }
+                String name = "";
+                name = ord2.foods_name;
+                //ord2.special = ord2.special == null ? "" : ord2.special;
+                //ord2.topping = ord2.topping == null ? "" : ord2.topping;
+                int row = 0;
+                int.TryParse(ord2.row1, out row);
+                //int.TryParse(lOrd.Count, out cnt);
+                //printText += iprn.ToString() + "  " + ord2.foods_name + "  " + ord2.qty + Environment.NewLine;
+                if (ord2.status_create.Equals("1"))
+                {
+                    if (ord2.foods_name.IndexOf("เพิ่ม") >= 0)
+                    {
+                        String temp1 = ord2.foods_name.Substring(0, ord2.foods_name.IndexOf("เพิ่ม")).Trim();
+                        printText += (row) + "[" + lOrd.Count + "]  " + temp1 + Environment.NewLine;
+
+                        String temp2 = (ord2.foods_name.Substring(ord2.foods_name.IndexOf("เพิ่ม")).Trim()).Replace("เพิ่ม", "").Trim();
+                        String[] temp22 = temp2.Split(' ');
+                        if (temp2.Length > 0)
+                        {
+                            printText += "       เพิ่ม" + Environment.NewLine;
+                            foreach (String temp222 in temp22)
+                            {
+                                printText += "       " + temp222.Trim() + Environment.NewLine;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    printText += (row) + "[" + lOrd.Count + "]  " + ord2.foods_name + " " + mposC.iniC.printBillCharPlus + " " + ord2.qty + Environment.NewLine;
+                }
+
+                foreach (OrderTopping ordt in lordt)
+                {
+                    if (ordt.foods_id.Equals(ord2.foods_id) && ordt.status_ok.Equals("1"))
+                    {
+                        decimal price = 0, qty = 0;
+                        if (decimal.TryParse(ordt.price, out price))
+                        {
+
+                        }
+                        if (decimal.TryParse(ordt.qty, out qty))
+                        {
+
+                        }
+                        if (qty > 0)
+                        {
+                            printText += "   " + ordt.name + " " + (price * qty).ToString() + " " + Environment.NewLine;
+                            total += (price * qty);
+                        }
+                    }
+                }
+                foreach (OrderSpecial ords in lords)
+                {
+                    if (ords.foods_id.Equals(ord2.foods_id) && ords.status_ok.Equals("1"))
+                    {
+                        printText += "   " + ords.name + Environment.NewLine;
+                    }
+                }
+                printText += "          " + ord2.remark + Environment.NewLine;
+
+                stringToPrint += printText;
+                stringToPrint += Environment.NewLine;
+                stringToPrint += "         จำนวนเงิน " + total.ToString("0.00") + Environment.NewLine;
+                g.DrawString(stringToPrint, fPrnOrd, Brush, 10, 10);
+            }
+        }
+        private void printOrderCutByOrder()
+        {
             foreach (Order1 ord in lOrd)
             {
                 //String printername = "";
@@ -1750,7 +1913,7 @@ namespace modernpos_pos.gui
                     }
                     catch (Exception ex)
                     {
-                        new LogFile("er "+ ex.Message);
+                        new LogFile("er " + ex.Message);
                     }
                 }
                 else
@@ -1775,7 +1938,7 @@ namespace modernpos_pos.gui
             try
             {
                 //amt = grf[grf.Rows.Count - 1, colPrice].ToString();
-                amt = ord1.price;
+                amt = ord1.sumPrice;
                 Decimal.TryParse(amt, out total);
 
                 //lbAmt.Text = "จำนวนเงินต้องชำระ " + amt1.ToString("0.00");

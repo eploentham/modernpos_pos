@@ -120,7 +120,7 @@ namespace modernpos_pos.gui
             setControl();
             sizeNormal = this.Size;
             statusTogo = false;
-            if (!mposC.statusApplicationTogo)
+            if (!mposC.statusApplicationTogo)       // seat in
             {
                 picTogo.Hide();
             }

@@ -294,3 +294,9 @@ ADD COLUMN `status_payment` VARCHAR(45) NULL DEFAULT 0 COMMENT '0=default, 1=cas
 ALTER TABLE `onsoon`.`b_foods` 
 ADD COLUMN `price_plus_togo` DECIMAL(17,2) NULL AFTER `status_create`;
 
+
+
+
+ALTER TABLE `onsoon`.`b_restaurant` 
+ADD COLUMN `status_print_order` VARCHAR(45) NULL DEFAULT 0 COMMENT '0=default; 1=cut per order; 2=cut per printer or station' AFTER `receipt_footer5`;
+
