@@ -197,7 +197,7 @@ namespace modernpos_pos.gui
             btnBillCheck.Click += BtnBillCheck_Click;
             btnVoidPay.Click += BtnVoidPay_Click;
             this.FormClosed += FrmTakeOut4_FormClosed;
-            btnBack.Click += BtnBack_Click1;
+            //btnBack.Click += BtnBack_Click1;
 
             imgR = Resources.red_checkmark_png_16;
             //MessageBox.Show("FrmTakeOut initConfig", "");
@@ -226,12 +226,6 @@ namespace modernpos_pos.gui
             setListBox1Show(false);
         }
 
-        private void BtnBack_Click1(object sender, EventArgs e)
-        {
-            //throw new NotImplementedException();
-            voidBill();
-        }
-
         private void BtnCash_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -247,6 +241,7 @@ namespace modernpos_pos.gui
         private void BtnBack_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            voidBill();
             tCMain.SelectedTab = tabOrder;
         }
         private void setListBox1Show(Boolean flag)
@@ -1690,7 +1685,7 @@ namespace modernpos_pos.gui
                     String printText = "";
 
                     //if (ordt.foods_id.Equals(ord.foods_id) && ordt.status_ok.Equals("1"))
-                    if (ordt.foods_id.Equals(ord1.foods_id))
+                    if (ordt.foods_id.Equals(ord.foods_id))
 
                     {
                         decimal price = 0, qty = 0;
@@ -1833,11 +1828,11 @@ namespace modernpos_pos.gui
             //que = mposC.mposDB.copDB.genQueue1Doc();
             stringToPrint = que + Environment.NewLine;
             stringToPrint += "เวลา " + date + Environment.NewLine;
-
-            foreach(Order1 ord2 in ordPrn)
+            Decimal total = 0;
+            foreach (Order1 ord2 in ordPrn)
             {
                 String amt = "";
-                Decimal total = 0;
+                
                 try
                 {
                     //amt = grf[grf.Rows.Count - 1, colPrice].ToString();
@@ -1911,11 +1906,13 @@ namespace modernpos_pos.gui
                 }
                 printText += "          " + ord2.remark + Environment.NewLine;
 
-                stringToPrint += printText;
-                stringToPrint += Environment.NewLine;
-                stringToPrint += "         จำนวนเงิน " + total.ToString("0.00") + Environment.NewLine;
-                g.DrawString(stringToPrint, fPrnOrd, Brush, 10, 10);
+                //stringToPrint += printText;
+                //stringToPrint += Environment.NewLine;
+                
             }
+            printText += "         จำนวนเงิน " + total.ToString("0.00") + Environment.NewLine;
+            stringToPrint += printText;
+            g.DrawString(stringToPrint, fPrnOrd, Brush, 10, 10);
         }
         private void printOrderCutByOrder()
         {
