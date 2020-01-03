@@ -1828,7 +1828,7 @@ namespace modernpos_pos.gui
             //que = mposC.mposDB.copDB.genQueue1Doc();
             stringToPrint = que + Environment.NewLine;
             stringToPrint += "เวลา " + date + Environment.NewLine;
-            Decimal total = 0;
+            Decimal total = 0, amt1=0;
             foreach (Order1 ord2 in ordPrn)
             {
                 String amt = "";
@@ -1837,8 +1837,8 @@ namespace modernpos_pos.gui
                 {
                     //amt = grf[grf.Rows.Count - 1, colPrice].ToString();
                     amt = ord2.sumPrice;
-                    Decimal.TryParse(amt, out total);
-
+                    Decimal.TryParse(amt, out amt1);
+                    total += amt1;
                     //lbAmt.Text = "จำนวนเงินต้องชำระ " + amt1.ToString("0.00");
                 }
                 catch (Exception ex)
