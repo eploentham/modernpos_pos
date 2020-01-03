@@ -1685,8 +1685,9 @@ namespace modernpos_pos.gui
                     String printText = "";
 
                     //if (ordt.foods_id.Equals(ord.foods_id) && ordt.status_ok.Equals("1"))
-                    if (ordt.foods_id.Equals(ord.foods_id))
-
+                    int roword = 0;
+                    int.TryParse(ordt.row_ord, out roword);
+                    if (ordt.foods_id.Equals(ord.foods_id) && ordt.status_ok.Equals("1") && roword == (i - 1))
                     {
                         decimal price = 0, qty = 0;
                         if (decimal.TryParse(ordt.price, out price))
@@ -1823,10 +1824,18 @@ namespace modernpos_pos.gui
 
             String date = "";
             date = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
-            
+
 
             //que = mposC.mposDB.copDB.genQueue1Doc();
-            stringToPrint = que + Environment.NewLine;
+            if (mposC.statusApplicationTogo)
+            {
+                stringToPrint = que + "[ToGo]" + Environment.NewLine;
+            }
+            else
+            {
+                stringToPrint = que + Environment.NewLine;
+            }
+            
             stringToPrint += "เวลา " + date + Environment.NewLine;
             Decimal total = 0, amt1=0;
             foreach (Order1 ord2 in ordPrn)
@@ -1879,7 +1888,7 @@ namespace modernpos_pos.gui
 
                 foreach (OrderTopping ordt in lordt)
                 {
-                    int chkrow = 0, roword = 0;
+                    int roword = 0;
                     int.TryParse(ordt.row_ord, out roword);
                     //int.TryParse(row1, out chkrow);
                     if (ordt.foods_id.Equals(ord2.foods_id) && ordt.status_ok.Equals("1") && roword == (row - 1))
@@ -1896,7 +1905,7 @@ namespace modernpos_pos.gui
                         if (qty > 0)
                         {
                             printText += "   " + ordt.name + " " + (price * qty).ToString() + " " + Environment.NewLine;
-                            total += (price * qty);
+                            //total += (price * qty);
                         }
                     }
                 }
