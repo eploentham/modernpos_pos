@@ -1879,7 +1879,10 @@ namespace modernpos_pos.gui
 
                 foreach (OrderTopping ordt in lordt)
                 {
-                    if (ordt.foods_id.Equals(ord2.foods_id) && ordt.status_ok.Equals("1"))
+                    int chkrow = 0, roword = 0;
+                    int.TryParse(ordt.row_ord, out roword);
+                    //int.TryParse(row1, out chkrow);
+                    if (ordt.foods_id.Equals(ord2.foods_id) && ordt.status_ok.Equals("1") && roword == (row - 1))
                     {
                         decimal price = 0, qty = 0;
                         if (decimal.TryParse(ordt.price, out price))

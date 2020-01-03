@@ -316,6 +316,7 @@ namespace modernpos_pos.gui
                 ordt.name = foot.foods_topping_name;
                 ordt.foods_id = foot.foods_id;
                 ordt.status_ok = "";
+                ordt.row_ord = this.row;
                 lordt.Add(ordt);
                 cnt++;
                 i2++;
@@ -346,6 +347,7 @@ namespace modernpos_pos.gui
                 ords.name = foot.foods_spec_name;
                 ords.foods_id = foot.foods_id;
                 ords.status_ok = "";
+                ords.row_ord = this.row;
                 lords.Add(ords);
                 i1++;
                 cnt++;
@@ -675,7 +677,10 @@ namespace modernpos_pos.gui
             }
             foreach (OrderTopping ordt in lordt)
             {
-                if (ordt.foods_topping_id.Equals(lbID.Text))
+                int chkrow = 0, roword=0;
+                int.TryParse(ordt.row_ord, out roword);
+                int.TryParse(this.row, out chkrow);
+                if (ordt.foods_topping_id.Equals(lbID.Text) && roword == (chkrow-1))
                 {
                     ordt.status_ok = "1";
                     ordt.qty = lbQtyTopping.Text;

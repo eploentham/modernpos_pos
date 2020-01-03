@@ -17,5 +17,6 @@ namespace modernpos_pos.object1
         public String price { get; set; }
         public String name { get; set; }
         public String foods_id { get; set; }
+        public String row_ord { get; set; }
     }
 }
