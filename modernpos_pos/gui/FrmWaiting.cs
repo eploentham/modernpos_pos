@@ -1,4 +1,5 @@
-﻿using modernpos_pos.Properties;
+﻿using modernpos_pos.object1;
+using modernpos_pos.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -17,10 +18,12 @@ namespace modernpos_pos.gui
         PictureBox pic;
         public FrmWaiting()
         {
+            //new LogFile("w FrmWaiting start");
             initConfig();
         }
         private void initConfig()
         {
+            //new LogFile("w FrmWaiting initConfig");
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.BackColor = Color.White;
@@ -46,6 +49,7 @@ namespace modernpos_pos.gui
             panel1.Controls.Add(pB);
             panel1.Controls.Add(lb);
             panel1.Controls.Add(pic);
+            //new LogFile("w FrmWaiting initConfig end");
         }
     }
 }

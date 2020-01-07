@@ -382,7 +382,7 @@ namespace modernpos_pos
             tC.SelectedTab = tab3;
             //lbDonate2.Text = "บริจากเงินให้กับ 2222222";
             //pic32.Size = new Size(100, 100);
-            pic3Donate.Image = Resources.siph_11;
+            //pic3Donate.Image = Resources.siph_11;
             donatename = " ช่วยเหลือผู้ป่วยยากไร้ โรงพยาบาลศิริราช";
         }
 
@@ -392,7 +392,7 @@ namespace modernpos_pos
             tC.SelectedTab = tab3;
             //lbDonate2.Text = "บริจากเงินให้กับ 2222222";
             pic32.Size = new Size(100, 100);
-            pic3Donate.Image = Resources.siph_10;
+            //pic3Donate.Image = Resources.siph_10;
             donatename = " เพื่อสร้างอาคารนวมินทรบพิตร 84 พรรษา";
         }
 
@@ -797,9 +797,9 @@ namespace modernpos_pos
             Int32 yOffset = e.MarginBounds.Bottom - textSize.Height;  //pad?
 
             Image resizedImage;
-            int originalWidth = Resources.siph2.Width;
+            int originalWidth = Resources.save.Width;
             int newWidth = 100;
-            resizedImage = Resources.siph2.GetThumbnailImage(newWidth, (newWidth * Resources.siph2.Height) / originalWidth, null, IntPtr.Zero);
+            resizedImage = Resources.save.GetThumbnailImage(newWidth, (newWidth * Resources.save.Height) / originalWidth, null, IntPtr.Zero);
 
             //e.Graphics.DrawImage(Resources.siph2, avg - (Resources.siph2.Width / 2), topMargin);
             e.Graphics.DrawImage(resizedImage, avg - (resizedImage.Width / 2), topMargin);

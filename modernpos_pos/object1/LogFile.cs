@@ -55,7 +55,8 @@ namespace modernpos_pos.object1
                 //DateTime.Now.ToLongDateString());
                 //txtWriter.WriteLine("  :");
                 //txtWriter.WriteLine("  :{0}", logMessage);
-                txtWriter.WriteLine(logMessage);
+                //txtWriter.WriteLine(logMessage);
+                txtWriter.WriteLine("{0} {1}", DateTime.Now.ToShortDateString(), "#" + DateTime.Now.ToShortTimeString() + "#" + logMessage);
                 //txtWriter.WriteLine("-------------------------------");
             }
             catch (Exception ex)

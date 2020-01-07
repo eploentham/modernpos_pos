@@ -90,7 +90,7 @@ namespace modernpos_pos.control
             sStf = new Staff();
             cop = new Company();
             res = new Restaurant();
-
+            //new LogFile("w mPOSControl initConfig ");
             GetConfig();
             setListColor();
             conn = new ConnectDB(iniC);
@@ -98,7 +98,7 @@ namespace modernpos_pos.control
             ftpC = new FtpClient(iniC.hostFTP, iniC.userFTP, iniC.passFTP, ftpUsePassive);
             //MessageBox.Show("mPOSControl after ftpC", "");
             //ivfDB = new IvfDB(conn);
-
+            //new LogFile("w mPOSControl initConfig 1");
             cTxtFocus = ColorTranslator.FromHtml(iniC.txtFocus);
             if (iniC.statusAppToGo.Equals("1"))
             {
@@ -108,10 +108,12 @@ namespace modernpos_pos.control
             {
                 theme = iniC.themeApplication;
             }
+            //new LogFile("w mPOSControl initConfig 1");
             using (StreamReader s = new StreamReader("header.html"))
             {
                 txtHeader = s.ReadToEnd();
             }
+            //new LogFile("w mPOSControl initConfig 2");
         }
         private void setListColor()
         {
@@ -146,21 +148,28 @@ namespace modernpos_pos.control
         public void getInit()
         {
             //MessageBox.Show("mPOSControl getInit", "");
+            //new LogFile("w mPOSControl getInit  1");
             mposDB.sexDB.getlSex();
             //MessageBox.Show("mPOSControl getInit 1", "");
+            //new LogFile("w mPOSControl getInit  2");
             cop = mposDB.copDB.selectByCode1("001");
             //MessageBox.Show("mPOSControl getInit 2", "");
+            //new LogFile("w mPOSControl getInit  3");
             res = mposDB.resDB.selectByDefault();
             //MessageBox.Show("mPOSControl getInit 3", "");
+            //new LogFile("w mPOSControl getInit  4");
             tableidToGo = mposDB.tblDB.selectIdByToGo();
             //MessageBox.Show("mPOSControl getInit middle", "");
+            //new LogFile("w mPOSControl getInit  5");
             _IPAddress = GetLocalIPAddress();
             MACAddress = GetMACAddress();
             conn._IPAddress = _IPAddress;
             //MessageBox.Show("mPOSControl getInit end", "");
+            //new LogFile("w mPOSControl getInit  6");
         }
         public void GetConfig()
         {
+            //new LogFile("w mPOSControl GetConfig 1");
             iniC.hostDB = iniF.getIni("connection", "hostDB");
             iniC.nameDB = iniF.getIni("connection", "nameDB");
             iniC.userDB = iniF.getIni("connection", "userDB");
@@ -182,7 +191,7 @@ namespace modernpos_pos.control
 
             iniC.grdViewFontSize = iniF.getIni("app", "grdViewFontSize");
             iniC.grdViewFontName = iniF.getIni("app", "grdViewFontName");
-
+            //new LogFile("w mPOSControl GetConfig 2");
             iniC.txtFocus = iniF.getIni("app", "txtFocus");
             iniC.grfRowColor = iniF.getIni("app", "grfRowColor");
             iniC.statusAppToGo = iniF.getIni("app", "statusAppToGo");
@@ -220,7 +229,7 @@ namespace modernpos_pos.control
             iniC.printerOrder = iniF.getIni("app", "printerOrder");
             iniC.scFoodsWidth = iniF.getIni("app", "scFoodsWidth");
             iniC.statusApplicationTogo = iniF.getIni("app", "statusApplicationTogo");
-
+            //new LogFile("w mPOSControl GetConfig 3");
             iniC.VNEip = iniF.getIni("VNE", "VNEip");
             iniC.VNEwebapi = iniF.getIni("VNE", "VNEwebapi");
             iniC.VNEtimer = iniF.getIni("VNE", "VNEtimer");
@@ -261,7 +270,7 @@ namespace modernpos_pos.control
             iniC.printBillTextFoodsSize = iniF.getIni("app", "printBillTextFoodsSize");
             iniC.printOrderTextFoodsSize = iniF.getIni("app", "printOrderTextFoodsSize");
             iniC.printOrderTextFoodsName = iniF.getIni("app", "printOrderTextFoodsName");
-
+            //new LogFile("w mPOSControl GetConfig 4");
             iniC.TileCategoryColor = iniF.getIni("app", "TileCategoryColor");
             iniC.lcuctakeouttopping1 = iniF.getIni("app", "lcuctakeouttopping1");
             iniC.lcuctakeouttopping2 = iniF.getIni("app", "lcuctakeouttopping2");
@@ -307,7 +316,7 @@ namespace modernpos_pos.control
             iniC.noodlemakepn8t = iniF.getIni("app", "noodlemakepn8t");
             iniC.noodlemakepn8g = iniF.getIni("app", "noodlemakepn8g");
             iniC.noodlemakepn8l = iniF.getIni("app", "noodlemakepn8l");
-
+            //new LogFile("w mPOSControl GetConfig 5");
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
 
             iniC.sticker_donor_takeout_panel1 = iniC.sticker_donor_takeout_panel1.Equals("") ? "120" : iniC.sticker_donor_takeout_panel1;
@@ -335,7 +344,7 @@ namespace modernpos_pos.control
             iniC.userFTP = iniC.userFTP == null ? "" : iniC.userFTP;
             iniC.passFTP = iniC.passFTP == null ? "" : iniC.passFTP;
             iniC.portFTP = iniC.portFTP == null ? "" : iniC.portFTP;
-
+            //new LogFile("w mPOSControl GetConfig 6");
             iniC.themeApplication = iniC.themeApplication == null ? "Office2007Blue" : iniC.themeApplication.Equals("") ? "Office2007Blue" : iniC.themeApplication;
             iniC.themeDonor = iniC.themeDonor == null ? "Office2007Blue" : iniC.themeDonor.Equals("") ? "Office2007Blue" : iniC.themeDonor;
             iniC.themeDonor1 = iniC.themeDonor1 == null ? "MacBlue" : iniC.themeDonor1.Equals("") ? "MacBlue" : iniC.themeDonor1;
@@ -356,7 +365,7 @@ namespace modernpos_pos.control
             iniC.statusHide = iniC.statusHide != null ? iniC.statusHide : "0";
             iniC.statusDrinkHide = iniC.statusDrinkHide != null ? iniC.statusDrinkHide : "0";
             iniC.TileFoodsCatOrientation = iniC.TileFoodsCatOrientation != null ? iniC.TileFoodsCatOrientation : "0";
-
+            //new LogFile("w mPOSControl GetConfig 7");
             iniC.tabFoodsAlign = iniC.tabFoodsAlign != null ? iniC.tabFoodsAlign : "0";
             iniC.tabFoodsAreaSpacing = iniC.tabFoodsAreaSpacing != null ? iniC.tabFoodsAreaSpacing : "2";
             iniC.tabFoodsIndent = iniC.tabFoodsIndent != null ? iniC.tabFoodsIndent : "3";
@@ -384,7 +393,7 @@ namespace modernpos_pos.control
             iniC.printBillTextFoodsSize = iniC.printBillTextFoodsSize.Equals("") ? "10" : iniC.printBillTextFoodsSize;
             iniC.printOrderTextFoodsSize = iniC.printOrderTextFoodsSize.Equals("") ? "10" : iniC.printOrderTextFoodsSize;
             iniC.printOrderTextFoodsName = iniC.printOrderTextFoodsName.Equals("") ? "Microsoft Sans Serif" : iniC.printOrderTextFoodsName;
-
+            //new LogFile("w mPOSControl GetConfig 8");
             iniC.usePassiveFTP = iniC.usePassiveFTP == null ? "false" : iniC.usePassiveFTP.Equals("") ? "false" : iniC.usePassiveFTP;
             Boolean.TryParse(iniC.usePassiveFTP, out ftpUsePassive);
             int.TryParse(iniC.takeouttilhorizontalsize, out takeouttilhorizontalsize);
@@ -396,6 +405,20 @@ namespace modernpos_pos.control
             int.TryParse(iniC.printOrderTextFoodsSize, out printOrderTextFoodsSize);
             statusApplicationTogo = iniC.statusApplicationTogo.Equals("1") ? true : false;
             Decimal.TryParse(iniC.priceTogoPerBill, out priceTogoPerBill);
+            //new LogFile("w mPOSControl GetConfig 9");
+        }
+        public void setCboYear(C1ComboBox cbo)
+        {
+            cbo.Items.Add(System.DateTime.Now.Year);
+            cbo.Items.Add(System.DateTime.Now.Year-1);
+            cbo.Items.Add(System.DateTime.Now.Year-2);
+            cbo.Items.Add(System.DateTime.Now.Year-3);
+            cbo.Items.Add(System.DateTime.Now.Year-4);
+            cbo.Items.Add(System.DateTime.Now.Year - 5);
+            cbo.Items.Add(System.DateTime.Now.Year - 6);
+            cbo.SelectedIndex = 0;
+
+            //cbo.Text = cbo.Items[0].ToString();
         }
         public String datetoDB(String dt)
         {

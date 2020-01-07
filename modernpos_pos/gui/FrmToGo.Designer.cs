@@ -91,7 +91,7 @@
             // picAds
             // 
             this.picAds.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picAds.Image = global::modernpos_pos.Properties.Resources.banner_1;
+            this.picAds.Image = global::modernpos_pos.Properties.Resources.button_1;
             this.picAds.Location = new System.Drawing.Point(3, 3);
             this.picAds.Name = "picAds";
             this.picAds.Size = new System.Drawing.Size(864, 490);

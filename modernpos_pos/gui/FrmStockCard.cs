@@ -55,6 +55,8 @@ namespace modernpos_pos.gui
             theme1.SetTheme(cboYear, mposC.iniC.themeApplication);
             theme1.SetTheme(label7, mposC.iniC.themeApplication);
 
+            mposC.setCboYear(cboYear);
+
             tabOnhand = new C1DockingTabPage();
             tabOnhand.Location = new System.Drawing.Point(1, 24);
             //tabScan.Name = "c1DockingTabPage1";
@@ -183,6 +185,19 @@ namespace modernpos_pos.gui
         }
         private void setGrfOnhand()
         {
+            FrmWaiting frmW = new FrmWaiting();
+            frmW.Show();
+
+            long chk = 0;
+            String re = "";
+            re = mposC.mposDB.matDB.genStock();
+            if (long.TryParse(re, out chk))
+            {
+                //btnDoc.Enabled = false;
+                //MessageBox.Show("gen stock เรียบร้อย", "");
+                //mposC.mposDB.matrdDB.voidMatr(txtMatrId.Text, "");
+            }
+
             grfOrder.Clear();
             DataTable dt = new DataTable();
             dt = mposC.mposDB.matDB.selectAll();
@@ -240,7 +255,8 @@ namespace modernpos_pos.gui
             grfOrder.Cols[colName].AllowEditing = false;
             grfOrder.Cols[colPrice].AllowEditing = false;
             grfOrder.Cols[colWeight].AllowEditing = true;
-            
+
+            frmW.Dispose();
             //theme1.SetTheme(grfFinish, ic.theme);
         }
         private void FrmStockCard_Load(object sender, EventArgs e)

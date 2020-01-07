@@ -90,13 +90,16 @@ namespace modernpos_pos.gui
         List<Order1> ordPrn = new List<Order1>();
         public FrmTakeOut4(mPOSControl x, Form frmmain)
         {
+            //new LogFile("w FrmTakeOut4 start");
             InitializeComponent();
+            //new LogFile("w FrmTakeOut4 initConfig");
             mposC = x;
             this.frmmain = frmmain;
             initConfig();
         }
         private void initConfig()
         {
+            //new LogFile("w initConfig start");
             fEdit = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 5, FontStyle.Regular);
             fEditB = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Bold);
             fEdit1 = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 5, FontStyle.Regular + 2);
@@ -121,109 +124,113 @@ namespace modernpos_pos.gui
             //theme1.SetTheme(btnVoidPay, "Office2013Red");
             try
             {
+                //new LogFile("w initConfig");
                 tilecolor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsBackColor);
                 tileFoodsPriceColor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsPriceColor);
                 tileFoodsNameColor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsNameColor);
                 tileCatColor = ColorTranslator.FromHtml(mposC.iniC.TileCategoryColor);
+
+                bg = txtTableCode.BackColor;
+                fc = txtTableCode.ForeColor;
+                ff = txtTableCode.Font;
+                //MessageBox.Show("FrmTakeOut initConfig 2", "");
+                lfooT = new List<Foods>();
+                lfooR = new List<Foods>();
+                lOrd = new List<Order1>();
+                lFoos = new List<FoodsSpecial>();
+                lFoot = new List<FoodsTopping>();
+                lordt = new List<OrderTopping>();
+                lords = new List<OrderSpecial>();
+                foo = new Foods();
+                ord = new Order1();
+                lfooT = mposC.mposDB.fooDB.getlFoods1();
+                lfooR = mposC.mposDB.fooDB.getlFoodsRecommend();
+                imgMinus = Resources.minus_red_100;
+                imgPlus = Resources.plus_green_100;
+                imgArrowDown = Resources.arrow_down_100;
+                imgAdd = Resources.minus_cir_red_100;
+                imgThumb = Resources.recycle_bin_50;
+                int originalWidth = imgMinus.Width;
+                int newWidth = 25;
+                imgMinus = imgMinus.GetThumbnailImage(newWidth, (newWidth * imgMinus.Height) / originalWidth, null, IntPtr.Zero);
+                originalWidth = imgPlus.Width;
+                imgPlus = imgPlus.GetThumbnailImage(newWidth, (newWidth * imgPlus.Height) / originalWidth, null, IntPtr.Zero);
+                originalWidth = imgArrowDown.Width;
+                imgArrowDown = imgArrowDown.GetThumbnailImage(newWidth, (newWidth * imgArrowDown.Height) / originalWidth, null, IntPtr.Zero);
+                //originalWidth = imgAdd.Width;
+                //imgAdd = imgAdd.GetThumbnailImage(newWidth, (newWid
+                if (mposC.iniC.pnOrderborderstyle.Equals("0"))
+                {
+                    pnOrderMain.BorderStyle = BorderStyle.None;
+                }
+                else if (mposC.iniC.pnOrderborderstyle.Equals("1"))
+                {
+                    pnOrderMain.BorderStyle = BorderStyle.Fixed3D;
+                }
+                else if (mposC.iniC.pnOrderborderstyle.Equals("2"))
+                {
+                    pnOrderMain.BorderStyle = BorderStyle.FixedSingle;
+                }
+                dtCat = mposC.mposDB.foocDB.selectAll();
+                dtRec = mposC.mposDB.foocDB.selectAll();
+
+                if (int.TryParse(mposC.iniC.VNEtimer, out VNEtimer))
+                {
+                    VNEtimer = VNEtimer * 1000;
+                }
+                else
+                {
+                    VNEtimer = 5000;
+                }
+                //new LogFile("w initConfig VNEtimer");
+                timerVNE = new Timer();
+                timerVNE.Interval = VNEtimer;
+                timerVNE.Tick += TimerVNE_Tick;
+                timerVNE.Enabled = false;
+
+                btnPay.Click += BtnPay_Click;
+                //btnCash.Click += BtnCash_Click;
+                //btnSpec.Click += BtnSpec_Click;
+                //btnReturn.Click += BtnReturn_Click;
+                btnBack.Click += BtnBack_Click;
+
+                btnBillCheck.Click += BtnBillCheck_Click;
+                btnVoidPay.Click += BtnVoidPay_Click;
+                this.FormClosed += FrmTakeOut4_FormClosed;
+                //btnBack.Click += BtnBack_Click1;
+
+                imgR = Resources.red_checkmark_png_16;
+                //MessageBox.Show("FrmTakeOut initConfig", "");
+                TileFoods = new C1TileControl[dtCat.Rows.Count + 1];
+                TileCat = new C1TileControl();
+                //initTempFlicker();
+                initTlpOrder();
+                initTileCategory();
+                //initTileCategory();
+                //setTileCategory();
+                initTileFoods();
+                setTileFoods();
+                indexTile = 0;
+                scFoodsItem.Controls.Add(TileFoods[indexTile]);
+                //setTileFoodsRecommendDefault();
+                //initTC();
+                //initSpec();
+                //initTopping();
+                initGrfBill();
+                //initGrfTopping();
+
+                pnOrdBill.Height = 100;
+                flagModi = false;
+                setBtnEnable(flagModi);
+                this.FormBorderStyle = FormBorderStyle.None;
+                setListBox1Show(false);
             }
             catch (Exception ex)
             {
-
+                new LogFile("er " + ex.Message);
             }
 
-            bg = txtTableCode.BackColor;
-            fc = txtTableCode.ForeColor;
-            ff = txtTableCode.Font;
-            //MessageBox.Show("FrmTakeOut initConfig 2", "");
-            lfooT = new List<Foods>();
-            lfooR = new List<Foods>();
-            lOrd = new List<Order1>();
-            lFoos = new List<FoodsSpecial>();
-            lFoot = new List<FoodsTopping>();
-            lordt = new List<OrderTopping>();
-            lords = new List<OrderSpecial>();
-            foo = new Foods();
-            ord = new Order1();
-            lfooT = mposC.mposDB.fooDB.getlFoods1();
-            lfooR = mposC.mposDB.fooDB.getlFoodsRecommend();
-            imgMinus = Resources.minus_red_100;
-            imgPlus = Resources.plus_green_100;
-            imgArrowDown = Resources.arrow_down_100;
-            imgAdd = Resources.minus_cir_red_100;
-            imgThumb = Resources.recycle_bin_50;
-            int originalWidth = imgMinus.Width;
-            int newWidth = 25;
-            imgMinus = imgMinus.GetThumbnailImage(newWidth, (newWidth * imgMinus.Height) / originalWidth, null, IntPtr.Zero);
-            originalWidth = imgPlus.Width;
-            imgPlus = imgPlus.GetThumbnailImage(newWidth, (newWidth * imgPlus.Height) / originalWidth, null, IntPtr.Zero);
-            originalWidth = imgArrowDown.Width;
-            imgArrowDown = imgArrowDown.GetThumbnailImage(newWidth, (newWidth * imgArrowDown.Height) / originalWidth, null, IntPtr.Zero);
-            //originalWidth = imgAdd.Width;
-            //imgAdd = imgAdd.GetThumbnailImage(newWidth, (newWid
-            if (mposC.iniC.pnOrderborderstyle.Equals("0"))
-            {
-                pnOrderMain.BorderStyle = BorderStyle.None;
-            }
-            else if (mposC.iniC.pnOrderborderstyle.Equals("1"))
-            {
-                pnOrderMain.BorderStyle = BorderStyle.Fixed3D;
-            }
-            else if (mposC.iniC.pnOrderborderstyle.Equals("2"))
-            {
-                pnOrderMain.BorderStyle = BorderStyle.FixedSingle;
-            }
-            dtCat = mposC.mposDB.foocDB.selectAll();
-            dtRec = mposC.mposDB.foocDB.selectAll();
-
-            if (int.TryParse(mposC.iniC.VNEtimer, out VNEtimer))
-            {
-                VNEtimer = VNEtimer * 1000;
-            }
-            else
-            {
-                VNEtimer = 5000;
-            }
-            timerVNE = new Timer();
-            timerVNE.Interval = VNEtimer;
-            timerVNE.Tick += TimerVNE_Tick;
-            timerVNE.Enabled = false;
-
-            btnPay.Click += BtnPay_Click;
-            //btnCash.Click += BtnCash_Click;
-            //btnSpec.Click += BtnSpec_Click;
-            //btnReturn.Click += BtnReturn_Click;
-            btnBack.Click += BtnBack_Click;
-
-            btnBillCheck.Click += BtnBillCheck_Click;
-            btnVoidPay.Click += BtnVoidPay_Click;
-            this.FormClosed += FrmTakeOut4_FormClosed;
-            //btnBack.Click += BtnBack_Click1;
-
-            imgR = Resources.red_checkmark_png_16;
-            //MessageBox.Show("FrmTakeOut initConfig", "");
-            TileFoods = new C1TileControl[dtCat.Rows.Count + 1];
-            TileCat = new C1TileControl();
-            //initTempFlicker();
-            initTlpOrder();
-            initTileCategory();
-            //initTileCategory();
-            //setTileCategory();
-            initTileFoods();
-            setTileFoods();
-            indexTile = 0;
-            scFoodsItem.Controls.Add(TileFoods[indexTile]);
-            //setTileFoodsRecommendDefault();
-            //initTC();
-            //initSpec();
-            //initTopping();
-            initGrfBill();
-            //initGrfTopping();
-
-            pnOrdBill.Height = 100;
-            flagModi = false;
-            setBtnEnable(flagModi);
-            this.FormBorderStyle = FormBorderStyle.None;
-            setListBox1Show(false);
+            
         }
 
         private void BtnCash_Click(object sender, EventArgs e)

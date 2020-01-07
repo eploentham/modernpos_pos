@@ -671,6 +671,9 @@
     <EmbeddedResource Include="gui\FrmUnit.resx">
       <DependentUpon>FrmUnit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmWaiting.resx">
+      <DependentUpon>FrmWaiting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\ucOrderTakeOut.resx">
       <DependentUpon>ucOrderTakeOut.cs</DependentUpon>
     </EmbeddedResource>

@@ -262,7 +262,7 @@
             // btnDonate1
             // 
             this.btnDonate1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonate1.Image = global::modernpos_pos.Properties.Resources.siph_6;
+            this.btnDonate1.Image = global::modernpos_pos.Properties.Resources.save;
             this.btnDonate1.Location = new System.Drawing.Point(101, 150);
             this.btnDonate1.Name = "btnDonate1";
             this.btnDonate1.Size = new System.Drawing.Size(1347, 470);
@@ -303,7 +303,7 @@
             // btnDonate12
             // 
             this.btnDonate12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonate12.Image = global::modernpos_pos.Properties.Resources.siph_3;
+            this.btnDonate12.Image = global::modernpos_pos.Properties.Resources.save;
             this.btnDonate12.Location = new System.Drawing.Point(713, 384);
             this.btnDonate12.Name = "btnDonate12";
             this.btnDonate12.Size = new System.Drawing.Size(626, 381);
@@ -315,7 +315,7 @@
             // btnDonate11
             // 
             this.btnDonate11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonate11.Image = global::modernpos_pos.Properties.Resources.siph_10;
+            this.btnDonate11.Image = global::modernpos_pos.Properties.Resources.save;
             this.btnDonate11.Location = new System.Drawing.Point(6, 384);
             this.btnDonate11.Name = "btnDonate11";
             this.btnDonate11.Size = new System.Drawing.Size(626, 381);
@@ -338,7 +338,7 @@
             // 
             // pic23
             // 
-            this.pic23.Image = global::modernpos_pos.Properties.Resources.siph_9;
+            this.pic23.Image = global::modernpos_pos.Properties.Resources.save;
             this.pic23.Location = new System.Drawing.Point(826, 159);
             this.pic23.Name = "pic23";
             this.pic23.Size = new System.Drawing.Size(77, 77);
@@ -348,7 +348,7 @@
             // 
             // pic22
             // 
-            this.pic22.Image = global::modernpos_pos.Properties.Resources.siph_8;
+            this.pic22.Image = global::modernpos_pos.Properties.Resources.save;
             this.pic22.Location = new System.Drawing.Point(713, 159);
             this.pic22.Name = "pic22";
             this.pic22.Size = new System.Drawing.Size(77, 77);
@@ -358,7 +358,7 @@
             // 
             // pic21
             // 
-            this.pic21.Image = global::modernpos_pos.Properties.Resources.siph_7;
+            this.pic21.Image = global::modernpos_pos.Properties.Resources.save;
             this.pic21.Location = new System.Drawing.Point(577, 159);
             this.pic21.Name = "pic21";
             this.pic21.Size = new System.Drawing.Size(100, 100);
@@ -448,7 +448,7 @@
             // 
             // pic33
             // 
-            this.pic33.Image = global::modernpos_pos.Properties.Resources.siph_9;
+            this.pic33.Image = global::modernpos_pos.Properties.Resources.save;
             this.pic33.Location = new System.Drawing.Point(826, 159);
             this.pic33.Name = "pic33";
             this.pic33.Size = new System.Drawing.Size(77, 77);
@@ -458,7 +458,7 @@
             // 
             // pic32
             // 
-            this.pic32.Image = global::modernpos_pos.Properties.Resources.siph_8;
+            this.pic32.Image = global::modernpos_pos.Properties.Resources.save;
             this.pic32.Location = new System.Drawing.Point(713, 159);
             this.pic32.Name = "pic32";
             this.pic32.Size = new System.Drawing.Size(100, 100);
@@ -468,7 +468,7 @@
             // 
             // pic31
             // 
-            this.pic31.Image = global::modernpos_pos.Properties.Resources.siph_7;
+            this.pic31.Image = global::modernpos_pos.Properties.Resources.save;
             this.pic31.Location = new System.Drawing.Point(600, 159);
             this.pic31.Name = "pic31";
             this.pic31.Size = new System.Drawing.Size(77, 77);
@@ -899,7 +899,7 @@
             // 
             // pic43
             // 
-            this.pic43.Image = global::modernpos_pos.Properties.Resources.siph_9;
+            this.pic43.Image = global::modernpos_pos.Properties.Resources.save;
             this.pic43.Location = new System.Drawing.Point(826, 159);
             this.pic43.Name = "pic43";
             this.pic43.Size = new System.Drawing.Size(100, 100);
@@ -909,7 +909,7 @@
             // 
             // pic42
             // 
-            this.pic42.Image = global::modernpos_pos.Properties.Resources.siph_8;
+            this.pic42.Image = global::modernpos_pos.Properties.Resources.save;
             this.pic42.Location = new System.Drawing.Point(713, 159);
             this.pic42.Name = "pic42";
             this.pic42.Size = new System.Drawing.Size(77, 77);
@@ -919,7 +919,7 @@
             // 
             // pic41
             // 
-            this.pic41.Image = global::modernpos_pos.Properties.Resources.siph_7;
+            this.pic41.Image = global::modernpos_pos.Properties.Resources.save;
             this.pic41.Location = new System.Drawing.Point(600, 159);
             this.pic41.Name = "pic41";
             this.pic41.Size = new System.Drawing.Size(77, 77);

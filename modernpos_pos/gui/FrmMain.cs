@@ -1,4 +1,5 @@
 ﻿using modernpos_pos.control;
+using modernpos_pos.object1;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,7 @@ namespace modernpos_pos.gui
             this.mposC = mposC;
             this.splash = splash;
             //MessageBox.Show("FrmMain before Thread", "");
+            //new LogFile("w FrmMain  ");
             new Thread(() =>
             {
                 //MessageBox.Show("Thread start ", "");
@@ -126,7 +128,7 @@ namespace modernpos_pos.gui
             splash.Dispose();
             String date = "";
             date = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM-dd");
-            this.Text = "Start 2019-04-17 Last Update 2019-12-20 format date " + date;
+            this.Text = "Start 2019-04-17 Last Update 2020-01-06 format date " + date;
             txtHeader.Text = mposC.txtHeader;
             if (mposC.iniC.statusAppToGo.Equals("1"))
             {

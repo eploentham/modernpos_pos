@@ -335,8 +335,8 @@ namespace modernpos_pos.objdb
             {
                 MySqlCommand cmd = new MySqlCommand("gen_stock", conn.conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.Add(new MySqlParameter("?drawid", MySqlDbType.Int32));
-                cmd.Parameters.Add(new MySqlParameter("?ret", MySqlDbType.VarChar));
+                //cmd.Parameters.Add(new MySqlParameter("?drawid", MySqlDbType.Int32));
+                //cmd.Parameters.Add(new MySqlParameter("?ret", MySqlDbType.VarChar));
                 //cmd.Parameters["?drawid"].Direction = ParameterDirection.Input;
                 //cmd.Parameters["?drawid"].Value = DateTime.;
                 //cmd.Parameters["?ret"].Direction = ParameterDirection.Output;

@@ -248,9 +248,10 @@ namespace modernpos_pos.gui
         {
 
             //vlcControl1.Stop();
+            //new LogFile("w FrmToGo2 opennew 111");
             FrmWaiting frmW = new FrmWaiting();
             frmW.Show();
-
+            //new LogFile("w FrmToGo2 FrmWaiting");
             //FrmTakeOut2 frm = new FrmTakeOut2(mposC, this);
             //FrmTakeOut3 frm = new FrmTakeOut3(mposC, this);
             FrmTakeOut4 frm = new FrmTakeOut4(mposC, this);
