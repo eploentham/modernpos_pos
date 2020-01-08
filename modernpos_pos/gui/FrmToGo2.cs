@@ -27,7 +27,7 @@ namespace modernpos_pos.gui
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
 
-        PictureBox imgLeft, imgRight;
+        PictureBox imgLeftSeatIn, imgRightToGo;
         Form frmmain;
         VlcControl vlcControl1;
         TransparentPanel pnVlc;
@@ -82,37 +82,37 @@ namespace modernpos_pos.gui
             pnMain = new Panel();
             pnMain.Dock = DockStyle.Fill;
             this.Controls.Add(pnMain);
-            imgLeft = new PictureBox();
-            imgLeft.Location = new System.Drawing.Point(0, 0);
-            imgLeft.Name = "imgLeft";
-            imgLeft.Size = new System.Drawing.Size(screenWidth / 2, screenHeight);
-            imgLeft.Image = Resources.screen_first_l;
-            imgLeft.SizeMode = PictureBoxSizeMode.StretchImage;
-            imgLeft.Click += ImgLeft_Click;
+            imgLeftSeatIn = new PictureBox();
+            imgLeftSeatIn.Location = new System.Drawing.Point(0, 0);
+            imgLeftSeatIn.Name = "imgLeft";
+            imgLeftSeatIn.Size = new System.Drawing.Size(screenWidth / 2, screenHeight);
+            imgLeftSeatIn.Image = Resources.screen_first_l;
+            imgLeftSeatIn.SizeMode = PictureBoxSizeMode.StretchImage;
+            imgLeftSeatIn.Click += ImgLeft_Click;
 
-            imgRight = new PictureBox();
-            imgRight.Location = new System.Drawing.Point(screenWidth / 2, 0);
-            imgRight.Name = "imgLeft";
-            imgRight.Size = new System.Drawing.Size(screenWidth / 2, screenHeight);
-            imgRight.Image = Resources.screen_first_r;
-            imgRight.SizeMode = PictureBoxSizeMode.StretchImage;
-            imgRight.Click += ImgRight_Click;
+            imgRightToGo = new PictureBox();
+            imgRightToGo.Location = new System.Drawing.Point(screenWidth / 2, 0);
+            imgRightToGo.Name = "imgLeft";
+            imgRightToGo.Size = new System.Drawing.Size(screenWidth / 2, screenHeight);
+            imgRightToGo.Image = Resources.screen_first_r;
+            imgRightToGo.SizeMode = PictureBoxSizeMode.StretchImage;
+            imgRightToGo.Click += ImgRight_Click;
 
-            pnMain.Controls.Add(imgLeft);
-            pnMain.Controls.Add(imgRight);
+            pnMain.Controls.Add(imgLeftSeatIn);
+            pnMain.Controls.Add(imgRightToGo);
         }
 
         private void ImgLeft_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            mposC.statusApplicationTogo = false;
+            mposC.statusApplicationTogo = true;
             opennew();
         }
 
         private void ImgRight_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            mposC.statusApplicationTogo = true;
+            mposC.statusApplicationTogo = false;
             opennew();
         }
 
