@@ -125,6 +125,8 @@ namespace modernpos_pos.gui
                 picTogo.Hide();
             }
             picTogo.Visible = mposC.statusApplicationTogo ? true : false;
+            statusTogo = mposC.statusApplicationTogo;
+            setStatusToGo();
             //PicDesc_Click(null, null);
         }
         public void setQty(String fooid, String qty)
@@ -146,6 +148,11 @@ namespace modernpos_pos.gui
         private void PicTogo_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            setStatusToGo();
+            setPrice();
+        }
+        private void setStatusToGo()
+        {
             if (statusTogo)
             {
                 statusTogo = false;
@@ -160,7 +167,6 @@ namespace modernpos_pos.gui
                 ord.status_to_go = "1";
                 ord.price_plus_togo = foo.price_plus_togo;
             }
-            setPrice();
         }
         public void setRow(String row)
         {

@@ -1862,7 +1862,7 @@ namespace modernpos_pos.gui
 
                 }
                 String name = "";
-                name = ord2.foods_name;
+                name = ord2.status_to_go.Equals("1") ? ord2.foods_name + "[ToGo]" : ord2.foods_name + "" ;
                 //ord2.special = ord2.special == null ? "" : ord2.special;
                 //ord2.topping = ord2.topping == null ? "" : ord2.topping;
                 int row = 0;
@@ -1873,10 +1873,10 @@ namespace modernpos_pos.gui
                 {
                     if (ord2.foods_name.IndexOf("เพิ่ม") >= 0)
                     {
-                        String temp1 = ord2.foods_name.Substring(0, ord2.foods_name.IndexOf("เพิ่ม")).Trim();
-                        printText += (row) + "[" + lOrd.Count + "]  " + temp1 + Environment.NewLine;
+                        String temp1 = name.Substring(0, ord2.foods_name.IndexOf("เพิ่ม")).Trim();
+                        printText += (row) + "[" + ordPrn.Count + "]  " + temp1 + Environment.NewLine;
 
-                        String temp2 = (ord2.foods_name.Substring(ord2.foods_name.IndexOf("เพิ่ม")).Trim()).Replace("เพิ่ม", "").Trim();
+                        String temp2 = ord2.foods_name.Substring(ord2.foods_name.IndexOf("เพิ่ม")).Trim().Replace("เพิ่ม", "").Trim();
                         String[] temp22 = temp2.Split(' ');
                         if (temp2.Length > 0)
                         {
@@ -1890,7 +1890,7 @@ namespace modernpos_pos.gui
                 }
                 else
                 {
-                    printText += (row) + "[" + lOrd.Count + "]  " + ord2.foods_name + " " + mposC.iniC.printBillCharPlus + " " + ord2.qty + Environment.NewLine;
+                    printText += (row) + "[" + ordPrn.Count + "]  " + name + " " + mposC.iniC.printBillCharPlus + " " + ord2.qty + Environment.NewLine;
                 }
 
                 foreach (OrderTopping ordt in lordt)
