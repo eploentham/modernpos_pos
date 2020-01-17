@@ -1864,7 +1864,8 @@ namespace modernpos_pos.gui
 
                 }
                 String name = "";
-                name = ord2.status_to_go.Equals("1") ? ord2.foods_name + "[" + mposC.iniC.prefixTOGO + "]" : ord2.foods_name + "[" + mposC.iniC.prefixSeatIn + "]" ;
+                //name = ord2.status_to_go.Equals("1") ? ord2.foods_name + "[" + mposC.iniC.prefixTOGO + "]" : ord2.foods_name + "[" + mposC.iniC.prefixSeatIn + "]" ;
+                name = ord2.foods_name.Trim();
                 //ord2.special = ord2.special == null ? "" : ord2.special;
                 //ord2.topping = ord2.topping == null ? "" : ord2.topping;
                 int row = 0;
@@ -1894,7 +1895,8 @@ namespace modernpos_pos.gui
                 {
                     printText += (row) + "[" + ordPrn.Count + "]  " + name + " " + mposC.iniC.printBillCharPlus + " " + ord2.qty + Environment.NewLine;
                 }
-                new LogFile("w FrmTakeOut4 printOrderCutByStation_PrintPage lordt " + lordt.Count);
+                printText += ord2.status_to_go.Equals("1") ?  "[" + mposC.iniC.prefixTOGO + "]" : "[" + mposC.iniC.prefixSeatIn + "]" + Environment.NewLine;
+                //new LogFile("w FrmTakeOut4 printOrderCutByStation_PrintPage lordt " + lordt.Count);
                 foreach (OrderTopping ordt in lordt)
                 {
                     int roword = 0;
@@ -1914,7 +1916,7 @@ namespace modernpos_pos.gui
                         if (qty > 0)
                         {
                             printText += "   " + ordt.name + " " + (price * qty).ToString() + " " + Environment.NewLine;
-                            new LogFile("w FrmTakeOut4 printOrderCutByStation_PrintPage "+ ordt.name);
+                            //new LogFile("w FrmTakeOut4 printOrderCutByStation_PrintPage "+ ordt.name);
                             //total += (price * qty);
                         }
                     }
