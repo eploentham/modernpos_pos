@@ -1836,15 +1836,15 @@ namespace modernpos_pos.gui
 
 
             //que = mposC.mposDB.copDB.genQueue1Doc();
-            if (mposC.statusApplicationTogo)
-            {
-                stringToPrint = que +"["+ mposC.iniC.prefixTOGO +"]" + Environment.NewLine;
-            }
-            else
-            {
-                stringToPrint = que + "[" + mposC.iniC.prefixSeatIn + "]"+ Environment.NewLine;
-            }
-            
+            //if (mposC.statusApplicationTogo)
+            //{
+            //    stringToPrint = que +"["+ mposC.iniC.prefixTOGO +"]" + Environment.NewLine;
+            //}
+            //else
+            //{
+            //    stringToPrint = que + "[" + mposC.iniC.prefixSeatIn + "]"+ Environment.NewLine;
+            //}
+            stringToPrint = mposC.statusApplicationTogo ? que + "[" + mposC.iniC.prefixTOGO + "]" + Environment.NewLine : que + "[" + mposC.iniC.prefixSeatIn + "]" + Environment.NewLine;
             stringToPrint += "เวลา " + date + Environment.NewLine;
             Decimal total = 0, amt1=0;
             foreach (Order1 ord2 in ordPrn)

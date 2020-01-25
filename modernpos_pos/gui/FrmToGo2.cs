@@ -105,14 +105,14 @@ namespace modernpos_pos.gui
         private void ImgLeft_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            mposC.statusApplicationTogo = true;
+            mposC.statusApplicationTogo = false;
             opennew();
         }
 
         private void ImgRight_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            mposC.statusApplicationTogo = false;
+            mposC.statusApplicationTogo = true;
             opennew();
         }
 
