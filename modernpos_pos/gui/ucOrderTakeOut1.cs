@@ -124,7 +124,7 @@ namespace modernpos_pos.gui
             //{
             //    picTogo.Hide();
             //}
-            picTogo.Visible = mposC.statusApplicationTogo ? true : false;
+            picTogo.Visible = mposC.statusApplicationTogo ? false : true;
             statusTogo = mposC.statusApplicationTogo;
             setStatusToGo();
             //PicDesc_Click(null, null);
@@ -156,16 +156,16 @@ namespace modernpos_pos.gui
             if (statusTogo)
             {
                 statusTogo = false;
-                picTogo.Image = Resources.togouncheck;
-                ord.status_to_go = "0";
-                ord.price_plus_togo = "0";
+                picTogo.Image = Resources.togocheck;
+                ord.status_to_go = "1";
+                ord.price_plus_togo = foo.price_plus_togo;
             }
             else
             {
                 statusTogo = true;
-                picTogo.Image = Resources.togocheck;
-                ord.status_to_go = "1";
-                ord.price_plus_togo = foo.price_plus_togo;
+                picTogo.Image = Resources.togouncheck;
+                ord.status_to_go = "0";
+                ord.price_plus_togo = "0";
             }
         }
         public void setRow(String row)
