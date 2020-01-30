@@ -272,6 +272,8 @@ namespace modernpos_pos.control
             iniC.printOrderTextFoodsName = iniF.getIni("app", "printOrderTextFoodsName");
             iniC.prefixTOGO = iniF.getIni("app", "prefixTOGO");
             iniC.prefixSeatIn = iniF.getIni("app", "prefixSeatIn");
+            iniC.prefixTOGOItem = iniF.getIni("app", "prefixTOGOItem");
+            iniC.prefixSeatInItem = iniF.getIni("app", "prefixSeatInItem");
             //new LogFile("w mPOSControl GetConfig 4");
             iniC.TileCategoryColor = iniF.getIni("app", "TileCategoryColor");
             iniC.lcuctakeouttopping1 = iniF.getIni("app", "lcuctakeouttopping1");
@@ -397,6 +399,8 @@ namespace modernpos_pos.control
             iniC.printOrderTextFoodsName = iniC.printOrderTextFoodsName.Equals("") ? "Microsoft Sans Serif" : iniC.printOrderTextFoodsName;
             iniC.prefixTOGO = iniC.prefixTOGO.Equals("") ? "ToGo" : iniC.prefixTOGO;
             iniC.prefixSeatIn = iniC.prefixSeatIn.Equals("") ? "Seatin" : iniC.prefixSeatIn;
+            iniC.prefixTOGOItem = iniC.prefixTOGOItem.Equals("") ? "" : iniC.prefixTOGOItem;
+            iniC.prefixSeatInItem = iniC.prefixSeatInItem.Equals("") ? "" : iniC.prefixSeatInItem;
             //new LogFile("w mPOSControl GetConfig 8");
             iniC.usePassiveFTP = iniC.usePassiveFTP == null ? "false" : iniC.usePassiveFTP.Equals("") ? "false" : iniC.usePassiveFTP;
             Boolean.TryParse(iniC.usePassiveFTP, out ftpUsePassive);

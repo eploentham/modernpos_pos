@@ -1895,7 +1895,7 @@ namespace modernpos_pos.gui
                 {
                     printText += (row) + "[" + ordPrn.Count + "]  " + name + " " + mposC.iniC.printBillCharPlus + " " + ord2.qty + Environment.NewLine;
                 }
-                printText += ord2.status_to_go.Equals("1") ?  "[" + mposC.iniC.prefixTOGO + "]" : "[" + mposC.iniC.prefixSeatIn + "]" + Environment.NewLine;
+                printText += ord2.status_to_go.Equals("1") ?  "[" + mposC.iniC.prefixTOGOItem + "]" : "[" + mposC.iniC.prefixSeatInItem + "]" + Environment.NewLine;
                 //new LogFile("w FrmTakeOut4 printOrderCutByStation_PrintPage lordt " + lordt.Count);
                 foreach (OrderTopping ordt in lordt)
                 {
