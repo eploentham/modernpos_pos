@@ -1403,6 +1403,34 @@
     <None Include="Resources\Webp.net-resizeimage.png" />
     <None Include="Resources\minimun.png" />
     <None Include="Resources\Maximun.png" />
+    <None Include="Resources\area.PNG" />
+    <None Include="Resources\company.PNG" />
+    <None Include="Resources\dept.PNG" />
+    <None Include="Resources\drawM.PNG" />
+    <None Include="Resources\drink.PNG" />
+    <None Include="Resources\Foods.PNG" />
+    <None Include="Resources\FoodsC.PNG" />
+    <None Include="Resources\FoodsCS.PNG" />
+    <None Include="Resources\FoodsM.PNG" />
+    <None Include="Resources\FoodsMT.PNG" />
+    <None Include="Resources\FoodsT.PNG" />
+    <None Include="Resources\position.PNG" />
+    <None Include="Resources\recM.PNG" />
+    <None Include="Resources\Recommend.PNG" />
+    <None Include="Resources\restaurant.PNG" />
+    <None Include="Resources\staff.PNG" />
+    <None Include="Resources\stockcard.PNG" />
+    <None Include="Resources\table.PNG" />
+    <None Include="Resources\unit.PNG" />
+    <None Include="Resources\Kitchen.PNG" />
+    <None Include="Resources\take_out.PNG" />
+    <None Include="Resources\ขายปลีก.PNG" />
+    <None Include="Resources\backoffice.PNG" />
+    <None Include="Resources\close_program.PNG" />
+    <None Include="Resources\close_res.PNG" />
+    <None Include="Resources\Dinein.PNG" />
+    <None Include="Resources\HomeDelivery.PNG" />
+    <None Include="Resources\item_Oder.PNG" />
     <Content Include="togo_banner.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

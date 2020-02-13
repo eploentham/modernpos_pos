@@ -74,7 +74,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(945, 100);
+            this.panel1.Size = new System.Drawing.Size(1049, 100);
             this.panel1.TabIndex = 1;
             // 
             // c1SuperLabel2
@@ -104,21 +104,21 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(945, 534);
+            this.panel2.Size = new System.Drawing.Size(1049, 626);
             this.panel2.TabIndex = 1;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(578, 411);
+            this.btnClose.Image = global::modernpos_pos.Properties.Resources.close_program;
+            this.btnClose.Location = new System.Drawing.Point(384, 453);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(116, 77);
+            this.btnClose.Size = new System.Drawing.Size(344, 141);
             this.btnClose.TabIndex = 11;
-            this.btnClose.Text = "ปิดโปรแกรม Shutdown";
             this.btnClose.UseVisualStyleBackColor = true;
             // 
             // btnConfig
             // 
-            this.btnConfig.Location = new System.Drawing.Point(456, 411);
+            this.btnConfig.Location = new System.Drawing.Point(716, 159);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(116, 77);
             this.btnConfig.TabIndex = 10;
@@ -127,81 +127,81 @@
             // 
             // btnCloseDay
             // 
-            this.btnCloseDay.Location = new System.Drawing.Point(334, 411);
+            this.btnCloseDay.Image = global::modernpos_pos.Properties.Resources.close_res;
+            this.btnCloseDay.Location = new System.Drawing.Point(31, 453);
             this.btnCloseDay.Name = "btnCloseDay";
-            this.btnCloseDay.Size = new System.Drawing.Size(116, 77);
+            this.btnCloseDay.Size = new System.Drawing.Size(338, 141);
             this.btnCloseDay.TabIndex = 9;
-            this.btnCloseDay.Text = "ปิดร้าน";
             this.btnCloseDay.UseVisualStyleBackColor = true;
             // 
             // btnKitchen
             // 
-            this.btnKitchen.Location = new System.Drawing.Point(578, 328);
+            this.btnKitchen.Image = global::modernpos_pos.Properties.Resources.Kitchen;
+            this.btnKitchen.Location = new System.Drawing.Point(384, 306);
             this.btnKitchen.Name = "btnKitchen";
-            this.btnKitchen.Size = new System.Drawing.Size(116, 77);
+            this.btnKitchen.Size = new System.Drawing.Size(323, 141);
             this.btnKitchen.TabIndex = 8;
-            this.btnKitchen.Text = "ในครัว Kitchen Display";
             this.btnKitchen.UseVisualStyleBackColor = true;
             // 
             // btnBackOffice
             // 
-            this.btnBackOffice.Location = new System.Drawing.Point(456, 328);
+            this.btnBackOffice.Image = global::modernpos_pos.Properties.Resources.backoffice;
+            this.btnBackOffice.Location = new System.Drawing.Point(31, 306);
             this.btnBackOffice.Name = "btnBackOffice";
-            this.btnBackOffice.Size = new System.Drawing.Size(116, 77);
+            this.btnBackOffice.Size = new System.Drawing.Size(323, 141);
             this.btnBackOffice.TabIndex = 7;
-            this.btnBackOffice.Text = "Back Office";
             this.btnBackOffice.UseVisualStyleBackColor = true;
             // 
             // btnOrder
             // 
-            this.btnOrder.Location = new System.Drawing.Point(334, 328);
+            this.btnOrder.Image = global::modernpos_pos.Properties.Resources.item_Oder;
+            this.btnOrder.Location = new System.Drawing.Point(31, 159);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(116, 77);
+            this.btnOrder.Size = new System.Drawing.Size(323, 141);
             this.btnOrder.TabIndex = 6;
-            this.btnOrder.Text = "รายการสั่ง Order";
             this.btnOrder.UseVisualStyleBackColor = true;
             // 
             // btnHome
             // 
-            this.btnHome.Location = new System.Drawing.Point(334, 245);
+            this.btnHome.Image = global::modernpos_pos.Properties.Resources.HomeDelivery;
+            this.btnHome.Location = new System.Drawing.Point(384, 159);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(360, 77);
+            this.btnHome.Size = new System.Drawing.Size(323, 141);
             this.btnHome.TabIndex = 5;
-            this.btnHome.Text = "Home Delivery";
             this.btnHome.UseVisualStyleBackColor = true;
             // 
             // btnRetail
             // 
-            this.btnRetail.Location = new System.Drawing.Point(578, 162);
+            this.btnRetail.Image = global::modernpos_pos.Properties.Resources.ขายปลีก;
+            this.btnRetail.Location = new System.Drawing.Point(716, 12);
             this.btnRetail.Name = "btnRetail";
-            this.btnRetail.Size = new System.Drawing.Size(116, 77);
+            this.btnRetail.Size = new System.Drawing.Size(323, 141);
             this.btnRetail.TabIndex = 4;
-            this.btnRetail.Text = "ขายปลีก";
             this.btnRetail.UseVisualStyleBackColor = true;
             // 
             // btnTakeOut
             // 
-            this.btnTakeOut.Location = new System.Drawing.Point(456, 162);
+            this.btnTakeOut.Image = global::modernpos_pos.Properties.Resources.take_out;
+            this.btnTakeOut.Location = new System.Drawing.Point(384, 12);
             this.btnTakeOut.Name = "btnTakeOut";
-            this.btnTakeOut.Size = new System.Drawing.Size(116, 77);
+            this.btnTakeOut.Size = new System.Drawing.Size(323, 141);
             this.btnTakeOut.TabIndex = 3;
-            this.btnTakeOut.Text = "สั่งกลับบ้าน take out";
             this.btnTakeOut.UseVisualStyleBackColor = true;
             // 
             // btnDineIn
             // 
-            this.btnDineIn.Location = new System.Drawing.Point(334, 162);
+            this.btnDineIn.Image = global::modernpos_pos.Properties.Resources.Dinein;
+            this.btnDineIn.Location = new System.Drawing.Point(31, 12);
             this.btnDineIn.Name = "btnDineIn";
-            this.btnDineIn.Size = new System.Drawing.Size(116, 77);
+            this.btnDineIn.Size = new System.Drawing.Size(323, 141);
             this.btnDineIn.TabIndex = 2;
-            this.btnDineIn.Text = "ในร้าน dine in";
             this.btnDineIn.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(945, 634);
+            this.ClientSize = new System.Drawing.Size(1049, 726);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmMain";

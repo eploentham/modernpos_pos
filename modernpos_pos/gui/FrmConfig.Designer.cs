@@ -79,7 +79,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(815, 100);
+            this.panel1.Size = new System.Drawing.Size(1015, 100);
             this.panel1.TabIndex = 2;
             // 
             // c1SuperLabel2
@@ -107,180 +107,180 @@
             // 
             // btnArea
             // 
-            this.btnArea.Location = new System.Drawing.Point(484, 185);
+            this.btnArea.Image = global::modernpos_pos.Properties.Resources.area;
+            this.btnArea.Location = new System.Drawing.Point(611, 106);
             this.btnArea.Name = "btnArea";
-            this.btnArea.Size = new System.Drawing.Size(116, 77);
+            this.btnArea.Size = new System.Drawing.Size(193, 164);
             this.btnArea.TabIndex = 7;
-            this.btnArea.Text = "พื้นที่";
             this.btnArea.UseVisualStyleBackColor = true;
             // 
             // btnTable
             // 
-            this.btnTable.Location = new System.Drawing.Point(362, 185);
+            this.btnTable.Image = global::modernpos_pos.Properties.Resources.table;
+            this.btnTable.Location = new System.Drawing.Point(412, 106);
             this.btnTable.Name = "btnTable";
-            this.btnTable.Size = new System.Drawing.Size(116, 77);
+            this.btnTable.Size = new System.Drawing.Size(193, 164);
             this.btnTable.TabIndex = 6;
-            this.btnTable.Text = "โต๊ะ";
             this.btnTable.UseVisualStyleBackColor = true;
             // 
             // btnRes
             // 
-            this.btnRes.Location = new System.Drawing.Point(240, 185);
+            this.btnRes.Image = global::modernpos_pos.Properties.Resources.restaurant;
+            this.btnRes.Location = new System.Drawing.Point(13, 106);
             this.btnRes.Name = "btnRes";
-            this.btnRes.Size = new System.Drawing.Size(116, 77);
+            this.btnRes.Size = new System.Drawing.Size(394, 164);
             this.btnRes.TabIndex = 5;
-            this.btnRes.Text = "ร้าน";
             this.btnRes.UseVisualStyleBackColor = true;
             // 
             // btmStf
             // 
-            this.btmStf.Location = new System.Drawing.Point(240, 268);
+            this.btmStf.Image = global::modernpos_pos.Properties.Resources.staff;
+            this.btmStf.Location = new System.Drawing.Point(13, 276);
             this.btmStf.Name = "btmStf";
-            this.btmStf.Size = new System.Drawing.Size(116, 77);
+            this.btmStf.Size = new System.Drawing.Size(193, 164);
             this.btmStf.TabIndex = 8;
-            this.btmStf.Text = "พนักงาน";
             this.btmStf.UseVisualStyleBackColor = true;
             // 
             // btnDept
             // 
-            this.btnDept.Location = new System.Drawing.Point(362, 268);
+            this.btnDept.Image = global::modernpos_pos.Properties.Resources.dept;
+            this.btnDept.Location = new System.Drawing.Point(214, 276);
             this.btnDept.Name = "btnDept";
-            this.btnDept.Size = new System.Drawing.Size(116, 77);
+            this.btnDept.Size = new System.Drawing.Size(193, 164);
             this.btnDept.TabIndex = 9;
-            this.btnDept.Text = "แผนก";
             this.btnDept.UseVisualStyleBackColor = true;
             // 
             // btnPosi
             // 
-            this.btnPosi.Location = new System.Drawing.Point(484, 268);
+            this.btnPosi.Image = global::modernpos_pos.Properties.Resources.position;
+            this.btnPosi.Location = new System.Drawing.Point(412, 276);
             this.btnPosi.Name = "btnPosi";
-            this.btnPosi.Size = new System.Drawing.Size(116, 77);
+            this.btnPosi.Size = new System.Drawing.Size(193, 164);
             this.btnPosi.TabIndex = 10;
-            this.btnPosi.Text = "ตำแหน่ง";
             this.btnPosi.UseVisualStyleBackColor = true;
             // 
             // btnCop
             // 
-            this.btnCop.Location = new System.Drawing.Point(240, 351);
+            this.btnCop.Image = global::modernpos_pos.Properties.Resources.company;
+            this.btnCop.Location = new System.Drawing.Point(13, 446);
             this.btnCop.Name = "btnCop";
-            this.btnCop.Size = new System.Drawing.Size(116, 77);
+            this.btnCop.Size = new System.Drawing.Size(193, 164);
             this.btnCop.TabIndex = 11;
-            this.btnCop.Text = "บริษัท";
             this.btnCop.UseVisualStyleBackColor = true;
             // 
             // btnFoods
             // 
-            this.btnFoods.Location = new System.Drawing.Point(240, 434);
+            this.btnFoods.Image = global::modernpos_pos.Properties.Resources.Foods;
+            this.btnFoods.Location = new System.Drawing.Point(12, 616);
             this.btnFoods.Name = "btnFoods";
-            this.btnFoods.Size = new System.Drawing.Size(116, 77);
+            this.btnFoods.Size = new System.Drawing.Size(394, 164);
             this.btnFoods.TabIndex = 12;
-            this.btnFoods.Text = "Foods";
             this.btnFoods.UseVisualStyleBackColor = true;
             // 
             // c1Button1
             // 
-            this.c1Button1.Location = new System.Drawing.Point(362, 434);
+            this.c1Button1.Image = global::modernpos_pos.Properties.Resources.drink;
+            this.c1Button1.Location = new System.Drawing.Point(412, 616);
             this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(116, 77);
+            this.c1Button1.Size = new System.Drawing.Size(193, 164);
             this.c1Button1.TabIndex = 13;
-            this.c1Button1.Text = "เครื่องดื่ม";
             this.c1Button1.UseVisualStyleBackColor = true;
             // 
             // btnFoodsType
             // 
-            this.btnFoodsType.Location = new System.Drawing.Point(240, 517);
+            this.btnFoodsType.Image = global::modernpos_pos.Properties.Resources.FoodsT;
+            this.btnFoodsType.Location = new System.Drawing.Point(13, 789);
             this.btnFoodsType.Name = "btnFoodsType";
-            this.btnFoodsType.Size = new System.Drawing.Size(116, 77);
+            this.btnFoodsType.Size = new System.Drawing.Size(394, 164);
             this.btnFoodsType.TabIndex = 14;
-            this.btnFoodsType.Text = "Foods Type";
             this.btnFoodsType.UseVisualStyleBackColor = true;
             // 
             // btnFoodsCategory
             // 
-            this.btnFoodsCategory.Location = new System.Drawing.Point(362, 517);
+            this.btnFoodsCategory.Image = global::modernpos_pos.Properties.Resources.FoodsC;
+            this.btnFoodsCategory.Location = new System.Drawing.Point(810, 276);
             this.btnFoodsCategory.Name = "btnFoodsCategory";
-            this.btnFoodsCategory.Size = new System.Drawing.Size(116, 77);
+            this.btnFoodsCategory.Size = new System.Drawing.Size(193, 164);
             this.btnFoodsCategory.TabIndex = 15;
-            this.btnFoodsCategory.Text = "Foods Category";
             this.btnFoodsCategory.UseVisualStyleBackColor = true;
             // 
             // btnFoodsCatSub
             // 
-            this.btnFoodsCatSub.Location = new System.Drawing.Point(484, 517);
+            this.btnFoodsCatSub.Image = global::modernpos_pos.Properties.Resources.FoodsCS;
+            this.btnFoodsCatSub.Location = new System.Drawing.Point(810, 106);
             this.btnFoodsCatSub.Name = "btnFoodsCatSub";
-            this.btnFoodsCatSub.Size = new System.Drawing.Size(116, 77);
+            this.btnFoodsCatSub.Size = new System.Drawing.Size(193, 164);
             this.btnFoodsCatSub.TabIndex = 16;
-            this.btnFoodsCatSub.Text = "Foods Category Sub";
             this.btnFoodsCatSub.UseVisualStyleBackColor = true;
             // 
             // btnReCom
             // 
-            this.btnReCom.Location = new System.Drawing.Point(484, 434);
+            this.btnReCom.Image = global::modernpos_pos.Properties.Resources.Recommend;
+            this.btnReCom.Location = new System.Drawing.Point(609, 786);
             this.btnReCom.Name = "btnReCom";
-            this.btnReCom.Size = new System.Drawing.Size(116, 77);
+            this.btnReCom.Size = new System.Drawing.Size(394, 164);
             this.btnReCom.TabIndex = 17;
-            this.btnReCom.Text = "Recommend";
             this.btnReCom.UseVisualStyleBackColor = true;
             // 
             // btnFooMaterial
             // 
-            this.btnFooMaterial.Location = new System.Drawing.Point(484, 351);
+            this.btnFooMaterial.Image = global::modernpos_pos.Properties.Resources.FoodsM;
+            this.btnFooMaterial.Location = new System.Drawing.Point(412, 446);
             this.btnFooMaterial.Name = "btnFooMaterial";
-            this.btnFooMaterial.Size = new System.Drawing.Size(116, 77);
+            this.btnFooMaterial.Size = new System.Drawing.Size(193, 164);
             this.btnFooMaterial.TabIndex = 18;
-            this.btnFooMaterial.Text = "Foods Material";
             this.btnFooMaterial.UseVisualStyleBackColor = true;
             // 
             // btnMaterialType
             // 
-            this.btnMaterialType.Location = new System.Drawing.Point(362, 351);
+            this.btnMaterialType.Image = global::modernpos_pos.Properties.Resources.FoodsMT;
+            this.btnMaterialType.Location = new System.Drawing.Point(214, 446);
             this.btnMaterialType.Name = "btnMaterialType";
-            this.btnMaterialType.Size = new System.Drawing.Size(116, 77);
+            this.btnMaterialType.Size = new System.Drawing.Size(193, 164);
             this.btnMaterialType.TabIndex = 19;
-            this.btnMaterialType.Text = "Foods Material Type";
             this.btnMaterialType.UseVisualStyleBackColor = true;
             // 
             // btnUnit
             // 
-            this.btnUnit.Location = new System.Drawing.Point(606, 268);
+            this.btnUnit.Image = global::modernpos_pos.Properties.Resources.unit;
+            this.btnUnit.Location = new System.Drawing.Point(611, 276);
             this.btnUnit.Name = "btnUnit";
-            this.btnUnit.Size = new System.Drawing.Size(116, 77);
+            this.btnUnit.Size = new System.Drawing.Size(193, 164);
             this.btnUnit.TabIndex = 20;
-            this.btnUnit.Text = "หน่วย";
             this.btnUnit.UseVisualStyleBackColor = true;
             // 
             // btnMatrRec
             // 
-            this.btnMatrRec.Location = new System.Drawing.Point(606, 351);
+            this.btnMatrRec.Image = global::modernpos_pos.Properties.Resources.recM;
+            this.btnMatrRec.Location = new System.Drawing.Point(810, 616);
             this.btnMatrRec.Name = "btnMatrRec";
-            this.btnMatrRec.Size = new System.Drawing.Size(116, 77);
+            this.btnMatrRec.Size = new System.Drawing.Size(193, 164);
             this.btnMatrRec.TabIndex = 21;
-            this.btnMatrRec.Text = "รับเข้า Material";
             this.btnMatrRec.UseVisualStyleBackColor = true;
             // 
             // btnMatrDraw
             // 
-            this.btnMatrDraw.Location = new System.Drawing.Point(606, 434);
+            this.btnMatrDraw.Image = global::modernpos_pos.Properties.Resources.drawM;
+            this.btnMatrDraw.Location = new System.Drawing.Point(611, 616);
             this.btnMatrDraw.Name = "btnMatrDraw";
-            this.btnMatrDraw.Size = new System.Drawing.Size(116, 77);
+            this.btnMatrDraw.Size = new System.Drawing.Size(193, 164);
             this.btnMatrDraw.TabIndex = 22;
-            this.btnMatrDraw.Text = "เบิกออก Material";
             this.btnMatrDraw.UseVisualStyleBackColor = true;
             // 
             // btnStockCard
             // 
-            this.btnStockCard.Location = new System.Drawing.Point(606, 517);
+            this.btnStockCard.Image = global::modernpos_pos.Properties.Resources.stockcard;
+            this.btnStockCard.Location = new System.Drawing.Point(611, 446);
             this.btnStockCard.Name = "btnStockCard";
-            this.btnStockCard.Size = new System.Drawing.Size(116, 77);
+            this.btnStockCard.Size = new System.Drawing.Size(394, 164);
             this.btnStockCard.TabIndex = 23;
-            this.btnStockCard.Text = "Stock Card";
             this.btnStockCard.UseVisualStyleBackColor = true;
             // 
             // FrmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 629);
+            this.ClientSize = new System.Drawing.Size(1015, 965);
             this.Controls.Add(this.btnStockCard);
             this.Controls.Add(this.btnMatrDraw);
             this.Controls.Add(this.btnMatrRec);
