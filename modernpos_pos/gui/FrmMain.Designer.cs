@@ -91,6 +91,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Controls.Add(this.btnConfig);
             this.panel2.Controls.Add(this.btnCloseDay);
@@ -101,7 +102,6 @@
             this.panel2.Controls.Add(this.btnRetail);
             this.panel2.Controls.Add(this.btnTakeOut);
             this.panel2.Controls.Add(this.btnDineIn);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1049, 626);

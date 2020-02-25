@@ -230,6 +230,10 @@ namespace modernpos_pos.gui
 
         private void FrmConfig_Load(object sender, EventArgs e)
         {
+            int scrW = Screen.PrimaryScreen.Bounds.Width;
+            int scrH = Screen.PrimaryScreen.Bounds.Height;
+            panel2.Location = new Point((scrW / 2) - (panel2.Width / 2), (scrH / 2) - (panel2.Height / 2));
+            panel2.BackColor = this.BackColor;
 
         }
     }

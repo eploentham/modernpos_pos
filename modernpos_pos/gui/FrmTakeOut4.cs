@@ -687,7 +687,7 @@ namespace modernpos_pos.gui
                 peOrd.Margin = new System.Windows.Forms.Padding(10, 6, 10, 6);
                 pnFoodsName.BackColor = tileFoodsNameColor;
                 pnFoodsName.Children.Add(teOrdFoodsName);
-                pnFoodsName.Dock = System.Windows.Forms.DockStyle.Top;
+                pnFoodsName.Dock = System.Windows.Forms.DockStyle.Bottom;
                 pnFoodsName.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
                 pnFoodsPrice.Children.Add(teOrdFoodsPrice);
                 pnFoodsPrice.AlignmentOfContents = System.Drawing.ContentAlignment.MiddleRight;
@@ -811,7 +811,6 @@ namespace modernpos_pos.gui
                     scFoodsItem.Controls.Add(TileFoods[indexTile]);
                 }
             }
-
         }
         private void setTitle(Boolean flag)
         {

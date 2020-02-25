@@ -128,8 +128,12 @@ namespace modernpos_pos.gui
             splash.Dispose();
             String date = "";
             date = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM-dd");
-            this.Text = "Start 2019-04-17 Last Update 2020-01-28 format date " + date;
+            this.Text = "Start 2019-04-17 Last Update 2020-02-25 format date " + date;
             txtHeader.Text = mposC.txtHeader;
+            int scrW = Screen.PrimaryScreen.Bounds.Width;
+            int scrH = Screen.PrimaryScreen.Bounds.Height;
+            panel2.Location = new Point((scrW / 2) - (panel2.Width / 2), (scrH / 2) - (panel2.Height / 2));
+            panel2.BackColor = this.BackColor;
             if (mposC.iniC.statusAppToGo.Equals("1"))
             {
                 FrmToGo2 frm = new FrmToGo2(mposC, this);
