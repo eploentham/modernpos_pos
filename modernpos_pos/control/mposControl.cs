@@ -33,6 +33,7 @@ namespace modernpos_pos.control
         private IniFile iniF;
         
         public int grdViewFontSize = 0, panel1Width=0, takeouttilhorizontalsize=0, takeouttilverticalsize=0, TileFoodstakeouttilhorizontalsize = 0, TileFoodstakeouttilverticalsize = 0, printBillTextFoodsName=0, printBillTextFoodsSize=0, printOrderTextFoodsSize=0;
+        public int tileFoodspnFoodsName1Dock = 0, tileFoodspnFoodsPriceDock=0, tileFoodspnFoodsName2Dock=0, tileFoodsteOrdFoodsName1AlignmentOfContents=0, tileFoodsteOrdFoodsName2AlignmentOfContents=0, tileFoodsteOrdFoodsPriceAlignmentOfContents=0;
         public List<Department> lDept;
         public Company cop;
 
@@ -274,6 +275,7 @@ namespace modernpos_pos.control
             iniC.prefixSeatIn = iniF.getIni("app", "prefixSeatIn");
             iniC.prefixTOGOItem = iniF.getIni("app", "prefixTOGOItem");
             iniC.prefixSeatInItem = iniF.getIni("app", "prefixSeatInItem");
+
             //new LogFile("w mPOSControl GetConfig 4");
             iniC.TileCategoryColor = iniF.getIni("app", "TileCategoryColor");
             iniC.lcuctakeouttopping1 = iniF.getIni("app", "lcuctakeouttopping1");
@@ -320,6 +322,13 @@ namespace modernpos_pos.control
             iniC.noodlemakepn8t = iniF.getIni("app", "noodlemakepn8t");
             iniC.noodlemakepn8g = iniF.getIni("app", "noodlemakepn8g");
             iniC.noodlemakepn8l = iniF.getIni("app", "noodlemakepn8l");
+            iniC.tileFoodspnFoodsName1Dock = iniF.getIni("app", "tileFoodspnFoodsName1Dock");
+            iniC.tileFoodspnFoodsName2Dock = iniF.getIni("app", "tileFoodspnFoodsName2Dock");
+            iniC.tileFoodspnFoodsPriceDock = iniF.getIni("app", "tileFoodspnFoodsPriceDock");
+            iniC.tileFoodsteOrdFoodsName1AlignmentOfContents = iniF.getIni("app", "tileFoodsteOrdFoodsName1AlignmentOfContents");
+            iniC.tileFoodsteOrdFoodsName2AlignmentOfContents = iniF.getIni("app", "tileFoodsteOrdFoodsName2AlignmentOfContents");
+            iniC.tileFoodsteOrdFoodsPriceAlignmentOfContents = iniF.getIni("app", "tileFoodsteOrdFoodsPriceAlignmentOfContents");
+            
             //new LogFile("w mPOSControl GetConfig 5");
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
 
@@ -401,6 +410,12 @@ namespace modernpos_pos.control
             iniC.prefixSeatIn = iniC.prefixSeatIn.Equals("") ? "Seatin" : iniC.prefixSeatIn;
             iniC.prefixTOGOItem = iniC.prefixTOGOItem.Equals("") ? "" : iniC.prefixTOGOItem;
             iniC.prefixSeatInItem = iniC.prefixSeatInItem.Equals("") ? "" : iniC.prefixSeatInItem;
+            iniC.tileFoodspnFoodsName1Dock = iniC.tileFoodspnFoodsName1Dock.Equals("") ? "1" : iniC.tileFoodspnFoodsName1Dock;
+            iniC.tileFoodspnFoodsName2Dock = iniC.tileFoodspnFoodsName2Dock.Equals("") ? "1" : iniC.tileFoodspnFoodsName2Dock;
+            iniC.tileFoodspnFoodsPriceDock = iniC.tileFoodspnFoodsPriceDock.Equals("") ? "1" : iniC.tileFoodspnFoodsPriceDock;
+            iniC.tileFoodsteOrdFoodsName1AlignmentOfContents = iniC.tileFoodsteOrdFoodsName1AlignmentOfContents.Equals("") ? "1" : iniC.tileFoodsteOrdFoodsName1AlignmentOfContents;
+            iniC.tileFoodsteOrdFoodsName2AlignmentOfContents = iniC.tileFoodsteOrdFoodsName2AlignmentOfContents.Equals("") ? "1" : iniC.tileFoodsteOrdFoodsName2AlignmentOfContents;
+            iniC.tileFoodsteOrdFoodsPriceAlignmentOfContents = iniC.tileFoodsteOrdFoodsPriceAlignmentOfContents.Equals("") ? "1" : iniC.tileFoodsteOrdFoodsPriceAlignmentOfContents;
             //new LogFile("w mPOSControl GetConfig 8");
             iniC.usePassiveFTP = iniC.usePassiveFTP == null ? "false" : iniC.usePassiveFTP.Equals("") ? "false" : iniC.usePassiveFTP;
             Boolean.TryParse(iniC.usePassiveFTP, out ftpUsePassive);
@@ -413,6 +428,12 @@ namespace modernpos_pos.control
             int.TryParse(iniC.printOrderTextFoodsSize, out printOrderTextFoodsSize);
             statusApplicationTogo = iniC.statusApplicationTogo.Equals("1") ? true : false;
             Decimal.TryParse(iniC.priceTogoPerBill, out priceTogoPerBill);
+            int.TryParse(iniC.tileFoodspnFoodsName1Dock, out tileFoodspnFoodsName1Dock);
+            int.TryParse(iniC.tileFoodspnFoodsName2Dock, out tileFoodspnFoodsName2Dock);
+            int.TryParse(iniC.tileFoodspnFoodsPriceDock, out tileFoodspnFoodsPriceDock);
+            int.TryParse(iniC.tileFoodsteOrdFoodsName1AlignmentOfContents, out tileFoodsteOrdFoodsName1AlignmentOfContents);
+            int.TryParse(iniC.tileFoodsteOrdFoodsName2AlignmentOfContents, out tileFoodsteOrdFoodsName2AlignmentOfContents);
+            int.TryParse(iniC.tileFoodsteOrdFoodsPriceAlignmentOfContents, out tileFoodsteOrdFoodsPriceAlignmentOfContents);
             //new LogFile("w mPOSControl GetConfig 9");
         }
         public void setCboYear(C1ComboBox cbo)

@@ -41,11 +41,11 @@ namespace modernpos_pos.gui
 
         PanelElement peOrd, peRec, peCat, peTopping;
         ImageElement ieOrd, ieRec, ieCat, ieTopping, ieTopping8;
-        TextElement teOrd, teOrdFoodsName, teOrdFoodsPrice, teCat, teCatName, teTopping;
+        TextElement teOrd, teOrdFoodsName1, teOrdFoodsName2, teOrdFoodsPrice, teCat, teCatName, teTopping;
 
         Template tempFlickr, tempRec, tempCat, tempDrink;
         ImageElement imageElement8, imageElementDrink, imageElementRec, imageElementCat;
-        PanelElement pnFoodsName, pnFoodsPrice, pnElementDrink, pnElementPrice, pnElementRec, pnElementCat;
+        PanelElement pnFoodsName1, pnFoodsName2, pnFoodsPrice, pnElementDrink, pnElementPrice, pnElementRec, pnElementCat;
         C1FlexGrid grfOrder, grfSpec, grfTopping, grfBill;
         C1DockingTab tC;
 
@@ -228,9 +228,7 @@ namespace modernpos_pos.gui
             catch (Exception ex)
             {
                 new LogFile("er " + ex.Message);
-            }
-
-            
+            }            
         }
 
         private void BtnCash_Click(object sender, EventArgs e)
@@ -322,10 +320,19 @@ namespace modernpos_pos.gui
 
                     tile.Tag = foorow;
                     tile.Name = foorow.foods_id;
+                    tile.Text2 = foorow.foods_name_1;
                     tile.Text = foorow.foods_name;
                     tile.Text1 = "ราคา " + foorow.foods_price;
                     tile.Click += TileFoods_Click;
                     tile.Image = null;
+                    Template tile1 = tile.Template;
+                    ElementCollection ele = tile1.Elements;
+                    PanelElement pnFoodsName2 = (PanelElement)tile1.Elements[2];
+                    TextElement teOrdFoodsName2 = (TextElement)pnFoodsName2.Children[0];
+                    PanelElement pnFoodsName1 = (PanelElement)tile1.Elements[1];
+                    TextElement teOrdFoodsName1 = (TextElement)pnFoodsName2.Children[0];
+                    teOrdFoodsName2.Text = tile.Text2;
+                    teOrdFoodsName1.Text = tile.Text;
                     try
                     {
                         String filename = "";
@@ -537,11 +544,11 @@ namespace modernpos_pos.gui
             ieOrd = new C1.Win.C1Tile.ImageElement();
             teOrd = new TextElement();
             teOrd.Font = fEdit;
-            teOrdFoodsName = new TextElement();
-            teOrdFoodsName.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
-            teOrdFoodsName.ForeColor = System.Drawing.Color.Black;
-            teOrdFoodsName.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
-            teOrdFoodsName.SingleLine = true;
+            teOrdFoodsName1 = new TextElement();
+            teOrdFoodsName1.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
+            teOrdFoodsName1.ForeColor = System.Drawing.Color.Black;
+            teOrdFoodsName1.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
+            teOrdFoodsName1.SingleLine = true;
 
             imageElementRec.ImageLayout = C1.Win.C1Tile.ForeImageLayout.ScaleOuter;
             peOrd = new PanelElement();
@@ -550,7 +557,7 @@ namespace modernpos_pos.gui
             peOrd.Children.Add(teOrd);
             peOrd.Margin = new System.Windows.Forms.Padding(10, 6, 10, 6);
             pnElementRec.BackColor = tileFoodsNameColor;
-            pnElementRec.Children.Add(teOrdFoodsName);
+            pnElementRec.Children.Add(teOrdFoodsName1);
             pnElementRec.Dock = System.Windows.Forms.DockStyle.Top;
             pnElementRec.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
 
@@ -655,21 +662,28 @@ namespace modernpos_pos.gui
                 //ieRec = new C1.Win.C1Tile.ImageElement();
                 tempFlickr = new C1.Win.C1Tile.Template();
                 imageElementRec = new C1.Win.C1Tile.ImageElement();
-                pnFoodsName = new C1.Win.C1Tile.PanelElement();
+                pnFoodsName1 = new C1.Win.C1Tile.PanelElement();
+                pnFoodsName2 = new C1.Win.C1Tile.PanelElement();
                 pnFoodsPrice = new C1.Win.C1Tile.PanelElement();
                 ieCat = new C1.Win.C1Tile.ImageElement();
                 teCat = new TextElement();
                 teCat.Font = fEdit;
 
-                teOrdFoodsName = new C1.Win.C1Tile.TextElement();
+                teOrdFoodsName1 = new C1.Win.C1Tile.TextElement();
+                teOrdFoodsName2 = new C1.Win.C1Tile.TextElement();
                 teOrdFoodsPrice = new C1.Win.C1Tile.TextElement();
-                teOrdFoodsName.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
-                teOrdFoodsName.ForeColor = System.Drawing.Color.Black;
-                teOrdFoodsName.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
-                teOrdFoodsName.SingleLine = true;
+                teOrdFoodsName1.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
+                teOrdFoodsName1.ForeColor = System.Drawing.Color.Black;
+                teOrdFoodsName1.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
+                teOrdFoodsName1.SingleLine = true;
+                teOrdFoodsName2.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
+                teOrdFoodsName2.ForeColor = System.Drawing.Color.Black;
+                teOrdFoodsName2.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
+                teOrdFoodsName2.SingleLine = true;
                 teOrdFoodsPrice.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
                 teOrdFoodsPrice.Margin = new System.Windows.Forms.Padding(0, 0, 37, 0);
                 teOrdFoodsPrice.TextSelector = C1.Win.C1Tile.TextSelector.Text1;
+                teOrdFoodsPrice.AlignmentOfContents = ContentAlignment.MiddleLeft;
                 peOrd = new C1.Win.C1Tile.PanelElement();
                 peOrd.Alignment = System.Drawing.ContentAlignment.BottomLeft;
                 peOrd.Children.Add(ieCat);
@@ -685,19 +699,194 @@ namespace modernpos_pos.gui
                 peOrd.Children.Add(ieOrd);
                 peOrd.Children.Add(teOrd);
                 peOrd.Margin = new System.Windows.Forms.Padding(10, 6, 10, 6);
-                pnFoodsName.BackColor = tileFoodsNameColor;
-                pnFoodsName.Children.Add(teOrdFoodsName);
-                pnFoodsName.Dock = System.Windows.Forms.DockStyle.Bottom;
-                pnFoodsName.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+                pnFoodsName1.BackColor = tileFoodsNameColor;
+                pnFoodsName1.Children.Add(teOrdFoodsName1);
+                pnFoodsName2.BackColor = tileFoodsNameColor;
+                pnFoodsName2.Children.Add(teOrdFoodsName2);
+                if (mposC.tileFoodspnFoodsName1Dock == 1)
+                {
+                    pnFoodsName1.Dock = System.Windows.Forms.DockStyle.Top;
+                }
+                else if (mposC.tileFoodspnFoodsName1Dock == 2)
+                {
+                    pnFoodsName1.Dock = System.Windows.Forms.DockStyle.Bottom;
+                }
+                else if (mposC.tileFoodspnFoodsName1Dock == 3)
+                {
+                    pnFoodsName1.Dock = System.Windows.Forms.DockStyle.Left;
+                }
+                else if (mposC.tileFoodspnFoodsName1Dock == 4)
+                {
+                    pnFoodsName1.Dock = System.Windows.Forms.DockStyle.Right;
+                }
+                else if (mposC.tileFoodspnFoodsName1Dock == 5)
+                {
+                    pnFoodsName1.Dock = System.Windows.Forms.DockStyle.Fill;
+                }
+                if (mposC.tileFoodspnFoodsName2Dock == 1)
+                {
+                    pnFoodsName2.Dock = System.Windows.Forms.DockStyle.Top;
+                }
+                else if (mposC.tileFoodspnFoodsName2Dock == 2)
+                {
+                    pnFoodsName2.Dock = System.Windows.Forms.DockStyle.Bottom;
+                }
+                else if (mposC.tileFoodspnFoodsName2Dock == 3)
+                {
+                    pnFoodsName2.Dock = System.Windows.Forms.DockStyle.Left;
+                }
+                else if (mposC.tileFoodspnFoodsName2Dock == 4)
+                {
+                    pnFoodsName2.Dock = System.Windows.Forms.DockStyle.Right;
+                }
+                else if (mposC.tileFoodspnFoodsName2Dock == 5)
+                {
+                    pnFoodsName2.Dock = System.Windows.Forms.DockStyle.Fill;
+                }
+                if (mposC.tileFoodspnFoodsPriceDock == 1)
+                {
+                    pnFoodsPrice.Dock = System.Windows.Forms.DockStyle.Top;
+                }
+                else if (mposC.tileFoodspnFoodsPriceDock == 2)
+                {
+                    pnFoodsPrice.Dock = System.Windows.Forms.DockStyle.Bottom;
+                }
+                else if (mposC.tileFoodspnFoodsPriceDock == 3)
+                {
+                    pnFoodsPrice.Dock = System.Windows.Forms.DockStyle.Left;
+                }
+                else if (mposC.tileFoodspnFoodsPriceDock == 4)
+                {
+                    pnFoodsPrice.Dock = System.Windows.Forms.DockStyle.Right;
+                }
+                else if (mposC.tileFoodspnFoodsPriceDock == 5)
+                {
+                    pnFoodsPrice.Dock = System.Windows.Forms.DockStyle.Fill;
+                }
+
+                if (mposC.tileFoodsteOrdFoodsName1AlignmentOfContents == 16)
+                {
+                    pnFoodsName1.AlignmentOfContents = ContentAlignment.MiddleLeft;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName1AlignmentOfContents == 64)
+                {
+                    pnFoodsName1.AlignmentOfContents = ContentAlignment.MiddleRight;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName1AlignmentOfContents == 32)
+                {
+                    pnFoodsName1.AlignmentOfContents = ContentAlignment.MiddleCenter;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName1AlignmentOfContents == 256)
+                {
+                    pnFoodsName1.AlignmentOfContents = ContentAlignment.BottomLeft;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName1AlignmentOfContents == 1024)
+                {
+                    pnFoodsName1.AlignmentOfContents = ContentAlignment.BottomRight;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName1AlignmentOfContents == 512)
+                {
+                    pnFoodsName1.AlignmentOfContents = ContentAlignment.BottomCenter;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName1AlignmentOfContents == 4)
+                {
+                    pnFoodsName1.AlignmentOfContents = ContentAlignment.TopRight;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName1AlignmentOfContents == 1)
+                {
+                    pnFoodsName1.AlignmentOfContents = ContentAlignment.TopLeft;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName1AlignmentOfContents == 2)
+                {
+                    pnFoodsName1.AlignmentOfContents = ContentAlignment.TopCenter;
+                }
+                if (mposC.tileFoodsteOrdFoodsName2AlignmentOfContents == 16)
+                {
+                    pnFoodsName2.AlignmentOfContents = ContentAlignment.MiddleLeft;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName2AlignmentOfContents == 64)
+                {
+                    pnFoodsName2.AlignmentOfContents = ContentAlignment.MiddleRight;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName2AlignmentOfContents == 32)
+                {
+                    pnFoodsName2.AlignmentOfContents = ContentAlignment.MiddleCenter;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName2AlignmentOfContents == 256)
+                {
+                    pnFoodsName2.AlignmentOfContents = ContentAlignment.BottomLeft;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName2AlignmentOfContents == 1024)
+                {
+                    pnFoodsName2.AlignmentOfContents = ContentAlignment.BottomRight;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName2AlignmentOfContents == 512)
+                {
+                    pnFoodsName2.AlignmentOfContents = ContentAlignment.BottomCenter;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName2AlignmentOfContents == 4)
+                {
+                    pnFoodsName2.AlignmentOfContents = ContentAlignment.TopRight;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName2AlignmentOfContents == 1)
+                {
+                    pnFoodsName2.AlignmentOfContents = ContentAlignment.TopLeft;
+                }
+                else if (mposC.tileFoodsteOrdFoodsName2AlignmentOfContents == 2)
+                {
+                    pnFoodsName2.AlignmentOfContents = ContentAlignment.TopCenter;
+                }
+                if (mposC.tileFoodsteOrdFoodsPriceAlignmentOfContents == 16)
+                {
+                    pnFoodsPrice.AlignmentOfContents = ContentAlignment.MiddleLeft;
+                }
+                else if (mposC.tileFoodsteOrdFoodsPriceAlignmentOfContents == 64)
+                {
+                    pnFoodsPrice.AlignmentOfContents = ContentAlignment.MiddleRight;
+                }
+                else if (mposC.tileFoodsteOrdFoodsPriceAlignmentOfContents == 32)
+                {
+                    pnFoodsPrice.AlignmentOfContents = ContentAlignment.MiddleCenter;
+                }
+                else if (mposC.tileFoodsteOrdFoodsPriceAlignmentOfContents == 256)
+                {
+                    pnFoodsPrice.AlignmentOfContents = ContentAlignment.BottomLeft;
+                }
+                else if (mposC.tileFoodsteOrdFoodsPriceAlignmentOfContents == 1024)
+                {
+                    pnFoodsPrice.AlignmentOfContents = ContentAlignment.BottomRight;
+                }
+                else if (mposC.tileFoodsteOrdFoodsPriceAlignmentOfContents == 512)
+                {
+                    pnFoodsPrice.AlignmentOfContents = ContentAlignment.BottomCenter;
+                }
+                else if (mposC.tileFoodsteOrdFoodsPriceAlignmentOfContents == 4)
+                {
+                    pnFoodsPrice.AlignmentOfContents = ContentAlignment.TopRight;
+                }
+                else if (mposC.tileFoodsteOrdFoodsPriceAlignmentOfContents == 1)
+                {
+                    pnFoodsPrice.AlignmentOfContents = ContentAlignment.TopLeft;
+                }
+                else if (mposC.tileFoodsteOrdFoodsPriceAlignmentOfContents == 2)
+                {
+                    pnFoodsPrice.AlignmentOfContents = ContentAlignment.TopCenter;
+                }
+
+                pnFoodsName1.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+                pnFoodsName2.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
                 pnFoodsPrice.Children.Add(teOrdFoodsPrice);
-                pnFoodsPrice.AlignmentOfContents = System.Drawing.ContentAlignment.MiddleRight;
+                //pnFoodsPrice.AlignmentOfContents = System.Drawing.ContentAlignment.MiddleRight;
                 pnFoodsPrice.BackColor = tileFoodsPriceColor;
-                pnFoodsPrice.Dock = System.Windows.Forms.DockStyle.Bottom;
-                pnFoodsPrice.FixedHeight = 32;
+                //pnFoodsPrice.Dock = System.Windows.Forms.DockStyle.Bottom;
+                //pnFoodsPrice.FixedHeight = 32;
                 //pnFoodsName.Children.Add(teOrdFoodsPrice);
                 tempFlickr.Elements.Add(ieOrd);
-                tempFlickr.Elements.Add(pnFoodsName);
+                
+                //tempFlickr.Elements.Add(pnFoodsName2);
                 tempFlickr.Elements.Add(pnFoodsPrice);
+                tempFlickr.Elements.Add(pnFoodsName2);
+                tempFlickr.Elements.Add(pnFoodsName1);
                 tempFlickr.Name = "tempFlickrrec";
 
                 TileFoods[index] = new C1TileControl();
@@ -716,7 +905,7 @@ namespace modernpos_pos.gui
                 TileFoods[index].DefaultTemplate.Elements.Add(peOrd);
 
                 TileFoods[index].Name = "tiledrink";
-                TileFoods[index].Dock = DockStyle.Fill;
+                //TileFoods[index].Dock = DockStyle.Fill;
                 TileFoods[index].ScrollOffset = 0;
                 TileFoods[index].SurfaceContentAlignment = System.Drawing.ContentAlignment.TopLeft;
                 TileFoods[index].Padding = new System.Windows.Forms.Padding(0);

@@ -326,6 +326,9 @@
     <Compile Include="gui\FrmTakeOut4.Designer.cs">
       <DependentUpon>FrmTakeOut4.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmTakeOut5.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="gui\FrmTakeOutCheck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1431,6 +1434,12 @@
     <None Include="Resources\Dinein.PNG" />
     <None Include="Resources\HomeDelivery.PNG" />
     <None Include="Resources\item_Oder.PNG" />
+    <None Include="Resources\plus.PNG" />
+    <None Include="Resources\minus.PNG" />
+    <None Include="Resources\circle_green.PNG" />
+    <None Include="Resources\circle_write.PNG" />
+    <None Include="Resources\exit.PNG" />
+    <None Include="Resources\payment.PNG" />
     <Content Include="togo_banner.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

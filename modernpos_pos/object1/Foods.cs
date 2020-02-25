@@ -24,5 +24,6 @@ namespace modernpos_pos.object1
         public String status_recommend { get; set; }
         public String status_create { get; set; }
         public String price_plus_togo { get; set; }
+        public String foods_name_1 { get; set; }
     }
 }

@@ -300,3 +300,7 @@ ADD COLUMN `price_plus_togo` DECIMAL(17,2) NULL AFTER `status_create`;
 ALTER TABLE `onsoon`.`b_restaurant` 
 ADD COLUMN `status_print_order` VARCHAR(45) NULL DEFAULT 0 COMMENT '0=default; 1=cut per order; 2=cut per printer or station' AFTER `receipt_footer5`;
 
+63-02-25
+ALTER TABLE `onsoon`.`b_foods` 
+ADD COLUMN `foods_name_1` VARCHAR(255) NULL AFTER `price_plus_togo`;
+

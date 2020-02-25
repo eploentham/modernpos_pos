@@ -33,5 +33,7 @@ namespace modernpos_pos.object1
 
         public String scFoodsWidth = "", statusApplicationTogo="", statusTogoOrderingRepeat="", textTogoPay="", priceTogoPerBill="", statusPayPriceTogo="", screenFirstFilename="", grfBillcolBFooName="", printBillTextFoodsName = "", printBillCharPlus="";
         public String printBillTextFoodsSize = "", printOrderTextFoodsSize = "", printOrderTextFoodsName="", prefixTOGO="", prefixSeatIn="", prefixTOGOItem = "", prefixSeatInItem = "";
+
+        public String tileFoodspnFoodsName1Dock = "", tileFoodspnFoodsPriceDock = "", tileFoodspnFoodsName2Dock="", tileFoodsteOrdFoodsPriceAlignmentOfContents="", tileFoodsteOrdFoodsName1AlignmentOfContents="", tileFoodsteOrdFoodsName2AlignmentOfContents="";
     }
 }

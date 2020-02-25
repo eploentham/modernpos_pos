@@ -90,7 +90,7 @@
             // 
             // phHead
             // 
-            this.phHead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(208)))));
+            this.phHead.BackColor = System.Drawing.Color.White;
             this.phHead.Controls.Add(this.picTogo);
             this.phHead.Controls.Add(this.lbRow);
             this.phHead.Controls.Add(this.lbName);
@@ -109,7 +109,7 @@
             // picTogo
             // 
             this.picTogo.BackColor = System.Drawing.Color.White;
-            this.picTogo.Image = global::modernpos_pos.Properties.Resources.togouncheck;
+            this.picTogo.Image = global::modernpos_pos.Properties.Resources.circle_write;
             this.picTogo.Location = new System.Drawing.Point(269, 49);
             this.picTogo.Name = "picTogo";
             this.picTogo.Size = new System.Drawing.Size(78, 32);
@@ -139,7 +139,7 @@
             // 
             // picDel
             // 
-            this.picDel.Image = global::modernpos_pos.Properties.Resources.Trashcan;
+            this.picDel.Image = global::modernpos_pos.Properties.Resources.exit;
             this.picDel.Location = new System.Drawing.Point(355, 37);
             this.picDel.Name = "picDel";
             this.picDel.Size = new System.Drawing.Size(42, 42);
@@ -149,7 +149,7 @@
             // 
             // picMinus
             // 
-            this.picMinus.Image = global::modernpos_pos.Properties.Resources.minimun;
+            this.picMinus.Image = global::modernpos_pos.Properties.Resources.minus;
             this.picMinus.Location = new System.Drawing.Point(43, 49);
             this.picMinus.Name = "picMinus";
             this.picMinus.Size = new System.Drawing.Size(32, 32);
@@ -159,7 +159,7 @@
             // 
             // picPlus
             // 
-            this.picPlus.Image = global::modernpos_pos.Properties.Resources.Maximun;
+            this.picPlus.Image = global::modernpos_pos.Properties.Resources.plus;
             this.picPlus.Location = new System.Drawing.Point(137, 49);
             this.picPlus.Name = "picPlus";
             this.picPlus.Size = new System.Drawing.Size(32, 32);

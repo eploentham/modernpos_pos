@@ -53,6 +53,7 @@ namespace modernpos_pos.objdb
             foo.status_recommend = "status_recommend";
             foo.status_create = "status_create";
             foo.price_plus_togo = "price_plus_togo";
+            foo.foods_name_1 = "foods_name_1";
 
             foo.pkField = "foods_id";
             foo.table = "b_foods";
@@ -152,6 +153,7 @@ namespace modernpos_pos.objdb
                 itm1.filename = row[foo.filename].ToString();
                 itm1.status_recommend = row[foo.status_recommend].ToString();
                 itm1.status_create = row[foo.status_create].ToString();
+                itm1.foods_name_1 = row[foo.foods_name_1].ToString();
                 lfoo1.Add(itm1);
             }
             return lfoo1;
@@ -175,6 +177,7 @@ namespace modernpos_pos.objdb
                 itm1.status_recommend = row[foo.status_recommend].ToString();
                 itm1.status_create = row[foo.status_create].ToString();
                 itm1.price_plus_togo = row[foo.price_plus_togo].ToString();
+                itm1.foods_name_1 = row[foo.foods_name_1].ToString();
                 lfoo.Add(itm1);
             }
         }
@@ -195,6 +198,7 @@ namespace modernpos_pos.objdb
                 itm1.foods_cat_id = row[foo.foods_cat_id].ToString();
                 itm1.filename = row[foo.filename].ToString();
                 itm1.status_recommend = row[foo.status_recommend].ToString();
+                itm1.foods_name_1 = row[foo.foods_name_1].ToString();
                 lfoo1.Add(itm1);
             }
             return lfoo1;
@@ -217,6 +221,7 @@ namespace modernpos_pos.objdb
                 itm1.filename = row[foo.filename].ToString();
                 itm1.status_recommend = row[foo.status_recommend].ToString();
                 itm1.status_create = row[foo.status_create].ToString();
+                itm1.foods_name_1 = row[foo.foods_name_1].ToString();
                 lfoo1.Add(itm1);
             }
             return lfoo1;
@@ -272,6 +277,7 @@ namespace modernpos_pos.objdb
             p.filename = p.filename == null ? "" : p.filename;
             p.status_recommend = p.status_recommend == null ? "0" : p.status_recommend;
             p.status_create = p.status_create == null ? "0" : p.status_create;
+            p.foods_name_1 = p.foods_name_1 == null ? "" : p.foods_name_1;
 
             p.host_id = long.TryParse(p.host_id, out chk) ? chk.ToString() : "0";
             p.branch_id = long.TryParse(p.branch_id, out chk) ? chk.ToString() : "0";
@@ -313,6 +319,7 @@ namespace modernpos_pos.objdb
                 "," + foo.status_recommend + " = '" + p.status_recommend + "' " +
                 "," + foo.status_create + " = '0' " +
                 "," + foo.price_plus_togo + " = '" + p.price_plus_togo + "' " +
+                "," + foo.foods_name_1 + " = '" + p.foods_name_1 + "' " +
                 " ";
             try
             {
@@ -351,6 +358,7 @@ namespace modernpos_pos.objdb
                 "," + foo.foods_type_id + " = '" + p.foods_type_id + "' " +
                 "," + foo.status_recommend + " = '" + p.status_recommend + "' " +
                 "," + foo.price_plus_togo + " = '" + p.price_plus_togo + "' " +
+                "," + foo.foods_name_1 + " = '" + p.foods_name_1 + "' " +
                 "Where " + foo.pkField + "='" + p.foods_id + "'"
                 ;
 
@@ -495,6 +503,7 @@ namespace modernpos_pos.objdb
                 dept1.status_recommend = dt.Rows[0][foo.status_recommend] != null ? dt.Rows[0][foo.status_recommend].ToString() : "";
                 dept1.status_create = dt.Rows[0][foo.status_create] != null ? dt.Rows[0][foo.status_create].ToString() : "";
                 dept1.price_plus_togo = dt.Rows[0][foo.price_plus_togo] != null ? dt.Rows[0][foo.price_plus_togo].ToString() : "";
+                dept1.foods_name_1 = dt.Rows[0][foo.foods_name_1] != null ? dt.Rows[0][foo.foods_name_1].ToString() : "";
             }
             else
             {
@@ -524,6 +533,7 @@ namespace modernpos_pos.objdb
                 dept1.status_recommend = "";
                 dept1.status_create = "";
                 dept1.price_plus_togo = "";
+                dept1.foods_name_1 = "";
             }
 
             return dept1;
