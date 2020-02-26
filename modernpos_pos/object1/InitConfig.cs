@@ -35,5 +35,6 @@ namespace modernpos_pos.object1
         public String printBillTextFoodsSize = "", printOrderTextFoodsSize = "", printOrderTextFoodsName="", prefixTOGO="", prefixSeatIn="", prefixTOGOItem = "", prefixSeatInItem = "";
 
         public String tileFoodspnFoodsName1Dock = "", tileFoodspnFoodsPriceDock = "", tileFoodspnFoodsName2Dock="", tileFoodsteOrdFoodsPriceAlignmentOfContents="", tileFoodsteOrdFoodsName1AlignmentOfContents="", tileFoodsteOrdFoodsName2AlignmentOfContents="";
+        public String ucOrderTakeOutpnHeadBackColor = "", ucOrderTakeOutpnToppingBorderStyle="", ucOrderTakeOutBorderStyle="", pnOrdOrderBackColor="", pnOrdHeadBackColor="", pnOrdBillBackColor="";
     }
 }

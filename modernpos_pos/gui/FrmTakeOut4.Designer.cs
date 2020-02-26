@@ -30,9 +30,7 @@ namespace modernpos_pos.gui
         /// </summary>
         private void InitializeComponent()
         {
-            //new LogFile("w FrmTakeOut4 InitializeComponent start");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTakeOut4));
-            //new LogFile("w InitializeComponent 1");
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.pnMain = new System.Windows.Forms.Panel();
             this.tCMain = new C1.Win.C1Command.C1DockingTab();
@@ -70,7 +68,6 @@ namespace modernpos_pos.gui
             this.btnBillCheck = new System.Windows.Forms.Button();
             this.tabCommand = new C1.Win.C1Command.C1DockingTabPage();
             this.pnCommand = new System.Windows.Forms.Panel();
-            //new LogFile("w InitializeComponent 2");
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCMain)).BeginInit();
@@ -97,7 +94,6 @@ namespace modernpos_pos.gui
             ((System.ComponentModel.ISupportInitialize)(this.cboRsp)).BeginInit();
             this.tabCommand.SuspendLayout();
             this.SuspendLayout();
-            //new LogFile("w initConfig 3");
             // 
             // theme1
             // 
@@ -186,10 +182,10 @@ namespace modernpos_pos.gui
             this.scFoods.Location = new System.Drawing.Point(0, 21);
             this.scFoods.Name = "scFoods";
             this.scFoods.Size = new System.Drawing.Size(895, 727);
-            this.scFoods.SizeRatio = 57.061D;
+            this.scFoods.SizeRatio = 57.052D;
             this.scFoods.TabIndex = 0;
             this.scFoods.Text = "Foods";
-            this.scFoods.Width = 895;
+            this.scFoods.Width = 902;
             // 
             // sCFoodsMain
             // 

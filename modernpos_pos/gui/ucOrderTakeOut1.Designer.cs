@@ -31,7 +31,7 @@
             this.lbPrice = new C1.Win.C1Input.C1Label();
             this.lbName = new C1.Win.C1Input.C1Label();
             this.lbQty = new C1.Win.C1Input.C1Label();
-            this.phHead = new System.Windows.Forms.Panel();
+            this.pnHead = new System.Windows.Forms.Panel();
             this.picTogo = new C1.Win.C1Input.C1PictureBox();
             this.lbRow = new C1.Win.C1Input.C1Label();
             this.picDesc = new C1.Win.C1Input.C1PictureBox();
@@ -42,7 +42,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lbPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbQty)).BeginInit();
-            this.phHead.SuspendLayout();
+            this.pnHead.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbRow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDesc)).BeginInit();
@@ -88,23 +88,23 @@
             this.lbQty.Tag = null;
             this.lbQty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // phHead
+            // pnHead
             // 
-            this.phHead.BackColor = System.Drawing.Color.White;
-            this.phHead.Controls.Add(this.picTogo);
-            this.phHead.Controls.Add(this.lbRow);
-            this.phHead.Controls.Add(this.lbName);
-            this.phHead.Controls.Add(this.picDesc);
-            this.phHead.Controls.Add(this.lbPrice);
-            this.phHead.Controls.Add(this.picDel);
-            this.phHead.Controls.Add(this.picMinus);
-            this.phHead.Controls.Add(this.lbQty);
-            this.phHead.Controls.Add(this.picPlus);
-            this.phHead.Dock = System.Windows.Forms.DockStyle.Top;
-            this.phHead.Location = new System.Drawing.Point(0, 0);
-            this.phHead.Name = "phHead";
-            this.phHead.Size = new System.Drawing.Size(400, 85);
-            this.phHead.TabIndex = 12;
+            this.pnHead.BackColor = System.Drawing.Color.White;
+            this.pnHead.Controls.Add(this.picTogo);
+            this.pnHead.Controls.Add(this.lbRow);
+            this.pnHead.Controls.Add(this.lbName);
+            this.pnHead.Controls.Add(this.picDesc);
+            this.pnHead.Controls.Add(this.lbPrice);
+            this.pnHead.Controls.Add(this.picDel);
+            this.pnHead.Controls.Add(this.picMinus);
+            this.pnHead.Controls.Add(this.lbQty);
+            this.pnHead.Controls.Add(this.picPlus);
+            this.pnHead.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnHead.Location = new System.Drawing.Point(0, 0);
+            this.pnHead.Name = "pnHead";
+            this.pnHead.Size = new System.Drawing.Size(400, 85);
+            this.pnHead.TabIndex = 12;
             // 
             // picTogo
             // 
@@ -180,13 +180,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.phHead);
+            this.Controls.Add(this.pnHead);
             this.Name = "ucOrderTakeOut1";
             this.Size = new System.Drawing.Size(400, 447);
             ((System.ComponentModel.ISupportInitialize)(this.lbPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbQty)).EndInit();
-            this.phHead.ResumeLayout(false);
+            this.pnHead.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picTogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbRow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDesc)).EndInit();
@@ -206,7 +206,7 @@
         private C1.Win.C1Input.C1Label lbQty;
         private C1.Win.C1Input.C1PictureBox picPlus;
         private C1.Win.C1Input.C1PictureBox picMinus;
-        private System.Windows.Forms.Panel phHead;
+        private System.Windows.Forms.Panel pnHead;
         private C1.Win.C1Input.C1Label lbRow;
         private System.Windows.Forms.Panel panel1;
         private C1.Win.C1Input.C1PictureBox picTogo;

@@ -102,6 +102,24 @@ namespace modernpos_pos.gui
             fEdit1 = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 5, FontStyle.Regular + 2);
             fgrd = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize + 15, FontStyle.Regular);
             ford = new Font(mposC.iniC.grdViewFontName, mposC.grdViewFontSize, FontStyle.Regular);
+            pnHead.BackColor = ColorTranslator.FromHtml(mposC.iniC.ucOrderTakeOutpnHeadBackColor);
+            lbRow.BackColor = ColorTranslator.FromHtml(mposC.iniC.ucOrderTakeOutpnHeadBackColor);
+            lbName.BackColor = ColorTranslator.FromHtml(mposC.iniC.ucOrderTakeOutpnHeadBackColor);
+            lbPrice.BackColor = ColorTranslator.FromHtml(mposC.iniC.ucOrderTakeOutpnHeadBackColor);
+            panel1.BackColor = ColorTranslator.FromHtml(mposC.iniC.ucOrderTakeOutpnHeadBackColor);
+            //lbName.BackColor = ColorTranslator.FromHtml(mposC.iniC.ucOrderTakeOutpnHeadBackColor);
+            if (mposC.iniC.ucOrderTakeOutBorderStyle.Equals("0"))
+            {
+                this.BorderStyle = BorderStyle.None;
+            }
+            else if (mposC.iniC.ucOrderTakeOutBorderStyle.Equals("1"))
+            {
+                this.BorderStyle = BorderStyle.FixedSingle;
+            }
+            else if (mposC.iniC.ucOrderTakeOutBorderStyle.Equals("1"))
+            {
+                this.BorderStyle = BorderStyle.Fixed3D;
+            }
 
             picPlus.Click += PicPlus_Click;
             picMinus.Click += PicMinus_Click;
@@ -382,7 +400,7 @@ namespace modernpos_pos.gui
                 hei += ctn.Height;
             }
             //Padding padding = this.Padding;
-            this.Height = phHead.Height + hei + (cnt*5)+3;
+            this.Height = pnHead.Height + hei + (cnt*5)+3;
             sizeNormal = this.Size;
         }
         private void setPrice()
@@ -450,6 +468,19 @@ namespace modernpos_pos.gui
             pnCri1.Name = "pnCri" + cnt;
             pnCri1.BorderStyle = BorderStyle.FixedSingle;
             pnCri1.BackColor = cor;
+            if (mposC.iniC.ucOrderTakeOutpnToppingBorderStyle.Equals("0"))
+            {
+                pnCri1.BorderStyle = BorderStyle.None;
+            }
+            else if (mposC.iniC.ucOrderTakeOutpnToppingBorderStyle.Equals("1"))
+            {
+                pnCri1.BorderStyle = BorderStyle.FixedSingle;
+            }
+            else if (mposC.iniC.ucOrderTakeOutpnToppingBorderStyle.Equals("1"))
+            {
+                pnCri1.BorderStyle = BorderStyle.Fixed3D;
+            }
+
             pnCri1.Click += PicSpecSelect_Click;
             picSelect.Image = global::modernpos_pos.Properties.Resources.circle_png_circle_icon_1600;
             picSelect.Location = new System.Drawing.Point(4, 8);
@@ -575,22 +606,33 @@ namespace modernpos_pos.gui
             C1Label lbPrice = new C1Label();
             C1Label lbID = new C1Label();
             //pnCri1.BackColor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsBackColor);
-            pnCri1.BackColor = Color.FromArgb(255, 209, 81);
+            //pnCri1.BackColor = ColorTranslator.FromHtml(mposC.iniC.ucOrderTakeOutpnHeadBackColor);
             pnCri1.Dock = System.Windows.Forms.DockStyle.Top;
             //pnCri1.Location = new System.Drawing.Point(0, 85);
             pnCri1.Size = new System.Drawing.Size(390, 47);
             pnCri1.Name = "pnCri"+cnt;
-            pnCri1.BorderStyle = BorderStyle.FixedSingle;
+            if (mposC.iniC.ucOrderTakeOutpnToppingBorderStyle.Equals("0"))
+            {
+                pnCri1.BorderStyle = BorderStyle.None;
+            }
+            else if (mposC.iniC.ucOrderTakeOutpnToppingBorderStyle.Equals("1"))
+            {
+                pnCri1.BorderStyle = BorderStyle.FixedSingle;
+            }
+            else if (mposC.iniC.ucOrderTakeOutpnToppingBorderStyle.Equals("1"))
+            {
+                pnCri1.BorderStyle = BorderStyle.Fixed3D;
+            }
             pnCri1.BackColor = cor;
 
-            picTrah.Image = global::modernpos_pos.Properties.Resources.Trashcan;
+            picTrah.Image = global::modernpos_pos.Properties.Resources.exit;
             picTrah.Location = new System.Drawing.Point(360, 8);
             picTrah.Name = "picTrahTopping" + cnt;
             picTrah.Size = new System.Drawing.Size(32, 32);
             picTrah.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             picTrah.TabStop = false;
             //picMinus.Image = global::modernpos_pos.Properties.Resources.minus_red;
-            picMinus.Image = global::modernpos_pos.Properties.Resources.minimun;
+            picMinus.Image = global::modernpos_pos.Properties.Resources.minus;
             picMinus.Location = new System.Drawing.Point(241, 8);
             picMinus.Name = "picMinusTopping" + cnt;
             picMinus.Size = new System.Drawing.Size(32, 32);
@@ -607,14 +649,14 @@ namespace modernpos_pos.gui
             lbQty.Tag = null;
             lbQty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             //picPlus.Image = global::modernpos_pos.Properties.Resources.plus_green_100;
-            picPlus.Image = global::modernpos_pos.Properties.Resources.Maximun;
+            picPlus.Image = global::modernpos_pos.Properties.Resources.plus;
             picPlus.Location = new System.Drawing.Point(327, 8);
             picPlus.Name = "picPlusTopping" + cnt;
             picPlus.Size = new System.Drawing.Size(32, 32);
             picPlus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             picPlus.TabIndex = 11;
             picPlus.TabStop = false;
-            lbFoot1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(209)))), ((int)(((byte)(81)))));
+            //lbFoot1.BackColor = ColorTranslator.FromHtml(mposC.iniC.ucOrderTakeOutpnHeadBackColor);
             lbFoot1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lbFoot1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lbFoot1.Location = new System.Drawing.Point(4, 8);

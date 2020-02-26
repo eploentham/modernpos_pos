@@ -117,6 +117,11 @@ namespace modernpos_pos.gui
             {
                 theme1.SetTheme(c, "Office2013Red");
             }
+            pnOrdOrder.BackColor = ColorTranslator.FromHtml(mposC.iniC.pnOrdOrderBackColor);
+            pnOrdHead.BackColor = ColorTranslator.FromHtml(mposC.iniC.pnOrdHeadBackColor);
+            pnOrdBill.BackColor = ColorTranslator.FromHtml(mposC.iniC.pnOrdBillBackColor);
+            btnPay.Image = global::modernpos_pos.Properties.Resources.payment;
+            
             //foreach (Control c in pnCheckBill.Controls)
             //{
             //    theme1.SetTheme(c, "Office2013Red");
@@ -611,7 +616,7 @@ namespace modernpos_pos.gui
                 ucto = (ucOrderTakeOut1)controls[i];
                 if (ucto == null) continue;
                 C1Label lbPrice = new C1Label();
-                Panel pn = (Panel)ucto.Controls["phHead"];
+                Panel pn = (Panel)ucto.Controls["pnHead"];
                 lbPrice = (C1Label)pn.Controls["lbPrice"];
                 if(decimal.TryParse(lbPrice.Text, out price))
                 {

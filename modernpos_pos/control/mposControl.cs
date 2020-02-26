@@ -328,7 +328,13 @@ namespace modernpos_pos.control
             iniC.tileFoodsteOrdFoodsName1AlignmentOfContents = iniF.getIni("app", "tileFoodsteOrdFoodsName1AlignmentOfContents");
             iniC.tileFoodsteOrdFoodsName2AlignmentOfContents = iniF.getIni("app", "tileFoodsteOrdFoodsName2AlignmentOfContents");
             iniC.tileFoodsteOrdFoodsPriceAlignmentOfContents = iniF.getIni("app", "tileFoodsteOrdFoodsPriceAlignmentOfContents");
-            
+            iniC.ucOrderTakeOutpnHeadBackColor = iniF.getIni("app", "ucOrderTakeOutpnHeadBackColor");
+            iniC.ucOrderTakeOutpnToppingBorderStyle = iniF.getIni("app", "ucOrderTakeOutpnToppingBorderStyle");
+            iniC.ucOrderTakeOutBorderStyle = iniF.getIni("app", "ucOrderTakeOutBorderStyle");
+            iniC.pnOrdOrderBackColor = iniF.getIni("app", "pnOrdOrderBackColor");
+            iniC.pnOrdHeadBackColor = iniF.getIni("app", "pnOrdHeadBackColor");
+            iniC.pnOrdBillBackColor = iniF.getIni("app", "pnOrdBillBackColor");
+
             //new LogFile("w mPOSControl GetConfig 5");
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
 
@@ -352,6 +358,11 @@ namespace modernpos_pos.control
             iniC.statuspaytoclose = iniC.statuspaytoclose == null ? "0" : iniC.statuspaytoclose;
             iniC.TileFoodstakeouttilhorizontalsize = iniC.TileFoodstakeouttilhorizontalsize == null ? "2" : iniC.TileFoodstakeouttilhorizontalsize;
             iniC.TileFoodstakeouttilverticalsize = iniC.TileFoodstakeouttilverticalsize == null ? "3" : iniC.TileFoodstakeouttilverticalsize;
+            iniC.ucOrderTakeOutpnToppingBorderStyle = iniC.ucOrderTakeOutpnToppingBorderStyle == null ? "0" : iniC.ucOrderTakeOutpnToppingBorderStyle;
+            iniC.ucOrderTakeOutBorderStyle = iniC.ucOrderTakeOutBorderStyle == null ? "0" : iniC.ucOrderTakeOutBorderStyle;
+            iniC.pnOrdOrderBackColor = iniC.pnOrdOrderBackColor == null ? "#FFFFFF" : iniC.pnOrdOrderBackColor.Equals("") ? "#FFFFFF" : iniC.pnOrdOrderBackColor;
+            iniC.pnOrdHeadBackColor = iniC.pnOrdHeadBackColor == null ? "#FFFFFF" : iniC.pnOrdHeadBackColor.Equals("") ? "#FFFFFF" : iniC.pnOrdHeadBackColor;
+            iniC.pnOrdBillBackColor = iniC.pnOrdBillBackColor == null ? "#FFFFFF" : iniC.pnOrdBillBackColor.Equals("") ? "#FFFFFF" : iniC.pnOrdBillBackColor;
 
             iniC.hostFTP = iniC.hostFTP == null ? "" : iniC.hostFTP;
             iniC.userFTP = iniC.userFTP == null ? "" : iniC.userFTP;
