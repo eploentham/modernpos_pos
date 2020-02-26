@@ -28,7 +28,7 @@ namespace modernpos_pos.gui
         mPOSControl mposC;
         Font fEdit, fEditB, fEdit1, fgrd, ford, ftxtBig, fPrnBil, fPrnOrd;
 
-        Color bg, fc, tilecolor, tileFoodsPriceColor, tileFoodsNameColor, tileCatColor;
+        Color bg, fc, tilecolor, tileFoodsPriceColor, tileFoodsNameColor, tileCatColor, tileFoodsName2Color;
         Font ff, ffB;
 
         Boolean flagEdit = false;
@@ -133,6 +133,7 @@ namespace modernpos_pos.gui
                 tilecolor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsBackColor);
                 tileFoodsPriceColor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsPriceColor);
                 tileFoodsNameColor = ColorTranslator.FromHtml(mposC.iniC.TileFoodsNameColor);
+                tileFoodsName2Color = ColorTranslator.FromHtml(mposC.iniC.tileFoodsteOrdFoodsName2BackColor);
                 tileCatColor = ColorTranslator.FromHtml(mposC.iniC.TileCategoryColor);
 
                 bg = txtTableCode.BackColor;
@@ -325,19 +326,27 @@ namespace modernpos_pos.gui
 
                     tile.Tag = foorow;
                     tile.Name = foorow.foods_id;
-                    tile.Text2 = foorow.foods_name_1;
+                    tile.Text2 = "222";
                     tile.Text = foorow.foods_name;
                     tile.Text1 = "ราคา " + foorow.foods_price;
                     tile.Click += TileFoods_Click;
                     tile.Image = null;
                     Template tile1 = tile.Template;
                     ElementCollection ele = tile1.Elements;
-                    PanelElement pnFoodsName2 = (PanelElement)tile1.Elements[2];
+                    PanelElement pnFoodsName1 = (PanelElement)ele[1];
+                    TextElement teOrdFoodsName1 = (TextElement)pnFoodsName1.Children[0];
+                    PanelElement pnFoodsName2 = (PanelElement)ele[2];
                     TextElement teOrdFoodsName2 = (TextElement)pnFoodsName2.Children[0];
-                    PanelElement pnFoodsName1 = (PanelElement)tile1.Elements[1];
-                    TextElement teOrdFoodsName1 = (TextElement)pnFoodsName2.Children[0];
                     teOrdFoodsName2.Text = tile.Text2;
                     teOrdFoodsName1.Text = tile.Text;
+
+
+                    //PanelElement pnFoodsName2 = (PanelElement)tile1.Elements[2];
+                    //TextElement teOrdFoodsName2 = (TextElement)pnFoodsName2.Children[0];
+                    //PanelElement pnFoodsName1 = (PanelElement)tile1.Elements[1];
+                    //TextElement teOrdFoodsName1 = (TextElement)pnFoodsName1.Children[0];
+                    //teOrdFoodsName2.Text = tile.Text2;
+                    //teOrdFoodsName1.Text = tile.Text;
                     try
                     {
                         String filename = "";
@@ -689,6 +698,7 @@ namespace modernpos_pos.gui
                 teOrdFoodsPrice.Margin = new System.Windows.Forms.Padding(0, 0, 37, 0);
                 teOrdFoodsPrice.TextSelector = C1.Win.C1Tile.TextSelector.Text1;
                 teOrdFoodsPrice.AlignmentOfContents = ContentAlignment.MiddleLeft;
+                //teOrdFoodsPrice.Text = 
                 peOrd = new C1.Win.C1Tile.PanelElement();
                 peOrd.Alignment = System.Drawing.ContentAlignment.BottomLeft;
                 peOrd.Children.Add(ieCat);
@@ -706,7 +716,7 @@ namespace modernpos_pos.gui
                 peOrd.Margin = new System.Windows.Forms.Padding(10, 6, 10, 6);
                 pnFoodsName1.BackColor = tileFoodsNameColor;
                 pnFoodsName1.Children.Add(teOrdFoodsName1);
-                pnFoodsName2.BackColor = tileFoodsNameColor;
+                pnFoodsName2.BackColor = tileFoodsName2Color;
                 pnFoodsName2.Children.Add(teOrdFoodsName2);
                 if (mposC.tileFoodspnFoodsName1Dock == 1)
                 {
@@ -907,7 +917,7 @@ namespace modernpos_pos.gui
 
                 TileFoods[index].Groups.Add(grRec);
                 TileFoods[index].Font = fEdit;
-                TileFoods[index].DefaultTemplate.Elements.Add(peOrd);
+                //TileFoods[index].DefaultTemplate.Elements.Add(peOrd);
 
                 TileFoods[index].Name = "tiledrink";
                 //TileFoods[index].Dock = DockStyle.Fill;

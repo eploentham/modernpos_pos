@@ -334,6 +334,7 @@ namespace modernpos_pos.control
             iniC.pnOrdOrderBackColor = iniF.getIni("app", "pnOrdOrderBackColor");
             iniC.pnOrdHeadBackColor = iniF.getIni("app", "pnOrdHeadBackColor");
             iniC.pnOrdBillBackColor = iniF.getIni("app", "pnOrdBillBackColor");
+            iniC.tileFoodsteOrdFoodsName2BackColor = iniF.getIni("app", "tileFoodsteOrdFoodsName2BackColor");
 
             //new LogFile("w mPOSControl GetConfig 5");
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
@@ -363,6 +364,7 @@ namespace modernpos_pos.control
             iniC.pnOrdOrderBackColor = iniC.pnOrdOrderBackColor == null ? "#FFFFFF" : iniC.pnOrdOrderBackColor.Equals("") ? "#FFFFFF" : iniC.pnOrdOrderBackColor;
             iniC.pnOrdHeadBackColor = iniC.pnOrdHeadBackColor == null ? "#FFFFFF" : iniC.pnOrdHeadBackColor.Equals("") ? "#FFFFFF" : iniC.pnOrdHeadBackColor;
             iniC.pnOrdBillBackColor = iniC.pnOrdBillBackColor == null ? "#FFFFFF" : iniC.pnOrdBillBackColor.Equals("") ? "#FFFFFF" : iniC.pnOrdBillBackColor;
+            iniC.tileFoodsteOrdFoodsName2BackColor = iniC.tileFoodsteOrdFoodsName2BackColor == null ? "#FFFFFF" : iniC.tileFoodsteOrdFoodsName2BackColor.Equals("") ? "#FFFFFF" : iniC.tileFoodsteOrdFoodsName2BackColor;
 
             iniC.hostFTP = iniC.hostFTP == null ? "" : iniC.hostFTP;
             iniC.userFTP = iniC.userFTP == null ? "" : iniC.userFTP;
