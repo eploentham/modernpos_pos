@@ -33,7 +33,6 @@
             this.c1SuperLabel2 = new C1.Win.C1SuperTooltip.C1SuperLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClose = new C1.Win.C1Input.C1Button();
-            this.btnConfig = new C1.Win.C1Input.C1Button();
             this.btnCloseDay = new C1.Win.C1Input.C1Button();
             this.btnKitchen = new C1.Win.C1Input.C1Button();
             this.btnBackOffice = new C1.Win.C1Input.C1Button();
@@ -45,7 +44,6 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCloseDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKitchen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBackOffice)).BeginInit();
@@ -74,7 +72,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1049, 100);
+            this.panel1.Size = new System.Drawing.Size(1078, 100);
             this.panel1.TabIndex = 1;
             // 
             // c1SuperLabel2
@@ -93,7 +91,6 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.btnClose);
-            this.panel2.Controls.Add(this.btnConfig);
             this.panel2.Controls.Add(this.btnCloseDay);
             this.panel2.Controls.Add(this.btnKitchen);
             this.panel2.Controls.Add(this.btnBackOffice);
@@ -104,31 +101,22 @@
             this.panel2.Controls.Add(this.btnDineIn);
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1049, 626);
+            this.panel2.Size = new System.Drawing.Size(1075, 626);
             this.panel2.TabIndex = 1;
             // 
             // btnClose
             // 
             this.btnClose.Image = global::modernpos_pos.Properties.Resources.close_program;
-            this.btnClose.Location = new System.Drawing.Point(384, 453);
+            this.btnClose.Location = new System.Drawing.Point(722, 306);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(344, 141);
             this.btnClose.TabIndex = 11;
             this.btnClose.UseVisualStyleBackColor = true;
             // 
-            // btnConfig
-            // 
-            this.btnConfig.Location = new System.Drawing.Point(716, 159);
-            this.btnConfig.Name = "btnConfig";
-            this.btnConfig.Size = new System.Drawing.Size(116, 77);
-            this.btnConfig.TabIndex = 10;
-            this.btnConfig.Text = "Config";
-            this.btnConfig.UseVisualStyleBackColor = true;
-            // 
             // btnCloseDay
             // 
             this.btnCloseDay.Image = global::modernpos_pos.Properties.Resources.close_res;
-            this.btnCloseDay.Location = new System.Drawing.Point(31, 453);
+            this.btnCloseDay.Location = new System.Drawing.Point(22, 306);
             this.btnCloseDay.Name = "btnCloseDay";
             this.btnCloseDay.Size = new System.Drawing.Size(338, 141);
             this.btnCloseDay.TabIndex = 9;
@@ -137,7 +125,7 @@
             // btnKitchen
             // 
             this.btnKitchen.Image = global::modernpos_pos.Properties.Resources.Kitchen;
-            this.btnKitchen.Location = new System.Drawing.Point(384, 306);
+            this.btnKitchen.Location = new System.Drawing.Point(734, 159);
             this.btnKitchen.Name = "btnKitchen";
             this.btnKitchen.Size = new System.Drawing.Size(323, 141);
             this.btnKitchen.TabIndex = 8;
@@ -146,7 +134,7 @@
             // btnBackOffice
             // 
             this.btnBackOffice.Image = global::modernpos_pos.Properties.Resources.backoffice;
-            this.btnBackOffice.Location = new System.Drawing.Point(31, 306);
+            this.btnBackOffice.Location = new System.Drawing.Point(384, 306);
             this.btnBackOffice.Name = "btnBackOffice";
             this.btnBackOffice.Size = new System.Drawing.Size(323, 141);
             this.btnBackOffice.TabIndex = 7;
@@ -155,7 +143,7 @@
             // btnOrder
             // 
             this.btnOrder.Image = global::modernpos_pos.Properties.Resources.item_Oder;
-            this.btnOrder.Location = new System.Drawing.Point(31, 159);
+            this.btnOrder.Location = new System.Drawing.Point(384, 159);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(323, 141);
             this.btnOrder.TabIndex = 6;
@@ -164,7 +152,7 @@
             // btnHome
             // 
             this.btnHome.Image = global::modernpos_pos.Properties.Resources.HomeDelivery;
-            this.btnHome.Location = new System.Drawing.Point(384, 159);
+            this.btnHome.Location = new System.Drawing.Point(31, 159);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(323, 141);
             this.btnHome.TabIndex = 5;
@@ -173,7 +161,7 @@
             // btnRetail
             // 
             this.btnRetail.Image = global::modernpos_pos.Properties.Resources.ขายปลีก;
-            this.btnRetail.Location = new System.Drawing.Point(716, 12);
+            this.btnRetail.Location = new System.Drawing.Point(734, 12);
             this.btnRetail.Name = "btnRetail";
             this.btnRetail.Size = new System.Drawing.Size(323, 141);
             this.btnRetail.TabIndex = 4;
@@ -201,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 726);
+            this.ClientSize = new System.Drawing.Size(1078, 726);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmMain";
@@ -211,7 +199,6 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCloseDay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKitchen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBackOffice)).EndInit();
@@ -230,7 +217,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private C1.Win.C1Input.C1Button btnClose;
-        private C1.Win.C1Input.C1Button btnConfig;
         private C1.Win.C1Input.C1Button btnCloseDay;
         private C1.Win.C1Input.C1Button btnKitchen;
         private C1.Win.C1Input.C1Button btnBackOffice;

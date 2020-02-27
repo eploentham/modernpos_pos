@@ -81,7 +81,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1158, 100);
+            this.panel1.Size = new System.Drawing.Size(1379, 100);
             this.panel1.TabIndex = 2;
             // 
             // c1SuperLabel2
@@ -110,7 +110,7 @@
             // btnArea
             // 
             this.btnArea.Image = global::modernpos_pos.Properties.Resources.area;
-            this.btnArea.Location = new System.Drawing.Point(615, 14);
+            this.btnArea.Location = new System.Drawing.Point(217, 184);
             this.btnArea.Name = "btnArea";
             this.btnArea.Size = new System.Drawing.Size(193, 164);
             this.btnArea.TabIndex = 7;
@@ -119,7 +119,7 @@
             // btnTable
             // 
             this.btnTable.Image = global::modernpos_pos.Properties.Resources.table;
-            this.btnTable.Location = new System.Drawing.Point(416, 14);
+            this.btnTable.Location = new System.Drawing.Point(19, 184);
             this.btnTable.Name = "btnTable";
             this.btnTable.Size = new System.Drawing.Size(193, 164);
             this.btnTable.TabIndex = 6;
@@ -137,7 +137,7 @@
             // btmStf
             // 
             this.btmStf.Image = global::modernpos_pos.Properties.Resources.staff;
-            this.btmStf.Location = new System.Drawing.Point(17, 184);
+            this.btmStf.Location = new System.Drawing.Point(19, 354);
             this.btmStf.Name = "btmStf";
             this.btmStf.Size = new System.Drawing.Size(193, 164);
             this.btmStf.TabIndex = 8;
@@ -146,7 +146,7 @@
             // btnDept
             // 
             this.btnDept.Image = global::modernpos_pos.Properties.Resources.dept;
-            this.btnDept.Location = new System.Drawing.Point(218, 184);
+            this.btnDept.Location = new System.Drawing.Point(217, 524);
             this.btnDept.Name = "btnDept";
             this.btnDept.Size = new System.Drawing.Size(193, 164);
             this.btnDept.TabIndex = 9;
@@ -155,7 +155,7 @@
             // btnPosi
             // 
             this.btnPosi.Image = global::modernpos_pos.Properties.Resources.position;
-            this.btnPosi.Location = new System.Drawing.Point(416, 184);
+            this.btnPosi.Location = new System.Drawing.Point(217, 354);
             this.btnPosi.Name = "btnPosi";
             this.btnPosi.Size = new System.Drawing.Size(193, 164);
             this.btnPosi.TabIndex = 10;
@@ -164,7 +164,7 @@
             // btnCop
             // 
             this.btnCop.Image = global::modernpos_pos.Properties.Resources.company;
-            this.btnCop.Location = new System.Drawing.Point(17, 354);
+            this.btnCop.Location = new System.Drawing.Point(19, 524);
             this.btnCop.Name = "btnCop";
             this.btnCop.Size = new System.Drawing.Size(193, 164);
             this.btnCop.TabIndex = 11;
@@ -173,7 +173,7 @@
             // btnFoods
             // 
             this.btnFoods.Image = global::modernpos_pos.Properties.Resources.Foods;
-            this.btnFoods.Location = new System.Drawing.Point(16, 524);
+            this.btnFoods.Location = new System.Drawing.Point(922, 14);
             this.btnFoods.Name = "btnFoods";
             this.btnFoods.Size = new System.Drawing.Size(394, 164);
             this.btnFoods.TabIndex = 12;
@@ -182,7 +182,7 @@
             // c1Button1
             // 
             this.c1Button1.Image = global::modernpos_pos.Properties.Resources.drink;
-            this.c1Button1.Location = new System.Drawing.Point(416, 524);
+            this.c1Button1.Location = new System.Drawing.Point(922, 184);
             this.c1Button1.Name = "c1Button1";
             this.c1Button1.Size = new System.Drawing.Size(193, 164);
             this.c1Button1.TabIndex = 13;
@@ -191,7 +191,7 @@
             // btnFoodsType
             // 
             this.btnFoodsType.Image = global::modernpos_pos.Properties.Resources.FoodsT;
-            this.btnFoodsType.Location = new System.Drawing.Point(17, 697);
+            this.btnFoodsType.Location = new System.Drawing.Point(465, 354);
             this.btnFoodsType.Name = "btnFoodsType";
             this.btnFoodsType.Size = new System.Drawing.Size(394, 164);
             this.btnFoodsType.TabIndex = 14;
@@ -200,7 +200,7 @@
             // btnFoodsCategory
             // 
             this.btnFoodsCategory.Image = global::modernpos_pos.Properties.Resources.FoodsC;
-            this.btnFoodsCategory.Location = new System.Drawing.Point(814, 184);
+            this.btnFoodsCategory.Location = new System.Drawing.Point(467, 524);
             this.btnFoodsCategory.Name = "btnFoodsCategory";
             this.btnFoodsCategory.Size = new System.Drawing.Size(193, 164);
             this.btnFoodsCategory.TabIndex = 15;
@@ -209,7 +209,7 @@
             // btnFoodsCatSub
             // 
             this.btnFoodsCatSub.Image = global::modernpos_pos.Properties.Resources.FoodsCS;
-            this.btnFoodsCatSub.Location = new System.Drawing.Point(814, 14);
+            this.btnFoodsCatSub.Location = new System.Drawing.Point(666, 524);
             this.btnFoodsCatSub.Name = "btnFoodsCatSub";
             this.btnFoodsCatSub.Size = new System.Drawing.Size(193, 164);
             this.btnFoodsCatSub.TabIndex = 16;
@@ -218,7 +218,7 @@
             // btnReCom
             // 
             this.btnReCom.Image = global::modernpos_pos.Properties.Resources.Recommend;
-            this.btnReCom.Location = new System.Drawing.Point(613, 694);
+            this.btnReCom.Location = new System.Drawing.Point(919, 354);
             this.btnReCom.Name = "btnReCom";
             this.btnReCom.Size = new System.Drawing.Size(394, 164);
             this.btnReCom.TabIndex = 17;
@@ -227,7 +227,7 @@
             // btnFooMaterial
             // 
             this.btnFooMaterial.Image = global::modernpos_pos.Properties.Resources.FoodsM;
-            this.btnFooMaterial.Location = new System.Drawing.Point(416, 354);
+            this.btnFooMaterial.Location = new System.Drawing.Point(666, 184);
             this.btnFooMaterial.Name = "btnFooMaterial";
             this.btnFooMaterial.Size = new System.Drawing.Size(193, 164);
             this.btnFooMaterial.TabIndex = 18;
@@ -236,7 +236,7 @@
             // btnMaterialType
             // 
             this.btnMaterialType.Image = global::modernpos_pos.Properties.Resources.FoodsMT;
-            this.btnMaterialType.Location = new System.Drawing.Point(218, 354);
+            this.btnMaterialType.Location = new System.Drawing.Point(467, 184);
             this.btnMaterialType.Name = "btnMaterialType";
             this.btnMaterialType.Size = new System.Drawing.Size(193, 164);
             this.btnMaterialType.TabIndex = 19;
@@ -245,7 +245,7 @@
             // btnUnit
             // 
             this.btnUnit.Image = global::modernpos_pos.Properties.Resources.unit;
-            this.btnUnit.Location = new System.Drawing.Point(615, 184);
+            this.btnUnit.Location = new System.Drawing.Point(1121, 184);
             this.btnUnit.Name = "btnUnit";
             this.btnUnit.Size = new System.Drawing.Size(193, 164);
             this.btnUnit.TabIndex = 20;
@@ -254,7 +254,7 @@
             // btnMatrRec
             // 
             this.btnMatrRec.Image = global::modernpos_pos.Properties.Resources.recM;
-            this.btnMatrRec.Location = new System.Drawing.Point(814, 524);
+            this.btnMatrRec.Location = new System.Drawing.Point(919, 524);
             this.btnMatrRec.Name = "btnMatrRec";
             this.btnMatrRec.Size = new System.Drawing.Size(193, 164);
             this.btnMatrRec.TabIndex = 21;
@@ -263,7 +263,7 @@
             // btnMatrDraw
             // 
             this.btnMatrDraw.Image = global::modernpos_pos.Properties.Resources.drawM;
-            this.btnMatrDraw.Location = new System.Drawing.Point(615, 524);
+            this.btnMatrDraw.Location = new System.Drawing.Point(1118, 524);
             this.btnMatrDraw.Name = "btnMatrDraw";
             this.btnMatrDraw.Size = new System.Drawing.Size(193, 164);
             this.btnMatrDraw.TabIndex = 22;
@@ -272,7 +272,7 @@
             // btnStockCard
             // 
             this.btnStockCard.Image = global::modernpos_pos.Properties.Resources.stockcard;
-            this.btnStockCard.Location = new System.Drawing.Point(615, 354);
+            this.btnStockCard.Location = new System.Drawing.Point(468, 14);
             this.btnStockCard.Name = "btnStockCard";
             this.btnStockCard.Size = new System.Drawing.Size(394, 164);
             this.btnStockCard.TabIndex = 23;
@@ -301,14 +301,14 @@
             this.panel2.Controls.Add(this.btnFoodsType);
             this.panel2.Location = new System.Drawing.Point(12, 106);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1027, 875);
+            this.panel2.Size = new System.Drawing.Size(1331, 705);
             this.panel2.TabIndex = 24;
             // 
             // FrmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1158, 993);
+            this.ClientSize = new System.Drawing.Size(1379, 833);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmConfig";

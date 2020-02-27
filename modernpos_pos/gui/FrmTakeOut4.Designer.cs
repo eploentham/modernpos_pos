@@ -215,7 +215,7 @@ namespace modernpos_pos.gui
             this.scFoodsCat.Location = new System.Drawing.Point(0, 21);
             this.scFoodsCat.Name = "scFoodsCat";
             this.scFoodsCat.Size = new System.Drawing.Size(895, 137);
-            this.scFoodsCat.SizeRatio = 21.911D;
+            this.scFoodsCat.SizeRatio = 21.853D;
             this.scFoodsCat.TabIndex = 0;
             this.scFoodsCat.Text = "Category";
             // 
@@ -470,7 +470,7 @@ namespace modernpos_pos.gui
             this.cboRsp.EditorFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboRsp.EditorForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.cboRsp.FlatStyle = C1.Win.C1List.FlatModeEnum.Flat;
-            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboRsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRsp.Images.Add(((System.Drawing.Image)(resources.GetObject("cboRsp.Images"))));
             this.cboRsp.Location = new System.Drawing.Point(38, 26);
             this.cboRsp.MatchEntryTimeout = ((long)(2000));

@@ -44,10 +44,20 @@ namespace modernpos_pos.gui
         {
             btnDineIn.Click += BtnDineIn_Click;
             btnTakeOut.Click += BtnTakeOut_Click;
-            btnConfig.Click += BtnConfig_Click;
+            
             btnClose.Click += BtnClose_Click;
             btnCloseDay.Click += BtnCloseDay_Click;
+            btnBackOffice.Click += BtnBackOffice_Click;
         }
+
+        private void BtnBackOffice_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmConfig frm = new FrmConfig(mposC, this);
+            this.Hide();
+            frm.ShowDialog(this);
+        }
+
         private void BtnCloseDay_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -62,15 +72,6 @@ namespace modernpos_pos.gui
             //throw new NotImplementedException();
             Close();
             //return true;
-        }
-
-        private void BtnConfig_Click(object sender, EventArgs e)
-        {
-            //throw new NotImplementedException();
-            FrmConfig frm = new FrmConfig(mposC, this);
-            this.Hide();
-            frm.ShowDialog(this);
-            
         }
 
         private void BtnTakeOut_Click(object sender, EventArgs e)
@@ -128,7 +129,7 @@ namespace modernpos_pos.gui
             splash.Dispose();
             String date = "";
             date = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM-dd");
-            this.Text = "Start 2019-04-17 Last Update 2020-02-25 format date " + date;
+            this.Text = "Start 2019-04-17 Last Update 2020-02-27 format date " + date;
             txtHeader.Text = mposC.txtHeader;
             int scrW = Screen.PrimaryScreen.Bounds.Width;
             int scrH = Screen.PrimaryScreen.Bounds.Height;
