@@ -384,7 +384,7 @@ namespace modernpos_pos.gui
             }
             else
             {
-                lbName.Value = foo.foods_name;
+                lbName.Value = foo.foods_name+" "+ foo.foods_name_1;
                 lbQty.Value = qty;
                 lbPrice.Value = foo.foods_price;
             }

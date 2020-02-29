@@ -297,175 +297,7 @@ namespace modernpos_pos.gui
             //theme.SetTheme(grf, "Office2010Blue");
 
         }
-        private void setTileFoods()
-        {
-            int index = 0;
-            foreach (DataRow drow in dtCat.Rows)
-            {
-                List<Foods> lfoo1 = new List<Foods>();
-                if (drow[mposC.mposDB.foocDB.fooC.status_recommend].ToString().Equals("1"))
-                {
-                    lfoo1 = mposC.mposDB.fooDB.getlFoodsRecommend();
-                }
-                else
-                {
-                    lfoo1 = mposC.mposDB.fooDB.getlFoodsByCat(drow[mposC.mposDB.foocDB.fooC.foods_cat_id].ToString());
-                }
-
-                TileCollection tiles = TileFoods[index].Groups[0].Tiles;
-                foreach (Foods foorow in lfoo1)
-                {
-                    var tile = new Tile();
-
-                    tile.HorizontalSize = mposC.TileFoodstakeouttilhorizontalsize;
-                    tile.VerticalSize = mposC.TileFoodstakeouttilverticalsize;
-                    tile.Template = tempFlickr;
-                    //tile.Text = drow[mposC.mposDB.foocDB.fooC.foods_cat_name].ToString();
-                    //tile.HorizontalSize = mposC.TileFoodstakeouttilhorizontalsize;
-                    //tile.VerticalSize = mposC.TileFoodstakeouttilverticalsize;
-
-                    tile.Tag = foorow;
-                    tile.Name = foorow.foods_id;
-                    tile.Text2 = "222";
-                    tile.Text = foorow.foods_name;
-                    tile.Text1 = "ราคา " + foorow.foods_price;
-                    tile.Click += TileFoods_Click;
-                    tile.Image = null;
-                    Template tile1 = tile.Template;
-                    ElementCollection ele = tile1.Elements;
-                    PanelElement pnFoodsName1 = (PanelElement)ele[1];
-                    TextElement teOrdFoodsName1 = (TextElement)pnFoodsName1.Children[0];
-                    PanelElement pnFoodsName2 = (PanelElement)ele[2];
-                    TextElement teOrdFoodsName2 = (TextElement)pnFoodsName2.Children[0];
-                    teOrdFoodsName2.Text = tile.Text2;
-                    teOrdFoodsName1.Text = tile.Text;
-
-
-                    //PanelElement pnFoodsName2 = (PanelElement)tile1.Elements[2];
-                    //TextElement teOrdFoodsName2 = (TextElement)pnFoodsName2.Children[0];
-                    //PanelElement pnFoodsName1 = (PanelElement)tile1.Elements[1];
-                    //TextElement teOrdFoodsName1 = (TextElement)pnFoodsName1.Children[0];
-                    //teOrdFoodsName2.Text = tile.Text2;
-                    //teOrdFoodsName1.Text = tile.Text;
-                    try
-                    {
-                        String filename = "";
-                        tile.Image = null;
-                        tiles.Add(tile);
-                        MemoryStream stream = new MemoryStream();
-                        Image loadedImage = null, resizedImage;
-                        if (foorow.filename.Equals("")) continue;
-                        String ext = Path.GetExtension(foorow.filename);
-                        filename = foorow.filename.Replace(ext, "");
-                        stream = mposC.ftpC.download(mposC.iniC.ShareFile + "/foods/" + filename + "_210" + ext);
-                        loadedImage = new Bitmap(stream);
-                        if (loadedImage != null)
-                        {
-                            //SizeF size = tile.Width;
-                            int originalWidth = loadedImage.Width;
-                            int newWidth = 180;
-                            //resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
-                            //tile.Image = resizedImage;
-                            tile.Image = loadedImage;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        //MessageBox.Show("" + ex.Message, "showImg");
-                    }
-                }
-                index++;
-            }
-        }
-        private void TileFoods_Click(object sender, EventArgs e)
-        {
-            Tile tile = sender as Tile;
-            if (tile != null)
-            {
-                Foods foo = new Foods();
-                foo = (Foods)tile.Tag;
-                if (foo.status_create.Equals("1"))
-                {
-                    mposC.NooId = "";
-                    mposC.NooName = "";
-                    mposC.NooPrice = "";
-                    mposC.NooQty = "";
-                    mposC.NooRemark = "";
-                    mposC.NooPrinter = "";
-                    FrmNoodleMake frm = new FrmNoodleMake(mposC, foo.foods_price);
-                    frm.ShowDialog(this);
-
-                    setTplOrder(foo.foods_id, mposC.NooName, mposC.NooPrice, mposC.NooQty, mposC.NooRemark, foo.printer_name, foo.status_create
-                        , frm.lnooNoodle, frm.lnooWater, frm.lnooOptNoodle, frm.lnooNoodleMeatBall, frm.lnooNoodleSea, frm.lnooNoodleMeat, frm.lnooNoodleVagetable);
-                }
-                else
-                {
-                    if (mposC.iniC.statusTogoOrderingRepeat.Equals("1"))
-                    {
-                        Boolean chk = false;
-                        foreach(Order1 ord in lOrd)
-                        {
-                            if (ord.foods_id.Equals(foo.foods_id))
-                            {
-                                int qty = 0;
-                                int.TryParse(ord.qty, out qty);
-                                Decimal price = 0;
-                                Decimal.TryParse(ord.price, out price);
-                                qty++;
-                                ord.qty = qty.ToString();
-                                ord.sumPrice = (price * qty).ToString();
-                                chk = true;
-                                foreach (Control ctl in tplOrd.Controls)
-                                {
-                                    if (ctl is ucOrderTakeOut1)
-                                    {
-                                        ucOrderTakeOut1 ucord;
-                                        //if(ucord.f)
-                                        ucord = (ucOrderTakeOut1)ctl;
-                                        ucord.setQty(foo.foods_id, ord.qty);
-                                        //ucord.setPrice(ord.sumPrice);
-                                    }
-                                }
-                            }
-                        }
-                        if (!chk)
-                        {
-                            setTplOrder(tile.Name, tile.Text, tile.Text1.Replace("ราคา", "").Trim(), "1", "", foo.printer_name, foo.status_create);
-                        }
-                        else
-                        {
-                            
-                        }
-                    }
-                    else
-                    {
-                        setTplOrder(tile.Name, tile.Text, tile.Text1.Replace("ราคา", "").Trim(), "1", "", foo.printer_name, foo.status_create);
-                    }
-                }
-
-                //FlickrPhoto photo = (FlickrPhoto)tile.Tag;
-                //string uri = photo.ContentUri;
-                //if (!string.IsNullOrEmpty(uri))
-                //{
-                //    pictureBox.Image = pictureBox.InitialImage;
-                //    pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
-                //    imgPanel.Visible = true;
-                //    imgPanel.BringToFront();
-                //    titleLabel.Text = photo.Title;
-                //    authorLabel.Text = photo.AuthorName;
-                //    waitLabel.Visible = true;
-                //    pictureBox.LoadAsync(uri);
-                //    tagBox.Enabled = false;
-                //    setTagButton.Enabled = false;
-                //    refreshButton.Enabled = false;
-                //    loadNewButton.Enabled = false;
-                //    flickrTiles.Enabled = false;
-                //    backButton.Enabled = true;
-                //    this.Focus();
-                //}
-                calBill();
-            }
-        }
+        
         private void setTplOrder(String id, String name, String price, String qty, String remark, String printer, String statuscreate
             , List<NoodleMake> lnooNoodle, List<NoodleMake> lnooWater, List<NoodleMake> lnooOptNoodle, List<NoodleMake> lnooNoodleMeatBall, List<NoodleMake> lnooNoodleSea
             , List<NoodleMake> lnooNoodleMeat, List<NoodleMake> lnooNoodleVagetable)
@@ -672,7 +504,7 @@ namespace modernpos_pos.gui
             int index = 0;
 
             //initTileRec();
-
+            
             foreach (DataRow drow in dtCat.Rows)
             {
                 grRec = new Group();
@@ -695,10 +527,12 @@ namespace modernpos_pos.gui
                 teOrdFoodsName1.ForeColor = System.Drawing.Color.Black;
                 teOrdFoodsName1.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
                 teOrdFoodsName1.SingleLine = true;
+                //teOrdFoodsName1.TextSelector = C1.Win.C1Tile.TextSelector.Text1;
                 teOrdFoodsName2.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
                 teOrdFoodsName2.ForeColor = System.Drawing.Color.Black;
                 teOrdFoodsName2.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
                 teOrdFoodsName2.SingleLine = true;
+                teOrdFoodsName2.TextSelector = C1.Win.C1Tile.TextSelector.Text2;
                 teOrdFoodsPrice.BackColorSelector = C1.Win.C1Tile.BackColorSelector.Unbound;
                 teOrdFoodsPrice.Margin = new System.Windows.Forms.Padding(0, 0, 37, 0);
                 teOrdFoodsPrice.TextSelector = C1.Win.C1Tile.TextSelector.Text1;
@@ -902,7 +736,7 @@ namespace modernpos_pos.gui
                 //pnFoodsPrice.FixedHeight = 32;
                 //pnFoodsName.Children.Add(teOrdFoodsPrice);
                 tempFlickr.Elements.Add(ieOrd);
-                
+
                 //tempFlickr.Elements.Add(pnFoodsName2);
                 tempFlickr.Elements.Add(pnFoodsPrice);
                 tempFlickr.Elements.Add(pnFoodsName2);
@@ -934,6 +768,175 @@ namespace modernpos_pos.gui
                 TileFoods[index].Templates.Add(tempFlickr);
                 //TileFoods[index].Font = fEdit;
                 index++;
+            }
+        }
+        private void setTileFoods()
+        {
+            int index = 0;
+            foreach (DataRow drow in dtCat.Rows)
+            {
+                List<Foods> lfoo1 = new List<Foods>();
+                if (drow[mposC.mposDB.foocDB.fooC.status_recommend].ToString().Equals("1"))
+                {
+                    lfoo1 = mposC.mposDB.fooDB.getlFoodsRecommend();
+                }
+                else
+                {
+                    lfoo1 = mposC.mposDB.fooDB.getlFoodsByCat(drow[mposC.mposDB.foocDB.fooC.foods_cat_id].ToString());
+                }
+
+                TileCollection tiles = TileFoods[index].Groups[0].Tiles;
+                foreach (Foods foorow in lfoo1)
+                {
+                    var tile = new Tile();
+
+                    tile.HorizontalSize = mposC.TileFoodstakeouttilhorizontalsize;
+                    tile.VerticalSize = mposC.TileFoodstakeouttilverticalsize;
+                    tile.Template = tempFlickr;
+                    //tile.Text = drow[mposC.mposDB.foocDB.fooC.foods_cat_name].ToString();
+                    //tile.HorizontalSize = mposC.TileFoodstakeouttilhorizontalsize;
+                    //tile.VerticalSize = mposC.TileFoodstakeouttilverticalsize;
+
+                    tile.Tag = foorow;
+                    tile.Name = foorow.foods_id;
+                    tile.Text2 = foorow.foods_name_1;
+                    tile.Text = foorow.foods_name;
+                    tile.Text1 = "ราคา " + foorow.foods_price;
+                    tile.Click += TileFoods_Click;
+                    tile.Image = null;
+                    //Template tile1 = tile.Template;
+                    //ElementCollection ele = tile1.Elements;
+                    //PanelElement pnFoodsName1 = (PanelElement)ele[1];
+                    //TextElement teOrdFoodsName1 = (TextElement)pnFoodsName1.Children[0];
+                    //PanelElement pnFoodsName2 = (PanelElement)ele[2];
+                    //TextElement teOrdFoodsName2 = (TextElement)pnFoodsName2.Children[0];
+                    //teOrdFoodsName2.Text = tile.Text2;
+                    //teOrdFoodsName1.Text = tile.Text;
+
+
+                    //PanelElement pnFoodsName2 = (PanelElement)tile1.Elements[2];
+                    //TextElement teOrdFoodsName2 = (TextElement)pnFoodsName2.Children[0];
+                    //PanelElement pnFoodsName1 = (PanelElement)tile1.Elements[1];
+                    //TextElement teOrdFoodsName1 = (TextElement)pnFoodsName1.Children[0];
+                    //teOrdFoodsName2.Text = tile.Text2;
+                    //teOrdFoodsName1.Text = tile.Text;
+                    try
+                    {
+                        String filename = "";
+                        tile.Image = null;
+                        tiles.Add(tile);
+                        MemoryStream stream = new MemoryStream();
+                        Image loadedImage = null, resizedImage;
+                        if (foorow.filename.Equals("")) continue;
+                        String ext = Path.GetExtension(foorow.filename);
+                        filename = foorow.filename.Replace(ext, "");
+                        stream = mposC.ftpC.download(mposC.iniC.ShareFile + "/foods/" + filename + "_210" + ext);
+                        loadedImage = new Bitmap(stream);
+                        if (loadedImage != null)
+                        {
+                            //SizeF size = tile.Width;
+                            int originalWidth = loadedImage.Width;
+                            int newWidth = 180;
+                            //resizedImage = loadedImage.GetThumbnailImage(newWidth, (newWidth * loadedImage.Height) / originalWidth, null, IntPtr.Zero);
+                            //tile.Image = resizedImage;
+                            tile.Image = loadedImage;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        //MessageBox.Show("" + ex.Message, "showImg");
+                    }
+                }
+                index++;
+            }
+        }
+        private void TileFoods_Click(object sender, EventArgs e)
+        {
+            Tile tile = sender as Tile;
+            if (tile != null)
+            {
+                Foods foo = new Foods();
+                foo = (Foods)tile.Tag;
+                if (foo.status_create.Equals("1"))
+                {
+                    mposC.NooId = "";
+                    mposC.NooName = "";
+                    mposC.NooPrice = "";
+                    mposC.NooQty = "";
+                    mposC.NooRemark = "";
+                    mposC.NooPrinter = "";
+                    FrmNoodleMake frm = new FrmNoodleMake(mposC, foo.foods_price);
+                    frm.ShowDialog(this);
+
+                    setTplOrder(foo.foods_id, mposC.NooName, mposC.NooPrice, mposC.NooQty, mposC.NooRemark, foo.printer_name, foo.status_create
+                        , frm.lnooNoodle, frm.lnooWater, frm.lnooOptNoodle, frm.lnooNoodleMeatBall, frm.lnooNoodleSea, frm.lnooNoodleMeat, frm.lnooNoodleVagetable);
+                }
+                else
+                {
+                    if (mposC.iniC.statusTogoOrderingRepeat.Equals("1"))
+                    {
+                        Boolean chk = false;
+                        foreach (Order1 ord in lOrd)
+                        {
+                            if (ord.foods_id.Equals(foo.foods_id))
+                            {
+                                int qty = 0;
+                                int.TryParse(ord.qty, out qty);
+                                Decimal price = 0;
+                                Decimal.TryParse(ord.price, out price);
+                                qty++;
+                                ord.qty = qty.ToString();
+                                ord.sumPrice = (price * qty).ToString();
+                                chk = true;
+                                foreach (Control ctl in tplOrd.Controls)
+                                {
+                                    if (ctl is ucOrderTakeOut1)
+                                    {
+                                        ucOrderTakeOut1 ucord;
+                                        //if(ucord.f)
+                                        ucord = (ucOrderTakeOut1)ctl;
+                                        ucord.setQty(foo.foods_id, ord.qty);
+                                        //ucord.setPrice(ord.sumPrice);
+                                    }
+                                }
+                            }
+                        }
+                        if (!chk)
+                        {
+                            setTplOrder(tile.Name, tile.Text + tile.Text2, tile.Text1.Replace("ราคา", "").Trim(), "1", "", foo.printer_name, foo.status_create);
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    else
+                    {
+                        setTplOrder(tile.Name, tile.Text + tile.Text2, tile.Text1.Replace("ราคา", "").Trim(), "1", "", foo.printer_name, foo.status_create);
+                    }
+                }
+
+                //FlickrPhoto photo = (FlickrPhoto)tile.Tag;
+                //string uri = photo.ContentUri;
+                //if (!string.IsNullOrEmpty(uri))
+                //{
+                //    pictureBox.Image = pictureBox.InitialImage;
+                //    pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+                //    imgPanel.Visible = true;
+                //    imgPanel.BringToFront();
+                //    titleLabel.Text = photo.Title;
+                //    authorLabel.Text = photo.AuthorName;
+                //    waitLabel.Visible = true;
+                //    pictureBox.LoadAsync(uri);
+                //    tagBox.Enabled = false;
+                //    setTagButton.Enabled = false;
+                //    refreshButton.Enabled = false;
+                //    loadNewButton.Enabled = false;
+                //    flickrTiles.Enabled = false;
+                //    backButton.Enabled = true;
+                //    this.Focus();
+                //}
+                calBill();
             }
         }
         private void setTileCategory()

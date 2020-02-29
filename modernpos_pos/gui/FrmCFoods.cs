@@ -905,6 +905,7 @@ namespace modernpos_pos.gui
             txtID.Value = foo.foods_id;
             txtFooCode.Value = foo.foods_code;
             txtFooNameT.Value = foo.foods_name;
+            txtFooNameT1.Value = foo.foods_name_1;
             txtRemark.Value = foo.remark;
             txtPrice.Value = foo.foods_price;
             txtPricePlusTogo.Value = foo.price_plus_togo;
@@ -959,6 +960,7 @@ namespace modernpos_pos.gui
             foo.foods_id = txtID.Text;
             foo.foods_code = txtFooCode.Text;
             foo.foods_name = txtFooNameT.Text;
+            foo.foods_name_1 = txtFooNameT1.Text;
             foo.foods_price = txtPrice.Text;
             foo.remark = txtRemark.Text;
             foo.status_foods = "1";

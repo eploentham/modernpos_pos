@@ -129,7 +129,7 @@ namespace modernpos_pos.gui
             splash.Dispose();
             String date = "";
             date = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM-dd");
-            this.Text = "Start 2019-04-17 Last Update 2020-02-27 format date " + date;
+            this.Text = "Start 2019-04-17 Last Update 2020-02-29 format date " + date;
             txtHeader.Text = mposC.txtHeader;
             int scrW = Screen.PrimaryScreen.Bounds.Width;
             int scrH = Screen.PrimaryScreen.Bounds.Height;
