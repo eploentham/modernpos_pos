@@ -337,6 +337,8 @@ namespace modernpos_pos.control
             iniC.tileFoodsteOrdFoodsName2BackColor = iniF.getIni("app", "tileFoodsteOrdFoodsName2BackColor");
             iniC.scFoodsCatHeight = iniF.getIni("app", "scFoodsCatHeight");
             iniC.peCatVisible = iniF.getIni("app", "peCatVisible");
+            iniC.posid = iniF.getIni("app", "posid");
+            iniC.macid = iniF.getIni("app", "macid");
 
             //new LogFile("w mPOSControl GetConfig 5");
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
@@ -369,6 +371,8 @@ namespace modernpos_pos.control
             iniC.tileFoodsteOrdFoodsName2BackColor = iniC.tileFoodsteOrdFoodsName2BackColor == null ? "#FFFFFF" : iniC.tileFoodsteOrdFoodsName2BackColor.Equals("") ? "#FFFFFF" : iniC.tileFoodsteOrdFoodsName2BackColor;
             iniC.scFoodsCatHeight = iniC.scFoodsCatHeight == null ? "400" : iniC.scFoodsCatHeight.Equals("") ? "400" : iniC.scFoodsCatHeight;
             iniC.peCatVisible = iniC.peCatVisible == null ? "0" : iniC.peCatVisible.Equals("") ? "0" : iniC.peCatVisible;
+            iniC.posid = iniC.posid == null ? "0" : iniC.posid.Equals("") ? "0" : iniC.posid;
+            iniC.macid = iniC.macid == null ? "0" : iniC.macid.Equals("") ? "0" : iniC.macid;
 
             iniC.hostFTP = iniC.hostFTP == null ? "" : iniC.hostFTP;
             iniC.userFTP = iniC.userFTP == null ? "" : iniC.userFTP;
