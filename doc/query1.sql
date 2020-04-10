@@ -304,3 +304,27 @@ ADD COLUMN `status_print_order` VARCHAR(45) NULL DEFAULT 0 COMMENT '0=default; 1
 ALTER TABLE `onsoon`.`b_foods` 
 ADD COLUMN `foods_name_1` VARCHAR(255) NULL AFTER `price_plus_togo`;
 
+
+select stf.mnc_usr_name, stf.mnc_usr_pw, stf.mnc_usr_full From userlog_m01 Where mnc_usr_name
+profile add 24738
+
+SELECT LAB_T05.MNC_LB_CD, LAB_M01.MNC_LB_DSC, LAB_T05.MNC_RES_VALUE, LAB_T05.MNC_STS, LAB_T05.MNC_RES
+, LAB_T05.MNC_RES_UNT, LAB_T05.MNC_LB_RES,convert(VARCHAR(20),lab_t05.mnc_req_dat,23) as mnc_req_dat, lab_t05.mnc_res 
+FROM     PATIENT_T01 t01 
+      left join LAB_T01 ON t01.MNC_PRE_NO = LAB_T01.MNC_PRE_NO AND t01.MNC_DATE = LAB_T01.MNC_DATE 
+      left join LAB_T05 ON LAB_T01.MNC_REQ_NO = LAB_T05.MNC_REQ_NO AND LAB_T01.MNC_REQ_DAT = LAB_T05.MNC_REQ_DAT 
+      left join LAB_M01 ON LAB_T05.MNC_LB_CD = LAB_M01.MNC_LB_CD 
+      where t01.MNC_DATE BETWEEN '" + dateStart + "' AND '" + dateEnd + "' " +
+       and t01.mnc_hn_no = '" + hn + "' " +
+      and t01.mnc_vn_no = '" + vn + "'  " +
+      and t01.mnc_Pre_no = '" + preNo + "'  " +
+      
+       Order By lab_t05.mnc_req_dat,LAB_M01.MNC_LB_CD, lab_t05.mnc_lab_prn ";
+
+Select doc_scan_id, host_ftp, image_path,patient_fullname, folder_ftp from doc_scan Where hn = ' 5134251' and active = '1' and status_record = '2'
+
+SELECT LAB_T02.MNC_LB_CD, LAB_M01.MNC_LB_DSC, LAB_T05.MNC_RES_VALUE, LAB_T05.MNC_STS, LAB_T05.MNC_RES , LAB_T05.MNC_RES_UNT, LAB_T05.MNC_LB_RES,convert(VARCHAR(20),lab_t05.mnc_req_dat,23) as mnc_req_dat, lab_t05.mnc_res FROM     PATIENT_T01 t01 left join LAB_T01 ON t01.MNC_PRE_NO = LAB_T01.MNC_PRE_NO AND t01.MNC_DATE = LAB_T01.MNC_DATE left join LAB_T05 ON LAB_T01.MNC_REQ_NO = LAB_T05.MNC_REQ_NO AND LAB_T01.MNC_REQ_DAT = LAB_T05.MNC_REQ_DAT left join LAB_M01 ON LAB_T02.MNC_LB_CD = LAB_M01.MNC_LB_CD where t01.MNC_DATE BETWEEN '2020-03-28' AND '2020-03-28' and t01.mnc_hn_no = '5134251' Order By lab_t05.mnc_req_dat,LAB_M01.MNC_LB_CD, lab_t05.mnc_lab_prn
+
+SELECT LAB_T02.MNC_LB_CD, LAB_M01.MNC_LB_DSC, LAB_T05.MNC_RES_VALUE, LAB_T05.MNC_STS, LAB_T05.MNC_RES , LAB_T05.MNC_RES_UNT, LAB_T05.MNC_LB_RES,convert(VARCHAR(20),lab_t05.mnc_req_dat,23) as mnc_req_dat, lab_t05.mnc_res FROM     PATIENT_T01 t01 left join LAB_T01 ON t01.MNC_PRE_NO = LAB_T01.MNC_PRE_NO AND t01.MNC_DATE = LAB_T01.MNC_DATE left join LAB_T02 ON LAB_T01.MNC_REQ_NO = LAB_T02.MNC_REQ_NO AND LAB_T01.MNC_REQ_DAT = LAB_T02.MNC_REQ_DAT left join LAB_T05 ON LAB_T01.MNC_REQ_NO = LAB_T05.MNC_REQ_NO AND LAB_T01.MNC_REQ_DAT = LAB_T05.MNC_REQ_DAT left join LAB_M01 ON LAB_T02.MNC_LB_CD = LAB_M01.MNC_LB_CD where t01.MNC_DATE BETWEEN '2020-03-14' AND '2020-03-14' and t01.mnc_hn_no = '5134251' Order By lab_t05.mnc_req_dat,LAB_M01.MNC_LB_CD, lab_t05.mnc_lab_prn
+
+SELECT LAB_T02.MNC_LB_CD, LAB_M01.MNC_LB_DSC, LAB_T05.MNC_RES_VALUE, LAB_T05.MNC_STS, LAB_T05.MNC_RES , LAB_T05.MNC_RES_UNT, LAB_T05.MNC_LB_RES,convert(VARCHAR(20),lab_t05.mnc_req_dat,23) as mnc_req_dat, lab_t05.mnc_res FROM     PATIENT_T01 t01 left join LAB_T01 ON t01.MNC_PRE_NO = LAB_T01.MNC_PRE_NO AND t01.MNC_DATE = LAB_T01.MNC_DATE left join LAB_T02 ON LAB_T01.MNC_REQ_NO = LAB_T02.MNC_REQ_NO AND LAB_T01.MNC_REQ_DAT = LAB_T02.MNC_REQ_DAT left join LAB_T05 ON LAB_T01.MNC_REQ_NO = LAB_T05.MNC_REQ_NO AND LAB_T01.MNC_REQ_DAT = LAB_T05.MNC_REQ_DAT left join LAB_M01 ON LAB_T02.MNC_LB_CD = LAB_M01.MNC_LB_CD where t01.MNC_DATE BETWEEN '2017-06-09' AND '2017-06-09' and t01.mnc_hn_no = '5134251' Order By lab_t05.mnc_req_dat,LAB_M01.MNC_LB_CD, lab_t05.mnc_lab_prn
