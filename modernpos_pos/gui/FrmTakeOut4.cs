@@ -804,6 +804,7 @@ namespace modernpos_pos.gui
                     tile.Text1 = "ราคา " + foorow.foods_price;
                     tile.Click += TileFoods_Click;
                     tile.Image = null;
+                    
                     //Template tile1 = tile.Template;
                     //ElementCollection ele = tile1.Elements;
                     //PanelElement pnFoodsName1 = (PanelElement)ele[1];
